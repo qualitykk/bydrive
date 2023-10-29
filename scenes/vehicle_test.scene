@@ -1,0 +1,61 @@
+{
+  "GameObjects": [
+    {
+      "Id": "dde34898-53fe-4526-9b21-b3b96afb5795",
+      "Name": "Main Camera",
+      "Enabled": true,
+      "Position": "-300,0,100",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Components": [
+        {
+          "__type": "CameraComponent",
+          "__enabled": true,
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "Color, Depth, Stencil",
+          "FieldOfView": 60,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "ZFar": 10000,
+          "ZNear": 10
+        }
+      ]
+    },
+    {
+      "Id": "ceabea2b-8b63-42af-b793-6c6b463470a0",
+      "Name": "Directional Light",
+      "Enabled": true,
+      "Position": "0,0,200",
+      "Rotation": "-0.2459843,0.5938584,0.2931525,0.7077326",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Components": [
+        {
+          "__type": "DirectionalLightComponent",
+          "__enabled": true,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Shadows": true,
+          "SkyColor": "0.05882,0.07451,0.08235,1"
+        }
+      ]
+    },
+    {
+      "Id": "c5a2167b-856a-4fdd-932f-f7f868c6396f",
+      "Name": "Level",
+      "Enabled": true,
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Components": [
+        {
+          "__type": "MapComponent",
+          "__enabled": true,
+          "MapName": "facepunch.flatgrass"
+        }
+      ]
+    }
+  ],
+  "__references": []
+}
