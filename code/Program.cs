@@ -1,7 +1,5 @@
 ﻿global using System.Linq;
 global using System;
-using Sandbox;
-
 
 public static class Program
 {
@@ -13,8 +11,7 @@ public static class Program
 		//
 
 		GameManager.ActiveScene = new Scene();
-		GameManager.ActiveScene.LoadFromFile( "/scenes/vehicle_test.scene" );
-		Log.Info( GameManager.ActiveScene );
+		GameManager.ActiveScene.LoadFromFile( "scenes/tests/menu.scene" );
 
 		GameManager.IsPlaying = true;
 	}
