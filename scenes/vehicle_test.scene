@@ -1,28 +1,6 @@
 {
   "GameObjects": [
     {
-      "Id": "dde34898-53fe-4526-9b21-b3b96afb5795",
-      "Name": "Main Camera",
-      "Enabled": true,
-      "Position": "-300,0,100",
-      "Rotation": "0,0,0,1",
-      "Scale": "1,1,1",
-      "Tags": "",
-      "Components": [
-        {
-          "__type": "CameraComponent",
-          "__enabled": true,
-          "BackgroundColor": "0.33333,0.46275,0.52157,1",
-          "ClearFlags": "Color, Depth, Stencil",
-          "FieldOfView": 60,
-          "Orthographic": false,
-          "OrthographicHeight": 1204,
-          "ZFar": 10000,
-          "ZNear": 10
-        }
-      ]
-    },
-    {
       "Id": "ceabea2b-8b63-42af-b793-6c6b463470a0",
       "Name": "Directional Light",
       "Enabled": true,
@@ -55,7 +33,91 @@
           "MapName": "facepunch.flatgrass"
         }
       ]
+    },
+    {
+      "Id": "1307b1fd-3300-4c96-95b6-3dc679333831",
+      "Name": "Vehicle",
+      "Enabled": true,
+      "Position": "0,0,-20.86316",
+      "Rotation": "0.00000004057559,0.000000001461979,0.707107,0.7071065",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Components": [
+        {
+          "__type": "VehicleController",
+          "__enabled": true,
+          "Acceleration": 256,
+          "Body": "7772a74a-8584-4612-a64c-4f7dd67564d3",
+          "BreakSpeed": 384,
+          "MaxSpeed": 512,
+          "TurnSpeed": 90
+        }
+      ],
+      "Children": [
+        {
+          "Id": "7772a74a-8584-4612-a64c-4f7dd67564d3",
+          "Name": "Model",
+          "Enabled": true,
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Components": [
+            {
+              "__type": "ModelComponent",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialOverride": null,
+              "Model": "models/brokencar.vmdl",
+              "ShouldCastShadows": true,
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "ModelCollider",
+              "__enabled": true,
+              "IsTrigger": false,
+              "Model": "models/brokencar.vmdl",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "dde34898-53fe-4526-9b21-b3b96afb5795",
+          "Name": "Main Camera",
+          "Enabled": true,
+          "Position": "-194.7251,0.00007499115,110.8737",
+          "Rotation": "0.00000002339619,0.1816366,0.000000001673103,0.9833661",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Components": [
+            {
+              "__type": "CameraComponent",
+              "__enabled": true,
+              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "ClearFlags": "All",
+              "FieldOfView": 90,
+              "Orthographic": false,
+              "OrthographicHeight": 1204,
+              "TargetEye": "None",
+              "ZFar": 10000,
+              "ZNear": 10
+            }
+          ]
+        }
+      ]
     }
   ],
-  "__references": []
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "TimeScale": 1,
+    "ThreadedAnimation": true,
+    "UseFixedUpdate": true
+  },
+  "Title": "vehicle_test",
+  "Description": "",
+  "__references": [
+    "debelizmik.brokencar"
+  ]
 }
