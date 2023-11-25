@@ -3,11 +3,9 @@
     {
       "Id": "ceabea2b-8b63-42af-b793-6c6b463470a0",
       "Name": "Directional Light",
-      "Enabled": true,
       "Position": "0,0,200",
       "Rotation": "-0.2459843,0.5938584,0.2931525,0.7077326",
-      "Scale": "1,1,1",
-      "Tags": "",
+      "Enabled": true,
       "Components": [
         {
           "__type": "DirectionalLightComponent",
@@ -22,10 +20,6 @@
       "Id": "c5a2167b-856a-4fdd-932f-f7f868c6396f",
       "Name": "Level",
       "Enabled": true,
-      "Position": "0,0,0",
-      "Rotation": "0,0,0,1",
-      "Scale": "1,1,1",
-      "Tags": "",
       "Components": [
         {
           "__type": "MapComponent",
@@ -37,11 +31,9 @@
     {
       "Id": "1307b1fd-3300-4c96-95b6-3dc679333831",
       "Name": "Vehicle",
-      "Enabled": true,
       "Position": "0,0,-20.86316",
       "Rotation": "0.00000004057559,0.000000001461979,0.707107,0.7071065",
-      "Scale": "1,1,1",
-      "Tags": "",
+      "Enabled": true,
       "Components": [
         {
           "__type": "VehicleController",
@@ -57,11 +49,8 @@
         {
           "Id": "7772a74a-8584-4612-a64c-4f7dd67564d3",
           "Name": "Model",
-          "Enabled": true,
           "Position": "0,0,0",
-          "Rotation": "0,0,0,1",
-          "Scale": "1,1,1",
-          "Tags": "",
+          "Enabled": true,
           "Components": [
             {
               "__type": "ModelComponent",
@@ -85,11 +74,9 @@
         {
           "Id": "dde34898-53fe-4526-9b21-b3b96afb5795",
           "Name": "Main Camera",
-          "Enabled": true,
           "Position": "-194.7251,0.00007499115,110.8737",
           "Rotation": "0.00000002339619,0.1816366,0.000000001673103,0.9833661",
-          "Scale": "1,1,1",
-          "Tags": "",
+          "Enabled": true,
           "Components": [
             {
               "__type": "CameraComponent",
@@ -99,6 +86,8 @@
               "FieldOfView": 90,
               "Orthographic": false,
               "OrthographicHeight": 1204,
+              "RenderExcludeTags": "",
+              "RenderTags": "",
               "TargetEye": "None",
               "ZFar": 10000,
               "ZNear": 10
@@ -109,7 +98,9 @@
     }
   ],
   "SceneProperties": {
+    "NetworkFrequency": 60,
     "FixedUpdateFrequency": 50,
+    "Lerping": true,
     "MaxFixedUpdates": 5,
     "TimeScale": 1,
     "ThreadedAnimation": true,
