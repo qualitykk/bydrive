@@ -46,6 +46,10 @@ public partial class Scene : GameObject
 
 	public void EditorTick()
 	{
+		TimeNow = RealTime.Now;
+		TimeDelta = RealTime.Delta;
+		using var timeScope = Time.Scope( TimeNow, TimeDelta, tick );
+
 		ProcessDeletes();
 		PreRender();
 		DrawGizmos();
@@ -109,7 +113,7 @@ public partial class Scene : GameObject
 			return;
 
 		// TODO - faster way to accumulate these
-		var animModel = GetComponents<AnimatedModelComponent>( true, true ).ToArray();
+		var animModel = GetComponents<SkinnedModelRenderer>( true, true ).ToArray();
 
 		//
 		// Run the updates and the bone merges in a thread

@@ -41,6 +41,8 @@ public partial class SceneViewWidget : Widget
 		var session = SceneEditorSession.Active;
 		if ( session is null ) return;
 
+		using var scope = SceneEditorSession.Scope();
+
 		// Update inspector with current selection, if changed
 		if ( selectionHash != session.Selection.GetHashCode() )
 		{
@@ -263,7 +265,7 @@ public partial class SceneViewWidget : Widget
 			DragObject = SceneEditorSession.Active.Scene.CreateObject();
 			DragObject.Name = modelAsset.ResourceName;
 
-			var mc = DragObject.AddComponent<ModelComponent>();
+			var mc = DragObject.AddComponent<ModelRenderer>();
 			mc.Model = modelAsset;
 
 		}

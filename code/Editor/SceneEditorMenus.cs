@@ -37,8 +37,7 @@ public static class SceneEditorMenus
 		EditorUtility.Clipboard.Copy( json.ToString() );
 		go.Destroy();
 	}
-
-
+	
 	[Menu( "Editor", "Scene/Copy", Shortcut = "Ctrl+C" )]
 	public static void Copy()
 	{
@@ -188,7 +187,7 @@ public static class SceneEditorMenus
 			// get the bounding box of the selected objects
 			bbox = bbox.AddBBox( new BBox( entry.Transform.Position, 16 ) );
 
-			foreach ( var model in entry.GetComponents<ModelComponent>( true, true ) )
+			foreach ( var model in entry.GetComponents<ModelRenderer>( true, true ) )
 			{
 				bbox = bbox.AddBBox( model.Bounds );
 			}
