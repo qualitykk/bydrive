@@ -8,7 +8,7 @@ using Sandbox.Diagnostics;
 [Category( "Rendering" )]
 [Icon( "lens_blur" )]
 [EditorHandle( "materials/gizmo/decal.png" )]
-public class DecalRenderer : BaseComponent, BaseComponent.ExecuteInEditor
+public class DecalRenderer : Renderer, BaseComponent.ExecuteInEditor
 {
 	ProjectedDecalSceneObject _sceneObject;
 
@@ -40,7 +40,7 @@ public class DecalRenderer : BaseComponent, BaseComponent.ExecuteInEditor
 	[Property, Range( 0, 180)] public float CutoffAngle { get; set; } = 60;
 	[Property, Range( 0, 50 )] public float CutoffAngleSoftness { get; set; } = 5;
 
-	public override void DrawGizmos()
+	protected override void DrawGizmos()
 	{
 		if ( !Gizmo.IsSelected )
 		{
@@ -52,7 +52,7 @@ public class DecalRenderer : BaseComponent, BaseComponent.ExecuteInEditor
 		}
 	}
 
-	public override void OnEnabled()
+	protected override void OnEnabled()
 	{
 		Assert.True( _sceneObject == null );
 		Assert.NotNull( Scene );
@@ -62,7 +62,7 @@ public class DecalRenderer : BaseComponent, BaseComponent.ExecuteInEditor
 		_sceneObject = new ProjectedDecalSceneObject( Scene.SceneWorld, Material, Size );
 	}
 
-	public override void OnDisabled()
+	protected override void OnDisabled()
 	{
 		_sceneObject?.Delete();
 		_sceneObject = null;
