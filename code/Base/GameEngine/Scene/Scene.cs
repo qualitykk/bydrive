@@ -37,6 +37,8 @@ public partial class Scene : GameObject
 		PhysicsWorld.SimulationMode = PhysicsSimulationMode.Continuous;
 
 		UpdateFromPackage( Game.Menu?.Package );
+		InitSystems();
+
 		Event.Register( this );
 	}
 
@@ -44,6 +46,13 @@ public partial class Scene : GameObject
 	{
 		Event.Unregister( this );
 	}
+
+	public override void Destroy()
+	{
+		Clear();
+		ShutdownSystems();
+	}
+
 
 	/// <summary>
 	/// Updates information like physics collision rules from a game package.

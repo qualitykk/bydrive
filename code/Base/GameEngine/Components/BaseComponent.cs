@@ -124,6 +124,8 @@ public abstract partial class BaseComponent
 				CallbackBatch.Add( CommonCallback.Enable, OnEnabled, this, "OnEnabled" );
 				CallbackBatch.Add( CommonCallback.Enable, () => OnComponentEnabled?.Invoke(), this, "OnComponentEnabled" );
 			}
+
+			Scene.RegisterComponent( this );
 		}
 		else
 		{
@@ -132,6 +134,8 @@ public abstract partial class BaseComponent
 				CallbackBatch.Add( CommonCallback.Disable, OnDisabled, this, "OnDisabled" );
 				CallbackBatch.Add( CommonCallback.Disable, () => OnComponentDisabled?.Invoke(), this, "OnComponentDisabled" );
 			}
+
+			Scene.UnregisterComponent( this );
 		}
 	}
 
@@ -147,6 +151,7 @@ public abstract partial class BaseComponent
 		{
 			_enabledState = false;
 			_enabled = false;
+			Scene.UnregisterComponent( this );
 
 			if ( ShouldExecute )
 			{
