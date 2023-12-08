@@ -1,4 +1,7 @@
-﻿namespace Redrome;
+﻿global using System;
+global using Sandbox;
+
+namespace Redrome;
 
 internal static class InputActions
 {

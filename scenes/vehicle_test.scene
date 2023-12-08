@@ -8,7 +8,7 @@
       "Enabled": true,
       "Components": [
         {
-          "__type": "DirectionalLightComponent",
+          "__type": "DirectionalLight",
           "__enabled": true,
           "LightColor": "0.91373,0.98039,1,1",
           "Shadows": true,
@@ -22,9 +22,9 @@
       "Enabled": true,
       "Components": [
         {
-          "__type": "MapComponent",
+          "__type": "MapInstance",
           "__enabled": true,
-          "MapName": "facepunch.flatgrass"
+          "MapName": "dev/preview_flat.vpk"
         }
       ]
     },
@@ -40,6 +40,7 @@
           "__enabled": true,
           "Acceleration": 256,
           "BreakSpeed": 384,
+          "Collision": "7772a74a-8584-4612-a64c-4f7dd67564d3",
           "MaxSpeed": 512,
           "TurnSpeed": 90
         }
@@ -79,7 +80,10 @@
               "Components": [
                 {
                   "__type": "VehicleWheel",
-                  "__enabled": true
+                  "__enabled": true,
+                  "IsDriving": true,
+                  "IsTurning": true,
+                  "Radius": 14
                 },
                 {
                   "__type": "ModelRenderer",
@@ -121,18 +125,17 @@
     }
   ],
   "SceneProperties": {
-    "NetworkFrequency": 60,
-    "FixedUpdateFrequency": 50,
     "Lerping": true,
-    "MaxFixedUpdates": 5,
-    "TimeScale": 1,
+    "UseFixedUpdate": true,
     "ThreadedAnimation": true,
-    "UseFixedUpdate": true
+    "TimeScale": 1,
+    "MaxFixedUpdates": 5,
+    "FixedUpdateFrequency": 50,
+    "NetworkFrequency": 60
   },
   "Title": "vehicle_test",
   "Description": "",
   "__references": [
-    "debelizmik.brokencar",
-    "garry.wheel"
+    "debelizmik.brokencar"
   ]
 }

@@ -37,6 +37,7 @@
       "AssemblyReferences": [],
       "IgnoreFolders": [],
       "DistinctAssemblyReferences": []
-    }
+    },
+    "StartupScene": "scenes/vehicle_test.scene"
   }
 }
