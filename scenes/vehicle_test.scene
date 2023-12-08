@@ -39,7 +39,6 @@
           "__type": "VehicleController",
           "__enabled": true,
           "Acceleration": 256,
-          "Body": "7772a74a-8584-4612-a64c-4f7dd67564d3",
           "BreakSpeed": 384,
           "MaxSpeed": 512,
           "TurnSpeed": 90
@@ -53,7 +52,7 @@
           "Enabled": true,
           "Components": [
             {
-              "__type": "ModelComponent",
+              "__type": "ModelRenderer",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "MaterialOverride": null,
@@ -68,6 +67,30 @@
               "Model": "models/brokencar.vmdl",
               "Static": false,
               "Surface": null
+            }
+          ],
+          "Children": [
+            {
+              "Id": "131c7b61-525b-4429-88ff-bde88de074f5",
+              "Name": "Object",
+              "Position": "51.72833,39.15313,16.22437",
+              "Rotation": "0.00000005959574,-0.000000000000002247884,0.9998505,-0.01729129",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "VehicleWheel",
+                  "__enabled": true
+                },
+                {
+                  "__type": "ModelRenderer",
+                  "__enabled": true,
+                  "BodyGroups": 18446744073709551615,
+                  "MaterialOverride": null,
+                  "Model": "models/citizen_props/wheel01.vmdl",
+                  "ShouldCastShadows": true,
+                  "Tint": "1,1,1,1"
+                }
+              ]
             }
           ]
         },
@@ -109,6 +132,7 @@
   "Title": "vehicle_test",
   "Description": "",
   "__references": [
-    "debelizmik.brokencar"
+    "debelizmik.brokencar",
+    "garry.wheel"
   ]
 }
