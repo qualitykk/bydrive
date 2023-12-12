@@ -14,7 +14,7 @@ public sealed class VehicleWheel : Component
 		var wheelAttachPos = Transform.Position;
 		var wheelExtend = wheelAttachPos - rotation.Up * (length * Transform.Scale);
 
-		var tr = Physics.Trace.Ray( wheelAttachPos, wheelExtend )
+		var tr = Scene.Trace.Ray( wheelAttachPos, wheelExtend )
 			.WithoutTags("Vehicle") // HACK: No .Ignore() yet, force it to ignore other vehicles for now
 			.Run();
 

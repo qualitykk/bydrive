@@ -4,13 +4,13 @@ public sealed partial class VehicleController : Component
 {
 	#region Stats
 	// TODO: Get these from vehicle stats
-	[Property] float MaxSpeed { get; set; } = 512f;
-	[Property] float Acceleration { get; set; } = 256f;
-	[Property] float BreakSpeed { get; set; } = 384f;
-	[Property] float TurnSpeed { get; set; } = 90f;
-	[Property, Title("Physics Collider")] Collider Collision { get; set; }
+	[Property] public float MaxSpeed { get; set; } = 512f;
+	[Property] public float Acceleration { get; set; } = 256f;
+	[Property] public float BreakSpeed { get; set; } = 384f;
+	[Property] public float TurnSpeed { get; set; } = 90f;
+	[Property, Title("Physics Collider")] public Collider Collision { get; set; }
 	#endregion
-	public PhysicsBody Body => Collision.KeyframeBody;
+	public PhysicsBody Body => Collision?.KeyframeBody;
 	public float Speed { get; set; }
 	protected override void OnUpdate()
 	{

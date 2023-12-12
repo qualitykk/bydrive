@@ -26,7 +26,8 @@
           "__enabled": true,
           "MapName": "dev/preview_flat.vpk"
         }
-      ]
+      ],
+      "Children": []
     },
     {
       "Id": "1307b1fd-3300-4c96-95b6-3dc679333831",
@@ -34,17 +35,6 @@
       "Position": "0,0,-20.86316",
       "Rotation": "0.00000004057559,0.000000001461979,0.707107,0.7071065",
       "Enabled": true,
-      "Components": [
-        {
-          "__type": "VehicleController",
-          "__enabled": true,
-          "Acceleration": 256,
-          "BreakSpeed": 384,
-          "Collision": "7772a74a-8584-4612-a64c-4f7dd67564d3",
-          "MaxSpeed": 512,
-          "TurnSpeed": 90
-        }
-      ],
       "Children": [
         {
           "Id": "7772a74a-8584-4612-a64c-4f7dd67564d3",
@@ -78,13 +68,6 @@
               "Rotation": "0.00000005959574,-0.000000000000002247884,0.9998505,-0.01729129",
               "Enabled": true,
               "Components": [
-                {
-                  "__type": "VehicleWheel",
-                  "__enabled": true,
-                  "IsDriving": true,
-                  "IsTurning": true,
-                  "Radius": 14
-                },
                 {
                   "__type": "ModelRenderer",
                   "__enabled": true,
@@ -125,13 +108,13 @@
     }
   ],
   "SceneProperties": {
-    "Lerping": true,
-    "UseFixedUpdate": true,
-    "ThreadedAnimation": true,
     "TimeScale": 1,
     "MaxFixedUpdates": 5,
     "FixedUpdateFrequency": 50,
-    "NetworkFrequency": 60
+    "NetworkFrequency": 60,
+    "Lerping": true,
+    "UseFixedUpdate": true,
+    "ThreadedAnimation": true
   },
   "Title": "vehicle_test",
   "Description": "",
