@@ -43,7 +43,7 @@
           "BreakSpeed": 384,
           "MaxSpeed": 512,
           "Rigidbody": "7772a74a-8584-4612-a64c-4f7dd67564d3",
-          "TurnSpeed": 90
+          "TurnSpeed": 50
         }
       ],
       "Children": [
@@ -223,32 +223,32 @@
                   "LinearDamping": 0
                 }
               ]
-            }
-          ]
-        },
-        {
-          "Id": "dde34898-53fe-4526-9b21-b3b96afb5795",
-          "Name": "Main Camera",
-          "Position": "-194.7251,0.0001678432,110.8737",
-          "Rotation": "0.000000007450581,0.1816366,-0.000000005399156,0.983366",
-          "Enabled": true,
-          "Components": [
+            },
             {
-              "__type": "CameraComponent",
-              "__enabled": true,
-              "BackgroundColor": "0.33333,0.46275,0.52157,1",
-              "ClearFlags": "All",
-              "FieldOfView": 90,
-              "IsMainCamera": true,
-              "Orthographic": false,
-              "OrthographicHeight": 1204,
-              "Priority": 1,
-              "RenderExcludeTags": "",
-              "RenderTags": "",
-              "TargetEye": "None",
-              "Viewport": "0,0,1,1",
-              "ZFar": 10000,
-              "ZNear": 10
+              "Id": "dde34898-53fe-4526-9b21-b3b96afb5795",
+              "Name": "Main Camera",
+              "Position": "-194.7251,0.0002142692,88.64946",
+              "Rotation": "0,0.1816366,-0.000000005399155,0.983366",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "CameraComponent",
+                  "__enabled": true,
+                  "BackgroundColor": "0.33333,0.46275,0.52157,1",
+                  "ClearFlags": "All",
+                  "FieldOfView": 90,
+                  "IsMainCamera": true,
+                  "Orthographic": false,
+                  "OrthographicHeight": 1204,
+                  "Priority": 1,
+                  "RenderExcludeTags": "",
+                  "RenderTags": "",
+                  "TargetEye": "None",
+                  "Viewport": "0,0,1,1",
+                  "ZFar": 10000,
+                  "ZNear": 10
+                }
+              ]
             }
           ]
         }

@@ -26,8 +26,6 @@ public partial class VehicleController
 
 		RaycastWheels( false, Time.Delta );
 
-		Log.Info( wheelAngle );
-
 		foreach(var wheel in GetWheels())
 		{
 			Rotation wheelRotation;

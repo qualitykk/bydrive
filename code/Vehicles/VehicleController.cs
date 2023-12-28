@@ -26,6 +26,7 @@ public sealed partial class VehicleController : Component
 	private void Move()
 	{
 		float dt = Time.Delta;
+		Rotation rotation = Body.Rotation;
 
 		//Tilting is the forward and backward tilt caused by acceleration or decelleration of the vehicle
 		float targetTilt = 0;
@@ -69,16 +70,15 @@ public sealed partial class VehicleController : Component
 		bool canAirControl = false;
 
 		//This is the lateral velocity of the car without its z component. Multiplied by the rotation to get its velocity relative to the vehicle
-		Vector3 relativeVelocity = Transform.Rotation * localVelocity.WithZ( 0 );
+		Vector3 relativeVelocity = rotation * localVelocity.WithZ( 0 );
 		//Not really sure what this does, if I had to take take a guess, this is getting the change in our velocity to the power of 5 clamped between 0 and 1
 		var vDelta = MathF.Pow( (relativeVelocity.Length / 1000.0f).Clamp( 0, 1 ), 5.0f ).Clamp( 0, 1 );
 		if ( vDelta < 0.01f ) vDelta = 0;
 
 		//So as far as I can tell, this is how grip gets applied, it takes a dot product of the forward velocity with our velocity and sets our grip accordingly
-		var angle = (Transform.Rotation.Forward.Normal * MathF.Sign( localVelocity.x )).Normal.Dot( relativeVelocity.Normal ).Clamp( 0.0f, 1.0f );
+		var angle = (rotation.Forward.Normal * MathF.Sign( localVelocity.x )).Normal.Dot( relativeVelocity.Normal ).Clamp( 0.0f, 1.0f );
 		angle = angle.LerpTo( 1.0f, 1.0f - vDelta );
 		grip = grip.LerpTo( angle, 1.0f - MathF.Pow( 0.001f, dt ) );
-
 
 		//Looks like we're using some good old fashioned two wheel drive, this seems where the main acceleration is calculated and applied
 		if ( drivingWheelsOnGround )
@@ -98,7 +98,7 @@ public sealed partial class VehicleController : Component
 			//Calculate our acceleration based on our input..
 			float acceleration = speedFactor * (accelerateDirection < 0.0f ? Acceleration * 0.8f : Acceleration * fac) * accelerateDirection * dt;
 			//Use this to then get the impulse and apply it to our body's velocity
-			var impulse = Transform.Rotation * new Vector3( acceleration, 0, 0 );
+			var impulse = rotation * new Vector3( acceleration, 0, 0 );
 			Body.Velocity += impulse;
 		}
 
@@ -113,15 +113,20 @@ public sealed partial class VehicleController : Component
 		if ( wheelsOnGround )
 		{
 			// Get our local velocity
-			localVelocity = Transform.Rotation.Inverse * Body.Velocity;
+			localVelocity = rotation.Inverse * Body.Velocity;
 			// Wheel speed? Presumably for the speed of the wheels
 			WheelSpeed = localVelocity.x;
 
 			// This appears to be how much we turn when are wheels are on the ground, as in how fast we can turn which is controlled by the sign of our local velocitys x speed multiplied by the turn sped and 
 			// Calculate turn factor takes in our turn direction and the absolute value of our velocity this basically all effects how fast we can turn
-			var turnSpeed = 25f;
-			var turnAmount = turningWheelsOnGround ? (MathF.Sign( localVelocity.x ) * turnSpeed * CalculateTurnFactor( turnDirection, MathF.Abs( localVelocity.x ) ) * dt) : 0.0f;
-			Body.AngularVelocity += Transform.Rotation * new Vector3( 0, 0, turnAmount );
+			var turnSpeed = TurnSpeed;
+			float turnAmount = 0;
+			if ( turningWheelsOnGround )
+			{
+				turnAmount = MathF.Sign( localVelocity.x ) * turnSpeed * CalculateTurnFactor( turnDirection, MathF.Abs( localVelocity.x ) ) * dt;
+				Log.Info( turnAmount );
+			}
+			Body.AngularVelocity += rotation * new Vector3( 0, 0, turnAmount );
 
 			airRoll = 0;
 			airTilt = 0;
@@ -145,12 +150,12 @@ public sealed partial class VehicleController : Component
 			}
 
 			// Velocity damping function, we pass the current velocity ,rotation, and a vector3 with our grip and forward grip 
-			Body.Velocity = VelocityDamping( Body.Velocity, Transform.Rotation, new Vector3( forwardGrip, grip - fac, 0 ), dt );
+			Body.Velocity = VelocityDamping( Body.Velocity, rotation, new Vector3( forwardGrip, grip - fac, 0 ), dt );
 		}
 		else
 		{
-			var s = Transform.Position + (Transform.Rotation * Transform.Position);
-			var tr = Scene.Trace.Ray( s, s + Transform.Rotation.Down * 50 )
+			var s = Transform.Position + (rotation * Transform.Position);
+			var tr = Scene.Trace.Ray( s, s + rotation.Down * 50 )
 				//.Ignore( this ) TODO: FIXME
 				.Run();
 
@@ -198,16 +203,20 @@ public sealed partial class VehicleController : Component
 		}
 		*/
 
-		localVelocity = Transform.Rotation.Inverse * Body.Velocity;
+		localVelocity = rotation.Inverse * Body.Velocity;
 		Speed = localVelocity.x;
 	}
 
 	private static float CalculateTurnFactor( float direction, float speed )
 	{
-		var turnFactor = MathF.Min( speed / 500.0f, 1 );
-		var yawSpeedFactor = 1.0f - (speed / 1000.0f).Clamp( 0, 0.6f );
+		const float TURN_MAGIC = 256.0f;
+		const float YAW_MAGIC = 512.0f;
 
-		return direction * turnFactor * yawSpeedFactor;
+		var turnFactor = MathF.Min( speed / TURN_MAGIC, 1 );
+		var yawSpeedFactor = 1.0f - (speed / YAW_MAGIC).Clamp( 0, 0.6f );
+
+		float result = direction * turnFactor * yawSpeedFactor;
+		return result;
 	}
 
 	//This function dampens our velocity
