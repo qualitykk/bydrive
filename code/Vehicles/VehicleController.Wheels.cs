@@ -18,13 +18,30 @@ public partial class VehicleController
 	private float wheelRevolute = 0.0f;
 	private float AccelerationTilt { get; set; }
 	private float WheelSpeed { get; set; }
-
+	private IEnumerable<VehicleWheel> GetWheels() => GameObject.Components.GetAll<VehicleWheel>();
 	private void UpdateWheels()
 	{
 		wheelAngle = wheelAngle.LerpTo( turnDirection * 25, 1.0f - MathF.Pow( 0.001f, Time.Delta ) );
 		wheelRevolute += (WheelSpeed / 14.0f).RadianToDegree() * Time.Delta;
 
 		RaycastWheels( false, Time.Delta );
+
+		Log.Info( wheelAngle );
+
+		foreach(var wheel in GetWheels())
+		{
+			Rotation wheelRotation;
+			if(wheel.IsTurning)
+			{
+				wheelRotation = Rotation.From( wheelRevolute, 0, wheelAngle );
+			}
+			else
+			{
+				wheelRotation = Rotation.From( wheelRevolute, 0, 0 );
+			}
+
+			wheel.GameObject.Transform.LocalRotation = wheelRotation;
+		}
 	}
 
 	private void RaycastWheels(bool doPhysics, float dt )
@@ -32,11 +49,11 @@ public partial class VehicleController
 		var tiltAmount = AccelerationTilt * 2.5f;
 		var leanAmount = turnLean * 2.5f;
 
-		float length = 20.0f;
+		// const float length = 20.0f;
 
-		foreach ( var wheel in GameObject.Components.GetAll<VehicleWheel>() )
+		foreach ( var wheel in GetWheels() )
 		{
-			if(wheel.Raycast( length + tiltAmount + leanAmount, doPhysics, dt ))
+			if(wheel.Raycast( tiltAmount + leanAmount, doPhysics, dt ))
 			{
 				wheelsOnGround = true;
 				if ( wheel.IsDriving )

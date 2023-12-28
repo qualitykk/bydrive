@@ -3,30 +3,32 @@
 public sealed class VehicleWheel : Component
 {
 	private const float DEFAULT_SIZE = 14f;
+	private const float DEFAULT_WIDTH = 8f;
 	[Property] public float Radius { get; set; } = DEFAULT_SIZE;
+	[Property] public float Width { get; set; } = DEFAULT_WIDTH;
 	[Property] public bool IsDriving { get; set; } = true;
 	[Property] public bool IsTurning { get; set; } = true;
 	private float _previousLength;
 	private float _currentLength;
 	public bool Raycast( float length, bool doPhysics, float dt )
 	{
+		if( !GameObject.Components.TryGet<Rigidbody>( out var physicsComponent ) )
+		{
+			return false;
+		}
+
+		PhysicsBody physics = physicsComponent.PhysicsBody;
+		length += Radius;
+
 		var rotation = Transform.Rotation;
-		var wheelAttachPos = Transform.Position;
+		var wheelAttachPos = physics.MassCenter;
 		var wheelExtend = wheelAttachPos - rotation.Up * (length * Transform.Scale);
 
-		var tr = Scene.Trace.Ray( wheelAttachPos, wheelExtend )
+		var tr = Scene.Trace.PhysicsTrace.Ray( wheelAttachPos, wheelExtend )
 			.WithoutTags("Vehicle") // HACK: No .Ignore() yet, force it to ignore other vehicles for now
 			.Run();
 
-		float wheelRadius = Radius * Transform.Scale.x;
-
-		if ( doPhysics)
-		{
-			Gizmo.Draw.SolidCircle( wheelAttachPos, wheelRadius );
-			Gizmo.Draw.Line( wheelAttachPos, wheelExtend );
-		}
-
-		if ( !tr.Hit || !doPhysics || !GameObject.Components.TryGet<PhysicsComponent>(out var physics) )
+		if ( !tr.Hit || !doPhysics )
 		{
 			return tr.Hit;
 		}
@@ -46,7 +48,22 @@ public sealed class VehicleWheel : Component
 		var correctionForce = correctionMultiplier * 50.0f * speedAlongNormal / dt;
 
 		physics.Velocity += tr.Normal * (springForce + damperForce + correctionForce) * dt;
+		Log.Info( physics.Velocity );
 
 		return true;
+	}
+
+	protected override void DrawGizmos()
+	{
+		using(Gizmo.ObjectScope(this, Transform.World))
+		{
+			Gizmo.Draw.Color = Color.Magenta;
+
+			Vector3 direction = Vector3.Left * Width;
+			Gizmo.Draw.SolidCylinder( -direction, direction, Radius );
+
+			const float FORWARD_HELPER_SIZE = 8f;
+			Gizmo.Draw.Line( Vector3.Zero, direction * FORWARD_HELPER_SIZE );
+		}
 	}
 }

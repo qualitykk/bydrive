@@ -8,9 +8,9 @@ public sealed partial class VehicleController : Component
 	[Property] public float Acceleration { get; set; } = 256f;
 	[Property] public float BreakSpeed { get; set; } = 384f;
 	[Property] public float TurnSpeed { get; set; } = 90f;
-	[Property, Title("Physics Collider")] public Collider Collision { get; set; }
+	[Property, Title("Physics Body")] public Rigidbody Rigidbody { get; set; }
 	#endregion
-	public PhysicsBody Body => Collision?.KeyframeBody;
+	public PhysicsBody Body => Rigidbody?.PhysicsBody;
 	public float Speed { get; set; }
 	protected override void OnUpdate()
 	{
@@ -32,15 +32,22 @@ public sealed partial class VehicleController : Component
 		//Lean is the rotation around an axis going through the car from back to font, represents the forces caused by turning at high speeds
 		float targetLean = 0;
 
-		turnDirection.LerpTo( turnInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.001f, dt ) );
+		//Acceleration direction here appears to simply refer to the input, and therefore the speed.
+		accelerateDirection = throttleInput.Clamp( -1, 1 );
+
+		turnDirection = turnDirection.LerpTo( turnInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.001f, dt ) );
 
 		//Same as above, but for the roll and tilt inpuuts, slower than turning.
 		airRoll = airRoll.LerpTo( rollInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.0001f, dt ) );
 		airTilt = airTilt.LerpTo( tiltInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.0001f, dt ) );
 
 		Vector3 localVelocity = Transform.World.PointToLocal(Body.Velocity);
+
+		//If all four wheels are touching the ground
+		bool fullyGrounded = drivingWheelsOnGround && turningWheelsOnGround;
+
 		//If the front and back wheels are on the ground
-		if ( wheelsOnGround  )
+		if ( wheelsOnGround )
 		{
 			//This is where the magic happens, forward speed is calculated as the absolute value of our forward velocity
 			var forwardSpeed = MathF.Abs( localVelocity.x );
@@ -57,7 +64,6 @@ public sealed partial class VehicleController : Component
 		turnLean = turnLean.LerpTo( targetLean, 1.0f - MathF.Pow( 0.01f, dt ) );
 
 		UpdateWheels();
-
 
 		//Set a local variable for if we can use air control
 		bool canAirControl = false;
@@ -90,7 +96,7 @@ public sealed partial class VehicleController : Component
 			//The speed factor decreases the amount of acceleration we have depending on how fast we're currently going
 			var speedFactor = (1.0f - MathF.Pow( (forwardSpeed / 2200.0f), 3.5f )).Clamp( 0.0f, 1.0f );
 			//Calculate our acceleration based on our input..
-			var acceleration = speedFactor * (accelerateDirection < 0.0f ? Acceleration * 0.8f : Acceleration * fac) * accelerateDirection * dt;
+			float acceleration = speedFactor * (accelerateDirection < 0.0f ? Acceleration * 0.8f : Acceleration * fac) * accelerateDirection * dt;
 			//Use this to then get the impulse and apply it to our body's velocity
 			var impulse = Transform.Rotation * new Vector3( acceleration, 0, 0 );
 			Body.Velocity += impulse;
@@ -100,7 +106,8 @@ public sealed partial class VehicleController : Component
 		var angularDamping = 0.0f;
 		angularDamping = angularDamping.LerpTo( 5.0f, grip );
 
-		//body.AngularDamping = fullyGrounded ? angularDamping : 0.5f;
+		Body.LinearDamping = 0;
+		Body.AngularDamping = fullyGrounded ? angularDamping : 0.5f;
 
 		//If we're on the ground
 		if ( wheelsOnGround )
@@ -133,7 +140,6 @@ public sealed partial class VehicleController : Component
 			var fac = 0.0f;
 			if ( speedFactor > 0.5f )
 			{
-
 				float f = (1 - angle);
 				fac = fac.LerpTo( 0.4f, f );
 			}
