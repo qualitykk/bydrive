@@ -24,10 +24,9 @@
         {
           "__type": "MapInstance",
           "__enabled": true,
-          "MapName": "dev/preview_flat.vpk"
+          "MapName": "rd_rc_devtest1_a1"
         }
-      ],
-      "Children": []
+      ]
     },
     {
       "Id": "1307b1fd-3300-4c96-95b6-3dc679333831",
@@ -46,7 +45,7 @@
           "MaxFieldOfView": 120,
           "MaxSpeed": 512,
           "Rigidbody": "7772a74a-8584-4612-a64c-4f7dd67564d3",
-          "TurnSpeed": 65
+          "TurnSpeed": 90
         }
       ],
       "Children": [
@@ -230,8 +229,8 @@
             {
               "Id": "dde34898-53fe-4526-9b21-b3b96afb5795",
               "Name": "Main Camera",
-              "Position": "-185.4157,80.04881,85.08908",
-              "Rotation": "-0.01025939,0.1970952,-0.06103954,0.9784287",
+              "Position": "-170,0,100",
+              "Rotation": "0,0.1305263,0,0.9914448",
               "Enabled": true,
               "Components": [
                 {

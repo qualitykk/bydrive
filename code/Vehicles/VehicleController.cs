@@ -8,8 +8,8 @@ public sealed partial class VehicleController : Component
 	[Property] public float Acceleration { get; set; } = 256f;
 	[Property] public float BreakSpeed { get; set; } = 384f;
 	[Property] public float TurnSpeed { get; set; } = 90f;
-	[Property, Title("Physics Body")] public Rigidbody Rigidbody { get; set; }
 	#endregion
+	[Property, Title("Physics Body")] public Rigidbody Rigidbody { get; set; }
 	public PhysicsBody Body => Rigidbody?.PhysicsBody;
 	public float Speed { get; set; }
 	protected override void OnUpdate()
@@ -17,6 +17,7 @@ public sealed partial class VehicleController : Component
 		// For now, just use modified PlayerController code
 		BuildInput();
 		Move();
+		UpdateCamera();
 	}
 
 	private float turnDirection;
@@ -124,9 +125,13 @@ public sealed partial class VehicleController : Component
 			if ( turningWheelsOnGround )
 			{
 				turnAmount = MathF.Sign( localVelocity.x ) * turnSpeed * CalculateTurnFactor( turnDirection, MathF.Abs( localVelocity.x ) ) * dt;
-				Log.Info( turnAmount );
 			}
 			Body.AngularVelocity += rotation * new Vector3( 0, 0, turnAmount );
+			if(Body.AngularVelocity.z > 1f)
+			{
+				Log.Info( Body.AngularVelocity );
+
+			}
 
 			airRoll = 0;
 			airTilt = 0;
@@ -209,8 +214,8 @@ public sealed partial class VehicleController : Component
 
 	private static float CalculateTurnFactor( float direction, float speed )
 	{
-		const float TURN_MAGIC = 256.0f;
-		const float YAW_MAGIC = 512.0f;
+		const float TURN_MAGIC = 450.0f;
+		const float YAW_MAGIC = 900.0f;
 
 		var turnFactor = MathF.Min( speed / TURN_MAGIC, 1 );
 		var yawSpeedFactor = 1.0f - (speed / YAW_MAGIC).Clamp( 0, 0.6f );
@@ -219,7 +224,9 @@ public sealed partial class VehicleController : Component
 		return result;
 	}
 
-	//This function dampens our velocity
+	/// <summary>
+	/// Dampens our velocity
+	/// </summary>
 	private static Vector3 VelocityDamping( Vector3 velocity, Rotation rotation, Vector3 damping, float dt )
 	{
 		//Get our local velocity
