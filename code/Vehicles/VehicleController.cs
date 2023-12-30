@@ -1,4 +1,6 @@
 using Sandbox;
+using static Sandbox.Component;
+
 namespace Redrome;
 public sealed partial class VehicleController : Component
 {
@@ -18,6 +20,7 @@ public sealed partial class VehicleController : Component
 		BuildInput();
 		Move();
 		UpdateCamera();
+		
 	}
 
 	private float turnDirection;

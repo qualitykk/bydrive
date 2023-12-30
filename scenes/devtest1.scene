@@ -26,7 +26,8 @@
           "__enabled": true,
           "MapName": "rd_rc_devtest1_a1"
         }
-      ]
+      ],
+      "Children": []
     },
     {
       "Id": "1307b1fd-3300-4c96-95b6-3dc679333831",
@@ -251,6 +252,43 @@
                   "ZNear": 10
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "03f52316-255f-4456-900c-4bc32c94a28b",
+      "Name": "Track",
+      "Position": "-422.8524,-50.05746,11.49467",
+      "Enabled": true,
+      "Children": [
+        {
+          "Id": "b8d5b8b7-1da4-4b2c-b487-c7abab2378ab",
+          "Name": "Finish Line",
+          "Position": "7.08194,51.50776,-11.49467",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "FinishLine",
+              "__enabled": true,
+              "Bounds": {
+                "Mins": "-10,-393.9416,-10",
+                "Maxs": "10,386.2341,241.4098"
+              }
+            }
+          ]
+        },
+        {
+          "Id": "e8fc2c91-dd1c-4be3-ae50-fa7146412775",
+          "Name": "Object",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "NextCheckpoints": []
             }
           ]
         }

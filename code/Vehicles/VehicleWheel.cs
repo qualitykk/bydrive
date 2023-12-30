@@ -55,15 +55,14 @@ public sealed class VehicleWheel : Component
 
 	protected override void DrawGizmos()
 	{
-		using(Gizmo.ObjectScope(this, Transform.World))
-		{
-			Gizmo.Draw.Color = Color.Magenta;
+		if(!Gizmo.IsSelected) return;
 
-			Vector3 direction = Vector3.Left * Width;
-			Gizmo.Draw.SolidCylinder( -direction, direction, Radius );
+		Gizmo.Draw.Color = Color.Magenta;
 
-			const float FORWARD_HELPER_SIZE = 8f;
-			Gizmo.Draw.Line( Vector3.Zero, direction * FORWARD_HELPER_SIZE );
-		}
+		Vector3 direction = Vector3.Left * Width;
+		Gizmo.Draw.SolidCylinder( -direction, direction, Radius );
+
+		const float FORWARD_HELPER_SIZE = 4f;
+		Gizmo.Draw.Line( Vector3.Zero, direction * FORWARD_HELPER_SIZE );
 	}
 }
