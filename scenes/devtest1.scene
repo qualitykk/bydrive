@@ -32,8 +32,8 @@
     {
       "Id": "1307b1fd-3300-4c96-95b6-3dc679333831",
       "Name": "Vehicle",
-      "Position": "0.000002841951,-0.000002644275,26.94081",
-      "Rotation": "0.00000004057559,0.000000001461979,0.707107,0.7071065",
+      "Position": "-906.2064,-0.0005427853,26.94086",
+      "Rotation": "-0.000000001521852,-0.00000000005483483,0.01046349,0.9999455",
       "Enabled": true,
       "Components": [
         {
@@ -45,8 +45,15 @@
           "Camera": "dde34898-53fe-4526-9b21-b3b96afb5795",
           "MaxFieldOfView": 120,
           "MaxSpeed": 512,
+          "PlayerControlled": true,
           "Rigidbody": "7772a74a-8584-4612-a64c-4f7dd67564d3",
           "TurnSpeed": 90
+        },
+        {
+          "__type": "RaceParticipant",
+          "__enabled": true,
+          "BypassChecks": false,
+          "DisplayName": "Player"
         }
       ],
       "Children": [
@@ -258,6 +265,21 @@
       ]
     },
     {
+      "Id": "0708a5e6-b1be-4849-85f0-b1a268542000",
+      "Name": "Race Manager",
+      "Position": "-2.139898,-430.6162,902.45",
+      "Rotation": "-0.0000000004070593,-0.00000004173178,0.707107,0.7071065",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "RaceManager",
+          "__enabled": true,
+          "MaxLaps": 3,
+          "StartCheckpoint": "b8d5b8b7-1da4-4b2c-b487-c7abab2378ab"
+        }
+      ]
+    },
+    {
       "Id": "03f52316-255f-4456-900c-4bc32c94a28b",
       "Name": "Track",
       "Position": "-422.8524,-50.05746,11.49467",
@@ -266,29 +288,374 @@
         {
           "Id": "b8d5b8b7-1da4-4b2c-b487-c7abab2378ab",
           "Name": "Finish Line",
-          "Position": "7.08194,51.50776,-11.49467",
+          "Position": "7.08194,51.50776,107.5135",
           "Enabled": true,
           "Components": [
             {
-              "__type": "FinishLine",
+              "__type": "BoxCollider",
               "__enabled": true,
-              "Bounds": {
-                "Mins": "-10,-393.9416,-10",
-                "Maxs": "10,386.2341,241.4098"
-              }
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,800,250",
+              "Static": true,
+              "Surface": null
+            },
+            {
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "e8fc2c91-dd1c-4be3-ae50-fa7146412775"
+              ]
             }
           ]
         },
         {
           "Id": "e8fc2c91-dd1c-4be3-ae50-fa7146412775",
-          "Name": "Object",
-          "Position": "0,0,0",
+          "Name": "1",
+          "Position": "899.251,450.8561,94.5657",
+          "Rotation": "0.00000001879019,-0.0000000000000002600716,0.3152471,0.9490098",
           "Enabled": true,
           "Components": [
             {
               "__type": "RaceCheckpoint",
               "__enabled": true,
-              "NextCheckpoints": []
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "17c7ac45-5de0-4e8c-9f64-eb562001b7be"
+              ]
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,800,250",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "17c7ac45-5de0-4e8c-9f64-eb562001b7be",
+          "Name": "2",
+          "Position": "1435.429,1533.581,106.7004",
+          "Rotation": "0.00000004229856,0.0000000000000008131321,0.709652,0.7045524",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "85e889b1-06d5-42b7-9261-3e72747dc2b2"
+              ]
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,800,250",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "85e889b1-06d5-42b7-9261-3e72747dc2b2",
+          "Name": "3",
+          "Position": "1429.322,2380.49,235.713",
+          "Rotation": "0.00000004229856,0.0000000000000008131321,0.709652,0.7045524",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "93e89b90-faa6-4d68-baeb-2839005c0fb1",
+                "8bcfe959-a8bb-4223-807c-2a04b012b5ec"
+              ]
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,800,250",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "93e89b90-faa6-4d68-baeb-2839005c0fb1",
+          "Name": "4a",
+          "Position": "725.1742,3512.808,235.713",
+          "Rotation": "0.000000001055171,-0.0000000000000006825938,0.01770285,0.9998436",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "9f8d21db-9d09-4af4-93d3-521db6898b8b"
+              ]
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,800,250",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "8bcfe959-a8bb-4223-807c-2a04b012b5ec",
+          "Name": "4b",
+          "Position": "1548.526,4411.831,245.4342",
+          "Rotation": "-0.00000004173372,0.0000000000000003746349,-0.7001756,0.7139712",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "e6eff863-cd41-4885-9b49-6a735f111c9c"
+              ]
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,800,250",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "9f8d21db-9d09-4af4-93d3-521db6898b8b",
+          "Name": "5a",
+          "Position": "-1326.764,4588.625,235.7129",
+          "Rotation": "0.000000001055171,-0.0000000000000006825938,0.01770285,0.9998436",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": false,
+              "NextCheckpoints": [
+                "bbb00ab9-f092-45ee-8743-b4d858d36ca3"
+              ]
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,800,250",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "e6eff863-cd41-4885-9b49-6a735f111c9c",
+          "Name": "5b",
+          "Position": "-8.039581,4719.333,497.2103",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": false,
+              "NextCheckpoints": [
+                "a2241379-75e4-4c74-b664-fe3efea6aa61"
+              ]
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,800,250",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "bbb00ab9-f092-45ee-8743-b4d858d36ca3",
+          "Name": "6a",
+          "Position": "-2625.651,4204.789,343.9231",
+          "Rotation": "0.00000004400314,-0.000000002036426,0.707107,0.7071065",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": false,
+              "NextCheckpoints": [
+                "cf0f02d6-1530-478c-ad00-d401762e3ebd"
+              ]
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,800,250",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "a2241379-75e4-4c74-b664-fe3efea6aa61",
+          "Name": "6b",
+          "Position": "-1453.95,3490.016,404.9772",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "cf0f02d6-1530-478c-ad00-d401762e3ebd"
+              ]
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,800,250",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "cf0f02d6-1530-478c-ad00-d401762e3ebd",
+          "Name": "7",
+          "Position": "-2660.833,3312.075,354.4326",
+          "Rotation": "-0.0000000004070593,-0.00000004173178,0.707107,0.7071065",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "d54ce3ac-cd9c-4a9a-bfd8-bdbc55141047"
+              ]
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,800,250",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "d54ce3ac-cd9c-4a9a-bfd8-bdbc55141047",
+          "Name": "8",
+          "Position": "-2895.942,2144.542,231.541",
+          "Rotation": "-0.0000000004070593,-0.00000004173178,0.707107,0.7071065",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "86153c29-8cf5-491e-b031-4d0ac40ed619"
+              ]
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,800,250",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "86153c29-8cf5-491e-b031-4d0ac40ed619",
+          "Name": "9",
+          "Position": "-2363.858,-211.3312,116.6416",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "b8d5b8b7-1da4-4b2c-b487-c7abab2378ab"
+              ]
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,800,250",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "db5e2619-332b-423c-b6ce-8d7a9a1cca7e",
+      "Name": "UI",
+      "Position": "0,0,651.6465",
+      "Enabled": true,
+      "Children": [
+        {
+          "Id": "29b40b0c-5b7b-416d-a492-a0cdd4e15169",
+          "Name": "Screen",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ScreenPanel",
+              "__enabled": true,
+              "AutoScreenScale": true,
+              "Opacity": 1,
+              "Scale": 1,
+              "ZIndex": 100
+            }
+          ],
+          "Children": [
+            {
+              "Id": "88afafb7-5cdd-49c7-aa44-83e527025936",
+              "Name": "Lap Completion",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "LapCompletion",
+                  "__enabled": true,
+                  "Participant": "1307b1fd-3300-4c96-95b6-3dc679333831"
+                }
+              ]
             }
           ]
         }

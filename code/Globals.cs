@@ -1,7 +1,12 @@
 ﻿global using System;
 global using Sandbox;
+global using static Redrome.Globals;
 
 namespace Redrome;
+internal static class Globals
+{
+	public static RaceManager Race => RaceManager.Current;
+}
 
 internal static class InputActions
 {

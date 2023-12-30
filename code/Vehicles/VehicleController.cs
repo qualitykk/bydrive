@@ -6,11 +6,12 @@ public sealed partial class VehicleController : Component
 {
 	#region Stats
 	// TODO: Get these from vehicle stats
-	[Property] public float MaxSpeed { get; set; } = 512f;
-	[Property] public float Acceleration { get; set; } = 256f;
-	[Property] public float BreakSpeed { get; set; } = 384f;
-	[Property] public float TurnSpeed { get; set; } = 90f;
+	[Property, Category("Stats")] public float MaxSpeed { get; set; } = 512f;
+	[Property, Category( "Stats" )] public float Acceleration { get; set; } = 256f;
+	[Property, Category( "Stats" )] public float BreakSpeed { get; set; } = 384f;
+	[Property, Category( "Stats" )] public float TurnSpeed { get; set; } = 90f;
 	#endregion
+	[Property] public bool PlayerControlled { get; set; } = false;	
 	[Property, Title("Physics Body")] public Rigidbody Rigidbody { get; set; }
 	public PhysicsBody Body => Rigidbody?.PhysicsBody;
 	public float Speed { get; set; }
@@ -132,7 +133,7 @@ public sealed partial class VehicleController : Component
 			Body.AngularVelocity += rotation * new Vector3( 0, 0, turnAmount );
 			if(Body.AngularVelocity.z > 1f)
 			{
-				Log.Info( Body.AngularVelocity );
+				//Log.Info( Body.AngularVelocity );
 
 			}
 

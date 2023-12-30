@@ -1,0 +1,29 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Redrome
+
+@if (Participant == null || Race == null)
+	return;
+
+<root>
+	<div class="title">@GetDisplayLaps()/@Race.MaxLaps</div>
+	<div class="subtitle">@Participant.GetCompletion()</div>
+</root>
+
+@code
+{
+
+	[Property] public RaceParticipant Participant { get; set; }
+
+	private int GetDisplayLaps()
+	{
+		if (Participant == null || Race == null) return 1;
+
+		return (int)MathF.Floor(Participant.GetCompletion()) + 1;
+	}
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine(Participant,Participant.GetCompletion());
+}
