@@ -10,7 +10,10 @@ namespace Redrome;
 [Alias("RaceCompletion")]
 public class RaceParticipant : Component
 {
-	const string UNSET_NAME_PLACEHOLDER = "Player";
+	public const string UNSET_NAME_PLACEHOLDER = "Player";
+	/// <summary>
+	/// Name for the racer displayed on the UI, auto-generates name if empty
+	/// </summary>
 	[Property] public string DisplayName { get; set; } = UNSET_NAME_PLACEHOLDER;
 	/// <summary>
 	/// Bypass key checkpoint checks
@@ -19,7 +22,21 @@ public class RaceParticipant : Component
 	public RaceCheckpoint LastCheckpoint { get; private set; }
 	List<RaceCheckpoint> NextCheckpoints { get; set; } = new();
 	public float GetCompletion() => Race?.GetRaceCompletion( this ) ?? 0f;
+	protected override void OnAwake()
+	{
+		if(string.IsNullOrEmpty(DisplayName))
+		{
+			DisplayName = GenerateName();
+		}
+	}
+	int botNumber = 1;
+	private string GenerateName()
+	{
+		string name = $"Bot {botNumber}";
+		botNumber++;
 
+		return name;
+	}
 	public void PassCheckpoint(RaceCheckpoint checkpoint, bool forceLast = false)
 	{
 		if(!CanPass(checkpoint) && !forceLast)

@@ -1,0 +1,34 @@
+@using Sandbox.UI;
+@using System.Linq;
+@using System.Collections.Generic;
+@inherits PanelComponent
+@namespace Redrome
+
+<root>
+	<div class="title">Project RE:Drome</div>
+	<div class="button" @onclick=@OnClickDevStart>Start Test Race</div>
+</root>
+
+@code {
+	void OnClickDevStart()
+	{
+		// Load race testing env
+		RaceDefinition testDefinition = ResourceLibrary.Get<RaceDefinition>("data/devtest1.race");
+		PrefabFile playerPrefab = ResourceLibrary.Get<PrefabFile>("prefabs/dev_car_player.prefab");
+		PrefabFile botPrefab = ResourceLibrary.Get<PrefabFile>("prefabs/dev_car_bot.prefab");
+
+		List<RaceInformation.Participant> participants = new()
+		{
+			new(botPrefab, "Bot 1", 1),
+			new(botPrefab, "Bot 2", 2),
+			new(botPrefab, "Bot 3", 3),
+			new(playerPrefab, "Player", 4)
+		};
+
+		RaceInformation info = new(testDefinition, participants);
+		info.CreateParticipantObjects();
+
+		this.Panel.FindRootPanel().Delete();
+		Scene.Destroy();
+	}
+}

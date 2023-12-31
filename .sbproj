@@ -38,7 +38,7 @@
       "IgnoreFolders": [],
       "DistinctAssemblyReferences": []
     },
-    "StartupScene": "scenes/vehicle_test.scene",
+    "StartupScene": "scenes/startmenu.scene",
     "ControlModes": {
       "Keyboard": true
     },
@@ -216,6 +216,7 @@
           "GroupName": "Other"
         }
       ]
-    }
+    },
+    "LaunchMode": "Normal"
   }
 }

@@ -1,0 +1,72 @@
+{
+  "GameObjects": [
+    {
+      "Id": "5bfb1a9c-7789-41a9-a21e-0419f19c7b84",
+      "Name": "Screen",
+      "Position": "149.9949,149.995,-212.125",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ScreenPanel",
+          "__enabled": true,
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ZIndex": 100
+        }
+      ],
+      "Children": [
+        {
+          "Id": "29dc86c2-b957-411a-8d3f-d1aab12004ad",
+          "Name": "Start Menu",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "StartMenu",
+              "__enabled": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "e4d2acc9-e84d-4573-a4f0-bb561ca2847c",
+      "Name": "Camera",
+      "Position": "149.9949,149.995,-212.125",
+      "Tags": "maincamera",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "CameraComponent",
+          "__enabled": true,
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 60,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true
+  },
+  "Title": "startmenu",
+  "Description": "",
+  "__references": []
+}

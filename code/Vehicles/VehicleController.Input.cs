@@ -11,6 +11,9 @@ public partial class VehicleController
 	private float rollInput;
 	public void BuildInput()
 	{
+		// Bots have no business trying to listen for input
+		if ( !PlayerControlled ) return;
+
 		throttleInput = (Input.Down( InputActions.FORWARD ) ? 1 : 0) + (Input.Down( InputActions.BACK ) ? -1 : 0);
 		turnInput = (Input.Down( InputActions.LEFT ) ? 1 : 0) + (Input.Down( InputActions.RIGHT ) ? -1 : 0);
 		breakInput = (Input.Down( InputActions.BREAK ) ? 1 : 0);

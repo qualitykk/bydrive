@@ -6,6 +6,7 @@ namespace Redrome;
 internal static class Globals
 {
 	public static RaceManager Race => RaceManager.Current;
+	public static RaceInformation RaceContext => RaceInformation.Current;
 }
 
 internal static class InputActions

@@ -30,244 +30,9 @@
       "Children": []
     },
     {
-      "Id": "1307b1fd-3300-4c96-95b6-3dc679333831",
-      "Name": "Vehicle",
-      "Position": "-906.2064,-0.0005427853,26.94086",
-      "Rotation": "-0.000000001521852,-0.00000000005483483,0.01046349,0.9999455",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "VehicleController",
-          "__enabled": true,
-          "Acceleration": 1024,
-          "BaseFieldOfView": 90,
-          "BreakSpeed": 384,
-          "Camera": "dde34898-53fe-4526-9b21-b3b96afb5795",
-          "MaxFieldOfView": 120,
-          "MaxSpeed": 512,
-          "PlayerControlled": true,
-          "Rigidbody": "7772a74a-8584-4612-a64c-4f7dd67564d3",
-          "TurnSpeed": 90
-        },
-        {
-          "__type": "RaceParticipant",
-          "__enabled": true,
-          "BypassChecks": false,
-          "DisplayName": "Player"
-        }
-      ],
-      "Children": [
-        {
-          "Id": "7772a74a-8584-4612-a64c-4f7dd67564d3",
-          "Name": "Model",
-          "Position": "0,-0.000000000000682121,22.22424",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "ModelCollider",
-              "__enabled": true,
-              "IsTrigger": false,
-              "Model": "models/brokencar.vmdl",
-              "Static": false,
-              "Surface": null
-            },
-            {
-              "__type": "SkinnedModelRenderer",
-              "__enabled": true,
-              "BodyGroups": 18446744073709551615,
-              "BoneMergeTarget": null,
-              "CreateBoneObjects": false,
-              "MaterialGroup": null,
-              "MaterialOverride": null,
-              "Model": "models/brokencar.vmdl",
-              "RenderType": "On",
-              "Tint": "1,1,1,1"
-            },
-            {
-              "__type": "Rigidbody",
-              "__enabled": true,
-              "AngularDamping": 0,
-              "Gravity": true,
-              "LinearDamping": 0
-            }
-          ],
-          "Children": [
-            {
-              "Id": "2a6a4636-7f5c-4641-b16e-8f809fc2c020",
-              "Name": "FrontLeft",
-              "Position": "53.56167,33.1158,19.15059",
-              "Enabled": true,
-              "Components": [
-                {
-                  "__type": "VehicleWheel",
-                  "__enabled": true,
-                  "IsDriving": true,
-                  "IsTurning": true,
-                  "Radius": 14,
-                  "Width": 8
-                },
-                {
-                  "__type": "SkinnedModelRenderer",
-                  "__enabled": true,
-                  "BodyGroups": 18446744073709551615,
-                  "BoneMergeTarget": null,
-                  "CreateBoneObjects": false,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/citizen_props/wheel01.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "Rigidbody",
-                  "__enabled": true,
-                  "AngularDamping": 0,
-                  "Gravity": false,
-                  "LinearDamping": 0
-                }
-              ]
-            },
-            {
-              "Id": "4984eb55-da18-460b-8d6e-b0c5acc0a272",
-              "Name": "FrontRight",
-              "Position": "53.56178,-23.95395,19.15059",
-              "Rotation": "0.00000005584115,0.000000001476387,1,-0.0000006556511",
-              "Enabled": true,
-              "Components": [
-                {
-                  "__type": "VehicleWheel",
-                  "__enabled": true,
-                  "IsDriving": true,
-                  "IsTurning": true,
-                  "Radius": 14,
-                  "Width": 8
-                },
-                {
-                  "__type": "SkinnedModelRenderer",
-                  "__enabled": true,
-                  "BodyGroups": 18446744073709551615,
-                  "BoneMergeTarget": null,
-                  "CreateBoneObjects": false,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/citizen_props/wheel01.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "Rigidbody",
-                  "__enabled": true,
-                  "AngularDamping": 0,
-                  "Gravity": false,
-                  "LinearDamping": 0
-                }
-              ]
-            },
-            {
-              "Id": "ddca6a93-90ee-4cd2-af11-b45b8d61c298",
-              "Name": "BackLeft",
-              "Position": "-56.03879,37.27747,19.1506",
-              "Enabled": true,
-              "Components": [
-                {
-                  "__type": "VehicleWheel",
-                  "__enabled": true,
-                  "IsDriving": true,
-                  "IsTurning": false,
-                  "Radius": 14,
-                  "Width": 8
-                },
-                {
-                  "__type": "SkinnedModelRenderer",
-                  "__enabled": true,
-                  "BodyGroups": 18446744073709551615,
-                  "BoneMergeTarget": null,
-                  "CreateBoneObjects": false,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/citizen_props/wheel01.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "Rigidbody",
-                  "__enabled": true,
-                  "AngularDamping": 0,
-                  "Gravity": false,
-                  "LinearDamping": 0
-                }
-              ]
-            },
-            {
-              "Id": "e66f132e-2d96-442d-8008-dba1b458a34a",
-              "Name": "BackRight",
-              "Position": "-56.04058,-19.79327,19.1506",
-              "Rotation": "0.00000005584116,0.0000000014764,1,-0.0000006556511",
-              "Enabled": true,
-              "Components": [
-                {
-                  "__type": "VehicleWheel",
-                  "__enabled": true,
-                  "IsDriving": true,
-                  "IsTurning": false,
-                  "Radius": 14,
-                  "Width": 8
-                },
-                {
-                  "__type": "SkinnedModelRenderer",
-                  "__enabled": true,
-                  "BodyGroups": 18446744073709551615,
-                  "BoneMergeTarget": null,
-                  "CreateBoneObjects": false,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/citizen_props/wheel01.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "Rigidbody",
-                  "__enabled": true,
-                  "AngularDamping": 0,
-                  "Gravity": false,
-                  "LinearDamping": 0
-                }
-              ]
-            },
-            {
-              "Id": "dde34898-53fe-4526-9b21-b3b96afb5795",
-              "Name": "Main Camera",
-              "Position": "-170,0,100",
-              "Rotation": "0,0.1305263,0,0.9914448",
-              "Enabled": true,
-              "Components": [
-                {
-                  "__type": "CameraComponent",
-                  "__enabled": true,
-                  "BackgroundColor": "0.33333,0.46275,0.52157,1",
-                  "ClearFlags": "All",
-                  "FieldOfView": 90,
-                  "IsMainCamera": true,
-                  "Orthographic": false,
-                  "OrthographicHeight": 1204,
-                  "Priority": 1,
-                  "RenderExcludeTags": "",
-                  "RenderTags": "",
-                  "TargetEye": "None",
-                  "Viewport": "0,0,1,1",
-                  "ZFar": 10000,
-                  "ZNear": 10
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "Id": "0708a5e6-b1be-4849-85f0-b1a268542000",
       "Name": "Race Manager",
-      "Position": "-2.139898,-430.6162,902.45",
+      "Position": "0.0000009905424,-160,640",
       "Rotation": "-0.0000000004070593,-0.00000004173178,0.707107,0.7071065",
       "Enabled": true,
       "Components": [
@@ -275,6 +40,7 @@
           "__type": "RaceManager",
           "__enabled": true,
           "MaxLaps": 3,
+          "RaceMusic": "sounds/music/race_devtrack.sound",
           "StartCheckpoint": "b8d5b8b7-1da4-4b2c-b487-c7abab2378ab"
         }
       ]
@@ -619,6 +385,58 @@
               "Surface": null
             }
           ]
+        },
+        {
+          "Id": "85aaeb53-f7d8-4c30-b0a9-a3a1b5a4dc5f",
+          "Name": "StartPos 1",
+          "Position": "-217.1476,178.0575,84.50533",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 1
+            }
+          ]
+        },
+        {
+          "Id": "d778d707-28eb-42cf-8521-594af909a44d",
+          "Name": "StartPos 2",
+          "Position": "-341.6488,-77.94254,84.50533",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 2
+            }
+          ]
+        },
+        {
+          "Id": "3b9dcdbd-5741-488f-94e4-77d9cdb10fdd",
+          "Name": "StartPos 3",
+          "Position": "-601.1476,178.0575,84.50533",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 3
+            }
+          ]
+        },
+        {
+          "Id": "1105b86b-be6a-4797-9e00-aeb628b2e2d4",
+          "Name": "StartPos 4",
+          "Position": "-729.1476,-77.94254,84.50533",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 4
+            }
+          ]
         }
       ]
     },
@@ -653,7 +471,7 @@
                 {
                   "__type": "LapCompletion",
                   "__enabled": true,
-                  "Participant": "1307b1fd-3300-4c96-95b6-3dc679333831"
+                  "Participant": null
                 }
               ]
             }
@@ -671,9 +489,7 @@
     "TimeScale": 1,
     "UseFixedUpdate": true
   },
-  "Title": "vehicle_test",
+  "Title": "devtest1",
   "Description": "",
-  "__references": [
-    "debelizmik.brokencar"
-  ]
+  "__references": []
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Redrome;
 
-[EditorHandle( "materials/gizmo/ui.png" )]
+[EditorHandle( "materials/gizmo/charactercontroller.png" )]
 [Icon( "flag" )]
 public sealed partial class RaceManager : Component
 {
@@ -14,7 +14,10 @@ public sealed partial class RaceManager : Component
 	public static RaceManager Current { get; private set; }
 	[Property] public int MaxLaps { get; set; } = DEFAULT_MAX_LAPS;
 	[Property] public RaceCheckpoint StartCheckpoint {get;set;}
+	[Property] public SoundEvent RaceMusic { get; set; }
 	public List<RaceParticipant> Participants { get; private set; } = new();
+	public TimeUntil TimeUntilRaceStart { get; private set; }
+	public bool HasStarted { get; private set; } = false;
 	protected override void OnAwake()
 	{
 		if(Current != null)
@@ -22,18 +25,34 @@ public sealed partial class RaceManager : Component
 			Current.Enabled = false;
 		}
 		Current = this;
+		HasStarted = false;
 
 		OrderCheckpoints();
-		OnRaceStart();
+		SetupRace();
+
+		StartCountdown();
 	}
 
-	private void OnRaceStart()
+	private void StartCountdown()
+	{
+		const float RACE_START_COUNTDOWN = 3f;
+		TimeUntilRaceStart = RACE_START_COUNTDOWN;
+	}
+
+	private void StartRace()
+	{
+		HasStarted = true;
+		Music.Play( RaceMusic );
+	}
+
+	private void SetupRace()
 	{
 		Participants.Clear();
 		ResetLapProgress();
 
+		RaceContext.ResetParticipantObjects();
 		Participants = Scene.GetAllComponents<RaceParticipant>().ToList();
-		InitialiseLapProgress(Participants);
+		InitialiseLapProgress( Participants);
 
 		foreach(var participant in Participants)
 		{
@@ -43,6 +62,11 @@ public sealed partial class RaceManager : Component
 
 	protected override void OnFixedUpdate()
 	{
+		if(TimeUntilRaceStart)
+		{
+			StartRace();
+		}
+
 		foreach(var participant in Participants)
 		{
 			UpdateCompletion( participant );
