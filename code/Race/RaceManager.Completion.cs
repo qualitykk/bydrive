@@ -22,7 +22,6 @@ public partial class RaceManager
 			return completion;
 		}
 
-		//Log.Info( $"{completion} | {laps}" );
 		return completion + laps;
 	}
 	public void InitialiseLapProgress(List<RaceParticipant> participants)

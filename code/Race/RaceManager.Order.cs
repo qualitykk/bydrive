@@ -62,7 +62,6 @@ public partial class RaceManager
 		}
 		else
 		{
-			Log.Info( "Checkpoints Ordered!" );
 			maxCheckpointOrder = checkpointOrder.Values.Max();
 		}
 	}

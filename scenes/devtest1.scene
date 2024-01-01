@@ -470,8 +470,7 @@
               "Components": [
                 {
                   "__type": "LapCompletion",
-                  "__enabled": true,
-                  "Participant": null
+                  "__enabled": true
                 }
               ]
             }

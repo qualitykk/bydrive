@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,6 +19,7 @@ public sealed partial class RaceManager : Component
 	public List<RaceParticipant> Participants { get; private set; } = new();
 	public TimeUntil TimeUntilRaceStart { get; private set; }
 	public bool HasStarted { get; private set; } = false;
+	public bool HasLoaded { get; private set; } = false;
 	protected override void OnAwake()
 	{
 		if(Current != null)
@@ -26,17 +28,14 @@ public sealed partial class RaceManager : Component
 		}
 		Current = this;
 		HasStarted = false;
-
-		OrderCheckpoints();
-		SetupRace();
-
-		StartCountdown();
 	}
 
 	private void StartCountdown()
 	{
 		const float RACE_START_COUNTDOWN = 3f;
-		TimeUntilRaceStart = RACE_START_COUNTDOWN;
+		const float RACE_START_WAIT = 2f;
+		HasStarted = false;
+		TimeUntilRaceStart = RACE_START_COUNTDOWN + RACE_START_WAIT;
 	}
 
 	private void StartRace()
@@ -47,10 +46,10 @@ public sealed partial class RaceManager : Component
 
 	private void SetupRace()
 	{
-		Participants.Clear();
+		Participants?.Clear();
 		ResetLapProgress();
 
-		RaceContext.ResetParticipantObjects();
+		RaceContext?.ResetParticipantObjects();
 		Participants = Scene.GetAllComponents<RaceParticipant>().ToList();
 		InitialiseLapProgress( Participants);
 
@@ -58,11 +57,21 @@ public sealed partial class RaceManager : Component
 		{
 			participant.PassCheckpoint( StartCheckpoint, true );
 		}
+
+		StartCountdown();
 	}
 
 	protected override void OnFixedUpdate()
 	{
-		if(TimeUntilRaceStart)
+		if(!HasLoaded && !Scene.IsLoading)
+		{
+			HasLoaded = true;
+
+			OrderCheckpoints();
+			SetupRace();
+		}
+
+		if(TimeUntilRaceStart && !HasStarted)
 		{
 			StartRace();
 		}

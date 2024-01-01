@@ -1,9 +1,11 @@
 {
-  "UI": false,
+  "UI": true,
   "Volume": "1.00,1.00,0",
   "Pitch": "1.00,1.00,0",
   "Decibels": 70,
   "SelectionMode": "Random",
-  "Sounds": null,
+  "Sounds": [
+    "sounds/music/race_devtrack.vsnd"
+  ],
   "__references": []
 }

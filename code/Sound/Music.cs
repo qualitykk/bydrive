@@ -19,6 +19,7 @@ public static class Music
 	{
 		Stop();
 		currentTrack = Sound.Play( sound );
+		currentTrack.ListenLocal = true;
 	}
 
 	public static void Stop()

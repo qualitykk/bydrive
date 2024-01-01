@@ -1,12 +1,34 @@
 ﻿global using System;
 global using Sandbox;
 global using static Redrome.Globals;
+using System.Linq;
 
 namespace Redrome;
 internal static class Globals
 {
+	private static Scene lastScene;
+	private static VehicleController lastLocalVehicle;
 	public static RaceManager Race => RaceManager.Current;
 	public static RaceInformation RaceContext => RaceInformation.Current;
+	public static VehicleController GetLocalVehicle()
+	{
+		Scene currentScene = GameManager.ActiveScene;
+		if(currentScene == lastScene && lastLocalVehicle != null)
+		{
+			return lastLocalVehicle;
+		}
+		VehicleController vehicle = currentScene.GetAllComponents<VehicleController>().FirstOrDefault( p => IsLocallyOwned(p) && p.PlayerControlled );
+
+		lastScene = currentScene;
+		lastLocalVehicle = vehicle;
+
+		return vehicle;
+	}
+
+	private static bool IsLocallyOwned(VehicleController controller)
+	{
+		return !controller.Network.Active || controller.Network.IsOwner;
+	}
 }
 
 internal static class InputActions

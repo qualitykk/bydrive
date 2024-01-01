@@ -25,8 +25,7 @@
 			new(playerPrefab, "Player", 4)
 		};
 
-		RaceInformation info = new(testDefinition, participants);
-		info.CreateParticipantObjects();
+		RaceInformation info = new(testDefinition, participants, true);
 
 		this.Panel.FindRootPanel().Delete();
 		Scene.Destroy();

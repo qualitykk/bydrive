@@ -26,9 +26,11 @@ public class RaceInformation
 	public Scene RaceScene { get; private set; }
 	public RaceDefinition Definition { get; set; }
 	public List<Participant> Participants { get; set; }
+	public Action OnParticipantsLoaded { get; set; }
+
 	private Dictionary<Participant,GameObject> participantObjects = new();
 	private Dictionary<GameObject, RaceStartingPosition> participantStartPositions = new();
-	public RaceInformation(RaceDefinition definition, List<Participant> participants)
+	public RaceInformation(RaceDefinition definition, List<Participant> participants, bool createParticipants = true)
 	{
 		if ( Current != null )
 		{
@@ -43,6 +45,11 @@ public class RaceInformation
 
 		Definition = definition;
 		Participants = participants;
+
+		if(createParticipants)
+		{
+			CreateParticipantObjects();
+		}
 	}
 
 	public void CreateParticipantObjects()
@@ -61,17 +68,13 @@ public class RaceInformation
 			participantObject.UpdateFromPrefab();
 			participantObject.Name = participantInfo.Name;
 
-			/*
-			Log.Info( "====" );
-			Log.Info( participantObject );
-			Log.Info( string.Join(',', participantObject.Children) );
-			*/
-
 			RaceStartingPosition start = startingPositions.Where( p => p.Placement == participantInfo.StartPlacement ).FirstOrDefault();
 			if ( start == null )
 			{
 				start = startingPositions.FirstOrDefault();
 			}
+
+			Initialise( participantInfo, participantObject, start );
 		}
 	}
 
@@ -84,8 +87,15 @@ public class RaceInformation
 			participantInstance.DisplayName = participant.Name;
 		}
 
-		participantObjects.Add( participant, obj );
-		participantStartPositions.Add( obj, start );
+		if(!participantObjects.ContainsKey(participant))
+		{
+			participantObjects.Add( participant, obj );
+		}
+
+		if(!participantStartPositions.ContainsKey(obj))
+		{
+			participantStartPositions.Add( obj, start );
+		}
 	}
 
 	/// <summary>

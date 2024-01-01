@@ -3,27 +3,38 @@
 @inherits PanelComponent
 @namespace Redrome
 
-@if (Participant == null || Race == null)
+@if (Race == null)
 	return;
 
 <root>
 	<div class="title">@GetDisplayLaps()/@Race.MaxLaps</div>
-	<div class="subtitle">@Participant.GetCompletion()</div>
+	<div class="subtitle">@GetCurrentCompletion()</div>
 </root>
 
 @code
 {
+	private RaceParticipant currentParticipant;
+	private RaceParticipant GetParticipant()
+	{
+		if (currentParticipant != null) return currentParticipant;
 
-	[Property] public RaceParticipant Participant { get; set; }
-
+		VehicleController localVehicle = GetLocalVehicle();
+		RaceParticipant vehicleParticipant = localVehicle?.GameObject.Components.Get<RaceParticipant>();
+		currentParticipant = vehicleParticipant;
+		return vehicleParticipant;
+	}
 	private int GetDisplayLaps()
 	{
-		if (Participant == null || Race == null) return 1;
+		if (Race == null) return 1;
 
-		return (int)MathF.Floor(Participant.GetCompletion()) + 1;
+		return (int)MathF.Floor(GetCurrentCompletion()) + 1;
+	}
+	private float GetCurrentCompletion()
+	{
+		return GetParticipant()?.GetCompletion() ?? -1f;
 	}
 	/// <summary>
 	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
 	/// </summary>
-	protected override int BuildHash() => System.HashCode.Combine(Participant,Participant?.GetCompletion());
+	protected override int BuildHash() => System.HashCode.Combine(GameManager.ActiveScene, GetCurrentCompletion());
 }

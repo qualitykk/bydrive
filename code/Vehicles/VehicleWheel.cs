@@ -24,8 +24,10 @@ public sealed class VehicleWheel : Component
 		var wheelAttachPos = physics.MassCenter;
 		var wheelExtend = wheelAttachPos - rotation.Up * (length * Transform.Scale);
 
-		var tr = Scene.Trace.PhysicsTrace.Ray( wheelAttachPos, wheelExtend )
+		var tr = Scene.Trace.Ray( wheelAttachPos, wheelExtend )
 			.WithoutTags("Vehicle") // HACK: No .Ignore() yet, force it to ignore other vehicles for now
+			.IgnoreGameObject(GameObject)
+			.UsePhysicsWorld()
 			.Run();
 
 		if ( !tr.Hit || !doPhysics )

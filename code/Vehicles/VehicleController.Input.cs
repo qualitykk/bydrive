@@ -11,6 +11,8 @@ public partial class VehicleController
 	private float rollInput;
 	public void BuildInput()
 	{
+		if ( !CanDrive() ) return;
+
 		// Bots have no business trying to listen for input
 		if ( !PlayerControlled ) return;
 
@@ -20,5 +22,10 @@ public partial class VehicleController
 
 		tiltInput = (Input.Down( InputActions.BOOST ) ? 1 : 0) + (Input.Down( InputActions.PITCH_DOWN ) ? -1 : 0);
 		rollInput = (Input.Down( InputActions.LEFT ) ? 1 : 0) + (Input.Down( InputActions.RIGHT ) ? -1 : 0);
+	}
+
+	public bool CanDrive()
+	{
+		return Race == null || Race.HasStarted;
 	}
 }
