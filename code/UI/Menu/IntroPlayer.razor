@@ -33,8 +33,7 @@
 	{
 		base.OnUpdate();
 		video.Present();
-
-		if(video.PlaybackTime > 0 && video.PlaybackTime == video.Duration)
+		if(video.PlaybackTime > 0 && video.PlaybackTime >= video.Duration)
 		{
 			OnVideoFinished();
 		}

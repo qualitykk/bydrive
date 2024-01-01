@@ -37,7 +37,7 @@
           "Components": [
             {
               "__type": "IntroPlayer",
-              "__enabled": true,
+              "__enabled": false,
               "VideoFile": "data/intro1.mp4"
             }
           ]
