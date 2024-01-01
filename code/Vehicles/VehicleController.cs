@@ -134,7 +134,6 @@ public sealed partial class VehicleController : Component
 			if(Body.AngularVelocity.z > 1f)
 			{
 				//Log.Info( Body.AngularVelocity );
-
 			}
 
 			airRoll = 0;

@@ -24,7 +24,7 @@ public partial class VehicleController
 		wheelAngle = wheelAngle.LerpTo( turnDirection * 25, 1.0f - MathF.Pow( 0.001f, Time.Delta ) );
 		wheelRevolute += (WheelSpeed / 14.0f).RadianToDegree() * Time.Delta;
 
-		RaycastWheels( false, Time.Delta );
+		RaycastWheels( true, Time.Delta );
 
 		foreach(var wheel in GetWheels())
 		{
@@ -33,7 +33,6 @@ public partial class VehicleController
 			{
 				wheelRotation = Rotation.From( wheelRevolute, 0, wheelAngle );
 			}
-			else
 			{
 				wheelRotation = Rotation.From( wheelRevolute, 0, 0 );
 			}
@@ -46,8 +45,6 @@ public partial class VehicleController
 	{
 		var tiltAmount = AccelerationTilt * 2.5f;
 		var leanAmount = turnLean * 2.5f;
-
-		// const float length = 20.0f;
 
 		foreach ( var wheel in GetWheels() )
 		{
