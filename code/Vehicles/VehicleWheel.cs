@@ -100,13 +100,15 @@ public sealed class VehicleWheel : Component
 		const float FORWARD_HELPER_SIZE = 4f;
 		Gizmo.Draw.Line( Vector3.Zero, direction * FORWARD_HELPER_SIZE );
 
-		const float EXTEND_GIZMO_LENGTH = 10f;
+		const float EXTEND_GIZMO_LENGTH = 20f;
 
-		Gizmo.Draw.Color = Color.Green;
+		Gizmo.Draw.Color = Color.Red;
 		float length = Radius + EXTEND_GIZMO_LENGTH;
+
 		Rotation rotation = GameObject.Parent.Transform.Rotation;
 		Vector3 wheelAttachPos = Transform.Local.PointToLocal(initialPosition);
 		Vector3 wheelExtend = wheelAttachPos - rotation.Up * (length * Transform.Scale);
+
 		Gizmo.Draw.Line( wheelAttachPos, wheelExtend );
 	}
 }

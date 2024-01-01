@@ -39,9 +39,8 @@ public class RaceInformation
 
 		Current = this;
 
-		RaceScene = new();
-		RaceScene.Load( definition.Scene );
-		GameManager.ActiveScene = RaceScene;
+		GameManager.ActiveScene.Load(definition.Scene);
+		RaceScene = GameManager.ActiveScene;
 
 		Definition = definition;
 		Participants = participants;

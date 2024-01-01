@@ -31,8 +31,9 @@ public partial class VehicleController
 			Rotation wheelRotation;
 			if(wheel.IsTurning)
 			{
-				wheelRotation = Rotation.From( wheelRevolute, 0, wheelAngle );
+				wheelRotation = Rotation.From( wheelRevolute, wheelAngle, 0 );
 			}
+			else
 			{
 				wheelRotation = Rotation.From( wheelRevolute, 0, 0 );
 			}

@@ -7,15 +7,15 @@
       {
         "__type": "VehicleController",
         "__enabled": true,
-        "Acceleration": 2048,
+        "Acceleration": 1524,
         "BaseFieldOfView": 90,
         "BreakSpeed": 384,
         "Camera": "7ca13427-e8f6-4bd0-8215-8d51ecd9b12f",
         "MaxFieldOfView": 120,
-        "MaxSpeed": 512,
+        "MaxSpeed": 900,
         "PlayerControlled": true,
         "Rigidbody": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
-        "TurnSpeed": 90
+        "TurnSpeed": 60
       },
       {
         "__type": "RaceParticipant",

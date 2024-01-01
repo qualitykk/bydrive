@@ -1,0 +1,66 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Redrome
+
+<root>
+	<image @ref="VideoPanel" class="video" />
+</root>
+
+@code
+{
+	public static Action<IntroPlayer> OnIntroComplete { get; set; }
+	[Property] public string VideoFile { get; set; }
+	Image VideoPanel { get; set; }
+	VideoPlayer video;
+
+	protected override void OnAwake()
+	{
+		base.OnAwake();
+
+		video = new();
+	}
+
+	protected override void OnTreeBuilt()
+	{
+		base.OnTreeBuilt();
+		Panel.Focus();
+		video.Play(FileSystem.Mounted, VideoFile);
+		video.OnLoaded += OnVideoLoaded;
+	}
+
+	protected override void OnUpdate()
+	{
+		base.OnUpdate();
+		video.Present();
+
+		if(video.PlaybackTime > 0 && video.PlaybackTime == video.Duration)
+		{
+			OnVideoFinished();
+		}
+
+		if (Input.Down(InputActions.BREAK))
+		{
+			OnVideoFinished();
+		}
+	}
+
+	private void OnVideoLoaded()
+	{
+		video.Muted = false;
+		video.Repeat = false;
+		video.Resume();
+
+		VideoPanel.Texture = video.Texture;
+		//VideoPanel.Style.Width = Length.Pixels(video.Width);
+		//VideoPanel.Style.Height = Length.Pixels(video.Height);
+		VideoPanel.Focus();
+	}
+
+	private void OnVideoFinished()
+	{
+		video.Stop();
+		OnIntroComplete?.Invoke(this);
+		Destroy();
+	}
+}

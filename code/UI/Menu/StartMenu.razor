@@ -10,6 +10,8 @@
 </root>
 
 @code {
+	[Property] public SoundEvent BackgroundMusic { get; set; }
+
 	void OnClickDevStart()
 	{
 		// Load race testing env
@@ -25,9 +27,18 @@
 			new(playerPrefab, "Player", 4)
 		};
 
+		Music.Stop();
 		RaceInformation info = new(testDefinition, participants, true);
+	}
 
-		this.Panel.FindRootPanel().Delete();
-		Scene.Destroy();
+	protected override void OnEnabled()
+	{
+		base.OnEnabled();
+		IntroPlayer.OnIntroComplete += PlayMusic;
+	}
+
+	private void PlayMusic(IntroPlayer _)
+	{
+		Music.Play(BackgroundMusic);
 	}
 }

@@ -32,6 +32,7 @@ public sealed partial class VehicleController : Component
 	{
 		float dt = Time.Delta;
 		Rotation rotation = Body.Rotation;
+		float scale = Transform.Scale.z;
 
 		//Tilting is the forward and backward tilt caused by acceleration or decelleration of the vehicle
 		float targetTilt = 0;
@@ -125,16 +126,13 @@ public sealed partial class VehicleController : Component
 			// This appears to be how much we turn when are wheels are on the ground, as in how fast we can turn which is controlled by the sign of our local velocitys x speed multiplied by the turn sped and 
 			// Calculate turn factor takes in our turn direction and the absolute value of our velocity this basically all effects how fast we can turn
 			var turnSpeed = TurnSpeed;
-			float turnAmount = 0;
+			float turnAmount = 0.0f;
 			if ( turningWheelsOnGround )
 			{
-				turnAmount = MathF.Sign( localVelocity.x ) * turnSpeed * CalculateTurnFactor( turnDirection, MathF.Abs( localVelocity.x ) ) * dt;
+				turnAmount = MathF.Sign( localVelocity.x ) * turnSpeed * CalculateTurnFactor( turnDirection, MathF.Abs( localVelocity.x )) * dt;
 			}
 			Body.AngularVelocity += rotation * new Vector3( 0, 0, turnAmount );
-			if(Body.AngularVelocity.z > 1f)
-			{
-				//Log.Info( Body.AngularVelocity );
-			}
+
 
 			airRoll = 0;
 			airTilt = 0;
@@ -164,52 +162,49 @@ public sealed partial class VehicleController : Component
 		{
 			var s = Transform.Position + (rotation * Transform.Position);
 			var tr = Scene.Trace.Ray( s, s + rotation.Down * 50 )
-				//.Ignore( this ) TODO: FIXME
+				.IgnoreGameObject( GameObject )
 				.Run();
 
 			canAirControl = !tr.Hit;
 		}
 
-		// TODO: AIR CONTROL
 
-		/*
 		if ( canAirControl && (airRoll != 0 || airTilt != 0) )
 		{
 			float offset = 50;
-			var s = selfBody.Position + (rotation * selfBody.LocalMassCenter) + (rotation.Right * airRoll * offset) + (rotation.Down * (10 * Scale));
-			var st = selfBody.MassCenter;
-			var tr = Trace.Ray( st, st + rotation.Right * airRoll * (40 * Scale) )
-				.Ignore( this )
+			var s = Body.Position + (rotation * Body.LocalMassCenter) + (rotation.Right * airRoll * offset) + (rotation.Down * (10 * scale));
+			var st = Body.MassCenter;
+			var tr = Scene.Trace.Ray( st, st + rotation.Right * airRoll * (40 * scale) )
+				.IgnoreGameObject( GameObject )
 				.Run();
 
-			var tr2 = Scene.Trace.Ray( s, s + rotation.Up * (60 * Scale) )
-				.Ignore( this )
+			var tr2 = Scene.Trace.Ray( s, s + rotation.Up * (60 * scale) )
+				.IgnoreGameObject( GameObject )
 				.Run();
 
 
 			bool dampen = false;
 
-			if ( CurrentInput.roll.Clamp( -1, 1 ) != 0 )
+			if ( airRoll.Clamp( -1, 1 ) != 0 )
 			{
 				var force = (tr.Hit || tr2.Hit) ? 1600.0f : 100.0f;
-				var roll = (tr.Hit || tr2.Hit) ? CurrentInput.roll.Clamp( -1, 1 ) : airRoll;
-				body.ApplyForceAt( selfBody.MassCenter + rotation.Left * (offset * roll), (rotation.Down * roll) * (roll * (body.Mass * force)) );
+				var roll = (tr.Hit || tr2.Hit) ? airRoll.Clamp( -1, 1 ) : airRoll;
+				Body.ApplyForceAt( Body.MassCenter + rotation.Left * (offset * roll), (rotation.Down * roll) * (roll * (Body.Mass * force)) );
 
 				dampen = true;
 			}
 
-			if ( !tr.Hit && CurrentInput.tilt.Clamp( -1, 1 ) != 0 )
+			if ( !tr.Hit && airTilt.Clamp( -1, 1 ) != 0 )
 			{
 				var force = 200.0f;
-				body.ApplyForceAt( selfBody.MassCenter + rotation.Forward * (offset * airTilt), (rotation.Down * airTilt) * (airTilt * (body.Mass * force)) );
+				Body.ApplyForceAt( Body.MassCenter + rotation.Forward * (offset * airTilt), (rotation.Down * airTilt) * (airTilt * (Body.Mass * force)) );
 
 				dampen = true;
 			}
 
 			if ( dampen )
-				body.AngularVelocity = VelocityDamping( body.AngularVelocity, rotation, 0.95f, dt );
+				Body.AngularVelocity = VelocityDamping( Body.AngularVelocity, rotation, 0.95f, dt );
 		}
-		*/
 
 		localVelocity = rotation.Inverse * Body.Velocity;
 		Speed = localVelocity.x;
@@ -217,14 +212,13 @@ public sealed partial class VehicleController : Component
 
 	private static float CalculateTurnFactor( float direction, float speed )
 	{
-		const float TURN_MAGIC = 450.0f;
-		const float YAW_MAGIC = 900.0f;
+		const float TURN_MAGIC = 500.0f;
+		const float YAW_MAGIC = 1000.0f;
 
 		var turnFactor = MathF.Min( speed / TURN_MAGIC, 1 );
 		var yawSpeedFactor = 1.0f - (speed / YAW_MAGIC).Clamp( 0, 0.6f );
 
-		float result = direction * turnFactor * yawSpeedFactor;
-		return result;
+		return direction * turnFactor * yawSpeedFactor;
 	}
 
 	/// <summary>

@@ -24,7 +24,21 @@
           "Components": [
             {
               "__type": "StartMenu",
-              "__enabled": true
+              "__enabled": true,
+              "BackgroundMusic": "sounds/music/menu_theme.sound"
+            }
+          ]
+        },
+        {
+          "Id": "e3250a13-1443-494b-8040-d4a3b812671d",
+          "Name": "IntroPlayer",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "IntroPlayer",
+              "__enabled": true,
+              "VideoFile": "data/intro1.mp4"
             }
           ]
         }
@@ -33,7 +47,7 @@
     {
       "Id": "e4d2acc9-e84d-4573-a4f0-bb561ca2847c",
       "Name": "Camera",
-      "Position": "149.9949,149.995,-212.125",
+      "Position": "128,149.995,-212.125",
       "Tags": "maincamera",
       "Enabled": true,
       "Components": [
