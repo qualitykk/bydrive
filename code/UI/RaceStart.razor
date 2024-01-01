@@ -1,0 +1,37 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Redrome
+
+@if(!ShowCountdown())
+{
+	return;
+}
+
+<root>
+	<div class="title">@GetCountdown()</div>
+</root>
+
+@code
+{
+	const float DEFAULT_START_TEXT_FADE = 2f;
+	const float DEFAULT_COUNTDOWN_TIME = 3f;
+
+	[Property] public float StartTextFade { get; set; } = DEFAULT_START_TEXT_FADE;
+	[Property] public float CountdownTime { get; set; } = DEFAULT_COUNTDOWN_TIME;
+
+	public bool ShowCountdown()
+	{
+		return Race != null && Race.HasLoaded && Race.TimeUntilRaceStart.Relative > -StartTextFade;
+	}
+
+	private string GetCountdown()
+	{
+		float countdown = Race.TimeUntilRaceStart.Relative;
+
+		if (countdown > CountdownTime) return "";
+		else if (countdown > 0) return $"{MathF.Ceiling(countdown)}";
+		else return "GO!";
+	}
+	protected override int BuildHash() => System.HashCode.Combine( Race?.HasStarted, Race?.TimeUntilRaceStart.Relative );
+}

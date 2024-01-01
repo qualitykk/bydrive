@@ -10,9 +10,15 @@
         {
           "__type": "DirectionalLight",
           "__enabled": true,
-          "LightColor": "0.91373,0.98039,1,1",
+          "LightColor": "0.95545,0.88469,0.63381,1",
           "Shadows": true,
-          "SkyColor": "0.05882,0.07451,0.08235,1"
+          "SkyColor": "0.21821,0.42262,0.52475,1"
+        },
+        {
+          "__type": "SkyBox2D",
+          "__enabled": true,
+          "SkyMaterial": "materials/skybox/light_test_sky_sunny02.vmat",
+          "Tint": "1,1,1,1"
         }
       ]
     },
@@ -471,6 +477,20 @@
                 {
                   "__type": "LapCompletion",
                   "__enabled": true
+                }
+              ]
+            },
+            {
+              "Id": "44008a4c-ca76-4184-a2f0-e0252b3d0be8",
+              "Name": "Start Countdown",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "RaceStart",
+                  "__enabled": true,
+                  "CountdownTime": 3,
+                  "StartTextFade": 2
                 }
               ]
             }
