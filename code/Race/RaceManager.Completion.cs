@@ -8,8 +8,11 @@ namespace Redrome;
 
 public partial class RaceManager
 {
+	public IReadOnlyList<RaceParticipant> FinishedParticipants => finishedParticipants;
+
 	private Dictionary<RaceParticipant, float> participantLapCompletion = new();
 	private Dictionary<RaceParticipant, int> participantLapCount = new();
+	private List<RaceParticipant> finishedParticipants = new();
 	public float GetRaceCompletion( RaceParticipant participant )
 	{
 		if ( !participantLapCompletion.TryGetValue( participant, out float completion ) )
@@ -24,6 +27,11 @@ public partial class RaceManager
 
 		return completion + laps;
 	}
+	public bool IsFinished(RaceParticipant participant)
+	{
+		return GetRaceCompletion( participant ) >= MaxLaps;
+	}
+
 	public void InitialiseLapProgress(List<RaceParticipant> participants)
 	{
 		const int STARTING_LAP = -1;
@@ -38,6 +46,7 @@ public partial class RaceManager
 	{
 		participantLapCompletion.Clear();
 		participantLapCount.Clear();
+		finishedParticipants.Clear();
 	}
 
 	public void UpdateCompletion( RaceParticipant participant )
@@ -51,6 +60,13 @@ public partial class RaceManager
 
 		float lapCompletion = (float)order / (maxCheckpointOrder + 1);
 		participantLapCompletion[participant] = lapCompletion;
+
+		if ( IsFinished( participant ) && !finishedParticipants.Contains(participant) )
+		{
+			participant.OnFinished();
+			ParticipantFinished( participant );
+			finishedParticipants.Add( participant );
+		}
 	}
 
 	private void CheckLapCount( RaceParticipant participant, RaceCheckpoint checkpoint )
@@ -59,5 +75,10 @@ public partial class RaceManager
 		{
 			participantLapCount[participant]++;
 		}
+	}
+
+	private void ParticipantFinished(RaceParticipant participant )
+	{
+		Music.Play( WinMusic );
 	}
 }

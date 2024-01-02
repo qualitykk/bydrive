@@ -1,0 +1,49 @@
+RaceResults {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #46464677;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	flex-direction: column;
+
+	.title {
+		font-size: 64px;
+		font-family: Poppins;
+		color: #fff;
+		margin: 25px;
+	}
+
+	.list {
+		height: 70%;
+		margin-top: 30px;
+		flex-direction: column;
+
+		.racer {
+			background-color: #9fab9f55;
+			width: 500px;
+			height: 8%;
+			font-family: Calibri;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 20px;
+
+			.placement {
+				width: 10%;
+				text-align: center;
+				justify-content: center;
+				color: #efe;
+				font-size: 64px;
+			}
+
+			.name {
+				width: 90%;
+				color: #fe6;
+				font-size: 48px;
+			}
+		}
+	}
+}

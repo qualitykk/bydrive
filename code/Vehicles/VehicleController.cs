@@ -13,6 +13,7 @@ public sealed partial class VehicleController : Component
 	#endregion
 	[Property] public bool PlayerControlled { get; set; } = false;	
 	[Property, Title("Physics Body")] public Rigidbody Rigidbody { get; set; }
+	[Property, Title("Participant Information")] public RaceParticipant Participant { get; set; }
 	public PhysicsBody Body => Rigidbody?.PhysicsBody;
 	public float Speed { get; set; }
 	protected override void OnUpdate()
@@ -48,7 +49,7 @@ public sealed partial class VehicleController : Component
 		airRoll = airRoll.LerpTo( rollInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.0001f, dt ) );
 		airTilt = airTilt.LerpTo( tiltInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.0001f, dt ) );
 
-		Vector3 localVelocity = Transform.World.PointToLocal(Body.Velocity);
+		Vector3 localVelocity = Body.Velocity;
 
 		//If all four wheels are touching the ground
 		bool fullyGrounded = drivingWheelsOnGround && turningWheelsOnGround;
@@ -100,7 +101,9 @@ public sealed partial class VehicleController : Component
 
 
 			//The speed factor decreases the amount of acceleration we have depending on how fast we're currently going
-			var speedFactor = (1.0f - MathF.Pow( (forwardSpeed / 2200.0f), 3.5f )).Clamp( 0.0f, 1.0f );
+			float speedFactor = 1.0f - MathF.Pow( forwardSpeed / MaxSpeed, 3.5f );
+			speedFactor = speedFactor.Clamp( 0.0f, 1.0f );
+
 			//Calculate our acceleration based on our input..
 			float acceleration = speedFactor * (accelerateDirection < 0.0f ? Acceleration * 0.8f : Acceleration * fac) * accelerateDirection * dt;
 			//Use this to then get the impulse and apply it to our body's velocity
@@ -144,8 +147,7 @@ public sealed partial class VehicleController : Component
 
 			// Get the forward speed then a value representing how close to the 'top speed' we are from 0-1
 			var forwardSpeed = MathF.Abs( localVelocity.x );
-			var speedFactor = (forwardSpeed / MaxSpeed).Clamp( 0.0f, 1.0f );
-
+			float speedFactor = (forwardSpeed / MaxSpeed).Clamp( 0.0f, 1.0f );
 
 			// If we are moving gast enough, we basically make it so our grip is a lot less the closer our velocity 
 			var fac = 0.0f;
@@ -213,11 +215,10 @@ public sealed partial class VehicleController : Component
 	private static float CalculateTurnFactor( float direction, float speed )
 	{
 		const float TURN_MAGIC = 500.0f;
-		const float YAW_MAGIC = 1000.0f;
+		const float YAW_MAGIC = 1200.0f;
 
 		var turnFactor = MathF.Min( speed / TURN_MAGIC, 1 );
 		var yawSpeedFactor = 1.0f - (speed / YAW_MAGIC).Clamp( 0, 0.6f );
-
 		return direction * turnFactor * yawSpeedFactor;
 	}
 

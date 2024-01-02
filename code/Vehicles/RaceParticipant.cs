@@ -56,9 +56,14 @@ public class RaceParticipant : Component
 
 		return NextCheckpoints.Any() && NextCheckpoints.Contains(checkpoint);
 	}
+	internal void OnFinished()
+	{
+		// Do we want to do something here?
+	}
 
 	protected override void DrawGizmos()
 	{
 		base.DrawGizmos();
 	}
+
 }

@@ -14,18 +14,36 @@ public partial class VehicleController
 		if ( !CanDrive() ) return;
 
 		// Bots have no business trying to listen for input
-		if ( !PlayerControlled ) return;
+		if ( !CanPlayerControl() )
+		{
+			throttleInput = 0.0f;
+			turnInput = 0.0f;
+			breakInput = 0.0f;
 
-		throttleInput = (Input.Down( InputActions.FORWARD ) ? 1 : 0) + (Input.Down( InputActions.BACK ) ? -1 : 0);
-		turnInput = (Input.Down( InputActions.LEFT ) ? 1 : 0) + (Input.Down( InputActions.RIGHT ) ? -1 : 0);
-		breakInput = (Input.Down( InputActions.BREAK ) ? 1 : 0);
+			tiltInput = 0.0f;
+			rollInput = 0.0f;
+		}
+		else
+		{
+			throttleInput = (Input.Down( InputActions.FORWARD ) ? 1 : 0) + (Input.Down( InputActions.BACK ) ? -1 : 0);
+			turnInput = (Input.Down( InputActions.LEFT ) ? 1 : 0) + (Input.Down( InputActions.RIGHT ) ? -1 : 0);
+			breakInput = (Input.Down( InputActions.BREAK ) ? 1 : 0);
 
-		tiltInput = (Input.Down( InputActions.BOOST ) ? 1 : 0) + (Input.Down( InputActions.PITCH_DOWN ) ? -1 : 0);
-		rollInput = (Input.Down( InputActions.LEFT ) ? 1 : 0) + (Input.Down( InputActions.RIGHT ) ? -1 : 0);
+			tiltInput = (Input.Down( InputActions.BOOST ) ? 1 : 0) + (Input.Down( InputActions.PITCH_DOWN ) ? -1 : 0);
+			rollInput = (Input.Down( InputActions.LEFT ) ? 1 : 0) + (Input.Down( InputActions.RIGHT ) ? -1 : 0);
+		}
 	}
 
 	public bool CanDrive()
 	{
 		return Race == null || Race.HasStarted;
+	}
+
+	public bool CanPlayerControl()
+	{
+		if ( !PlayerControlled )
+			return false;
+
+		return !Race.IsFinished( Participant );
 	}
 }

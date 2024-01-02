@@ -13,6 +13,7 @@
         "Camera": "7ca13427-e8f6-4bd0-8215-8d51ecd9b12f",
         "MaxFieldOfView": 120,
         "MaxSpeed": 900,
+        "Participant": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
         "PlayerControlled": true,
         "Rigidbody": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
         "TurnSpeed": 60

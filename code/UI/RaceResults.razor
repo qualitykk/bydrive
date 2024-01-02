@@ -1,0 +1,35 @@
+@using Sandbox.UI;
+@using System.Collections.Generic;
+@inherits PanelComponent
+@namespace Redrome
+
+@if (!ShouldDraw())
+	return;
+
+<root>
+	<div class="title">Results</div>
+	<div class="list">
+		@for (int i = 0; i < GetPlacements().Count; i++)
+		{
+			<div class="racer">
+				<div class="placement">@(i+1)</div>
+				<div class="name">@GetPlacements()[i].DisplayName</div>
+			</div>
+		}
+	</div>
+	
+</root>
+
+@code
+{
+	private bool ShouldDraw()
+	{
+		return Race != null && Race.IsFinished(GetLocalVehicle()?.Participant);
+	}
+
+	private IReadOnlyList<RaceParticipant> GetPlacements()
+	{
+		//return Race.Participants
+		return Race.FinishedParticipants;
+	}
+}

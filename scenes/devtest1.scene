@@ -45,9 +45,11 @@
         {
           "__type": "RaceManager",
           "__enabled": true,
+          "LoseMusic": null,
           "MaxLaps": 3,
           "RaceMusic": "sounds/music/race_devtrack.sound",
-          "StartCheckpoint": "b8d5b8b7-1da4-4b2c-b487-c7abab2378ab"
+          "StartCheckpoint": "b8d5b8b7-1da4-4b2c-b487-c7abab2378ab",
+          "WinMusic": "sounds/music/menu_race_win.sound"
         }
       ]
     },
@@ -491,6 +493,18 @@
                   "__enabled": true,
                   "CountdownTime": 3,
                   "StartTextFade": 2
+                }
+              ]
+            },
+            {
+              "Id": "4b10062e-3b34-4d85-8c2a-ca568388c2a5",
+              "Name": "Results",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "RaceResults",
+                  "__enabled": true
                 }
               ]
             }
