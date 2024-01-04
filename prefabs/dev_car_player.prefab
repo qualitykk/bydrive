@@ -194,6 +194,70 @@
             "ZNear": 10
           }
         ]
+      },
+      {
+        "Id": "745ebc82-7cd8-4c99-9b50-c6ebbe2f5d8b",
+        "Name": "UI",
+        "Position": "0,0,651.6465",
+        "Enabled": true,
+        "Children": [
+          {
+            "Id": "9b2d255b-3c2a-4518-be12-febced8642de",
+            "Name": "Screen",
+            "Position": "0,0,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "ScreenPanel",
+                "__enabled": true,
+                "AutoScreenScale": true,
+                "Opacity": 1,
+                "Scale": 1,
+                "ZIndex": 100
+              }
+            ],
+            "Children": [
+              {
+                "Id": "4117b157-de27-4013-bf72-16ac7efbd6ef",
+                "Name": "Lap Completion",
+                "Position": "0,0,0",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "LapCompletion",
+                    "__enabled": true
+                  }
+                ]
+              },
+              {
+                "Id": "639840cb-6fd0-4364-8da2-a31fe3671e98",
+                "Name": "Start Countdown",
+                "Position": "0,0,0",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "RaceStart",
+                    "__enabled": true,
+                    "CountdownTime": 3,
+                    "StartTextFade": 2
+                  }
+                ]
+              },
+              {
+                "Id": "12b21158-5183-4fdf-a9b4-f578736d703d",
+                "Name": "Results",
+                "Position": "0,0,0",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "RaceResults",
+                    "__enabled": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       }
     ]
   },

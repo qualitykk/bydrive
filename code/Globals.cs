@@ -1,9 +1,9 @@
 ﻿global using System;
 global using Sandbox;
-global using static Redrome.Globals;
+global using static Bydrive.Globals;
 using System.Linq;
 
-namespace Redrome;
+namespace Bydrive;
 internal static class Globals
 {
 	private static Scene lastScene;

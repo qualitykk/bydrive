@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Redrome;
+namespace Bydrive;
 
 [GameResource("Race Definition", "race", "Stores information about a specific race")]
-[Icon("flag")]
+[Icon("timer")]
 /// <summary>
 /// Information about the current race
 /// </summary>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Redrome;
+namespace Bydrive;
 
 public class RaceCheckpoint : Component, Component.ITriggerListener
 {
@@ -12,7 +12,7 @@ public class RaceCheckpoint : Component, Component.ITriggerListener
 	/// <summary>
 	/// Do you HAVE to pass this checkpoint before passing onto the next key checkpoint? Prevents unintended shortcuts.
 	/// </summary>
-	[Property( "Is Key Checkpoint" )] public bool IsRequired { get; set; } = true;
+	[Property] public bool IsRequired { get; set; } = true;
 	public void OnTriggerEnter( Collider other )
 	{
 		if ( !other.Components.TryGet( out RaceParticipant completion, FindMode.Enabled | FindMode.InParent | FindMode.InSelf ) )
