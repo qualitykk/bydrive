@@ -3,47 +3,31 @@ namespace Bydrive;
 
 public partial class VehicleController
 {
-	private float throttleInput;
-	private float turnInput;
-	private float breakInput;
+	public float ThrottleInput;
+	public float TurnInput;
+	public float BreakInput;
 
-	private float tiltInput;
-	private float rollInput;
-	public void BuildInput()
+	public float TiltInput;
+	public float RollInput;
+	public void VerifyInput()
 	{
-		if ( !CanDrive() ) return;
-
-		// Bots have no business trying to listen for input
-		if ( !CanPlayerControl() )
+		if ( !CanDrive() )
 		{
-			throttleInput = 0.0f;
-			turnInput = 0.0f;
-			breakInput = 0.0f;
-
-			tiltInput = 0.0f;
-			rollInput = 0.0f;
+			
 		}
-		else
-		{
-			throttleInput = (Input.Down( InputActions.FORWARD ) ? 1 : 0) + (Input.Down( InputActions.BACK ) ? -1 : 0);
-			turnInput = (Input.Down( InputActions.LEFT ) ? 1 : 0) + (Input.Down( InputActions.RIGHT ) ? -1 : 0);
-			breakInput = (Input.Down( InputActions.BREAK ) ? 1 : 0);
+	}
 
-			tiltInput = (Input.Down( InputActions.BOOST ) ? 1 : 0) + (Input.Down( InputActions.PITCH_DOWN ) ? -1 : 0);
-			rollInput = (Input.Down( InputActions.LEFT ) ? 1 : 0) + (Input.Down( InputActions.RIGHT ) ? -1 : 0);
-		}
+	public void ResetInput()
+	{
+		ThrottleInput = 0.0f;
+		TurnInput = 0.0f;
+		BreakInput = 0.0f;
+		TiltInput = 0.0f;
+		RollInput = 0.0f;
 	}
 
 	public bool CanDrive()
 	{
 		return Race == null || Race.HasStarted;
-	}
-
-	public bool CanPlayerControl()
-	{
-		if ( !PlayerControlled )
-			return false;
-
-		return !Race.IsFinished( Participant );
 	}
 }

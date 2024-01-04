@@ -1,7 +1,7 @@
 using Sandbox;
-using static Sandbox.Component;
 
 namespace Bydrive;
+[Icon( "electric_car" )]
 public sealed partial class VehicleController : Component
 {
 	#region Stats
@@ -11,18 +11,14 @@ public sealed partial class VehicleController : Component
 	[Property, Category( "Stats" )] public float BreakSpeed { get; set; } = 384f;
 	[Property, Category( "Stats" )] public float TurnSpeed { get; set; } = 90f;
 	#endregion
-	[Property] public bool PlayerControlled { get; set; } = false;	
 	[Property, Title("Physics Body")] public Rigidbody Rigidbody { get; set; }
-	[Property, Title("Participant Information")] public RaceParticipant Participant { get; set; }
 	public PhysicsBody Body => Rigidbody?.PhysicsBody;
 	public float Speed { get; set; }
 	protected override void OnUpdate()
 	{
-		// For now, just use modified PlayerController code
-		BuildInput();
+		VerifyInput();
 		Move();
 		UpdateCamera();
-		
 	}
 
 	private float turnDirection;
@@ -41,13 +37,13 @@ public sealed partial class VehicleController : Component
 		float targetLean = 0;
 
 		//Acceleration direction here appears to simply refer to the input, and therefore the speed.
-		accelerateDirection = throttleInput.Clamp( -1, 1 );
+		accelerateDirection = ThrottleInput.Clamp( -1, 1 );
 
-		turnDirection = turnDirection.LerpTo( turnInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.001f, dt ) );
+		turnDirection = turnDirection.LerpTo( TurnInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.001f, dt ) );
 
 		//Same as above, but for the roll and tilt inpuuts, slower than turning.
-		airRoll = airRoll.LerpTo( rollInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.0001f, dt ) );
-		airTilt = airTilt.LerpTo( tiltInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.0001f, dt ) );
+		airRoll = airRoll.LerpTo( RollInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.0001f, dt ) );
+		airTilt = airTilt.LerpTo( TiltInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.0001f, dt ) );
 
 		Vector3 localVelocity = Body.Velocity;
 
@@ -142,7 +138,7 @@ public sealed partial class VehicleController : Component
 
 			// Forward grip, gets lerped between 0.1 and 0.9 based on whether or not we are breaking
 			var forwardGrip = 0.1f;
-			forwardGrip = forwardGrip.LerpTo( 0.9f, breakInput );
+			forwardGrip = forwardGrip.LerpTo( 0.9f, BreakInput );
 
 
 			// Get the forward speed then a value representing how close to the 'top speed' we are from 0-1

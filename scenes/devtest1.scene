@@ -57,8 +57,60 @@
       ]
     },
     {
+      "Id": "1105b86b-be6a-4797-9e00-aeb628b2e2d4",
+      "Name": "StartPos 4",
+      "Position": "-1152,-128,96",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "RaceStartingPosition",
+          "__enabled": true,
+          "Placement": 4
+        }
+      ]
+    },
+    {
+      "Id": "3b9dcdbd-5741-488f-94e4-77d9cdb10fdd",
+      "Name": "StartPos 3",
+      "Position": "-1024,128,96",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "RaceStartingPosition",
+          "__enabled": true,
+          "Placement": 3
+        }
+      ]
+    },
+    {
+      "Id": "d778d707-28eb-42cf-8521-594af909a44d",
+      "Name": "StartPos 2",
+      "Position": "-764.5012,-128,96",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "RaceStartingPosition",
+          "__enabled": true,
+          "Placement": 2
+        }
+      ]
+    },
+    {
+      "Id": "85aaeb53-f7d8-4c30-b0a9-a3a1b5a4dc5f",
+      "Name": "StartPos 1",
+      "Position": "-640,128,96",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "RaceStartingPosition",
+          "__enabled": true,
+          "Placement": 1
+        }
+      ]
+    },
+    {
       "Id": "03f52316-255f-4456-900c-4bc32c94a28b",
-      "Name": "Track",
+      "Name": "Checkpoints",
       "Position": "-422.8524,-50.05746,11.49467",
       "Enabled": true,
       "Children": [
@@ -83,14 +135,15 @@
               "IsRequired": true,
               "NextCheckpoints": [
                 "e8fc2c91-dd1c-4be3-ae50-fa7146412775"
-              ]
+              ],
+              "RespawnPosition": "0,0,0"
             }
           ]
         },
         {
           "Id": "e8fc2c91-dd1c-4be3-ae50-fa7146412775",
           "Name": "1",
-          "Position": "899.251,450.8561,94.5657",
+          "Position": "899.251,450.8561,115.7782",
           "Rotation": "0.00000001879019,-0.0000000000000002600716,0.3152471,0.9490098",
           "Enabled": true,
           "Components": [
@@ -100,7 +153,8 @@
               "IsRequired": true,
               "NextCheckpoints": [
                 "17c7ac45-5de0-4e8c-9f64-eb562001b7be"
-              ]
+              ],
+              "RespawnPosition": "-0.00000000000003907985,-0.0000000000008260059,10"
             },
             {
               "__type": "BoxCollider",
@@ -126,7 +180,8 @@
               "IsRequired": true,
               "NextCheckpoints": [
                 "85e889b1-06d5-42b7-9261-3e72747dc2b2"
-              ]
+              ],
+              "RespawnPosition": "0,0,0"
             },
             {
               "__type": "BoxCollider",
@@ -153,7 +208,8 @@
               "NextCheckpoints": [
                 "93e89b90-faa6-4d68-baeb-2839005c0fb1",
                 "8bcfe959-a8bb-4223-807c-2a04b012b5ec"
-              ]
+              ],
+              "RespawnPosition": "0,0,0"
             },
             {
               "__type": "BoxCollider",
@@ -179,7 +235,8 @@
               "IsRequired": true,
               "NextCheckpoints": [
                 "9f8d21db-9d09-4af4-93d3-521db6898b8b"
-              ]
+              ],
+              "RespawnPosition": "0,0,0"
             },
             {
               "__type": "BoxCollider",
@@ -205,7 +262,8 @@
               "IsRequired": true,
               "NextCheckpoints": [
                 "e6eff863-cd41-4885-9b49-6a735f111c9c"
-              ]
+              ],
+              "RespawnPosition": "0,0,0"
             },
             {
               "__type": "BoxCollider",
@@ -231,7 +289,8 @@
               "IsRequired": false,
               "NextCheckpoints": [
                 "bbb00ab9-f092-45ee-8743-b4d858d36ca3"
-              ]
+              ],
+              "RespawnPosition": "0,0,0"
             },
             {
               "__type": "BoxCollider",
@@ -256,7 +315,8 @@
               "IsRequired": false,
               "NextCheckpoints": [
                 "a2241379-75e4-4c74-b664-fe3efea6aa61"
-              ]
+              ],
+              "RespawnPosition": "0,0,0"
             },
             {
               "__type": "BoxCollider",
@@ -282,7 +342,8 @@
               "IsRequired": false,
               "NextCheckpoints": [
                 "cf0f02d6-1530-478c-ad00-d401762e3ebd"
-              ]
+              ],
+              "RespawnPosition": "0,0,0"
             },
             {
               "__type": "BoxCollider",
@@ -307,7 +368,8 @@
               "IsRequired": true,
               "NextCheckpoints": [
                 "cf0f02d6-1530-478c-ad00-d401762e3ebd"
-              ]
+              ],
+              "RespawnPosition": "0,0,0"
             },
             {
               "__type": "BoxCollider",
@@ -333,7 +395,8 @@
               "IsRequired": true,
               "NextCheckpoints": [
                 "d54ce3ac-cd9c-4a9a-bfd8-bdbc55141047"
-              ]
+              ],
+              "RespawnPosition": "0,0,0"
             },
             {
               "__type": "BoxCollider",
@@ -359,7 +422,8 @@
               "IsRequired": true,
               "NextCheckpoints": [
                 "86153c29-8cf5-491e-b031-4d0ac40ed619"
-              ]
+              ],
+              "RespawnPosition": "0,0,0"
             },
             {
               "__type": "BoxCollider",
@@ -384,7 +448,8 @@
               "IsRequired": true,
               "NextCheckpoints": [
                 "b8d5b8b7-1da4-4b2c-b487-c7abab2378ab"
-              ]
+              ],
+              "RespawnPosition": "0,0,0"
             },
             {
               "__type": "BoxCollider",
@@ -396,58 +461,27 @@
               "Surface": null
             }
           ]
+        }
+      ]
+    },
+    {
+      "Id": "1d38f144-c806-45fe-8326-bbe13c89fcda",
+      "Name": "Respawn",
+      "Position": "0,2000,-200",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ParticipantRespawnZone",
+          "__enabled": true
         },
         {
-          "Id": "85aaeb53-f7d8-4c30-b0a9-a3a1b5a4dc5f",
-          "Name": "StartPos 1",
-          "Position": "-217.1476,178.0575,84.50533",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "RaceStartingPosition",
-              "__enabled": true,
-              "Placement": 1
-            }
-          ]
-        },
-        {
-          "Id": "d778d707-28eb-42cf-8521-594af909a44d",
-          "Name": "StartPos 2",
-          "Position": "-341.6488,-77.94254,84.50533",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "RaceStartingPosition",
-              "__enabled": true,
-              "Placement": 2
-            }
-          ]
-        },
-        {
-          "Id": "3b9dcdbd-5741-488f-94e4-77d9cdb10fdd",
-          "Name": "StartPos 3",
-          "Position": "-601.1476,178.0575,84.50533",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "RaceStartingPosition",
-              "__enabled": true,
-              "Placement": 3
-            }
-          ]
-        },
-        {
-          "Id": "1105b86b-be6a-4797-9e00-aeb628b2e2d4",
-          "Name": "StartPos 4",
-          "Position": "-729.1476,-77.94254,84.50533",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "RaceStartingPosition",
-              "__enabled": true,
-              "Placement": 4
-            }
-          ]
+          "__type": "BoxCollider",
+          "__enabled": true,
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "10000,10000,50",
+          "Static": false,
+          "Surface": null
         }
       ]
     }

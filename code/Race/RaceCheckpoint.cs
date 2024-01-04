@@ -8,7 +8,9 @@ namespace Bydrive;
 
 public class RaceCheckpoint : Component, Component.ITriggerListener
 {
+	const float DEFAULT_RESPAWN_POS_OFFSET = 10f;
 	[Property] public List<RaceCheckpoint> NextCheckpoints { get; set; }
+	[Property] public Transform RespawnTransform { get; set; } = new( new Vector3(0, 0, DEFAULT_RESPAWN_POS_OFFSET) );
 	/// <summary>
 	/// Do you HAVE to pass this checkpoint before passing onto the next key checkpoint? Prevents unintended shortcuts.
 	/// </summary>
@@ -28,17 +30,24 @@ public class RaceCheckpoint : Component, Component.ITriggerListener
 
 	}
 
+	public Transform GetWorldRespawn() => Transform.World.ToWorld( RespawnTransform );
 	protected override void DrawGizmos()
 	{
-		const float CHECKPOINT_RADIUS = 16f;
-		//if ( !Gizmo.IsSelected ) return;
+		const float CHECKPOINT_RADIUS = 6f;
+		const float RESPAWN_ROTATION_FORWARD = 32f;
 
 		Color pointColor = Color.Cyan;
-		float pointRadius = CHECKPOINT_RADIUS;
 		Color lineColor = Color.White;
+		float pointRadius = CHECKPOINT_RADIUS;
 
 		Gizmo.Draw.Color = pointColor;
 		Gizmo.Draw.SolidSphere( Vector3.Zero, pointRadius );
+
+		if(Gizmo.IsSelected)
+		{
+			Gizmo.Draw.LineSphere( RespawnTransform.Position, pointRadius );
+			Gizmo.Draw.Line( new Line( RespawnTransform.Position, RespawnTransform.Rotation.Forward, RESPAWN_ROTATION_FORWARD ) );
+		}
 
 		Gizmo.Draw.Color = lineColor;
 

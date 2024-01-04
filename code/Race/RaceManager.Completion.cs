@@ -15,6 +15,11 @@ public partial class RaceManager
 	private List<RaceParticipant> finishedParticipants = new();
 	public float GetRaceCompletion( RaceParticipant participant )
 	{
+		if ( !participant.IsValid() )
+		{
+			return 0f;
+		}
+
 		if ( !participantLapCompletion.TryGetValue( participant, out float completion ) )
 		{
 			return 0f;

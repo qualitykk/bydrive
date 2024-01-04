@@ -24,12 +24,17 @@
 {
 	private bool ShouldDraw()
 	{
-		return Race != null && Race.IsFinished(GetLocalVehicle()?.Participant);
+		return Race != null && Race.IsFinished(GetLocalParticipantInstance());
 	}
 
 	private IReadOnlyList<RaceParticipant> GetPlacements()
 	{
 		//return Race.Participants
 		return Race.FinishedParticipants;
+	}
+
+	public override int GetHashCode()
+	{
+		return HashCode.Combine(GetPlacements().Count);
 	}
 }

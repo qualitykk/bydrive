@@ -7,27 +7,30 @@ namespace Bydrive;
 internal static class Globals
 {
 	private static Scene lastScene;
-	private static VehicleController lastLocalVehicle;
+	private static VehiclePlayerInput lastLocalInput;
 	public static RaceManager Race => RaceManager.Current;
 	public static RaceInformation RaceContext => RaceInformation.Current;
-	public static VehicleController GetLocalVehicle()
+	public static VehiclePlayerInput GetLocalInput()
 	{
 		Scene currentScene = GameManager.ActiveScene;
-		if(currentScene == lastScene && lastLocalVehicle != null)
+		if ( currentScene == lastScene && lastLocalInput != null )
 		{
-			return lastLocalVehicle;
+			return lastLocalInput;
 		}
-		VehicleController vehicle = currentScene.GetAllComponents<VehicleController>().FirstOrDefault( p => IsLocallyOwned(p) && p.PlayerControlled );
+		VehiclePlayerInput input = currentScene.GetAllComponents<VehiclePlayerInput>().FirstOrDefault( input => input.IsLocalInput() );
 
 		lastScene = currentScene;
-		lastLocalVehicle = vehicle;
+		lastLocalInput = input;
 
-		return vehicle;
+		return input;
 	}
-
-	private static bool IsLocallyOwned(VehicleController controller)
+	public static VehicleController GetLocalVehicle()
 	{
-		return !controller.Network.Active || controller.Network.IsOwner;
+		return GetLocalInput()?.VehicleController;
+	}
+	public static RaceParticipant GetLocalParticipantInstance()
+	{
+		return GetLocalInput()?.ParticipantInstance;
 	}
 }
 
@@ -40,7 +43,9 @@ internal static class InputActions
 
 	public const string BOOST = "Run";
 	public const string BREAK = "Jump";
+	public const string RESPAWN = "Reload";
 
+	public const string PITCH_UP = "Run";
 	public const string PITCH_DOWN = "Crouch";
 }
 

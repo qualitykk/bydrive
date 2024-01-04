@@ -14,7 +14,6 @@
         "MaxFieldOfView": 120,
         "MaxSpeed": 900,
         "Participant": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
-        "PlayerControlled": true,
         "Rigidbody": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
         "TurnSpeed": 60
       },
@@ -51,6 +50,12 @@
         "Gravity": true,
         "LinearDamping": 0,
         "Locking": {}
+      },
+      {
+        "__type": "VehiclePlayerInput",
+        "__enabled": true,
+        "ParticipantInstance": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
+        "VehicleController": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2"
       }
     ],
     "Children": [

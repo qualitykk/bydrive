@@ -23,6 +23,6 @@ public class RaceStartingPosition : Component
 		Gizmo.Draw.Color = textColor;
 
 		int displayPlacement = Placement - FIRST_PLACE + 1;
-		Gizmo.Draw.Text( $"<<{displayPlacement}>>", Transform.World.WithPosition(Vector3.Up * TEXT_VERTICAL_OFFSET), size: TEXT_SIZE );
+		Gizmo.Draw.Text( $"<<{displayPlacement}>>", new(Vector3.Up * TEXT_VERTICAL_OFFSET), size: TEXT_SIZE );
 	}
 }

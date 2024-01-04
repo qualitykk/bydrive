@@ -29,13 +29,12 @@ public class RaceParticipant : Component
 			DisplayName = GenerateName();
 		}
 	}
-	int botNumber = 1;
-	private string GenerateName()
+	public void Respawn()
 	{
-		string name = $"Bot {botNumber}";
-		botNumber++;
-
-		return name;
+		if(LastCheckpoint != null)
+		{
+			Transform.World = LastCheckpoint.GetWorldRespawn();
+		}
 	}
 	public void PassCheckpoint(RaceCheckpoint checkpoint, bool forceLast = false)
 	{
@@ -63,7 +62,20 @@ public class RaceParticipant : Component
 
 	protected override void DrawGizmos()
 	{
-		base.DrawGizmos();
+		const float TEXT_OFFSET = 8f;
+		const float TEXT_SIZE = 14f;
+		Color textColor = Color.Green;
+
+		Gizmo.Draw.Color = textColor;
+		Gizmo.Draw.Text(DisplayName, new(Vector3.Up * TEXT_OFFSET), size: TEXT_SIZE);
 	}
 
+	int botNumber = 1;
+	private string GenerateName()
+	{
+		string name = $"Bot {botNumber}";
+		botNumber++;
+
+		return name;
+	}
 }
