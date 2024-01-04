@@ -1,8 +1,8 @@
 {
-  "Title": "Re:DROME",
+  "Title": "Bydrive",
   "Type": "game",
   "Org": "based",
-  "Ident": "redrome",
+  "Ident": "bydrive",
   "Tags": null,
   "Schema": 1,
   "HasAssets": true,
@@ -30,7 +30,7 @@
     "HttpAllowList": null,
     "TickRate": 50,
     "Compiler": {
-      "RootNamespace": "Redrome",
+      "RootNamespace": "Bydrive",
       "DefineConstants": "SANDBOX;ADDON;DEBUG",
       "NoWarn": "1701;1702;1591;",
       "WarningsAsErrors": "",
