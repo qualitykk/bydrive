@@ -13,6 +13,7 @@ These will be replaced later on in development.
 What am i using as placeholders? Pretty much just tracks from other games that I like.
 
 Tracklist:
-Main Menu Theme = [Lego Drome Racers - Main Menu](https://www.youtube.com/watch?v=YHCUS5ALVlo)
-Devtrack1 = [Super Mario Galaxy - Purple Coins](https://www.youtube.com/watch?v=5_7aWgFN0s8)
-Race Win = [Persona 3 - Victory](https://www.youtube.com/watch?v=-CpMIQdWe0I)
+
+- Main Menu Theme = [Lego Drome Racers - Main Menu](https://www.youtube.com/watch?v=YHCUS5ALVlo)
+- Devtrack1 = [Super Mario Galaxy - Purple Coins](https://www.youtube.com/watch?v=5_7aWgFN0s8)
+- Race Win = [Persona 3 - Victory](https://www.youtube.com/watch?v=-CpMIQdWe0I)
