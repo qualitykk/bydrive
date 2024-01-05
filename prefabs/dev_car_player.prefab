@@ -7,13 +7,12 @@
       {
         "__type": "VehicleController",
         "__enabled": true,
-        "Acceleration": 1524,
+        "Acceleration": 1500,
         "BaseFieldOfView": 90,
         "BreakSpeed": 384,
         "Camera": "7ca13427-e8f6-4bd0-8215-8d51ecd9b12f",
         "MaxFieldOfView": 120,
         "MaxSpeed": 900,
-        "Participant": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
         "Rigidbody": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
         "TurnSpeed": 60
       },
@@ -49,7 +48,8 @@
         "AngularDamping": 0,
         "Gravity": true,
         "LinearDamping": 0,
-        "Locking": {}
+        "Locking": {},
+        "StartAsleep": false
       },
       {
         "__type": "VehiclePlayerInput",

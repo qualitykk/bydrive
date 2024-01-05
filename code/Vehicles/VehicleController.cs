@@ -45,7 +45,8 @@ public sealed partial class VehicleController : Component
 		airRoll = airRoll.LerpTo( RollInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.0001f, dt ) );
 		airTilt = airTilt.LerpTo( TiltInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.0001f, dt ) );
 
-		Vector3 localVelocity = Body.Velocity;
+		Vector3 localVelocity = Transform.Local.VelocityToLocal(Body.Velocity);
+		float forwardSpeed = MathF.Abs(localVelocity.x);
 
 		//If all four wheels are touching the ground
 		bool fullyGrounded = drivingWheelsOnGround && turningWheelsOnGround;
@@ -53,10 +54,9 @@ public sealed partial class VehicleController : Component
 		//If the front and back wheels are on the ground
 		if ( wheelsOnGround )
 		{
-			//This is where the magic happens, forward speed is calculated as the absolute value of our forward velocity
-			var forwardSpeed = MathF.Abs( localVelocity.x );
-			//No fucking clue what this does other than get the minimum beteeen 1 and the speed divided by 100, don't know what its used for
-			var speedFraction = MathF.Min( forwardSpeed / 500.0f, 1 );
+			const float MAX_LEAN_SPEED = 500f;
+			// Check lean
+			var speedFraction = MathF.Min( forwardSpeed / MAX_LEAN_SPEED, 1 );
 
 			targetTilt = accelerateDirection.Clamp( -1.0f, 1.0f );
 			targetLean = speedFraction * turnDirection;
@@ -86,22 +86,20 @@ public sealed partial class VehicleController : Component
 		//Looks like we're using some good old fashioned two wheel drive, this seems where the main acceleration is calculated and applied
 		if ( drivingWheelsOnGround )
 		{
-			//Get our current forward speed
-			var forwardSpeed = MathF.Abs( localVelocity.x );
-
+			const float REVERSING_ACCELERATION_MULTIPLIER = 0.9f;
 			//Basically we're saying as the angle of the cars totaly velocity versus the angle of the cars forward direction approaches 90 degrees
 			//Give us a big boost to the speed of our forward acceleration in order to not loose all momentum when drifting. 
 			var fac = 1.0f;
 			float f = MathF.Pow( (1 - angle), 4f );
 			fac = fac.LerpTo( 10f, f );
 
-
 			//The speed factor decreases the amount of acceleration we have depending on how fast we're currently going
 			float speedFactor = 1.0f - MathF.Pow( forwardSpeed / MaxSpeed, 3.5f );
 			speedFactor = speedFactor.Clamp( 0.0f, 1.0f );
 
 			//Calculate our acceleration based on our input..
-			float acceleration = speedFactor * (accelerateDirection < 0.0f ? Acceleration * 0.8f : Acceleration * fac) * accelerateDirection * dt;
+			//Slow down acceleration if going backwards
+			float acceleration = speedFactor * (accelerateDirection < 0.0f ? Acceleration * REVERSING_ACCELERATION_MULTIPLIER : Acceleration * fac) * accelerateDirection * dt;
 			//Use this to then get the impulse and apply it to our body's velocity
 			var impulse = rotation * new Vector3( acceleration, 0, 0 );
 			Body.Velocity += impulse;
@@ -140,9 +138,7 @@ public sealed partial class VehicleController : Component
 			var forwardGrip = 0.1f;
 			forwardGrip = forwardGrip.LerpTo( 0.9f, BreakInput );
 
-
 			// Get the forward speed then a value representing how close to the 'top speed' we are from 0-1
-			var forwardSpeed = MathF.Abs( localVelocity.x );
 			float speedFactor = (forwardSpeed / MaxSpeed).Clamp( 0.0f, 1.0f );
 
 			// If we are moving gast enough, we basically make it so our grip is a lot less the closer our velocity 
@@ -154,7 +150,9 @@ public sealed partial class VehicleController : Component
 			}
 
 			// Velocity damping function, we pass the current velocity ,rotation, and a vector3 with our grip and forward grip 
-			Body.Velocity = VelocityDamping( Body.Velocity, rotation, new Vector3( forwardGrip, grip - fac, 0 ), dt );
+
+			Vector3 dampenedVelocity = VelocityDamping( Body.Velocity, rotation, new Vector3( forwardGrip, grip - fac, 0 ), dt ); ;
+			Body.Velocity = dampenedVelocity;
 		}
 		else
 		{
