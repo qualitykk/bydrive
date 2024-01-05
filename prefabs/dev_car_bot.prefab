@@ -9,14 +9,13 @@
         "__enabled": true,
         "Acceleration": 1024,
         "BaseFieldOfView": 90,
-        "BreakSpeed": 384,
         "Camera": "7ca13427-e8f6-4bd0-8215-8d51ecd9b12f",
         "MaxFieldOfView": 120,
         "MaxSpeed": 900,
-        "Participant": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
-        "PlayerControlled": false,
         "Rigidbody": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
-        "TurnSpeed": 25
+        "TurnSpeed": 25,
+        "TurnSpeedIdealDistance": 500,
+        "TurnSpeedVelocityFactor": 0.6
       },
       {
         "__type": "RaceParticipant",
@@ -42,7 +41,7 @@
         "MaterialOverride": null,
         "Model": "models/brokencar.vmdl",
         "RenderType": "On",
-        "Tint": "1,1,1,1"
+        "Tint": "0.65614,0.25248,1,1"
       },
       {
         "__type": "Rigidbody",
@@ -50,7 +49,8 @@
         "AngularDamping": 0,
         "Gravity": true,
         "LinearDamping": 0,
-        "Locking": {}
+        "Locking": {},
+        "StartAsleep": false
       }
     ],
     "Children": [

@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace Bydrive;
 
 [Icon( "rv_hookup" )]
-public class ParticipantRespawnZone : Component, Component.ITriggerListener
+[Alias("ParticipantRespawnZone")]
+public class RaceParticipantRespawnZone : Component, Component.ITriggerListener
 {
 	void ITriggerListener.OnTriggerEnter( Collider other )
 	{

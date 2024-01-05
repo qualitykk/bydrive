@@ -1,4 +1,5 @@
 {
+  "Id": "08ab4eab-c2e0-4cda-8386-fb830a30ebc4",
   "GameObjects": [
     {
       "Id": "ceabea2b-8b63-42af-b793-6c6b463470a0",
@@ -24,7 +25,10 @@
         {
           "__type": "MapInstance",
           "__enabled": true,
-          "MapName": "dev/preview_flat.vpk"
+          "MapName": "dev/preview_flat.vpk",
+          "OnMapLoaded": null,
+          "OnMapUnloaded": null,
+          "UseMapFromLaunch": false
         }
       ],
       "Children": []

@@ -3,9 +3,6 @@
 @inherits PanelComponent
 @namespace Bydrive
 
-@if (!ShouldDraw())
-	return;
-
 <root>
 	<div class="title">Results</div>
 	<div class="list">
@@ -22,6 +19,11 @@
 
 @code
 {
+	protected override void OnUpdate()
+	{
+		SetClass("visible", ShouldDraw());
+	}
+
 	private bool ShouldDraw()
 	{
 		return Race != null && Race.IsFinished(GetLocalParticipantInstance());
@@ -30,11 +32,11 @@
 	private IReadOnlyList<RaceParticipant> GetPlacements()
 	{
 		//return Race.Participants
-		return Race.FinishedParticipants;
+		return Race?.FinishedParticipants ?? new List<RaceParticipant>();
 	}
 
 	public override int GetHashCode()
 	{
-		return HashCode.Combine(GetPlacements().Count);
+		return HashCode.Combine(GetPlacements(), Race?.IsFinished(GetLocalParticipantInstance()));
 	}
 }

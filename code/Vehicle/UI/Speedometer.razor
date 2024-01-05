@@ -1,0 +1,10 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Bydrive
+@attribute [Icon("speed")]
+
+<root>
+	<label class="current">@($"{GetSpeedAmount():F0}")</label>
+	<label class="unit">@GetSpeedUnit()</label>
+</root>

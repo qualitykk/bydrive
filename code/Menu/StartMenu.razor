@@ -5,12 +5,24 @@
 @namespace Bydrive
 
 <root>
-	<div class="title">Project RE:Drome</div>
-	<div class="button" @onclick=@OnClickDevStart>Start Test Race</div>
+	<div class="title">Bydrive</div>
+	<div class="button singleplayer" @onclick=@OnClickSingleplayer>Singleplayer</div>
+	<div class="button multiplayer" @onclick=@OnClickMultiplayer>Multiplayer</div>
+	<div class="button dev" @onclick=@OnClickDevStart>Test Race</div>
 </root>
 
 @code {
 	[Property] public SoundEvent BackgroundMusic { get; set; }
+
+	void OnClickSingleplayer()
+	{
+		OnClickDevStart();
+	}
+
+	void OnClickMultiplayer()
+	{
+		
+	}
 
 	void OnClickDevStart()
 	{

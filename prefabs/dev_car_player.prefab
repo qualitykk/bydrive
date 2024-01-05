@@ -11,7 +11,7 @@
         "BaseFieldOfView": 90,
         "Camera": "7ca13427-e8f6-4bd0-8215-8d51ecd9b12f",
         "MaxFieldOfView": 120,
-        "MaxSpeed": 900,
+        "MaxSpeed": 1100,
         "Rigidbody": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
         "TurnSpeed": 60,
         "TurnSpeedIdealDistance": 500,
@@ -203,64 +203,68 @@
         ]
       },
       {
-        "Id": "745ebc82-7cd8-4c99-9b50-c6ebbe2f5d8b",
+        "Id": "9b2d255b-3c2a-4518-be12-febced8642de",
         "Name": "UI",
         "Position": "0,0,651.6465",
         "Enabled": true,
+        "Components": [
+          {
+            "__type": "ScreenPanel",
+            "__enabled": true,
+            "AutoScreenScale": true,
+            "Opacity": 1,
+            "Scale": 1,
+            "ZIndex": 100
+          }
+        ],
         "Children": [
           {
-            "Id": "9b2d255b-3c2a-4518-be12-febced8642de",
-            "Name": "Screen",
+            "Id": "4117b157-de27-4013-bf72-16ac7efbd6ef",
+            "Name": "Lap Completion",
             "Position": "0,0,0",
             "Enabled": true,
             "Components": [
               {
-                "__type": "ScreenPanel",
-                "__enabled": true,
-                "AutoScreenScale": true,
-                "Opacity": 1,
-                "Scale": 1,
-                "ZIndex": 100
+                "__type": "LapCompletion",
+                "__enabled": true
               }
-            ],
-            "Children": [
+            ]
+          },
+          {
+            "Id": "639840cb-6fd0-4364-8da2-a31fe3671e98",
+            "Name": "Start Countdown",
+            "Position": "0,0,0",
+            "Enabled": true,
+            "Components": [
               {
-                "Id": "4117b157-de27-4013-bf72-16ac7efbd6ef",
-                "Name": "Lap Completion",
-                "Position": "0,0,0",
-                "Enabled": true,
-                "Components": [
-                  {
-                    "__type": "LapCompletion",
-                    "__enabled": true
-                  }
-                ]
-              },
+                "__type": "RaceStart",
+                "__enabled": true,
+                "CountdownTime": 3,
+                "StartTextFade": 2
+              }
+            ]
+          },
+          {
+            "Id": "12b21158-5183-4fdf-a9b4-f578736d703d",
+            "Name": "Results",
+            "Position": "0,0,0",
+            "Enabled": true,
+            "Components": [
               {
-                "Id": "639840cb-6fd0-4364-8da2-a31fe3671e98",
-                "Name": "Start Countdown",
-                "Position": "0,0,0",
-                "Enabled": true,
-                "Components": [
-                  {
-                    "__type": "RaceStart",
-                    "__enabled": true,
-                    "CountdownTime": 3,
-                    "StartTextFade": 2
-                  }
-                ]
-              },
+                "__type": "RaceResults",
+                "__enabled": true
+              }
+            ]
+          },
+          {
+            "Id": "2f083e6a-e3c3-4a5f-b32b-e5fa3d1945c4",
+            "Name": "Speedometer",
+            "Position": "0,0,0",
+            "Enabled": true,
+            "Components": [
               {
-                "Id": "12b21158-5183-4fdf-a9b4-f578736d703d",
-                "Name": "Results",
-                "Position": "0,0,0",
-                "Enabled": true,
-                "Components": [
-                  {
-                    "__type": "RaceResults",
-                    "__enabled": true
-                  }
-                ]
+                "__type": "Speedometer",
+                "__enabled": true
               }
             ]
           }
