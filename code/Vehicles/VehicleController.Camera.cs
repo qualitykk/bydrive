@@ -16,9 +16,8 @@ public partial class VehicleController
 		if ( Camera == null || Body == null ) return;
 
 		float dt = Time.Delta;
-		Vector3 localVelocity = Transform.World.PointToLocal(Body.Velocity);
 
-		float speedFraction = localVelocity.Length / MaxSpeed;
+		float speedFraction = Speed / MaxSpeed;
 		float currentFov = Camera.FieldOfView;
 		float targetFov = speedFraction.Remap( 0, 1, BaseFieldOfView, MaxFieldOfView );
 
