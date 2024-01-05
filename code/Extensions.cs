@@ -13,3 +13,14 @@ internal static class TransformExtensions
 		return transform.PointToLocal( transform.Position + velocity );
 	}
 }
+
+internal static class NumberExtensions
+{
+	public static string FormatAsRaceTime(this float time)
+	{
+		var timeSpan = TimeSpan.FromSeconds( time );
+		return timeSpan.ToString( @"mm\:ss\:ff" );
+	}
+
+	public static string FormatAsRaceTime( this TimeSince time ) => FormatAsRaceTime( time.Relative );
+}

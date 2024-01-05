@@ -1,3 +1,5 @@
+@import "colors.scss";
+
 RaceResults {
 	display: none;
 	position: absolute;
@@ -40,14 +42,36 @@ RaceResults {
 				width: 10%;
 				text-align: center;
 				justify-content: center;
-				color: #efe;
+				color: #eeffee;
 				font-size: 64px;
+
+				&.first {
+					color: $placement_first;
+				}
+
+				&.second {
+					color: $placement_second;
+				}
+
+				&.third {
+					color: $placement_third;
+				}
+
+				&.last {
+					color: $placement_last;
+				}
 			}
 
 			.name {
-				width: 90%;
+				width: 60%;
 				color: #fe6;
 				font-size: 48px;
+			}
+
+			.time {
+				width: 30%;
+				color: #ffffff;
+				font-size: 32px;
 			}
 		}
 	}

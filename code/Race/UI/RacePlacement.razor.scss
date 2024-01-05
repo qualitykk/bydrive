@@ -1,9 +1,9 @@
 @import "colors.scss";
 
-Speedometer {
+RacePlacement {
 	position: absolute;
-	right: 15%;
-	bottom: 5%;
+	left: 15%;
+	top: 5%;
 	width: 10%;
 	height: 10%;
 	background-color: $background_dev;
@@ -17,15 +17,25 @@ Speedometer {
 	flex-direction: row;
 	border-radius: 5px;
 
-	.current {
+	.placement {
 		font-size: 40px;
-		width: 60%;
-		text-align: right;
+		width: 100%;
+		text-align: center;
 	}
 
-	.unit {
-		font-size: 25px;
-		width: 40%;
-		text-align: center;
+	.first {
+		color: $placement_first;
+	}
+
+	.second {
+		color: $placement_second;
+	}
+
+	.third {
+		color: $placement_third;
+	}
+
+	.last {
+		color: $placement_last;
 	}
 }

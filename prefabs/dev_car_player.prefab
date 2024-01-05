@@ -226,7 +226,8 @@
             "Components": [
               {
                 "__type": "LapCompletion",
-                "__enabled": true
+                "__enabled": true,
+                "DebugCheckpoints": false
               }
             ]
           },
@@ -264,6 +265,30 @@
             "Components": [
               {
                 "__type": "Speedometer",
+                "__enabled": true
+              }
+            ]
+          },
+          {
+            "Id": "795bfe0e-94ea-4d28-9a65-b3b230427d4d",
+            "Name": "Placement",
+            "Position": "0,0,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "RacePlacement",
+                "__enabled": true
+              }
+            ]
+          },
+          {
+            "Id": "52382ee0-572a-40d7-a761-ef464b763c8a",
+            "Name": "Timer",
+            "Position": "0,0,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "RaceTimer",
                 "__enabled": true
               }
             ]

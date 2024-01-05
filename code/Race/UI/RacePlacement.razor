@@ -1,0 +1,54 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+@if (Race == null)
+	return;
+
+<root>
+	<label class="placement @GetPlacementTag()">@GetPlacementText()</label>
+</root>
+
+@code
+{
+	public string GetPlacementText()
+	{
+		// TODO: Detect language and adjust format to match
+		return PlacementTextEnglish(GetPlacement());
+	}
+
+	public string GetPlacementTag()
+	{
+		int lastPlace = Race?.LastPlace ?? 1;
+		int lowerHalf = lastPlace - lastPlace / 2;
+
+		return GetPlacement() switch
+		{
+			1 => "first",
+			2 => "second",
+			3 => "third",
+			int p when p == lastPlace => "last",
+			int p when p > lowerHalf => "lower",
+			_ => "middle",
+		};
+	}
+
+	private string PlacementTextEnglish(int placement)
+	{
+		return placement.FormatWithSuffix();
+	}
+
+	private string PlacementTextGerman(int placement)
+	{
+		return $"{placement}.";
+	}
+
+	private int GetPlacement()
+	{
+		return Race?.GetParticipantPlacement(GetLocalParticipantInstance()) ?? 1;
+	}
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine( GetPlacement() );
+}

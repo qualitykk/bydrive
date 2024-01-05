@@ -1,0 +1,20 @@
+@import "colors.scss";
+
+RaceTimer {
+	position: absolute;
+	top: 16%;
+	left: 15%;
+	width: 10%;
+	height: 5%;
+	background-color: $background_dev;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	border-radius: 5px;
+
+	.total {
+		font-size: 25px;
+		font-family: Poppins;
+		color: #fff;
+	}
+}

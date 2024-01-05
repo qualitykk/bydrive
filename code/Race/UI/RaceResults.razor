@@ -6,12 +6,16 @@
 <root>
 	<div class="title">Results</div>
 	<div class="list">
-		@for (int i = 0; i < GetPlacements().Count; i++)
+		@if(results != null)
 		{
-			<div class="racer">
-				<div class="placement">@(i+1)</div>
-				<div class="name">@GetPlacements()[i].DisplayName</div>
-			</div>
+			@foreach (var result in results)
+			{
+				<div class="racer">
+					<label class="placement @GetPlacementTag(result.Placement)">@result.Placement</label>
+					<label class="name">@result.Participant.DisplayName</label>
+					<label class="time">@result.Time.FormatAsRaceTime()</label>
+				</div>
+			}
 		}
 	</div>
 	
@@ -19,9 +23,20 @@
 
 @code
 {
+	IEnumerable<RaceManager.ParticipantFinishInformation> results;
 	protected override void OnUpdate()
 	{
-		SetClass("visible", ShouldDraw());
+		bool draw = ShouldDraw();
+		if(draw)
+		{
+			results = GetPlacements();
+			AddClass("visible");
+			Panel.StateHasChanged();
+		}
+		else
+		{
+			SetClass("visible", false);
+		}
 	}
 
 	private bool ShouldDraw()
@@ -29,14 +44,32 @@
 		return Race != null && Race.IsFinished(GetLocalParticipantInstance());
 	}
 
-	private IReadOnlyList<RaceParticipant> GetPlacements()
+	private IReadOnlyList<RaceManager.ParticipantFinishInformation> GetPlacements()
 	{
 		//return Race.Participants
-		return Race?.FinishedParticipants ?? new List<RaceParticipant>();
+		return Race?.FinishedParticipants ?? default;
 	}
 
+	private string GetPlacementTag(int placement)
+	{
+		int lastPlace = Race?.LastPlace ?? 1;
+
+		return placement switch
+		{
+			1 => "first",
+			2 => "second",
+			3 => "third",
+			int p when p == lastPlace => "last",
+			_ => "middle",
+		};
+	}
+
+	
+
+	/*
 	public override int GetHashCode()
 	{
-		return HashCode.Combine(GetPlacements(), Race?.IsFinished(GetLocalParticipantInstance()));
+		return HashCode.Combine(GetPlacements(), ShouldDraw());
 	}
+	*/
 }

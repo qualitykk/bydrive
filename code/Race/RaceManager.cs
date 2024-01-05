@@ -11,7 +11,7 @@ namespace Bydrive;
 [Icon( "flag" )]
 public sealed partial class RaceManager : Component
 {
-	const int DEFAULT_MAX_LAPS = 3;
+	public const int DEFAULT_MAX_LAPS = 3;
 	public static RaceManager Current { get; private set; }
 	[Property] public int MaxLaps { get; set; } = DEFAULT_MAX_LAPS;
 	[Property] public RaceCheckpoint StartCheckpoint {get;set;}
@@ -20,6 +20,7 @@ public sealed partial class RaceManager : Component
 	[Property] public SoundEvent LoseMusic { get; set; }
 	public List<RaceParticipant> Participants { get; private set; } = new();
 	public TimeUntil TimeUntilRaceStart { get; private set; }
+	public TimeSince TimeSinceRaceStart { get; private set; }
 	public bool HasStarted { get; private set; } = false;
 	public bool HasLoaded { get; private set; } = false;
 	protected override void OnAwake()
@@ -43,6 +44,7 @@ public sealed partial class RaceManager : Component
 	private void StartRace()
 	{
 		HasStarted = true;
+		TimeSinceRaceStart = 0;
 		Music.Play( RaceMusic );
 	}
 
@@ -78,10 +80,7 @@ public sealed partial class RaceManager : Component
 			StartRace();
 		}
 
-		foreach(var participant in Participants)
-		{
-			UpdateCompletion( participant );
-		}
+		UpdateCompletion();
 	}
 
 	public void CheckpointPassed( RaceParticipant participant, RaceCheckpoint checkpoint )

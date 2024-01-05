@@ -19,9 +19,15 @@ public class RaceParticipant : Component
 	/// Bypass key checkpoint checks
 	/// </summary>
 	[Property] public bool BypassChecks { get; set; } = false;
+	public RaceCheckpoint LastKeyCheckpoint { get; private set; }
+	/// <summary>
+	/// Last checkpoint key or non-key checkpoint, used to determine standings in the race.
+	/// </summary>
 	public RaceCheckpoint LastCheckpoint { get; private set; }
-	List<RaceCheckpoint> NextCheckpoints { get; set; } = new();
-	public float GetCompletion() => Race?.GetRaceCompletion( this ) ?? 0f;
+	public List<RaceCheckpoint> NextKeyCheckpoints { get; private set; } = new();
+	public List<RaceCheckpoint> PreviousKeyCheckpoints { get; private set; } = new();
+	public float GetCompletion() => Race?.GetParticipantCompletion( this ) ?? 0f;
+	public int GetLap() => Race?.GetParticipantLap( this ) ?? 0;
 	protected override void OnAwake()
 	{
 		if(string.IsNullOrEmpty(DisplayName))
@@ -31,9 +37,9 @@ public class RaceParticipant : Component
 	}
 	public void Respawn()
 	{
-		if(LastCheckpoint != null)
+		if(LastKeyCheckpoint != null)
 		{
-			Transform.World = LastCheckpoint.GetWorldRespawn();
+			Transform.World = LastKeyCheckpoint.GetWorldRespawn();
 			if(Components.TryGet(out Rigidbody body))
 			{
 				body.Velocity = Vector3.Zero;
@@ -48,17 +54,68 @@ public class RaceParticipant : Component
 			return;
 		}
 
+		if(checkpoint.IsRequired)
+		{
+			LastKeyCheckpoint = checkpoint;
+			NextKeyCheckpoints = FindNextKeyCheckpoints( checkpoint );
+			PreviousKeyCheckpoints = FindPreviousKeyCheckpoints( checkpoint );
+		}
+
+		Race.CheckpointPassed( this, checkpoint );
 		LastCheckpoint = checkpoint;
-		NextCheckpoints = checkpoint.NextCheckpoints;
-		Race.CheckpointPassed(this, checkpoint);
-		//Log.Info( $"Pass checkpoint {checkpoint}" );
+	}
+
+	private List<RaceCheckpoint> FindNextKeyCheckpoints(RaceCheckpoint checkpoint)
+	{
+		if ( !checkpoint.NextCheckpoints.Any() )
+			return new();
+
+		List<RaceCheckpoint> keyCheckpoints = new();
+
+		foreach(var next in checkpoint.NextCheckpoints)
+		{
+			if(next.IsRequired)
+			{
+				keyCheckpoints.Add(next);
+			}
+			else
+			{
+				keyCheckpoints.AddRange( FindNextKeyCheckpoints( next ) );
+			}
+		}
+
+		return keyCheckpoints;
+	}
+
+	private List<RaceCheckpoint> FindPreviousKeyCheckpoints( RaceCheckpoint checkpoint )
+	{
+		if ( !checkpoint.PreviousCheckpoints.Any() )
+			return new();
+
+		List<RaceCheckpoint> keyCheckpoints = new();
+
+		foreach ( var previous in checkpoint.PreviousCheckpoints )
+		{
+			if ( previous.IsRequired )
+			{
+				keyCheckpoints.Add( previous );
+			}
+			else
+			{
+				keyCheckpoints.AddRange( FindPreviousKeyCheckpoints( previous ) );
+			}
+		}
+
+		return keyCheckpoints;
 	}
 
 	private bool CanPass(RaceCheckpoint checkpoint)
 	{
 		if ( BypassChecks ) return true;
 
-		return NextCheckpoints.Any() && NextCheckpoints.Contains(checkpoint);
+		return !checkpoint.IsRequired || 
+			(NextKeyCheckpoints.Any() && NextKeyCheckpoints.Contains(checkpoint)) || 
+			(PreviousKeyCheckpoints.Any() && PreviousKeyCheckpoints.Contains(checkpoint));
 	}
 	internal void OnFinished()
 	{

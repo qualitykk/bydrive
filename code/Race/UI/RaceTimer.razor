@@ -1,0 +1,30 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Bydrive
+@attribute [Icon("timer")]
+
+<root>
+	<label class="total">@GetRaceTime().FormatAsRaceTime()</label>
+</root>
+
+@code
+{
+	private float GetRaceTime()
+	{
+		if (Race == null || !Race.HasStarted)
+			return 0f;
+
+		var participant = GetLocalParticipantInstance();
+		if(Race.IsFinished(participant))
+		{
+			return Race.GetParticipantFinish(participant).Time;
+		}
+
+		return Race.TimeSinceRaceStart;
+	}
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine( Race.HasStarted, Time.Now );
+}

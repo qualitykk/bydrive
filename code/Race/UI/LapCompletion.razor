@@ -7,21 +7,41 @@
 	return;
 
 <root>
-	<div class="title">@GetDisplayLaps()/@Race.MaxLaps</div>
-	<div class="subtitle">@GetCurrentCompletion()</div>
+	<label class="title">@GetDisplayLaps()/@Race.MaxLaps</label>
+	@if(DebugCheckpoints)
+	{
+		<label class="subtitle">@GetCurrentCompletion()</label>
+	}
+	else if(InLastLap())
+	{
+		<label class="subtitle">Final Lap!!</label>
+	}
+	else
+	{
+		<label class="subtitle">@RaceContext.Definition.Name</label>
+	}
 </root>
 
 @code
 {
+	[Property] public bool DebugCheckpoints { get; set; } = false;
 	private int GetDisplayLaps()
 	{
 		if (Race == null) return 1;
 
-		return (int)MathF.Floor(GetCurrentCompletion()) + 1;
+		return (int)MathF.Min( GetCurrentLap() + 1, Race?.MaxLaps ?? RaceManager.DEFAULT_MAX_LAPS);
+	}
+	private int GetCurrentLap()
+	{
+		return GetLocalParticipantInstance()?.GetLap() ?? 0;
 	}
 	private float GetCurrentCompletion()
 	{
 		return GetLocalParticipantInstance()?.GetCompletion() ?? -1f;
+	}
+	private bool InLastLap()
+	{
+		return GetDisplayLaps() == (Race?.MaxLaps ?? RaceManager.DEFAULT_MAX_LAPS);
 	}
 	/// <summary>
 	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
