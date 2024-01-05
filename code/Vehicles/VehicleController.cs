@@ -8,8 +8,12 @@ public sealed partial class VehicleController : Component
 	// TODO: Get these from vehicle stats
 	[Property, Category("Stats")] public float MaxSpeed { get; set; } = 512f;
 	[Property, Category( "Stats" )] public float Acceleration { get; set; } = 256f;
-	[Property, Category( "Stats" )] public float BreakSpeed { get; set; } = 384f;
-	[Property, Category( "Stats" )] public float TurnSpeed { get; set; } = 90f;
+	[Property, Category( "Turning" )] public float TurnSpeed { get; set; } = 90f;
+	[Property, Category( "Turning" )] public float TurnSpeedIdealDistance { get; set; } = 500f;
+	/// <summary>
+	/// Decreaes turn speed by this factor at max speed
+	/// </summary>
+	[Property, Category( "Turning" )] public float TurnSpeedVelocityFactor { get; set; } = 0.6f;
 	#endregion
 	[Property, Title("Physics Body")] public Rigidbody Rigidbody { get; set; }
 	public PhysicsBody Body => Rigidbody?.PhysicsBody;
@@ -25,6 +29,16 @@ public sealed partial class VehicleController : Component
 	private float turnLean;
 	private float airRoll;
 	private float airTilt;
+	private float CalculateTurnFactor( float direction, float forwardsSpeed )
+	{
+		// Turning rate is at its highest a certain forwards speed 
+		// After that, it decreases
+
+		var turnFactor = MathF.Min( forwardsSpeed / TurnSpeedIdealDistance, 1 );
+		var yawSpeedFactor = 1.0f - (forwardsSpeed / MaxSpeed).Clamp( 0, TurnSpeedVelocityFactor );
+		return direction * turnFactor * yawSpeedFactor;
+	}
+
 	private void Move()
 	{
 		float dt = Time.Delta;
@@ -38,8 +52,7 @@ public sealed partial class VehicleController : Component
 
 		//Acceleration direction here appears to simply refer to the input, and therefore the speed.
 		accelerateDirection = ThrottleInput.Clamp( -1, 1 );
-
-		turnDirection = turnDirection.LerpTo( TurnInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.001f, dt ) );
+		turnDirection = turnDirection.LerpTo( TurnInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.0003f, dt ) );
 
 		//Same as above, but for the roll and tilt inpuuts, slower than turning.
 		airRoll = airRoll.LerpTo( RollInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.0001f, dt ) );
@@ -75,12 +88,12 @@ public sealed partial class VehicleController : Component
 		//This is the lateral velocity of the car without its z component. Multiplied by the rotation to get its velocity relative to the vehicle
 		Vector3 relativeVelocity = rotation * localVelocity.WithZ( 0 );
 		//Not really sure what this does, if I had to take take a guess, this is getting the change in our velocity to the power of 5 clamped between 0 and 1
-		var vDelta = MathF.Pow( (relativeVelocity.Length / 1000.0f).Clamp( 0, 1 ), 5.0f ).Clamp( 0, 1 );
-		if ( vDelta < 0.01f ) vDelta = 0;
+		float velocityDelta = MathF.Pow( (relativeVelocity.Length / MaxSpeed).Clamp( 0, 1 ), 5.0f ).Clamp( 0, 1 );
+		if ( velocityDelta < 0.01f ) velocityDelta = 0;
 
 		//So as far as I can tell, this is how grip gets applied, it takes a dot product of the forward velocity with our velocity and sets our grip accordingly
 		var angle = (rotation.Forward.Normal * MathF.Sign( localVelocity.x )).Normal.Dot( relativeVelocity.Normal ).Clamp( 0.0f, 1.0f );
-		angle = angle.LerpTo( 1.0f, 1.0f - vDelta );
+		angle = angle.LerpTo( 1.0f, 1.0f - velocityDelta );
 		grip = grip.LerpTo( angle, 1.0f - MathF.Pow( 0.001f, dt ) );
 
 		//Looks like we're using some good old fashioned two wheel drive, this seems where the main acceleration is calculated and applied
@@ -205,17 +218,6 @@ public sealed partial class VehicleController : Component
 		localVelocity = rotation.Inverse * Body.Velocity;
 		Speed = localVelocity.x;
 	}
-
-	private static float CalculateTurnFactor( float direction, float speed )
-	{
-		const float TURN_MAGIC = 500.0f;
-		const float YAW_MAGIC = 1200.0f;
-
-		var turnFactor = MathF.Min( speed / TURN_MAGIC, 1 );
-		var yawSpeedFactor = 1.0f - (speed / YAW_MAGIC).Clamp( 0, 0.6f );
-		return direction * turnFactor * yawSpeedFactor;
-	}
-
 	/// <summary>
 	/// Dampens our velocity
 	/// </summary>

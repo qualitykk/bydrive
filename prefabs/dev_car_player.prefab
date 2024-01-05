@@ -9,12 +9,13 @@
         "__enabled": true,
         "Acceleration": 1500,
         "BaseFieldOfView": 90,
-        "BreakSpeed": 384,
         "Camera": "7ca13427-e8f6-4bd0-8215-8d51ecd9b12f",
         "MaxFieldOfView": 120,
         "MaxSpeed": 900,
         "Rigidbody": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
-        "TurnSpeed": 60
+        "TurnSpeed": 60,
+        "TurnSpeedIdealDistance": 500,
+        "TurnSpeedVelocityFactor": 0.5
       },
       {
         "__type": "RaceParticipant",
@@ -54,6 +55,7 @@
       {
         "__type": "VehiclePlayerInput",
         "__enabled": true,
+        "DebugLocal": false,
         "ParticipantInstance": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
         "VehicleController": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2"
       }
