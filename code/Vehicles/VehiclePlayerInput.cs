@@ -9,6 +9,7 @@ namespace Bydrive;
 [Icon( "settings_input_antenna" )]
 public class VehiclePlayerInput : VehicleInputComponent
 {
+	[Property] public bool DebugLocal { get; set; } = false;
 	protected override void BuildInput()
 	{
 		// Vehicle Controller Inputs
@@ -30,5 +31,21 @@ public class VehiclePlayerInput : VehicleInputComponent
 	public bool IsLocalInput()
 	{
 		return !Network.Active || Network.IsOwner;
+	}
+
+	protected override void DrawGizmos()
+	{
+		if ( !DebugLocal || !IsLocalInput() ) return;
+
+		const float TEXT_SCREEN_POS_VERTICAL = 200f;
+		const float TEXT_VERTICAL_GAP = 30f;
+		PhysicsBody body = VehicleController?.Body;
+		if ( body == null ) return;
+
+		Vector2 screenPos = new( 200, TEXT_SCREEN_POS_VERTICAL );
+		Vector3 localVelocity = VehicleController.Transform.Local.VelocityToLocal( body.Velocity );
+		Gizmo.Draw.ScreenText( $"Velocity: {body.Velocity}", screenPos );
+		Gizmo.Draw.ScreenText( $"Local Velocity: {localVelocity}", screenPos + Vector2.Up * TEXT_VERTICAL_GAP );
+		Gizmo.Draw.ScreenText( $"Speed: {VehicleController.Speed}", screenPos + Vector2.Up * TEXT_VERTICAL_GAP * 2 );
 	}
 }

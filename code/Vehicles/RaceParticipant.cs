@@ -34,6 +34,11 @@ public class RaceParticipant : Component
 		if(LastCheckpoint != null)
 		{
 			Transform.World = LastCheckpoint.GetWorldRespawn();
+			if(Components.TryGet(out Rigidbody body))
+			{
+				body.Velocity = Vector3.Zero;
+				body.AngularVelocity = Vector3.Zero;
+			}
 		}
 	}
 	public void PassCheckpoint(RaceCheckpoint checkpoint, bool forceLast = false)
