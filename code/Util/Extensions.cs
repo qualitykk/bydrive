@@ -6,6 +6,16 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
+internal static class GameObjectExtensions
+{
+	public static void ApplyPrefab(this GameObject obj, string prefab)
+	{
+		obj.SetPrefabSource(prefab);
+		obj.UpdateFromPrefab();
+		obj.BreakFromPrefab();
+	}
+}
+
 internal static class TransformExtensions
 {
 	public static Vector3 VelocityToLocal( this Transform transform, Vector3 velocity )
@@ -23,4 +33,12 @@ internal static class NumberExtensions
 	}
 
 	public static string FormatAsRaceTime( this TimeSince time ) => FormatAsRaceTime( time.Relative );
+}
+
+internal static class ResourceExtensions
+{
+	public static GameObject CreateObject<T>(this T instance ) where T : GameResource, IPrefabProvider
+	{
+		return ResourceHelper.CreateObjectFromResource( instance );
+	}
 }

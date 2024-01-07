@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
+[Category( "Vehicle" )]
 [Icon( "settings_input_antenna" )]
 public class VehiclePlayerInput : VehicleInputComponent
 {

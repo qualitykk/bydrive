@@ -10,11 +10,10 @@ namespace Bydrive;
 [Alias("RaceCompletion")]
 public class RaceParticipant : Component
 {
-	public const string UNSET_NAME_PLACEHOLDER = "Player";
 	/// <summary>
 	/// Name for the racer displayed on the UI, auto-generates name if empty
 	/// </summary>
-	[Property] public string DisplayName { get; set; } = UNSET_NAME_PLACEHOLDER;
+	[Property] public string DisplayName { get; set; }
 	/// <summary>
 	/// Bypass key checkpoint checks
 	/// </summary>
@@ -40,7 +39,7 @@ public class RaceParticipant : Component
 		if(LastKeyCheckpoint != null)
 		{
 			Transform.World = LastKeyCheckpoint.GetWorldRespawn();
-			if(Components.TryGet(out Rigidbody body))
+			if(Components.TryGet(out Rigidbody body, FindMode.EnabledInSelfAndChildren))
 			{
 				body.Velocity = Vector3.Zero;
 				body.AngularVelocity = Vector3.Zero;

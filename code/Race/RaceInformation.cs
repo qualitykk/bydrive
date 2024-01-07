@@ -10,26 +10,24 @@ public class RaceInformation
 {
 	public struct Participant
 	{
-		public PrefabFile Prefab { get; set; }
-		public string Name { get; set; }
+		public VehicleDefinition Vehicle { get; set; }
+		public Player Player { get; set; }
 		public int StartPlacement { get; set; }
-
-		public Participant( PrefabFile prefab, string name = "", int startPosition = RaceStartingPosition.FIRST_PLACE )
+		public Participant( VehicleDefinition vehicle, Player ply, int startPosition = RaceStartingPosition.FIRST_PLACE )
 		{
-			Prefab = prefab;
-			Name = name;
+			Vehicle = vehicle;
+			Player = ply;
 			StartPlacement = startPosition;
 		}
 	}
 
 	public static RaceInformation Current { get; set; }
-	public Scene RaceScene { get; private set; }
+	public Scene Scene => GameManager.ActiveScene;
 	public RaceDefinition Definition { get; set; }
 	public List<Participant> Participants { get; set; }
 	public Action OnParticipantsLoaded { get; set; }
 
 	private Dictionary<Participant,GameObject> participantObjects = new();
-	private Dictionary<GameObject, RaceStartingPosition> participantStartPositions = new();
 	public RaceInformation(RaceDefinition definition, List<Participant> participants, bool createParticipants = true)
 	{
 		if ( Current != null )
@@ -40,7 +38,6 @@ public class RaceInformation
 		Current = this;
 
 		GameManager.ActiveScene.Load(definition.Scene);
-		RaceScene = GameManager.ActiveScene;
 
 		Definition = definition;
 		Participants = participants;
@@ -53,48 +50,93 @@ public class RaceInformation
 
 	public void CreateParticipantObjects()
 	{
-		var startingPositions = RaceScene.GetAllComponents<RaceStartingPosition>();
+		foreach ( var participantInfo in Participants )
+		{
+			GameObject participantObject = BuildParticipantObject( participantInfo );
+
+			Initialise( participantInfo, participantObject );
+		}
+	}
+
+	private GameObject BuildParticipantObject(Participant participant)
+	{
+		GameObject obj = new();
+		obj.Name = participant.Player.Name;
+
+		var participantComponent = obj.Components.Create<RaceParticipant>();
+		participantComponent.DisplayName = participant.Player.Name;
+
+		if ( !participantObjects.ContainsKey( participant ) )
+		{
+			participantObjects.Add( participant, obj );
+		}
+
+		GameObject vehicleObject = ResourceHelper.CreateObjectFromResource( participant.Vehicle );
+		VehicleController vehicle = vehicleObject.Components.GetInDescendantsOrSelf<VehicleController>();
+		if(vehicle == null)
+		{
+			Log.Error( "Prefabs for vehicles MUST include a vehicle controller!" );
+			obj.Destroy();
+			vehicleObject.Destroy();
+
+			return null;
+		}
+
+		if ( participant.Player.IsBot )
+		{
+			CreateBotObjects( vehicleObject, vehicle );
+		}
+		else
+		{
+			CreatePlayerObjects( vehicleObject, vehicle );
+		}
+
+		vehicleObject.Parent = obj;
+
+		var input = obj.Components.GetInDescendantsOrSelf<VehicleInputComponent>();
+		input.ParticipantInstance = participantComponent;
+		input.VehicleController = vehicle;
+
+		return obj;
+	}
+	private void CreateBotObjects(GameObject parent, VehicleController controller)
+	{
+		const string BOT_VEHICLE_PREFAB = "prefabs/bot_race.prefab";
+
+		GameObject obj = new();
+		obj.ApplyPrefab( BOT_VEHICLE_PREFAB );
+		obj.Parent = parent;
+		obj.Name = "Bot";
+	}
+	private void CreatePlayerObjects(GameObject parent, VehicleController controller)
+	{
+		const string PLAYER_VEHICLE_PREFAB = "prefabs/player_race.prefab";
+
+		GameObject obj = new();
+		obj.ApplyPrefab( PLAYER_VEHICLE_PREFAB );
+		obj.Parent = parent;
+		obj.Name = "Player";
+
+		var camera = obj.Components.GetInDescendantsOrSelf<CameraComponent>();
+		controller.Camera = camera;
+	}
+
+	private void Initialise(Participant participant, GameObject obj)
+	{
+		var startingPositions = Scene.GetAllComponents<RaceStartingPosition>();
 		if ( !startingPositions.Any() )
 		{
 			Log.Error( "No starting positions placed in scene, cant place participant objects!" );
 			return;
 		}
 
-		foreach ( var participantInfo in Participants )
+		RaceStartingPosition start = startingPositions.Where( p => p.Placement == participant.StartPlacement ).FirstOrDefault();
+		if ( start == null )
 		{
-			GameObject participantObject = new();
-			participantObject.SetPrefabSource( participantInfo.Prefab.ResourcePath );
-			participantObject.UpdateFromPrefab();
-			participantObject.Name = participantInfo.Name;
-
-			RaceStartingPosition start = startingPositions.Where( p => p.Placement == participantInfo.StartPlacement ).FirstOrDefault();
-			if ( start == null )
-			{
-				start = startingPositions.FirstOrDefault();
-			}
-
-			Initialise( participantInfo, participantObject, start );
+			start = startingPositions.FirstOrDefault();
 		}
-	}
 
-	private void Initialise(Participant participant, GameObject obj, RaceStartingPosition start)
-	{
 		obj.Transform.World = start.Transform.World;
-
-		if(obj.Components.TryGet<RaceParticipant>(out var participantInstance))
-		{
-			participantInstance.DisplayName = participant.Name;
-		}
-
-		if(!participantObjects.ContainsKey(participant))
-		{
-			participantObjects.Add( participant, obj );
-		}
-
-		if(!participantStartPositions.ContainsKey(obj))
-		{
-			participantStartPositions.Add( obj, start );
-		}
 	}
 
 	/// <summary>
@@ -104,8 +146,7 @@ public class RaceInformation
 	{
 		foreach( (Participant data, GameObject obj) in participantObjects)
 		{
-			RaceStartingPosition start = participantStartPositions[obj];
-			Initialise( data, obj, start );
+			Initialise( data, obj );
 		}
 	}
 
@@ -117,14 +158,14 @@ public class RaceInformation
 		}
 
 		participantObjects.Clear();
-		participantStartPositions.Clear();
 	}
 
 	/// <summary>
-	/// Resets current race
+	/// Stops current race, boot back to menu
 	/// </summary>
 	public void Stop()
 	{
-		RaceScene?.Destroy();
+		DestroyParticipantObjects();
+		// TODO: Return to lobby
 	}
 }

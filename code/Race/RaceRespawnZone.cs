@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
+[Group("Race")]
 [Icon( "rv_hookup" )]
-[Alias("ParticipantRespawnZone")]
-public class RaceParticipantRespawnZone : Component, Component.ITriggerListener
+[Alias("ParticipantRespawnZone", "RaceParticipantRespawnZone")]
+public class RaceRespawnZone : Component, Component.ITriggerListener
 {
 	void ITriggerListener.OnTriggerEnter( Collider other )
 	{
-		if(other.Components.TryGet(out RaceParticipant participant))
+		var participant = other.Components.GetInAncestorsOrSelf<RaceParticipant>();
+		if(participant != null)
 		{
 			participant.Respawn();
 		}

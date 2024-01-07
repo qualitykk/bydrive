@@ -17,7 +17,8 @@ public partial class VehicleController
 
 		float dt = Time.Delta;
 
-		float speedFraction = Speed / MaxSpeed;
+		float maxSpeed = GetMaxSpeed();
+		float speedFraction = Speed / maxSpeed;
 		float currentFov = Camera.FieldOfView;
 		float targetFov = speedFraction.Remap( 0, 1, BaseFieldOfView, MaxFieldOfView );
 

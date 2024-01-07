@@ -1,0 +1,16 @@
+{
+  "Title": "Devcar 1",
+  "Description": "Car used in development.",
+  "PreviewModel": "models/brokencar.vmdl",
+  "Stats": {
+    "MaxSpeed": 1100,
+    "Acceleration": 1200,
+    "TurnSpeed": 90,
+    "TurnSpeedIdealDistance": 500,
+    "TurnSpeedVelocityFactor": 0.6
+  },
+  "Prefab": "prefabs/car_devtest1.prefab",
+  "__references": [
+    "debelizmik.brokencar"
+  ]
+}

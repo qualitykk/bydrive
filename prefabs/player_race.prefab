@@ -1,0 +1,142 @@
+{
+  "RootObject": {
+    "Id": "749bb271-fb04-486c-bdfc-e2425be8c24c",
+    "Name": "player_race",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "VehiclePlayerInput",
+        "__enabled": true,
+        "DebugLocal": false,
+        "ParticipantInstance": null,
+        "VehicleController": null
+      }
+    ],
+    "Children": [
+      {
+        "Id": "fcb1da80-2884-49ff-abae-a93095ee4a29",
+        "Name": "Main Camera",
+        "Position": "-170,-0.000000000000682121,120",
+        "Rotation": "0,0.1305263,0,0.9914448",
+        "Tags": "maincamera",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "CameraComponent",
+            "__enabled": true,
+            "BackgroundColor": "0.33333,0.46275,0.52157,1",
+            "ClearFlags": "All",
+            "FieldOfView": 90,
+            "IsMainCamera": true,
+            "Orthographic": false,
+            "OrthographicHeight": 1204,
+            "Priority": 1,
+            "RenderExcludeTags": "",
+            "RenderTags": "",
+            "TargetEye": "None",
+            "Viewport": "0,0,1,1",
+            "ZFar": 10000,
+            "ZNear": 10
+          }
+        ]
+      },
+      {
+        "Id": "5d84378b-6b9a-4dab-9e0e-e58901027639",
+        "Name": "UI",
+        "Position": "0,0,651.6465",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ScreenPanel",
+            "__enabled": true,
+            "AutoScreenScale": true,
+            "Opacity": 1,
+            "Scale": 1,
+            "ZIndex": 100
+          }
+        ],
+        "Children": [
+          {
+            "Id": "1e839db9-dda1-40b4-8375-dd591895f8a0",
+            "Name": "Lap Completion",
+            "Position": "0,0,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "LapCompletion",
+                "__enabled": true,
+                "DebugCheckpoints": false
+              }
+            ]
+          },
+          {
+            "Id": "d128c78e-06a9-4bfc-9524-4f9a43d8b565",
+            "Name": "Start Countdown",
+            "Position": "0,0,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "RaceStart",
+                "__enabled": true,
+                "CountdownTime": 3,
+                "StartTextFade": 2
+              }
+            ]
+          },
+          {
+            "Id": "ba02e418-425b-472a-8d10-9db66385b064",
+            "Name": "Results",
+            "Position": "0,0,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "RaceResults",
+                "__enabled": true
+              }
+            ]
+          },
+          {
+            "Id": "b9ca3d4e-8414-46b6-ba9d-4ebd8ad0ddef",
+            "Name": "Speedometer",
+            "Position": "0,0,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Speedometer",
+                "__enabled": true
+              }
+            ]
+          },
+          {
+            "Id": "7a0a2525-7492-450c-9ff8-8343bdb037cb",
+            "Name": "Placement",
+            "Position": "0,0,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "RacePlacement",
+                "__enabled": true
+              }
+            ]
+          },
+          {
+            "Id": "d244cf4e-70b7-42d7-8ed0-6aae9f4b22de",
+            "Name": "Timer",
+            "Position": "0,0,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "RaceTimer",
+                "__enabled": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

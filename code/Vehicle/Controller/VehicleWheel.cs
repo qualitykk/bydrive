@@ -2,6 +2,7 @@
 
 namespace Bydrive;
 
+[Category( "Vehicle" )]
 public sealed class VehicleWheel : Component
 {
 	private const float DEFAULT_SIZE = 14f;

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
+[Category("Race")]
 [EditorHandle( "materials/gizmo/charactercontroller.png" )]
 [Icon( "flag" )]
 public sealed partial class RaceManager : Component

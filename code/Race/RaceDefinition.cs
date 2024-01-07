@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-[GameResource("Race Definition", "race", "Stores information about a specific race")]
-[Icon("timer")]
 /// <summary>
 /// Information about the current race
 /// </summary>
+[GameResource("Race Definition", "race", "Stores information about a specific race")]
+[Icon("timer")]
 public class RaceDefinition : GameResource
 {
 	public string Name { get; set; }

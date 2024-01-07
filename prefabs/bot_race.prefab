@@ -1,0 +1,19 @@
+{
+  "RootObject": {
+    "Id": "ba32d116-0b6f-40aa-a7c6-0ca1cc60c1c0",
+    "Name": "Bot Race",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "VehicleBot",
+        "__enabled": true,
+        "ParticipantInstance": null,
+        "VehicleController": null
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

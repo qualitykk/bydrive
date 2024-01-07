@@ -1,21 +1,13 @@
 using Sandbox;
+using System.ComponentModel.DataAnnotations;
 
 namespace Bydrive;
+
 [Icon( "electric_car" )]
+[Category( "Vehicle" )]
 public sealed partial class VehicleController : Component
 {
-	#region Stats
-	// TODO: Get these from vehicle stats
-	[Property, Category("Stats")] public float MaxSpeed { get; set; } = 512f;
-	[Property, Category( "Stats" )] public float Acceleration { get; set; } = 256f;
-	[Property, Category( "Turning" )] public float TurnSpeed { get; set; } = 90f;
-	[Property, Category( "Turning" )] public float TurnSpeedIdealDistance { get; set; } = 500f;
-	/// <summary>
-	/// Decreaes turn speed by this factor at max speed
-	/// </summary>
-	[Property, Category( "Turning" )] public float TurnSpeedVelocityFactor { get; set; } = 0.6f;
-	#endregion
-	[Property, Title("Physics Body")] public Rigidbody Rigidbody { get; set; }
+	[Property, Required, Title("Physics Body")] public Rigidbody Rigidbody { get; set; }
 	public PhysicsBody Body => Rigidbody?.PhysicsBody;
 	public float Speed { get; set; }
 	protected override void OnUpdate()
@@ -24,6 +16,8 @@ public sealed partial class VehicleController : Component
 		Move();
 		UpdateCamera();
 	}
+
+	#region Movement
 
 	private float turnDirection;
 	private float turnLean;
@@ -34,8 +28,8 @@ public sealed partial class VehicleController : Component
 		// Turning rate is at its highest a certain forwards speed 
 		// After that, it decreases
 
-		var turnFactor = MathF.Min( forwardsSpeed / TurnSpeedIdealDistance, 1 );
-		var yawSpeedFactor = 1.0f - (forwardsSpeed / MaxSpeed).Clamp( 0, TurnSpeedVelocityFactor );
+		var turnFactor = MathF.Min( forwardsSpeed / GetTurnSpeedIdealDistance(), 1 );
+		var yawSpeedFactor = 1.0f - (forwardsSpeed / GetMaxSpeed()).Clamp( 0, GetTurnSpeedVelocityFactor() );
 		return direction * turnFactor * yawSpeedFactor;
 	}
 
@@ -44,6 +38,8 @@ public sealed partial class VehicleController : Component
 		float dt = Time.Delta;
 		Rotation rotation = Body.Rotation;
 		float scale = Transform.Scale.z;
+		float maxSpeed = GetMaxSpeed();
+		float acceleration = GetAcceleration();
 
 		//Tilting is the forward and backward tilt caused by acceleration or decelleration of the vehicle
 		float targetTilt = 0;
@@ -88,7 +84,7 @@ public sealed partial class VehicleController : Component
 		//This is the lateral velocity of the car without its z component. Multiplied by the rotation to get its velocity relative to the vehicle
 		Vector3 relativeVelocity = rotation * localVelocity.WithZ( 0 );
 		//Not really sure what this does, if I had to take take a guess, this is getting the change in our velocity to the power of 5 clamped between 0 and 1
-		float velocityDelta = MathF.Pow( (relativeVelocity.Length / MaxSpeed).Clamp( 0, 1 ), 5.0f ).Clamp( 0, 1 );
+		float velocityDelta = MathF.Pow( (relativeVelocity.Length / maxSpeed).Clamp( 0, 1 ), 5.0f ).Clamp( 0, 1 );
 		if ( velocityDelta < 0.01f ) velocityDelta = 0;
 
 		//So as far as I can tell, this is how grip gets applied, it takes a dot product of the forward velocity with our velocity and sets our grip accordingly
@@ -107,14 +103,14 @@ public sealed partial class VehicleController : Component
 			fac = fac.LerpTo( 10f, f );
 
 			//The speed factor decreases the amount of acceleration we have depending on how fast we're currently going
-			float speedFactor = 1.0f - MathF.Pow( forwardSpeed / MaxSpeed, 3.5f );
+			float speedFactor = 1.0f - MathF.Pow( forwardSpeed / maxSpeed, 3.5f );
 			speedFactor = speedFactor.Clamp( 0.0f, 1.0f );
 
 			//Calculate our acceleration based on our input..
 			//Slow down acceleration if going backwards
-			float acceleration = speedFactor * (accelerateDirection < 0.0f ? Acceleration * REVERSING_ACCELERATION_MULTIPLIER : Acceleration * fac) * accelerateDirection * dt;
+			float forwardimpulse = speedFactor * (accelerateDirection < 0.0f ? acceleration * REVERSING_ACCELERATION_MULTIPLIER : acceleration * fac) * accelerateDirection * dt;
 			//Use this to then get the impulse and apply it to our body's velocity
-			var impulse = rotation * new Vector3( acceleration, 0, 0 );
+			var impulse = rotation * new Vector3( forwardimpulse, 0, 0 );
 			Body.Velocity += impulse;
 		}
 
@@ -135,7 +131,7 @@ public sealed partial class VehicleController : Component
 
 			// This appears to be how much we turn when are wheels are on the ground, as in how fast we can turn which is controlled by the sign of our local velocitys x speed multiplied by the turn sped and 
 			// Calculate turn factor takes in our turn direction and the absolute value of our velocity this basically all effects how fast we can turn
-			var turnSpeed = TurnSpeed;
+			float turnSpeed = GetTurnSpeed();
 			float turnAmount = 0.0f;
 			if ( turningWheelsOnGround )
 			{
@@ -152,7 +148,7 @@ public sealed partial class VehicleController : Component
 			forwardGrip = forwardGrip.LerpTo( 0.9f, BreakInput );
 
 			// Get the forward speed then a value representing how close to the 'top speed' we are from 0-1
-			float speedFactor = (forwardSpeed / MaxSpeed).Clamp( 0.0f, 1.0f );
+			float speedFactor = (forwardSpeed / maxSpeed).Clamp( 0.0f, 1.0f );
 
 			// If we are moving gast enough, we basically make it so our grip is a lot less the closer our velocity 
 			var fac = 0.0f;
@@ -229,4 +225,7 @@ public sealed partial class VehicleController : Component
 		var dampingPow = new Vector3( MathF.Pow( 1.0f - damping.x, dt ), MathF.Pow( 1.0f - damping.y, dt ), MathF.Pow( 1.0f - damping.z, dt ) );
 		return rotation * (localVelocity * dampingPow);
 	}
+
+	#endregion
+
 }

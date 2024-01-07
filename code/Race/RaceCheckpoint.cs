@@ -45,12 +45,13 @@ public class RaceCheckpoint : Component, Component.ITriggerListener
 	}
 	void ITriggerListener.OnTriggerEnter( Collider other )
 	{
-		if ( !other.Components.TryGet( out RaceParticipant completion, FindMode.Enabled | FindMode.InParent | FindMode.InSelf ) )
+		var participant = other.Components.GetInAncestorsOrSelf<RaceParticipant>();
+		if ( participant == null )
 		{
 			return;
 		}
 
-		completion.PassCheckpoint( this );
+		participant.PassCheckpoint( this );
 	}
 
 	void ITriggerListener.OnTriggerExit( Collider other )
