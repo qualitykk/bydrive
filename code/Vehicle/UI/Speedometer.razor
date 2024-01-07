@@ -5,6 +5,12 @@
 @attribute [Icon("speed")]
 
 <root>
-	<label class="current">@($"{GetSpeedAmount():F0}")</label>
-	<label class="unit">@GetSpeedUnit()</label>
+	<div class="speed">
+		<label class="current">@($"{GetSpeedAmount():F0}")</label>
+		<label class="unit">@GetSpeedUnit()</label>
+	</div>
+	<div class="boost">
+		<ProgressBar Value=@GetBoostRemaining() MaxValue=@GetBoostMax() />
+		<label class="name">BOOST</label>
+	</div>
 </root>

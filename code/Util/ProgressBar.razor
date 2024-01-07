@@ -1,0 +1,20 @@
+﻿@using Sandbox.UI;
+
+@namespace Bydrive
+
+<root class="progress">
+    <div class="bar" @ref=bar />
+</root>
+
+@code {
+    public float Value { get; set; }
+    public float MaxValue { get; set; }
+    public float Fraction => (Value / MaxValue).Clamp(0,1);
+
+    Panel bar;
+
+    public override void Tick()
+    {
+        bar.Style.Width = Length.Fraction(Fraction);
+    }
+}

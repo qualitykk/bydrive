@@ -18,10 +18,11 @@ public partial class Speedometer
 	const float MAX_SPEEDOMETER_SPEED = 9999.9f;
 
 	private static VehicleSpeedUnit Units => Settings?.SpeedometerUnit ?? VehicleSpeedUnit.UnitsPerSecond;
+	private static VehicleController Vehicle => GetLocalVehicle();
 
 	private float GetSpeedAmount()
 	{
-		float speed = GetLocalVehicle()?.Speed.Clamp(0f, MAX_SPEEDOMETER_SPEED ) ?? 0f;
+		float speed = Vehicle?.Speed.Clamp(0f, MAX_SPEEDOMETER_SPEED ) ?? 0f;
 
 		return Units switch
 		{
@@ -43,8 +44,19 @@ public partial class Speedometer
 		};
 	}
 
-	private float UnitsToMeters( float units ) => units * METERS_PER_UNIT;
+	public float GetBoostRemaining()
+	{
+		float remaining = Vehicle?.RemainingBoost ?? VehicleStats.DEFAULT_BOOST_DURATION;
+		return remaining;
+	}
 
+	public float GetBoostMax()
+	{
+		float max = Vehicle?.GetBoostDuration() ?? VehicleStats.DEFAULT_BOOST_DURATION;
+		return max;
+	}
+
+	private float UnitsToMeters( float units ) => units * METERS_PER_UNIT;
 
 	private float UnitsToMs( float speed )
 	{

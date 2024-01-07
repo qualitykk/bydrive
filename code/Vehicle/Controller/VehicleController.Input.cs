@@ -6,6 +6,7 @@ public partial class VehicleController
 	public float ThrottleInput;
 	public float TurnInput;
 	public float BreakInput;
+	public float BoostInput;
 
 	public float TiltInput;
 	public float RollInput;
@@ -13,7 +14,7 @@ public partial class VehicleController
 	{
 		if ( !CanDrive() )
 		{
-			
+			ResetInput();
 		}
 	}
 
@@ -22,6 +23,7 @@ public partial class VehicleController
 		ThrottleInput = 0.0f;
 		TurnInput = 0.0f;
 		BreakInput = 0.0f;
+		BoostInput = 0.0f;
 		TiltInput = 0.0f;
 		RollInput = 0.0f;
 	}

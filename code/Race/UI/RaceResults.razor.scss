@@ -7,7 +7,6 @@ RaceResults {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: #46464677;
 	justify-content: center;
 	align-items: center;
 	font-weight: bold;
@@ -28,10 +27,14 @@ RaceResults {
 		height: 70%;
 		margin-top: 30px;
 		flex-direction: column;
+		width: 50%;
+		background-color: #46464677;
+		align-items: center;
+		padding: 30px;
 
 		.racer {
 			background-color: #9fab9f55;
-			width: 500px;
+			width: 90%;
 			height: 8%;
 			font-family: Calibri;
 			align-items: center;

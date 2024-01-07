@@ -12,6 +12,6 @@ public class DefinitionVehicleStats : VehicleStatsProvider
 	[Property, ResourceReference] public VehicleDefinition Definition { get; set; }
 	public override VehicleStats GetStats()
 	{
-		return Definition.Stats;
+		return Definition?.Stats ?? new();
 	}
 }

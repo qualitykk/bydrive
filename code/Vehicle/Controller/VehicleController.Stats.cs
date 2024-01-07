@@ -14,13 +14,46 @@ public partial class VehicleController
 	public float GetMaxSpeed()
 	{
 		float maxSpeed = Stats.MaxSpeed;
+		if ( UsingBoost )
+		{
+			maxSpeed *= Stats.BoostSpeedMultiplier;
+		}
+
 		return maxSpeed;
 	}
 
 	public float GetAcceleration()
 	{
 		float acceleration = Stats.Acceleration;
+		if(UsingBoost)
+		{
+			acceleration *= Stats.BoostAccelerationMultiplier;
+		}
+
 		return acceleration;
+	}
+
+	public float GetBoostDuration()
+	{
+		float boost = Stats.BoostDuration;
+		return boost;
+	}
+
+	public float GetBoostSpeedMultiplier()
+	{
+		float speedMultiplier = Stats.BoostSpeedMultiplier;
+		return speedMultiplier;
+	}
+
+	public float GetBoostRechargeCooldown()
+	{
+		float rechargeCooldown = Stats.BoostRechargeCooldown;
+		return rechargeCooldown;
+	}
+	public float GetBoostRechargeFactor()
+	{
+		float rechargeFactor = Stats.BoostRechargeFactor;
+		return rechargeFactor;
 	}
 
 	public float GetTurnSpeed()

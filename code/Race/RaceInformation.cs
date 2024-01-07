@@ -60,38 +60,36 @@ public class RaceInformation
 
 	private GameObject BuildParticipantObject(Participant participant)
 	{
-		GameObject obj = new();
-		obj.Name = participant.Player.Name;
+		string name = participant.Player.Name;
+		GameObject obj = ResourceHelper.CreateObjectFromResource( participant.Vehicle );
+		obj.Name = name;
+
+		VehicleController vehicle = obj.Components.GetInDescendantsOrSelf<VehicleController>();
+		if(vehicle == null)
+		{
+			Log.Error( "Prefabs for vehicles MUST include a vehicle controller!" );
+			obj.Destroy();
+			obj.Destroy();
+
+			return null;
+		}
 
 		var participantComponent = obj.Components.Create<RaceParticipant>();
-		participantComponent.DisplayName = participant.Player.Name;
+		participantComponent.DisplayName = name;
 
 		if ( !participantObjects.ContainsKey( participant ) )
 		{
 			participantObjects.Add( participant, obj );
 		}
 
-		GameObject vehicleObject = ResourceHelper.CreateObjectFromResource( participant.Vehicle );
-		VehicleController vehicle = vehicleObject.Components.GetInDescendantsOrSelf<VehicleController>();
-		if(vehicle == null)
-		{
-			Log.Error( "Prefabs for vehicles MUST include a vehicle controller!" );
-			obj.Destroy();
-			vehicleObject.Destroy();
-
-			return null;
-		}
-
 		if ( participant.Player.IsBot )
 		{
-			CreateBotObjects( vehicleObject, vehicle );
+			CreateBotObjects( obj, vehicle );
 		}
 		else
 		{
-			CreatePlayerObjects( vehicleObject, vehicle );
+			CreatePlayerObjects( obj, vehicle );
 		}
-
-		vehicleObject.Parent = obj;
 
 		var input = obj.Components.GetInDescendantsOrSelf<VehicleInputComponent>();
 		input.ParticipantInstance = participantComponent;

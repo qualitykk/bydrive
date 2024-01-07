@@ -16,7 +16,7 @@
       {
         "Id": "fcb1da80-2884-49ff-abae-a93095ee4a29",
         "Name": "Main Camera",
-        "Position": "-170,-0.000000000000682121,120",
+        "Position": "-190,-0.000000000000682121,120",
         "Rotation": "0,0.1305263,0,0.9914448",
         "Tags": "maincamera",
         "Enabled": true,

@@ -5,7 +5,12 @@
   "Stats": {
     "MaxSpeed": 1100,
     "Acceleration": 1200,
-    "TurnSpeed": 90,
+    "BoostDuration": 3,
+    "BoostSpeedMultiplier": 1.2,
+    "BoostAccelerationMultiplier": 2,
+    "BoostRechargeCooldown": 2,
+    "BoostRechargeFactor": 0.8,
+    "TurnSpeed": 70,
     "TurnSpeedIdealDistance": 500,
     "TurnSpeedVelocityFactor": 0.6
   },

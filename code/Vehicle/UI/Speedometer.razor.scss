@@ -4,8 +4,8 @@ Speedometer {
 	position: absolute;
 	right: 15%;
 	bottom: 5%;
-	width: 10%;
-	height: 10%;
+	width: 12%;
+	height: 15%;
 	background-color: $background_dev;
 	justify-content: center;
 	align-items: center;
@@ -14,8 +14,8 @@ Speedometer {
 	flex-direction: column;
 	font-family: Poppins;
 	color: #fff;
-	flex-direction: row;
 	border-radius: 5px;
+	gap: 10px;
 
 	.current {
 		font-size: 40px;
@@ -27,5 +27,23 @@ Speedometer {
 		font-size: 25px;
 		width: 40%;
 		text-align: center;
+	}
+
+	.boost {
+
+		.progress {
+			width: 60%;
+
+			.bar {
+				background-color: #259025;
+				border-radius: 5px;
+			}
+		}
+		.name {
+			font-size: 22px;
+			text-align: center;
+			font-weight: bold;
+			width: 40%;
+		}
 	}
 }
