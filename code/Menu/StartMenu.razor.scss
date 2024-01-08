@@ -34,9 +34,38 @@ StartMenu {
 		border-radius: 5px;
 		color: #fff;
 		background-color: #888288;
+		width: 400px;
+		height: 10%;
+		align-items: center;
+
+		label {
+			text-align: center;
+			width: 100%;
+		}
 
 		&:hover {
 			background-color: #aaa2aa;
+		}
+
+		&.disabled {
+			cursor: not-allowed;
+			pointer-events: none;
+			background-color: #666466;
+		}
+	}
+
+	.options {
+		flex-direction: column;
+		gap: 10px;
+
+		.singleplayer {
+			height: 12%;
+		}
+
+		.header {
+			color: #fff;
+			font-size: 48px;
+			padding-top: 30px;
 		}
 	}
 }

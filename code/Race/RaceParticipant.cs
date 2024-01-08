@@ -38,12 +38,22 @@ public class RaceParticipant : Component
 	{
 		if(LastKeyCheckpoint != null)
 		{
-			Transform.World = LastKeyCheckpoint.GetWorldRespawn();
+			// TODO: Fix weird NaN shit
 			/*
-			if(Components.TryGet(out Rigidbody body, FindMode.EnabledInSelfAndChildren))
+			Transform.World = LastKeyCheckpoint.GetWorldRespawn();
+			foreach(var child in GameObject.GetAllObjects(true))
+			{
+				child.Transform.Local.EnsureNotNaN();
+			}
+
+			Transform.Local.EnsureNotNaN();
+			
+			if(Components.TryGet(out Rigidbody body, FindMode.EnabledInSelfAndDescendants))
 			{
 				body.Velocity = Vector3.Zero;
 				body.AngularVelocity = Vector3.Zero;
+
+				body.Transform.Local.EnsureNotNaN();
 			}
 			*/
 		}

@@ -11,7 +11,7 @@ public class RaceCheckpoint : Component, Component.ITriggerListener
 	const float DEFAULT_RESPAWN_POS_OFFSET = 32f;
 	[Property] public List<RaceCheckpoint> NextCheckpoints { get; set; }
 	[Property] public Vector3 RespawnPosition { get; set; } = new Vector3( 0, 0, DEFAULT_RESPAWN_POS_OFFSET );
-	[Property] public Rotation RespawnRotation { get; set; }
+	[Property] public Rotation RespawnRotation { get; set; } = Rotation.Identity;
 	public Transform RespawnTransform => new( RespawnPosition, RespawnRotation );
 	/// <summary>
 	/// Do you HAVE to pass this checkpoint before passing onto the next key checkpoint? Prevents unintended shortcuts.
@@ -58,7 +58,8 @@ public class RaceCheckpoint : Component, Component.ITriggerListener
 	{
 	}
 
-	public Transform GetWorldRespawn() => Transform.World.ToWorld( RespawnTransform );
+	public Transform GetWorldRespawn() => Transform.World.ToWorld( RespawnTransform ).EnsureNotNaN();
+
 	protected override void DrawGizmos()
 	{
 		const float CHECKPOINT_RADIUS = 18f;

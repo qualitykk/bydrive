@@ -24,6 +24,18 @@ internal static class TransformExtensions
 	{
 		return transform.PointToLocal( transform.Position + velocity );
 	}
+
+	public static Transform EnsureNotNaN(this Transform transform)
+	{
+		if ( transform.Position.IsNaN )
+			transform.Position = Vector3.Zero;
+
+		var rot = transform.Rotation;
+		if ( float.IsNaN( rot.x ) || float.IsNaN( rot.y ) || float.IsNaN( rot.z ) || float.IsNaN( rot.w ) )
+			transform.Rotation = Rotation.Identity;
+
+		return transform;
+	}
 }
 
 internal static class NumberExtensions
