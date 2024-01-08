@@ -39,11 +39,13 @@ public class RaceParticipant : Component
 		if(LastKeyCheckpoint != null)
 		{
 			Transform.World = LastKeyCheckpoint.GetWorldRespawn();
+			/*
 			if(Components.TryGet(out Rigidbody body, FindMode.EnabledInSelfAndChildren))
 			{
 				body.Velocity = Vector3.Zero;
 				body.AngularVelocity = Vector3.Zero;
 			}
+			*/
 		}
 	}
 	public void PassCheckpoint(RaceCheckpoint checkpoint, bool forceLast = false)
@@ -124,11 +126,18 @@ public class RaceParticipant : Component
 	protected override void DrawGizmos()
 	{
 		const float TEXT_OFFSET = 8f;
+		const float TEXT_SPACE = 32f;
 		const float TEXT_SIZE = 14f;
 		Color textColor = Color.Green;
 
 		Gizmo.Draw.Color = textColor;
 		Gizmo.Draw.Text(DisplayName, new(Vector3.Up * TEXT_OFFSET), size: TEXT_SIZE);
+
+		if(Race != null)
+		{
+			Gizmo.Draw.Text( $"Completion: {GetCompletion()}", new( Vector3.Up * (TEXT_OFFSET + TEXT_SPACE) ), size: TEXT_SIZE );
+			Gizmo.Draw.Text( $"LastCheckpoint: {LastCheckpoint.GameObject.Name}", new( Vector3.Up * (TEXT_OFFSET + TEXT_SPACE * 2)), size: TEXT_SIZE );
+		}
 	}
 
 	int botNumber = 1;

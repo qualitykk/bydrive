@@ -25,8 +25,8 @@ public partial class RaceManager
 	public IReadOnlyList<ParticipantFinishInformation> FinishedParticipants => finishedParticipants;
 	public int LastPlace => Participants.Count;
 
-	private Dictionary<RaceParticipant, float> participantLapCompletion = new();
-	private Dictionary<RaceParticipant, int> participantLapCount = new();
+	private Dictionary<RaceParticipant, float> participantRaceCompletion = new();
+	private Dictionary<RaceParticipant, int> participantLastOrder = new();
 	private List<RaceParticipant> completionOrderedParticipants = new();
 	private List<ParticipantFinishInformation> finishedParticipants = new();
 	public float GetParticipantCompletion( RaceParticipant participant )
@@ -36,17 +36,12 @@ public partial class RaceManager
 			return 0f;
 		}
 
-		if ( !participantLapCompletion.TryGetValue( participant, out float completion ) )
+		if ( !participantRaceCompletion.TryGetValue( participant, out float completion ) )
 		{
 			return 0f;
 		}
 
-		if ( !participantLapCount.TryGetValue( participant, out int laps ) )
-		{
-			return completion;
-		}
-
-		return completion + laps;
+		return completion;
 	}
 	public int GetParticipantLap(RaceParticipant participant)
 	{
@@ -55,12 +50,12 @@ public partial class RaceManager
 			return 0;
 		}
 
-		if ( !participantLapCount.TryGetValue( participant, out int laps ) )
+		if ( !participantRaceCompletion.TryGetValue( participant, out float progression ) )
 		{
 			return 0;
 		}
 
-		return laps;
+		return progression.CeilToInt().Clamp(1, MaxLaps);
 	}
 	public int GetParticipantPlacement(RaceParticipant participant)
 	{
@@ -77,34 +72,43 @@ public partial class RaceManager
 
 	public void InitialiseLapProgress(List<RaceParticipant> participants)
 	{
-		const int STARTING_LAP = -1;
-
 		foreach ( var participant in participants)
 		{
-			participantLapCompletion.Add( participant, 0f );
-			participantLapCount.Add( participant, STARTING_LAP );
+			participantRaceCompletion.Add( participant, 0f );
+			participantLastOrder.Add( participant, 0 );
 		}
 	}
 	public void ResetLapProgress()
 	{
-		participantLapCompletion.Clear();
-		participantLapCount.Clear();
+		participantRaceCompletion.Clear();
+		participantLastOrder.Clear();
 		finishedParticipants.Clear();
 	}
 
 	public void UpdateCompletion()
 	{
+		float singleCheckpointFraction = 1 / ((float)maxCheckpointOrder + 1);
 		foreach ( var participant in Participants )
 		{
 			RaceCheckpoint checkpoint = participant.LastCheckpoint;
-			if ( checkpoint == null || !checkpointOrder.TryGetValue( checkpoint, out int order ) )
+			if ( checkpoint == null || !checkpointOrder.TryGetValue( checkpoint, out int order ) || !participantLastOrder.TryGetValue(participant, out int lastOrder) )
 			{
 				// Participant either hasnt passed any checkpoints or passed checkpoints arent valid this race.
 				continue;
 			}
 
-			float lapCompletion = (float)order / (maxCheckpointOrder + 1);
-			participantLapCompletion[participant] = lapCompletion;
+			if(order != lastOrder)
+			{
+				int orderDelta = order - lastOrder;
+				if(lastOrder == 0 && order == maxCheckpointOrder || order == 0 && lastOrder == maxCheckpointOrder)
+				{
+					// Special case for going over the finish line
+					orderDelta = -MathF.Sign(orderDelta);
+				}
+
+				participantRaceCompletion[participant] += singleCheckpointFraction * orderDelta;
+				participantLastOrder[participant] = order;
+			}
 
 			if ( IsFinished( participant ) && !finishedParticipants.Any( f => f.Participant == participant ) )
 			{
@@ -133,14 +137,6 @@ public partial class RaceManager
 		Vector3 position = participant.Transform.Position;
 		var next = participant.NextKeyCheckpoints;
 		return next.Min( n => n.Transform.Position.DistanceSquared( position ) );
-	}
-
-	private void CheckLapCount( RaceParticipant participant, RaceCheckpoint checkpoint )
-	{
-		if ( checkpoint == StartCheckpoint )
-		{
-			participantLapCount[participant]++;
-		}
 	}
 
 	private void ParticipantFinished(RaceParticipant participant )

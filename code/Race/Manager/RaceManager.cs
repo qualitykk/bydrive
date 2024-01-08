@@ -86,7 +86,6 @@ public sealed partial class RaceManager : Component
 
 	public void CheckpointPassed( RaceParticipant participant, RaceCheckpoint checkpoint )
 	{
-		CheckLapCount( participant, checkpoint );
 	}
 
 	protected override void DrawGizmos()
@@ -122,6 +121,6 @@ public sealed partial class RaceManager : Component
 
 	public override int GetHashCode()
 	{
-		return HashCode.Combine(checkpointOrder, participantLapCompletion, participantLapCount);
+		return HashCode.Combine(checkpointOrder, participantRaceCompletion);
 	}
 }

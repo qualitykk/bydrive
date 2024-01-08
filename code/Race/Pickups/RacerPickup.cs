@@ -10,6 +10,8 @@ public abstract class RacerPickup : Component, Component.ITriggerListener
 {
 	public const float DEFAULT_RESPAWN_TIME = 10f;
 	[Property] public float RespawnTime { get; set; } = DEFAULT_RESPAWN_TIME;
+	[Property, Title("On Available")] public Action OnAvailableAction { get; set; }
+	[Property, Title( "On Unavailable" )] public Action OnUnavailableAction { get; set; }
 	public bool Available { get; set; } = true;
 	public TimeSince TimeSincePickup { get; set; }
 	public abstract bool OnPickup( VehicleController vehicle );
@@ -26,9 +28,11 @@ public abstract class RacerPickup : Component, Component.ITriggerListener
 	}
 	protected virtual void OnBecomeAvailable()
 	{
+		OnAvailableAction?.Invoke();
 	}
 	protected virtual void OnBecomeUnavailable()
 	{
+		OnUnavailableAction?.Invoke();
 	}
 
 	void ITriggerListener.OnTriggerEnter( Collider other )
@@ -41,10 +45,18 @@ public abstract class RacerPickup : Component, Component.ITriggerListener
 			return;
 
 		Available = false;
+		OnBecomeUnavailable();
 		TimeSincePickup = 0;
 	}
 
 	void ITriggerListener.OnTriggerExit( Collider other )
 	{
+	}
+
+	protected override void DrawGizmos()
+	{
+		Gizmo.Draw.Color = Color.Yellow;
+
+		Gizmo.Draw.Text( Available ? "Available" : $"Respawning in {MathF.Ceiling(RespawnTime - TimeSincePickup)}", global::Transform.Zero );
 	}
 }

@@ -29,7 +29,7 @@
 	{
 		if (Race == null) return 1;
 
-		return (int)MathF.Min( GetCurrentLap() + 1, Race?.MaxLaps ?? RaceManager.DEFAULT_MAX_LAPS);
+		return (int)MathF.Min( GetCurrentLap(), Race?.MaxLaps ?? RaceManager.DEFAULT_MAX_LAPS);
 	}
 	private int GetCurrentLap()
 	{

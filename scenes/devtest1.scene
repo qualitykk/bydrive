@@ -569,7 +569,7 @@
       "Enabled": true,
       "Components": [
         {
-          "__type": "RaceParticipantRespawnZone",
+          "__type": "RaceRespawnZone",
           "__enabled": true
         },
         {
@@ -580,6 +580,262 @@
           "Scale": "10000,10000,50",
           "Static": false,
           "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "ead4f1b4-f280-406e-89ca-587b56c627bf",
+      "Name": "pickup_boost1",
+      "Position": "960,3328,160",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "BoostPickup",
+          "__enabled": true,
+          "OnAvailableAction": {
+            "Kind": "Action",
+            "Variables": [
+              {
+                "Id": 1,
+                "Name": "_this",
+                "Type": "package.based.bydrive/Bydrive.BoostPickup",
+                "Default": "ead4f1b4-f280-406e-89ca-587b56c627bf"
+              }
+            ],
+            "Nodes": [
+              {
+                "Id": 0,
+                "Type": "input",
+                "UserData": {
+                  "Position": "-288,-64"
+                }
+              },
+              {
+                "Id": 2,
+                "Type": "scene.get",
+                "Properties": {
+                  "T": "Sandbox.Game/Sandbox.SkinnedModelRenderer"
+                },
+                "UserData": {
+                  "Position": "-368,-32"
+                }
+              },
+              {
+                "Id": 4,
+                "Type": "property.set",
+                "Properties": {
+                  "_type": "Sandbox.Game/Sandbox.ModelRenderer",
+                  "_name": "Tint"
+                },
+                "Inputs": {
+                  "value": {
+                    "$type": "Simple",
+                    "Type": "Sandbox.System/Color",
+                    "Value": "1,1,1,1"
+                  }
+                },
+                "UserData": {
+                  "Position": "-32,-64"
+                }
+              },
+              {
+                "Id": 5,
+                "Type": "scene.get",
+                "Properties": {
+                  "T": "Sandbox.Game/Sandbox.HighlightOutline"
+                },
+                "UserData": {
+                  "Position": "-96,64"
+                }
+              },
+              {
+                "Id": 6,
+                "Type": "property.set",
+                "Properties": {
+                  "_type": "Sandbox.Game/Sandbox.HighlightOutline",
+                  "_name": "Width"
+                },
+                "Inputs": {
+                  "value": {
+                    "$type": "Simple",
+                    "Type": "System.Private.CoreLib/System.Single",
+                    "Value": 1
+                  }
+                },
+                "UserData": {
+                  "Position": "128,-64"
+                }
+              }
+            ],
+            "Links": [
+              [
+                0,
+                "_signal",
+                4,
+                "_signal"
+              ],
+              [
+                2,
+                "_result",
+                4,
+                "target"
+              ],
+              [
+                4,
+                "_signal",
+                6,
+                "_signal"
+              ],
+              [
+                5,
+                "_result",
+                6,
+                "target"
+              ]
+            ],
+            "UserData": {
+              "Title": "On Available",
+              "id": "e7d14873-a2ad-4abe-a4be-9813934b3b30"
+            }
+          },
+          "OnUnavailableAction": {
+            "Kind": "Action",
+            "Variables": [
+              {
+                "Id": 1,
+                "Name": "_this",
+                "Type": "package.based.bydrive/Bydrive.BoostPickup",
+                "Default": "ead4f1b4-f280-406e-89ca-587b56c627bf"
+              }
+            ],
+            "Nodes": [
+              {
+                "Id": 0,
+                "Type": "input",
+                "UserData": {
+                  "Position": "-64,0"
+                }
+              },
+              {
+                "Id": 3,
+                "Type": "scene.get",
+                "Properties": {
+                  "T": "Sandbox.Game/Sandbox.SkinnedModelRenderer"
+                },
+                "UserData": {
+                  "Position": "-128,48"
+                }
+              },
+              {
+                "Id": 5,
+                "Type": "property.set",
+                "Properties": {
+                  "_type": "Sandbox.Game/Sandbox.ModelRenderer",
+                  "_name": "Tint"
+                },
+                "Inputs": {
+                  "value": {
+                    "$type": "Simple",
+                    "Type": "Sandbox.System/Color",
+                    "Value": "1,1,1,0.6"
+                  }
+                },
+                "UserData": {
+                  "Position": "192,0"
+                }
+              },
+              {
+                "Id": 6,
+                "Type": "scene.get",
+                "Properties": {
+                  "T": "Sandbox.Game/Sandbox.HighlightOutline"
+                },
+                "UserData": {
+                  "Position": "128,128"
+                }
+              },
+              {
+                "Id": 7,
+                "Type": "property.set",
+                "Properties": {
+                  "_type": "Sandbox.Game/Sandbox.HighlightOutline",
+                  "_name": "Width"
+                },
+                "Inputs": {
+                  "value": {
+                    "$type": "Simple",
+                    "Type": "System.Private.CoreLib/System.Single",
+                    "Value": 0
+                  }
+                },
+                "UserData": {
+                  "Position": "352,0"
+                }
+              }
+            ],
+            "Links": [
+              [
+                0,
+                "_signal",
+                5,
+                "_signal"
+              ],
+              [
+                3,
+                "_result",
+                5,
+                "target"
+              ],
+              [
+                5,
+                "_signal",
+                7,
+                "_signal"
+              ],
+              [
+                6,
+                "_result",
+                7,
+                "target"
+              ]
+            ],
+            "UserData": {
+              "Title": "On Unavailable",
+              "id": "86cb21ba-de11-4cfc-8dfa-88f89a143739"
+            }
+          },
+          "RespawnTime": 10
+        },
+        {
+          "__type": "BoxCollider",
+          "__enabled": true,
+          "Center": "0,0,0",
+          "IsTrigger": true,
+          "Scale": "64,64,64",
+          "Static": false,
+          "Surface": null
+        },
+        {
+          "__type": "HighlightOutline",
+          "__enabled": true,
+          "Color": "0.10891,0.48317,1,1",
+          "InsideColor": "0,0,0,0",
+          "InsideObscuredColor": "0,0,0,0",
+          "Material": null,
+          "ObscuredColor": "0,0,0,0.4",
+          "Width": 1
+        },
+        {
+          "__type": "SkinnedModelRenderer",
+          "__enabled": true,
+          "BodyGroups": 18446744073709551615,
+          "BoneMergeTarget": null,
+          "CreateBoneObjects": false,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/addons/sbox_can.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
         }
       ]
     }
@@ -595,5 +851,7 @@
   },
   "Title": "devtest1",
   "Description": "",
-  "__references": []
+  "__references": [
+    "foxtrot.sbox_can"
+  ]
 }

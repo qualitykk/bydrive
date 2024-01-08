@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Bydrive;
 
 [Category("Race")]
+[Icon("speed")]
 public class BoostPickup : RacerPickup
 {
 	public override bool OnPickup( VehicleController vehicle )
