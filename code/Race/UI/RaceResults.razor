@@ -18,7 +18,7 @@
 			}
 		}
 	</div>
-	
+	<div class="button" @onclick=@OnClickNext>Back to Menu</div>
 </root>
 
 @code
@@ -64,7 +64,10 @@
 		};
 	}
 
-	
+	private void OnClickNext()
+	{
+		RaceContext.Stop();
+	}
 
 	/*
 	public override int GetHashCode()

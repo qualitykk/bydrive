@@ -146,7 +146,7 @@ public class RaceParticipant : Component
 		if(Race != null)
 		{
 			Gizmo.Draw.Text( $"Completion: {GetCompletion()}", new( Vector3.Up * (TEXT_OFFSET + TEXT_SPACE) ), size: TEXT_SIZE );
-			Gizmo.Draw.Text( $"LastCheckpoint: {LastCheckpoint.GameObject.Name}", new( Vector3.Up * (TEXT_OFFSET + TEXT_SPACE * 2)), size: TEXT_SIZE );
+			Gizmo.Draw.Text( $"LastCheckpoint: {LastCheckpoint?.GameObject.Name}", new( Vector3.Up * (TEXT_OFFSET + TEXT_SPACE * 2)), size: TEXT_SIZE );
 		}
 	}
 

@@ -1,0 +1,27 @@
+﻿.button {
+    cursor: pointer;
+    pointer-events: all;
+    font-size: 32px;
+    padding: 25px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #888288;
+    align-items: center;
+    border: 8px solid #777777;
+
+    label {
+        text-align: center;
+        width: 100%;
+    }
+
+    &:hover {
+        background-color: #aaa2aa;
+    }
+
+    &.disabled {
+        color: #888;
+        cursor: not-allowed;
+        pointer-events: none;
+        background-color: #555;
+    }
+}

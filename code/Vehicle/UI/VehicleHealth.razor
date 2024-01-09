@@ -1,0 +1,30 @@
+@using Sandbox.UI;
+@namespace Bydrive
+@attribute [Icon("speed")]
+@inherits PanelComponent
+
+<root>
+	<div class="points">
+		@for (int i = 1; i < MaxHealth + 1; i++)
+		{
+			<div class="health">
+				@if (Health >= i)
+				{
+					<div class="active" />
+				}
+			</div>
+		}
+	</div>
+</root>
+
+@code
+{
+	private VehicleController Vehicle => GetLocalVehicle();
+	private int Health => Vehicle?.Health ?? 1;
+	private int MaxHealth => Vehicle?.GetMaxHealth() ?? 1;
+
+	public override int GetHashCode()
+	{
+		return HashCode.Combine(Health, MaxHealth);
+	}
+}

@@ -13,14 +13,15 @@ internal static class Globals
 	public static UserSettings Settings => new();
 	public static VehiclePlayerInput GetLocalInput()
 	{
-		Scene currentScene = GameManager.ActiveScene;
-		if ( currentScene == lastScene && lastLocalInput != null )
+		if ( lastLocalInput.IsValid() )
 		{
 			return lastLocalInput;
 		}
-		VehiclePlayerInput input = currentScene.GetAllComponents<VehiclePlayerInput>().FirstOrDefault( input => input.IsLocalInput() );
 
-		lastScene = currentScene;
+		Scene scene = GameManager.ActiveScene;
+		VehiclePlayerInput input = scene?.GetAllComponents<VehiclePlayerInput>().FirstOrDefault( input => input.IsLocalInput() );
+
+		lastScene = scene;
 		lastLocalInput = input;
 
 		return input;
@@ -32,6 +33,11 @@ internal static class Globals
 	public static RaceParticipant GetLocalParticipantInstance()
 	{
 		return GetLocalInput()?.ParticipantInstance;
+	}
+
+	public static string GetLocalName()
+	{
+		return new Friend( Game.SteamId ).Name;
 	}
 }
 

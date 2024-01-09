@@ -55,7 +55,8 @@ public partial class RaceManager
 			return 0;
 		}
 
-		return progression.CeilToInt().Clamp(1, MaxLaps);
+		int lap = progression.FloorToInt() + 1;
+		return lap.Clamp(1, MaxLaps);
 	}
 	public int GetParticipantPlacement(RaceParticipant participant)
 	{
@@ -67,7 +68,8 @@ public partial class RaceManager
 	}
 	public bool IsFinished(RaceParticipant participant)
 	{
-		return GetParticipantCompletion( participant ) >= MaxLaps;
+		const float COMPLETION_FINISH_TOLERANCE = 0.001f;
+		return GetParticipantCompletion( participant ).SnapToGrid( COMPLETION_FINISH_TOLERANCE ) >= MaxLaps;
 	}
 
 	public void InitialiseLapProgress(List<RaceParticipant> participants)

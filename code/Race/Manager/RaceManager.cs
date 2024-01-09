@@ -28,7 +28,7 @@ public sealed partial class RaceManager : Component
 	{
 		if(Current != null)
 		{
-			Current.Enabled = false;
+			Current.Destroy();
 		}
 		Current = this;
 		HasStarted = false;

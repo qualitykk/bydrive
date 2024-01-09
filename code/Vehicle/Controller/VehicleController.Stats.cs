@@ -56,6 +56,12 @@ public partial class VehicleController
 		return rechargeFactor;
 	}
 
+	public int GetMaxHealth()
+	{
+		int maxHealth = Stats.MaxHealth;
+		return maxHealth;
+	}
+
 	public float GetTurnSpeed()
 	{ 
 		return Stats.TurnSpeed; 

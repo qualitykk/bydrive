@@ -12,6 +12,7 @@ public sealed partial class VehicleController : Component
 	public float Speed { get; set; }
 	protected override void OnEnabled()
 	{
+		InitialiseCombat();
 		InitialiseAbilities();
 	}
 	protected override void OnUpdate()

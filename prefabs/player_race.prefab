@@ -134,6 +134,18 @@
                 "__enabled": true
               }
             ]
+          },
+          {
+            "Id": "9a8d2382-6c54-4d11-8848-a74079e3cadb",
+            "Name": "Vehicle Health",
+            "Position": "0,0,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "VehicleHealth",
+                "__enabled": true
+              }
+            ]
           }
         ]
       }

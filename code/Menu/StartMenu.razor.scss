@@ -1,3 +1,4 @@
+@import "elements.scss";
 StartMenu {
 	cursor: default;
 	position: absolute;
@@ -5,12 +6,14 @@ StartMenu {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: #444;
 	justify-content: center;
 	align-items: center;
 	font-weight: bold;
 	border-radius: 20px;
 	z-index: 1;
+	background-position: center;
+	background-size: cover;
+	background-image: url(ui/menubackground.png);
 
 	.title {
 		position: absolute;
@@ -27,31 +30,8 @@ StartMenu {
 	}
 
 	.button {
-		cursor: pointer;
-		pointer-events: all;
-		font-size: 32px;
-		padding: 25px;
-		border-radius: 5px;
-		color: #fff;
-		background-color: #888288;
 		width: 400px;
 		height: 10%;
-		align-items: center;
-
-		label {
-			text-align: center;
-			width: 100%;
-		}
-
-		&:hover {
-			background-color: #aaa2aa;
-		}
-
-		&.disabled {
-			cursor: not-allowed;
-			pointer-events: none;
-			background-color: #666466;
-		}
 	}
 
 	.options {

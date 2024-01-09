@@ -41,7 +41,7 @@ public abstract class RacerPickup : Component, Component.ITriggerListener
 			return;
 
 		var vehicle = other.Components.GetInAncestorsOrSelf<VehicleController>();
-		if ( !OnPickup( vehicle ) )
+		if ( vehicle == null || !OnPickup( vehicle ) )
 			return;
 
 		Available = false;

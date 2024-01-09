@@ -1,0 +1,39 @@
+@import "colors.scss";
+
+VehicleHealth {
+	position: absolute;
+	left: 15%;
+	bottom: 5%;
+	width: 12%;
+	height: 15%;
+	background-color: $background_dev;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	padding: 25px;
+	font-family: Poppins;
+	color: #fff;
+	border-radius: 5px;
+	gap: 10px;
+
+	.points {
+		flex-direction: row;
+		height: 100%;
+		width: 100%;
+		justify-content: space-evenly;
+
+		.health {
+			width: 100%;
+			margin: 5px;
+			background-color:#3f3f3f;
+			z-index: 2;
+
+			.active {
+				height: 95%;
+				width: 95%;
+				background-color: #3faa3f;
+				z-index: 2;
+			}
+		}
+	}
+}

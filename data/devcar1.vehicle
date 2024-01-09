@@ -5,6 +5,7 @@
   "Stats": {
     "MaxSpeed": 1100,
     "Acceleration": 1200,
+    "MaxHealth": 4,
     "BoostDuration": 3,
     "BoostSpeedMultiplier": 1.2,
     "BoostAccelerationMultiplier": 2,

@@ -10,6 +10,7 @@ public struct VehicleStats
 {
 	public const float DEFAULT_MAX_SPEED = 900f;
 	public const float DEFAULT_ACCELERATION = 1200f;
+	public const int DEFAULT_MAX_HEALTH = 4;
 
 	public const float DEFAULT_BOOST_DURATION = 3f;
 	public const float DEFAULT_BOOST_SPEED_FACTOR = 1.2f;
@@ -23,6 +24,8 @@ public struct VehicleStats
 
 	public float MaxSpeed { get; set; } = DEFAULT_MAX_SPEED;
 	public float Acceleration { get; set; } = DEFAULT_ACCELERATION;
+	public int MaxHealth { get; set; } = DEFAULT_MAX_HEALTH;
+
 	/// <summary>
 	/// Maximum boost gauge in seconds
 	/// </summary>
@@ -41,6 +44,7 @@ public struct VehicleStats
 	{
 		MaxSpeed = DEFAULT_MAX_SPEED;
 		Acceleration = DEFAULT_ACCELERATION;
+		MaxHealth = DEFAULT_MAX_HEALTH;
 
 		BoostDuration = DEFAULT_BOOST_DURATION;
 		BoostSpeedMultiplier = DEFAULT_BOOST_SPEED_FACTOR;

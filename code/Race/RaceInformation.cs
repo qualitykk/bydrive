@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sandbox.Diagnostics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,11 @@ public class RaceInformation
 			Vehicle = vehicle;
 			Player = ply;
 			StartPlacement = startPosition;
+		}
+
+		public override string ToString()
+		{
+			return Player.Name;
 		}
 	}
 
@@ -121,6 +127,9 @@ public class RaceInformation
 
 	private void Initialise(Participant participant, GameObject obj)
 	{
+		Assert.NotNull( obj, "Cant initialise a null object!" );
+		Assert.NotNull( participant, "Cant initialise with no participant!!" );
+
 		var startingPositions = Scene.GetAllComponents<RaceStartingPosition>();
 		if ( !startingPositions.Any() )
 		{
@@ -165,5 +174,7 @@ public class RaceInformation
 	{
 		DestroyParticipantObjects();
 		// TODO: Return to lobby
+		StartMenu.Open();
+		Current = null;
 	}
 }
