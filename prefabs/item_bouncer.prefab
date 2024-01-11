@@ -1,0 +1,63 @@
+{
+  "RootObject": {
+    "Id": "b87a98a2-21c2-42cf-93f0-b544eb160ddd",
+    "Name": "item_bouncer",
+    "Enabled": true,
+    "Components": [
+      {
+        "__version": 0,
+        "__type": "HitVehicles",
+        "__enabled": true,
+        "Amount": 1,
+        "DestroyOnHit": true
+      },
+      {
+        "__version": 0,
+        "__type": "HoverObject",
+        "__enabled": true,
+        "Distance": 32,
+        "IgnoreTags": null,
+        "TraceDistance": 1024
+      },
+      {
+        "__version": 0,
+        "__type": "SkinnedModelRenderer",
+        "__enabled": true,
+        "BodyGroups": 18446744073709551615,
+        "BoneMergeTarget": null,
+        "CreateBoneObjects": false,
+        "MaterialGroup": null,
+        "MaterialOverride": null,
+        "Model": "models/cabledrum/cabledrum.vmdl",
+        "RenderType": "On",
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__version": 0,
+        "__type": "LinearVelocityBounce",
+        "__enabled": true,
+        "BounceDistance": 8,
+        "IgnoreTags": null,
+        "LocalVelocity": "60,0,0",
+        "MaxBounces": 0,
+        "OnBounce": null
+      },
+      {
+        "__version": 0,
+        "__type": "BoxCollider",
+        "__enabled": true,
+        "Center": "0,0,20",
+        "IsTrigger": false,
+        "Scale": "60,60,50",
+        "Static": false,
+        "Surface": null
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": [
+    "baik.cabledrum"
+  ]
+}

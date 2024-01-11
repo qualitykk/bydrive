@@ -2,9 +2,11 @@
   "RootObject": {
     "Id": "26326434-a149-4d25-ac90-3f8b88b06c7e",
     "Name": "pickup_boost1",
+    "Tags": "pickup,item",
     "Enabled": true,
     "Components": [
       {
+        "__version": 0,
         "__type": "BoostPickup",
         "__enabled": true,
         "OnAvailableAction": null,
@@ -12,6 +14,7 @@
         "RespawnTime": 10
       },
       {
+        "__version": 0,
         "__type": "BoxCollider",
         "__enabled": true,
         "Center": "0,0,0",
@@ -21,6 +24,7 @@
         "Surface": null
       },
       {
+        "__version": 0,
         "__type": "HighlightOutline",
         "__enabled": true,
         "Color": "0.10891,0.48317,1,1",
@@ -31,6 +35,7 @@
         "Width": 1
       },
       {
+        "__version": 0,
         "__type": "SkinnedModelRenderer",
         "__enabled": true,
         "BodyGroups": 18446744073709551615,

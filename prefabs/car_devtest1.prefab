@@ -5,20 +5,25 @@
     "Enabled": true,
     "Components": [
       {
+        "__version": 0,
         "__type": "VehicleController",
         "__enabled": true,
         "BaseFieldOfView": 90,
         "Camera": null,
+        "Health": 0,
+        "ItemSpawnPosition": "128,0,8",
         "MaxFieldOfView": 120,
         "Rigidbody": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
         "StatProvider": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2"
       },
       {
+        "__version": 0,
         "__type": "DefinitionVehicleStats",
         "__enabled": true,
         "Definition": null
       },
       {
+        "__version": 0,
         "__type": "ModelCollider",
         "__enabled": true,
         "IsTrigger": false,
@@ -27,6 +32,7 @@
         "Surface": null
       },
       {
+        "__version": 0,
         "__type": "SkinnedModelRenderer",
         "__enabled": true,
         "BodyGroups": 18446744073709551615,
@@ -39,12 +45,14 @@
         "Tint": "1,1,1,1"
       },
       {
+        "__version": 0,
         "__type": "Rigidbody",
         "__enabled": true,
         "AngularDamping": 0,
         "Gravity": true,
         "LinearDamping": 0,
         "Locking": {},
+        "RigidbodyFlags": 0,
         "StartAsleep": false
       }
     ],
@@ -57,6 +65,7 @@
         "Enabled": true,
         "Components": [
           {
+            "__version": 0,
             "__type": "VehicleWheel",
             "__enabled": true,
             "IsDriving": true,
@@ -65,6 +74,7 @@
             "Width": 8
           },
           {
+            "__version": 0,
             "__type": "SkinnedModelRenderer",
             "__enabled": true,
             "BodyGroups": 18446744073709551615,
@@ -85,6 +95,7 @@
         "Enabled": true,
         "Components": [
           {
+            "__version": 0,
             "__type": "VehicleWheel",
             "__enabled": true,
             "IsDriving": true,
@@ -93,6 +104,7 @@
             "Width": 8
           },
           {
+            "__version": 0,
             "__type": "SkinnedModelRenderer",
             "__enabled": true,
             "BodyGroups": 18446744073709551615,
@@ -113,6 +125,7 @@
         "Enabled": true,
         "Components": [
           {
+            "__version": 0,
             "__type": "VehicleWheel",
             "__enabled": true,
             "IsDriving": true,
@@ -121,6 +134,7 @@
             "Width": 8
           },
           {
+            "__version": 0,
             "__type": "SkinnedModelRenderer",
             "__enabled": true,
             "BodyGroups": 18446744073709551615,
@@ -142,6 +156,7 @@
         "Enabled": true,
         "Components": [
           {
+            "__version": 0,
             "__type": "VehicleWheel",
             "__enabled": true,
             "IsDriving": true,
@@ -150,6 +165,7 @@
             "Width": 8
           },
           {
+            "__version": 0,
             "__type": "SkinnedModelRenderer",
             "__enabled": true,
             "BodyGroups": 18446744073709551615,

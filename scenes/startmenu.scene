@@ -8,6 +8,7 @@
       "Enabled": true,
       "Components": [
         {
+          "__version": 0,
           "__type": "ScreenPanel",
           "__enabled": true,
           "AutoScreenScale": true,
@@ -24,6 +25,7 @@
           "Enabled": true,
           "Components": [
             {
+              "__version": 0,
               "__type": "StartMenu",
               "__enabled": true,
               "BackgroundMusic": "sounds/music/menu_theme.sound"
@@ -37,6 +39,7 @@
           "Enabled": true,
           "Components": [
             {
+              "__version": 0,
               "__type": "IntroPlayer",
               "__enabled": false,
               "VideoFile": null
@@ -53,6 +56,7 @@
       "Enabled": true,
       "Components": [
         {
+          "__version": 0,
           "__type": "CameraComponent",
           "__enabled": true,
           "BackgroundColor": "0.33333,0.46275,0.52157,1",

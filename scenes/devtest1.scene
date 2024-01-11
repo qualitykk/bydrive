@@ -9,6 +9,7 @@
       "Enabled": true,
       "Components": [
         {
+          "__version": 0,
           "__type": "DirectionalLight",
           "__enabled": true,
           "LightColor": "0.95545,0.88469,0.63381,1",
@@ -16,6 +17,7 @@
           "SkyColor": "0.21821,0.42262,0.52475,1"
         },
         {
+          "__version": 0,
           "__type": "SkyBox2D",
           "__enabled": true,
           "SkyMaterial": "materials/skybox/light_test_sky_sunny02.vmat",
@@ -24,14 +26,17 @@
       ]
     },
     {
-      "Id": "c5a2167b-856a-4fdd-932f-f7f868c6396f",
+      "Id": "1f30c76c-e98a-45f0-ae02-6fa8c838fc23",
       "Name": "Level",
+      "Position": "-3999.066,-2064.413,1129.26",
+      "Rotation": "-0.0000000004070593,-0.00000004173178,0.707107,0.7071065",
       "Enabled": true,
       "Components": [
         {
+          "__version": 0,
           "__type": "MapInstance",
           "__enabled": true,
-          "MapName": "rd_rc_devtest1_a1",
+          "MapName": "maps/rd_rc_devtest1_a1.vpk",
           "OnMapLoaded": null,
           "OnMapUnloaded": null,
           "UseMapFromLaunch": false
@@ -47,6 +52,7 @@
       "Enabled": true,
       "Components": [
         {
+          "__version": 0,
           "__type": "RaceManager",
           "__enabled": true,
           "LoseMusic": null,
@@ -64,6 +70,7 @@
       "Enabled": true,
       "Components": [
         {
+          "__version": 0,
           "__type": "RaceStartingPosition",
           "__enabled": true,
           "Placement": 4
@@ -77,6 +84,7 @@
       "Enabled": true,
       "Components": [
         {
+          "__version": 0,
           "__type": "RaceStartingPosition",
           "__enabled": true,
           "Placement": 3
@@ -90,6 +98,7 @@
       "Enabled": true,
       "Components": [
         {
+          "__version": 0,
           "__type": "RaceStartingPosition",
           "__enabled": true,
           "Placement": 2
@@ -103,6 +112,7 @@
       "Enabled": true,
       "Components": [
         {
+          "__version": 0,
           "__type": "RaceStartingPosition",
           "__enabled": true,
           "Placement": 1
@@ -122,6 +132,7 @@
           "Enabled": true,
           "Components": [
             {
+              "__version": 0,
               "__type": "BoxCollider",
               "__enabled": true,
               "Center": "0,0,0",
@@ -131,6 +142,7 @@
               "Surface": null
             },
             {
+              "__version": 0,
               "__type": "RaceCheckpoint",
               "__enabled": true,
               "IsRequired": true,
@@ -150,6 +162,7 @@
           "Enabled": true,
           "Components": [
             {
+              "__version": 0,
               "__type": "RaceCheckpoint",
               "__enabled": true,
               "IsRequired": true,
@@ -160,6 +173,7 @@
               "RespawnRotation": "0,0,0,0"
             },
             {
+              "__version": 0,
               "__type": "BoxCollider",
               "__enabled": true,
               "Center": "0,0,0",
@@ -178,6 +192,7 @@
           "Enabled": true,
           "Components": [
             {
+              "__version": 0,
               "__type": "RaceCheckpoint",
               "__enabled": true,
               "IsRequired": true,
@@ -188,6 +203,7 @@
               "RespawnRotation": "0,0,0,0"
             },
             {
+              "__version": 0,
               "__type": "BoxCollider",
               "__enabled": true,
               "Center": "0,0,0",
@@ -206,6 +222,7 @@
           "Enabled": true,
           "Components": [
             {
+              "__version": 0,
               "__type": "RaceCheckpoint",
               "__enabled": true,
               "IsRequired": true,
@@ -217,6 +234,7 @@
               "RespawnRotation": "0,0,0,0"
             },
             {
+              "__version": 0,
               "__type": "BoxCollider",
               "__enabled": true,
               "Center": "0,0,0",
@@ -235,6 +253,7 @@
           "Enabled": true,
           "Components": [
             {
+              "__version": 0,
               "__type": "RaceCheckpoint",
               "__enabled": true,
               "IsRequired": true,
@@ -245,6 +264,7 @@
               "RespawnRotation": "0,0,0,0"
             },
             {
+              "__version": 0,
               "__type": "BoxCollider",
               "__enabled": true,
               "Center": "0,0,0",
@@ -263,6 +283,7 @@
           "Enabled": true,
           "Components": [
             {
+              "__version": 0,
               "__type": "RaceCheckpoint",
               "__enabled": true,
               "IsRequired": false,
@@ -273,6 +294,7 @@
               "RespawnRotation": "0,0,0,0"
             },
             {
+              "__version": 0,
               "__type": "BoxCollider",
               "__enabled": true,
               "Center": "0,0,0",
@@ -291,6 +313,7 @@
           "Enabled": true,
           "Components": [
             {
+              "__version": 0,
               "__type": "RaceCheckpoint",
               "__enabled": true,
               "IsRequired": true,
@@ -301,6 +324,7 @@
               "RespawnRotation": "0,0,0,0"
             },
             {
+              "__version": 0,
               "__type": "BoxCollider",
               "__enabled": true,
               "Center": "0,0,0",
@@ -319,6 +343,7 @@
           "Enabled": true,
           "Components": [
             {
+              "__version": 0,
               "__type": "RaceCheckpoint",
               "__enabled": true,
               "IsRequired": false,
@@ -329,6 +354,7 @@
               "RespawnRotation": "0,0,0,0"
             },
             {
+              "__version": 0,
               "__type": "BoxCollider",
               "__enabled": true,
               "Center": "0,0,0",
@@ -347,6 +373,7 @@
           "Enabled": true,
           "Components": [
             {
+              "__version": 0,
               "__type": "RaceCheckpoint",
               "__enabled": true,
               "IsRequired": true,
@@ -357,6 +384,7 @@
               "RespawnRotation": "0,0,0,0"
             },
             {
+              "__version": 0,
               "__type": "BoxCollider",
               "__enabled": true,
               "Center": "0,0,0",
@@ -374,6 +402,7 @@
           "Enabled": true,
           "Components": [
             {
+              "__version": 0,
               "__type": "RaceCheckpoint",
               "__enabled": true,
               "IsRequired": true,
@@ -384,6 +413,7 @@
               "RespawnRotation": "0,0,0,0"
             },
             {
+              "__version": 0,
               "__type": "BoxCollider",
               "__enabled": true,
               "Center": "0,0,0",
@@ -402,6 +432,7 @@
           "Enabled": true,
           "Components": [
             {
+              "__version": 0,
               "__type": "RaceCheckpoint",
               "__enabled": true,
               "IsRequired": false,
@@ -412,6 +443,7 @@
               "RespawnRotation": "0,0,0,0"
             },
             {
+              "__version": 0,
               "__type": "BoxCollider",
               "__enabled": true,
               "Center": "0,0,0",
@@ -430,6 +462,7 @@
           "Enabled": true,
           "Components": [
             {
+              "__version": 0,
               "__type": "RaceCheckpoint",
               "__enabled": true,
               "IsRequired": false,
@@ -440,6 +473,7 @@
               "RespawnRotation": "0,0,0,0"
             },
             {
+              "__version": 0,
               "__type": "BoxCollider",
               "__enabled": true,
               "Center": "0,0,0",
@@ -457,6 +491,7 @@
           "Enabled": true,
           "Components": [
             {
+              "__version": 0,
               "__type": "RaceCheckpoint",
               "__enabled": true,
               "IsRequired": true,
@@ -467,6 +502,7 @@
               "RespawnRotation": "0,0,0,0"
             },
             {
+              "__version": 0,
               "__type": "BoxCollider",
               "__enabled": true,
               "Center": "0,0,0",
@@ -485,6 +521,7 @@
           "Enabled": true,
           "Components": [
             {
+              "__version": 0,
               "__type": "RaceCheckpoint",
               "__enabled": true,
               "IsRequired": true,
@@ -495,6 +532,7 @@
               "RespawnRotation": "0,0,0,0"
             },
             {
+              "__version": 0,
               "__type": "BoxCollider",
               "__enabled": true,
               "Center": "0,0,0",
@@ -513,6 +551,7 @@
           "Enabled": true,
           "Components": [
             {
+              "__version": 0,
               "__type": "RaceCheckpoint",
               "__enabled": true,
               "IsRequired": true,
@@ -523,6 +562,7 @@
               "RespawnRotation": "0,0,0,0"
             },
             {
+              "__version": 0,
               "__type": "BoxCollider",
               "__enabled": true,
               "Center": "0,0,0",
@@ -540,6 +580,7 @@
           "Enabled": true,
           "Components": [
             {
+              "__version": 0,
               "__type": "RaceCheckpoint",
               "__enabled": true,
               "IsRequired": true,
@@ -550,6 +591,7 @@
               "RespawnRotation": "0,0,0,0"
             },
             {
+              "__version": 0,
               "__type": "BoxCollider",
               "__enabled": true,
               "Center": "0,0,0",
@@ -569,10 +611,12 @@
       "Enabled": true,
       "Components": [
         {
+          "__version": 0,
           "__type": "RaceRespawnZone",
           "__enabled": true
         },
         {
+          "__version": 0,
           "__type": "BoxCollider",
           "__enabled": true,
           "Center": "0,0,0",

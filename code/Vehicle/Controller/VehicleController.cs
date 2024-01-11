@@ -234,4 +234,8 @@ public sealed partial class VehicleController : Component
 
 	#endregion
 
+	protected override void DrawGizmos()
+	{
+		Gizmo.Draw.SolidSphere( ItemSpawnPosition, 4f );
+	}
 }

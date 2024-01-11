@@ -49,6 +49,7 @@ internal static class InputActions
 	public const string RIGHT = "Right";
 
 	public const string BOOST = "Run";
+	public const string ITEM = "Use";
 	public const string BREAK = "Jump";
 	public const string RESPAWN = "Reload";
 
