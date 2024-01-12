@@ -27,7 +27,7 @@ internal static class TransformExtensions
 
 	public static Vector3 VelocityToWorld(this Transform transform, Vector3 velocity)
 	{
-		return transform.PointToWorld( velocity - transform.Position );
+		return transform.Rotation.Forward.Normal * velocity;
 	}
 
 	public static Transform EnsureNotNaN(this Transform transform)

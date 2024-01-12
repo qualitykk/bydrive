@@ -64,7 +64,7 @@ public partial class VehicleController
 		itemObject.ApplyPrefab( "prefabs/item_bouncer.prefab" );
 
 		itemObject.Transform.Position = spawnPos;
-		itemObject.Transform.Rotation = Transform.Rotation;
+		itemObject.Transform.LocalRotation = Transform.LocalRotation;
 
 		WantsItem = false;
 		TimeSinceUseItem = 0;

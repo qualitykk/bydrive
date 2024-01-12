@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,23 +46,52 @@ public class LinearVelocityBounce : LinearVelocity
 			Destroy();
 		}
 	}
+
+	// For debugging purposes
+	private Vector3 lastEndPos;
+	private Vector3 lastNormal;
 	protected override Vector3 GetNextPosition()
 	{
-		Vector3 worldVelocity = Transform.World.VelocityToWorld( LocalVelocity );
-		Vector3 velocity = LocalVelocity * Transform.LocalRotation * Time.Delta;
+		Vector3 velocity = Transform.Local.VelocityToWorld( LocalVelocity) * Time.Delta;
 
-		var tr = Scene.Trace.Ray( new(Transform.Position, worldVelocity ), BounceDistance )
+		var tr = Scene.Trace.Ray( Transform.Position, Transform.Position + velocity.Normal * BounceDistance )
 			.WithoutTags(IgnoreTags)
 			.Run();
 
-		Vector3 bounceVelocity = Vector3.Zero;
 		if(tr.Hit)
 		{
-			bounceVelocity = tr.Normal.Normal * velocity.x;
+			Vector3 endPos = tr.EndPosition;
+			Vector3 normal = tr.Normal.Normal;
+			lastEndPos = endPos;
+			lastNormal = normal;
+
+			Transform.LocalRotation = Rotation.LookAt( normal );
 			OnBounce?.Invoke(BounceCount);
 			BounceCount++;
+
+			return endPos + normal * LocalVelocity.x * Time.Delta;
 		}
 
-		return Transform.LocalPosition + velocity + bounceVelocity;
+		lastEndPos = default;
+		lastNormal = default;
+		return Transform.Position + velocity;
+	}
+
+	protected override void DrawGizmos()
+	{
+		base.DrawGizmos();
+
+		Gizmo.Draw.Color = Color.Yellow;
+		Gizmo.Draw.Line( Vector3.Zero, Vector3.Zero + Transform.LocalRotation.Forward * BounceDistance );
+
+		if ( lastNormal != default )
+		{
+			Vector3 endpos = Transform.Local.PointToLocal( lastEndPos );
+			Vector3 normal = Transform.Local.PointToLocal( lastNormal );
+
+			Gizmo.Draw.Color = Color.Red;
+			Gizmo.Draw.LineSphere( endpos, 32f );
+			Gizmo.Draw.Line( endpos, endpos + normal * BounceDistance ); ;
+		}
 	}
 }

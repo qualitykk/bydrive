@@ -2,7 +2,7 @@
 @import "elements.scss";
 
 RaceResults {
-	display: none;
+	display: flex;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -12,10 +12,6 @@ RaceResults {
 	align-items: center;
 	font-weight: bold;
 	flex-direction: column;
-
-	&.visible {
-		display: flex;
-	}
 
 	.title {
 		font-size: 64px;

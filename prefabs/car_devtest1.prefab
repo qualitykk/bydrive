@@ -11,7 +11,7 @@
         "BaseFieldOfView": 90,
         "Camera": null,
         "Health": 0,
-        "ItemSpawnPosition": "128,0,8",
+        "ItemSpawnPosition": "192,0,16",
         "MaxFieldOfView": 120,
         "Rigidbody": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
         "StatProvider": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2"

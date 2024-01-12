@@ -3,12 +3,15 @@
 @inherits PanelComponent
 @namespace Bydrive
 
+@if (!ShouldDraw())
+	return;
+
 <root>
 	<div class="title">Results</div>
 	<div class="list">
-		@if(results != null)
+		@if(GetPlacements() != null)
 		{
-			@foreach (var result in results)
+			@foreach (var result in GetPlacements())
 			{
 				<div class="racer">
 					<label class="placement @GetPlacementTag(result.Placement)">@result.Placement</label>
@@ -23,22 +26,6 @@
 
 @code
 {
-	IEnumerable<RaceManager.ParticipantFinishInformation> results;
-	protected override void OnUpdate()
-	{
-		bool draw = ShouldDraw();
-		if(draw)
-		{
-			results = GetPlacements();
-			AddClass("visible");
-			Panel.StateHasChanged();
-		}
-		else
-		{
-			SetClass("visible", false);
-		}
-	}
-
 	private bool ShouldDraw()
 	{
 		return Race != null && Race.IsFinished(GetLocalParticipantInstance());
@@ -69,10 +56,5 @@
 		RaceContext.Stop();
 	}
 
-	/*
-	public override int GetHashCode()
-	{
-		return HashCode.Combine(GetPlacements(), ShouldDraw());
-	}
-	*/
+	protected override int BuildHash() => HashCode.Combine(GetPlacements(), GetPlacements().Count, ShouldDraw());
 }

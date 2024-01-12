@@ -43,7 +43,7 @@ public class RaceInformation
 
 		Current = this;
 
-		GameManager.ActiveScene.Load(definition.Scene);
+		GameManager.ActiveScene.LoadFromFile(definition.Scene.ResourcePath);
 
 		Definition = definition;
 		Participants = participants;
