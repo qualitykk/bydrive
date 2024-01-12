@@ -61,3 +61,12 @@ internal static class TraceTags
 {
 	public const string SOLID = "Solid";
 }
+
+internal static class UIColors
+{
+	internal static class Notification
+	{
+		public static Color Success => new Color( 0x6080DF20 );
+		public static Color Bonus => new Color( 0x60EE5F13 );
+	}
+}

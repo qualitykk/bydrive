@@ -5,6 +5,7 @@
     "Enabled": true,
     "Components": [
       {
+        "__version": 0,
         "__type": "VehiclePlayerInput",
         "__enabled": true,
         "DebugLocal": false,
@@ -22,6 +23,7 @@
         "Enabled": true,
         "Components": [
           {
+            "__version": 0,
             "__type": "CameraComponent",
             "__enabled": true,
             "BackgroundColor": "0.33333,0.46275,0.52157,1",
@@ -39,6 +41,7 @@
             "ZNear": 10
           },
           {
+            "__version": 0,
             "__type": "Highlight",
             "__enabled": true
           }
@@ -51,6 +54,7 @@
         "Enabled": true,
         "Components": [
           {
+            "__version": 0,
             "__type": "ScreenPanel",
             "__enabled": true,
             "AutoScreenScale": true,
@@ -67,6 +71,7 @@
             "Enabled": true,
             "Components": [
               {
+                "__version": 0,
                 "__type": "LapCompletion",
                 "__enabled": true,
                 "DebugCheckpoints": false
@@ -80,6 +85,7 @@
             "Enabled": true,
             "Components": [
               {
+                "__version": 0,
                 "__type": "RaceStart",
                 "__enabled": true,
                 "CountdownTime": 3,
@@ -94,6 +100,7 @@
             "Enabled": true,
             "Components": [
               {
+                "__version": 0,
                 "__type": "RaceResults",
                 "__enabled": true
               }
@@ -106,6 +113,7 @@
             "Enabled": true,
             "Components": [
               {
+                "__version": 0,
                 "__type": "Speedometer",
                 "__enabled": true
               }
@@ -118,6 +126,7 @@
             "Enabled": true,
             "Components": [
               {
+                "__version": 0,
                 "__type": "RacePlacement",
                 "__enabled": true
               }
@@ -130,6 +139,7 @@
             "Enabled": true,
             "Components": [
               {
+                "__version": 0,
                 "__type": "RaceTimer",
                 "__enabled": true
               }
@@ -142,7 +152,21 @@
             "Enabled": true,
             "Components": [
               {
+                "__version": 0,
                 "__type": "VehicleHealth",
+                "__enabled": true
+              }
+            ]
+          },
+          {
+            "Id": "cbc6ec1f-2645-4f6f-825b-79756146027f",
+            "Name": "Notifications",
+            "Position": "0,0,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__version": 0,
+                "__type": "Notifications",
                 "__enabled": true
               }
             ]

@@ -17,6 +17,7 @@ public class BoostPickup : RacerPickup
 		if(vehicle.RemainingBoost < maxBoost )
 		{
 			vehicle.RemainingBoost = maxBoost;
+			Notifications.Add( vehicle, new("Picked up boost", UIColors.Notification.Bonus) );
 			return true;
 		}
 
