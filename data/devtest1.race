@@ -1,5 +1,7 @@
 {
   "Name": "Devtest1",
+  "Group": "",
+  "Hidden": false,
   "Scene": "scenes/devtest1.scene",
   "__references": []
 }

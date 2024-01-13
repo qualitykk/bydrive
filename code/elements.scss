@@ -8,6 +8,12 @@
     background-color: #888288;
     align-items: center;
     border: 8px solid #777777;
+    height: 10%;
+    width: 20vw;
+
+    &.tall {
+        height: 15%;
+    }
 
     label {
         text-align: center;
@@ -25,3 +31,22 @@
         background-color: #555;
     }
 }
+
+.flex-col
+{
+    flex-direction: column;
+}
+
+.flex-row
+{
+    flex-direction: row;
+}
+
+.textentry {
+    background-color: #353535;
+    border: 1px solid #9a9a9a;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 32px;
+}
+

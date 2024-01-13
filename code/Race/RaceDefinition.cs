@@ -14,5 +14,7 @@ namespace Bydrive;
 public class RaceDefinition : GameResource
 {
 	public string Name { get; set; }
+	public string Group { get; set; }
+	public bool Hidden { get; set; }
 	public SceneFile Scene { get; set; }
 }

@@ -1,4 +1,5 @@
 ﻿using Sandbox.Diagnostics;
+using Sandbox.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,7 @@ public class RaceInformation
 			return Player.Name;
 		}
 	}
-
+	public const int MAX_PLAYERCOUNT = 16;
 	public static RaceInformation Current { get; set; }
 	public Scene Scene => GameManager.ActiveScene;
 	public RaceDefinition Definition { get; set; }
@@ -42,7 +43,6 @@ public class RaceInformation
 		}
 
 		Current = this;
-
 		GameManager.ActiveScene.LoadFromFile(definition.Scene.ResourcePath);
 
 		Definition = definition;

@@ -1,0 +1,44 @@
+﻿@using Sandbox.UI;
+@namespace Bydrive
+@inherits Panel;
+
+<root class="tracklist">
+    @foreach(var track in tracks)
+    {
+        <div class="track @(GetClasses(track))" style="pointer-events:all;" @onclick=@(() => OnClickTrack(track))>
+            <label class="name">@track.Name</label>
+        </div>
+    }
+</root>
+
+@code
+{
+    public Action<RaceDefinition> TrackSelected { get; set; }
+
+    IEnumerable<IGrouping<string, RaceDefinition>> groupedTracks;
+    IEnumerable<RaceDefinition> tracks;
+    RaceDefinition selectedTrack;
+
+    protected override void OnParametersSet()
+    {
+        tracks = ResourceLibrary.GetAll<RaceDefinition>().Where(def => !def.Hidden);
+        groupedTracks = tracks.GroupBy(t => t.Group);
+    }
+
+    private string GetClasses(RaceDefinition def)
+    {
+        string classes = "";
+        if(def == selectedTrack)
+        {
+            classes += "selected ";
+        }
+
+        return classes;
+    }
+
+    private void OnClickTrack(RaceDefinition def)
+    {
+        TrackSelected?.Invoke(def);
+        selectedTrack = def;
+    }
+}
