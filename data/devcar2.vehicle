@@ -3,6 +3,8 @@
   "Description": "Bigger Car used in development.",
   "Hidden": false,
   "PreviewModel": "zuk/zuk.vmdl",
+  "PreviewPosition": "-250,0,190",
+  "PreviewAngles": "0,0,0",
   "Stats": {
     "MaxSpeed": 1000,
     "Acceleration": 1100,
@@ -16,7 +18,7 @@
     "TurnSpeedIdealDistance": 500,
     "TurnSpeedVelocityFactor": 0.6
   },
-  "Prefab": "prefabs/car_devtest1.prefab",
+  "Prefab": "prefabs/car_devtest2.prefab",
   "__references": [
     "gandesign.zuk"
   ]

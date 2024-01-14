@@ -13,7 +13,9 @@ public class VehicleDefinition : GameResource, IPrefabProvider
 	public string Title { get; set; }
 	public string Description { get; set; }
 	public bool Hidden { get; set; }
-	public Model PreviewModel { get; set; }
+	[Category("Preview")] public Model PreviewModel { get; set; }
+	[Category("Preview")] public Vector3 PreviewPosition { get; set; }
+	[Category("Preview")] public Angles PreviewAngles { get; set; }
 	public VehicleStats Stats {get;set;}
 	public PrefabFile Prefab { get; set; }
 }

@@ -1,0 +1,24 @@
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Bydrive
+
+<root class="@GetClasses()">
+	@if(HasItem())
+	{
+		<label class="item">
+			@GetCurrentItem()?.Title
+		</label>
+	}
+</root>
+
+@code
+{
+	private ItemDefinition GetCurrentItem() => GetLocalVehicle()?.CurrentItem;
+	private bool HasItem() => GetCurrentItem() != default;
+	private string GetClasses()
+	{
+		if(HasItem()) return "has_item";
+		return "";
+	}
+	protected override int BuildHash() => System.HashCode.Combine( GetCurrentItem(), HasItem() );
+}

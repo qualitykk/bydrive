@@ -1,0 +1,25 @@
+@import "colors.scss";
+
+CurrentItem {
+	position: absolute;
+	aspect-ratio: 1;
+	width: 7%;
+	left: 15%;
+	bottom: 25%;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	border-radius: 20px;
+	padding: 20px;
+	background-color: $background_dev;
+
+	&.has_item {
+		border: 5px solid #44aa88;
+	}
+	.item {
+		text-align: center;
+		font-size: 24px;
+		font-family: Poppins;
+		color: #fff;
+	}
+}

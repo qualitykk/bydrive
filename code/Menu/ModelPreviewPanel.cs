@@ -51,8 +51,14 @@ public class ModelPreviewPanel : ScenePanel
 		if ( sceneModel == null || ModelRotationSpeed == 0 )
 			return;
 
+		return;
+		/*
+		// This doesnt work. investigate this in the future.
+
 		float rotateDegrees = ModelRotationSpeed * ConstantSpin.DEGREES_PER_SECOND * Time.Delta;
-		sceneModel.Rotation = sceneModel.Rotation.RotateAroundAxis( Vector3.Up, rotateDegrees );
+		var newRotation = sceneModel.Rotation.RotateAroundAxis( Vector3.Up, rotateDegrees );
+		sceneModel.Rotation = newRotation;
+		*/
 	}
 	private void SetModel(Model model)
 	{

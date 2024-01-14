@@ -13,13 +13,14 @@ public partial class VehicleController
 	public bool UsingBoost { get; set; }
 	public TimeSince TimeSinceUseBoost { get; set; }
 	[Property] public Vector3 ItemSpawnPosition { get; set; }
+	public ItemDefinition CurrentItem { get; private set; }
 	public TimeSince TimeSinceUseItem { get; set; }
 	public void InitialiseAbilities()
 	{
 		RemainingBoost = GetBoostDuration();
 		TimeSinceUseItem = 0;
 	}
-	public void DoAbilities()
+	public void TickAbilities()
 	{
 		TickBoost();
 		TickItems();
@@ -50,21 +51,36 @@ public partial class VehicleController
 
 	public void TickItems()
 	{
-		if(WantsItem && TimeSinceUseItem > ITEM_COOLDOWN)
+		if(WantsItem && CanUseCurrentItem() )
 		{
 			UseItem();
 		}
 	}
-
+	public bool EquipItem(ItemDefinition def )
+	{
+		if ( !CanEquipItem() ) return false;
+		CurrentItem = def;
+		Log.Info( CurrentItem );
+		return true;
+	}
+	public bool CanEquipItem()
+	{
+		return CurrentItem == default;
+	}
+	public bool CanUseCurrentItem()
+	{
+		return TimeSinceUseItem > ITEM_COOLDOWN && CurrentItem != default;
+	}
 	private void UseItem()
 	{
 		Vector3 spawnPos = Transform.Local.PointToWorld( ItemSpawnPosition );
 
-		GameObject itemObject = new();
-		itemObject.ApplyPrefab( "prefabs/item_bouncer.prefab" );
+		GameObject itemObject = ResourceHelper.CreateObjectFromResource( CurrentItem );
 
 		itemObject.Transform.Position = spawnPos;
 		itemObject.Transform.LocalRotation = Transform.LocalRotation;
+
+		CurrentItem = default;
 
 		WantsItem = false;
 		TimeSinceUseItem = 0;

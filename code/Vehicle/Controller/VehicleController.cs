@@ -12,13 +12,19 @@ public sealed partial class VehicleController : Component
 	public float Speed { get; set; }
 	protected override void OnEnabled()
 	{
+		Reset();
+	}
+	public override void Reset()
+	{
+		base.Reset();
 		InitialiseCombat();
 		InitialiseAbilities();
+		ResetInput();
 	}
 	protected override void OnUpdate()
 	{
 		VerifyInput();
-		DoAbilities();
+		TickAbilities();
 		Move();
 		UpdateCamera();
 	}
@@ -236,6 +242,8 @@ public sealed partial class VehicleController : Component
 
 	protected override void DrawGizmos()
 	{
-		Gizmo.Draw.SolidSphere( ItemSpawnPosition, 4f );
+		const float POSITION_HELPER_RADIUS = 4f;
+		Gizmo.Draw.SolidSphere( ItemSpawnPosition, POSITION_HELPER_RADIUS );
+		Gizmo.Draw.SolidSphere( CameraPosition, POSITION_HELPER_RADIUS );
 	}
 }

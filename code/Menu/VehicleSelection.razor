@@ -9,7 +9,7 @@
             @foreach(var vehicle in vehicles)
             {
                 <div class="vehicle flex-col pointer-events" @onclick=@(() => OnClickVehicle(vehicle))>
-                    <ModelPreviewPanel class="preview w-100" Model=@vehicle.PreviewModel CameraPosition=@PreviewCameraPosition CameraAngles=@PreviewCameraAngles />
+                    <ModelPreviewPanel class="preview w-100" Model=@vehicle.PreviewModel CameraPosition=@VehiclePreviewPosition(vehicle) CameraAngles=@VehiclePreviewAngles(vehicle) />
                     <label class="title w-100">@vehicle.Title</label>
                 </div>
             }
@@ -39,7 +39,7 @@
                     <label class="title">None Selected</label>
                 }
             </div>
-            <ModelPreviewPanel class="preview" Model=@selectedVehicle?.PreviewModel CameraPosition=@PreviewCameraPosition CameraAngles=@PreviewCameraAngles />
+            <ModelPreviewPanel class="preview" Model=@selectedVehicle?.PreviewModel CameraPosition=@VehiclePreviewPosition(selectedVehicle) CameraAngles=@VehiclePreviewAngles(selectedVehicle) />
         </div>
     </div
     <div class="footer flex-row">

@@ -10,6 +10,7 @@
         "__enabled": true,
         "BaseFieldOfView": 90,
         "Camera": null,
+        "CameraPosition": "-190,0,120",
         "Health": 0,
         "ItemSpawnPosition": "192,0,16",
         "MaxFieldOfView": 120,

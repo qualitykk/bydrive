@@ -1,0 +1,6 @@
+{
+  "Title": "Bouncer",
+  "Icon": null,
+  "Prefab": "prefabs/item_bouncer.prefab",
+  "__references": []
+}

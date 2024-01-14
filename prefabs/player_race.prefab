@@ -86,7 +86,7 @@
             "Components": [
               {
                 "__version": 0,
-                "__type": "RaceStart",
+                "__type": "RaceStartCountdown",
                 "__enabled": true,
                 "CountdownTime": 3,
                 "StartTextFade": 2
@@ -167,6 +167,19 @@
               {
                 "__version": 0,
                 "__type": "Notifications",
+                "__enabled": true
+              }
+            ]
+          },
+          {
+            "Id": "9a317d7e-9624-4299-9350-6c6b8ca7694b",
+            "Name": "Item",
+            "Position": "0,0,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__version": 0,
+                "__type": "CurrentItem",
                 "__enabled": true
               }
             ]

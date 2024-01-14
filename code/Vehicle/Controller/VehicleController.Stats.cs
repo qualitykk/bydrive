@@ -13,10 +13,17 @@ public partial class VehicleController
 
 	public float GetMaxSpeed()
 	{
+		const float NO_HEALTH_SPEED_MULTIPLIER = 0.875f;
+
 		float maxSpeed = Stats.MaxSpeed;
 		if ( UsingBoost )
 		{
 			maxSpeed *= Stats.BoostSpeedMultiplier;
+		}
+
+		if(Health <= 0)
+		{
+			maxSpeed *= NO_HEALTH_SPEED_MULTIPLIER;
 		}
 
 		return maxSpeed;

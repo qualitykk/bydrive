@@ -640,6 +640,22 @@
       "Position": "-967.6016,3999.721,416",
       "Enabled": true,
       "__Prefab": "prefabs/pickup_boost1.prefab"
+    },
+    {
+      "Id": "4697714d-3e35-4755-87bc-267c77ba8e5d",
+      "Name": "pickup_item1",
+      "Position": "1269.28,2361.375,154",
+      "Tags": "item,pickup",
+      "Enabled": true,
+      "__Prefab": "prefabs/pickup_item1.prefab"
+    },
+    {
+      "Id": "e8a495b1-fa5c-4b91-b9b9-de22f64fc396",
+      "Name": "pickup_item1",
+      "Position": "-3040,3127.281,268.1683",
+      "Tags": "item,pickup",
+      "Enabled": true,
+      "__Prefab": "prefabs/pickup_item1.prefab"
     }
   ],
   "SceneProperties": {

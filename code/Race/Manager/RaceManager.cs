@@ -63,6 +63,11 @@ public sealed partial class RaceManager : Component
 			participant.PassCheckpoint( StartCheckpoint, true );
 		}
 
+		foreach(var vehicle in Scene.GetAllComponents<VehicleController>())
+		{
+			vehicle.Reset();
+		}
+
 		StartCountdown();
 	}
 

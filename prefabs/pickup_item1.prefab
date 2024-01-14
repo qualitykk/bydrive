@@ -1,57 +1,47 @@
 {
   "RootObject": {
-    "Id": "b87a98a2-21c2-42cf-93f0-b544eb160ddd",
-    "Name": "item_bouncer",
-    "Tags": "item",
+    "Id": "26326434-a149-4d25-ac90-3f8b88b06c7e",
+    "Name": "pickup_item1",
+    "Tags": "pickup,item",
     "Enabled": true,
     "Components": [
       {
         "__version": 0,
-        "__type": "HitVehicles",
+        "__type": "ItemPickup",
         "__enabled": true,
-        "Amount": 1,
-        "DestroyOnHit": true
+        "Items": "data/pool_default.itempool",
+        "OnAvailableAction": null,
+        "OnUnavailableAction": null,
+        "RespawnTime": 10
       },
       {
         "__version": 0,
-        "__type": "LinearVelocityBounce",
+        "__type": "HighlightOutline",
         "__enabled": true,
-        "BounceDistance": 42,
-        "IgnoreTags": "item",
-        "LocalVelocity": "700,0,0",
-        "MaxBounces": 8,
-        "OnBounce": null
-      },
-      {
-        "__version": 0,
-        "__type": "HoverObject",
-        "__enabled": true,
-        "Distance": 32,
-        "IgnoreTags": "item",
-        "TraceDistance": 1024
+        "Color": "1,0.2847,0.10588,0.53",
+        "InsideColor": "0,0,0,0",
+        "InsideObscuredColor": "0,0,0,0",
+        "Material": null,
+        "ObscuredColor": "0,0,0,0",
+        "Width": 1
       },
       {
         "__version": 0,
         "__type": "BoxCollider",
         "__enabled": true,
         "Center": "0,0,0",
-        "IsTrigger": false,
-        "Scale": "60,60,50",
+        "IsTrigger": true,
+        "Scale": "64,64,64",
         "Static": false,
         "Surface": null
-      },
-      {
-        "__version": 0,
-        "__type": "Lifetime",
-        "__enabled": true,
-        "Time": 10
       }
     ],
     "Children": [
       {
-        "Id": "f5b8b554-ee32-4a70-8700-8aa50104770c",
+        "Id": "99de1c25-e195-4af4-b170-775c50a849e9",
         "Name": "Model",
-        "Position": "0,0,-18",
+        "Position": "0,0,-16",
+        "Rotation": "0.1045285,0,0,0.9945219",
         "Enabled": true,
         "Components": [
           {
@@ -63,7 +53,7 @@
             "CreateBoneObjects": false,
             "MaterialGroup": null,
             "MaterialOverride": null,
-            "Model": "models/cabledrum/cabledrum.vmdl",
+            "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
             "RenderType": "On",
             "Tint": "1,1,1,1"
           },
@@ -71,7 +61,7 @@
             "__version": 0,
             "__type": "ConstantSpin",
             "__enabled": true,
-            "Speed": 5
+            "Speed": 3
           }
         ]
       }
@@ -81,6 +71,6 @@
   "MenuPath": null,
   "MenuIcon": null,
   "__references": [
-    "baik.cabledrum"
+    "facepunch.wooden_crate"
   ]
 }
