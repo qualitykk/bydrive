@@ -1,0 +1,23 @@
+{
+  "Title": "Devcar 2",
+  "Description": "Bigger Car used in development.",
+  "Hidden": false,
+  "PreviewModel": "zuk/zuk.vmdl",
+  "Stats": {
+    "MaxSpeed": 1000,
+    "Acceleration": 1100,
+    "MaxHealth": 6,
+    "BoostDuration": 4,
+    "BoostSpeedMultiplier": 1.35,
+    "BoostAccelerationMultiplier": 1.5,
+    "BoostRechargeCooldown": 2.25,
+    "BoostRechargeFactor": 1,
+    "TurnSpeed": 72,
+    "TurnSpeedIdealDistance": 500,
+    "TurnSpeedVelocityFactor": 0.6
+  },
+  "Prefab": "prefabs/car_devtest1.prefab",
+  "__references": [
+    "gandesign.zuk"
+  ]
+}

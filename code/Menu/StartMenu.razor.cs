@@ -10,22 +10,21 @@ namespace Bydrive;
 public partial class StartMenu
 {
 	[Property] public SoundEvent BackgroundMusic { get; set; }
-	NavHostPanel NavPanel { get; set; }
+	public static VehicleDefinition SelectedVehicle { get; set; }
+	public static StartMenu Current { get; set; }
 	public static void Open()
 	{
 		GameManager.ActiveScene.LoadFromFile( "scenes/startmenu.scene" );
 	}
-
-	protected override void OnAwake()
-	{
-		base.OnAwake();
-		PlayMusic();
-	}
+	public NavHostPanel NavPanel { get; set; }
 
 	protected override void OnEnabled()
 	{
 		base.OnEnabled();
+		Current = this;
+		PlayMusic();
 		NavPanel?.Navigate( "/front" );
+		SelectedVehicle = default;
 	}
 
 	protected override void OnDestroy()

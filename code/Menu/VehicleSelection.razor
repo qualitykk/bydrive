@@ -1,0 +1,49 @@
+﻿@using Sandbox.UI;
+@page "/vehicle"
+@namespace Bydrive
+@attribute [StyleSheet("/Menu/VehicleSelection.razor.scss")]
+
+<root class="flex-col">
+    <div class="main flex-row">
+        <div class="list flex-row">
+            @foreach(var vehicle in vehicles)
+            {
+                <div class="vehicle flex-col pointer-events" @onclick=@(() => OnClickVehicle(vehicle))>
+                    <ModelPreviewPanel class="preview w-100" Model=@vehicle.PreviewModel CameraPosition=@PreviewCameraPosition CameraAngles=@PreviewCameraAngles />
+                    <label class="title w-100">@vehicle.Title</label>
+                </div>
+            }
+        </div>
+        <div class="selected">
+            <div class="info flex-col">
+                @if(selectedVehicle != null)
+                {
+                    <label class="title">@selectedVehicle.Title</label>
+                    <label class="description">@selectedVehicle.Description</label>
+                    <div class="stats flex-col">
+                        <!--
+                        TODO: Make these use pretty gauges instead of raw values
+                        -->
+                        <div class="item">
+                            <label class="name">Speed</label>
+                            <label class="value">@selectedVehicle.Stats.MaxSpeed</label>
+                        </div>
+                        <div class="item">
+                            <label class="name">Acceleration</label>
+                            <label class="value">@selectedVehicle.Stats.Acceleration</label>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <label class="title">None Selected</label>
+                }
+            </div>
+            <ModelPreviewPanel class="preview" Model=@selectedVehicle?.PreviewModel CameraPosition=@PreviewCameraPosition CameraAngles=@PreviewCameraAngles />
+        </div>
+    </div
+    <div class="footer flex-row">
+        <div class="button" @onclick=@OnClickBack>Back</div>
+        <div class="button @UI.ActiveIf(selectedVehicle != null)" @onclick=@OnClickSelect >Select</div>
+    </div>
+</root>

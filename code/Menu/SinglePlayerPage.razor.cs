@@ -16,13 +16,6 @@ public partial class SinglePlayerPage
 		selectedTrack = def;
 	}
 
-	private string GetStartClasses()
-	{
-		if ( selectedTrack == null )
-			return "disabled";
-		return "";
-	}
-
 	private void OnClickStart()
 	{
 		if( selectedTrack == null )
@@ -30,10 +23,9 @@ public partial class SinglePlayerPage
 			return;
 		}
 
-		// TODO: Vehicle Selection
-		VehicleDefinition devCar = ResourceLibrary.Get<VehicleDefinition>( "data/devcar1.vehicle" );
+		VehicleDefinition playerCar = StartMenu.SelectedVehicle ?? ResourceLibrary.Get<VehicleDefinition>( "data/devcar1.vehicle" );
 
-		StartRace.WithBots( selectedTrack, botCount, devCar, botCount + 1 );
+		StartRace.WithBots( selectedTrack, botCount, playerCar, botCount + 1 );
 	}
 
 	private void OnClickBack()

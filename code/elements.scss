@@ -7,6 +7,7 @@
     color: #fff;
     background-color: #888288;
     align-items: center;
+    justify-content: center;
     border: 8px solid #777777;
     height: 10%;
     width: 20vw;
@@ -16,8 +17,7 @@
     }
 
     label {
-        text-align: center;
-        width: 100%;
+        height: 100%;
     }
 
     &:hover {
@@ -30,16 +30,6 @@
         pointer-events: none;
         background-color: #555;
     }
-}
-
-.flex-col
-{
-    flex-direction: column;
-}
-
-.flex-row
-{
-    flex-direction: row;
 }
 
 .textentry {

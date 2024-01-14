@@ -7,7 +7,18 @@ global using static Bydrive.Globals;
 namespace Bydrive;
 internal static class Globals
 {
-	private static Scene lastScene;
+	public static class UI
+	{
+		public static string ActiveIf( Func<bool> check ) => ActiveIf( check?.Invoke() ?? false );
+
+		public static string ActiveIf(bool active)
+		{
+			if ( active )
+				return "active ";
+
+			return "disabled ";
+		}
+	}
 	private static VehiclePlayerInput lastLocalInput;
 	public static RaceManager Race => RaceManager.Current;
 	public static RaceInformation RaceContext => RaceInformation.Current;
@@ -22,7 +33,6 @@ internal static class Globals
 		Scene scene = GameManager.ActiveScene;
 		VehiclePlayerInput input = scene?.GetAllComponents<VehiclePlayerInput>().FirstOrDefault( input => input.IsLocalInput() );
 
-		lastScene = scene;
 		lastLocalInput = input;
 
 		return input;
