@@ -12,7 +12,7 @@ public partial class MainPage
 
 	void OnClickMultiplayer()
 	{
-
+		this.Navigate( "/lobbies" );
 	}
 
 	void OnClickDevStart()

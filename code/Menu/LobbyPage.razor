@@ -1,0 +1,21 @@
+﻿@using Sandbox.UI;
+
+@page "/active";
+@attribute [StyleSheet("/Menu/LobbyPage.razor.scss")]
+@namespace Bydrive
+
+<root>
+    <div class="main">
+        @foreach(var player in players)
+        {
+            <div class="player">
+                <label class="name">@player.Name</label>
+            </div>
+        }
+    </div>
+    <div class="footer">
+        <div class="button" @onclick=@OnClickBack>Back</div>
+        <div class="button" @onclick=@OnClickRefresh>Refresh</div>
+        <div class="button" @onclick=@OnClickStart>Start</div>
+    </div>
+</root>

@@ -11,6 +11,6 @@
 		<div class="button singleplayer" @onclick=@OnClickSingleplayer>Race VS Bots</div>
 		<div class="button singleplayer" @onclick=@OnClickDevStart>Quickplay</div>
 		<label class="header">Multiplayer</label>
-		<div class="button multiplayer disabled" @onclick=@OnClickMultiplayer>Race Online</div>
+		<div class="button multiplayer @UI.ActiveIf(LobbyManager.LobbyActive)" @onclick=@OnClickMultiplayer>Race Online</div>
 	</div>
 </root>

@@ -200,7 +200,8 @@ public sealed partial class VehicleController : Component
 
 			if ( airRoll.Clamp( -1, 1 ) != 0 )
 			{
-				var force = (tr.Hit || tr2.Hit) ? 1600.0f : 100.0f;
+				const float FORCE_HIT = 1600f;
+				var force = (tr.Hit || tr2.Hit) ? FORCE_HIT : 100.0f;
 				var roll = (tr.Hit || tr2.Hit) ? airRoll.Clamp( -1, 1 ) : airRoll;
 				Body.ApplyForceAt( Body.MassCenter + rotation.Left * (offset * roll), (rotation.Down * roll) * (roll * (Body.Mass * force)) );
 
