@@ -12,6 +12,13 @@ Properties/*
 code/obj/*
 code/Properties/*
 
+data/hidden/*
+scenes/hidden/*
+prefabs/hidden/*
+models/hidden/*
+materials/models/hidden/*
+materials/hidden/*
+
 # Auto-generated asset related files
 *.generated.*
 *.*_c

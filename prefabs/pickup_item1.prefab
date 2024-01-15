@@ -10,14 +10,196 @@
         "__type": "ItemPickup",
         "__enabled": true,
         "Items": "data/pool_default.itempool",
-        "OnAvailableAction": null,
-        "OnUnavailableAction": null,
+        "OnAvailableAction": {
+          "Kind": "Action",
+          "Variables": [
+            {
+              "Id": 1,
+              "Name": "_this",
+              "Type": "Sandbox.Game/Sandbox.Component",
+              "Default": "26326434-a149-4d25-ac90-3f8b88b06c7e"
+            }
+          ],
+          "Nodes": [
+            {
+              "Id": 0,
+              "Type": "input",
+              "UserData": {
+                "Position": "176,16"
+              }
+            },
+            {
+              "Id": 2,
+              "Type": "scene.getobject",
+              "UserData": {
+                "Position": "0,48"
+              }
+            },
+            {
+              "Id": 7,
+              "Type": "call",
+              "Properties": {
+                "_type": "Sandbox.Game/Sandbox.IComponentLister",
+                "_name": "Get",
+                "_isStatic": false,
+                "T": {
+                  "$type": "Type",
+                  "Type": "Sandbox.Game/Sandbox.SkinnedModelRenderer"
+                }
+              },
+              "Inputs": {
+                "search": {
+                  "$type": "Simple",
+                  "Type": "Sandbox.Game/Sandbox.FindMode",
+                  "Value": "EnabledInSelfAndDescendants"
+                }
+              },
+              "UserData": {
+                "Position": "304,48"
+              }
+            },
+            {
+              "Id": 8,
+              "Type": "property.set",
+              "Properties": {
+                "_type": "Sandbox.Game/Sandbox.ModelRenderer",
+                "_name": "Tint"
+              },
+              "Inputs": {
+                "value": {
+                  "$type": "Simple",
+                  "Type": "Sandbox.System/Color",
+                  "Value": "1,1,1,1"
+                }
+              },
+              "UserData": {
+                "Position": "560,16"
+              }
+            }
+          ],
+          "Links": [
+            [
+              0,
+              "_signal",
+              8,
+              "_signal"
+            ],
+            [
+              2,
+              "_result",
+              7,
+              "_target"
+            ],
+            [
+              7,
+              "_result",
+              8,
+              "target"
+            ]
+          ],
+          "UserData": {
+            "Title": "On Available",
+            "id": "42b0ba56-ba2e-487e-b7c3-011e59aff3ff"
+          }
+        },
+        "OnUnavailableAction": {
+          "Kind": "Action",
+          "Variables": [
+            {
+              "Id": 1,
+              "Name": "_this",
+              "Type": "Sandbox.Game/Sandbox.Component",
+              "Default": "26326434-a149-4d25-ac90-3f8b88b06c7e"
+            }
+          ],
+          "Nodes": [
+            {
+              "Id": 0,
+              "Type": "input",
+              "UserData": {
+                "Position": "0,0"
+              }
+            },
+            {
+              "Id": 2,
+              "Type": "scene.getobject",
+              "UserData": {
+                "Position": "-0,48"
+              }
+            },
+            {
+              "Id": 3,
+              "Type": "call",
+              "Properties": {
+                "_type": "Sandbox.Game/Sandbox.IComponentLister",
+                "_name": "Get",
+                "_isStatic": false,
+                "T": {
+                  "$type": "Type",
+                  "Type": "Sandbox.Game/Sandbox.SkinnedModelRenderer"
+                }
+              },
+              "Inputs": {
+                "search": {
+                  "$type": "Simple",
+                  "Type": "Sandbox.Game/Sandbox.FindMode",
+                  "Value": "EnabledInSelfAndDescendants"
+                }
+              },
+              "UserData": {
+                "Position": "304,48"
+              }
+            },
+            {
+              "Id": 4,
+              "Type": "property.set",
+              "Properties": {
+                "_type": "Sandbox.Game/Sandbox.ModelRenderer",
+                "_name": "Tint"
+              },
+              "Inputs": {
+                "value": {
+                  "$type": "Simple",
+                  "Type": "Sandbox.System/Color",
+                  "Value": "1,0.44314,0.44314,0.33333"
+                }
+              },
+              "UserData": {
+                "Position": "560,0"
+              }
+            }
+          ],
+          "Links": [
+            [
+              0,
+              "_signal",
+              4,
+              "_signal"
+            ],
+            [
+              2,
+              "_result",
+              3,
+              "_target"
+            ],
+            [
+              3,
+              "_result",
+              4,
+              "target"
+            ]
+          ],
+          "UserData": {
+            "Title": "On Unavailable",
+            "id": "2af4168c-6fd5-4c8c-84da-3ba328b2f8af"
+          }
+        },
         "RespawnTime": 10
       },
       {
         "__version": 0,
         "__type": "HighlightOutline",
-        "__enabled": true,
+        "__enabled": false,
         "Color": "1,0.2847,0.10588,0.53",
         "InsideColor": "0,0,0,0",
         "InsideObscuredColor": "0,0,0,0",

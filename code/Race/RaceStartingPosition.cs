@@ -19,10 +19,17 @@ public class RaceStartingPosition : Component
 		const float TEXT_VERTICAL_OFFSET = 24f;
 		const float TEXT_SIZE = 16f;
 		Color textColor = Color.Blue;
+		Color lineColor = Color.Yellow;
 
 		Gizmo.Draw.Color = textColor;
-
 		int displayPlacement = Placement - FIRST_PLACE + 1;
 		Gizmo.Draw.Text( $"<<{displayPlacement}>>", new(Vector3.Up * TEXT_VERTICAL_OFFSET), size: TEXT_SIZE );
+
+		/*
+		Should work but doesnt?
+
+		Gizmo.Draw.Color = lineColor;
+		Gizmo.Draw.Line( Vector3.Zero, Transform.Rotation.Forward * 64f );
+		*/
 	}
 }

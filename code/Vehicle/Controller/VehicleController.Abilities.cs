@@ -60,7 +60,6 @@ public partial class VehicleController
 	{
 		if ( !CanEquipItem() ) return false;
 		CurrentItem = def;
-		Log.Info( CurrentItem );
 		return true;
 	}
 	public bool CanEquipItem()

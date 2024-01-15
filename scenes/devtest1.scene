@@ -56,8 +56,9 @@
           "__type": "RaceManager",
           "__enabled": true,
           "LoseMusic": null,
-          "MaxLaps": 3,
+          "MaxLaps": 5,
           "RaceMusic": "sounds/music/race_devtrack.sound",
+          "RaceStartWait": 3.5,
           "StartCheckpoint": "b8d5b8b7-1da4-4b2c-b487-c7abab2378ab",
           "WinMusic": "sounds/music/menu_race_win.sound"
         }

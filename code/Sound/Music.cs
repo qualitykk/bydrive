@@ -10,15 +10,20 @@ public static class Music
 {
 	static SoundHandle currentTrack;
 	static string currentTrackName;
-	public static void Play(string name)
+	public static void Play( string name, float volume = -1)
 	{
-		Music.Play(ResourceLibrary.Get<SoundEvent>(name));
+		Play(ResourceLibrary.Get<SoundEvent>(name), volume);
 	}
 
-	public static void Play(SoundEvent sound)
+	public static void Play(SoundEvent sound, float volume = -1f)
 	{
 		Stop();
 		currentTrack = Sound.Play( sound );
+		if(volume > 0)
+		{
+			currentTrack.Volume = volume;
+
+		}
 		currentTrack.ListenLocal = true;
 		currentTrackName = sound.ResourcePath;
 	}

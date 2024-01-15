@@ -5,7 +5,7 @@
   "Decibels": 70,
   "SelectionMode": "Random",
   "Sounds": [
-    "sounds/music/menu_race_win.vsnd"
+    "sounds/music/music_race_win.vsnd"
   ],
   "__references": []
 }

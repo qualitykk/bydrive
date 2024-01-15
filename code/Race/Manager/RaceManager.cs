@@ -13,12 +13,15 @@ namespace Bydrive;
 public sealed partial class RaceManager : Component
 {
 	public const int DEFAULT_MAX_LAPS = 3;
+	public const float RACE_START_WAIT = 4f;
 	public static RaceManager Current { get; private set; }
 	[Property] public int MaxLaps { get; set; } = DEFAULT_MAX_LAPS;
 	[Property] public RaceCheckpoint StartCheckpoint {get;set;}
 	[Property] public SoundEvent RaceMusic { get; set; }
+	[Property] public float RaceMusicVolume { get; set; } = -1;
 	[Property] public SoundEvent WinMusic { get; set; }
 	[Property] public SoundEvent LoseMusic { get; set; }
+	[Property] public float RaceStartWait { get; set; } = RACE_START_WAIT;
 	public List<RaceParticipant> Participants { get; private set; } = new();
 	public TimeUntil TimeUntilRaceStart { get; private set; }
 	public TimeSince TimeSinceRaceStart { get; private set; }
@@ -37,16 +40,15 @@ public sealed partial class RaceManager : Component
 	private void StartCountdown()
 	{
 		const float RACE_START_COUNTDOWN = 3f;
-		const float RACE_START_WAIT = 2f;
 		HasStarted = false;
-		TimeUntilRaceStart = RACE_START_COUNTDOWN + RACE_START_WAIT;
+		TimeUntilRaceStart = RACE_START_COUNTDOWN + RaceStartWait;
+		Music.Play( RaceMusic, RaceMusicVolume );
 	}
 
 	private void StartRace()
 	{
 		HasStarted = true;
 		TimeSinceRaceStart = 0;
-		Music.Play( RaceMusic );
 	}
 
 	private void SetupRace()
@@ -54,18 +56,17 @@ public sealed partial class RaceManager : Component
 		Participants?.Clear();
 		ResetLapProgress();
 
-		RaceContext?.ResetParticipantObjects();
-		Participants = Scene.GetAllComponents<RaceParticipant>().ToList();
-		InitialiseLapProgress( Participants);
-
-		foreach(var participant in Participants)
-		{
-			participant.PassCheckpoint( StartCheckpoint, true );
-		}
-
 		foreach(var vehicle in Scene.GetAllComponents<VehicleController>())
 		{
 			vehicle.Reset();
+		}
+
+		RaceContext?.ResetParticipantObjects();
+		Participants = Scene.GetAllComponents<RaceParticipant>().ToList();
+		InitialiseLapProgress( Participants);
+		foreach(var participant in Participants)
+		{
+			participant.PassCheckpoint( StartCheckpoint, true );
 		}
 
 		StartCountdown();

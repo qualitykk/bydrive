@@ -10,6 +10,7 @@ namespace Bydrive;
 public partial class StartMenu
 {
 	[Property] public SoundEvent BackgroundMusic { get; set; }
+	[Property] public float BackgroundMusicVolume { get; set; } = -1f;
 	public static VehicleDefinition SelectedVehicle { get; set; }
 	public static StartMenu Current { get; set; }
 	public static void Open()
@@ -35,6 +36,6 @@ public partial class StartMenu
 
 	private void PlayMusic( )
 	{
-		Music.Play( BackgroundMusic );
+		Music.Play( BackgroundMusic, BackgroundMusicVolume );
 	}
 }

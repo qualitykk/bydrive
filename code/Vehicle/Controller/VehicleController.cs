@@ -10,10 +10,6 @@ public sealed partial class VehicleController : Component
 	[Property, Required, Title("Physics Body")] public Rigidbody Rigidbody { get; set; }
 	public PhysicsBody Body => Rigidbody?.PhysicsBody;
 	public float Speed { get; set; }
-	protected override void OnEnabled()
-	{
-		Reset();
-	}
 	public override void Reset()
 	{
 		base.Reset();

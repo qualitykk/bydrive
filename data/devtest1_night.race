@@ -1,7 +1,7 @@
 {
   "Name": "Devtest1 NIght",
   "Group": "",
-  "Hidden": false,
+  "Hidden": true,
   "Scene": "scenes/devtest1_night.scene",
   "__references": []
 }

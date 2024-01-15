@@ -18,8 +18,8 @@
         "__enabled": true,
         "BounceDistance": 42,
         "IgnoreTags": "item",
-        "LocalVelocity": "700,0,0",
-        "MaxBounces": 8,
+        "LocalVelocity": "1500,0,0",
+        "MaxBounces": 6,
         "OnBounce": null
       },
       {

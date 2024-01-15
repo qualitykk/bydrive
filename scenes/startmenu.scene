@@ -28,7 +28,8 @@
               "__version": 0,
               "__type": "StartMenu",
               "__enabled": true,
-              "BackgroundMusic": "sounds/music/menu_theme.sound"
+              "BackgroundMusic": "sounds/music/menu_theme.sound",
+              "BackgroundMusicVolume": 1.6
             }
           ]
         },

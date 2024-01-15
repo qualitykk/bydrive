@@ -1,0 +1,1141 @@
+{
+  "Id": "eaf2270f-b3a0-46bd-a6b2-7d2aa7d20e7b",
+  "GameObjects": [
+    {
+      "Id": "d36b938d-965e-4574-8878-b6b0e24b6bc9",
+      "Name": "Respawn",
+      "Position": "0,2000,-3680",
+      "Enabled": true,
+      "Components": [
+        {
+          "__version": 0,
+          "__type": "RaceRespawnZone",
+          "__enabled": true
+        },
+        {
+          "__version": 0,
+          "__type": "BoxCollider",
+          "__enabled": true,
+          "Center": "0,0,0",
+          "IsTrigger": true,
+          "Scale": "30000,15000,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "90b62953-416e-45b6-82bd-bf036afd290a",
+      "Name": "Lighting",
+      "Position": "-1166.064,-4963.448,742.2413",
+      "Enabled": true,
+      "Children": [
+        {
+          "Id": "de542171-d48c-4cb9-9a16-fdd82b4430b5",
+          "Name": "Skybox",
+          "Position": "-825.8556,-225.6196,-230.2413",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "SkyBox2D",
+              "__enabled": true,
+              "SkyMaterial": "materials/skybox/light_test_dark.vmat",
+              "Tint": "0.13144,0.17485,0.22791,1"
+            }
+          ]
+        },
+        {
+          "Id": "452102e7-c45d-488b-8c21-710772d8c6db",
+          "Name": "Sky Light",
+          "Position": "-1297.936,-476.5522,-166.2413",
+          "Rotation": "-0.2070109,0.2070106,0.6761267,0.6761262",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "DirectionalLight",
+              "__enabled": true,
+              "LightColor": "0.22585,0.25778,0.27907,1",
+              "Shadows": true,
+              "SkyColor": "0.07615,0.1452,0.37209,1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "b9de47ec-b946-47dd-b582-526f3cace7d1",
+      "Name": "Level",
+      "Position": "-3999.066,-2064.413,1129.26",
+      "Rotation": "-0.0000000004070593,-0.00000004173178,0.707107,0.7071065",
+      "Enabled": true,
+      "Components": [
+        {
+          "__version": 0,
+          "__type": "MapInstance",
+          "__enabled": true,
+          "MapName": "gvar.ngon_raceway",
+          "OnMapLoaded": null,
+          "OnMapUnloaded": null,
+          "UseMapFromLaunch": false
+        }
+      ],
+      "Children": []
+    },
+    {
+      "Id": "919db265-f61d-4cae-8f97-a1533063325d",
+      "Name": "Race Manager",
+      "Position": "-2304,-5056,639.9999",
+      "Rotation": "-0.0000000004070593,-0.00000004173178,0.707107,0.7071065",
+      "Enabled": true,
+      "Components": [
+        {
+          "__version": 0,
+          "__type": "RaceManager",
+          "__enabled": true,
+          "LoseMusic": null,
+          "MaxLaps": 2,
+          "RaceMusic": "sounds/music/race_ngon.sound",
+          "RaceMusicVolume": 2,
+          "RaceStartWait": 5,
+          "StartCheckpoint": "a3d627ce-5619-437e-863f-31e32ce26004",
+          "WinMusic": "sounds/music/menu_race_win.sound"
+        }
+      ]
+    },
+    {
+      "Id": "b7244363-e8c9-4c93-816c-921a9c927d04",
+      "Name": "StartPositions",
+      "Position": "-3291.071,-4820.324,683.9943",
+      "Enabled": true,
+      "Children": [
+        {
+          "Id": "215b60d8-14a1-4794-96bc-1a213f2bdbc3",
+          "Name": "StartPos 1",
+          "Position": "347.0713,-747.6758,-505.8939",
+          "Rotation": "-0.00000002812527,0.00000002577645,-0.9909856,0.1339683",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 1
+            }
+          ]
+        },
+        {
+          "Id": "f3f9fe73-41ac-42ac-9337-93c25df67e53",
+          "Name": "StartPos 2",
+          "Position": "443.0713,-491.6758,-505.894",
+          "Rotation": "-0.00000002812527,0.00000002577645,-0.9909856,0.1339683",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 2
+            }
+          ]
+        },
+        {
+          "Id": "d2d6d7b2-91fb-49f3-ba31-83baf79c23c7",
+          "Name": "StartPos 3",
+          "Position": "603.0713,-651.6758,-505.894",
+          "Rotation": "-0.00000002812527,0.00000002577645,-0.9909856,0.1339683",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 3
+            }
+          ]
+        },
+        {
+          "Id": "b5930ce8-da4c-4c6c-8ee6-6bb32d0707ab",
+          "Name": "StartPos 4",
+          "Position": "731.0713,-395.6758,-505.894",
+          "Rotation": "-0.00000002812527,0.00000002577645,-0.9909856,0.1339683",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 4
+            }
+          ]
+        },
+        {
+          "Id": "98543693-ee0b-42db-aaca-2100b2223431",
+          "Name": "StartPos 5",
+          "Position": "859.0713,-587.6758,-505.8936",
+          "Rotation": "-0.00000002812527,0.00000002577645,-0.9909856,0.1339683",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 5
+            }
+          ]
+        },
+        {
+          "Id": "f0be92c3-e8a0-479f-8668-c9c22507036b",
+          "Name": "StartPos 6",
+          "Position": "955.0713,-331.6758,-505.8936",
+          "Rotation": "-0.00000002812527,0.00000002577645,-0.9909856,0.1339683",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 6
+            }
+          ]
+        },
+        {
+          "Id": "49b4dc98-21e4-4c71-aaf8-e79a91956443",
+          "Name": "StartPos 7",
+          "Position": "1083.071,-523.6758,-505.8936",
+          "Rotation": "-0.00000002812527,0.00000002577645,-0.9909856,0.1339683",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 7
+            }
+          ]
+        },
+        {
+          "Id": "211514ef-f943-4c9c-82e0-b161e4b7eac3",
+          "Name": "StartPos 8",
+          "Position": "1179.071,-299.6758,-505.8936",
+          "Rotation": "-0.00000002812527,0.00000002577645,-0.9909856,0.1339683",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 8
+            }
+          ]
+        },
+        {
+          "Id": "fc5bf51e-fee5-42a4-8837-2d877f8fe475",
+          "Name": "StartPos 9",
+          "Position": "1269.426,-487.0151,-505.8935",
+          "Rotation": "-0.00000002812527,0.00000002577645,-0.9909856,0.1339683",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 9
+            }
+          ]
+        },
+        {
+          "Id": "fb15e059-0e1b-4ff3-91a9-b7a021b0903f",
+          "Name": "StartPos 10",
+          "Position": "1365.426,-231.0151,-505.8935",
+          "Rotation": "-0.00000002812527,0.00000002577645,-0.9909856,0.1339683",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 10
+            }
+          ]
+        },
+        {
+          "Id": "fe515586-13a2-419e-965d-70443747c27b",
+          "Name": "StartPos 11",
+          "Position": "1493.426,-423.0151,-505.8935",
+          "Rotation": "-0.00000002812527,0.00000002577645,-0.9909856,0.1339683",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 11
+            }
+          ]
+        },
+        {
+          "Id": "6fd8d8f9-a24b-47db-8a25-04c232a7670a",
+          "Name": "StartPos 12",
+          "Position": "1589.426,-199.0151,-505.8935",
+          "Rotation": "-0.00000002812527,0.00000002577645,-0.9909856,0.1339683",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "3c44ec9c-9663-4528-8629-d3fc0caf018a",
+      "Name": "Track",
+      "Position": "-1166.064,-4963.448,742.2413",
+      "Enabled": true,
+      "Children": [
+        {
+          "Id": "a3d627ce-5619-437e-863f-31e32ce26004",
+          "Name": "Finish Line",
+          "Position": "-2129.936,-604.5518,-454.2413",
+          "Rotation": "0.000000004057557,-0.000000003884273,-0.620362,0.784316",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "6596207e-e667-4e89-9e10-adcfd43e6a5a"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "800,50,500",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "6596207e-e667-4e89-9e10-adcfd43e6a5a",
+          "Name": "1",
+          "Position": "-4657.936,-796.5518,-358.2413",
+          "Rotation": "-0.0000000008562746,0.0000000008197055,-0.705743,0.7084682",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "15a1102c-6084-4266-9a86-5e12b99104bc"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "800,50,500",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "15a1102c-6084-4266-9a86-5e12b99104bc",
+          "Name": "2",
+          "Position": "-6447.371,890.5278,-235.0288",
+          "Rotation": "-0.0000000309856,0.0000000296623,-0.03971109,-0.9992118",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "05bc4d12-90e9-44e9-b66b-b672813d1bcf"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "800,50,500",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "05bc4d12-90e9-44e9-b66b-b672813d1bcf",
+          "Name": "3",
+          "Position": "-6844.209,4704.083,-153.6863",
+          "Rotation": "-0.0000000309856,0.0000000296623,-0.03971109,-0.9992118",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "033f4ee0-2760-4d8e-91ba-0ecc519b4414"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "800,50,500",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "033f4ee0-2760-4d8e-91ba-0ecc519b4414",
+          "Name": "4",
+          "Position": "-4534.434,7496.715,-573.2589",
+          "Rotation": "-0.000000002821816,0.000000002701291,0.6426851,-0.7661307",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "4ba66875-d68d-48b4-9e1b-11d7b6b8c969"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "800,50,500",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "4ba66875-d68d-48b4-9e1b-11d7b6b8c969",
+          "Name": "5",
+          "Position": "-1585.936,8099.448,-1103.517",
+          "Rotation": "-0.000000002821816,0.000000002701291,0.6426851,-0.7661307",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "8ba8eeda-937d-48c3-ba44-2b39d89d4b38"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "800,50,500",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "8ba8eeda-937d-48c3-ba44-2b39d89d4b38",
+          "Name": "6",
+          "Position": "1838.064,7235.448,-1478.241",
+          "Rotation": "0.00000001292819,-0.00000001237608,0.8765038,-0.4813948",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "8a935e06-3e77-4f9b-a885-bd4f3dca265c"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "800,50,700",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "8a935e06-3e77-4f9b-a885-bd4f3dca265c",
+          "Name": "7",
+          "Position": "5892.81,3447.638,-1478.241",
+          "Rotation": "0.00000002709065,-0.0000000259337,0.9919843,-0.1263617",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "5f439347-4c3e-4972-9d46-40a684ff0c78"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "800,50,700",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "5f439347-4c3e-4972-9d46-40a684ff0c78",
+          "Name": "8",
+          "Position": "7147.821,196.6211,-230.2413",
+          "Rotation": "0.00000002709065,-0.0000000259337,0.9919843,-0.1263617",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "ee887e49-d1ab-466a-98e8-6e18476d44e3"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "800,50,700",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "ee887e49-d1ab-466a-98e8-6e18476d44e3",
+          "Name": "9",
+          "Position": "4814.064,-7228.552,889.7587",
+          "Rotation": "0.00000004300593,-0.0000000411693,0.6881028,0.7256134",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "8e773deb-fa88-4f2d-b868-61c6e0f22283"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "800,50,700",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "8e773deb-fa88-4f2d-b868-61c6e0f22283",
+          "Name": "10",
+          "Position": "1166.064,-5788.552,793.7587",
+          "Rotation": "-0.00000003440137,0.00000003293229,-0.1613225,-0.986902",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "63b49223-25d4-4704-bfed-b042c42670b3"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "800,50,700",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "63b49223-25d4-4704-bfed-b042c42670b3",
+          "Name": "11",
+          "Position": "-369.936,707.4482,793.7587",
+          "Rotation": "-0.00000003132359,0.00000002998597,-0.05107583,-0.9986951",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "bc2a4161-ca9f-4d8c-b6d9-422cd4fb6089"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "800,50,700",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "bc2a4161-ca9f-4d8c-b6d9-422cd4fb6089",
+          "Name": "12",
+          "Position": "1262.064,8611.448,-3174.241",
+          "Rotation": "-0.00000002246549,0.00000002150617,0.2130099,-0.9770501",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "ee57f140-14f0-4019-bc6e-287b89c3eb4a"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "800,50,700",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "ee57f140-14f0-4019-bc6e-287b89c3eb4a",
+          "Name": "13",
+          "Position": "2286.064,11747.45,-2694.241",
+          "Rotation": "-0.00000002246549,0.00000002150617,0.2130099,-0.9770501",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "6cb557d1-8120-467d-adbf-d978971068ce"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "1200,50,700",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "6cb557d1-8120-467d-adbf-d978971068ce",
+          "Name": "14",
+          "Position": "7790.064,17475.45,-4134.241",
+          "Rotation": "0.00000002024126,-0.00000001937676,0.9499267,-0.3124729",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "af56b5d1-4314-4ad5-91fe-2906c5550142"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "1200,50,700",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "af56b5d1-4314-4ad5-91fe-2906c5550142",
+          "Name": "15",
+          "Position": "8622.064,12835.45,-3462.241",
+          "Rotation": "0.00000003624867,-0.00000003470061,0.9813244,0.1923619",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "bd910b8e-646b-4c10-8afb-3c4bbe320232"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "1200,50,700",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "bd910b8e-646b-4c10-8afb-3c4bbe320232",
+          "Name": "16",
+          "Position": "5070.064,5731.448,-2630.241",
+          "Rotation": "0.00000003624867,-0.00000003470061,0.9813244,0.1923619",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "774a8e28-989a-4bd9-a40e-7361994df8bc"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "1200,50,700",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "774a8e28-989a-4bd9-a40e-7361994df8bc",
+          "Name": "17",
+          "Position": "4447.068,129.6382,-1286.241",
+          "Rotation": "0.00000002671064,-0.0000000255699,0.9904932,-0.1375639",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "c8c8ef3f-6889-416a-911d-9353d1117e76"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "1200,50,700",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "c8c8ef3f-6889-416a-911d-9353d1117e76",
+          "Name": "18",
+          "Position": "10062.06,1699.448,-1510.241",
+          "Rotation": "0.00000002671064,-0.0000000255699,0.9904932,-0.1375639",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "51648fd0-18d7-474c-ae18-e8755ee1e34b"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "1200,50,700",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "51648fd0-18d7-474c-ae18-e8755ee1e34b",
+          "Name": "19",
+          "Position": "5038.064,4579.448,-134.2413",
+          "Rotation": "0.00000004297309,-0.00000004113798,0.7638992,0.6453366",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "4153bfbc-2e1f-4e9e-9f57-5c3eb6645dae"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "1200,50,700",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "4153bfbc-2e1f-4e9e-9f57-5c3eb6645dae",
+          "Name": "20",
+          "Position": "526.064,99.44824,-326.2413",
+          "Rotation": "0.00000004297309,-0.00000004113798,0.7638992,0.6453366",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "a3d627ce-5619-437e-863f-31e32ce26004"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,1"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "1200,50,700",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "ffe5147f-ade0-4053-a422-4e5ffdab8bdf",
+      "Name": "Pickups",
+      "Position": "2498.301,-6200.372,994.7124",
+      "Enabled": true,
+      "Children": [
+        {
+          "Id": "65add741-5644-4ff6-a1c3-dc5ce2b8e2b8",
+          "Name": "pickup_boost1",
+          "Position": "-7009.829,122.1929,-880.0371",
+          "Rotation": "-0.03071675,0.03968227,0.6113364,0.7897782",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_boost1.prefab"
+        },
+        {
+          "Id": "c3820e5a-fddb-4efd-ad44-6d31628e72ba",
+          "Name": "pickup_item1",
+          "Position": "-10498.3,4280.372,-546.7124",
+          "Rotation": "-0.0005410467,0.05614614,0.009620765,0.998376",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_item1.prefab"
+        },
+        {
+          "Id": "3873a78c-e5c6-4267-866c-b6e846cda961",
+          "Name": "pickup_item1 (1)",
+          "Position": "-10402.3,4280.372,-546.7124",
+          "Rotation": "-0.0005410467,0.05614614,0.009620765,0.998376",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_item1.prefab"
+        },
+        {
+          "Id": "f77f1cd9-8872-417e-aa4c-b08e2c809aea",
+          "Name": "pickup_item1 (2)",
+          "Position": "-10306.3,4280.372,-546.7124",
+          "Rotation": "-0.0005410467,0.05614614,0.009620765,0.998376",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_item1.prefab"
+        },
+        {
+          "Id": "0d2b8402-c417-403f-866d-4e0b5ebbe9e2",
+          "Name": "pickup_boost1 (1)",
+          "Position": "-7650.301,9144.372,-994.7124",
+          "Rotation": "0.02426175,0.08831158,-0.2638002,0.9602196",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_boost1.prefab"
+        },
+        {
+          "Id": "239d719f-9257-4fac-a85e-8df13928ee11",
+          "Name": "pickup_item1 (3)",
+          "Position": "-640.6818,7900.599,-1899.793",
+          "Rotation": "-0.1888323,-0.1298767,0.8020002,-0.5516067",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_item1.prefab"
+        },
+        {
+          "Id": "2c072f74-d197-4263-b0e7-f47495257fa2",
+          "Name": "pickup_boost1 (2)",
+          "Position": "-780.6018,7674.177,-2017.5",
+          "Rotation": "-0.1489964,-0.09207354,0.8375298,-0.5175582",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_boost1.prefab"
+        },
+        {
+          "Id": "804480ae-3cf7-4b40-8616-55aa05d8e840",
+          "Name": "pickup_boost1 (3)",
+          "Position": "-700.2118,7798.44,-1957.792",
+          "Rotation": "-0.1478037,-0.1060703,0.7988837,-0.5733131",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_boost1.prefab"
+        },
+        {
+          "Id": "ebf0ad26-81d9-404f-bf80-2c46bc473ea9",
+          "Name": "pickup_item1 (4)",
+          "Position": "-3922.215,1426.918,269.5956",
+          "Rotation": "-0.01585427,0.001729343,0.9939772,0.1084204",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_item1.prefab"
+        },
+        {
+          "Id": "a3923aab-4f70-49ee-a45a-ac319f1698e3",
+          "Name": "pickup_item1 (5)",
+          "Position": "-4027.29,1450.117,266.1616",
+          "Rotation": "-0.01585427,0.001729343,0.9939772,0.1084204",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_item1.prefab"
+        },
+        {
+          "Id": "bbc7ef28-d64b-477b-aeb2-67bc124d2f74",
+          "Name": "pickup_item1 (6)",
+          "Position": "-4151.209,1477.476,262.1125",
+          "Rotation": "-0.01585427,0.001729343,0.9939772,0.1084204",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_item1.prefab"
+        },
+        {
+          "Id": "601a67bf-1910-43f1-a73d-6b7e74abbd72",
+          "Name": "pickup_boost1 (4)",
+          "Position": "236.9492,-6084.318,502.2747",
+          "Rotation": "-0.1196771,0.1135684,0.715436,0.678919",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_boost1.prefab"
+        },
+        {
+          "Id": "2766ac40-179e-4d69-a9a1-be7474325351",
+          "Name": "pickup_item1 (7)",
+          "Position": "-2397.481,10274.64,-3651.97",
+          "Rotation": "0.01820603,0.05075228,-0.3371633,0.9399009",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_item1.prefab"
+        },
+        {
+          "Id": "01d14f86-d342-4e12-a6f0-34c20936bcbd",
+          "Name": "pickup_boost1 (5)",
+          "Position": "-2133.746,10183.14,-3675.802",
+          "Rotation": "0.01465169,0.02229604,-0.5489743,0.8354133",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_boost1.prefab"
+        },
+        {
+          "Id": "246bab0e-b1c9-4ab5-ae85-3444aa778974",
+          "Name": "pickup_boost1 (6)",
+          "Position": "3910.889,11928.1,-3407.027",
+          "Rotation": "-0.0316076,0.005638406,0.9839513,0.1755244",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_boost1.prefab"
+        },
+        {
+          "Id": "3f9d8d12-93c8-4958-a400-cce2d39117e3",
+          "Name": "pickup_boost1 (7)",
+          "Position": "3789.866,11991.03,-3415.362",
+          "Rotation": "-0.005484432,-0.003620952,0.8346307,-0.5507708",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_boost1.prefab"
+        },
+        {
+          "Id": "788b8098-3923-4fe2-b937-0a82d22a7623",
+          "Name": "pickup_boost1 (8)",
+          "Position": "3675.827,12072.46,-3414.922",
+          "Rotation": "-0.005294174,-0.003632396,0.8247019,-0.5655313",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_boost1.prefab"
+        },
+        {
+          "Id": "1157e00a-8f80-4093-8d27-56643f84caa0",
+          "Name": "pickup_item1 (8)",
+          "Position": "6345.182,3507.118,-1980.793",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_item1.prefab"
+        },
+        {
+          "Id": "5a20b4e3-7309-4dd3-a1b2-d3782f847e00",
+          "Name": "pickup_item1 (9)",
+          "Position": "6294.761,3695.38,-1957.305",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_item1.prefab"
+        },
+        {
+          "Id": "d0a7efa4-deca-4e5f-b869-03452ab5798e",
+          "Name": "pickup_boost1 (9)",
+          "Position": "3686.028,6014.667,-1221.952",
+          "Rotation": "0.01086707,0.06494233,-0.1646809,0.9841466",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_boost1.prefab"
+        },
+        {
+          "Id": "b882e9f8-3031-484f-a11e-2d423124a242",
+          "Name": "pickup_boost1 (10)",
+          "Position": "3710.97,6270.816,-1205.039",
+          "Rotation": "0.02869086,0.07729629,-0.3467972,0.9343092",
+          "Tags": "pickup,item",
+          "Enabled": true,
+          "__Prefab": "prefabs/pickup_boost1.prefab"
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true
+  },
+  "Title": "ngon1",
+  "Description": "",
+  "__references": []
+}
