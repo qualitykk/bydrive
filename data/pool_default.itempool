@@ -2,6 +2,10 @@
   "Entries": [
     {
       "Item": "data/bouncer.item",
+      "Weight": 3
+    },
+    {
+      "Item": "data/repair_kit.item",
       "Weight": 1
     }
   ],

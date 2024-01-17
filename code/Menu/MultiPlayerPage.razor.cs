@@ -14,33 +14,29 @@ public partial class MultiPlayerPage
 
 	protected override async Task OnParametersSetAsync()
 	{
-		lobbies = await GameNetworkSystem.QueryLobbies();
+		lobbies = await Networking.QueryLobbies();
 
 		await base.OnParametersSetAsync();
 	}
 	private void OnClickLobby( LobbyInformation lobby )
 	{
 		GameNetworkSystem.Connect( lobby.LobbyId );
-		this.Navigate( "active" );
 	}
 	private void OnClickCreate()
 	{
 		GameNetworkSystem.CreateLobby();
-		this.Navigate( "active" );
 	}
 	private void OnClickRefresh()
 	{
 		lobbies = null;
 		GameTask.RunInThreadAsync( () => { 
-			lobbies = GameNetworkSystem.QueryLobbies().Result; 
+			lobbies = Networking.QueryLobbies().Result; 
 		} );
 	}
 	private void OnClickBack()
 	{
 		StartMenu.Current.NavPanel?.GoBack();
 	}
-
-	
 	protected override int BuildHash()
 	{
 		return HashCode.Combine( lobbies );

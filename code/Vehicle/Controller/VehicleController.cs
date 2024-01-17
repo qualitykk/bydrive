@@ -107,7 +107,7 @@ public sealed partial class VehicleController : Component
 			//Basically we're saying as the angle of the cars totaly velocity versus the angle of the cars forward direction approaches 90 degrees
 			//Give us a big boost to the speed of our forward acceleration in order to not loose all momentum when drifting. 
 			var fac = 1.0f;
-			float f = MathF.Pow( (1 - angle), 4f );
+			float f = MathF.Pow( 1 - angle, 4f );
 			fac = fac.LerpTo( 10f, f );
 
 			//The speed factor decreases the amount of acceleration we have depending on how fast we're currently going
@@ -123,8 +123,9 @@ public sealed partial class VehicleController : Component
 		}
 
 		//Angular Damping, lerps to 5 based off grip
+		const float MAX_ANGULAR_DAMPING = 5f;
 		var angularDamping = 0.0f;
-		angularDamping = angularDamping.LerpTo( 5.0f, grip );
+		angularDamping = angularDamping.LerpTo( MAX_ANGULAR_DAMPING, grip );
 
 		Body.LinearDamping = 0;
 		Body.AngularDamping = fullyGrounded ? angularDamping : 0.5f;
@@ -134,7 +135,7 @@ public sealed partial class VehicleController : Component
 		{
 			// Get our local velocity
 			localVelocity = rotation.Inverse * Body.Velocity;
-			// Wheel speed? Presumably for the speed of the wheels
+			// Wheel rotation speed
 			WheelSpeed = localVelocity.x;
 
 			// This appears to be how much we turn when are wheels are on the ground, as in how fast we can turn which is controlled by the sign of our local velocitys x speed multiplied by the turn sped and 
@@ -146,7 +147,6 @@ public sealed partial class VehicleController : Component
 				turnAmount = MathF.Sign( localVelocity.x ) * turnSpeed * CalculateTurnFactor( turnDirection, MathF.Abs( localVelocity.x )) * dt;
 			}
 			Body.AngularVelocity += rotation * new Vector3( 0, 0, turnAmount );
-
 
 			airRoll = 0;
 			airTilt = 0;
@@ -222,6 +222,10 @@ public sealed partial class VehicleController : Component
 
 		localVelocity = rotation.Inverse * Body.Velocity;
 		Speed = localVelocity.x;
+
+		const float MAX_ANGULAR_VELOCITY_X = 0.5f;
+		const float MAX_ANGULAR_VELOCITY_Y = 0.8f;
+		Body.AngularVelocity = Body.AngularVelocity.WithX( Body.AngularVelocity.x.Clamp( -MAX_ANGULAR_VELOCITY_X, MAX_ANGULAR_VELOCITY_X ) ).WithY( Body.AngularVelocity.y.Clamp( -MAX_ANGULAR_VELOCITY_Y, MAX_ANGULAR_VELOCITY_Y ) );
 	}
 	/// <summary>
 	/// Dampens our velocity

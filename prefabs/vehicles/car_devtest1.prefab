@@ -11,7 +11,6 @@
         "BaseFieldOfView": 90,
         "Camera": null,
         "CameraPosition": "-190,0,120",
-        "Health": 0,
         "ItemSpawnPosition": "192,0,16",
         "MaxFieldOfView": 120,
         "Rigidbody": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
@@ -71,8 +70,17 @@
             "__enabled": true,
             "IsDriving": true,
             "IsTurning": true,
-            "Radius": 20,
-            "Width": 8
+            "Radius": 22,
+            "Width": 6
+          },
+          {
+            "__version": 0,
+            "__type": "ModelCollider",
+            "__enabled": false,
+            "IsTrigger": false,
+            "Model": "models/citizen_props/wheel01.vmdl",
+            "Static": false,
+            "Surface": null
           },
           {
             "__version": 0,
@@ -101,8 +109,17 @@
             "__enabled": true,
             "IsDriving": true,
             "IsTurning": true,
-            "Radius": 20,
-            "Width": 8
+            "Radius": 22,
+            "Width": 6
+          },
+          {
+            "__version": 0,
+            "__type": "ModelCollider",
+            "__enabled": false,
+            "IsTrigger": false,
+            "Model": "models/citizen_props/wheel01.vmdl",
+            "Static": false,
+            "Surface": null
           },
           {
             "__version": 0,
@@ -131,8 +148,17 @@
             "__enabled": true,
             "IsDriving": true,
             "IsTurning": false,
-            "Radius": 20,
-            "Width": 8
+            "Radius": 22,
+            "Width": 6
+          },
+          {
+            "__version": 0,
+            "__type": "ModelCollider",
+            "__enabled": false,
+            "IsTrigger": false,
+            "Model": "models/citizen_props/wheel01.vmdl",
+            "Static": false,
+            "Surface": null
           },
           {
             "__version": 0,
@@ -162,8 +188,17 @@
             "__enabled": true,
             "IsDriving": true,
             "IsTurning": false,
-            "Radius": 20,
-            "Width": 8
+            "Radius": 22,
+            "Width": 6
+          },
+          {
+            "__version": 0,
+            "__type": "ModelCollider",
+            "__enabled": false,
+            "IsTrigger": false,
+            "Model": "models/citizen_props/wheel01.vmdl",
+            "Static": false,
+            "Surface": null
           },
           {
             "__version": 0,

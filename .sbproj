@@ -217,6 +217,7 @@
         }
       ]
     },
-    "LaunchMode": "Normal"
+    "LaunchMode": "Normal",
+    "MapStartupScene": null
   }
 }

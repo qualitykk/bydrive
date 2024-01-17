@@ -17,14 +17,21 @@ public static class Music
 
 	public static void Play(SoundEvent sound, float volume = -1f)
 	{
+		if(sound == null)
+		{
+			Log.Warning( "Tried to play null sound for music!" );
+			return;
+		}
 		Stop();
 		currentTrack = Sound.Play( sound );
-		if(volume > 0)
+		if( currentTrack.IsValid())
 		{
-			currentTrack.Volume = volume;
-
+			if ( volume > 0 )
+			{
+				currentTrack.Volume = volume;
+			}
+			currentTrack.ListenLocal = true;
 		}
-		currentTrack.ListenLocal = true;
 		currentTrackName = sound.ResourcePath;
 	}
 

@@ -18,7 +18,7 @@
     "TurnSpeedIdealDistance": 500,
     "TurnSpeedVelocityFactor": 0.6
   },
-  "Prefab": "prefabs/car_devtest2.prefab",
+  "Prefab": "prefabs/vehicles/car_devtest2.prefab",
   "__references": [
     "gandesign.zuk"
   ]

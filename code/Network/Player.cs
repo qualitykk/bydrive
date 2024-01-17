@@ -13,6 +13,7 @@ public class Player
 	public ulong SteamId => Connection?.SteamId ?? 0;
 	public string DisplayName { get; set; }
 	public bool IsBot { get; private set; }
+	public bool IsHost => IsLocal || Connection.IsHost;
 	public bool IsLocal => Connection == null;
 	public Connection Connection { get; private set; }
 	public Player(Connection connection)

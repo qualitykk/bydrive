@@ -1,0 +1,6 @@
+{
+  "Title": "Repair Kit",
+  "Icon": null,
+  "Prefab": "prefabs/items/item_repair_kit.prefab",
+  "__references": []
+}

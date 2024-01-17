@@ -1,0 +1,68 @@
+﻿LobbyPage {
+    align-items: center;
+    justify-content: center;
+    font-family: Roboto;
+
+    .main {
+        background-color: #565656aa;
+        width: 80%;
+        height: 80%;
+        margin: 20px;
+
+        .side {
+            //justify-content: center;
+            align-items: center;
+            width: 40%;
+        }
+
+        .setup {
+            width: 100%;
+            height: 30%;
+            color: #ffffff;
+            gap: 5vh;
+
+            .name {
+                text-align: center;
+                font-size: 24px;
+                width: 40%;
+            }
+
+            .control {
+                font-size: 24px;
+                height: 5vh;
+                width: 60%;
+                text-align: center;
+                align-items: center;
+            }
+        }
+
+        .list {
+            width: 50%;
+            color: #ffffff;
+
+            .item {
+                width: 100%;
+                height: 5vh;
+                justify-content: space-evenly;
+                align-items: center;
+                font-size: 38px;
+
+                &.header {
+                    font-size: 42px;
+                    font-weight: bold;
+                }
+
+                .item {
+                    label {
+                        text-align: center;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        height: 20%;
+    }
+}

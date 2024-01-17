@@ -1,4 +1,5 @@
 ﻿using Sandbox.Diagnostics;
+using System.Diagnostics;
 
 namespace Bydrive;
 
@@ -23,6 +24,7 @@ public sealed class VehicleWheel : Component
 	{
 		return GameObject.Parent.Transform.World.PointToWorld( initialPosition);
 	}
+
 	public bool Raycast( float lengthExtend, bool doPhysics, float dt )
 	{
 		if( !GameObject.Components.TryGet<Rigidbody>( out var physicsComponent, FindMode.Enabled | FindMode.InParent | FindMode.InSelf ) )
@@ -56,21 +58,21 @@ public sealed class VehicleWheel : Component
 		previousTraceRemainder = currentTraceRemainder;
 		currentTraceRemainder = (length * Transform.Scale.z) - tr.Distance;
 
-		const float SPRING_MAGIC1 = 50.0f;
+		const float SPRING_FORCE_PER_REMAINDER = 50.0f;
 
-		const float DAMPER_MAGIC1 = 1.5f;
-		const float DAMPER_MAGIC2 = 3.0f;
+		const float DAMPER_FORCE_CONSTANT = 1.5f;
+		const float DAMPER_FORCE_PER_REMAINDER = 3.0f;
 
-		const float CORRECTION_MAGIC1 = 1000.0f;
-		const float CORRECTION_MAGIC2 = 50.0f;
+		const float CORRECTION_FORCE_CONSTANT = 50f;
+		const float CORRECTION_BASE_DOWN_SPEED = 1000.0f;
 
 		Vector3 velocity = physics.GetVelocityAtPoint(wheelAttachPos);
 		float traceFractionRemainder = 1.0f - tr.Fraction;
 
-		float springForce = SPRING_MAGIC1 * currentTraceRemainder;
+		float springForce = SPRING_FORCE_PER_REMAINDER * currentTraceRemainder;
 		float springVelocity = (currentTraceRemainder - previousTraceRemainder) / dt;
 
-		float damperForce = (DAMPER_MAGIC1 + traceFractionRemainder * DAMPER_MAGIC2) * springVelocity;
+		float damperForce = (DAMPER_FORCE_CONSTANT + traceFractionRemainder * DAMPER_FORCE_PER_REMAINDER) * springVelocity;
 
 		float speed = velocity.Length;
 		float speedDownwardsFraction = 0.0f;
@@ -81,12 +83,24 @@ public sealed class VehicleWheel : Component
 
 		float downwardsSpeed = speedDownwardsFraction * speed;
 
-		float correctionMultiplier = traceFractionRemainder * (downwardsSpeed / CORRECTION_MAGIC1);
-		float correctionForce = correctionMultiplier * CORRECTION_MAGIC2 * downwardsSpeed / dt;
+		float correctionMultiplier = traceFractionRemainder * (downwardsSpeed / CORRECTION_BASE_DOWN_SPEED);
+		float correctionForce = correctionMultiplier * CORRECTION_FORCE_CONSTANT * downwardsSpeed / dt;
 
 		Vector3 impulse = tr.Normal * (springForce + damperForce + correctionForce) * dt;
 		physics.ApplyImpulseAt(wheelAttachPos, impulse);
-		//Log.Info( $"{springForce} | {damperForce} | {correctionForce}" );
+
+		if ( springForce > 300f )
+		{
+			Log.Info( $"spring: {springForce}" );
+		}
+		if ( damperForce > 100f )
+		{
+			Log.Info( $"damp: {damperForce} ({springVelocity})" );
+		}
+		if (correctionForce > 100f)
+		{
+			Log.Info( $"corr: {correctionForce}" );
+		}
 
 		return true;
 	}

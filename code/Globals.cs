@@ -18,6 +18,8 @@ internal static class Globals
 
 			return "disabled ";
 		}
+
+		public static string ActiveIf( bool? active ) => ActiveIf( active == true );
 	}
 	private static VehiclePlayerInput lastLocalInput;
 	public static RaceManager Race => RaceManager.Current;

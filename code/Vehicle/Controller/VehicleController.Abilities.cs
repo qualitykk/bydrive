@@ -75,6 +75,11 @@ public partial class VehicleController
 		Vector3 spawnPos = Transform.Local.PointToWorld( ItemSpawnPosition );
 
 		GameObject itemObject = ResourceHelper.CreateObjectFromResource( CurrentItem );
+		var itemHooks = itemObject.Components.GetAll<VehicleItemEvents>();
+		foreach ( var itemHook in itemHooks )
+		{
+			itemHook.OnItemUsed?.Invoke( this );
+		}
 
 		itemObject.Transform.Position = spawnPos;
 		itemObject.Transform.LocalRotation = Transform.LocalRotation;

@@ -4,18 +4,44 @@
 @attribute [StyleSheet("/Menu/LobbyPage.razor.scss")]
 @namespace Bydrive
 
-<root>
+<root class="flex-col w-100 h-100">
     <div class="main">
-        @foreach(var player in players)
-        {
-            <div class="player">
-                <label class="name">@player.Name</label>
+        <div class="side flex-col">
+		    <div class="setup flex-col">
+			    <div>
+				    <label class="name">Player Count</label>
+				    <SliderControl class="control" min="2" max="@RaceInformation.MAX_PLAYERCOUNT" step="1" Value:bind=@playerCount ShowTextEntry=@true />
+			    </div>
+			    <div>
+				    <label class="name">Track</label>
+				    <label class="control">@selectedTrack?.Name</label>
+			    </div>
+		    </div>
+		    <div class="button" @onclick=@(() => this.Navigate("/vehicle"))>Select Vehicle</div>
+	    </div>
+
+        <div class="list flex-col">
+            <div class="item header">
+                <label class="name">Name</label>
+                <label class="owner">Owner</label>
             </div>
-        }
+            @if (players != null)
+            {
+                @foreach (var player in players)
+                {
+                    <div class="item player">
+                        <label class="name">@player.Name</label>
+                        <label class="owner">@(player.Connection?.IsHost == true ? "Host" : "Racer")</label>
+                    </div>
+                }
+            }
+        </div>
+        
+        
     </div>
     <div class="footer">
         <div class="button" @onclick=@OnClickBack>Back</div>
         <div class="button" @onclick=@OnClickRefresh>Refresh</div>
-        <div class="button" @onclick=@OnClickStart>Start</div>
+        <div class="button @UI.ActiveIf(LobbyManager.Instance.LocalPlayer?.IsHost)" @onclick=@OnClickStart>Start</div>
     </div>
 </root>

@@ -1,0 +1,101 @@
+{
+  "RootObject": {
+    "Id": "deb074dc-dcba-476e-98fd-8566f642477a",
+    "Name": "item_repair_kit",
+    "Enabled": true,
+    "Components": [
+      {
+        "__version": 0,
+        "__type": "VehicleItemEvents",
+        "__enabled": true,
+        "OnItemUsed": {
+          "Kind": "Action",
+          "Version": 2,
+          "Variables": [
+            {
+              "Name": "_this",
+              "Type": "Sandbox.Game/Sandbox.Component",
+              "Default": "deb074dc-dcba-476e-98fd-8566f642477a"
+            }
+          ],
+          "Nodes": [
+            {
+              "Id": 0,
+              "Type": "input"
+            },
+            {
+              "Id": 1,
+              "Type": "call",
+              "Properties": {
+                "_name": "AddHealth",
+                "_isStatic": false,
+                "_type": "package.based.bydrive/Bydrive.VehicleController"
+              },
+              "UserData": {
+                "Position": "176,-0"
+              }
+            },
+            {
+              "Id": 2,
+              "Type": "scene.getobject",
+              "UserData": {
+                "Position": "336,32"
+              }
+            },
+            {
+              "Id": 3,
+              "Type": "call",
+              "Properties": {
+                "_name": "Destroy",
+                "_isStatic": false,
+                "_type": "Sandbox.Game/Sandbox.GameObject"
+              },
+              "UserData": {
+                "Position": "544,-0"
+              }
+            }
+          ],
+          "Links": [
+            {
+              "SrcId": 0,
+              "SrcName": "_signal",
+              "DstId": 1,
+              "DstName": "_signal"
+            },
+            {
+              "SrcId": 0,
+              "SrcName": "obj",
+              "DstId": 1,
+              "DstName": "_target"
+            },
+            {
+              "Value": 1,
+              "DstId": 1,
+              "DstName": "amount"
+            },
+            {
+              "SrcId": 1,
+              "SrcName": "_signal",
+              "DstId": 3,
+              "DstName": "_signal"
+            },
+            {
+              "SrcId": 2,
+              "SrcName": "_result",
+              "DstId": 3,
+              "DstName": "_target"
+            }
+          ],
+          "UserData": {
+            "Title": "AddVehicleHealth",
+            "id": "dd6b3680-0257-4795-b690-97af9a9a2ed8"
+          }
+        }
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

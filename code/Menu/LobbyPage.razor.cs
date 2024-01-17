@@ -10,6 +10,8 @@ namespace Bydrive;
 
 public partial class LobbyPage
 {
+	int playerCount = RaceInformation.MAX_PLAYERCOUNT;
+	RaceDefinition selectedTrack;
 	IEnumerable<Player> players;
 	public override void Tick()
 	{
@@ -18,24 +20,29 @@ public partial class LobbyPage
 			this.Navigate( "/front" );
 		}
 	}
+	protected override void OnParametersSet()
+	{
+		Refresh();
+	}
+	private void Refresh()
+	{
+		players = LobbyManager.Instance?.Players;
+	}
 	private void OnClickStart()
 	{
 		Log.Info( "Start" );
 	}
 	private void OnClickRefresh()
 	{
-		players = LobbyManager.Instance?.Players;
+		Refresh();
 	}
 	private void OnClickBack()
 	{
 		GameNetworkSystem.Disconnect();
 		StartMenu.Current.NavPanel?.GoBack();
 	}
-	
-	/*
 	protected override int BuildHash()
 	{
-		return HashCode.Combine(  );
+		return HashCode.Combine( players );
 	}
-	*/
 }

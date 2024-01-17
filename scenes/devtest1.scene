@@ -58,6 +58,7 @@
           "LoseMusic": null,
           "MaxLaps": 5,
           "RaceMusic": "sounds/music/race_devtrack.sound",
+          "RaceMusicVolume": -1,
           "RaceStartWait": 3.5,
           "StartCheckpoint": "b8d5b8b7-1da4-4b2c-b487-c7abab2378ab",
           "WinMusic": "sounds/music/menu_race_win.sound"
@@ -627,36 +628,6 @@
           "Surface": null
         }
       ]
-    },
-    {
-      "Id": "9bec3319-2aaf-494c-a442-66849b83a94a",
-      "Name": "pickup_boost1",
-      "Position": "848.772,3391.738,160",
-      "Enabled": true,
-      "__Prefab": "prefabs/pickup_boost1.prefab"
-    },
-    {
-      "Id": "35d15f81-9631-4c03-93cf-f808ad3149a6",
-      "Name": "pickup_boost1",
-      "Position": "-967.6016,3999.721,416",
-      "Enabled": true,
-      "__Prefab": "prefabs/pickup_boost1.prefab"
-    },
-    {
-      "Id": "4697714d-3e35-4755-87bc-267c77ba8e5d",
-      "Name": "pickup_item1",
-      "Position": "1269.28,2361.375,154",
-      "Tags": "item,pickup",
-      "Enabled": true,
-      "__Prefab": "prefabs/pickup_item1.prefab"
-    },
-    {
-      "Id": "e8a495b1-fa5c-4b91-b9b9-de22f64fc396",
-      "Name": "pickup_item1",
-      "Position": "-3040,3127.281,268.1683",
-      "Tags": "item,pickup",
-      "Enabled": true,
-      "__Prefab": "prefabs/pickup_item1.prefab"
     }
   ],
   "SceneProperties": {

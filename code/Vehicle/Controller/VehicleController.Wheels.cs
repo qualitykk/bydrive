@@ -24,7 +24,7 @@ public partial class VehicleController
 		wheelAngle = wheelAngle.LerpTo( turnDirection * 25, 1.0f - MathF.Pow( 0.001f, Time.Delta ) );
 		wheelRevolute += (WheelSpeed / 14.0f).RadianToDegree() * Time.Delta;
 
-		RaycastWheels( true, Time.Delta );
+		RaycastWheels( false, Time.Delta );
 
 		foreach(var wheel in GetWheels())
 		{

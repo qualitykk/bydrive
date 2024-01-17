@@ -15,16 +15,22 @@ public partial class VehicleController
 	Heal with pickups 
 	*/
 
-	[Property] public int Health { get; set; }
+	private int health;
+	public int Health => health;
 	public void InitialiseCombat()
 	{
-		Health = GetMaxHealth();
+		health = GetMaxHealth();
 	}
-
+	[ActionGraphInclude]
+	public void AddHealth(int amount )
+	{
+		health += amount;
+		health.Clamp( 0, GetMaxHealth() );
+	}
 	[ActionGraphInclude]
 	public void TakeDamage(int amount)
 	{
-		Health -= amount;
-		Health = Health.Clamp( 0, GetMaxHealth() );
+		health -= amount;
+		health = health.Clamp( 0, GetMaxHealth() );
 	}
 }

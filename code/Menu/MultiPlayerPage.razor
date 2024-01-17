@@ -1,24 +1,32 @@
-﻿@using Sandbox.UI;
+﻿@using Sandbox.UI
 
 @page "/lobbies";
+<!--For some reason this stylesheet wont work unless we manually specify it-->
 @attribute [StyleSheet("/Menu/MultiPlayerPage.razor.scss")]
 @namespace Bydrive
 
 <root class="flex-col w-100 h-100">
     <div class="main">
-        @if(lobbies != null)
-        {
-            @foreach (var lobby in lobbies)
+        <div class="list flex-col">
+            <div class="item header">
+                <label class="name">Name</label>
+                <label class="owner">Owner</label>
+                <label class="status">Status</label>
+            </div>
+            @if (lobbies != null)
             {
-                <div class="lobby pointer-events" @onclick=@(() => OnClickLobby(lobby))>
-                    <label class="name">@lobby.Name</label>
-                    <label class="owner">@(new Friend((long)lobby.OwnerId).Name)</label>
-                    <div class="status">
-                        <label class="players">@lobby.Members/@lobby.MaxMembers</label>
+                @foreach (var lobby in lobbies)
+                {
+                    <div class="item pointer-events" @onclick=@(() => OnClickLobby(lobby))>
+                        <label class="name">@lobby.Name</label>
+                        <label class="owner">@(new Friend((long)lobby.OwnerId).Name)</label>
+                        <div class="status">
+                            <label class="players">@lobby.Members/@lobby.MaxMembers</label>
+                        </div>
                     </div>
-                </div>
+                }
             }
-        }
+        </div>
     </div>
     <div class="footer">
         <div class="button" @onclick=@OnClickBack>Back</div>

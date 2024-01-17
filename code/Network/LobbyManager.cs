@@ -9,6 +9,7 @@ public class LobbyManager : Component, Component.INetworkListener
 	public static bool LobbyActive => Instance != null && Instance.Enabled;
 	public static LobbyManager Instance { get; private set; }
 	public IReadOnlyList<Player> Players => connectedPlayers;
+	public Player LocalPlayer => connectedPlayers.Where(p => p.IsLocal).FirstOrDefault();
 	private List<Player> connectedPlayers = new();
 	protected override void OnEnabled()
 	{
@@ -20,6 +21,12 @@ public class LobbyManager : Component, Component.INetworkListener
 			Instance.Destroy();
 		}
 		Instance = this;
+	}
+
+	protected override void OnDestroy()
+	{
+		if ( Instance == this )
+			Instance = null;
 	}
 
 	void INetworkListener.OnActive(Connection connection)

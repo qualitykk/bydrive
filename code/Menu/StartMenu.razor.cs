@@ -1,4 +1,5 @@
-﻿using Sandbox.UI;
+﻿using Sandbox.Network;
+using Sandbox.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,14 @@ public partial class StartMenu
 		PlayMusic();
 		NavPanel?.Navigate( "/front" );
 		SelectedVehicle = default;
+	}
+
+	protected override void OnUpdate()
+	{
+		if(GameNetworkSystem.IsActive || GameNetworkSystem.IsConnecting)
+		{
+			NavPanel.Navigate( "/active" );
+		}
 	}
 
 	protected override void OnDestroy()
