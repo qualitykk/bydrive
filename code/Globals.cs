@@ -73,6 +73,8 @@ internal static class InputActions
 internal static class TraceTags
 {
 	public const string SOLID = "Solid";
+	public const string WORLD = "world";
+	public const string VEHICLE = "vehicle";
 }
 
 internal static class UIColors

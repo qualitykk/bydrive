@@ -23,7 +23,6 @@ materials/hidden/*
 *.generated.*
 *.*_c
 *.los
-*.vpk
 *launchSettings.json
 *.sln
 
