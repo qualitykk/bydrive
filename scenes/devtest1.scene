@@ -628,6 +628,683 @@
           "Surface": null
         }
       ]
+    },
+    {
+      "Id": "03069212-448e-4164-a756-f4a884d56d95",
+      "Name": "BotPath",
+      "Enabled": true,
+      "Children": [
+        {
+          "Id": "b23e67f0-daea-45dc-a468-6e2c32bb1c62",
+          "Name": "1",
+          "Position": "-768,0,-32",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "b99bd5da-87f6-4f9d-8073-86dff38f8607"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "-336,0,192",
+              "IsTrigger": true,
+              "Scale": "1536,512,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "b99bd5da-87f6-4f9d-8073-86dff38f8607",
+          "Name": "2",
+          "Position": "0,96,-31.99996",
+          "Rotation": "0.00000001251106,0.000000000000000004136119,0.2099007,0.9777231",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "36d42d13-b6e0-450f-9b8a-cb65b39b5ca1"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,192",
+              "IsTrigger": true,
+              "Scale": "512,512,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "36d42d13-b6e0-450f-9b8a-cb65b39b5ca1",
+          "Name": "3",
+          "Position": "461.5057,405.3865,-31.99993",
+          "Rotation": "0.00000002114701,0.000000000000001103136,0.3547881,0.9349473",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "590bfa62-eeae-4b51-9e42-6f8297d3e89d"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,192",
+              "IsTrigger": true,
+              "Scale": "512,512,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "590bfa62-eeae-4b51-9e42-6f8297d3e89d",
+          "Name": "4",
+          "Position": "832,896,-31.99988",
+          "Rotation": "0.00000002072979,0.000000004179847,0.5325875,0.8463749",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "26b04097-e85d-4a23-aa19-9a4122446a00"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,192",
+              "IsTrigger": true,
+              "Scale": "512,512,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "26b04097-e85d-4a23-aa19-9a4122446a00",
+          "Name": "5",
+          "Position": "1056,1504,-31.99983",
+          "Rotation": "0.00000001928567,0.000000008675231,0.707107,0.7071065",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "77df70e1-bf63-434c-b2ba-502860dc3725"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,192",
+              "IsTrigger": true,
+              "Scale": "512,512,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "77df70e1-bf63-434c-b2ba-502860dc3725",
+          "Name": "6",
+          "Position": "1024,1952,32",
+          "Rotation": "0.00000001928567,0.000000008675231,0.707107,0.7071065",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "4c2083ad-966e-4e8c-90a7-2f9b9cb54812"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,192",
+              "IsTrigger": true,
+              "Scale": "768,512,512",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "4c2083ad-966e-4e8c-90a7-2f9b9cb54812",
+          "Name": "7",
+          "Position": "1024,2592,96",
+          "Rotation": "0.00000001928567,0.000000008675231,0.707107,0.7071065",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "255de94a-6718-4e17-9ffe-1ff7b67cc69f"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,192",
+              "IsTrigger": true,
+              "Scale": "512,512,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "255de94a-6718-4e17-9ffe-1ff7b67cc69f",
+          "Name": "8",
+          "Position": "928,3328,96",
+          "Rotation": "0.00000001928567,0.000000008675231,0.707107,0.7071065",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "17650a00-0371-4018-a0d7-957cea509848"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,192",
+              "IsTrigger": true,
+              "Scale": "1024,512,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "17650a00-0371-4018-a0d7-957cea509848",
+          "Name": "9A1",
+          "Position": "128,3456,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "d2a9bce5-8704-4bce-81eb-e6eacda46975"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,128",
+              "IsTrigger": true,
+              "Scale": "768,512,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "d2a9bce5-8704-4bce-81eb-e6eacda46975",
+          "Name": "9A2",
+          "Position": "-704,3680,-0.00005984285",
+          "Rotation": "-0.00000001469189,0.0000000001869354,-0.2588191,0.9659258",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "2978c63a-635f-4437-bada-a1befb763eee"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,128",
+              "IsTrigger": true,
+              "Scale": "768,512,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "2978c63a-635f-4437-bada-a1befb763eee",
+          "Name": "9A3",
+          "Position": "-1376,4320,64",
+          "Rotation": "-0.00000001454181,0.000000002103016,-0.3826836,0.9238794",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "761ce85f-9bed-4afc-9f28-73bfb0ebf354"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,128",
+              "IsTrigger": true,
+              "Scale": "768,512,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "761ce85f-9bed-4afc-9f28-73bfb0ebf354",
+          "Name": "9A4",
+          "Position": "-2237.635,4576,127.9999",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "bf3e4a46-c106-4cec-8c5a-f168931db06a"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,128",
+              "IsTrigger": true,
+              "Scale": "900,400,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "bf3e4a46-c106-4cec-8c5a-f168931db06a",
+          "Name": "9A5",
+          "Position": "-2944,4608,288",
+          "Rotation": "0.000000003573614,-0.000000004319267,-0.707107,0.7071065",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "1b0793c4-72a6-4a0c-99ed-713b14ca81a0"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,128",
+              "IsTrigger": true,
+              "Scale": "512,512,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "1b0793c4-72a6-4a0c-99ed-713b14ca81a0",
+          "Name": "9A6",
+          "Position": "-2944,4096,288",
+          "Rotation": "0.000000003573614,-0.000000004319267,-0.707107,0.7071065",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "b6abef82-5a80-4f41-a74b-7696acaf5c46"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,128",
+              "IsTrigger": true,
+              "Scale": "512,512,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "b6abef82-5a80-4f41-a74b-7696acaf5c46",
+          "Name": "10",
+          "Position": "-2976,3584,288.0001",
+          "Rotation": "0.000000003573614,-0.000000004319267,-0.707107,0.7071065",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "90dca30d-b443-4dd1-8d2c-93042aa314ec"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,128",
+              "IsTrigger": true,
+              "Scale": "512,512,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "90dca30d-b443-4dd1-8d2c-93042aa314ec",
+          "Name": "11",
+          "Position": "-3136,3040,192",
+          "Rotation": "-0.000000002982566,0.000000003604894,-0.8181401,0.57502",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "83eea6cc-198c-4fd6-b960-06a24b9a9563"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,128",
+              "IsTrigger": true,
+              "Scale": "512,512,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "83eea6cc-198c-4fd6-b960-06a24b9a9563",
+          "Name": "12",
+          "Position": "-3326.386,2392.059,192",
+          "Rotation": "0.000000002304896,-0.00000000278583,-0.7303898,0.6830313",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "08a0256c-7c52-4379-84f7-d6e44e0a3969"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,128",
+              "IsTrigger": true,
+              "Scale": "700,512,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "08a0256c-7c52-4379-84f7-d6e44e0a3969",
+          "Name": "13A1",
+          "Position": "-3520,1792,192",
+          "Rotation": "0.00000000270708,0.000000002396893,0.707107,0.7071065",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "ce1f8ebd-3c37-4ee2-b1b4-422115d11f59"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,128",
+              "IsTrigger": true,
+              "Scale": "512,384,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "ce1f8ebd-3c37-4ee2-b1b4-422115d11f59",
+          "Name": "13A2",
+          "Position": "-3648,1280,191.9999",
+          "Rotation": "0.000000002896265,0.000000002164498,0.6461252,0.7632315",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "e1f383c3-56d3-452b-8495-5189c2d38e2b"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,128",
+              "IsTrigger": true,
+              "Scale": "512,384,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "e1f383c3-56d3-452b-8495-5189c2d38e2b",
+          "Name": "13A3",
+          "Position": "-3872,768,160",
+          "Rotation": "0.000000002896265,0.000000002164498,0.6461252,0.7632315",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "89afe1de-c6fb-4bf3-a12e-0c9818d3ac21"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,128",
+              "IsTrigger": true,
+              "Scale": "512,384,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "89afe1de-c6fb-4bf3-a12e-0c9818d3ac21",
+          "Name": "13A4",
+          "Position": "-4032,384,-32",
+          "Rotation": "0.000000002396895,-0.000000002707085,-0.707107,0.7071065",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "080eebe6-63c8-4e86-9441-ab45c7128be5"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,128",
+              "IsTrigger": true,
+              "Scale": "512,384,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "080eebe6-63c8-4e86-9441-ab45c7128be5",
+          "Name": "13A5",
+          "Position": "-4032,-138.0122,-32",
+          "Rotation": "0.000000002396895,-0.000000002707085,-0.707107,0.7071065",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "032f51e6-f189-498b-8e14-2a8b0813e95b"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,128",
+              "IsTrigger": true,
+              "Scale": "512,512,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "032f51e6-f189-498b-8e14-2a8b0813e95b",
+          "Name": "13A6",
+          "Position": "-3552,-256,-32",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "4b8cc8a0-55ac-4829-a0bd-63381ca234aa"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,128",
+              "IsTrigger": true,
+              "Scale": "256,512,384",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "4b8cc8a0-55ac-4829-a0bd-63381ca234aa",
+          "Name": "14",
+          "Position": "-3104,-256,-32",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "4485fa72-49eb-4f54-9d38-001236beac85"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,128",
+              "IsTrigger": true,
+              "Scale": "768,512,256",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "4485fa72-49eb-4f54-9d38-001236beac85",
+          "Name": "15",
+          "Position": "-2297.968,-208.3449,-31.99995",
+          "Rotation": "0,0,0.106264,0.994338",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "VehicleBotPath",
+              "__enabled": true,
+              "NextPaths": [
+                "b23e67f0-daea-45dc-a468-6e2c32bb1c62"
+              ]
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,128",
+              "IsTrigger": true,
+              "Scale": "768,512,256",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        }
+      ]
     }
   ],
   "SceneProperties": {
