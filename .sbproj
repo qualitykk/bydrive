@@ -65,13 +65,13 @@
           "GroupName": "Movement"
         },
         {
-          "Name": "Jump",
+          "Name": "Break",
           "KeyboardCode": "space",
           "GamepadCode": "A",
           "GroupName": "Movement"
         },
         {
-          "Name": "Run",
+          "Name": "Boost",
           "KeyboardCode": "shift",
           "GamepadCode": "LeftJoystickButton",
           "GroupName": "Movement"
@@ -82,7 +82,7 @@
           "GroupName": "Movement"
         },
         {
-          "Name": "Crouch",
+          "Name": "Pitch Down",
           "KeyboardCode": "ctrl",
           "GamepadCode": "B",
           "GroupName": "Movement"
@@ -100,13 +100,13 @@
           "GroupName": "Actions"
         },
         {
-          "Name": "reload",
+          "Name": "Respawn",
           "KeyboardCode": "r",
           "GamepadCode": "X",
           "GroupName": "Actions"
         },
         {
-          "Name": "use",
+          "Name": "Item",
           "KeyboardCode": "e",
           "GamepadCode": "Y",
           "GroupName": "Actions"
