@@ -61,13 +61,13 @@ internal static class InputActions
 	public const string LEFT = "Left";
 	public const string RIGHT = "Right";
 
-	public const string BOOST = "Run";
-	public const string ITEM = "Use";
-	public const string BREAK = "Jump";
-	public const string RESPAWN = "Reload";
+	public const string BOOST = "Boost";
+	public const string ITEM = "Item";
+	public const string BREAK = "Break";
+	public const string RESPAWN = "Respawn";
 
-	public const string PITCH_UP = "Run";
-	public const string PITCH_DOWN = "Crouch";
+	public const string PITCH_UP = "Boost";
+	public const string PITCH_DOWN = "Pitch Down";
 }
 
 internal static class TraceTags

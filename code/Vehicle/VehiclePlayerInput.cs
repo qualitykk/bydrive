@@ -14,9 +14,9 @@ public class VehiclePlayerInput : VehicleInputComponent
 	protected override void BuildInput()
 	{
 		// Vehicle Controller Inputs
-		VehicleController.ThrottleInput = (Input.Down( InputActions.FORWARD ) ? 1 : 0) + (Input.Down( InputActions.BACK ) ? -1 : 0);
-		VehicleController.TurnInput = (Input.Down( InputActions.LEFT ) ? 1 : 0) + (Input.Down( InputActions.RIGHT ) ? -1 : 0);
-		VehicleController.BreakInput = (Input.Down( InputActions.BREAK ) ? 1 : 0);
+		VehicleController.ThrottleInput = Input.AnalogMove.x;
+		VehicleController.TurnInput = Input.AnalogMove.y;
+		VehicleController.BreakInput = Input.Down( InputActions.BREAK ) ? 1 : 0;
 
 		VehicleController.TiltInput = (Input.Down( InputActions.BOOST ) ? 1 : 0) + (Input.Down( InputActions.PITCH_DOWN ) ? -1 : 0);
 		VehicleController.RollInput = (Input.Down( InputActions.LEFT ) ? 1 : 0) + (Input.Down( InputActions.RIGHT ) ? -1 : 0);
