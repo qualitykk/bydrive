@@ -2,6 +2,7 @@
   "RootObject": {
     "Id": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
     "Name": "car_devtest1",
+    "Tags": "vehicle",
     "Enabled": true,
     "Components": [
       {

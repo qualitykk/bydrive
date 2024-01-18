@@ -66,58 +66,122 @@
       ]
     },
     {
-      "Id": "1105b86b-be6a-4797-9e00-aeb628b2e2d4",
-      "Name": "StartPos 4",
-      "Position": "-1152,-128,96",
+      "Id": "a7ccb348-1e1e-476a-af16-81e32d9ea388",
+      "Name": "Start Positions",
+      "Position": "-2520.834,-1284.507,599.9921",
       "Enabled": true,
-      "Components": [
+      "Children": [
         {
-          "__version": 0,
-          "__type": "RaceStartingPosition",
-          "__enabled": true,
-          "Placement": 4
-        }
-      ]
-    },
-    {
-      "Id": "3b9dcdbd-5741-488f-94e4-77d9cdb10fdd",
-      "Name": "StartPos 3",
-      "Position": "-1024,128,96",
-      "Enabled": true,
-      "Components": [
+          "Id": "85aaeb53-f7d8-4c30-b0a9-a3a1b5a4dc5f",
+          "Name": "StartPos 1",
+          "Position": "1880.834,1412.507,-503.9921",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 1
+            }
+          ]
+        },
         {
-          "__version": 0,
-          "__type": "RaceStartingPosition",
-          "__enabled": true,
-          "Placement": 3
-        }
-      ]
-    },
-    {
-      "Id": "d778d707-28eb-42cf-8521-594af909a44d",
-      "Name": "StartPos 2",
-      "Position": "-764.5012,-128,96",
-      "Enabled": true,
-      "Components": [
+          "Id": "d778d707-28eb-42cf-8521-594af909a44d",
+          "Name": "StartPos 2",
+          "Position": "1756.333,1156.507,-503.9921",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 2
+            }
+          ]
+        },
         {
-          "__version": 0,
-          "__type": "RaceStartingPosition",
-          "__enabled": true,
-          "Placement": 2
-        }
-      ]
-    },
-    {
-      "Id": "85aaeb53-f7d8-4c30-b0a9-a3a1b5a4dc5f",
-      "Name": "StartPos 1",
-      "Position": "-640,128,96",
-      "Enabled": true,
-      "Components": [
+          "Id": "3b9dcdbd-5741-488f-94e4-77d9cdb10fdd",
+          "Name": "StartPos 3",
+          "Position": "1496.834,1412.507,-503.9921",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 3
+            }
+          ]
+        },
         {
-          "__version": 0,
-          "__type": "RaceStartingPosition",
-          "__enabled": true,
-          "Placement": 1
+          "Id": "1105b86b-be6a-4797-9e00-aeb628b2e2d4",
+          "Name": "StartPos 4",
+          "Position": "1368.834,1156.507,-503.9921",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 4
+            }
+          ]
+        },
+        {
+          "Id": "7b6bdb04-7659-4068-bbae-7b22a7efd6a1",
+          "Name": "StartPos 5",
+          "Position": "1176.834,1412.507,-503.9921",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 5
+            }
+          ]
+        },
+        {
+          "Id": "c3a38fd7-bd32-451d-ac78-9a9688a42402",
+          "Name": "StartPos 6",
+          "Position": "1048.834,1156.507,-503.9921",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 6
+            }
+          ]
+        },
+        {
+          "Id": "eb442cd5-06e5-460d-a54e-d957a373c9ad",
+          "Name": "StartPos 7",
+          "Position": "792.8345,1412.507,-503.9921",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 7
+            }
+          ]
+        },
+        {
+          "Id": "f833513b-2a16-4400-bb4a-f0a6133a500d",
+          "Name": "StartPos 8",
+          "Position": "664.8345,1156.507,-503.9921",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 8
+            }
+          ]
         }
       ]
     },

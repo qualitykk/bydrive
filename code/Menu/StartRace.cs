@@ -28,7 +28,9 @@ internal static class StartRace
 				continue;
 			}
 
-			racers.Add( CreateBot( GetBotVehicle(), i ) );
+			Player botPlayer = Player.CreateBot();
+			botPlayer.DisplayName = $"Bot {i}";
+			racers.Add( new(GetBotVehicle(), botPlayer, i) );
 		}
 
 		new RaceInformation( race, racers );

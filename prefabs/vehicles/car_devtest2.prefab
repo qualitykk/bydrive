@@ -2,6 +2,7 @@
   "RootObject": {
     "Id": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
     "Name": "car_devtest2",
+    "Tags": "vehicle",
     "Enabled": true,
     "Components": [
       {
@@ -11,7 +12,6 @@
         "BaseFieldOfView": 95,
         "Camera": null,
         "CameraPosition": "-350,0,160",
-        "Health": 0,
         "ItemSpawnPosition": "192,0,16",
         "MaxFieldOfView": 125,
         "Rigidbody": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
