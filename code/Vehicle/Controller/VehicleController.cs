@@ -33,12 +33,15 @@ public sealed partial class VehicleController : Component
 	private float airTilt;
 	private float CalculateTurnFactor( float direction, float forwardsSpeed )
 	{
+		const float MAX_TURN_FACTOR = 0.9f;
 		// Turning rate is at its highest a certain forwards speed 
 		// After that, it decreases
 
-		var turnFactor = MathF.Min( forwardsSpeed / GetTurnSpeedIdealDistance(), 1 );
-		var yawSpeedFactor = 1.0f - (forwardsSpeed / GetMaxSpeed()).Clamp( 0, GetTurnSpeedVelocityFactor() );
-		return direction * turnFactor * yawSpeedFactor;
+		float lowSpeedFactor = MathF.Min( forwardsSpeed / GetTurnSpeedIdealDistance(), 1 );
+		float highSpeedFactor = 1.0f - (forwardsSpeed / GetMaxSpeed()).Clamp( 0, GetTurnSpeedVelocityFactor() );
+		float factor = direction * lowSpeedFactor * highSpeedFactor;
+		factor = MathF.Abs( factor ).Clamp( 0, MAX_TURN_FACTOR ) * MathF.Sign( factor );
+		return factor;
 	}
 
 	private void Move()
@@ -173,8 +176,8 @@ public sealed partial class VehicleController : Component
 		}
 		else
 		{
-			var s = Transform.Position + (rotation * Transform.Position);
-			var tr = Scene.Trace.Ray( s, s + rotation.Down * 50 )
+			Vector3 tracePosition = Transform.Position;
+			var tr = Scene.Trace.Ray( tracePosition, tracePosition + rotation.Down * 50 )
 				.IgnoreGameObject( GameObject )
 				.Run();
 
@@ -204,7 +207,6 @@ public sealed partial class VehicleController : Component
 				var force = (tr.Hit || tr2.Hit) ? FORCE_HIT : 100.0f;
 				var roll = (tr.Hit || tr2.Hit) ? airRoll.Clamp( -1, 1 ) : airRoll;
 				Body.ApplyForceAt( Body.MassCenter + rotation.Left * (offset * roll), (rotation.Down * roll) * (roll * (Body.Mass * force)) );
-
 				dampen = true;
 			}
 
