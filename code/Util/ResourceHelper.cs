@@ -30,7 +30,7 @@ public static class ResourceHelper
 			TypeDescription type = TypeLibrary.GetType( component.GetType() );
 			foreach( PropertyDescription prop in type.Properties )
 			{
-				var attrib = prop.GetCustomAttribute<ResourceReferenceAttribute>();
+				var attrib = prop.GetCustomAttribute<AutoReferenceAttribute>();
 				if(attrib == null)
 				{
 					continue;

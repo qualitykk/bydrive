@@ -1,0 +1,21 @@
+{
+  "RootObject": {
+    "Id": "749bb271-fb04-486c-bdfc-e2425be8c24c",
+    "Name": "race_player",
+    "Enabled": true,
+    "Components": [
+      {
+        "__version": 0,
+        "__type": "VehiclePlayerInput",
+        "__enabled": true,
+        "DebugLocal": false,
+        "ParticipantInstance": null,
+        "VehicleController": null
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

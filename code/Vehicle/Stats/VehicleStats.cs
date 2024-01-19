@@ -40,6 +40,7 @@ public struct VehicleStats
 	/// Decreaes turn speed by this factor at max speed
 	/// </summary>
 	[Category( "Turning" )] public float TurnSpeedVelocityFactor { get; set; } = DEFAULT_TURN_SPEED_VELOCITY_FACTOR;
+	[Category( "Visual" )] public float CameraPositionOffset { get; set; }
 	public VehicleStats()
 	{
 		MaxSpeed = DEFAULT_MAX_SPEED;

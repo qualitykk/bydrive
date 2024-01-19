@@ -1,10 +1,11 @@
 {
   "RootObject": {
     "Id": "ba32d116-0b6f-40aa-a7c6-0ca1cc60c1c0",
-    "Name": "Bot Race",
+    "Name": "race_bot",
     "Enabled": true,
     "Components": [
       {
+        "__version": 0,
         "__type": "VehicleBot",
         "__enabled": true,
         "ParticipantInstance": null,

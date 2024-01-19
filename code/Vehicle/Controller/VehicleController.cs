@@ -9,7 +9,8 @@ public sealed partial class VehicleController : Component
 {
 	[Property, Required, Title("Physics Body")] public Rigidbody Rigidbody { get; set; }
 	public PhysicsBody Body => Rigidbody?.PhysicsBody;
-	public float Speed { get; set; }
+	public float Speed { get; private set; }
+	public float TurnDirection { get; private set; }
 	public override void Reset()
 	{
 		base.Reset();
@@ -22,12 +23,10 @@ public sealed partial class VehicleController : Component
 		VerifyInput();
 		TickAbilities();
 		Move();
-		UpdateCamera();
 	}
 
 	#region Movement
 
-	private float turnDirection;
 	private float turnLean;
 	private float airRoll;
 	private float airTilt;
@@ -59,7 +58,7 @@ public sealed partial class VehicleController : Component
 
 		//Acceleration direction here appears to simply refer to the input, and therefore the speed.
 		accelerateDirection = ThrottleInput.Clamp( -1, 1 );
-		turnDirection = turnDirection.LerpTo( TurnInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.0003f, dt ) );
+		TurnDirection = TurnDirection.LerpTo( TurnInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.0003f, dt ) );
 
 		//Same as above, but for the roll and tilt inpuuts, slower than turning.
 		airRoll = airRoll.LerpTo( RollInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.0001f, dt ) );
@@ -79,7 +78,7 @@ public sealed partial class VehicleController : Component
 			var speedFraction = MathF.Min( forwardSpeed / MAX_LEAN_SPEED, 1 );
 
 			targetTilt = accelerateDirection.Clamp( -1.0f, 1.0f );
-			targetLean = speedFraction * turnDirection;
+			targetLean = speedFraction * TurnDirection;
 		}
 
 		//Lerp our acceleration tilt to our target tilt
@@ -147,7 +146,7 @@ public sealed partial class VehicleController : Component
 			float turnAmount = 0.0f;
 			if ( turningWheelsOnGround )
 			{
-				turnAmount = MathF.Sign( localVelocity.x ) * turnSpeed * CalculateTurnFactor( turnDirection, MathF.Abs( localVelocity.x )) * dt;
+				turnAmount = MathF.Sign( localVelocity.x ) * turnSpeed * CalculateTurnFactor( TurnDirection, MathF.Abs( localVelocity.x )) * dt;
 			}
 			Body.AngularVelocity += rotation * new Vector3( 0, 0, turnAmount );
 
@@ -247,6 +246,5 @@ public sealed partial class VehicleController : Component
 	{
 		const float POSITION_HELPER_RADIUS = 4f;
 		Gizmo.Draw.SolidSphere( ItemSpawnPosition, POSITION_HELPER_RADIUS );
-		Gizmo.Draw.SolidSphere( CameraPosition, POSITION_HELPER_RADIUS );
 	}
 }

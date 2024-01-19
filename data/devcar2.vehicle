@@ -16,7 +16,8 @@
     "BoostRechargeFactor": 1,
     "TurnSpeed": 72,
     "TurnSpeedIdealDistance": 500,
-    "TurnSpeedVelocityFactor": 0.6
+    "TurnSpeedVelocityFactor": 0.6,
+    "CameraPositionOffset": 270
   },
   "Prefab": "prefabs/vehicles/car_devtest2.prefab",
   "__references": [

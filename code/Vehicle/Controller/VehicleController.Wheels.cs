@@ -21,7 +21,7 @@ public partial class VehicleController
 	private IEnumerable<VehicleWheel> GetWheels() => GameObject.Components.GetAll<VehicleWheel>();
 	private void UpdateWheels()
 	{
-		wheelAngle = wheelAngle.LerpTo( turnDirection * 25, 1.0f - MathF.Pow( 0.001f, Time.Delta ) );
+		wheelAngle = wheelAngle.LerpTo( TurnDirection * 25, 1.0f - MathF.Pow( 0.001f, Time.Delta ) );
 		wheelRevolute += (WheelSpeed / 14.0f).RadianToDegree() * Time.Delta;
 
 		RaycastWheels( false, Time.Delta );

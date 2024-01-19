@@ -14,7 +14,7 @@ public class Player
 	public string DisplayName { get; set; }
 	public bool IsBot { get; private set; }
 	public bool IsHost => IsLocal || Connection.IsHost;
-	public bool IsLocal => Connection == null;
+	public bool IsLocal => Connection == null || Game.SteamId == (long)Connection.SteamId;
 	public Connection Connection { get; private set; }
 	public Player(Connection connection)
 	{

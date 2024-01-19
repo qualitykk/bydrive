@@ -10,7 +10,6 @@ public partial class VehicleController
 {
 	[Property] public VehicleStatsProvider StatProvider { get; set; }
 	public VehicleStats Stats => StatProvider?.GetStats() ?? new();
-
 	public float GetMaxSpeed()
 	{
 		const float NO_HEALTH_SPEED_MULTIPLIER = 0.875f;
@@ -82,5 +81,10 @@ public partial class VehicleController
 	public float GetTurnSpeedVelocityFactor()
 	{
 		return Stats.TurnSpeedVelocityFactor;
+	}
+
+	public float GetCameraPositionOffset()
+	{
+		return Stats.CameraPositionOffset;
 	}
 }

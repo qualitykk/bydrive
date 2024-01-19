@@ -94,7 +94,7 @@ public class RaceInformation
 		}
 		else
 		{
-			CreatePlayerObjects( obj, vehicle );
+			CreatePlayerObjects( obj, vehicle, participant );
 		}
 
 		var input = obj.Components.GetInDescendantsOrSelf<VehicleInputComponent>();
@@ -105,24 +105,29 @@ public class RaceInformation
 	}
 	private void CreateBotObjects(GameObject parent, VehicleController controller)
 	{
-		const string BOT_VEHICLE_PREFAB = "prefabs/bot_race.prefab";
+		const string BOT_PREFAB = "prefabs/race_bot.prefab";
 
 		GameObject obj = new();
-		obj.ApplyPrefab( BOT_VEHICLE_PREFAB );
+		obj.ApplyPrefab( BOT_PREFAB );
 		obj.Parent = parent;
 		obj.Name = "Bot";
 	}
-	private void CreatePlayerObjects(GameObject parent, VehicleController controller)
+	private void CreatePlayerObjects(GameObject parent, VehicleController controller, Participant participant)
 	{
-		const string PLAYER_VEHICLE_PREFAB = "prefabs/player_race.prefab";
+		const string PLAYER_PREFAB = "prefabs/race_player.prefab";
+		const string LOCAL_PREFAB = "prefabs/race_local.prefab";
 
 		GameObject obj = new();
-		obj.ApplyPrefab( PLAYER_VEHICLE_PREFAB );
+		obj.ApplyPrefab( PLAYER_PREFAB );
 		obj.Parent = parent;
-		obj.Name = "Player";
+		obj.Name = participant.Player.Name;
 
-		var camera = obj.Components.GetInDescendantsOrSelf<CameraComponent>();
-		controller.Camera = camera;
+		if(participant.Player.IsLocal)
+		{
+			GameObject localObj = new();
+			localObj.ApplyPrefab( LOCAL_PREFAB );
+			localObj.Name = "Local Player";
+		}
 	}
 
 	private void Initialise(Participant participant, GameObject obj)

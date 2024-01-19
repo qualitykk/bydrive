@@ -1,21 +1,20 @@
 {
   "RootObject": {
-    "Id": "749bb271-fb04-486c-bdfc-e2425be8c24c",
-    "Name": "player_race",
+    "Id": "712a457d-86ee-4794-8366-47a88dfec995",
+    "Name": "race_local",
     "Enabled": true,
     "Components": [
       {
         "__version": 0,
-        "__type": "VehiclePlayerInput",
+        "__type": "VehicleCameraView",
         "__enabled": true,
-        "DebugLocal": false,
-        "ParticipantInstance": null,
-        "VehicleController": null
+        "BaseFieldOfView": 90,
+        "MaxFieldOfView": 120
       }
     ],
     "Children": [
       {
-        "Id": "fcb1da80-2884-49ff-abae-a93095ee4a29",
+        "Id": "1ca9e11c-6c23-437f-8ff2-68cf7e73a54e",
         "Name": "Main Camera",
         "Position": "-190,-0.000000000000682121,120",
         "Rotation": "0,0.1305263,0,0.9914448",
@@ -48,7 +47,7 @@
         ]
       },
       {
-        "Id": "5d84378b-6b9a-4dab-9e0e-e58901027639",
+        "Id": "a501d386-ab6d-4ce3-93c2-36b512ee92fe",
         "Name": "UI",
         "Position": "0,0,651.6465",
         "Enabled": true,
@@ -65,7 +64,7 @@
         ],
         "Children": [
           {
-            "Id": "1e839db9-dda1-40b4-8375-dd591895f8a0",
+            "Id": "9aee4fc2-bda5-41f6-971e-d44935058702",
             "Name": "Lap Completion",
             "Position": "0,0,0",
             "Enabled": true,
@@ -79,7 +78,7 @@
             ]
           },
           {
-            "Id": "d128c78e-06a9-4bfc-9524-4f9a43d8b565",
+            "Id": "ce6f2790-e727-4f16-8b91-4120d1d4d72d",
             "Name": "Start Countdown",
             "Position": "0,0,0",
             "Enabled": true,
@@ -94,7 +93,7 @@
             ]
           },
           {
-            "Id": "ba02e418-425b-472a-8d10-9db66385b064",
+            "Id": "76160790-eeeb-4fb3-aec8-b69fae5d7352",
             "Name": "Results",
             "Position": "0,0,0",
             "Enabled": true,
@@ -107,7 +106,7 @@
             ]
           },
           {
-            "Id": "b9ca3d4e-8414-46b6-ba9d-4ebd8ad0ddef",
+            "Id": "0728ed70-9ac3-4f82-a97a-705feb4a145d",
             "Name": "Speedometer",
             "Position": "0,0,0",
             "Enabled": true,
@@ -120,7 +119,7 @@
             ]
           },
           {
-            "Id": "7a0a2525-7492-450c-9ff8-8343bdb037cb",
+            "Id": "e043cba9-7bfe-4bd9-80cd-6a2ec8158e25",
             "Name": "Placement",
             "Position": "0,0,0",
             "Enabled": true,
@@ -133,7 +132,7 @@
             ]
           },
           {
-            "Id": "d244cf4e-70b7-42d7-8ed0-6aae9f4b22de",
+            "Id": "b104e3d2-2095-42e0-af15-9e5ff4a7dd87",
             "Name": "Timer",
             "Position": "0,0,0",
             "Enabled": true,
@@ -146,7 +145,7 @@
             ]
           },
           {
-            "Id": "9a8d2382-6c54-4d11-8848-a74079e3cadb",
+            "Id": "bc4142c5-5358-4702-99a9-8bdb25e516cc",
             "Name": "Vehicle Health",
             "Position": "0,0,0",
             "Enabled": true,
@@ -159,7 +158,7 @@
             ]
           },
           {
-            "Id": "cbc6ec1f-2645-4f6f-825b-79756146027f",
+            "Id": "1fcb2e0c-2275-4de6-ab9c-b6aeaf7b0e42",
             "Name": "Notifications",
             "Position": "0,0,0",
             "Enabled": true,
@@ -172,7 +171,7 @@
             ]
           },
           {
-            "Id": "9a317d7e-9624-4299-9350-6c6b8ca7694b",
+            "Id": "8a5436df-c54d-4d62-9061-40f8a5cc2000",
             "Name": "Item",
             "Position": "0,0,0",
             "Enabled": true,
