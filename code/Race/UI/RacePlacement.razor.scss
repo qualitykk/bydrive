@@ -17,6 +17,10 @@ RacePlacement {
 	flex-direction: row;
 	border-radius: 5px;
 
+	&.disabled {
+		display: none;
+	}
+
 	.placement {
 		font-size: 40px;
 		width: 100%;

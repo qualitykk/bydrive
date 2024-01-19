@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public partial class MultiPlayerPage
+public partial class RaceBrowserPage
 {
 	List<LobbyInformation> lobbies;
 

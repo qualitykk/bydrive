@@ -20,11 +20,19 @@
     }
 
     .options {
-        left: 10%;
-        gap: 10px;
+        left: 8%;
+        top: 12%;
+        height: 80%;
+        width: 60%;
+        justify-content: space-evenly;
+
+        .group {
+            gap: 10px;
+        }
+
 
         .singleplayer {
-            height: 12%;
+            height: 16%;
         }
 
         .header {

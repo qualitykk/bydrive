@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public partial class SinglePlayerPage
+public partial class TimeTrialPage
 {
-	int botCount { get; set; } = 3;
 	RaceDefinition selectedTrack;
 	private void OnTrackSelected( RaceDefinition def )
 	{
@@ -25,7 +24,7 @@ public partial class SinglePlayerPage
 
 		VehicleDefinition playerCar = StartMenu.SelectedVehicle ?? ResourceLibrary.Get<VehicleDefinition>( "data/devcar1.vehicle" );
 
-		StartRace.WithBots( selectedTrack, botCount, playerCar, botCount + 1 );
+		StartRace.WithBots( selectedTrack, 0, playerCar, RaceStartingPosition.FIRST_PLACE );
 	}
 
 	private void OnClickBack()

@@ -1,0 +1,69 @@
+﻿TimeTrialPage {
+    font-weight: bold;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+
+    .side {
+        justify-content: center;
+        align-items: center;
+        width: 40%;
+    }
+
+    .main {
+        width: 60%;
+    }
+
+    .setup {
+        width: 60%;
+        height: 50%;
+        color: #ffffff;
+        font-family: Roboto;
+        gap: 5vh;
+        align-items: center;
+
+        .name {
+            text-align: center;
+            font-size: 48px;
+            width: 40%;
+        }
+
+        .control {
+            font-size: 32px;
+            width: 60%;
+            text-align: center;
+            align-items: center;
+        }
+    }
+
+    .tracklist {
+        margin: 2%;
+        width: 100%;
+        height: 90%;
+        background-color: #00359833;
+        flex-direction: column;
+        align-items: center;
+
+        .track {
+            width: 90%;
+            height: 10vh;
+            justify-content: center;
+            align-items: center;
+            margin: 1%;
+            background-color: #2256aa;
+            color: #ffffff;
+            font-size: 64px;
+            pointer-events: all;
+
+            &.selected {
+                background-color: #2276cc;
+                border: 3px solid white;
+            }
+        }
+    }
+
+    .button {
+        width: 400px;
+        height: 10%;
+    }
+}

@@ -1,16 +1,12 @@
 ﻿@using Sandbox.UI
-@page "/bots";
+@page "/singleplayer/timetrial";
 <!--For some reason this stylesheet wont work unless we manually specify it-->
-@attribute [StyleSheet("/Menu/SinglePlayerPage.razor.scss")]
+@attribute [StyleSheet("/Menu/TimeTrialPage.razor.scss")]
 @namespace Bydrive
 
 <root>
 	<div class="side flex-col">
 		<div class="setup flex-col">
-			<div>
-				<label class="name">Bot Count</label>
-				<SliderControl class="control" min="1" max="@RaceInformation.MAX_PLAYERCOUNT" step="1" Value:bind=@botCount ShowTextEntry=@true />
-			</div>
 			<div>
 				<label class="name">Track</label>
 				<label class="control">@selectedTrack?.Name</label>

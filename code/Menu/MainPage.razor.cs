@@ -5,17 +5,11 @@ namespace Bydrive;
 
 public partial class MainPage
 {
-	void OnClickSingleplayer()
+	void OnClickTimeTrial()
 	{
-		this.Navigate( "/bots" );
+		this.Navigate( "/singleplayer/timetrial" );
 	}
-
-	void OnClickMultiplayer()
-	{
-		this.Navigate( "/lobbies" );
-	}
-
-	void OnClickDevStart()
+	void OnClickRaceQuickplay()
 	{
 		// Load race testing env
 		RaceDefinition testRace = ResourceLibrary.Get<RaceDefinition>( "data/devtest1.race" );
@@ -23,4 +17,14 @@ public partial class MainPage
 
 		StartRace.WithBots( testRace, 3, devCar, 4 );
 	}
+
+	void OnClickRaceOnline()
+	{
+		this.Navigate( "/multiplayer/browser" );
+	}
+	void OnClickRaceBots()
+	{
+		this.Navigate( "/multiplayer/race/bots" );
+	}
+
 }

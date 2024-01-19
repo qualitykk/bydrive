@@ -1,0 +1,26 @@
+﻿@using Sandbox.UI
+@page "/multiplayer/race/bots";
+<!--For some reason this stylesheet wont work unless we manually specify it-->
+@attribute [StyleSheet("/Menu/BotRacePage.razor.scss")]
+@namespace Bydrive
+
+<root>
+	<div class="side flex-col">
+		<div class="setup flex-col">
+			<div>
+				<label class="name">Bot Count</label>
+				<SliderControl class="control" min="1" max="@RaceInformation.MAX_PLAYERCOUNT" step="1" Value:bind=@botCount ShowTextEntry=@true />
+			</div>
+			<div>
+				<label class="name">Track</label>
+				<label class="control">@selectedTrack?.Name</label>
+			</div>
+		</div>
+		<div class="button @UI.ActiveIf(selectedTrack != null)" @onclick=@OnClickStart>Start</div>
+		<div class="button" @onclick=@(() => this.Navigate("/vehicle"))>Select Vehicle</div>
+		<div class="button" @onclick=@OnClickBack>Back</div>
+	</div>
+	<div class="main flex-col">
+		<TrackList TrackSelected=@OnTrackSelected />
+	</div>
+</root>

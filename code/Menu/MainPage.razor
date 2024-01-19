@@ -6,11 +6,20 @@
 
 <root>
 	<div class="title"></div>
-	<div class="options flex-col">
-		<label class="header">Singleplayer</label>
-		<div class="button singleplayer" @onclick=@OnClickSingleplayer>Race VS Bots</div>
-		<div class="button singleplayer" @onclick=@OnClickDevStart>Quickplay</div>
-		<label class="header">Multiplayer</label>
-		<div class="button multiplayer @UI.ActiveIf(LobbyManager.LobbyActive)" @onclick=@OnClickMultiplayer>Race Online</div>
+	<div class="options flex-row">
+		<div class="group flex-col">
+			<label class="header">Singleplayer</label>
+			<div class="button singleplayer disabled">New Game</div>
+			<div class="button singleplayer disabled">Load Game</div>
+			<div class="button singleplayer" @onclick=@OnClickTimeTrial>Time Trials</div>
+		</div>
+		
+		<div class="group flex-col">
+			<label class="header">Multiplayer</label>
+			<div class="button multiplayer" @onclick=@OnClickRaceQuickplay>Quickplay</div>
+			<div class="button multiplayer @UI.ActiveIf(LobbyManager.LobbyActive)" @onclick=@OnClickRaceOnline>Race Online</div>
+			<div class="button multiplayer" @onclick=@OnClickRaceBots>Race VS Bots</div>
+		</div>
+		
 	</div>
 </root>

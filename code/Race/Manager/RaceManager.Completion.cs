@@ -55,7 +55,9 @@ public partial class RaceManager
 			return 0;
 		}
 
-		int lap = progression.FloorToInt() + 1;
+		const float PROGRESSION_FORGIVENESS = 0.00001f;
+
+		int lap = progression.SnapToGrid( PROGRESSION_FORGIVENESS ).FloorToInt() + 1;
 		return lap.Clamp(1, MaxLaps);
 	}
 	public int GetParticipantPlacement(RaceParticipant participant)

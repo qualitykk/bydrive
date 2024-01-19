@@ -5,12 +5,17 @@
 @if (Race == null)
 	return;
 
-<root>
+<root class="@UI.ActiveIf(ShouldDraw())">
 	<label class="placement @GetPlacementTag()">@GetPlacementText()</label>
 </root>
 
 @code
 {
+	public bool ShouldDraw()
+	{
+		return Race.Participants.Count > 1;
+	}
+
 	public string GetPlacementText()
 	{
 		// TODO: Detect language and adjust format to match
