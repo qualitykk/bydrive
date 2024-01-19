@@ -81,7 +81,6 @@
       "Name": "LobbyManager",
       "Position": "20.98932,-588.3395,11.88513",
       "Networked": true,
-      "Enabled": true,
       "Components": [
         {
           "__version": 0,
