@@ -1,0 +1,6 @@
+{
+  "Title": "Boost Refill",
+  "Icon": null,
+  "Prefab": "prefabs/items/item_boost_refill.prefab",
+  "__references": []
+}

@@ -1,0 +1,149 @@
+{
+  "RootObject": {
+    "Id": "deb074dc-dcba-476e-98fd-8566f642477a",
+    "Name": "item_boost_refill",
+    "Enabled": true,
+    "Components": [
+      {
+        "__version": 0,
+        "__type": "VehicleItemEvents",
+        "__enabled": true,
+        "OnItemUsed": {
+          "Kind": "Action",
+          "Version": 3,
+          "Variables": [
+            {
+              "Name": "_this",
+              "Type": "Sandbox.Game/Sandbox.Component",
+              "Default": "deb074dc-dcba-476e-98fd-8566f642477a"
+            }
+          ],
+          "Nodes": [
+            {
+              "Id": 0,
+              "Type": "input"
+            },
+            {
+              "Id": 1,
+              "Type": "property.set",
+              "Properties": {
+                "_type": "package.based.bydrive/Bydrive.VehicleController",
+                "_name": "RemainingBoost"
+              },
+              "UserData": {
+                "Position": "576,0"
+              }
+            },
+            {
+              "Id": 2,
+              "Type": "call",
+              "Properties": {
+                "_type": "package.based.bydrive/Bydrive.VehicleController",
+                "_isStatic": false,
+                "_name": "GetBoostDuration"
+              },
+              "UserData": {
+                "Position": "192,0"
+              }
+            },
+            {
+              "Id": 5,
+              "Type": "nop",
+              "UserData": {
+                "Position": "192,128"
+              }
+            },
+            {
+              "Id": 6,
+              "Type": "nop",
+              "UserData": {
+                "Position": "352,128"
+              }
+            },
+            {
+              "Id": 7,
+              "Type": "const.float",
+              "Properties": {
+                "value": 0.3334
+              },
+              "UserData": {
+                "Position": "224,144"
+              }
+            },
+            {
+              "Id": 8,
+              "Type": "op.multiply",
+              "UserData": {
+                "Position": "416,64"
+              }
+            }
+          ],
+          "Links": [
+            {
+              "SrcId": 2,
+              "SrcName": "_signal",
+              "DstId": 1,
+              "DstName": "_signal"
+            },
+            {
+              "SrcId": 6,
+              "SrcName": "out",
+              "DstId": 1,
+              "DstName": "target"
+            },
+            {
+              "SrcId": 8,
+              "SrcName": "_result",
+              "DstId": 1,
+              "DstName": "value"
+            },
+            {
+              "SrcId": 0,
+              "SrcName": "_signal",
+              "DstId": 2,
+              "DstName": "_signal"
+            },
+            {
+              "SrcId": 0,
+              "SrcName": "obj",
+              "DstId": 2,
+              "DstName": "_target"
+            },
+            {
+              "SrcId": 0,
+              "SrcName": "obj",
+              "DstId": 5,
+              "DstName": "in"
+            },
+            {
+              "SrcId": 5,
+              "SrcName": "out",
+              "DstId": 6,
+              "DstName": "in"
+            },
+            {
+              "SrcId": 2,
+              "SrcName": "_result",
+              "DstId": 8,
+              "DstName": "a"
+            },
+            {
+              "SrcId": 7,
+              "SrcName": "_result",
+              "DstId": 8,
+              "DstName": "b"
+            }
+          ],
+          "UserData": {
+            "Title": "On Item Used",
+            "id": "713f493c-e77d-4bf1-88f1-6ab49e6c142f"
+          }
+        }
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

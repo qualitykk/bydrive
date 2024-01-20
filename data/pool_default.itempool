@@ -7,6 +7,10 @@
     {
       "Item": "data/repair_kit.item",
       "Weight": 1
+    },
+    {
+      "Item": "data/boost_refill.item",
+      "Weight": 1
     }
   ],
   "__references": []

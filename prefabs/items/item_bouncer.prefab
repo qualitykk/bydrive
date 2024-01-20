@@ -26,7 +26,7 @@
         "__version": 0,
         "__type": "HoverObject",
         "__enabled": true,
-        "Distance": 32,
+        "Distance": 16,
         "IgnoreTags": "item,vehicle",
         "TraceDistance": 1024
       },
