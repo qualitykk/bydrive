@@ -718,7 +718,7 @@
           "__type": "BoxCollider",
           "__enabled": true,
           "Center": "0,0,0",
-          "IsTrigger": false,
+          "IsTrigger": true,
           "Scale": "10000,10000,50",
           "Static": false,
           "Surface": null

@@ -82,10 +82,9 @@ public partial class VehicleController
 		}
 
 		itemObject.Transform.Position = spawnPos;
-		itemObject.Transform.LocalRotation = Transform.LocalRotation;
+		itemObject.Transform.Rotation = Transform.Rotation;
 
 		CurrentItem = default;
-
 		WantsItem = false;
 		TimeSinceUseItem = 0;
 	}

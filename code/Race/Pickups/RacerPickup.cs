@@ -45,7 +45,11 @@ public abstract class RacerPickup : Component, Component.ITriggerListener
 		if ( vehicle == null || !OnPickup( vehicle ) )
 			return;
 
-		Sound.Play( PickupSound, Transform.Position );
+		if(PickupSound != default)
+		{
+			Sound.Play( PickupSound, Transform.Position );
+		}
+
 		Available = false;
 		OnBecomeUnavailable();
 		TimeSincePickup = 0;
