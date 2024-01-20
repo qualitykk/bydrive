@@ -30,6 +30,17 @@
 				</div>
 			}
 			
+			@if(GetPreviousData() != null && GetPreviousData().Any())
+			{
+				<label class="header">Previous Times</label>
+				@for(int i = 0; i < MathF.Min(GetPreviousData().Count,3); i++)
+				{
+					<div class="racer entry" style="height: 6vh;">
+						<label class="name">@GetPreviousData().OrderBy(p => p.TotalTime).ElementAt(i).PlayerName</label>
+						<label class="time">@GetPreviousData().OrderBy(p => p.TotalTime).ElementAt(i).TotalTime.FormatAsRaceTime()</label>
+					</div>
+				}
+			}
 		}
 		else if (GetPlacements() != null)
 		{
@@ -44,7 +55,13 @@
 		}
 		
 	</div>
-	<div class="button" @onclick=@OnClickNext>Back to Menu</div>
+	<div class="footer">
+		<div class="button" @onclick=@OnClickNext>Back to Menu</div>
+		@if (Race.IsTimeTrial)
+		{
+			<div class="button @UI.ActiveIf(!hasSaved)" @onclick=@OnClickSave>Save Time</div>
+		}
+	</div>
 </root>
 
 @code
@@ -74,9 +91,35 @@
 		};
 	}
 
+	private List<TimeTrialData> GetPreviousData()
+	{
+		return TimeTrialData.ReadForTrack(RaceContext.Definition.ResourcePath);
+	}
+
 	private void OnClickNext()
 	{
 		RaceContext.Stop();
+	}
+
+	bool hasSaved = false;
+
+	private void OnClickSave()
+	{
+		if (hasSaved)
+			return;
+
+		string track = RaceContext.Definition.ResourcePath;
+		List<float> lapTimes = Race.GetParticipantFinish(GetLocalParticipantInstance()).LapTimes;
+		float totalTime = lapTimes.Sum();
+
+		var existingData = TimeTrialData.ReadForTrack(track);
+		if (existingData == default || !existingData.Any(d => d?.TotalTime < totalTime))
+		{
+			TimeTrialData data = new(GetLocalName(), track, lapTimes);
+			TimeTrialData.WriteNew(data);
+		}
+
+		hasSaved = true;
 	}
 
 	protected override int BuildHash() => HashCode.Combine(GetPlacements(), GetPlacements().Count, ShouldDraw());

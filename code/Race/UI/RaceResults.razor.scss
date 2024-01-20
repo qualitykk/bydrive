@@ -12,12 +12,20 @@ RaceResults {
 	align-items: center;
 	font-weight: bold;
 	flex-direction: column;
+	gap: 20px;
 
 	.title {
 		font-size: 64px;
 		font-family: Poppins;
 		color: #fff;
 		margin: 25px;
+	}
+
+	.header {
+		font-size: 32px;
+		font-family: Poppins;
+		color: #fff;
+		margin: 20px;
 	}
 
 	.list {
@@ -106,6 +114,10 @@ RaceResults {
 				font-size: 32px;
 			}
 		}
+	}
+
+	.footer {
+		flex-direction: row;
 	}
 
 	.button {

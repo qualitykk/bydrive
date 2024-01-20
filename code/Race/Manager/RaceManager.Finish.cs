@@ -54,7 +54,8 @@ public partial class RaceManager
 
 		ParticipantFinishInformation info = new( finishedParticipants.Count + 1, participant, raceTIme, lapTimes );
 		finishedParticipants.Add( info );
-		Music.Play( WinMusic ); participant.OnFinished();
+		Music.Play( WinMusic );
+		participant.OnFinished();
 	}
 
 	private void UpdateTimeSplits(RaceParticipant participant)
