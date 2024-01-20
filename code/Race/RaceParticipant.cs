@@ -72,7 +72,6 @@ public class RaceParticipant : Component
 			PreviousKeyCheckpoints = FindPreviousKeyCheckpoints( checkpoint );
 		}
 
-		Race.CheckpointPassed( this, checkpoint );
 		LastCheckpoint = checkpoint;
 	}
 

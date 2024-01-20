@@ -33,9 +33,10 @@ public class RaceInformation
 	public RaceDefinition Definition { get; set; }
 	public List<Participant> Participants { get; set; }
 	public Action OnParticipantsLoaded { get; set; }
+	public RaceMode Mode { get; set; }
 
 	private Dictionary<Participant,GameObject> participantObjects = new();
-	public RaceInformation(RaceDefinition definition, List<Participant> participants, bool createParticipants = true)
+	public RaceInformation(RaceDefinition definition, List<Participant> participants, bool createParticipants = true, RaceMode mode = RaceMode.None)
 	{
 		if ( Current != null )
 		{
@@ -47,11 +48,14 @@ public class RaceInformation
 
 		Definition = definition;
 		Participants = participants;
+		Mode = mode;
 
 		if(createParticipants)
 		{
 			CreateParticipantObjects();
 		}
+
+		InitialiseMode();
 	}
 
 	public void CreateParticipantObjects()
@@ -130,7 +134,18 @@ public class RaceInformation
 		}
 	}
 
-	private void Initialise(Participant participant, GameObject obj)
+	/// <summary>
+	/// Reset participant objects into their initial state.
+	/// </summary>
+	public void ResetParticipantObjects()
+	{
+		foreach( (Participant data, GameObject obj) in participantObjects)
+		{
+			Initialise( data, obj );
+		}
+	}
+
+	private void Initialise( Participant participant, GameObject obj )
 	{
 		Assert.NotNull( obj, "Cant initialise a null object!" );
 		Assert.NotNull( participant, "Cant initialise with no participant!!" );
@@ -151,14 +166,15 @@ public class RaceInformation
 		obj.Transform.World = start.Transform.World;
 	}
 
-	/// <summary>
-	/// Reset participant objects into their initial state.
-	/// </summary>
-	public void ResetParticipantObjects()
+	private void InitialiseMode()
 	{
-		foreach( (Participant data, GameObject obj) in participantObjects)
+		RaceManager manager = Scene.GetAllComponents<RaceManager>().FirstOrDefault();
+		if ( manager == null )
+			return;
+
+		if(Mode == RaceMode.TimeTrial)
 		{
-			Initialise( data, obj );
+			manager.IsTimeTrial = true;
 		}
 	}
 

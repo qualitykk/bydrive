@@ -51,10 +51,15 @@ public sealed partial class RaceManager : Component
 		TimeSinceRaceStart = 0;
 	}
 
+	public override void Reset()
+	{
+		SetupRace();
+	}
+
 	private void SetupRace()
 	{
 		Participants?.Clear();
-		ResetLapProgress();
+		ResetParticipants();
 
 		foreach(var vehicle in Scene.GetAllComponents<VehicleController>())
 		{
@@ -63,7 +68,7 @@ public sealed partial class RaceManager : Component
 
 		RaceContext?.ResetParticipantObjects();
 		Participants = Scene.GetAllComponents<RaceParticipant>().ToList();
-		InitialiseLapProgress( Participants);
+		InitialiseParticipants( Participants);
 		foreach(var participant in Participants)
 		{
 			participant.PassCheckpoint( StartCheckpoint, true );
@@ -72,6 +77,24 @@ public sealed partial class RaceManager : Component
 		StartCountdown();
 	}
 
+	public void InitialiseParticipants( List<RaceParticipant> participants )
+	{
+		foreach ( var participant in participants )
+		{
+			participantRaceCompletion.Add( participant, 0f );
+			participantLastOrder.Add( participant, 0 );
+			participantLapTimes.Add( participant, new() );
+			participantLastLap.Add( participant, 0 );
+		}
+	}
+	public void ResetParticipants()
+	{
+		participantRaceCompletion.Clear();
+		participantLastOrder.Clear();
+		participantLastLap.Clear();
+		participantLapTimes.Clear();
+		finishedParticipants.Clear();
+	}
 	protected override void OnFixedUpdate()
 	{
 		if(!HasLoaded && !Scene.IsLoading)
@@ -88,10 +111,6 @@ public sealed partial class RaceManager : Component
 		}
 
 		UpdateCompletion();
-	}
-
-	public void CheckpointPassed( RaceParticipant participant, RaceCheckpoint checkpoint )
-	{
 	}
 
 	protected override void DrawGizmos()
