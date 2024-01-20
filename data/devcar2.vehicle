@@ -1,7 +1,7 @@
 {
   "Title": "Devcar 2",
   "Description": "Bigger Car used in development.",
-  "Hidden": false,
+  "Hidden": true,
   "PreviewModel": "zuk/zuk.vmdl",
   "PreviewPosition": "-250,0,190",
   "PreviewAngles": "0,0,0",

@@ -80,7 +80,6 @@
       "Id": "025c44cb-65c8-4413-a37b-a1a5fed635f4",
       "Name": "LobbyManager",
       "Position": "20.98932,-588.3395,11.88513",
-      "Networked": true,
       "Components": [
         {
           "__version": 0,

@@ -76,7 +76,7 @@
         {
           "Id": "85aaeb53-f7d8-4c30-b0a9-a3a1b5a4dc5f",
           "Name": "StartPos 1",
-          "Position": "1880.834,1412.507,-503.9921",
+          "Position": "1944.834,1508.507,-503.9921",
           "Enabled": true,
           "Components": [
             {
@@ -88,9 +88,9 @@
           ]
         },
         {
-          "Id": "d778d707-28eb-42cf-8521-594af909a44d",
+          "Id": "3b438348-fe14-4907-b122-30a77b50a7e2",
           "Name": "StartPos 2",
-          "Position": "1756.333,1156.507,-503.9921",
+          "Position": "1912.834,1316.507,-503.9921",
           "Enabled": true,
           "Components": [
             {
@@ -102,9 +102,9 @@
           ]
         },
         {
-          "Id": "3b9dcdbd-5741-488f-94e4-77d9cdb10fdd",
+          "Id": "90cbd12b-65c3-477f-9694-91b9965777d4",
           "Name": "StartPos 3",
-          "Position": "1496.834,1412.507,-503.9921",
+          "Position": "1880.834,1135.976,-503.9921",
           "Enabled": true,
           "Components": [
             {
@@ -116,9 +116,9 @@
           ]
         },
         {
-          "Id": "1105b86b-be6a-4797-9e00-aeb628b2e2d4",
+          "Id": "30c37206-bac6-4a28-9145-9978d536b2a9",
           "Name": "StartPos 4",
-          "Position": "1368.834,1156.507,-503.9921",
+          "Position": "1688.834,1508.507,-503.9921",
           "Enabled": true,
           "Components": [
             {
@@ -130,9 +130,9 @@
           ]
         },
         {
-          "Id": "7b6bdb04-7659-4068-bbae-7b22a7efd6a1",
+          "Id": "91392b09-c00f-4f43-85cc-1d4169a2490f",
           "Name": "StartPos 5",
-          "Position": "1176.834,1412.507,-503.9921",
+          "Position": "1656.834,1316.507,-503.9921",
           "Enabled": true,
           "Components": [
             {
@@ -144,9 +144,9 @@
           ]
         },
         {
-          "Id": "c3a38fd7-bd32-451d-ac78-9a9688a42402",
+          "Id": "d8a80202-4ec2-4b96-a4cc-99fece6de735",
           "Name": "StartPos 6",
-          "Position": "1048.834,1156.507,-503.9921",
+          "Position": "1624.834,1135.976,-503.9921",
           "Enabled": true,
           "Components": [
             {
@@ -158,9 +158,9 @@
           ]
         },
         {
-          "Id": "eb442cd5-06e5-460d-a54e-d957a373c9ad",
+          "Id": "e5d4ee69-a0c1-4938-8505-15a983d48662",
           "Name": "StartPos 7",
-          "Position": "792.8345,1412.507,-503.9921",
+          "Position": "1432.834,1508.507,-503.9921",
           "Enabled": true,
           "Components": [
             {
@@ -172,9 +172,9 @@
           ]
         },
         {
-          "Id": "f833513b-2a16-4400-bb4a-f0a6133a500d",
+          "Id": "d4f5d61a-47be-4383-a528-011210d4907d",
           "Name": "StartPos 8",
-          "Position": "664.8345,1156.507,-503.9921",
+          "Position": "1400.834,1316.507,-503.9921",
           "Enabled": true,
           "Components": [
             {
@@ -182,6 +182,118 @@
               "__type": "RaceStartingPosition",
               "__enabled": true,
               "Placement": 8
+            }
+          ]
+        },
+        {
+          "Id": "81a6e71c-858f-4ea2-b8c2-06cd25dff7b2",
+          "Name": "StartPos 9",
+          "Position": "1368.834,1135.976,-503.9921",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 9
+            }
+          ]
+        },
+        {
+          "Id": "e7c8f1c8-cbdb-48fa-9b0f-6a10958f10cb",
+          "Name": "StartPos 10",
+          "Position": "1176.834,1508.507,-503.9921",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 10
+            }
+          ]
+        },
+        {
+          "Id": "3dfa4d79-5ee8-40ca-8220-ad65b3be3f6b",
+          "Name": "StartPos 11",
+          "Position": "1144.834,1316.507,-503.9921",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 11
+            }
+          ]
+        },
+        {
+          "Id": "84578717-dbe7-4ad6-8b10-7eee0733a22e",
+          "Name": "StartPos 12",
+          "Position": "1112.834,1135.976,-503.9921",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 12
+            }
+          ]
+        },
+        {
+          "Id": "7b46ae72-0f6c-42cb-88c8-1aed15b1985c",
+          "Name": "StartPos 13",
+          "Position": "920.834,1508.507,-503.9921",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 13
+            }
+          ]
+        },
+        {
+          "Id": "fb7c74c0-06b5-42cf-883b-d1c59a1ef724",
+          "Name": "StartPos 14",
+          "Position": "888.834,1316.507,-503.9921",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 14
+            }
+          ]
+        },
+        {
+          "Id": "6e3f65b3-e9a1-4211-8fe4-5f230ca41073",
+          "Name": "StartPos 15",
+          "Position": "856.834,1135.976,-503.9921",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 15
+            }
+          ]
+        },
+        {
+          "Id": "b5daa51f-6d5c-48ef-9990-1f76af20f635",
+          "Name": "StartPos 16",
+          "Position": "664.834,1508.507,-503.9921",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceStartingPosition",
+              "__enabled": true,
+              "Placement": 16
             }
           ]
         }
@@ -218,7 +330,7 @@
                 "e8fc2c91-dd1c-4be3-ae50-fa7146412775"
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0,0"
+              "RespawnRotation": "0,0,0"
             }
           ]
         },
@@ -238,7 +350,7 @@
                 "17c7ac45-5de0-4e8c-9f64-eb562001b7be"
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0,0"
+              "RespawnRotation": "0,0,0"
             },
             {
               "__version": 0,
@@ -268,7 +380,7 @@
                 "85e889b1-06d5-42b7-9261-3e72747dc2b2"
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0,0"
+              "RespawnRotation": "0,0,0"
             },
             {
               "__version": 0,
@@ -299,7 +411,7 @@
                 "8bcfe959-a8bb-4223-807c-2a04b012b5ec"
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0,0"
+              "RespawnRotation": "0,0,0"
             },
             {
               "__version": 0,
@@ -329,7 +441,7 @@
                 "1634b734-d100-40b3-9040-e46b55d80ee5"
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0,0"
+              "RespawnRotation": "0,0,0"
             },
             {
               "__version": 0,
@@ -359,7 +471,7 @@
                 "9f8d21db-9d09-4af4-93d3-521db6898b8b"
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0,0"
+              "RespawnRotation": "0,0,0"
             },
             {
               "__version": 0,
@@ -389,7 +501,7 @@
                 "e7039bd3-3de8-4dd7-ac4e-a96763d7c6c4"
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0,0"
+              "RespawnRotation": "0,0,0"
             },
             {
               "__version": 0,
@@ -419,7 +531,7 @@
                 "bbb00ab9-f092-45ee-8743-b4d858d36ca3"
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0,0"
+              "RespawnRotation": "0,0,0"
             },
             {
               "__version": 0,
@@ -449,7 +561,7 @@
                 "cf0f02d6-1530-478c-ad00-d401762e3ebd"
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0,0"
+              "RespawnRotation": "0,0,0"
             },
             {
               "__version": 0,
@@ -479,7 +591,7 @@
                 "75d1b2d6-07f4-4ff1-bd56-868b945b97df"
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0,0"
+              "RespawnRotation": "0,0,0"
             },
             {
               "__version": 0,
@@ -509,7 +621,7 @@
                 "e6eff863-cd41-4885-9b49-6a735f111c9c"
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0,0"
+              "RespawnRotation": "0,0,0"
             },
             {
               "__version": 0,
@@ -538,7 +650,7 @@
                 "6baa937f-1e4f-43fb-ac93-4e67b7e2decc"
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0,0"
+              "RespawnRotation": "0,0,0"
             },
             {
               "__version": 0,
@@ -568,7 +680,7 @@
                 "a2241379-75e4-4c74-b664-fe3efea6aa61"
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0,0"
+              "RespawnRotation": "0,0,0"
             },
             {
               "__version": 0,
@@ -597,7 +709,7 @@
                 "cf0f02d6-1530-478c-ad00-d401762e3ebd"
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0,0"
+              "RespawnRotation": "0,0,0"
             },
             {
               "__version": 0,
@@ -627,7 +739,7 @@
                 "d54ce3ac-cd9c-4a9a-bfd8-bdbc55141047"
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0,0"
+              "RespawnRotation": "0,0,0"
             },
             {
               "__version": 0,
@@ -657,7 +769,7 @@
                 "86153c29-8cf5-491e-b031-4d0ac40ed619"
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0,0"
+              "RespawnRotation": "0,0,0"
             },
             {
               "__version": 0,
@@ -686,7 +798,7 @@
                 "b8d5b8b7-1da4-4b2c-b487-c7abab2378ab"
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0,0"
+              "RespawnRotation": "0,0,0"
             },
             {
               "__version": 0,
