@@ -40,12 +40,12 @@
               "Type": "call",
               "Properties": {
                 "_type": "Sandbox.Game/Sandbox.IComponentLister",
-                "_name": "Get",
-                "_isStatic": false,
                 "T": {
                   "$type": "Type",
                   "Type": "Sandbox.Game/Sandbox.SkinnedModelRenderer"
-                }
+                },
+                "_isStatic": false,
+                "_name": "Get"
               },
               "UserData": {
                 "Position": "304,48"
@@ -136,12 +136,12 @@
               "Type": "call",
               "Properties": {
                 "_type": "Sandbox.Game/Sandbox.IComponentLister",
-                "_name": "Get",
-                "_isStatic": false,
                 "T": {
                   "$type": "Type",
                   "Type": "Sandbox.Game/Sandbox.SkinnedModelRenderer"
-                }
+                },
+                "_isStatic": false,
+                "_name": "Get"
               },
               "UserData": {
                 "Position": "304,48"

@@ -43,7 +43,7 @@ public class LinearVelocityBounce : LinearVelocity
 
 		if(MaxBounces > 0 && BounceCount > MaxBounces )
 		{
-			Destroy();
+			GameObject.Destroy();
 		}
 	}
 
@@ -52,7 +52,7 @@ public class LinearVelocityBounce : LinearVelocity
 	private Vector3 lastNormal;
 	protected override Vector3 GetNextPosition()
 	{
-		Vector3 velocity = Transform.Local.VelocityToWorld( LocalVelocity) * Time.Delta;
+		Vector3 velocity = Transform.World.VelocityToWorld( LocalVelocity ) * Time.Delta;
 
 		var tr = Scene.Trace.Ray( Transform.Position, Transform.Position + velocity.Normal * BounceDistance )
 			.WithoutTags(IgnoreTags)
@@ -69,7 +69,7 @@ public class LinearVelocityBounce : LinearVelocity
 			OnBounce?.Invoke(BounceCount);
 			BounceCount++;
 
-			return endPos + normal * LocalVelocity.x * Time.Delta;
+			return endPos + normal * velocity.x * Time.Delta;
 		}
 
 		lastEndPos = default;

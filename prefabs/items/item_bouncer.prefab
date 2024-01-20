@@ -17,8 +17,8 @@
         "__type": "LinearVelocityBounce",
         "__enabled": true,
         "BounceDistance": 42,
-        "IgnoreTags": "item",
-        "LocalVelocity": "1500,0,0",
+        "IgnoreTags": "item,vehicle",
+        "LocalVelocity": "1200,0,0",
         "MaxBounces": 6,
         "OnBounce": null
       },
@@ -27,7 +27,7 @@
         "__type": "HoverObject",
         "__enabled": true,
         "Distance": 32,
-        "IgnoreTags": "item",
+        "IgnoreTags": "item,vehicle",
         "TraceDistance": 1024
       },
       {
