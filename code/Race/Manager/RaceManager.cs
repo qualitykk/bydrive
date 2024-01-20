@@ -66,6 +66,11 @@ public sealed partial class RaceManager : Component
 			vehicle.Reset();
 		}
 
+		foreach ( var item in Scene.GetAllComponents<ItemPickup>() )
+		{
+			item.GameObject.Enabled = false;
+		}
+
 		RaceContext?.ResetParticipantObjects();
 		Participants = Scene.GetAllComponents<RaceParticipant>().ToList();
 		InitialiseParticipants( Participants);

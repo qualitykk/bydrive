@@ -12,6 +12,8 @@
           "__version": 0,
           "__type": "DirectionalLight",
           "__enabled": true,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
           "LightColor": "0.95545,0.88469,0.63381,1",
           "Shadows": true,
           "SkyColor": "0.21821,0.42262,0.52475,1"
@@ -313,7 +315,7 @@
         },
         {
           "Id": "93e89b90-faa6-4d68-baeb-2839005c0fb1",
-          "Name": "4a",
+          "Name": "4A1",
           "Position": "725.1742,3512.808,235.713",
           "Rotation": "0.000000001055171,-0.0000000000000006825938,0.01770285,0.9998436",
           "Enabled": true,
@@ -343,7 +345,7 @@
         },
         {
           "Id": "1634b734-d100-40b3-9040-e46b55d80ee5",
-          "Name": "4a_1",
+          "Name": "4A1a",
           "Position": "-580.6603,4001.396,116.5053",
           "Rotation": "-0.00000002085659,-0.000000000000002405976,-0.3499154,0.9367812",
           "Enabled": true,
@@ -372,8 +374,98 @@
           ]
         },
         {
+          "Id": "9f8d21db-9d09-4af4-93d3-521db6898b8b",
+          "Name": "4A2",
+          "Position": "-1326.764,4588.625,235.7129",
+          "Rotation": "0.000000001055171,-0.000000000000002442491,0.01770282,0.9998436",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": true,
+              "NextCheckpoints": [
+                "e7039bd3-3de8-4dd7-ac4e-a96763d7c6c4"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,0"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,800,250",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "e7039bd3-3de8-4dd7-ac4e-a96763d7c6c4",
+          "Name": "4A2a",
+          "Position": "-2265.148,4786.058,340.5053",
+          "Rotation": "0.000000001055171,-0.000000000000002442491,0.01770282,0.9998436",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": false,
+              "NextCheckpoints": [
+                "bbb00ab9-f092-45ee-8743-b4d858d36ca3"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,0"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,800,250",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "bbb00ab9-f092-45ee-8743-b4d858d36ca3",
+          "Name": "4A3",
+          "Position": "-2625.651,4204.789,343.9231",
+          "Rotation": "0.00000004400314,-0.000000002036426,0.707107,0.7071065",
+          "Enabled": true,
+          "Components": [
+            {
+              "__version": 0,
+              "__type": "RaceCheckpoint",
+              "__enabled": true,
+              "IsRequired": false,
+              "NextCheckpoints": [
+                "cf0f02d6-1530-478c-ad00-d401762e3ebd"
+              ],
+              "RespawnPosition": "0,0,32",
+              "RespawnRotation": "0,0,0,0"
+            },
+            {
+              "__version": 0,
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,800,250",
+              "Static": true,
+              "Surface": null
+            }
+          ]
+        },
+        {
           "Id": "8bcfe959-a8bb-4223-807c-2a04b012b5ec",
-          "Name": "4b",
+          "Name": "4B1",
           "Position": "1548.526,4411.831,245.4342",
           "Rotation": "-0.00000004173372,0.0000000000000003746349,-0.7001756,0.7139712",
           "Enabled": true,
@@ -403,7 +495,7 @@
         },
         {
           "Id": "75d1b2d6-07f4-4ff1-bd56-868b945b97df",
-          "Name": "4b_1",
+          "Name": "4B1a",
           "Position": "1126.852,4786.058,244.5053",
           "Rotation": "-0.0000000007629155,-0.000000000000003676142,-0.01279969,0.9999187",
           "Enabled": true,
@@ -432,38 +524,8 @@
           ]
         },
         {
-          "Id": "9f8d21db-9d09-4af4-93d3-521db6898b8b",
-          "Name": "5a",
-          "Position": "-1326.764,4588.625,235.7129",
-          "Rotation": "0.000000001055171,-0.0000000000000006825938,0.01770285,0.9998436",
-          "Enabled": true,
-          "Components": [
-            {
-              "__version": 0,
-              "__type": "RaceCheckpoint",
-              "__enabled": true,
-              "IsRequired": true,
-              "NextCheckpoints": [
-                "bbb00ab9-f092-45ee-8743-b4d858d36ca3"
-              ],
-              "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0,0"
-            },
-            {
-              "__version": 0,
-              "__type": "BoxCollider",
-              "__enabled": true,
-              "Center": "0,0,0",
-              "IsTrigger": true,
-              "Scale": "50,800,250",
-              "Static": false,
-              "Surface": null
-            }
-          ]
-        },
-        {
           "Id": "e6eff863-cd41-4885-9b49-6a735f111c9c",
-          "Name": "5b",
+          "Name": "4B2",
           "Position": "-8.039581,4719.333,497.2103",
           "Enabled": true,
           "Components": [
@@ -492,7 +554,7 @@
         },
         {
           "Id": "6baa937f-1e4f-43fb-ac93-4e67b7e2decc",
-          "Name": "5b_1",
+          "Name": "4B2a",
           "Position": "-505.1476,4082.057,497.2103",
           "Rotation": "0,0,0.4969739,0.8677655",
           "Enabled": true,
@@ -521,38 +583,8 @@
           ]
         },
         {
-          "Id": "bbb00ab9-f092-45ee-8743-b4d858d36ca3",
-          "Name": "6a",
-          "Position": "-2625.651,4204.789,343.9231",
-          "Rotation": "0.00000004400314,-0.000000002036426,0.707107,0.7071065",
-          "Enabled": true,
-          "Components": [
-            {
-              "__version": 0,
-              "__type": "RaceCheckpoint",
-              "__enabled": true,
-              "IsRequired": false,
-              "NextCheckpoints": [
-                "cf0f02d6-1530-478c-ad00-d401762e3ebd"
-              ],
-              "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0,0"
-            },
-            {
-              "__version": 0,
-              "__type": "BoxCollider",
-              "__enabled": true,
-              "Center": "0,0,0",
-              "IsTrigger": true,
-              "Scale": "50,800,250",
-              "Static": true,
-              "Surface": null
-            }
-          ]
-        },
-        {
           "Id": "a2241379-75e4-4c74-b664-fe3efea6aa61",
-          "Name": "6b",
+          "Name": "4B3",
           "Position": "-1453.95,3490.016,404.9772",
           "Enabled": true,
           "Components": [
@@ -581,7 +613,7 @@
         },
         {
           "Id": "cf0f02d6-1530-478c-ad00-d401762e3ebd",
-          "Name": "7",
+          "Name": "5",
           "Position": "-2660.833,3312.075,354.4326",
           "Rotation": "-0.0000000004070593,-0.00000004173178,0.707107,0.7071065",
           "Enabled": true,
@@ -611,7 +643,7 @@
         },
         {
           "Id": "d54ce3ac-cd9c-4a9a-bfd8-bdbc55141047",
-          "Name": "8",
+          "Name": "6",
           "Position": "-2895.942,2144.542,231.541",
           "Rotation": "-0.0000000004070593,-0.00000004173178,0.707107,0.7071065",
           "Enabled": true,
@@ -641,7 +673,7 @@
         },
         {
           "Id": "86153c29-8cf5-491e-b031-4d0ac40ed619",
-          "Name": "9",
+          "Name": "7",
           "Position": "-2363.858,-211.3312,116.6416",
           "Enabled": true,
           "Components": [
@@ -1369,6 +1401,95 @@
           ]
         }
       ]
+    },
+    {
+      "Id": "560266d3-b317-42ab-b1a1-4e5963f0a460",
+      "Name": "pickup_item1",
+      "Position": "838.0971,2561.225,160",
+      "Tags": "pickup,item",
+      "Enabled": true,
+      "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+    },
+    {
+      "Id": "d40633f0-aa40-4863-a877-06d230aad9eb",
+      "Name": "pickup_item1 (1)",
+      "Position": "1024,2561.225,160",
+      "Tags": "pickup,item",
+      "Enabled": true,
+      "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+    },
+    {
+      "Id": "a7e0b737-6357-4e90-9719-7cc6b44c82c2",
+      "Name": "pickup_item1 (2)",
+      "Position": "1216,2561.225,160",
+      "Tags": "pickup,item",
+      "Enabled": true,
+      "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+    },
+    {
+      "Id": "f3a4595b-cb86-4f7f-8e4a-9931d7f41928",
+      "Name": "pickup_boost1",
+      "Position": "-512,3424,14",
+      "Tags": "pickup,item",
+      "Enabled": true,
+      "__Prefab": "prefabs/pickups/pickup_boost1.prefab"
+    },
+    {
+      "Id": "bc4616ce-1c0e-4ae9-9efd-fd7cfcf6d8ff",
+      "Name": "pickup_item1 (3)",
+      "Position": "-931.657,4033.479,416",
+      "Tags": "pickup,item",
+      "Enabled": true,
+      "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+    },
+    {
+      "Id": "0574602d-fba7-4a75-83a4-6392ec9437ee",
+      "Name": "pickup_boost1 (1)",
+      "Position": "-2368,4864.001,224",
+      "Rotation": "0.00000005826142,0.1221833,-0.0000004732636,0.9925076",
+      "Tags": "pickup,item",
+      "Enabled": true,
+      "__Prefab": "prefabs/pickups/pickup_boost1.prefab"
+    },
+    {
+      "Id": "8a9cfd06-d004-4c6e-a962-2514d2924503",
+      "Name": "pickup_item1 (4)",
+      "Position": "-3085.798,2432,160",
+      "Tags": "pickup,item",
+      "Enabled": true,
+      "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+    },
+    {
+      "Id": "e7ed7241-4b8b-4c0f-88e8-abe5b7d2ad44",
+      "Name": "pickup_item1 (5)",
+      "Position": "-3211.36,2432,160",
+      "Tags": "pickup,item",
+      "Enabled": true,
+      "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+    },
+    {
+      "Id": "7230e099-fbd1-4ef0-b4db-74335e646333",
+      "Name": "pickup_item1 (6)",
+      "Position": "-3360,2432,160",
+      "Tags": "pickup,item",
+      "Enabled": true,
+      "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+    },
+    {
+      "Id": "01d3b473-b79f-4caa-8bcf-498fd7eef95d",
+      "Name": "pickup_item1 (7)",
+      "Position": "-3488,2432,160",
+      "Tags": "pickup,item",
+      "Enabled": true,
+      "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+    },
+    {
+      "Id": "7bd98203-cee7-4345-aa62-7b15b5956f67",
+      "Name": "pickup_item1 (8)",
+      "Position": "-3627.36,2432,160",
+      "Tags": "pickup,item",
+      "Enabled": true,
+      "__Prefab": "prefabs/pickups/pickup_item1.prefab"
     }
   ],
   "SceneProperties": {

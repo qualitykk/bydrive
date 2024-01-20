@@ -24,7 +24,7 @@ public partial class TimeTrialPage
 
 		VehicleDefinition playerCar = StartMenu.SelectedVehicle ?? ResourceLibrary.Get<VehicleDefinition>( "data/devcar1.vehicle" );
 
-		StartRace.WithBots( selectedTrack, 0, playerCar, RaceStartingPosition.FIRST_PLACE );
+		StartRace.TimeTrial( selectedTrack, playerCar );
 	}
 
 	private void OnClickBack()

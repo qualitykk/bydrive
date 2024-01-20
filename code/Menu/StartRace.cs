@@ -33,7 +33,7 @@ internal static class StartRace
 			racers.Add( new(GetBotVehicle(), botPlayer, i) );
 		}
 
-		new RaceInformation( race, racers, mode: RaceMode.TimeTrial );
+		new RaceInformation( race, racers );
 	}
 
 	public static void TimeTrial(RaceDefinition race, VehicleDefinition vehicle)
@@ -48,7 +48,7 @@ internal static class StartRace
 			new( vehicle, localPlayer, RaceStartingPosition.FIRST_PLACE )
 		};
 
-		new RaceInformation( race, racers );
+		new RaceInformation( race, racers, mode: RaceMode.TimeTrial );
 	}
 
 	private static VehicleDefinition GetBotVehicle()
