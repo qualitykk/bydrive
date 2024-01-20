@@ -20,7 +20,7 @@ public partial class MainPage
 
 	void OnClickRaceOnline()
 	{
-		this.Navigate( "/multiplayer/browser" );
+		this.Navigate( "/multiplayer/race/browser" );
 	}
 	void OnClickRaceBots()
 	{

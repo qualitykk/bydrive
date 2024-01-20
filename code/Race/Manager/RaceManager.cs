@@ -27,6 +27,29 @@ public sealed partial class RaceManager : Component
 	public TimeSince TimeSinceRaceStart { get; private set; }
 	public bool HasStarted { get; private set; } = false;
 	public bool HasLoaded { get; private set; } = false;
+	public SoundEvent GetRaceMusic()
+	{
+		const string TIME_TRIAL_MUSIC_TRACK = "/sounds/music/race_timetrial.sound";
+		const float TIME_TRIAL_MUSIC_VOLUME = 1.2f;
+		if ( IsTimeTrial )
+		{
+			var sound = ResourceLibrary.Get<SoundEvent>( TIME_TRIAL_MUSIC_TRACK );
+			sound.Volume = TIME_TRIAL_MUSIC_VOLUME;
+			return sound;
+		}
+
+		return RaceMusic;
+	}
+	public float GetRaceWaitTime()
+	{
+		const float TIME_TRIAL_WAIT = 3.5f;
+		if ( IsTimeTrial )
+		{
+			return TIME_TRIAL_WAIT;
+		}
+
+		return RaceStartWait;
+	}
 	protected override void OnAwake()
 	{
 		if(Current != null)
@@ -41,8 +64,8 @@ public sealed partial class RaceManager : Component
 	{
 		const float RACE_START_COUNTDOWN = 3f;
 		HasStarted = false;
-		TimeUntilRaceStart = RACE_START_COUNTDOWN + RaceStartWait;
-		Music.Play( RaceMusic, RaceMusicVolume );
+		TimeUntilRaceStart = RACE_START_COUNTDOWN + GetRaceWaitTime();
+		Music.Play( GetRaceMusic(), RaceMusicVolume );
 	}
 
 	private void StartRace()
@@ -68,7 +91,7 @@ public sealed partial class RaceManager : Component
 
 		foreach ( var item in Scene.GetAllComponents<ItemPickup>() )
 		{
-			item.GameObject.Enabled = false;
+			item.GameObject.Enabled = !IsTimeTrial;
 		}
 
 		RaceContext?.ResetParticipantObjects();

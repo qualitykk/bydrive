@@ -9,17 +9,40 @@
 <root>
 	<div class="title">Results</div>
 	<div class="list">
-		@if(GetPlacements() != null)
+		@if(Race.IsTimeTrial)
 		{
 			@foreach (var result in GetPlacements())
 			{
-				<div class="racer">
+				<div class="times entry">
+					<div class="racer">
+						<label class="name">@result.Participant.DisplayName</label>
+						<label class="time">@result.Time.FormatAsRaceTime()</label>
+					</div>
+					<div class="laps">
+						@for (int i = 0; i < result.LapTimes.Count; i++)
+						{
+							<div class="row">
+								<label class="number">Lap @(i+1)</label>
+								<label class="time">@result.LapTimes[i].FormatAsRaceTime()</label>
+							</div>
+						}
+					</div>
+				</div>
+			}
+			
+		}
+		else if (GetPlacements() != null)
+		{
+			@foreach (var result in GetPlacements())
+			{
+				<div class="entry racer">
 					<label class="placement @GetPlacementTag(result.Placement)">@result.Placement</label>
 					<label class="name">@result.Participant.DisplayName</label>
 					<label class="time">@result.Time.FormatAsRaceTime()</label>
 				</div>
 			}
 		}
+		
 	</div>
 	<div class="button" @onclick=@OnClickNext>Back to Menu</div>
 </root>

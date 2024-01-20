@@ -1406,7 +1406,7 @@
       "Id": "560266d3-b317-42ab-b1a1-4e5963f0a460",
       "Name": "pickup_item1",
       "Position": "838.0971,2561.225,160",
-      "Tags": "pickup,item",
+      "Tags": "item,pickup",
       "Enabled": true,
       "__Prefab": "prefabs/pickups/pickup_item1.prefab"
     },
@@ -1414,7 +1414,7 @@
       "Id": "d40633f0-aa40-4863-a877-06d230aad9eb",
       "Name": "pickup_item1 (1)",
       "Position": "1024,2561.225,160",
-      "Tags": "pickup,item",
+      "Tags": "item,pickup",
       "Enabled": true,
       "__Prefab": "prefabs/pickups/pickup_item1.prefab"
     },
@@ -1422,7 +1422,7 @@
       "Id": "a7e0b737-6357-4e90-9719-7cc6b44c82c2",
       "Name": "pickup_item1 (2)",
       "Position": "1216,2561.225,160",
-      "Tags": "pickup,item",
+      "Tags": "item,pickup",
       "Enabled": true,
       "__Prefab": "prefabs/pickups/pickup_item1.prefab"
     },
@@ -1438,7 +1438,7 @@
       "Id": "bc4616ce-1c0e-4ae9-9efd-fd7cfcf6d8ff",
       "Name": "pickup_item1 (3)",
       "Position": "-931.657,4033.479,416",
-      "Tags": "pickup,item",
+      "Tags": "item,pickup",
       "Enabled": true,
       "__Prefab": "prefabs/pickups/pickup_item1.prefab"
     },
@@ -1455,7 +1455,7 @@
       "Id": "8a9cfd06-d004-4c6e-a962-2514d2924503",
       "Name": "pickup_item1 (4)",
       "Position": "-3085.798,2432,160",
-      "Tags": "pickup,item",
+      "Tags": "item,pickup",
       "Enabled": true,
       "__Prefab": "prefabs/pickups/pickup_item1.prefab"
     },
@@ -1463,7 +1463,7 @@
       "Id": "e7ed7241-4b8b-4c0f-88e8-abe5b7d2ad44",
       "Name": "pickup_item1 (5)",
       "Position": "-3211.36,2432,160",
-      "Tags": "pickup,item",
+      "Tags": "item,pickup",
       "Enabled": true,
       "__Prefab": "prefabs/pickups/pickup_item1.prefab"
     },
@@ -1471,7 +1471,7 @@
       "Id": "7230e099-fbd1-4ef0-b4db-74335e646333",
       "Name": "pickup_item1 (6)",
       "Position": "-3360,2432,160",
-      "Tags": "pickup,item",
+      "Tags": "item,pickup",
       "Enabled": true,
       "__Prefab": "prefabs/pickups/pickup_item1.prefab"
     },
@@ -1479,7 +1479,7 @@
       "Id": "01d3b473-b79f-4caa-8bcf-498fd7eef95d",
       "Name": "pickup_item1 (7)",
       "Position": "-3488,2432,160",
-      "Tags": "pickup,item",
+      "Tags": "item,pickup",
       "Enabled": true,
       "__Prefab": "prefabs/pickups/pickup_item1.prefab"
     },
@@ -1487,7 +1487,7 @@
       "Id": "7bd98203-cee7-4345-aa62-7b15b5956f67",
       "Name": "pickup_item1 (8)",
       "Position": "-3627.36,2432,160",
-      "Tags": "pickup,item",
+      "Tags": "item,pickup",
       "Enabled": true,
       "__Prefab": "prefabs/pickups/pickup_item1.prefab"
     }

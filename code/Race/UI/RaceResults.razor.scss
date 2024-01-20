@@ -28,15 +28,19 @@ RaceResults {
 		background-color: #46464677;
 		align-items: center;
 		padding: 30px;
+		gap: 25px;
+
+		.entry {
+			width: 90%;
+			background-color: #9fab9f55;
+			padding: 20px;
+		}
 
 		.racer {
-			background-color: #9fab9f55;
-			width: 90%;
-			height: 8%;
+			height: 10vh;
 			font-family: Calibri;
 			align-items: center;
 			justify-content: center;
-			margin-bottom: 20px;
 
 			.placement {
 				width: 10%;
@@ -71,6 +75,34 @@ RaceResults {
 			.time {
 				width: 30%;
 				color: #ffffff;
+				font-size: 32px;
+			}
+		}
+
+		.times {
+			flex-direction: column;
+			height: 25%;
+		}
+
+		.laps {
+			flex-direction: column;
+			gap: 5px;
+			color: #ffffff;
+
+			.row {
+				margin-left: 15%;
+				margin-right: 5%;
+				height: 6vh;
+			}
+
+			.number {
+				width: 50%;
+				font-size: 32px;
+			}
+
+			.time {
+				width: 50%;
+				text-align: center;
 				font-size: 32px;
 			}
 		}

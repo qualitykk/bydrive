@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "26326434-a149-4d25-ac90-3f8b88b06c7e",
+    "Id": "8a9cfd06-d004-4c6e-a962-2514d2924503",
     "Name": "pickup_item1",
     "Tags": "pickup,item",
     "Enabled": true,
@@ -12,12 +12,12 @@
         "Items": "data/pool_default.itempool",
         "OnAvailableAction": {
           "Kind": "Action",
+          "Version": 3,
           "Variables": [
             {
-              "Id": 1,
               "Name": "_this",
               "Type": "Sandbox.Game/Sandbox.Component",
-              "Default": "26326434-a149-4d25-ac90-3f8b88b06c7e"
+              "Default": "8a9cfd06-d004-4c6e-a962-2514d2924503"
             }
           ],
           "Nodes": [
@@ -47,13 +47,6 @@
                   "Type": "Sandbox.Game/Sandbox.SkinnedModelRenderer"
                 }
               },
-              "Inputs": {
-                "search": {
-                  "$type": "Simple",
-                  "Type": "Sandbox.Game/Sandbox.FindMode",
-                  "Value": "EnabledInSelfAndDescendants"
-                }
-              },
               "UserData": {
                 "Position": "304,48"
               }
@@ -65,37 +58,48 @@
                 "_type": "Sandbox.Game/Sandbox.ModelRenderer",
                 "_name": "Tint"
               },
-              "Inputs": {
-                "value": {
-                  "$type": "Simple",
-                  "Type": "Sandbox.System/Color",
-                  "Value": "1,1,1,1"
-                }
-              },
               "UserData": {
                 "Position": "560,16"
               }
             }
           ],
           "Links": [
-            [
-              0,
-              "_signal",
-              8,
-              "_signal"
-            ],
-            [
-              2,
-              "_result",
-              7,
-              "_target"
-            ],
-            [
-              7,
-              "_result",
-              8,
-              "target"
-            ]
+            {
+              "SrcId": 2,
+              "SrcName": "_result",
+              "DstId": 7,
+              "DstName": "_target"
+            },
+            {
+              "Value": {
+                "$type": "Simple",
+                "Type": "Sandbox.Game/Sandbox.FindMode",
+                "Value": "EnabledInSelfAndDescendants"
+              },
+              "DstId": 7,
+              "DstName": "search"
+            },
+            {
+              "SrcId": 0,
+              "SrcName": "_signal",
+              "DstId": 8,
+              "DstName": "_signal"
+            },
+            {
+              "SrcId": 7,
+              "SrcName": "_result",
+              "DstId": 8,
+              "DstName": "target"
+            },
+            {
+              "Value": {
+                "$type": "Simple",
+                "Type": "Sandbox.System/Color",
+                "Value": "1,1,1,1"
+              },
+              "DstId": 8,
+              "DstName": "value"
+            }
           ],
           "UserData": {
             "Title": "On Available",
@@ -104,12 +108,12 @@
         },
         "OnUnavailableAction": {
           "Kind": "Action",
+          "Version": 3,
           "Variables": [
             {
-              "Id": 1,
               "Name": "_this",
               "Type": "Sandbox.Game/Sandbox.Component",
-              "Default": "26326434-a149-4d25-ac90-3f8b88b06c7e"
+              "Default": "8a9cfd06-d004-4c6e-a962-2514d2924503"
             }
           ],
           "Nodes": [
@@ -139,13 +143,6 @@
                   "Type": "Sandbox.Game/Sandbox.SkinnedModelRenderer"
                 }
               },
-              "Inputs": {
-                "search": {
-                  "$type": "Simple",
-                  "Type": "Sandbox.Game/Sandbox.FindMode",
-                  "Value": "EnabledInSelfAndDescendants"
-                }
-              },
               "UserData": {
                 "Position": "304,48"
               }
@@ -157,43 +154,55 @@
                 "_type": "Sandbox.Game/Sandbox.ModelRenderer",
                 "_name": "Tint"
               },
-              "Inputs": {
-                "value": {
-                  "$type": "Simple",
-                  "Type": "Sandbox.System/Color",
-                  "Value": "1,0.44314,0.44314,0.33333"
-                }
-              },
               "UserData": {
                 "Position": "560,0"
               }
             }
           ],
           "Links": [
-            [
-              0,
-              "_signal",
-              4,
-              "_signal"
-            ],
-            [
-              2,
-              "_result",
-              3,
-              "_target"
-            ],
-            [
-              3,
-              "_result",
-              4,
-              "target"
-            ]
+            {
+              "SrcId": 2,
+              "SrcName": "_result",
+              "DstId": 3,
+              "DstName": "_target"
+            },
+            {
+              "Value": {
+                "$type": "Simple",
+                "Type": "Sandbox.Game/Sandbox.FindMode",
+                "Value": "EnabledInSelfAndDescendants"
+              },
+              "DstId": 3,
+              "DstName": "search"
+            },
+            {
+              "SrcId": 0,
+              "SrcName": "_signal",
+              "DstId": 4,
+              "DstName": "_signal"
+            },
+            {
+              "SrcId": 3,
+              "SrcName": "_result",
+              "DstId": 4,
+              "DstName": "target"
+            },
+            {
+              "Value": {
+                "$type": "Simple",
+                "Type": "Sandbox.System/Color",
+                "Value": "1,0.44314,0.44314,0.33333"
+              },
+              "DstId": 4,
+              "DstName": "value"
+            }
           ],
           "UserData": {
             "Title": "On Unavailable",
             "id": "2af4168c-6fd5-4c8c-84da-3ba328b2f8af"
           }
         },
+        "PickupSound": "sounds/effects/race_item_pickup.sound",
         "RespawnTime": 10
       },
       {
@@ -220,7 +229,7 @@
     ],
     "Children": [
       {
-        "Id": "99de1c25-e195-4af4-b170-775c50a849e9",
+        "Id": "37aefa81-29c7-4709-8915-9a0ebb937a50",
         "Name": "Model",
         "Position": "0,0,-16",
         "Rotation": "0.1045285,0,0,0.9945219",

@@ -2,7 +2,7 @@
 
 @page "/multiplayer/race/browser";
 <!--For some reason this stylesheet wont work unless we manually specify it-->
-@attribute [StyleSheet("/Menu/RaceBrowsePage.razor.scss")]
+@attribute [StyleSheet("/Menu/RaceBrowserPage.razor.scss")]
 @namespace Bydrive
 
 <root class="flex-col w-100 h-100">
@@ -31,6 +31,6 @@
     <div class="footer">
         <div class="button" @onclick=@OnClickBack>Back</div>
         <div class="button" @onclick=@OnClickRefresh>Refresh</div>
-        <div class="button" @onclick=@OnClickCreate>Create</div>
+        <div class="button @UI.ActiveIf(false)" @onclick=@OnClickCreate>Create</div>
     </div>
 </root>

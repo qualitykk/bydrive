@@ -42,6 +42,7 @@ public partial class RaceManager
 	{
 		participant.OnFinished();
 
+		float raceTIme = TimeSinceRaceStart;
 		List<float> lapTimes = new();
 		float lastTime = 0;
 		foreach(float time in participantLapTimes[participant] )
@@ -49,7 +50,9 @@ public partial class RaceManager
 			lapTimes.Add( time - lastTime );
 			lastTime = time;
 		}
-		ParticipantFinishInformation info = new( finishedParticipants.Count + 1, participant, TimeSinceRaceStart, lapTimes );
+		lapTimes.Add( raceTIme - lastTime );
+
+		ParticipantFinishInformation info = new( finishedParticipants.Count + 1, participant, raceTIme, lapTimes );
 		finishedParticipants.Add( info );
 		Music.Play( WinMusic ); participant.OnFinished();
 	}
@@ -63,7 +66,7 @@ public partial class RaceManager
 		int lap = GetParticipantLap( participant );
 		if ( lap > 1 && GetParticipantLap(participant) != lastLap)
 		{
-			participantLastLap[participant] = GetParticipantLap( participant );
+			participantLastLap[participant] = lap;
 			if(participantLapTimes.TryGetValue(participant, out List<float> lapTimes) )
 			{
 				lapTimes.Add( TimeSinceRaceStart );

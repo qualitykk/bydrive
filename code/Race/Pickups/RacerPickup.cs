@@ -10,6 +10,7 @@ public abstract class RacerPickup : Component, Component.ITriggerListener
 {
 	public const float DEFAULT_RESPAWN_TIME = 10f;
 	[Property] public float RespawnTime { get; set; } = DEFAULT_RESPAWN_TIME;
+	[Property] public SoundEvent PickupSound { get; set; }
 	[Property, Title("On Available")] public Action OnAvailableAction { get; set; }
 	[Property, Title( "On Unavailable" )] public Action OnUnavailableAction { get; set; }
 	public bool Available { get; set; } = true;
@@ -44,6 +45,7 @@ public abstract class RacerPickup : Component, Component.ITriggerListener
 		if ( vehicle == null || !OnPickup( vehicle ) )
 			return;
 
+		Sound.Play( PickupSound, Transform.Position );
 		Available = false;
 		OnBecomeUnavailable();
 		TimeSincePickup = 0;
