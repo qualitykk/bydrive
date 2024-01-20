@@ -16,4 +16,6 @@ Tracklist:
 
 - Main Menu Theme = [Lego Drome Racers - Main Menu](https://www.youtube.com/watch?v=YHCUS5ALVlo)
 - Devtrack1 = [Super Mario Galaxy - Purple Coins](https://www.youtube.com/watch?v=5_7aWgFN0s8)
+- Ngon Raceway (Unimplemented) = [Lego Drome Racers - Blue Valley](https://www.youtube.com/watch?v=s8L1utCTkEc)
+- Time Trial = [Yakuza 4 - Speed Star](https://www.youtube.com/watch?v=pcO0-WctUVw)
 - Race Win = [Persona 3 - Victory](https://www.youtube.com/watch?v=-CpMIQdWe0I)

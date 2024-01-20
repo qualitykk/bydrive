@@ -32,20 +32,6 @@
               "BackgroundMusicVolume": 1.6
             }
           ]
-        },
-        {
-          "Id": "e3250a13-1443-494b-8040-d4a3b812671d",
-          "Name": "IntroPlayer",
-          "Position": "0,0,0",
-          "Enabled": true,
-          "Components": [
-            {
-              "__version": 0,
-              "__type": "IntroPlayer",
-              "__enabled": false,
-              "VideoFile": null
-            }
-          ]
         }
       ]
     },
