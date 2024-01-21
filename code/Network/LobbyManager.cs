@@ -1,4 +1,5 @@
 ﻿
+using Sandbox.Network;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,17 +8,17 @@ namespace Bydrive;
 public class LobbyManager : Component, Component.INetworkListener
 {
 	public static bool LobbyActive => Instance != null && Instance.Enabled;
+	public static bool IsHost => Instance == null || Instance.LocalPlayer?.IsHost == true;
+	public static int PlayerCount => Instance?.Players.Count() ?? 0;
+	public static int MaxPlayerCount => Instance?.MaxPlayers ?? 1;
 	public static LobbyManager Instance { get; private set; }
-	public IReadOnlyList<Player> Players => connectedPlayers;
-	public Player LocalPlayer => connectedPlayers.Where(p => p.IsLocal).FirstOrDefault();
-	private List<Player> connectedPlayers = new();
+	[Property] public int MaxPlayers { get; set; } = RaceInformation.MAX_PLAYERCOUNT;
+	public IEnumerable<Player> Players => Scene.GetAllComponents<Player>();
+	public Player LocalPlayer => Players.Where(p => p.IsLocal).FirstOrDefault();
 	protected override void OnEnabled()
 	{
 		if(Instance != null && Instance != this)
 		{
-			foreach ( var user in Instance.Players )
-				connectedPlayers.Add( user );
-
 			Instance.Destroy();
 		}
 		Instance = this;
@@ -31,16 +32,19 @@ public class LobbyManager : Component, Component.INetworkListener
 
 	void INetworkListener.OnActive(Connection connection)
 	{
-		Player ply = new( connection );
-		connectedPlayers.Add( ply );
+		if(Players.Count() >= MaxPlayers)
+		{
+			// TODO: DISCONNECT
+			return;
+		}
+
+		Player ply = Player.Create(connection);
+		ply.GameObject.SetParent(GameObject, false);
 	}
 
 	void INetworkListener.OnDisconnected(Connection connection)
 	{
-		Player ply = connectedPlayers.FirstOrDefault(p => p.Connection == connection);
-		if(ply != null)
-		{
-			connectedPlayers.Remove(ply);
-		}
+		Player ply = Players.FirstOrDefault(p => p.Connection == connection);
+		ply?.Destroy();
 	}
 }

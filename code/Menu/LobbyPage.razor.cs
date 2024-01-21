@@ -8,13 +8,16 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public partial class LobbyPage
+public partial class LobbyPage : Panel
 {
 	int playerCount = RaceInformation.MAX_PLAYERCOUNT;
 	RaceDefinition selectedTrack;
-	IEnumerable<Player> players;
+	IEnumerable<Player> players => LobbyManager.Instance?.Players;
 	public override void Tick()
 	{
+		if ( StartMenu.Current.NavPanel.CurrentPanel != this )
+			return;
+
 		if(!GameNetworkSystem.IsActive && !GameNetworkSystem.IsConnecting)
 		{
 			this.Navigate( "/front" );
@@ -26,7 +29,7 @@ public partial class LobbyPage
 	}
 	private void Refresh()
 	{
-		players = LobbyManager.Instance?.Players;
+
 	}
 	private void OnClickStart()
 	{
@@ -41,8 +44,12 @@ public partial class LobbyPage
 		GameNetworkSystem.Disconnect();
 		StartMenu.Current.NavPanel?.GoBack();
 	}
+	private void OnTrackSelected( RaceDefinition def )
+	{
+		selectedTrack = def;
+	}
 	protected override int BuildHash()
 	{
-		return HashCode.Combine( players );
+		return HashCode.Combine( LobbyManager.Instance );
 	}
 }

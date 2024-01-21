@@ -18,4 +18,9 @@ public class VehicleDefinition : GameResource, IPrefabProvider
 	[Category("Preview")] public Angles PreviewAngles { get; set; }
 	public VehicleStats Stats { get;set; }
 	public PrefabFile Prefab { get; set; }
+
+	public override string ToString()
+	{
+		return Title;
+	}
 }

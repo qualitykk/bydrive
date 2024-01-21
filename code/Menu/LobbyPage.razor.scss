@@ -3,16 +3,21 @@
     justify-content: center;
     font-family: Roboto;
 
-    .main {
+    .content {
         background-color: #565656aa;
         width: 80%;
-        height: 80%;
+        height: 70%;
         margin: 20px;
+
+        tab {
+            width: 100%;
+            height: 100%;
+        }
 
         .side {
             //justify-content: center;
             align-items: center;
-            width: 40%;
+            width: 50%;
         }
 
         .setup {
@@ -39,6 +44,8 @@
         .list {
             width: 50%;
             color: #ffffff;
+            margin: 2%;
+            padding: 1%;
 
             .item {
                 width: 100%;
@@ -60,9 +67,28 @@
                 }
             }
         }
-    }
 
-    .footer {
-        height: 20%;
+        .tracklist {
+            height: 90%;
+            background-color: #33774355;
+            justify-content: center;
+
+            .track {
+                width: 90%;
+                height: 8vh;
+                justify-content: center;
+                align-items: center;
+                margin: 1%;
+                background-color: #22aa56;
+                color: #ffffff;
+                font-size: 64px;
+                pointer-events: all;
+
+                &.selected {
+                    background-color: #22cc76;
+                    border: 3px solid white;
+                }
+            }
+        }
     }
 }

@@ -15,12 +15,16 @@
 				<label class="name">Track</label>
 				<label class="control">@selectedTrack?.Name</label>
 			</div>
+			<div>
+				<label class="name">Vehicle</label>
+				<label class="control">@StartMenu.SelectedVehicle</label>
+			</div>
 		</div>
 		<div class="button @UI.ActiveIf(selectedTrack != null)" @onclick=@OnClickStart>Start</div>
 		<div class="button" @onclick=@(() => this.Navigate("/vehicle"))>Select Vehicle</div>
 		<div class="button" @onclick=@OnClickBack>Back</div>
 	</div>
 	<div class="main flex-col">
-		<TrackList TrackSelected=@OnTrackSelected />
+		<TrackList class="tracklist" TrackSelected=@OnTrackSelected />
 	</div>
 </root>

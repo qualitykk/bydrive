@@ -21,11 +21,15 @@ StartMenu {
 		}
 	}
 
+	TabPanel &.hidden {
+		display: none;
+	}
+
 	&.bg-image {
 		background-image: url(ui/menubackground.png);
 	}
 
 	&.bg-fade {
-		background-image: linear-gradient(#c1441b,#641313);
+		background-image: linear-gradient(#fffafa,#aca2a2);
 	}
 }

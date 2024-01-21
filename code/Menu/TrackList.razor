@@ -2,10 +2,10 @@
 @namespace Bydrive
 @inherits Panel;
 
-<root class="tracklist">
+<root>
     @foreach(var track in tracks)
     {
-        <div class="track @(GetClasses(track))" style="pointer-events:all;" @onclick=@(() => OnClickTrack(track))>
+        <div class="track item @(GetClasses(track))" style="pointer-events:all;" @onclick=@(() => OnClickTrack(track))>
             <label class="name">@track.Name</label>
         </div>
     }

@@ -10,14 +10,9 @@ internal static class StartRace
 {
 	public static void WithBots(RaceDefinition race, int amount, VehicleDefinition playerVehicle, int playerStartPos)
 	{
-		Player localPlayer = new( null )
-		{
-			DisplayName = GetLocalName()
-		};
-
 		List<RaceInformation.Participant> racers = new() 
 		{ 
-			new( playerVehicle, localPlayer, playerStartPos ) 
+			new( playerVehicle, Player.Local, playerStartPos ) 
 		};
 		int racerAmount = amount + 1;
 
@@ -38,14 +33,9 @@ internal static class StartRace
 
 	public static void TimeTrial(RaceDefinition race, VehicleDefinition vehicle)
 	{
-		Player localPlayer = new( null )
-		{
-			DisplayName = GetLocalName()
-		};
-
 		List<RaceInformation.Participant> racers = new()
 		{
-			new( vehicle, localPlayer, RaceStartingPosition.FIRST_PLACE )
+			new( vehicle, Player.Local, RaceStartingPosition.FIRST_PLACE )
 		};
 
 		new RaceInformation( race, racers, mode: RaceMode.TimeTrial );

@@ -14,10 +14,15 @@ public partial class RaceBrowserPage
 
 	protected override async Task OnParametersSetAsync()
 	{
-		lobbies = await Networking.QueryLobbies();
+		_ = FetchLobbies();
 
 		await base.OnParametersSetAsync();
 	}
+	private async Task FetchLobbies()
+	{
+		lobbies = await Networking.QueryLobbies();
+	}
+
 	private void OnClickLobby( LobbyInformation lobby )
 	{
 		GameNetworkSystem.Connect( lobby.LobbyId );
