@@ -53,10 +53,15 @@ public class Player : Component
 	[Property, Sync] public bool IsBot { get; set; }
 	public bool IsHost => IsLocal || Connection?.IsHost == true;
 	public bool IsLocal => Connection == null || Game.SteamId == (long)Connection.SteamId;
+	public VehicleDefinition SelectedVehicle { get; set; }
+	public RaceDefinition SelectedTrack { get; set; }
+	protected override void OnAwake()
+	{
+		GameObject.Flags |= GameObjectFlags.DontDestroyOnLoad;
+	}
 	public string GetAvatar()
 	{
 		return $"avatar:{SteamId}";
 	}
-
 	public override string ToString() => Name;
 }

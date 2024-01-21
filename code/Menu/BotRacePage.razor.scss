@@ -5,6 +5,7 @@
     height: 100%;
 
     .side {
+        background-color: #33333377;
         justify-content: center;
         align-items: center;
         width: 40%;
@@ -15,7 +16,7 @@
     }
 
     .setup {
-        width: 60%;
+        width: 80%;
         height: 50%;
         color: #ffffff;
         font-family: Roboto;
@@ -28,7 +29,7 @@
         }
 
         .control {
-            font-size: 24px;
+            font-size: 28px;
             height: 5vh;
             width: 60%;
             text-align: center;

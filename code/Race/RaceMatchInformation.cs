@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public class RaceInformation
+public class RaceMatchInformation
 {
 	public struct Participant
 	{
@@ -28,23 +28,48 @@ public class RaceInformation
 		}
 	}
 	public const int MAX_PLAYERCOUNT = 16;
-	public static RaceInformation Current { get; set; }
-	public Scene Scene => GameManager.ActiveScene;
+	public static RaceMatchInformation Current { get; set; }
 	public RaceDefinition Definition { get; set; }
 	public List<Participant> Participants { get; set; }
 	public Action OnParticipantsLoaded { get; set; }
+	public bool FinishedLoading 
+	{ 
+		get
+		{
+			var globals = RaceGlobals.Current;
+			if ( globals == null || globals.Level == null )
+				return false;
+
+			return globals.Level.IsLoaded && objectsCreated;
+		} 
+	}
+	private bool objectsCreated = false;
 	public RaceMode Mode { get; set; }
+	private bool multiplayer;
 
 	private Dictionary<Participant,GameObject> participantObjects = new();
-	public RaceInformation(RaceDefinition definition, List<Participant> participants, bool createParticipants = true, RaceMode mode = RaceMode.None)
+	public RaceMatchInformation(RaceDefinition definition, List<Participant> participants, bool createParticipants = true, RaceMode mode = RaceMode.None)
 	{
+		var globals = RaceGlobals.Current;
+
+		Assert.NotNull( definition );
+		Assert.NotNull( participants );
+		Assert.NotNull( globals );
+		Assert.NotNull( globals.Level );
+
 		if ( Current != null )
 		{
 			Current.Stop();
 		}
 
 		Current = this;
-		GameManager.ActiveScene.LoadFromFile(definition.Scene.ResourcePath);
+		multiplayer = LobbyManager.MultiplayerActive;
+
+		globals.Level.MapName = definition.MapName;
+
+		GameObject trackPrefabObject = new();
+		trackPrefabObject.ApplyPrefab( definition.Prefab );
+		trackPrefabObject.Parent = globals.Track;
 
 		Definition = definition;
 		Participants = participants;
@@ -55,7 +80,15 @@ public class RaceInformation
 			CreateParticipantObjects();
 		}
 
+		StartMenu.Close();
 		InitialiseMode();
+		if(multiplayer)
+		{
+			foreach(var obj in GameManager.ActiveScene.GetAllObjects(false))
+			{
+				obj.BreakFromPrefab();
+			}
+		}
 	}
 
 	public void CreateParticipantObjects()
@@ -66,13 +99,23 @@ public class RaceInformation
 
 			Initialise( participantInfo, participantObject );
 		}
+		objectsCreated = true;
 	}
 
 	private GameObject BuildParticipantObject(Participant participant)
 	{
 		string name = participant.Player.Name;
 		GameObject obj = ResourceHelper.CreateObjectFromResource( participant.Vehicle );
+		Log.Info( participant.Player );
 		obj.Name = name;
+		if(multiplayer)
+		{
+			obj.Networked = true;
+			if(!participant.Player.IsBot)
+			{
+				obj.Network.AssignOwnership( participant.Player.Connection );
+			}
+		}
 
 		VehicleController vehicle = obj.Components.GetInDescendantsOrSelf<VehicleController>();
 		if(vehicle == null)
@@ -105,6 +148,8 @@ public class RaceInformation
 		input.ParticipantInstance = participantComponent;
 		input.VehicleController = vehicle;
 
+		obj.NetworkSpawn();
+
 		return obj;
 	}
 	private void CreateBotObjects(GameObject parent, VehicleController controller)
@@ -119,19 +164,13 @@ public class RaceInformation
 	private void CreatePlayerObjects(GameObject parent, VehicleController controller, Participant participant)
 	{
 		const string PLAYER_PREFAB = "prefabs/race_player.prefab";
-		const string LOCAL_PREFAB = "prefabs/race_local.prefab";
+		if ( !participant.Player.IsLocal )
+			return;
 
 		GameObject obj = new();
 		obj.ApplyPrefab( PLAYER_PREFAB );
 		obj.Parent = parent;
 		obj.Name = participant.Player.Name;
-
-		if(participant.Player.IsLocal)
-		{
-			GameObject localObj = new();
-			localObj.ApplyPrefab( LOCAL_PREFAB );
-			localObj.Name = "Local Player";
-		}
 	}
 
 	/// <summary>
@@ -150,7 +189,7 @@ public class RaceInformation
 		Assert.NotNull( obj, "Cant initialise a null object!" );
 		Assert.NotNull( participant, "Cant initialise with no participant!!" );
 
-		var startingPositions = Scene.GetAllComponents<RaceStartingPosition>();
+		var startingPositions = GameManager.ActiveScene.GetAllComponents<RaceStartingPosition>();
 		if ( !startingPositions.Any() )
 		{
 			Log.Error( "No starting positions placed in scene, cant place participant objects!" );
@@ -168,7 +207,7 @@ public class RaceInformation
 
 	private void InitialiseMode()
 	{
-		RaceManager manager = Scene.GetAllComponents<RaceManager>().FirstOrDefault();
+		RaceManager manager = GameManager.ActiveScene.GetAllComponents<RaceManager>().FirstOrDefault();
 		if ( manager == null )
 			return;
 
@@ -186,6 +225,7 @@ public class RaceInformation
 		}
 
 		participantObjects.Clear();
+		objectsCreated = false;
 	}
 
 	/// <summary>

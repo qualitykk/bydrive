@@ -19,7 +19,7 @@ public class RaceCheckpoint : Component, Component.ITriggerListener
 	[Property] public bool IsRequired { get; set; } = true;
 	public IReadOnlyList<RaceCheckpoint> PreviousCheckpoints => previousCheckpointsReferences;
 	private List<RaceCheckpoint> previousCheckpointsReferences = new();
-	private static void RebuildCheckpointReferences()
+	internal static void RebuildCheckpointReferences()
 	{
 		IEnumerable<RaceCheckpoint> checkpoints = GameManager.ActiveScene.GetAllComponents<RaceCheckpoint>();
 		foreach(var checkpoint in checkpoints )
@@ -29,20 +29,33 @@ public class RaceCheckpoint : Component, Component.ITriggerListener
 
 		foreach(var checkpoint in checkpoints )
 		{
-			foreach(var next in checkpoint.NextCheckpoints)
+			if ( checkpoint.NextCheckpoints != null && checkpoint.NextCheckpoints.Any() )
 			{
-				next.previousCheckpointsReferences.Add( checkpoint );
+				foreach ( var next in checkpoint.NextCheckpoints )
+				{
+					next.previousCheckpointsReferences.Add( checkpoint );
+				}
 			}
+		}
+	}
+	protected override void OnFixedUpdate()
+	{
+		if(!previousCheckpointsReferences.Any() && RaceContext.FinishedLoading )
+		{
+			RebuildCheckpointReferences();
 		}
 	}
 	protected override void OnEnabled()
 	{
-		RebuildCheckpointReferences();
+		if(RaceContext.FinishedLoading)
+			RebuildCheckpointReferences();
 	}
 	protected override void OnDisabled()
 	{
-		RebuildCheckpointReferences();
+		if ( RaceContext.FinishedLoading )
+			RebuildCheckpointReferences();
 	}
+
 	void ITriggerListener.OnTriggerEnter( Collider other )
 	{
 		var participant = other.Components.GetInAncestorsOrSelf<RaceParticipant>();

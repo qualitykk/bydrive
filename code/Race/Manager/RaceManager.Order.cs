@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sandbox.Diagnostics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ public partial class RaceManager
 		checkpointOrder.Add( StartCheckpoint, 0 );
 
 		List<RaceCheckpoint> nextCheckpoints = StartCheckpoint.NextCheckpoints;
+		Assert.NotNull(nextCheckpoints, $"Cant have race without checkpoints!");
 		int currentOrder = 1;
 		bool foundStart = false;
 		while ( nextCheckpoints.Any() )

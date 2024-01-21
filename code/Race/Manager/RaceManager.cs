@@ -125,7 +125,7 @@ public sealed partial class RaceManager : Component
 	}
 	protected override void OnFixedUpdate()
 	{
-		if(!HasLoaded && !Scene.IsLoading)
+		if(!HasLoaded && RaceContext.FinishedLoading)
 		{
 			HasLoaded = true;
 

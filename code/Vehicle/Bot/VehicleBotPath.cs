@@ -17,7 +17,7 @@ public class VehicleBotPath : Component, Component.ITriggerListener
 	{
 		Gizmo.Draw.Color = Color.Orange;
 
-		if ( NextPaths == null ) return;
+		if ( NextPaths == null || !NextPaths.Any() ) return;
 
 		foreach ( var path in NextPaths )
 		{

@@ -8,9 +8,23 @@ namespace Bydrive;
 
 internal static class StartRace
 {
-	public static void WithBots(RaceDefinition race, int amount, VehicleDefinition playerVehicle, int playerStartPos)
+
+	public static void TimeTrial(RaceDefinition race, VehicleDefinition vehicle)
 	{
-		List<RaceInformation.Participant> racers = new() 
+		List<RaceMatchInformation.Participant> racers = new()
+		{
+			new( vehicle, Player.Local, RaceStartingPosition.FIRST_PLACE )
+		};
+
+		new RaceMatchInformation( race, racers, mode: RaceMode.TimeTrial );
+	}
+	public static void Online(RaceDefinition race, List<RaceMatchInformation.Participant> racers)
+	{
+		new RaceMatchInformation( race, racers );
+	}
+	public static void LocalWithBots(RaceDefinition race, int amount, VehicleDefinition playerVehicle, int playerStartPos)
+	{
+		List<RaceMatchInformation.Participant> racers = new() 
 		{ 
 			new( playerVehicle, Player.Local, playerStartPos ) 
 		};
@@ -28,17 +42,7 @@ internal static class StartRace
 			racers.Add( new(GetBotVehicle(), botPlayer, i) );
 		}
 
-		new RaceInformation( race, racers );
-	}
-
-	public static void TimeTrial(RaceDefinition race, VehicleDefinition vehicle)
-	{
-		List<RaceInformation.Participant> racers = new()
-		{
-			new( vehicle, Player.Local, RaceStartingPosition.FIRST_PLACE )
-		};
-
-		new RaceInformation( race, racers, mode: RaceMode.TimeTrial );
+		new RaceMatchInformation( race, racers );
 	}
 
 	private static VehicleDefinition GetBotVehicle()
@@ -47,7 +51,7 @@ internal static class StartRace
 		return devCar;
 	}
 
-	private static RaceInformation.Participant CreateBot(VehicleDefinition def, int startPosition)
+	private static RaceMatchInformation.Participant CreateBot(VehicleDefinition def, int startPosition)
 	{
 		return new( def, Player.CreateBot(), startPosition );
 	}

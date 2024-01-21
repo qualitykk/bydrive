@@ -23,7 +23,7 @@ internal static class Globals
 	}
 	private static VehiclePlayerInput lastLocalInput;
 	public static RaceManager Race => RaceManager.Current;
-	public static RaceInformation RaceContext => RaceInformation.Current;
+	public static RaceMatchInformation RaceContext => RaceMatchInformation.Current;
 	public static UserSettings Settings => new();
 	public static VehiclePlayerInput GetLocalInput()
 	{

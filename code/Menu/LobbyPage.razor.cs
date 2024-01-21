@@ -10,12 +10,12 @@ namespace Bydrive;
 
 public partial class LobbyPage : Panel
 {
-	int playerCount = RaceInformation.MAX_PLAYERCOUNT;
+	int playerCount = RaceMatchInformation.MAX_PLAYERCOUNT;
 	RaceDefinition selectedTrack;
 	IEnumerable<Player> players => LobbyManager.Instance?.Players;
 	public override void Tick()
 	{
-		if ( StartMenu.Current.NavPanel.CurrentPanel != this )
+		if ( StartMenu.Current?.NavPanel?.CurrentPanel != this )
 			return;
 
 		if(!GameNetworkSystem.IsActive && !GameNetworkSystem.IsConnecting)
@@ -26,6 +26,7 @@ public partial class LobbyPage : Panel
 	protected override void OnParametersSet()
 	{
 		Refresh();
+		selectedTrack = ResourceLibrary.GetAll<RaceDefinition>().First();
 	}
 	private void Refresh()
 	{
@@ -33,7 +34,17 @@ public partial class LobbyPage : Panel
 	}
 	private void OnClickStart()
 	{
-		Log.Info( "Start" );
+		List<RaceMatchInformation.Participant> racers = new();
+		int i = 1;
+		foreach(var ply in players)
+		{
+			VehicleDefinition playerVehicle = ply.SelectedVehicle ?? StartMenu.GetDefaultVehicle();
+			racers.Add( new( playerVehicle, ply, i) );
+			//Log.Info( $"Start {ply} {playerVehicle}" );
+			i++;
+		}
+
+		StartRace.Online( selectedTrack, racers );
 	}
 	private void OnClickRefresh()
 	{
@@ -42,7 +53,6 @@ public partial class LobbyPage : Panel
 	private void OnClickBack()
 	{
 		GameNetworkSystem.Disconnect();
-		StartMenu.Current.NavPanel?.GoBack();
 	}
 	private void OnTrackSelected( RaceDefinition def )
 	{

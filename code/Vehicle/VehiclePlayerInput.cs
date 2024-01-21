@@ -34,7 +34,7 @@ public class VehiclePlayerInput : VehicleInputComponent
 
 	public bool IsLocalInput()
 	{
-		return !Network.Active || Network.IsOwner;
+		return !Network.Active || !Network.IsProxy;
 	}
 
 	protected override void DrawGizmos()

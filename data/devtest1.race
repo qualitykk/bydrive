@@ -2,6 +2,7 @@
   "Name": "Devtest1",
   "Group": "",
   "Hidden": false,
-  "Scene": "scenes/devtest1.scene",
+  "Prefab": "prefabs/tracks/track_devtest1.prefab",
+  "MapName": "maps/rd_rc_devtest1_a1.vpk",
   "__references": []
 }
