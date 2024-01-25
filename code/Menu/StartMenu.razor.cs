@@ -11,10 +11,19 @@ namespace Bydrive;
 
 public partial class StartMenu
 {
+	const string MENU_SCENE = "/scenes/start_menu.scene";
 	const string RACE_LOBBY_URL = "/multiplayer/race/active";
 	public static StartMenu Current { get; set; }
 	public static void Open()
 	{
+		if(RaceContext?.Definition.UseScene() == true)
+		{
+			var scene = ResourceLibrary.Get<SceneFile>( MENU_SCENE );
+			GameManager.ActiveScene.Load( scene );
+
+			return;
+		}
+
 		if ( Current == null )
 			return;
 		Current.Enabled = true;
@@ -23,6 +32,11 @@ public partial class StartMenu
 	{
 		if ( Current == null )
 			return;
+
+		if(RaceContext == null)
+		{
+			Game.Close();
+		}
 
 		Current.Enabled = false;
 	}

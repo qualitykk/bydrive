@@ -66,8 +66,8 @@ internal static class InputActions
 	public const string BREAK = "Break";
 	public const string RESPAWN = "Respawn";
 
-	public const string PITCH_UP = "Boost";
-	public const string PITCH_DOWN = "Pitch Down";
+	public const string PITCH_UP = "Backward";
+	public const string PITCH_DOWN = "Forward";
 }
 
 internal static class TraceTags

@@ -47,12 +47,7 @@ public class RaceCheckpoint : Component, Component.ITriggerListener
 	}
 	protected override void OnEnabled()
 	{
-		if(RaceContext.FinishedLoading)
-			RebuildCheckpointReferences();
-	}
-	protected override void OnDisabled()
-	{
-		if ( RaceContext.FinishedLoading )
+		if(RaceContext?.FinishedLoading == true)
 			RebuildCheckpointReferences();
 	}
 

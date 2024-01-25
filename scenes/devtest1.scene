@@ -723,7 +723,7 @@
         {
           "Id": "d54ce3ac-cd9c-4a9a-bfd8-bdbc55141047",
           "Name": "6",
-          "Position": "-2895.942,2144.542,231.541",
+          "Position": "-2979.538,2144.542,212.5053",
           "Rotation": "-0.0000000004070593,-0.00000004173178,0.707107,0.7071065",
           "Enabled": true,
           "Components": [
@@ -744,7 +744,7 @@
               "__type": "BoxCollider",
               "Center": "0,0,0",
               "IsTrigger": true,
-              "Scale": "50,800,250",
+              "Scale": "50,1000,250",
               "Static": false,
               "Surface": null
             }
@@ -1237,7 +1237,7 @@
         {
           "Id": "83eea6cc-198c-4fd6-b960-06a24b9a9563",
           "Name": "12",
-          "Position": "-3326.386,2392.059,192",
+          "Position": "-3440.114,2399.689,192",
           "Rotation": "0.000000002304896,-0.00000000278583,-0.7303898,0.6830313",
           "Enabled": true,
           "Components": [
@@ -1264,7 +1264,7 @@
         {
           "Id": "08a0256c-7c52-4379-84f7-d6e44e0a3969",
           "Name": "13A1",
-          "Position": "-3520,1792,192",
+          "Position": "-3557.694,1792,192",
           "Rotation": "0.00000000270708,0.000000002396893,0.707107,0.7071065",
           "Enabled": true,
           "Components": [
@@ -1291,7 +1291,7 @@
         {
           "Id": "ce1f8ebd-3c37-4ee2-b1b4-422115d11f59",
           "Name": "13A2",
-          "Position": "-3648,1280,191.9999",
+          "Position": "-3639.884,1224.085,191.9999",
           "Rotation": "0.000000002896265,0.000000002164498,0.6461252,0.7632315",
           "Enabled": true,
           "Components": [
@@ -1309,7 +1309,7 @@
               "__type": "BoxCollider",
               "Center": "0,0,128",
               "IsTrigger": true,
-              "Scale": "512,384,384",
+              "Scale": "600,384,384",
               "Static": true,
               "Surface": null
             }

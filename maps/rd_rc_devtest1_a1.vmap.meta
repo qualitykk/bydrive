@@ -16,7 +16,9 @@
       "HasCode": false,
       "CodePath": null,
       "PackageReferences": [],
-      "EditorReferences": [],
+      "EditorReferences": [
+        "debelizmik.brokencar#30442"
+      ],
       "Metadata": {
         "SingleAssetSource": "maps/rd_rc_devtest1_a1.vmap"
       }

@@ -18,7 +18,7 @@ public class VehiclePlayerInput : VehicleInputComponent
 		VehicleController.TurnInput = Input.AnalogMove.y;
 		VehicleController.BreakInput = Input.Down( InputActions.BREAK ) ? 1 : 0;
 
-		VehicleController.TiltInput = (Input.Down( InputActions.BOOST ) ? 1 : 0) + (Input.Down( InputActions.PITCH_DOWN ) ? -1 : 0);
+		VehicleController.TiltInput = (Input.Down( InputActions.PITCH_UP ) ? 1 : 0) + (Input.Down( InputActions.PITCH_DOWN ) ? -1 : 0);
 		VehicleController.RollInput = (Input.Down( InputActions.LEFT ) ? 1 : 0) + (Input.Down( InputActions.RIGHT ) ? -1 : 0);
 
 		VehicleController.WantsBoost = Input.Down( InputActions.BOOST );

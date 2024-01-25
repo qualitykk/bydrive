@@ -47,6 +47,10 @@ public partial class VehicleController
 		var tiltAmount = AccelerationTilt * 2.5f;
 		var leanAmount = turnLean * 2.5f;
 
+		wheelsOnGround = false;
+		drivingWheelsOnGround = false;
+		turningWheelsOnGround = false;
+
 		foreach ( var wheel in GetWheels() )
 		{
 			if(wheel.Raycast( tiltAmount + leanAmount, doPhysics, dt ))
