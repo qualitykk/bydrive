@@ -54,8 +54,6 @@ public class RaceMatchInformation
 
 		Assert.NotNull( definition );
 		Assert.NotNull( participants );
-		Assert.NotNull( globals );
-		Assert.NotNull( globals.Level );
 
 		if ( Current != null )
 		{
@@ -65,11 +63,21 @@ public class RaceMatchInformation
 		Current = this;
 		multiplayer = LobbyManager.MultiplayerActive;
 
-		globals.Level.MapName = definition.MapName;
+		if(definition.Prefab != null)
+		{
+			Assert.NotNull( globals );
+			Assert.NotNull( globals.Level );
+			Assert.NotNull( globals.Track );
+			globals.Level.MapName = definition.MapName;
 
-		GameObject trackPrefabObject = new();
-		trackPrefabObject.ApplyPrefab( definition.Prefab );
-		trackPrefabObject.Parent = globals.Track;
+			GameObject trackPrefabObject = new();
+			trackPrefabObject.ApplyPrefab( definition.Prefab );
+			trackPrefabObject.Parent = globals.Track;
+		}
+		else
+		{
+			GameManager.ActiveScene.LoadFromFile( definition.Scene.ResourcePath );
+		}
 
 		Definition = definition;
 		Participants = participants;
@@ -106,7 +114,6 @@ public class RaceMatchInformation
 	{
 		string name = participant.Player.Name;
 		GameObject obj = ResourceHelper.CreateObjectFromResource( participant.Vehicle );
-		Log.Info( participant.Player );
 		obj.Name = name;
 		if(multiplayer)
 		{

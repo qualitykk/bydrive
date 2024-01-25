@@ -8,9 +8,7 @@
       "Enabled": true,
       "Components": [
         {
-          "__version": 0,
           "__type": "ScreenPanel",
-          "__enabled": true,
           "AutoScreenScale": true,
           "Opacity": 1,
           "Scale": 1,
@@ -25,9 +23,7 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "StartMenu",
-              "__enabled": true,
               "BackgroundMusic": "sounds/music/menu_theme.sound",
               "BackgroundMusicVolume": 1.6
             }
@@ -41,9 +37,7 @@
               "Enabled": true,
               "Components": [
                 {
-                  "__version": 0,
                   "__type": "CameraComponent",
-                  "__enabled": true,
                   "BackgroundColor": "0.33333,0.46275,0.52157,1",
                   "ClearFlags": "All",
                   "FieldOfView": 60,
@@ -72,9 +66,7 @@
       "Enabled": true,
       "Components": [
         {
-          "__version": 0,
           "__type": "LobbyManager",
-          "__enabled": true,
           "MaxPlayers": 16
         }
       ]
@@ -86,10 +78,12 @@
       "Enabled": true,
       "Components": [
         {
-          "__version": 0,
           "__type": "RaceGlobals",
-          "__enabled": true,
-          "Level": "0bbb4052-5e46-4dfb-b38f-7b91ec132c95",
+          "Level": {
+            "_type": "component",
+            "go": "0bbb4052-5e46-4dfb-b38f-7b91ec132c95",
+            "component_type": "MapInstance"
+          },
           "Track": "4b584930-cd2b-462e-9936-bc02583b00a5"
         }
       ]
@@ -100,9 +94,7 @@
       "Enabled": true,
       "Components": [
         {
-          "__version": 0,
           "__type": "MapInstance",
-          "__enabled": true,
           "MapName": null,
           "OnMapLoaded": null,
           "OnMapUnloaded": null,
