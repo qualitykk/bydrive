@@ -14,12 +14,20 @@ CurrentItem {
 	background-color: $background_dev;
 
 	&.has_item {
-		border: 5px solid #44aa88;
+		border: 5px solid #aa8844;
 	}
-	.item {
+
+	.label {
 		text-align: center;
 		font-size: 24px;
 		font-family: Poppins;
+	}
+
+	.item {
 		color: #fff;
+	}
+
+	.noitem {
+		color: #beaaaadd;
 	}
 }

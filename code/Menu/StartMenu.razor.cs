@@ -11,7 +11,7 @@ namespace Bydrive;
 
 public partial class StartMenu
 {
-	const string MENU_SCENE = "/scenes/start_menu.scene";
+	const string MENU_SCENE = "/scenes/startmenu.scene";
 	const string RACE_LOBBY_URL = "/multiplayer/race/active";
 	public static StartMenu Current { get; set; }
 	public static void Open()

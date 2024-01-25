@@ -24,12 +24,11 @@ public static class Music
 		}
 		Stop();
 		currentTrack = Sound.Play( sound );
+		float trackVolume = volume > 0 ? volume : 1;
+		trackVolume *= Settings.MusicVolume;
 		if( currentTrack.IsValid())
 		{
-			if ( volume > 0 )
-			{
-				currentTrack.Volume = volume;
-			}
+			currentTrack.Volume = trackVolume;
 			currentTrack.ListenLocal = true;
 		}
 		currentTrackName = sound.ResourcePath;

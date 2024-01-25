@@ -8,7 +8,7 @@ namespace Bydrive;
 
 public class UserSettings
 {
-	[Property] public float SoundEffectVolume { get; set; }
-	[Property] public float MusicVolume { get;set; }
-	[Property, Category("UI")] public VehicleSpeedUnit SpeedometerUnit { get;set; }
+	public float SoundEffectVolume { get; set; }
+	public float MusicVolume { get;set; }
+	[Category("UI")] public VehicleSpeedUnit SpeedometerUnit { get;set; }
 }
