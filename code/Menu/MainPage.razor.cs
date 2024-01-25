@@ -27,4 +27,8 @@ public partial class MainPage
 		this.Navigate( "/multiplayer/race/bots" );
 	}
 
+	void OnClickSettings()
+	{
+		this.Navigate( "/settings" );
+	}
 }

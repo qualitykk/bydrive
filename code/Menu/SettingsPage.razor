@@ -1,0 +1,19 @@
+﻿@using Sandbox.UI;
+
+@page "/settings";
+@attribute [StyleSheet("/Menu/SettingsPage.razor.scss")]
+@namespace Bydrive
+
+<root class="flex-col">
+	<ObjectEditorPanel class="options flex-col" Target=@Settings Save=@Settings.Save />
+	<div class="footer">
+		<button class="button" @onclick=@StartMenu.Back>Back</button>
+	</div>
+</root>
+
+@code {
+	protected override int BuildHash()
+	{
+		return HashCode.Combine(Settings);
+	}
+}

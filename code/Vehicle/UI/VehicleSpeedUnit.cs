@@ -8,8 +8,8 @@ namespace Bydrive;
 
 public enum VehicleSpeedUnit
 {
-	KilometersPerHour,
-	MilesPerHour,
-	MetersPerSecond,
-	UnitsPerSecond
+	[Title( "Kilometers/Hour" )] KilometersPerHour,
+	[Title( "Miles/Hour" )] MilesPerHour,
+	[Title( "Meters/Second" )] MetersPerSecond,
+	[Title( "Units/Second" )] UnitsPerSecond
 }

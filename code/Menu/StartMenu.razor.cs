@@ -40,6 +40,11 @@ public partial class StartMenu
 
 		Current.Enabled = false;
 	}
+
+	public static void Back()
+	{
+		Current?.NavPanel?.GoBack();
+	}
 	private static VehicleDefinition _localSelectedVehicle;
 	public static VehicleDefinition GetDefaultVehicle()
 	{
@@ -92,6 +97,7 @@ public partial class StartMenu
 	protected override void OnDestroy()
 	{
 		base.OnDestroy();
+		ResetGlobals();
 		Music.Stop();
 	}
 

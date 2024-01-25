@@ -30,15 +30,18 @@ public sealed partial class RaceManager : Component
 	public SoundEvent GetRaceMusic()
 	{
 		const string TIME_TRIAL_MUSIC_TRACK = "/sounds/music/race_timetrial.sound";
-		const float TIME_TRIAL_MUSIC_VOLUME = 1.2f;
 		if ( IsTimeTrial )
 		{
 			var sound = ResourceLibrary.Get<SoundEvent>( TIME_TRIAL_MUSIC_TRACK );
-			sound.Volume = TIME_TRIAL_MUSIC_VOLUME;
 			return sound;
 		}
 
 		return RaceMusic;
+	}
+	public float GetRaceMusicVolume()
+	{
+		const float TIME_TRIAL_MUSIC_VOLUME = 1.2f;
+		return IsTimeTrial ? TIME_TRIAL_MUSIC_VOLUME : RaceMusicVolume;
 	}
 	public float GetRaceWaitTime()
 	{
@@ -65,7 +68,7 @@ public sealed partial class RaceManager : Component
 		const float RACE_START_COUNTDOWN = 3f;
 		HasStarted = false;
 		TimeUntilRaceStart = RACE_START_COUNTDOWN + GetRaceWaitTime();
-		Music.Play( GetRaceMusic(), RaceMusicVolume );
+		Music.Play( GetRaceMusic(), GetRaceMusicVolume() );
 	}
 
 	private void StartRace()

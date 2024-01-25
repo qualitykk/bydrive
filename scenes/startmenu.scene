@@ -25,7 +25,7 @@
             {
               "__type": "StartMenu",
               "BackgroundMusic": "sounds/music/menu_theme.sound",
-              "BackgroundMusicVolume": 1.6
+              "BackgroundMusicVolume": 1
             }
           ]
         }

@@ -19,7 +19,11 @@
 			<div class="button multiplayer" @onclick=@OnClickRaceQuickplay>Quickplay</div>
 			<div class="button multiplayer @UI.ActiveIf(LobbyManager.MultiplayerEnabled)" @onclick=@OnClickRaceOnline>Race Online</div>
 			<div class="button multiplayer" @onclick=@OnClickRaceBots>Race VS Bots</div>
+			
 		</div>
-		
+		<div class="group flex-col">
+			<label class="header">Other</label>
+			<div class="button multiplayer" @onclick=@OnClickSettings>Settings</div>
+		</div>
 	</div>
 </root>

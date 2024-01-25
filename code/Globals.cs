@@ -11,7 +11,7 @@ internal static class Globals
 	{
 		public static string ActiveIf( Func<bool> check ) => ActiveIf( check?.Invoke() ?? false );
 
-		public static string ActiveIf(bool active)
+		public static string ActiveIf( bool active )
 		{
 			if ( active )
 				return "active ";
@@ -21,10 +21,25 @@ internal static class Globals
 
 		public static string ActiveIf( bool? active ) => ActiveIf( active == true );
 	}
+	public static void ResetGlobals()
+	{
+		lastLocalInput = null;
+		localSettings = null;
+	}
 	private static VehiclePlayerInput lastLocalInput;
+	private static UserSettings localSettings;
 	public static RaceManager Race => RaceManager.Current;
 	public static RaceMatchInformation RaceContext => RaceMatchInformation.Current;
-	public static UserSettings Settings => new();
+	public static UserSettings Settings 
+	{
+		get
+		{
+			if ( localSettings == null )
+				localSettings = UserSettings.Load();
+
+			return localSettings;
+		}	
+	}
 	public static VehiclePlayerInput GetLocalInput()
 	{
 		if ( lastLocalInput.IsValid() )

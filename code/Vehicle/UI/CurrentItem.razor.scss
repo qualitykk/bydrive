@@ -3,7 +3,7 @@
 CurrentItem {
 	position: absolute;
 	aspect-ratio: 1;
-	width: 7%;
+	width: 8%;
 	left: 15%;
 	bottom: 25%;
 	justify-content: center;
@@ -14,7 +14,7 @@ CurrentItem {
 	background-color: $background_dev;
 
 	&.has_item {
-		border: 5px solid #aa8844;
+		border: 2px solid #aa1122;
 	}
 
 	.label {
@@ -25,6 +25,7 @@ CurrentItem {
 
 	.item {
 		color: #fff;
+		width: 100%;
 	}
 
 	.noitem {

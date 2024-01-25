@@ -1,4 +1,4 @@
-﻿.button {
+﻿.button:not(.dropdown) {
     cursor: pointer;
     pointer-events: all;
     font-size: 32px;
@@ -32,11 +32,46 @@
     }
 }
 
+.dropdown {
+    cursor: pointer;
+    pointer-events: all;
+    font-size: 32px;
+    padding: 25px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #888288;
+    border: 8px solid #777777;
+    height: 10%;
+    width: 20vw;
+}
+
 .textentry {
     background-color: #353535;
     border: 1px solid #9a9a9a;
     border-radius: 5px;
     text-align: center;
     font-size: 32px;
+    pointer-events: all;
 }
 
+.slidercontrol {
+    .inner {
+        .values {
+            font-size: 32px;
+            color: #ffffff;
+            font-family: Poppins;
+        }
+
+        .track {
+            background-color: #aa0000;
+
+            .track-active {
+                //background-color: #00bb00;
+            }
+
+            .value-tooltip {
+                color: #ffffff;
+            }
+        }
+    }
+}

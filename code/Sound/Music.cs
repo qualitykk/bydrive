@@ -10,7 +10,8 @@ public static class Music
 {
 	static SoundHandle currentTrack;
 	static string currentTrackName;
-	public static void Play( string name, float volume = -1)
+	static float currentVolume;
+	public static void Play( string name, float volume = -1f)
 	{
 		Play(ResourceLibrary.Get<SoundEvent>(name), volume);
 	}
@@ -23,14 +24,20 @@ public static class Music
 			return;
 		}
 		Stop();
-		currentTrack = Sound.Play( sound );
+
 		float trackVolume = volume > 0 ? volume : 1;
 		trackVolume *= Settings.MusicVolume;
-		if( currentTrack.IsValid())
+		if ( trackVolume > 0)
 		{
-			currentTrack.Volume = trackVolume;
-			currentTrack.ListenLocal = true;
+			currentTrack = Sound.Play( sound );
+			if ( currentTrack.IsValid() )
+			{
+				currentTrack.Volume = trackVolume;
+				currentTrack.ListenLocal = true;
+			}
 		}
+
+		currentVolume = volume;
 		currentTrackName = sound.ResourcePath;
 	}
 

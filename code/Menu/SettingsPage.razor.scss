@@ -1,0 +1,40 @@
+﻿settingspage {
+    align-items: center;
+
+    .options {
+        background-color: #9a9a9a88;
+        height: 80%;
+        width: 80%;
+        align-items: center;
+
+        .label {
+            text-align: center;
+        }
+
+        .group {
+            font-size: 32px;
+            width: 40%;
+            height: 6vh;
+        }
+
+        .property {
+            .name {
+                height: 100%;
+                width: 30%;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .control {
+                width: 70%;
+                height: 8vh;
+            }
+        }
+    }
+
+    .footer {
+        justify-content: center;
+        align-items: center;
+        height: 20%;
+    }
+}
