@@ -9,9 +9,7 @@
       "Enabled": true,
       "Components": [
         {
-          "__version": 0,
           "__type": "DirectionalLight",
-          "__enabled": true,
           "FogMode": "Enabled",
           "FogStrength": 1,
           "LightColor": "0.95545,0.88469,0.63381,1",
@@ -19,9 +17,7 @@
           "SkyColor": "0.21821,0.42262,0.52475,1"
         },
         {
-          "__version": 0,
           "__type": "SkyBox2D",
-          "__enabled": true,
           "SkyMaterial": "materials/skybox/light_test_sky_sunny02.vmat",
           "Tint": "1,1,1,1"
         }
@@ -34,9 +30,7 @@
       "Enabled": true,
       "Components": [
         {
-          "__version": 0,
           "__type": "MapInstance",
-          "__enabled": true,
           "MapName": "maps/rd_rc_devtest1_a1.vpk",
           "OnMapLoaded": null,
           "OnMapUnloaded": null,
@@ -53,15 +47,17 @@
       "Enabled": true,
       "Components": [
         {
-          "__version": 0,
           "__type": "RaceManager",
-          "__enabled": true,
           "LoseMusic": null,
           "MaxLaps": 5,
           "RaceMusic": "sounds/music/race_devtrack.sound",
           "RaceMusicVolume": -1,
           "RaceStartWait": 3.5,
-          "StartCheckpoint": "b8d5b8b7-1da4-4b2c-b487-c7abab2378ab",
+          "StartCheckpoint": {
+            "_type": "component",
+            "go": "b8d5b8b7-1da4-4b2c-b487-c7abab2378ab",
+            "component_type": "RaceCheckpoint"
+          },
           "WinMusic": "sounds/music/menu_race_win.sound"
         }
       ]
@@ -79,9 +75,7 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceStartingPosition",
-              "__enabled": true,
               "Placement": 1
             }
           ]
@@ -93,9 +87,7 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceStartingPosition",
-              "__enabled": true,
               "Placement": 2
             }
           ]
@@ -107,9 +99,7 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceStartingPosition",
-              "__enabled": true,
               "Placement": 3
             }
           ]
@@ -121,9 +111,7 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceStartingPosition",
-              "__enabled": true,
               "Placement": 4
             }
           ]
@@ -135,9 +123,7 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceStartingPosition",
-              "__enabled": true,
               "Placement": 5
             }
           ]
@@ -149,9 +135,7 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceStartingPosition",
-              "__enabled": true,
               "Placement": 6
             }
           ]
@@ -163,9 +147,7 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceStartingPosition",
-              "__enabled": true,
               "Placement": 7
             }
           ]
@@ -177,9 +159,7 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceStartingPosition",
-              "__enabled": true,
               "Placement": 8
             }
           ]
@@ -191,9 +171,7 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceStartingPosition",
-              "__enabled": true,
               "Placement": 9
             }
           ]
@@ -205,9 +183,7 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceStartingPosition",
-              "__enabled": true,
               "Placement": 10
             }
           ]
@@ -219,9 +195,7 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceStartingPosition",
-              "__enabled": true,
               "Placement": 11
             }
           ]
@@ -233,9 +207,7 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceStartingPosition",
-              "__enabled": true,
               "Placement": 12
             }
           ]
@@ -247,9 +219,7 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceStartingPosition",
-              "__enabled": true,
               "Placement": 13
             }
           ]
@@ -261,9 +231,7 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceStartingPosition",
-              "__enabled": true,
               "Placement": 14
             }
           ]
@@ -275,9 +243,7 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceStartingPosition",
-              "__enabled": true,
               "Placement": 15
             }
           ]
@@ -289,9 +255,7 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceStartingPosition",
-              "__enabled": true,
               "Placement": 16
             }
           ]
@@ -311,9 +275,7 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "50,800,250",
@@ -321,12 +283,14 @@
               "Surface": null
             },
             {
-              "__version": 0,
               "__type": "RaceCheckpoint",
-              "__enabled": true,
               "IsRequired": true,
               "NextCheckpoints": [
-                "e8fc2c91-dd1c-4be3-ae50-fa7146412775"
+                {
+                  "_type": "component",
+                  "go": "e8fc2c91-dd1c-4be3-ae50-fa7146412775",
+                  "component_type": "RaceCheckpoint"
+                }
               ],
               "RespawnPosition": "0,0,32",
               "RespawnRotation": "0,0,0"
@@ -341,20 +305,20 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceCheckpoint",
-              "__enabled": true,
               "IsRequired": true,
               "NextCheckpoints": [
-                "17c7ac45-5de0-4e8c-9f64-eb562001b7be"
+                {
+                  "_type": "component",
+                  "go": "17c7ac45-5de0-4e8c-9f64-eb562001b7be",
+                  "component_type": "RaceCheckpoint"
+                }
               ],
               "RespawnPosition": "0,0,32",
               "RespawnRotation": "0,0,0"
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "50,800,250",
@@ -371,20 +335,20 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceCheckpoint",
-              "__enabled": true,
               "IsRequired": true,
               "NextCheckpoints": [
-                "85e889b1-06d5-42b7-9261-3e72747dc2b2"
+                {
+                  "_type": "component",
+                  "go": "85e889b1-06d5-42b7-9261-3e72747dc2b2",
+                  "component_type": "RaceCheckpoint"
+                }
               ],
               "RespawnPosition": "0,0,32",
               "RespawnRotation": "0,0,0"
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "50,800,250",
@@ -401,21 +365,25 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceCheckpoint",
-              "__enabled": true,
               "IsRequired": true,
               "NextCheckpoints": [
-                "93e89b90-faa6-4d68-baeb-2839005c0fb1",
-                "8bcfe959-a8bb-4223-807c-2a04b012b5ec"
+                {
+                  "_type": "component",
+                  "go": "93e89b90-faa6-4d68-baeb-2839005c0fb1",
+                  "component_type": "RaceCheckpoint"
+                },
+                {
+                  "_type": "component",
+                  "go": "8bcfe959-a8bb-4223-807c-2a04b012b5ec",
+                  "component_type": "RaceCheckpoint"
+                }
               ],
               "RespawnPosition": "0,0,32",
               "RespawnRotation": "0,0,0"
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "50,800,250",
@@ -432,20 +400,20 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceCheckpoint",
-              "__enabled": true,
               "IsRequired": true,
               "NextCheckpoints": [
-                "1634b734-d100-40b3-9040-e46b55d80ee5"
+                {
+                  "_type": "component",
+                  "go": "1634b734-d100-40b3-9040-e46b55d80ee5",
+                  "component_type": "RaceCheckpoint"
+                }
               ],
               "RespawnPosition": "0,0,32",
               "RespawnRotation": "0,0,0"
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "50,800,250",
@@ -462,20 +430,20 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceCheckpoint",
-              "__enabled": true,
               "IsRequired": false,
               "NextCheckpoints": [
-                "9f8d21db-9d09-4af4-93d3-521db6898b8b"
+                {
+                  "_type": "component",
+                  "go": "9f8d21db-9d09-4af4-93d3-521db6898b8b",
+                  "component_type": "RaceCheckpoint"
+                }
               ],
               "RespawnPosition": "0,0,32",
               "RespawnRotation": "0,0,0"
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "50,800,250",
@@ -492,20 +460,20 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceCheckpoint",
-              "__enabled": true,
               "IsRequired": true,
               "NextCheckpoints": [
-                "e7039bd3-3de8-4dd7-ac4e-a96763d7c6c4"
+                {
+                  "_type": "component",
+                  "go": "e7039bd3-3de8-4dd7-ac4e-a96763d7c6c4",
+                  "component_type": "RaceCheckpoint"
+                }
               ],
               "RespawnPosition": "0,0,32",
               "RespawnRotation": "0,0,0"
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "50,800,250",
@@ -522,20 +490,20 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceCheckpoint",
-              "__enabled": true,
               "IsRequired": false,
               "NextCheckpoints": [
-                "bbb00ab9-f092-45ee-8743-b4d858d36ca3"
+                {
+                  "_type": "component",
+                  "go": "bbb00ab9-f092-45ee-8743-b4d858d36ca3",
+                  "component_type": "RaceCheckpoint"
+                }
               ],
               "RespawnPosition": "0,0,32",
               "RespawnRotation": "0,0,0"
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "50,800,250",
@@ -552,20 +520,20 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceCheckpoint",
-              "__enabled": true,
               "IsRequired": false,
               "NextCheckpoints": [
-                "cf0f02d6-1530-478c-ad00-d401762e3ebd"
+                {
+                  "_type": "component",
+                  "go": "cf0f02d6-1530-478c-ad00-d401762e3ebd",
+                  "component_type": "RaceCheckpoint"
+                }
               ],
               "RespawnPosition": "0,0,32",
               "RespawnRotation": "0,0,0"
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "50,800,250",
@@ -582,20 +550,20 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceCheckpoint",
-              "__enabled": true,
               "IsRequired": true,
               "NextCheckpoints": [
-                "75d1b2d6-07f4-4ff1-bd56-868b945b97df"
+                {
+                  "_type": "component",
+                  "go": "75d1b2d6-07f4-4ff1-bd56-868b945b97df",
+                  "component_type": "RaceCheckpoint"
+                }
               ],
               "RespawnPosition": "0,0,32",
               "RespawnRotation": "0,0,0"
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "50,800,250",
@@ -612,20 +580,20 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceCheckpoint",
-              "__enabled": true,
               "IsRequired": false,
               "NextCheckpoints": [
-                "e6eff863-cd41-4885-9b49-6a735f111c9c"
+                {
+                  "_type": "component",
+                  "go": "e6eff863-cd41-4885-9b49-6a735f111c9c",
+                  "component_type": "RaceCheckpoint"
+                }
               ],
               "RespawnPosition": "0,0,32",
               "RespawnRotation": "0,0,0"
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "50,800,250",
@@ -641,20 +609,20 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceCheckpoint",
-              "__enabled": true,
               "IsRequired": true,
               "NextCheckpoints": [
-                "6baa937f-1e4f-43fb-ac93-4e67b7e2decc"
+                {
+                  "_type": "component",
+                  "go": "6baa937f-1e4f-43fb-ac93-4e67b7e2decc",
+                  "component_type": "RaceCheckpoint"
+                }
               ],
               "RespawnPosition": "0,0,32",
               "RespawnRotation": "0,0,0"
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "50,800,250",
@@ -671,20 +639,20 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceCheckpoint",
-              "__enabled": true,
               "IsRequired": false,
               "NextCheckpoints": [
-                "a2241379-75e4-4c74-b664-fe3efea6aa61"
+                {
+                  "_type": "component",
+                  "go": "a2241379-75e4-4c74-b664-fe3efea6aa61",
+                  "component_type": "RaceCheckpoint"
+                }
               ],
               "RespawnPosition": "0,0,32",
               "RespawnRotation": "0,0,0"
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "50,800,250",
@@ -700,20 +668,20 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceCheckpoint",
-              "__enabled": true,
               "IsRequired": true,
               "NextCheckpoints": [
-                "cf0f02d6-1530-478c-ad00-d401762e3ebd"
+                {
+                  "_type": "component",
+                  "go": "cf0f02d6-1530-478c-ad00-d401762e3ebd",
+                  "component_type": "RaceCheckpoint"
+                }
               ],
               "RespawnPosition": "0,0,32",
               "RespawnRotation": "0,0,0"
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "50,800,250",
@@ -730,20 +698,20 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceCheckpoint",
-              "__enabled": true,
               "IsRequired": true,
               "NextCheckpoints": [
-                "d54ce3ac-cd9c-4a9a-bfd8-bdbc55141047"
+                {
+                  "_type": "component",
+                  "go": "d54ce3ac-cd9c-4a9a-bfd8-bdbc55141047",
+                  "component_type": "RaceCheckpoint"
+                }
               ],
               "RespawnPosition": "0,0,32",
               "RespawnRotation": "0,0,0"
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "50,800,250",
@@ -760,20 +728,20 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceCheckpoint",
-              "__enabled": true,
               "IsRequired": true,
               "NextCheckpoints": [
-                "86153c29-8cf5-491e-b031-4d0ac40ed619"
+                {
+                  "_type": "component",
+                  "go": "86153c29-8cf5-491e-b031-4d0ac40ed619",
+                  "component_type": "RaceCheckpoint"
+                }
               ],
               "RespawnPosition": "0,0,32",
               "RespawnRotation": "0,0,0"
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "50,800,250",
@@ -789,20 +757,20 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "RaceCheckpoint",
-              "__enabled": true,
               "IsRequired": true,
               "NextCheckpoints": [
-                "b8d5b8b7-1da4-4b2c-b487-c7abab2378ab"
+                {
+                  "_type": "component",
+                  "go": "b8d5b8b7-1da4-4b2c-b487-c7abab2378ab",
+                  "component_type": "RaceCheckpoint"
+                }
               ],
               "RespawnPosition": "0,0,32",
               "RespawnRotation": "0,0,0"
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,0",
               "IsTrigger": true,
               "Scale": "50,800,250",
@@ -820,14 +788,10 @@
       "Enabled": true,
       "Components": [
         {
-          "__version": 0,
-          "__type": "RaceRespawnZone",
-          "__enabled": true
+          "__type": "RaceRespawnZone"
         },
         {
-          "__version": 0,
           "__type": "BoxCollider",
-          "__enabled": true,
           "Center": "0,0,0",
           "IsTrigger": true,
           "Scale": "10000,10000,50",
@@ -848,17 +812,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "b99bd5da-87f6-4f9d-8073-86dff38f8607"
+                {
+                  "_type": "component",
+                  "go": "b99bd5da-87f6-4f9d-8073-86dff38f8607",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "-336,0,192",
               "IsTrigger": true,
               "Scale": "1536,512,384",
@@ -875,17 +839,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "36d42d13-b6e0-450f-9b8a-cb65b39b5ca1"
+                {
+                  "_type": "component",
+                  "go": "36d42d13-b6e0-450f-9b8a-cb65b39b5ca1",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,192",
               "IsTrigger": true,
               "Scale": "512,512,384",
@@ -902,17 +866,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "590bfa62-eeae-4b51-9e42-6f8297d3e89d"
+                {
+                  "_type": "component",
+                  "go": "590bfa62-eeae-4b51-9e42-6f8297d3e89d",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,192",
               "IsTrigger": true,
               "Scale": "512,512,384",
@@ -929,17 +893,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "26b04097-e85d-4a23-aa19-9a4122446a00"
+                {
+                  "_type": "component",
+                  "go": "26b04097-e85d-4a23-aa19-9a4122446a00",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,192",
               "IsTrigger": true,
               "Scale": "512,512,384",
@@ -956,17 +920,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "77df70e1-bf63-434c-b2ba-502860dc3725"
+                {
+                  "_type": "component",
+                  "go": "77df70e1-bf63-434c-b2ba-502860dc3725",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,192",
               "IsTrigger": true,
               "Scale": "512,512,384",
@@ -983,17 +947,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "4c2083ad-966e-4e8c-90a7-2f9b9cb54812"
+                {
+                  "_type": "component",
+                  "go": "4c2083ad-966e-4e8c-90a7-2f9b9cb54812",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,192",
               "IsTrigger": true,
               "Scale": "768,512,512",
@@ -1010,17 +974,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "255de94a-6718-4e17-9ffe-1ff7b67cc69f"
+                {
+                  "_type": "component",
+                  "go": "255de94a-6718-4e17-9ffe-1ff7b67cc69f",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,192",
               "IsTrigger": true,
               "Scale": "512,512,384",
@@ -1037,17 +1001,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "17650a00-0371-4018-a0d7-957cea509848"
+                {
+                  "_type": "component",
+                  "go": "17650a00-0371-4018-a0d7-957cea509848",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,192",
               "IsTrigger": true,
               "Scale": "1024,512,384",
@@ -1063,17 +1027,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "d2a9bce5-8704-4bce-81eb-e6eacda46975"
+                {
+                  "_type": "component",
+                  "go": "d2a9bce5-8704-4bce-81eb-e6eacda46975",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,128",
               "IsTrigger": true,
               "Scale": "768,512,384",
@@ -1090,17 +1054,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "2978c63a-635f-4437-bada-a1befb763eee"
+                {
+                  "_type": "component",
+                  "go": "2978c63a-635f-4437-bada-a1befb763eee",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,128",
               "IsTrigger": true,
               "Scale": "768,512,384",
@@ -1117,17 +1081,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "761ce85f-9bed-4afc-9f28-73bfb0ebf354"
+                {
+                  "_type": "component",
+                  "go": "761ce85f-9bed-4afc-9f28-73bfb0ebf354",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,128",
               "IsTrigger": true,
               "Scale": "768,512,384",
@@ -1143,17 +1107,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "bf3e4a46-c106-4cec-8c5a-f168931db06a"
+                {
+                  "_type": "component",
+                  "go": "bf3e4a46-c106-4cec-8c5a-f168931db06a",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,128",
               "IsTrigger": true,
               "Scale": "900,400,384",
@@ -1170,17 +1134,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "1b0793c4-72a6-4a0c-99ed-713b14ca81a0"
+                {
+                  "_type": "component",
+                  "go": "1b0793c4-72a6-4a0c-99ed-713b14ca81a0",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,128",
               "IsTrigger": true,
               "Scale": "512,512,384",
@@ -1197,17 +1161,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "b6abef82-5a80-4f41-a74b-7696acaf5c46"
+                {
+                  "_type": "component",
+                  "go": "b6abef82-5a80-4f41-a74b-7696acaf5c46",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,128",
               "IsTrigger": true,
               "Scale": "512,512,384",
@@ -1224,17 +1188,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "90dca30d-b443-4dd1-8d2c-93042aa314ec"
+                {
+                  "_type": "component",
+                  "go": "90dca30d-b443-4dd1-8d2c-93042aa314ec",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,128",
               "IsTrigger": true,
               "Scale": "512,512,384",
@@ -1251,17 +1215,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "83eea6cc-198c-4fd6-b960-06a24b9a9563"
+                {
+                  "_type": "component",
+                  "go": "83eea6cc-198c-4fd6-b960-06a24b9a9563",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,128",
               "IsTrigger": true,
               "Scale": "512,512,384",
@@ -1278,17 +1242,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "08a0256c-7c52-4379-84f7-d6e44e0a3969"
+                {
+                  "_type": "component",
+                  "go": "08a0256c-7c52-4379-84f7-d6e44e0a3969",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,128",
               "IsTrigger": true,
               "Scale": "700,512,384",
@@ -1305,17 +1269,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "ce1f8ebd-3c37-4ee2-b1b4-422115d11f59"
+                {
+                  "_type": "component",
+                  "go": "ce1f8ebd-3c37-4ee2-b1b4-422115d11f59",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,128",
               "IsTrigger": true,
               "Scale": "512,384,384",
@@ -1332,17 +1296,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "e1f383c3-56d3-452b-8495-5189c2d38e2b"
+                {
+                  "_type": "component",
+                  "go": "e1f383c3-56d3-452b-8495-5189c2d38e2b",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,128",
               "IsTrigger": true,
               "Scale": "512,384,384",
@@ -1359,17 +1323,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "89afe1de-c6fb-4bf3-a12e-0c9818d3ac21"
+                {
+                  "_type": "component",
+                  "go": "89afe1de-c6fb-4bf3-a12e-0c9818d3ac21",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,128",
               "IsTrigger": true,
               "Scale": "512,384,384",
@@ -1386,17 +1350,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "080eebe6-63c8-4e86-9441-ab45c7128be5"
+                {
+                  "_type": "component",
+                  "go": "080eebe6-63c8-4e86-9441-ab45c7128be5",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,128",
               "IsTrigger": true,
               "Scale": "512,384,384",
@@ -1413,17 +1377,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "032f51e6-f189-498b-8e14-2a8b0813e95b"
+                {
+                  "_type": "component",
+                  "go": "032f51e6-f189-498b-8e14-2a8b0813e95b",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,128",
               "IsTrigger": true,
               "Scale": "512,512,384",
@@ -1439,17 +1403,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "4b8cc8a0-55ac-4829-a0bd-63381ca234aa"
+                {
+                  "_type": "component",
+                  "go": "4b8cc8a0-55ac-4829-a0bd-63381ca234aa",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,128",
               "IsTrigger": true,
               "Scale": "256,512,384",
@@ -1465,17 +1429,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "4485fa72-49eb-4f54-9d38-001236beac85"
+                {
+                  "_type": "component",
+                  "go": "4485fa72-49eb-4f54-9d38-001236beac85",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,128",
               "IsTrigger": true,
               "Scale": "768,512,256",
@@ -1492,17 +1456,17 @@
           "Enabled": true,
           "Components": [
             {
-              "__version": 0,
               "__type": "VehicleBotPath",
-              "__enabled": true,
               "NextPaths": [
-                "b23e67f0-daea-45dc-a468-6e2c32bb1c62"
+                {
+                  "_type": "component",
+                  "go": "b23e67f0-daea-45dc-a468-6e2c32bb1c62",
+                  "component_type": "VehicleBotPath"
+                }
               ]
             },
             {
-              "__version": 0,
               "__type": "BoxCollider",
-              "__enabled": true,
               "Center": "0,0,128",
               "IsTrigger": true,
               "Scale": "768,512,256",

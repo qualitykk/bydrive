@@ -19,4 +19,8 @@ public class RaceDefinition : GameResource
 	public SceneFile Scene { get; set; }
 	public PrefabFile Prefab { get; set; }
 	[HideIf("Prefab", null)] public string MapName { get;set; }
+	public bool UseScene()
+	{
+		return Prefab == default;
+	}
 }

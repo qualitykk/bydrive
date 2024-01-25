@@ -36,7 +36,15 @@ public class RaceMatchInformation
 	{ 
 		get
 		{
+			if ( Definition == default ) return false;
+
 			var globals = RaceGlobals.Current;
+
+			if(Definition.UseScene())
+			{
+				return objectsCreated;
+			}
+
 			if ( globals == null || globals.Level == null )
 				return false;
 
@@ -63,7 +71,7 @@ public class RaceMatchInformation
 		Current = this;
 		multiplayer = LobbyManager.MultiplayerActive;
 
-		if(definition.Prefab != null)
+		if(!definition.UseScene())
 		{
 			Assert.NotNull( globals );
 			Assert.NotNull( globals.Level );

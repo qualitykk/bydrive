@@ -17,7 +17,7 @@ internal static class GameObjectExtensions
 		obj.BreakFromPrefab();
 	}
 
-	public static void ApplyPrefab( this GameObject obj, PrefabFile prefab ) => ApplyPrefab( obj, prefab.ResourcePath );
+	public static void ApplyPrefab( this GameObject obj, PrefabFile prefab ) => ApplyPrefab( obj, prefab?.ResourcePath );
 }
 
 internal static class TransformExtensions
