@@ -32,13 +32,13 @@ RaceMenu {
 	.button {
 		width: 20%;
 		height: 8%;
-		background-color: $background_dev;
+		background-color: #5a5a5add;
 		border-radius: 5px;
 		pointer-events: all;
 		align-items: center;
 
 		&:hover {
-			border: 3px solid #eeeeee99;
+			border: 5px solid #eeeeee99;
 		}
 	}
 }
