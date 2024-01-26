@@ -1,0 +1,35 @@
+{
+  "RootObject": {
+    "Id": "75d01360-8c61-47eb-9ca7-56b3b096ccca",
+    "Name": "race_booster",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "ModelRenderer",
+        "BodyGroups": 18446744073709551615,
+        "MaterialGroup": null,
+        "MaterialOverride": null,
+        "Model": "models/boost_128.vmdl",
+        "RenderType": "Off",
+        "Tint": "0.22466,0.72093,0.31564,1"
+      },
+      {
+        "__type": "BoxCollider",
+        "Center": "0,0,32",
+        "IsTrigger": true,
+        "Scale": "128,192,64",
+        "Static": false,
+        "Surface": null
+      },
+      {
+        "__type": "VehicleBooster",
+        "SoundResource": "sounds/effects/race_booster.sound",
+        "Time": 0.5
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

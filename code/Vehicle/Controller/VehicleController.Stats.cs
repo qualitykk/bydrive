@@ -8,8 +8,123 @@ namespace Bydrive;
 
 public partial class VehicleController
 {
+	private class StatModifier : IEquatable<StatModifier>
+	{
+		public string Id { get; }
+		public string Stat { get; }
+		public float Multiplier { get; }
+		public float LifeTime { get; private set; }
+		public float DeletionTime { get; set; }
+
+		public StatModifier( string id, string stat, float multiplier, float lifeTime = 1f )
+		{
+			Id = id;
+			Stat = stat;
+			Multiplier = multiplier;
+			LifeTime = lifeTime;
+			DeletionTime = Time.Now + lifeTime;
+		}
+
+		public void AddLifetime(float time)
+		{
+			LifeTime += time;
+			DeletionTime += time;
+		}
+
+		public bool Equals( StatModifier other )
+		{
+			return Id.Equals( other.Id );
+		}
+
+		public override string ToString()
+		{
+			return $"{Id}/{DeletionTime}";
+		}
+	}
 	[Property] public VehicleStatsProvider StatProvider { get; set; }
 	public VehicleStats Stats => StatProvider?.GetStats() ?? new();
+
+	public void ResetStats()
+	{
+		modifierIds.Clear();
+		modifiers.Clear();
+		modifiersPerStat.Clear();
+	}
+	public void TickStats()
+	{
+		TickModifiers();
+	}
+
+	#region Modifiers
+	private Dictionary<string, StatModifier> modifierIds = new();
+	private List<StatModifier> modifiers = new();
+	private Dictionary<string, List<StatModifier>> modifiersPerStat = new();
+	public bool AddStatModifier(string id, string stat, float multiplier, float time = 1f) => AddStatModifier( new( id, stat, multiplier, time ) );
+	private bool AddStatModifier(StatModifier modifier)
+	{
+		if(modifierIds.TryGetValue(modifier.Id, out var existing))
+		{
+			existing.AddLifetime( modifier.LifeTime );
+			return false;
+		}
+
+		modifierIds[modifier.Id] = modifier;
+		modifiers.Add( modifier );
+
+		if(!modifiersPerStat.ContainsKey(modifier.Stat))
+		{
+			modifiersPerStat.Add( modifier.Stat, new() { modifier } );
+		}
+		else
+		{
+			modifiersPerStat[modifier.Stat].Add( modifier );
+		}
+		return true;
+	}
+	private void DeleteModifier(StatModifier modifier)
+	{
+		if(!modifiers.Contains(modifier))
+		{
+			return;
+		}
+
+		modifierIds.Remove( modifier.Id );
+		modifiers.Remove(modifier );
+		modifiersPerStat[modifier.Stat].Remove( modifier );
+	}
+
+	private bool ShouldDelete(StatModifier modifier)
+	{
+		return Time.Now >= modifier.DeletionTime;
+	}
+
+	private float GetStatMultiplier(string id)
+	{
+		float multiplier = 1f;
+		if(!modifiersPerStat.TryGetValue(id, out var modifiers))
+		{
+			return multiplier;
+		}
+
+		foreach(var mod in modifiers)
+		{
+			multiplier *= mod.Multiplier;
+		}
+		return multiplier;
+	}
+
+	private void TickModifiers()
+	{
+		StatModifier[] modifiersToDelete = modifiers.Where( ShouldDelete ).ToArray();
+		if (modifiersToDelete.Any())
+		{
+			foreach ( var mod in modifiersToDelete )
+			{
+				DeleteModifier( mod );
+			}
+		}
+	}
+	#endregion
 	public float GetMaxSpeed()
 	{
 		const float NO_HEALTH_SPEED_MULTIPLIER = 0.875f;
@@ -25,6 +140,7 @@ public partial class VehicleController
 			maxSpeed *= NO_HEALTH_SPEED_MULTIPLIER;
 		}
 
+		maxSpeed *= GetStatMultiplier( VehicleStatModifiers.SPEED );
 		return maxSpeed;
 	}
 
@@ -36,6 +152,7 @@ public partial class VehicleController
 			acceleration *= Stats.BoostAccelerationMultiplier;
 		}
 
+		acceleration *= GetStatMultiplier( VehicleStatModifiers.ACCELERATION );
 		return acceleration;
 	}
 

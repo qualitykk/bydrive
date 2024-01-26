@@ -101,3 +101,9 @@ internal static class UIColors
 		public static Color Bonus => new Color( 0x60EE5F13 );
 	}
 }
+
+internal static class VehicleStatModifiers
+{
+	public const string SPEED = "Speed";
+	public const string ACCELERATION = "Acceleration";
+}

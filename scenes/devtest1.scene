@@ -1565,6 +1565,30 @@
       "Tags": "item,pickup",
       "Enabled": true,
       "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+    },
+    {
+      "Id": "a88b762d-3ab4-420f-81e2-81ce0905a0b2",
+      "Name": "race_booster",
+      "Position": "-816.2827,3959.967,386",
+      "Rotation": "0,0,0.9722244,0.2340517",
+      "Enabled": true,
+      "__Prefab": "prefabs/objects/race_booster.prefab"
+    },
+    {
+      "Id": "44c79d9f-18ad-44ea-ad75-e670f1426fa0",
+      "Name": "race_booster (1)",
+      "Position": "-3473.871,-416,1.999992",
+      "Rotation": "0.000000009127595,0.000000009127597,0.7071067,-0.7071066",
+      "Enabled": true,
+      "__Prefab": "prefabs/objects/race_booster.prefab"
+    },
+    {
+      "Id": "efa2bcab-a756-4dfc-98d5-9585dff94d5e",
+      "Name": "race_booster (2)",
+      "Position": "-3473.871,-288,1.999989",
+      "Rotation": "0.000000009127595,0.000000009127597,0.7071067,-0.7071066",
+      "Enabled": true,
+      "__Prefab": "prefabs/objects/race_booster.prefab"
     }
   ],
   "SceneProperties": {
