@@ -21,13 +21,11 @@ public partial class VehicleController
 	{
 		health = GetMaxHealth();
 	}
-	[ActionGraphInclude]
 	public void AddHealth(int amount )
 	{
 		health += amount;
 		health.Clamp( 0, GetMaxHealth() );
 	}
-	[ActionGraphInclude]
 	public void TakeDamage(int amount)
 	{
 		health -= amount;

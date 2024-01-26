@@ -28,7 +28,6 @@ public sealed partial class VehicleController : Component
 	#region Movement
 
 	private float turnLean;
-	private float airRoll;
 	private float airTilt;
 	private float CalculateTurnFactor( float direction, float forwardsSpeed )
 	{
@@ -61,7 +60,6 @@ public sealed partial class VehicleController : Component
 		TurnDirection = TurnDirection.LerpTo( TurnInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.0003f, dt ) );
 
 		//Same as above, but for the roll and tilt inpuuts, slower than turning.
-		airRoll = airRoll.LerpTo( RollInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.0001f, dt ) );
 		airTilt = airTilt.LerpTo( TiltInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.0001f, dt ) );
 
 		Vector3 localVelocity = Transform.Local.VelocityToLocal(Body.Velocity);
@@ -140,17 +138,6 @@ public sealed partial class VehicleController : Component
 			// Wheel rotation speed
 			WheelSpeed = localVelocity.x;
 
-			// This appears to be how much we turn when are wheels are on the ground, as in how fast we can turn which is controlled by the sign of our local velocitys x speed multiplied by the turn sped and 
-			// Calculate turn factor takes in our turn direction and the absolute value of our velocity this basically all effects how fast we can turn
-			float turnSpeed = GetTurnSpeed();
-			float turnAmount = 0.0f;
-			if ( turningWheelsOnGround )
-			{
-				turnAmount = MathF.Sign( localVelocity.x ) * turnSpeed * CalculateTurnFactor( TurnDirection, MathF.Abs( localVelocity.x )) * dt;
-			}
-			Body.AngularVelocity += rotation * new Vector3( 0, 0, turnAmount );
-
-			airRoll = 0;
 			airTilt = 0;
 
 			// Forward grip, gets lerped between 0.1 and 0.9 based on whether or not we are breaking
@@ -183,31 +170,27 @@ public sealed partial class VehicleController : Component
 			canAirControl = !tr.Hit;
 		}
 
+		// Turn even when not on ground
+		// Calculate turn factor takes in our turn direction and the absolute value of our velocity this basically all effects how fast we can turn
+		const float TURN_AIR_MULTIPLIER = 0.35f;
+		float turnSpeed = GetTurnSpeed();
+		float turnAmount = MathF.Sign( localVelocity.x ) * turnSpeed * CalculateTurnFactor( TurnDirection, MathF.Abs( localVelocity.x ) ) * dt;
+		if ( !turningWheelsOnGround )
+		{
+			turnAmount *= TURN_AIR_MULTIPLIER;
+		}
+		Body.AngularVelocity += rotation * new Vector3( 0, 0, turnAmount );
 
-		if ( canAirControl && (airRoll != 0 || airTilt != 0) )
+		if ( canAirControl && airTilt != 0 )
 		{
 			float offset = 50;
-			var s = Body.Position + (rotation * Body.LocalMassCenter) + (rotation.Right * airRoll * offset) + (rotation.Down * (10 * scale));
+			var s = Body.Position + (rotation * Body.LocalMassCenter) + (rotation.Down * (10 * scale));
 			var st = Body.MassCenter;
-			var tr = Scene.Trace.Ray( st, st + rotation.Right * airRoll * (40 * scale) )
+			var tr = Scene.Trace.Ray( st, st + rotation.Right * (40 * scale) )
 				.IgnoreGameObject( GameObject )
 				.Run();
-
-			var tr2 = Scene.Trace.Ray( s, s + rotation.Up * (60 * scale) )
-				.IgnoreGameObject( GameObject )
-				.Run();
-
 
 			bool dampen = false;
-
-			if ( airRoll.Clamp( -1, 1 ) != 0 )
-			{
-				const float FORCE_HIT = 1600f;
-				var force = (tr.Hit || tr2.Hit) ? FORCE_HIT : 100.0f;
-				var roll = (tr.Hit || tr2.Hit) ? airRoll.Clamp( -1, 1 ) : airRoll;
-				Body.ApplyForceAt( Body.MassCenter + rotation.Left * (offset * roll), (rotation.Down * roll) * (roll * (Body.Mass * force)) );
-				dampen = true;
-			}
 
 			if ( !tr.Hit && airTilt.Clamp( -1, 1 ) != 0 )
 			{
