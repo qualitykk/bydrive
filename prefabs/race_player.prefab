@@ -1,20 +1,16 @@
 {
   "RootObject": {
     "Id": "712a457d-86ee-4794-8366-47a88dfec995",
-    "Name": "race_local",
+    "Name": "race_player",
     "Enabled": true,
     "Components": [
       {
-        "__version": 0,
         "__type": "VehicleCameraView",
-        "__enabled": true,
         "BaseFieldOfView": 90,
         "MaxFieldOfView": 120
       },
       {
-        "__version": 0,
         "__type": "VehiclePlayerInput",
-        "__enabled": true,
         "DebugLocal": false,
         "ParticipantInstance": null,
         "VehicleController": null
@@ -30,9 +26,7 @@
         "Enabled": true,
         "Components": [
           {
-            "__version": 0,
             "__type": "CameraComponent",
-            "__enabled": true,
             "BackgroundColor": "0.33333,0.46275,0.52157,1",
             "ClearFlags": "All",
             "FieldOfView": 90,
@@ -48,9 +42,7 @@
             "ZNear": 10
           },
           {
-            "__version": 0,
-            "__type": "Highlight",
-            "__enabled": true
+            "__type": "Highlight"
           }
         ]
       },
@@ -61,9 +53,7 @@
         "Enabled": true,
         "Components": [
           {
-            "__version": 0,
             "__type": "ScreenPanel",
-            "__enabled": true,
             "AutoScreenScale": true,
             "Opacity": 1,
             "Scale": 1,
@@ -78,9 +68,7 @@
             "Enabled": true,
             "Components": [
               {
-                "__version": 0,
                 "__type": "LapCompletion",
-                "__enabled": true,
                 "DebugCheckpoints": false
               }
             ]
@@ -92,9 +80,7 @@
             "Enabled": true,
             "Components": [
               {
-                "__version": 0,
                 "__type": "RaceStartCountdown",
-                "__enabled": true,
                 "CountdownTime": 3,
                 "StartTextFade": 2
               }
@@ -107,9 +93,7 @@
             "Enabled": true,
             "Components": [
               {
-                "__version": 0,
-                "__type": "RaceResults",
-                "__enabled": true
+                "__type": "RaceResults"
               }
             ]
           },
@@ -120,9 +104,7 @@
             "Enabled": true,
             "Components": [
               {
-                "__version": 0,
-                "__type": "Speedometer",
-                "__enabled": true
+                "__type": "Speedometer"
               }
             ]
           },
@@ -133,9 +115,7 @@
             "Enabled": true,
             "Components": [
               {
-                "__version": 0,
-                "__type": "RacePlacement",
-                "__enabled": true
+                "__type": "RacePlacement"
               }
             ]
           },
@@ -146,9 +126,7 @@
             "Enabled": true,
             "Components": [
               {
-                "__version": 0,
-                "__type": "RaceTimer",
-                "__enabled": true
+                "__type": "RaceTimer"
               }
             ]
           },
@@ -159,9 +137,7 @@
             "Enabled": true,
             "Components": [
               {
-                "__version": 0,
-                "__type": "VehicleHealth",
-                "__enabled": true
+                "__type": "VehicleHealth"
               }
             ]
           },
@@ -172,9 +148,7 @@
             "Enabled": true,
             "Components": [
               {
-                "__version": 0,
-                "__type": "Notifications",
-                "__enabled": true
+                "__type": "Notifications"
               }
             ]
           },
@@ -185,9 +159,19 @@
             "Enabled": true,
             "Components": [
               {
-                "__version": 0,
-                "__type": "CurrentItem",
-                "__enabled": true
+                "__type": "CurrentItem"
+              }
+            ]
+          },
+          {
+            "Id": "421d1bdf-5c21-47ba-81ab-71fae4594593",
+            "Name": "Race Menu",
+            "Position": "0,0,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "RaceMenu",
+                "MyStringValue": "Hello World!"
               }
             ]
           }

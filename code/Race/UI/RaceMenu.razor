@@ -1,0 +1,59 @@
+@using Sandbox;
+@using Sandbox.UI;
+@namespace Bydrive
+@inherits PanelComponent
+
+<root class="@GetClasses()">
+	<label class="header">By|Drive</label>
+	<label class="button" @onclick=@OnClickResume>Resume</label>
+	<label class="button" @onclick=@OnClickRestart>Restart</label>
+	<label class="button" @onclick=@OnClickExit>Exit Race</label>
+</root>
+
+@code
+{
+	bool wantsDraw = false;
+
+	public bool ShouldDraw()
+	{
+		return wantsDraw;
+	}
+
+	protected override void OnUpdate()
+	{
+		base.OnUpdate();
+		if(Input.EscapePressed)
+		{
+			wantsDraw = !wantsDraw;
+		}
+	}
+
+	private string GetClasses()
+	{
+		if (ShouldDraw())
+			return "active";
+
+		return "";
+	}
+
+	void OnClickResume()
+	{
+		wantsDraw = false;
+	}
+
+	void OnClickRestart()
+	{
+		Race.Reset();
+		wantsDraw = false;
+	}
+
+	void OnClickExit()
+	{
+		StartMenu.Open();
+	}
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine(wantsDraw, GetClasses());
+	}
+}

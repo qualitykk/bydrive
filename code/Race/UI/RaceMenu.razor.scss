@@ -1,0 +1,44 @@
+@import "colors.scss";
+
+RaceMenu {
+	display: none;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	background-color: #88888855;
+
+	.label {
+		font-size: 32px;
+		font-weight: bold;
+		font-family: Poppins;
+		color: #ffffffff;
+		text-align: center;
+	}
+
+	&.active {
+		display: flex;
+	}
+
+	.header {
+		width: 20%;
+		height: 10%;
+		font-size: 64px;
+		color: #ffccccff;
+	}
+
+	.button {
+		width: 20%;
+		height: 8%;
+		background-color: $background_dev;
+		border-radius: 5px;
+		pointer-events: all;
+		align-items: center;
+
+		&:hover {
+			border: 3px solid #eeeeee99;
+		}
+	}
+}
