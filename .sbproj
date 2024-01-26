@@ -40,7 +40,8 @@
     },
     "StartupScene": "scenes/startmenu.scene",
     "ControlModes": {
-      "Keyboard": true
+      "Keyboard": true,
+      "Gamepad": true
     },
     "InputSettings": {
       "Actions": [
@@ -74,11 +75,6 @@
           "Name": "Boost",
           "KeyboardCode": "shift",
           "GamepadCode": "LeftJoystickButton",
-          "GroupName": "Movement"
-        },
-        {
-          "Name": "Walk",
-          "KeyboardCode": "alt",
           "GroupName": "Movement"
         },
         {
@@ -130,41 +126,6 @@
           "GroupName": "Inventory"
         },
         {
-          "Name": "Slot4",
-          "KeyboardCode": "4",
-          "GroupName": "Inventory"
-        },
-        {
-          "Name": "Slot5",
-          "KeyboardCode": "5",
-          "GroupName": "Inventory"
-        },
-        {
-          "Name": "Slot6",
-          "KeyboardCode": "6",
-          "GroupName": "Inventory"
-        },
-        {
-          "Name": "Slot7",
-          "KeyboardCode": "7",
-          "GroupName": "Inventory"
-        },
-        {
-          "Name": "Slot8",
-          "KeyboardCode": "8",
-          "GroupName": "Inventory"
-        },
-        {
-          "Name": "Slot9",
-          "KeyboardCode": "9",
-          "GroupName": "Inventory"
-        },
-        {
-          "Name": "Slot0",
-          "KeyboardCode": "0",
-          "GroupName": "Inventory"
-        },
-        {
           "Name": "SlotPrev",
           "KeyboardCode": "mouse4",
           "GamepadCode": "SwitchLeftBumper",
@@ -183,31 +144,9 @@
           "GroupName": "Other"
         },
         {
-          "Name": "Voice",
-          "KeyboardCode": "v",
-          "GroupName": "Other"
-        },
-        {
-          "Name": "Drop",
-          "KeyboardCode": "g",
-          "GroupName": "Other"
-        },
-        {
-          "Name": "Flashlight",
-          "KeyboardCode": "f",
-          "GamepadCode": "DpadNorth",
-          "GroupName": "Other"
-        },
-        {
           "Name": "Score",
           "KeyboardCode": "tab",
           "GamepadCode": "SwitchLeftMenu",
-          "GroupName": "Other"
-        },
-        {
-          "Name": "Menu",
-          "KeyboardCode": "Q",
-          "GamepadCode": "SwitchRightMenu",
           "GroupName": "Other"
         },
         {

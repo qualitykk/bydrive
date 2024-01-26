@@ -1,11 +1,12 @@
-﻿settingspage {
+﻿ControlsPage {
     align-items: center;
 
-    .options {
+    .controls {
         background-color: #9a9a9acc;
         height: 80%;
         width: 80%;
         align-items: center;
+        overflow-y: scroll;
 
         .label {
             text-align: center;
@@ -14,25 +15,33 @@
         }
 
         .group {
-            font-size: 48px;
+            width: 100%;
+            font-size: 40px;
             width: 40%;
             height: 6vh;
+            text-align: center;
             font-family: Poppins;
         }
 
-        .property {
+        .item {
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+            font-size: 28px;
+
             .name {
                 height: 100%;
-                width: 30%;
+                width: 50%;
                 justify-content: center;
                 align-items: center;
-                font-family: Poppins;
-                font-size: 32px;
+                text-align: right;
             }
 
-            .control {
-                width: 70%;
-                height: 8vh;
+            .key {
+                width: 50%;
+                text-align: left;
             }
         }
     }

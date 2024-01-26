@@ -1,0 +1,35 @@
+﻿@using Sandbox.UI;
+
+@page "/controls";
+@attribute [StyleSheet]
+@namespace Bydrive
+
+<root class="flex-col">
+	<div class="controls flex-col">
+		@foreach (var group in Input.ActionNames.GroupBy(name => Input.GetGroupName(name)))
+		{
+			<label class="group">@group.Key</label>
+			@foreach(string action in group)
+			{
+				<div class="item">
+					<label class="name">@action</label>
+					<!--
+						<image Texture=@Glyph(action) />
+					-->
+					<label class="key">@Input.GetButtonOrigin(action).ToUpper()</label>
+				</div>
+			}
+		}
+		
+	</div>
+	<div class="footer">
+		<button class="button" @onclick=@StartMenu.Back>Back</button>
+	</div>
+</root>
+
+@code {
+	private Texture Glyph(string name)
+	{
+		return Input.GetGlyph(name);
+	}
+}
