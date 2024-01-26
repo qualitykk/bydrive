@@ -315,7 +315,7 @@
                 }
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0"
+              "RespawnRotation": "0,25,0"
             },
             {
               "__type": "BoxCollider",
@@ -410,7 +410,7 @@
                 }
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0"
+              "RespawnRotation": "0,180,0"
             },
             {
               "__type": "BoxCollider",
@@ -470,7 +470,7 @@
                 }
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0"
+              "RespawnRotation": "0,180,0"
             },
             {
               "__type": "BoxCollider",
@@ -521,7 +521,7 @@
           "Components": [
             {
               "__type": "RaceCheckpoint",
-              "IsRequired": false,
+              "IsRequired": true,
               "NextCheckpoints": [
                 {
                   "_type": "component",
@@ -530,7 +530,7 @@
                 }
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0"
+              "RespawnRotation": "0,180,0"
             },
             {
               "__type": "BoxCollider",
@@ -546,7 +546,7 @@
           "Id": "8bcfe959-a8bb-4223-807c-2a04b012b5ec",
           "Name": "4B1",
           "Position": "1548.526,4411.831,245.4342",
-          "Rotation": "-0.00000004173372,0.0000000000000003746349,-0.7001756,0.7139712",
+          "Rotation": "-0.0000000004070806,-0.00000004173172,0.7071068,0.7071068",
           "Enabled": true,
           "Components": [
             {
@@ -619,7 +619,7 @@
                 }
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0"
+              "RespawnRotation": "0,232.0999,0"
             },
             {
               "__type": "BoxCollider",
@@ -678,7 +678,7 @@
                 }
               ],
               "RespawnPosition": "0,0,32",
-              "RespawnRotation": "0,0,0"
+              "RespawnRotation": "0,180,0"
             },
             {
               "__type": "BoxCollider",
@@ -694,7 +694,7 @@
           "Id": "cf0f02d6-1530-478c-ad00-d401762e3ebd",
           "Name": "5",
           "Position": "-2660.833,3312.075,354.4326",
-          "Rotation": "-0.0000000004070593,-0.00000004173178,0.707107,0.7071065",
+          "Rotation": "-0.00000004173178,0.0000000004070788,-0.7071068,0.7071068",
           "Enabled": true,
           "Components": [
             {
@@ -724,7 +724,7 @@
           "Id": "d54ce3ac-cd9c-4a9a-bfd8-bdbc55141047",
           "Name": "6",
           "Position": "-2979.538,2144.542,212.5053",
-          "Rotation": "-0.0000000004070593,-0.00000004173178,0.707107,0.7071065",
+          "Rotation": "-0.00000004173178,0.0000000004070788,-0.7071068,0.7071068",
           "Enabled": true,
           "Components": [
             {

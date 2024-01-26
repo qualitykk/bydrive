@@ -38,13 +38,7 @@ public class RaceParticipant : Component
 	{
 		if(LastKeyCheckpoint != null)
 		{
-			Transform.World = LastKeyCheckpoint.GetWorldRespawn();
-			
-			if(Components.TryGet(out Rigidbody body, FindMode.EnabledInSelfAndDescendants))
-			{
-				body.Velocity = Vector3.Zero;
-				body.AngularVelocity = Vector3.Zero;
-			}
+			LastKeyCheckpoint.Respawn( GameObject );
 		}
 	}
 	public void PassCheckpoint(RaceCheckpoint checkpoint, bool forceLast = false)

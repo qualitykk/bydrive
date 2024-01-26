@@ -65,7 +65,16 @@ public class RaceCheckpoint : Component, Component.ITriggerListener
 	void ITriggerListener.OnTriggerExit( Collider other )
 	{
 	}
+	public void Respawn(GameObject obj)
+	{
+		obj.Transform.World = GetWorldRespawn();
 
+		if ( obj.Components.TryGet( out Rigidbody body, FindMode.EnabledInSelfAndDescendants ) )
+		{
+			body.Velocity = Vector3.Zero;
+			body.AngularVelocity = Vector3.Zero;
+		}
+	}
 	public Transform GetWorldRespawn() => Transform.World.ToWorld( RespawnTransform ).EnsureNotNaN();
 
 	protected override void DrawGizmos()

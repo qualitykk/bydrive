@@ -7,10 +7,15 @@ namespace Bydrive;
 [Category( "Vehicle" )]
 public sealed partial class VehicleController : Component
 {
+	const float AUTO_RESPAWN_TIME = 2f;
 	[Property, Required, Title("Physics Body")] public Rigidbody Rigidbody { get; set; }
 	public PhysicsBody Body => Rigidbody?.PhysicsBody;
 	public float Speed { get; private set; }
 	public float TurnDirection { get; private set; }
+	private RaceParticipant GetParticipant()
+	{
+		return GameObject.Components.Get<RaceParticipant>( FindMode.EnabledInSelfAndDescendants );
+	}
 	public override void Reset()
 	{
 		base.Reset();
@@ -21,18 +26,53 @@ public sealed partial class VehicleController : Component
 	}
 	protected override void OnUpdate()
 	{
+		bool couldDrive = canDrive;
+
 		TickSounds();
 		VerifyInput();
 
 		TickAbilities();
 		TickStats();
 		Move();
+
+		if(!canDrive)
+		{
+			var models = Components.GetAll<SkinnedModelRenderer>();
+			foreach(var model in models)
+			{
+				model.Tint = new( 1f, 1 - timeUntilAutoRespawn.Fraction );
+			}
+		}
+		else if(!couldDrive)
+		{
+			var models = Components.GetAll<SkinnedModelRenderer>();
+			foreach ( var model in models )
+			{
+				model.Tint = new( 1f );
+			}
+		}
+	}
+
+	public void Respawn()
+	{
+		RaceParticipant participant = GetParticipant();
+		if ( participant != null )
+		{
+			participant.Respawn();
+		}
+		else
+		{
+			base.Reset();
+		}
 	}
 
 	#region Movement
 
 	private float turnLean;
 	private float airTilt;
+
+	private bool canDrive;
+	private TimeUntil timeUntilAutoRespawn;
 	private float CalculateTurnFactor( float direction, float forwardsSpeed )
 	{
 		const float MAX_TURN_FACTOR = 0.9f;
@@ -104,26 +144,61 @@ public sealed partial class VehicleController : Component
 		angle = angle.LerpTo( 1.0f, 1.0f - velocityDelta );
 		grip = grip.LerpTo( angle, 1.0f - MathF.Pow( 0.001f, dt ) );
 
-		//Looks like we're using some good old fashioned two wheel drive, this seems where the main acceleration is calculated and applied
-		if ( drivingWheelsOnGround )
+		// Check if we havent flipped over or gotten stuck in any other way
+		const float DRIVABLE_PITCH = 50f;
+		const float DRIVABLE_ROLL = 60f;
+		float roll = rotation.Roll();
+		float pitch = rotation.Pitch();
+		bool couldDrive = canDrive;
+		canDrive = MathF.Abs(roll) < DRIVABLE_ROLL && MathF.Abs(pitch) < DRIVABLE_PITCH;
+
+		if(canDrive)
 		{
-			const float REVERSING_ACCELERATION_MULTIPLIER = 0.9f;
-			//Basically we're saying as the angle of the cars totaly velocity versus the angle of the cars forward direction approaches 90 degrees
-			//Give us a big boost to the speed of our forward acceleration in order to not loose all momentum when drifting. 
-			var fac = 1.0f;
-			float f = MathF.Pow( 1 - angle, 4f );
-			fac = fac.LerpTo( 10f, f );
+			// Turn even when not on ground
+			// Calculate turn factor takes in our turn direction and the absolute value of our velocity this basically all effects how fast we can turn
+			const float TURN_AIR_MULTIPLIER = 0.35f;
+			float turnSpeed = GetTurnSpeed();
+			float turnAmount = MathF.Sign( localVelocity.x ) * turnSpeed * CalculateTurnFactor( TurnDirection, MathF.Abs( localVelocity.x ) ) * dt;
+			if ( !turningWheelsOnGround )
+			{
+				turnAmount *= TURN_AIR_MULTIPLIER;
+			}
+			Body.AngularVelocity += rotation * new Vector3( 0f, 0f, turnAmount );
 
-			//The speed factor decreases the amount of acceleration we have depending on how fast we're currently going
-			float speedFactor = 1.0f - MathF.Pow( forwardSpeed / maxSpeed, 3.5f );
-			speedFactor = speedFactor.Clamp( 0.0f, 1.0f );
+			if ( drivingWheelsOnGround )
+			{
+				const float REVERSING_ACCELERATION_MULTIPLIER = 0.9f;
+				//Basically we're saying as the angle of the cars totaly velocity versus the angle of the cars forward direction approaches 90 degrees
+				//Give us a big boost to the speed of our forward acceleration in order to not loose all momentum when drifting. 
+				var fac = 1.0f;
+				float f = MathF.Pow( 1 - angle, 4f );
+				fac = fac.LerpTo( 10f, f );
 
-			//Calculate our acceleration based on our input..
-			//Slow down acceleration if going backwards
-			float forwardimpulse = speedFactor * (accelerateDirection < 0.0f ? acceleration * REVERSING_ACCELERATION_MULTIPLIER : acceleration * fac) * accelerateDirection * dt;
-			//Use this to then get the impulse and apply it to our body's velocity
-			var impulse = rotation * new Vector3( forwardimpulse, 0, 0 );
-			Body.Velocity += impulse;
+				//The speed factor decreases the amount of acceleration we have depending on how fast we're currently going
+				float speedFactor = 1.0f - MathF.Pow( forwardSpeed / maxSpeed, 3.5f );
+				speedFactor = speedFactor.Clamp( 0.0f, 1.0f );
+
+				//Calculate our acceleration based on our input..
+				//Slow down acceleration if going backwards
+				float forwardimpulse = speedFactor * (accelerateDirection < 0.0f ? acceleration * REVERSING_ACCELERATION_MULTIPLIER : acceleration * fac) * accelerateDirection * dt;
+				//Use this to then get the impulse and apply it to our body's velocity
+				var impulse = rotation * new Vector3( forwardimpulse, 0, 0 );
+				Body.Velocity += impulse;
+			}
+		}
+		else
+		{
+			if(couldDrive)
+			{
+				timeUntilAutoRespawn = AUTO_RESPAWN_TIME;
+			}
+			
+			if(timeUntilAutoRespawn)
+			{
+				Respawn();
+				canDrive = true;
+				return;
+			}
 		}
 
 		//Angular Damping, lerps to 5 based off grip
@@ -137,6 +212,8 @@ public sealed partial class VehicleController : Component
 		//If we're on the ground
 		if ( wheelsOnGround )
 		{
+			Body.GravityScale = 1f;
+
 			// Get our local velocity
 			localVelocity = rotation.Inverse * Body.Velocity;
 			// Wheel rotation speed
@@ -166,6 +243,8 @@ public sealed partial class VehicleController : Component
 		}
 		else
 		{
+			Body.GravityScale = 1.25f;
+
 			Vector3 tracePosition = Transform.Position;
 			var tr = Scene.Trace.Ray( tracePosition, tracePosition + rotation.Down * 50 )
 				.IgnoreGameObject( GameObject )
@@ -173,17 +252,6 @@ public sealed partial class VehicleController : Component
 
 			canAirControl = !tr.Hit;
 		}
-
-		// Turn even when not on ground
-		// Calculate turn factor takes in our turn direction and the absolute value of our velocity this basically all effects how fast we can turn
-		const float TURN_AIR_MULTIPLIER = 0.35f;
-		float turnSpeed = GetTurnSpeed();
-		float turnAmount = MathF.Sign( localVelocity.x ) * turnSpeed * CalculateTurnFactor( TurnDirection, MathF.Abs( localVelocity.x ) ) * dt;
-		if ( !turningWheelsOnGround )
-		{
-			turnAmount *= TURN_AIR_MULTIPLIER;
-		}
-		Body.AngularVelocity += rotation * new Vector3( 0, 0, turnAmount );
 
 		if ( canAirControl && airTilt != 0 )
 		{
