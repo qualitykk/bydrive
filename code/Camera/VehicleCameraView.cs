@@ -26,6 +26,7 @@ public class VehicleCameraView : Component
 
 		Vector3 position = GetCameraPosition();
 		Rotation rotation = GetCameraRotation();
+
 		Camera.Transform.LocalPosition = position;
 		Camera.Transform.LocalRotation = rotation;
 
@@ -58,9 +59,14 @@ public class VehicleCameraView : Component
 
 		float turn = Vehicle.TurnDirection;
 		currentTurnOffset = currentTurnOffset.LerpTo( turn, Time.Delta / TURN_OFFSET_DURATION );
-		position.y = currentTurnOffset * TURN_OFFSET_MAX_DISTANCE;
 
-		return position;
+		position.y = currentTurnOffset * TURN_OFFSET_MAX_DISTANCE;
+		// Dont let camera go through walls
+		var tr = Scene.Trace.Ray( Camera.Transform.World.PointToWorld( new( -CameraBackwardsOffset, 0f, VERTICAL_OFFSET ) ), Camera.Transform.World.PointToWorld( position ) )
+							.IgnoreGameObjectHierarchy(Vehicle.GameObject)
+							.WithTag( TraceTags.WORLD )
+							.Run();
+		return Camera.Transform.World.PointToLocal(tr.EndPosition);
 	}
 
 	private Rotation GetCameraRotation()
