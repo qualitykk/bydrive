@@ -10,13 +10,18 @@ namespace Bydrive;
 [Icon("speed")]
 public class BoostPickup : RacerPickup
 {
+	/// <summary>
+	/// Boost percentage gained on pickup
+	/// </summary>
+	[Property] public float Amount { get; set; } = 1.0f;
 	public override bool OnPickup( VehicleController vehicle )
 	{
 		float maxBoost = vehicle.GetBoostDuration();
-
+		float boostAmount = maxBoost * Amount;
 		if(vehicle.RemainingBoost < maxBoost )
 		{
-			vehicle.RemainingBoost = maxBoost;
+			vehicle.RemainingBoost += boostAmount;
+			vehicle.RemainingBoost = vehicle.RemainingBoost.Clamp( 0, maxBoost );
 			Notifications.Add( vehicle, new("Picked up boost", UIColors.Notification.Bonus) );
 			return true;
 		}

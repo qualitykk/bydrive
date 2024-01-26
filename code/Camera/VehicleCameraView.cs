@@ -31,10 +31,10 @@ public class VehicleCameraView : Component
 
 		float dt = Time.Delta;
 
-		float maxSpeed = Vehicle.GetMaxSpeed();
+		float maxSpeed = Vehicle.Stats.MaxSpeed;
 		float speedFraction = Vehicle.Speed / maxSpeed;
 		float currentFov = Camera.FieldOfView;
-		float targetFov = speedFraction.Remap( 0, 1, BaseFieldOfView, MaxFieldOfView );
+		float targetFov = speedFraction.Remap( 0, 1, BaseFieldOfView, MaxFieldOfView, false );
 
 		if ( currentFov < targetFov )
 		{

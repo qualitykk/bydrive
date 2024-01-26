@@ -82,7 +82,8 @@ public partial class VehicleController
 		}
 
 		itemObject.Transform.Position = spawnPos;
-		itemObject.Transform.Rotation = Transform.Rotation;
+		// Only use the vehicle yaw, we dont wanna mess with item pitch & roll
+		itemObject.Transform.Rotation = Rotation.FromYaw( Transform.Rotation.Yaw() );
 
 		CurrentItem = default;
 		WantsItem = false;
