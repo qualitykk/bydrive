@@ -11,16 +11,22 @@ namespace Bydrive;
 [Alias("ParticipantRespawnZone", "RaceParticipantRespawnZone")]
 public class RaceRespawnZone : Component, Component.ITriggerListener
 {
+	const float RESPAWN_TIME = 1.2f;
 	void ITriggerListener.OnTriggerEnter( Collider other )
 	{
 		var participant = other.Components.GetInAncestorsOrSelf<RaceParticipant>();
 		if(participant != null)
 		{
-			participant.Respawn();
+			participant.RespawnIn(RESPAWN_TIME);
 		}
 	}
 
 	void ITriggerListener.OnTriggerExit( Collider other )
 	{
+		var participant = other.Components.GetInAncestorsOrSelf<RaceParticipant>();
+		if ( participant != null )
+		{
+			participant.RespawnCancel();
+		}
 	}
 }

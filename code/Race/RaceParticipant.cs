@@ -27,6 +27,10 @@ public class RaceParticipant : Component
 	public List<RaceCheckpoint> PreviousKeyCheckpoints { get; private set; } = new();
 	public float GetCompletion() => Race?.GetParticipantCompletion( this ) ?? 0f;
 	public int GetLap() => Race?.GetParticipantLap( this ) ?? 0;
+
+	bool respawning;
+	bool cancelRespawn;
+	TimeUntil timeUntilRespawn;
 	protected override void OnAwake()
 	{
 		if(string.IsNullOrEmpty(DisplayName))
@@ -34,13 +38,54 @@ public class RaceParticipant : Component
 			DisplayName = GenerateName();
 		}
 	}
+	protected override void OnUpdate()
+	{
+		if(respawning && timeUntilRespawn)
+		{
+			Respawn();
+		}
+
+		if ( respawning )
+		{
+			foreach ( var model in GetModels() )
+			{
+				model.Tint = new( 1f, 1 - timeUntilRespawn.Fraction );
+			}
+		}
+
+		if ( cancelRespawn )
+		{
+			foreach ( var model in GetModels() )
+			{
+				model.Tint = new( 1f );
+			}
+			respawning = false;
+			cancelRespawn = false;
+		}
+	}
+	private IEnumerable<SkinnedModelRenderer> GetModels()
+	{
+		return Components.GetAll<SkinnedModelRenderer>( FindMode.EnabledInSelfAndDescendants | FindMode.InAncestors );
+	}
 	public void Respawn()
 	{
 		if(LastKeyCheckpoint != null)
 		{
 			LastKeyCheckpoint.Respawn( GameObject );
 		}
+
+		cancelRespawn = true;
 	}
+	public void RespawnIn(float time)
+	{
+		respawning = true;
+		timeUntilRespawn = time;
+	}
+	public void RespawnCancel()
+	{
+		cancelRespawn = true;
+	}
+
 	public void PassCheckpoint(RaceCheckpoint checkpoint, bool forceLast = false)
 	{
 		if(!CanPass(checkpoint) && !forceLast)

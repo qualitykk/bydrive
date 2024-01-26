@@ -26,44 +26,12 @@ public sealed partial class VehicleController : Component
 	}
 	protected override void OnUpdate()
 	{
-		bool couldDrive = canDrive;
-
 		TickSounds();
 		VerifyInput();
 
 		TickAbilities();
 		TickStats();
 		Move();
-
-		if(!canDrive)
-		{
-			var models = Components.GetAll<SkinnedModelRenderer>();
-			foreach(var model in models)
-			{
-				model.Tint = new( 1f, 1 - timeUntilAutoRespawn.Fraction );
-			}
-		}
-		else if(!couldDrive)
-		{
-			var models = Components.GetAll<SkinnedModelRenderer>();
-			foreach ( var model in models )
-			{
-				model.Tint = new( 1f );
-			}
-		}
-	}
-
-	public void Respawn()
-	{
-		RaceParticipant participant = GetParticipant();
-		if ( participant != null )
-		{
-			participant.Respawn();
-		}
-		else
-		{
-			base.Reset();
-		}
 	}
 
 	#region Movement
@@ -154,6 +122,11 @@ public sealed partial class VehicleController : Component
 
 		if(canDrive)
 		{
+			if(!couldDrive)
+			{
+				GetParticipant()?.RespawnCancel();
+			}
+
 			// Turn even when not on ground
 			// Calculate turn factor takes in our turn direction and the absolute value of our velocity this basically all effects how fast we can turn
 			const float TURN_AIR_MULTIPLIER = 0.35f;
@@ -190,14 +163,7 @@ public sealed partial class VehicleController : Component
 		{
 			if(couldDrive)
 			{
-				timeUntilAutoRespawn = AUTO_RESPAWN_TIME;
-			}
-			
-			if(timeUntilAutoRespawn)
-			{
-				Respawn();
-				canDrive = true;
-				return;
+				GetParticipant()?.RespawnIn( AUTO_RESPAWN_TIME );
 			}
 		}
 

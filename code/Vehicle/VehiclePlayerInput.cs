@@ -10,6 +10,7 @@ namespace Bydrive;
 [Icon( "settings_input_antenna" )]
 public class VehiclePlayerInput : VehicleInputComponent
 {
+	const float RESPAWN_TIME = 0.8f;
 	[Property] public bool DebugLocal { get; set; } = false;
 	protected override void BuildInput()
 	{
@@ -23,10 +24,13 @@ public class VehiclePlayerInput : VehicleInputComponent
 		VehicleController.WantsItem = Input.Down( InputActions.ITEM );
 
 		// Participant Inputs
-		if(Input.Down(InputActions.RESPAWN))
+		if ( Input.Released( InputActions.RESPAWN ) )
 		{
-			ParticipantInstance.Respawn();
-			ResetVehicleInputs();
+			ParticipantInstance.RespawnCancel();
+		}
+		else if (Input.Pressed(InputActions.RESPAWN))
+		{
+			ParticipantInstance.RespawnIn(RESPAWN_TIME);
 		}
 	}
 
