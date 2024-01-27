@@ -99,6 +99,7 @@ internal static class UIColors
 		public static Color Success => new Color( 0x6080DF20 );
 		public static Color Critical => new Color( 0x601B48FF );
 		public static Color Bonus => new Color( 0x60EE5F13 );
+		public static Color Danger => new Color( 0.6f, 0.1f, 0.1f, 0.5f);
 	}
 }
 

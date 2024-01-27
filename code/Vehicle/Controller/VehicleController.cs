@@ -1,5 +1,6 @@
 using Sandbox;
 using System.ComponentModel.DataAnnotations;
+using static Bydrive.RaceMatchInformation;
 
 namespace Bydrive;
 
@@ -40,7 +41,6 @@ public sealed partial class VehicleController : Component
 	private float airTilt;
 
 	private bool canDrive;
-	private TimeUntil timeUntilAutoRespawn;
 	private float CalculateTurnFactor( float direction, float forwardsSpeed )
 	{
 		const float MAX_TURN_FACTOR = 0.9f;
@@ -163,6 +163,7 @@ public sealed partial class VehicleController : Component
 		{
 			if(couldDrive)
 			{
+				Notifications.Add( this, new( "Unsafe vehicle position, respawning...", UIColors.Notification.Danger, AUTO_RESPAWN_TIME, "warning" ) );
 				GetParticipant()?.RespawnIn( AUTO_RESPAWN_TIME );
 			}
 		}
