@@ -50,13 +50,7 @@ RaceResults {
 			align-items: center;
 			justify-content: center;
 
-			.placement {
-				width: 10%;
-				text-align: center;
-				justify-content: center;
-				color: #eeffee;
-				font-size: 64px;
-
+			.label {
 				&.first {
 					color: $placement_first;
 				}
@@ -72,6 +66,14 @@ RaceResults {
 				&.last {
 					color: $placement_last;
 				}
+			}
+
+			.placement {
+				width: 10%;
+				text-align: center;
+				justify-content: center;
+				color: #eeffee;
+				font-size: 64px;
 			}
 
 			.name {
