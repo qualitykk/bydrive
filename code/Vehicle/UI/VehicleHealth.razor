@@ -8,7 +8,7 @@
 	<div class="points">
 		@for (int i = 1; i < MaxHealth + 1; i++)
 		{
-			<div class="health">
+			<div class="health @GetHealthClass()">
 				@if (Health >= i)
 				{
 					<div class="active" />
@@ -23,6 +23,19 @@
 	private VehicleController Vehicle => GetLocalVehicle();
 	private int Health => Vehicle?.Health ?? 1;
 	private int MaxHealth => Vehicle?.GetMaxHealth() ?? 1;
+	private string GetHealthClass()
+	{
+		if(Health <= 0)
+		{
+			return "damage_full";
+		}
+		else if(Health <= Vehicle?.GetHalfHealth())
+		{
+			return "damage_half";
+		}
+
+		return "";
+	}
 
 	protected override int BuildHash() => HashCode.Combine(Health, MaxHealth);
 }

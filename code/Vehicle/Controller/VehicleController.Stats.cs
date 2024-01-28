@@ -126,11 +126,16 @@ public partial class VehicleController
 	public float GetMaxSpeed()
 	{
 		const float NO_HEALTH_SPEED_MULTIPLIER = 0.875f;
+		const float HALF_HEALTH_SPEED_MULTIPLIER = 0.95f;
 
 		float maxSpeed = Stats.MaxSpeed;
 		if(Health <= 0)
 		{
 			maxSpeed *= NO_HEALTH_SPEED_MULTIPLIER;
+		}
+		else if(Health <= GetHalfHealth())
+		{
+			maxSpeed *= HALF_HEALTH_SPEED_MULTIPLIER;
 		}
 
 		float multiplier = 1f;
@@ -185,7 +190,10 @@ public partial class VehicleController
 		int maxHealth = Stats.MaxHealth;
 		return maxHealth;
 	}
-
+	public int GetHalfHealth()
+	{
+		return (int)MathF.Floor( GetMaxHealth() / 2f );
+	}
 	public float GetTurnSpeed()
 	{ 
 		return Stats.TurnSpeed; 
