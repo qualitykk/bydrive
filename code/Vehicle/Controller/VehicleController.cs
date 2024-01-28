@@ -61,6 +61,7 @@ public sealed partial class VehicleController : Component
 		Rotation rotation = Body.Rotation;
 		float scale = Transform.Scale.z;
 		float maxSpeed = GetMaxSpeed();
+		float baseAcceleration = Stats.Acceleration;
 		float acceleration = GetAcceleration();
 
 		//Tilting is the forward and backward tilt caused by acceleration or decelleration of the vehicle
@@ -141,7 +142,7 @@ public sealed partial class VehicleController : Component
 
 			if ( drivingWheelsOnGround )
 			{
-				const float REVERSING_ACCELERATION_MULTIPLIER = 0.9f;
+				const float REVERSING_ACCELERATION_MULTIPLIER = 0.8f;
 				//Basically we're saying as the angle of the cars totaly velocity versus the angle of the cars forward direction approaches 90 degrees
 				//Give us a big boost to the speed of our forward acceleration in order to not loose all momentum when drifting. 
 				var fac = 1.0f;
@@ -154,7 +155,7 @@ public sealed partial class VehicleController : Component
 
 				//Calculate our acceleration based on our input..
 				//Slow down acceleration if going backwards
-				float forwardimpulse = speedFactor * (accelerateDirection < 0.0f ? acceleration * REVERSING_ACCELERATION_MULTIPLIER : acceleration * fac) * accelerateDirection * dt;
+				float forwardimpulse = speedFactor * (accelerateDirection < 0f ? baseAcceleration * REVERSING_ACCELERATION_MULTIPLIER : acceleration * fac) * accelerateDirection * dt;
 				//Use this to then get the impulse and apply it to our body's velocity
 				var impulse = rotation * new Vector3( forwardimpulse, 0, 0 );
 				Body.Velocity += impulse;

@@ -98,19 +98,17 @@ public partial class VehicleController
 		return Time.Now >= modifier.DeletionTime;
 	}
 
-	private float GetStatMultiplier(string id)
+	private void ApplyStatMultipliers(string id, ref float multiplier)
 	{
-		float multiplier = 1f;
-		if(!modifiersPerStat.TryGetValue(id, out var modifiers))
+		if(!modifiersPerStat.TryGetValue(id, out var modifiers) || !modifiers.Any())
 		{
-			return multiplier;
+			return;
 		}
 
 		foreach(var mod in modifiers)
 		{
-			multiplier *= mod.Multiplier;
+			multiplier += mod.Multiplier - 1;
 		}
-		return multiplier;
 	}
 
 	private void TickModifiers()
@@ -130,30 +128,33 @@ public partial class VehicleController
 		const float NO_HEALTH_SPEED_MULTIPLIER = 0.875f;
 
 		float maxSpeed = Stats.MaxSpeed;
-		if ( UsingBoost )
-		{
-			maxSpeed *= Stats.BoostSpeedMultiplier;
-		}
-
 		if(Health <= 0)
 		{
 			maxSpeed *= NO_HEALTH_SPEED_MULTIPLIER;
 		}
 
-		maxSpeed *= GetStatMultiplier( VehicleStatModifiers.SPEED );
-		return maxSpeed;
+		float multiplier = 1f;
+		if ( UsingBoost )
+		{
+			multiplier *= Stats.BoostSpeedMultiplier;
+		}
+
+		ApplyStatMultipliers( VehicleStatModifiers.SPEED, ref multiplier );
+
+		return maxSpeed * multiplier;
 	}
 
 	public float GetAcceleration()
 	{
 		float acceleration = Stats.Acceleration;
+		float multiplier = 1;
 		if(UsingBoost)
 		{
-			acceleration *= Stats.BoostAccelerationMultiplier;
+			multiplier *= Stats.BoostAccelerationMultiplier;
 		}
 
-		acceleration *= GetStatMultiplier( VehicleStatModifiers.ACCELERATION );
-		return acceleration;
+		ApplyStatMultipliers( VehicleStatModifiers.ACCELERATION, ref multiplier );
+		return acceleration * multiplier;
 	}
 
 	public float GetBoostDuration()
