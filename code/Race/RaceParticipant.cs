@@ -31,6 +31,7 @@ public class RaceParticipant : Component
 	bool respawning;
 	bool cancelRespawn;
 	TimeUntil timeUntilRespawn;
+	int nextRespawnDamage;
 	protected override void OnAwake()
 	{
 		if(string.IsNullOrEmpty(DisplayName))
@@ -42,7 +43,7 @@ public class RaceParticipant : Component
 	{
 		if(respawning && timeUntilRespawn)
 		{
-			Respawn();
+			Respawn(nextRespawnDamage);
 		}
 
 		if ( respawning )
@@ -61,13 +62,18 @@ public class RaceParticipant : Component
 			}
 			respawning = false;
 			cancelRespawn = false;
+			nextRespawnDamage = 0;
 		}
 	}
 	private IEnumerable<SkinnedModelRenderer> GetModels()
 	{
 		return Components.GetAll<SkinnedModelRenderer>( FindMode.EnabledInSelfAndDescendants | FindMode.InAncestors );
 	}
-	public void Respawn()
+	private VehicleController GetVehicle()
+	{
+		return Components.Get<VehicleController>( FindMode.EnabledInSelfAndDescendants | FindMode.InAncestors );
+	}
+	public void Respawn(int damage = 0)
 	{
 		if(LastKeyCheckpoint != null)
 		{
@@ -75,11 +81,21 @@ public class RaceParticipant : Component
 		}
 
 		cancelRespawn = true;
+
+		if(damage != 0)
+		{
+			var vehicle = GetVehicle();
+			if ( vehicle != null )
+			{
+				vehicle.TakeDamage( damage );
+			}
+		}
 	}
-	public void RespawnIn(float time)
+	public void RespawnIn(float time, int damage = 0)
 	{
 		respawning = true;
 		timeUntilRespawn = time;
+		nextRespawnDamage = damage;
 	}
 	public void RespawnCancel()
 	{

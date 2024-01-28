@@ -9,6 +9,7 @@ namespace Bydrive;
 public sealed partial class VehicleController : Component
 {
 	const float AUTO_RESPAWN_TIME = 2f;
+	const int AUTO_RESPAWN_DAMAGE = 1;
 	[Property, Required, Title("Physics Body")] public Rigidbody Rigidbody { get; set; }
 	public PhysicsBody Body => Rigidbody?.PhysicsBody;
 	public float Speed { get; private set; }
@@ -164,7 +165,7 @@ public sealed partial class VehicleController : Component
 			if(couldDrive)
 			{
 				Notifications.Add( this, new( "Unsafe vehicle position, respawning...", UIColors.Notification.Danger, AUTO_RESPAWN_TIME, "warning" ) );
-				GetParticipant()?.RespawnIn( AUTO_RESPAWN_TIME );
+				GetParticipant()?.RespawnIn( AUTO_RESPAWN_TIME, AUTO_RESPAWN_DAMAGE );
 			}
 		}
 

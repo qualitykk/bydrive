@@ -12,22 +12,18 @@ namespace Bydrive;
 public class RaceRespawnZone : Component, Component.ITriggerListener
 {
 	const float RESPAWN_TIME = 1.2f;
+	const int RESPAWN_DAMAGE = 2;
 	void ITriggerListener.OnTriggerEnter( Collider other )
 	{
 		var participant = other.Components.GetInAncestorsOrSelf<RaceParticipant>();
 		if(participant != null)
 		{
 			Notifications.Add( participant, new( "Vehicle out of bounds, respawning...", UIColors.Notification.Danger, RESPAWN_TIME, "warning" ) );
-			participant.RespawnIn(RESPAWN_TIME);
+			participant.RespawnIn(RESPAWN_TIME, RESPAWN_DAMAGE);
 		}
 	}
 
 	void ITriggerListener.OnTriggerExit( Collider other )
 	{
-		var participant = other.Components.GetInAncestorsOrSelf<RaceParticipant>();
-		if ( participant != null )
-		{
-			participant.RespawnCancel();
-		}
 	}
 }
