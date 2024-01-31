@@ -37,9 +37,7 @@ internal static class StartRace
 				continue;
 			}
 
-			Player botPlayer = Player.CreateBot();
-			botPlayer.DisplayName = $"Bot {i}";
-			racers.Add( new(GetBotVehicle(), botPlayer, i) );
+			racers.Add( CreateBot(GetBotVehicle(), i) );
 		}
 
 		new RaceMatchInformation( race, racers );
@@ -53,6 +51,9 @@ internal static class StartRace
 
 	private static RaceMatchInformation.Participant CreateBot(VehicleDefinition def, int startPosition)
 	{
-		return new( def, Player.CreateBot(), startPosition );
+		RaceMatchInformation.Participant bot = new( def, Player.CreateBot(), startPosition );
+		bot.Player.DisplayName = $"Bot {startPosition}";
+
+		return bot;
 	}
 }

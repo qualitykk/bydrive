@@ -63,11 +63,6 @@ public class RaceMatchInformation
 		Assert.NotNull( definition );
 		Assert.NotNull( participants );
 
-		if ( Current != null )
-		{
-			Current.Stop();
-		}
-
 		Current = this;
 		multiplayer = LobbyManager.MultiplayerActive;
 
@@ -128,6 +123,7 @@ public class RaceMatchInformation
 			obj.Networked = true;
 			if(!participant.Player.IsBot)
 			{
+				Log.Info( participant );
 				obj.Network.AssignOwnership( participant.Player.Connection );
 			}
 		}
@@ -136,7 +132,6 @@ public class RaceMatchInformation
 		if(vehicle == null)
 		{
 			Log.Error( "Prefabs for vehicles MUST include a vehicle controller!" );
-			obj.Destroy();
 			obj.Destroy();
 
 			return null;

@@ -26,21 +26,31 @@ public partial class LobbyPage : Panel
 	protected override void OnParametersSet()
 	{
 		Refresh();
-		selectedTrack = ResourceLibrary.GetAll<RaceDefinition>().First();
+		//selectedTrack = ResourceLibrary.GetAll<RaceDefinition>().First();
+	}
+	private bool IsMultiplayer(RaceDefinition def)
+	{
+		return def.Multiplayer;
 	}
 	private void Refresh()
 	{
 
 	}
+	private bool CanStart()
+	{
+		return selectedTrack != null && LobbyManager.IsHost;
+	}
 	private void OnClickStart()
 	{
+		if ( !CanStart() )
+			return;
+
 		List<RaceMatchInformation.Participant> racers = new();
 		int i = 1;
 		foreach(var ply in players)
 		{
 			VehicleDefinition playerVehicle = ply.SelectedVehicle ?? StartMenu.GetDefaultVehicle();
 			racers.Add( new( playerVehicle, ply, i) );
-			//Log.Info( $"Start {ply} {playerVehicle}" );
 			i++;
 		}
 

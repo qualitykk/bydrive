@@ -47,7 +47,7 @@ public class Player : Component
 	}
 	public static Player Local => LobbyManager.Instance?.LocalPlayer ?? CreateLocal();
 	public Connection Connection => Network.OwnerConnection;
-	public string Name => DisplayName ?? Connection?.DisplayName ?? "Player";
+	public string Name => DisplayName ?? Connection?.DisplayName ?? Connection?.Name ?? "Player";
 	public ulong SteamId => Connection?.SteamId ?? 0;
 	[Property, Sync] public string DisplayName { get; set; }
 	[Property, Sync] public bool IsBot { get; set; }

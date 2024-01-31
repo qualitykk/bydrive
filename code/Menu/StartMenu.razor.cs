@@ -1,6 +1,7 @@
 ﻿using Sandbox;
 using Sandbox.Network;
 using Sandbox.UI;
+using Sandbox.VR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,6 +70,25 @@ public partial class StartMenu
 				LobbyManager.Instance.LocalPlayer.SelectedVehicle = value;
 			}
 			_localSelectedVehicle = value;
+		}
+	}
+	private static RaceDefinition _localSelectedTrack;
+
+	public static RaceDefinition SelectedTrack
+	{
+		get
+		{
+			RaceDefinition selection = LobbyManager.MultiplayerActive ? LobbyManager.Instance.LocalPlayer.SelectedTrack : _localSelectedTrack;
+
+			return selection;
+		}
+		set
+		{
+			if ( LobbyManager.MultiplayerActive )
+			{
+				LobbyManager.Instance.LocalPlayer.SelectedTrack = value;
+			}
+			_localSelectedTrack = value;
 		}
 	}
 	[Property] public SoundEvent BackgroundMusic { get; set; }

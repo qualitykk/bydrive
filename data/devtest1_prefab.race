@@ -1,0 +1,10 @@
+{
+  "Name": "Devtest1 MP",
+  "Group": "",
+  "Hidden": false,
+  "Multiplayer": true,
+  "Scene": null,
+  "Prefab": "prefabs/tracks/track_devtest1.prefab",
+  "MapName": "maps/rd_rc_devtest1_a1.vpk",
+  "__references": []
+}

@@ -14,6 +14,7 @@
 @code
 {
     public Action<RaceDefinition> TrackSelected { get; set; }
+    public Func<RaceDefinition, bool> Filter { get; set; }
 
     IEnumerable<IGrouping<string, RaceDefinition>> groupedTracks;
     IEnumerable<RaceDefinition> tracks;
@@ -21,7 +22,7 @@
 
     protected override void OnParametersSet()
     {
-        tracks = ResourceLibrary.GetAll<RaceDefinition>().Where(def => !def.Hidden);
+        tracks = ResourceLibrary.GetAll<RaceDefinition>().Where(def => !def.Hidden && (Filter == null || Filter.Invoke(def)));
         groupedTracks = tracks.GroupBy(t => t.Group);
     }
 

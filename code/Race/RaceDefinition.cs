@@ -16,6 +16,7 @@ public class RaceDefinition : GameResource
 	public string Name { get; set; }
 	public string Group { get; set; }
 	public bool Hidden { get; set; }
+	public bool Multiplayer { get; set; }
 	public SceneFile Scene { get; set; }
 	public PrefabFile Prefab { get; set; }
 	[HideIf("Prefab", null)] public string MapName { get;set; }

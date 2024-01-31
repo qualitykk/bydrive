@@ -59,12 +59,12 @@
 			        </div>
 		        </div>
             </div>
-		    <TrackList class="list tracklist" TrackSelected=@OnTrackSelected />
+		    <TrackList class="list tracklist flex-col" Filter=@IsMultiplayer TrackSelected=@OnTrackSelected />
         </tab>
     </div>
     <div class="footer">
         <div class="button" @onclick=@OnClickBack>Back</div>
         <div class="button" @onclick=@OnClickRefresh>Refresh</div>
-        <div class="button @UI.ActiveIf(LobbyManager.IsHost)" @onclick=@OnClickStart>Start</div>
+        <div class="button @UI.ActiveIf(CanStart())" @onclick=@OnClickStart>Start</div>
     </div>
 </root>
