@@ -14,7 +14,8 @@ public class Player : Component
 	{
 		GameObject playerObject = new();
 		//playerObject.Networked = true;
-		playerObject.Name = $"Player | {connection.Name}";
+		playerObject.Name = $"Player | {connection.DisplayName}";
+		playerObject.Networked = true;
 
 		var ply = playerObject.Components.Create<Player>();
 		playerObject.NetworkSpawn( connection );
