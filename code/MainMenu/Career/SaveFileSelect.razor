@@ -1,0 +1,37 @@
+﻿@using Sandbox.UI;
+
+@attribute [StyleSheet]
+@namespace Bydrive
+
+<root>
+    @if(File == default)
+    {
+        <div class="main">
+            No file selected!
+        </div>
+    }
+    else
+    {
+        <div class="main">
+            <label class="left">
+                @File.CharacterName
+            </label>
+            <label class="right">
+                LVL 1337
+            </label>
+        </div>
+        <div class="footer">
+            <div class="left">
+                <label>Challenger</label>
+                <label>Team HQ</label>
+            </div>
+            <label class="right">
+                @File.Playtime
+            </label>
+        </div>
+    }
+</root>
+
+@code {
+    public SaveFile File { get; set; }
+}

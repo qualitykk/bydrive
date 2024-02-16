@@ -8,19 +8,17 @@
 	<div class="title"></div>
 	<div class="options flex-row">
 		<div class="group flex-col">
-			<label class="header">Singleplayer</label>
+			<label class="header">Career</label>
 			<div class="button singleplayer disabled">New Game</div>
 			<div class="button singleplayer disabled">Load Game</div>
-			<div class="button singleplayer" @onclick=@OnClickTimeTrial>Time Trials</div>
+		</div>
+		<div class="group flex-col">
+			<label class="header">Freeplay</label>
+			<div class="button" @onclick=@OnClickRaceQuickplay>Quickplay</div>
+			<div class="button" @onclick=@OnClickRaceBots>VS Bots</div>
+			<div class="button" @onclick=@OnClickTimeTrial>Time Trials</div>
 		</div>
 		
-		<div class="group flex-col">
-			<label class="header">Multiplayer</label>
-			<div class="button multiplayer" @onclick=@OnClickRaceQuickplay>Quickplay</div>
-			<div class="button multiplayer @UI.ActiveIf(LobbyManager.MultiplayerEnabled)" @onclick=@OnClickRaceOnline>Race Online</div>
-			<div class="button multiplayer" @onclick=@OnClickRaceBots>Race VS Bots</div>
-			
-		</div>
 		<div class="group flex-col">
 			<label class="header">Other</label>
 			<div class="button" @onclick=@OnClickControls>Controls</div>

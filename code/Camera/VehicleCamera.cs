@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public class VehicleCameraView : Component
+[Alias("VehicleCameraView")]
+public class VehicleCamera : Component
 {
 	[Property] public float BaseFieldOfView { get; set; } = 90f;
 	[Property] public float MaxFieldOfView { get; set; } = 120f;

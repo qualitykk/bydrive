@@ -1,0 +1,14 @@
+﻿@using Sandbox.UI;
+
+@page "/career/load";
+@attribute [StyleSheet]
+@namespace Bydrive
+
+<root>
+    <label class="header">Career</label>
+    @foreach(var save in SaveFile.GetAll())
+    {
+        <SaveFileSelect File=@save />
+    }
+    <div class="button">Return</div>
+</root>
