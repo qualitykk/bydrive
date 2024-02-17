@@ -25,6 +25,11 @@
       "Components": [
         {
           "__type": "OverworldManager",
+          "Map": {
+            "_type": "component",
+            "go": "9e9a5260-b7b2-4326-8ff7-be72d7d54d9b",
+            "component_type": "MapInstance"
+          },
           "PlayerPrefab": "prefabs/story_player.prefab"
         }
       ]
@@ -53,6 +58,45 @@
           "ZNear": 10
         }
       ]
+    },
+    {
+      "Id": "26a8a744-6266-4496-88fe-c31c21777283",
+      "Name": "UI",
+      "Position": "-0.3250885,-2621.792,62.98159",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ScreenPanel",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ZIndex": 100
+        }
+      ],
+      "Children": [
+        {
+          "Id": "0b9a503b-5ee3-4522-9f94-512e9b21f3b5",
+          "Name": "Dialog",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "DialogBox"
+            }
+          ]
+        },
+        {
+          "Id": "2bb232b2-614b-40fb-856a-af7a6ccfafb1",
+          "Name": "HUD",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "CharacterInfo"
+            }
+          ]
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -78,6 +122,6 @@
   },
   "Title": "story_overworld",
   "Description": "",
-  "LastSaved": "2024-02-16T22:48:01.4915911\u002B01:00",
+  "LastSaved": "2024-02-17T20:56:51.2237738\u002B01:00",
   "__references": []
 }

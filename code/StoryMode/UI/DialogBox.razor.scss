@@ -1,0 +1,31 @@
+﻿DialogBox {
+    position: absolute;
+    top: 70%;
+    bottom: 10%;
+    left: 25%;
+    right: 25%;
+    background-color: #77777799;
+    border-radius: 20px;
+    flex-direction: column;
+    color: white;
+    font-family: Poppins;
+
+    &.disabled {
+        display: none;
+    }
+
+    .name {
+        font-size: 32px;
+        height: 20%;
+        font-weight: bold;
+        margin-left: 2%;
+    }
+
+    .message {
+        font-size: 28px;
+        height: 80%;
+        padding: 2%;
+        text-overflow: clip;
+        word-break: break-all;
+    }
+}

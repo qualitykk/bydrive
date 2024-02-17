@@ -1,0 +1,49 @@
+﻿@using Sandbox.UI;
+
+@page "/career/new";
+@attribute [StyleSheet]
+@namespace Bydrive
+
+<root>
+    <div class="options">
+        <label class="header">Career</label>
+        <div>
+            <label>Name</label>
+            <textentry class="nameinput" @ref="NameInput"></textentry>
+        </div>
+    </div>
+    
+
+    <div class="button @UI.ActiveIf(CanCreate)" @onclick=@OnClickStart>Start Game</div>
+    <div class="button" @onclick=@OnClickBack>Return</div>
+</root>
+
+@code {
+    TextEntry NameInput;
+
+    bool CanCreate()
+    {
+        if (NameInput == null) return false;
+
+        return NameInput.Text.Any();
+    }
+
+    void OnClickStart()
+    {
+        var save = SaveFile.Create();
+        save.CharacterName = NameInput.Text;
+        save.Save();
+
+        StoryMode.Load(save);
+    }
+
+    void OnClickBack()
+    {
+        StartMenu.Current.NavPanel?.GoBack();
+    }
+
+    protected override int BuildHash()
+    {
+        return HashCode.Combine(NameInput?.Text);
+    }
+}

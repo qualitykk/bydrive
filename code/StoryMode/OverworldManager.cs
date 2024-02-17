@@ -9,19 +9,37 @@ namespace Bydrive;
 public class OverworldManager : Component
 {
 	[Property] public PrefabFile PlayerPrefab { get; set; }
-	protected override void OnAwake()
+	[Property] public MapInstance Map { get; set; }
+	private GameObject playerObject;
+	private bool initialised = false;
+	protected override void OnUpdate()
 	{
-		if(PlayerPrefab == null)
+		if(Map == null)
+		{
+			return;
+		}
+
+		if(Map.IsLoaded && !initialised)
+		{
+			Initialise();
+		}
+	}
+	private void Initialise()
+	{
+		if ( PlayerPrefab == null )
 		{
 			Log.Error( "Overworld without player???" );
 			return;
 		}
 
-		GameObject player = new();
-		player.ApplyPrefab( PlayerPrefab );
+		playerObject?.DestroyImmediate();
+
+		playerObject = new();
+		playerObject.ApplyPrefab( PlayerPrefab );
 
 		// TODO: Get story based spawn pos
 		GameObject spawn = Scene.GetAllComponents<SpawnPoint>().FirstOrDefault().GameObject;
-		player.Transform.World = spawn.Transform.World;
+		playerObject.Transform.World = spawn.Transform.World;
+		initialised = true;
 	}
 }

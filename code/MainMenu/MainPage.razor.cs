@@ -5,6 +5,15 @@ namespace Bydrive;
 
 public partial class MainPage
 {
+	void OnClickCareerNew()
+	{
+		this.Navigate( "/career/new" );
+
+	}
+	void OnClickCareerLoad()
+	{
+		this.Navigate( "/career/load" );
+	}
 	void OnClickTimeTrial()
 	{
 		this.Navigate( "/singleplayer/timetrial" );
@@ -17,7 +26,6 @@ public partial class MainPage
 
 		StartRace.LocalWithBots( testRace, 3, devCar, 4 );
 	}
-
 	void OnClickRaceOnline()
 	{
 		this.Navigate( "/multiplayer/race/browser" );

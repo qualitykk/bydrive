@@ -71,11 +71,7 @@ internal static class Globals
 
 internal static class InputActions
 {
-	public const string FORWARD = "Forward";
-	public const string BACK = "Backward";
-	public const string LEFT = "Left";
-	public const string RIGHT = "Right";
-
+	// Race
 	public const string BOOST = "Boost";
 	public const string ITEM = "Item";
 	public const string BREAK = "Break";
@@ -83,6 +79,9 @@ internal static class InputActions
 
 	public const string PITCH_UP = "Backward";
 	public const string PITCH_DOWN = "Forward";
+
+	// Story
+	public const string SKIP_DIALOG = "Break";
 }
 
 internal static class TraceTags

@@ -7,20 +7,61 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public class SaveFile
+public partial class SaveFile
 {
 	public const string SAVE_DIRECTORY = "/story";
 	public const string SAVE_PATTERN = "*.save";
+	private static BaseFileSystem fs => FileSystem.Data;
 	public static SaveFile[] GetAll()
 	{
-		var files = FileSystem.Data.FindFile(SAVE_DIRECTORY, SAVE_PATTERN);
+		IEnumerable<string> fileNames = fs.FindFile(SAVE_DIRECTORY, SAVE_PATTERN).Select(file => $"{SAVE_DIRECTORY}/{file}");
 
-		return files.Select( Load ).ToArray();
+		SaveFile[] files = fileNames.Select( Load ).ToArray();
+		return files;
 	}
 	public static SaveFile Load(string path)
 	{
-		return JsonSerializer.Deserialize<SaveFile>(path);
+		return fs.ReadJsonOrDefault<SaveFile>( path );
 	}
-	public string CharacterName { get; set; }
+	public static void Save(string path, SaveFile file) 
+	{
+		if(!fs.DirectoryExists(SAVE_DIRECTORY))
+		{
+			fs.CreateDirectory( SAVE_DIRECTORY );
+		}
+
+		fs.WriteJson( path, file );
+	}
+	public static SaveFile Create()
+	{
+		SaveFile file = new();
+		file.Id = Guid.NewGuid();
+		file.Save();
+
+		return file;
+	}
+	public Guid Id { get; set; }
+	public string CharacterName { get; set; } = "MissingNo";
 	public float Playtime { get; set; }
+	public void Save()
+	{
+		string path = GetFilePath();
+		Save( path, this );
+	}
+	public void AutoSave()
+	{
+		string path = GetFilePath();
+		path += $"_autosave_{DateTime.UtcNow}";
+
+		Save( path, this );
+	}
+	private string GetFilePath()
+	{
+		return $"{SAVE_DIRECTORY}/{Id}.save";
+	}
+
+	public override string ToString()
+	{
+		return $"{Id}/{CharacterName}";
+	}
 }

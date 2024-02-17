@@ -1,0 +1,38 @@
+﻿NewGamePage {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+    .options {
+        width: 30%;
+        flex-direction: column;
+        margin: 3%;
+        padding: 2%;
+        background-color: #777777aa;
+
+        div {
+            width: 100%;
+
+            .label {
+                width: 20%;
+                align-items: center;
+            }
+            .textentry {
+                width: 80%;
+            }
+        }
+
+        .label {
+            color: white;
+            font-family: Poppins;
+            text-align: center;
+        }
+
+        .header {
+            font-size: 48px;
+            font-weight: bold;
+        }
+    }
+}

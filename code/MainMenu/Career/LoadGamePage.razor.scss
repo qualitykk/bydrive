@@ -1,0 +1,30 @@
+﻿LoadGamePage {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Poppins;
+
+    .header {
+        font-size: 32px;
+    }
+
+    .files {
+        background-color: #777777aa;
+        flex-direction: column;
+        color: white;
+        height: 60%;
+        width: 60%;
+
+        .file {
+            background-color: #8a8a8a;
+            margin: 1%;
+            text-align: center;
+
+            &:hover {
+                background-color: #6a6a6a;
+            }
+        }
+    }
+}

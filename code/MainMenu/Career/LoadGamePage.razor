@@ -6,9 +6,11 @@
 
 <root>
     <label class="header">Career</label>
-    @foreach(var save in SaveFile.GetAll())
-    {
-        <SaveFileSelect File=@save />
-    }
-    <div class="button">Return</div>
+    <div class="files">
+        @foreach(var save in SaveFile.GetAll())
+        {
+            <SaveFileSelect class="file" File=@save @onclick=@(() => OnClickSave(save)) />
+        }
+    </div>
+    <div class="button" @onclick=@OnClickBack>Back</div>
 </root>

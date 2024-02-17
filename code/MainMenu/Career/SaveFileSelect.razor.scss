@@ -1,0 +1,17 @@
+﻿SaveFileSelect
+{
+    flex-direction: column;
+    pointer-events: all;
+
+    div {
+        flex-direction: row;
+
+        .left {
+            align-self: flex-start;
+        }
+
+        .right {
+            align-self: flex-end;
+        }
+    }
+}

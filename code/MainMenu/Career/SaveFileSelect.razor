@@ -2,9 +2,10 @@
 
 @attribute [StyleSheet]
 @namespace Bydrive
+@inherits Panel
 
 <root>
-    @if(File == default)
+    @if(File == null)
     {
         <div class="main">
             No file selected!
@@ -34,4 +35,9 @@
 
 @code {
     public SaveFile File { get; set; }
+
+    protected override int BuildHash()
+    {
+        return HashCode.Combine(File, File?.Id);
+    }
 }
