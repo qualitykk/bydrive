@@ -21,6 +21,11 @@ internal static class Globals
 
 		public static string ActiveIf( bool? active ) => ActiveIf( active == true );
 	}
+
+	public static class Soundtrack
+	{
+		public const string RACE_WIN = "sounds/music/menu_race_win.sound";
+	}
 	public static void ResetGlobals()
 	{
 		lastLocalInput = null;
@@ -30,6 +35,8 @@ internal static class Globals
 	private static UserSettings localSettings;
 	public static RaceManager Race => RaceManager.Current;
 	public static RaceMatchInformation RaceContext => RaceMatchInformation.Current;
+	public static RaceParameters RaceConfig => RaceContext?.Parameters ?? new();
+	public static SaveFile CurrentSave => StoryMode.Progress;
 	public static UserSettings Settings 
 	{
 		get
@@ -62,7 +69,6 @@ internal static class Globals
 	{
 		return GetLocalInput()?.ParticipantInstance;
 	}
-
 	public static string GetLocalName()
 	{
 		return new Friend( Game.SteamId ).Name;

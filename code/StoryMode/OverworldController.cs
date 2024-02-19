@@ -14,6 +14,7 @@ public class OverworldController : Component
 	[Property] public float Speed { get; set; } = 220f;
 	[Property] public float RotationSpeed { get; set; } = 5f;
 	[Property] public Vector3 CameraOffset { get; set; }
+	public Vector3 CameraCenter => Transform.Position.WithZ( CameraOffset.z );
 	Rotation cameraRotation;
 
 	Vector3 wishVelocity;
@@ -122,7 +123,19 @@ public class OverworldController : Component
 		CameraComponent camera = GameManager.ActiveScene.Camera;
 		if ( camera == null ) return;
 
-		var targetCameraPos = Transform.Position + CameraOffset * Rotation.LookAt(cameraRotation.Forward);
+		Vector3 targetCameraPos = Transform.Position + CameraOffset * Rotation.LookAt(cameraRotation.Forward);
+
+		// TODO Dont allow camera to go through walls
+		var wallClipTrace = Scene.Trace.Ray( CameraCenter, targetCameraPos )
+										.Size(WalkMovement.BoundingBox)
+										.WithTag("world")
+										.Run();
+
+		if ( wallClipTrace.Hit )
+		{
+			Vector3 safePositionDirection = wallClipTrace.EndPosition - CameraCenter;
+			targetCameraPos = CameraCenter + safePositionDirection * 0.90f;
+		}
 
 		// smooth view z, so when going up and down stairs or ducking, it's smooth af
 		if ( lastUngrounded > 0.2f )

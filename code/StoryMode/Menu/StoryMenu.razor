@@ -1,0 +1,13 @@
+@using Sandbox;
+@using Sandbox.UI;
+@namespace Bydrive
+@inherits PanelComponent
+
+@if(!StoryMode.Active)
+{
+	return;
+}
+
+<root>
+	<div class="title">@CurrentSave.CharacterName</div>
+</root>
