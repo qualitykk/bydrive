@@ -1,15 +1,15 @@
 {
   "Entries": [
     {
-      "Item": "data/bouncer.item",
+      "Item": "data/items/bouncer.item",
       "Weight": 3
     },
     {
-      "Item": "data/repair_kit.item",
+      "Item": "data/items/repair_kit.item",
       "Weight": 1
     },
     {
-      "Item": "data/boost_refill.item",
+      "Item": "data/items/boost_refill.item",
       "Weight": 1
     }
   ],

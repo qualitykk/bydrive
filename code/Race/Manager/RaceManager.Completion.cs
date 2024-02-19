@@ -44,7 +44,7 @@ public partial class RaceManager
 		const float PROGRESSION_FORGIVENESS = 0.00001f;
 
 		int lap = progression.SnapToGrid( PROGRESSION_FORGIVENESS ).FloorToInt() + 1;
-		return lap.Clamp(1, MaxLaps);
+		return lap.Clamp(1, RaceConfig.MaxLaps);
 	}
 	public int GetParticipantPlacement(RaceParticipant participant)
 	{

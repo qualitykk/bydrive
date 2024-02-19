@@ -9,6 +9,7 @@ namespace Bydrive;
 
 public partial class TimeTrialPage
 {
+	
 	RaceDefinition selectedTrack;
 	private void OnTrackSelected( RaceDefinition def )
 	{
@@ -22,7 +23,7 @@ public partial class TimeTrialPage
 			return;
 		}
 
-		VehicleDefinition playerCar = StartMenu.SelectedVehicle ?? ResourceLibrary.Get<VehicleDefinition>( "data/devcar1.vehicle" );
+		VehicleDefinition playerCar = StartMenu.SelectedVehicle;
 
 		StartRace.TimeTrial( selectedTrack, playerCar );
 	}

@@ -7,7 +7,7 @@
 	return;
 
 <root>
-	<label class="title">@GetDisplayLaps()/@Race.MaxLaps</label>
+	<label class="title">@GetDisplayLaps()/@Race.GetMaxLaps()</label>
 	@if(DebugCheckpoints)
 	{
 		<label class="subtitle">@GetCurrentCompletion()</label>
@@ -30,7 +30,7 @@
 	{
 		if (Race == null) return 1;
 
-		int lap = (int)MathF.Min( GetCurrentLap(), Race?.MaxLaps ?? RaceManager.DEFAULT_MAX_LAPS);
+		int lap = (int)MathF.Min(GetCurrentLap(), Race?.GetMaxLaps() ?? RaceParameters.DEFAULT_MAX_LAPS);
 		if(lap > highestLap)
 		{
 			Notifications.Add(new($"Completed Lap {lap-1}!", UIColors.Notification.Success, 10f, "sports_score"));
@@ -48,10 +48,10 @@
 	}
 	private bool InLastLap()
 	{
-		return GetDisplayLaps() == (Race?.MaxLaps ?? RaceManager.DEFAULT_MAX_LAPS);
+		return GetDisplayLaps() == (Race?.GetMaxLaps() ?? RaceParameters.DEFAULT_MAX_LAPS);
 	}
 	/// <summary>
 	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
 	/// </summary>
-	protected override int BuildHash() => System.HashCode.Combine(GameManager.ActiveScene, GetCurrentCompletion());
+	protected override int BuildHash() => HashCode.Combine(GameManager.ActiveScene, GetCurrentCompletion());
 }

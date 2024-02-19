@@ -1,9 +1,14 @@
 {
   "Name": "Devtest1",
   "Group": "",
-  "Hidden": false,
+  "Visible": true,
   "Scene": "scenes/devtest1.scene",
   "Prefab": null,
   "MapName": "",
+  "Parameters": {
+    "MaxLaps": 5,
+    "RaceMusicVolume": -1,
+    "RaceStartWait": 5
+  },
   "__references": []
 }

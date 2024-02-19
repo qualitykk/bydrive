@@ -12,16 +12,8 @@ namespace Bydrive;
 [Icon( "flag" )]
 public sealed partial class RaceManager : Component
 {
-	public const int DEFAULT_MAX_LAPS = 3;
-	public const float RACE_START_WAIT = 4f;
 	public static RaceManager Current { get; private set; }
-	[Property] public int MaxLaps { get; set; } = DEFAULT_MAX_LAPS;
 	[Property] public RaceCheckpoint StartCheckpoint {get;set;}
-	[Property] public SoundEvent RaceMusic { get; set; }
-	[Property] public float RaceMusicVolume { get; set; } = -1;
-	[Property] public SoundEvent WinMusic { get; set; }
-	[Property] public SoundEvent LoseMusic { get; set; }
-	[Property] public float RaceStartWait { get; set; } = RACE_START_WAIT;
 	public List<RaceParticipant> Participants { get; private set; } = new();
 	public TimeUntil TimeUntilRaceStart { get; private set; }
 	public TimeSince TimeSinceRaceStart { get; private set; }
@@ -29,29 +21,19 @@ public sealed partial class RaceManager : Component
 	public bool HasLoaded { get; private set; } = false;
 	public SoundEvent GetRaceMusic()
 	{
-		const string TIME_TRIAL_MUSIC_TRACK = "/sounds/music/race_timetrial.sound";
-		if ( IsTimeTrial )
-		{
-			var sound = ResourceLibrary.Get<SoundEvent>( TIME_TRIAL_MUSIC_TRACK );
-			return sound;
-		}
-
-		return RaceMusic;
+		return RaceConfig.RaceMusic;
 	}
 	public float GetRaceMusicVolume()
 	{
-		const float TIME_TRIAL_MUSIC_VOLUME = 1.2f;
-		return IsTimeTrial ? TIME_TRIAL_MUSIC_VOLUME : RaceMusicVolume;
+		return RaceConfig.RaceMusicVolume;
 	}
 	public float GetRaceWaitTime()
 	{
-		const float TIME_TRIAL_WAIT = 3.5f;
-		if ( IsTimeTrial )
-		{
-			return TIME_TRIAL_WAIT;
-		}
-
-		return RaceStartWait;
+		return RaceConfig.RaceStartWait;
+	}
+	public int GetMaxLaps()
+	{
+		return RaceConfig.MaxLaps;
 	}
 	protected override void OnAwake()
 	{

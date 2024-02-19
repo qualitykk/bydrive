@@ -95,6 +95,17 @@
               "__type": "CharacterInfo"
             }
           ]
+        },
+        {
+          "Id": "ba43f515-db14-4e92-8405-10c634e786cc",
+          "Name": "StoryMenu",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "StoryMenu"
+            }
+          ]
         }
       ]
     }
@@ -122,6 +133,6 @@
   },
   "Title": "story_overworld",
   "Description": "",
-  "LastSaved": "2024-02-17T20:56:51.2237738\u002B01:00",
+  "LastSaved": "2024-02-19T21:05:59.7381209\u002B01:00",
   "__references": []
 }

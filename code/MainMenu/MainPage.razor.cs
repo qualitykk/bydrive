@@ -20,11 +20,9 @@ public partial class MainPage
 	}
 	void OnClickRaceQuickplay()
 	{
-		// Load race testing env
-		RaceDefinition testRace = ResourceLibrary.Get<RaceDefinition>( "data/devtest1.race" );
-		VehicleDefinition devCar = ResourceLibrary.Get<VehicleDefinition>( "data/devcar1.vehicle" );
+		RaceDefinition randomTrack = Game.Random.FromArray(RaceDefinition.GetAllVisible());
 
-		StartRace.LocalWithBots( testRace, 3, devCar, 4 );
+		StartRace.LocalWithBots( randomTrack, 3, StartMenu.SelectedVehicle, 4 );
 	}
 	void OnClickRaceOnline()
 	{

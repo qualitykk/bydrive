@@ -30,6 +30,7 @@ public class RaceMatchInformation
 	public const int MAX_PLAYERCOUNT = 16;
 	public static RaceMatchInformation Current { get; set; }
 	public RaceDefinition Definition { get; set; }
+	public RaceParameters Parameters { get; set; }
 	public List<Participant> Participants { get; set; }
 	public Action OnParticipantsLoaded { get; set; }
 	public bool FinishedLoading 
@@ -56,20 +57,16 @@ public class RaceMatchInformation
 	private bool multiplayer;
 
 	private Dictionary<Participant,GameObject> participantObjects = new();
-	public RaceMatchInformation(RaceDefinition definition, List<Participant> participants, bool createParticipants = true, RaceMode mode = RaceMode.None)
+	public RaceMatchInformation(RaceDefinition definition, List<Participant> participants, RaceParameters parameters = default, bool createParticipants = true)
 	{
 		var globals = RaceGlobals.Current;
 
 		Assert.NotNull( definition );
 		Assert.NotNull( participants );
 
-		if ( Current != null )
-		{
-			Current.Stop();
-		}
-
 		Current = this;
-		multiplayer = LobbyManager.MultiplayerActive;
+		//multiplayer = LobbyManager.MultiplayerActive;
+		multiplayer = false;
 
 		if(!definition.UseScene())
 		{
@@ -89,9 +86,16 @@ public class RaceMatchInformation
 
 		Definition = definition;
 		Participants = participants;
-		Mode = mode;
+		if ( parameters != default )
+		{
+			Parameters = parameters;
+		}
+		else
+		{
+			Parameters = definition.Parameters;
+		}
 
-		if(createParticipants)
+		if (createParticipants)
 		{
 			CreateParticipantObjects();
 		}

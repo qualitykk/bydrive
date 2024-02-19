@@ -41,7 +41,11 @@ public class Player : Component
 		playerObject.Networked = true;
 		var ply = playerObject.Components.Create<Player>();
 		ply.IsBot = true;
-		playerObject.NetworkSpawn();
+
+		if(GameNetworkSystem.IsActive)
+		{
+			playerObject.NetworkSpawn();
+		}
 
 		return ply;
 	}

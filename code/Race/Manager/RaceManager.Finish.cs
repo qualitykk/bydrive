@@ -35,7 +35,7 @@ public partial class RaceManager
 	public bool IsFinished( RaceParticipant participant )
 	{
 		const float COMPLETION_FINISH_TOLERANCE = 0.001f;
-		return GetParticipantCompletion( participant ).SnapToGrid( COMPLETION_FINISH_TOLERANCE ) >= MaxLaps;
+		return GetParticipantCompletion( participant ).SnapToGrid( COMPLETION_FINISH_TOLERANCE ) >= GetMaxLaps();
 	}
 
 	private void ParticipantFinished( RaceParticipant participant )
@@ -54,7 +54,7 @@ public partial class RaceManager
 
 		ParticipantFinishInformation info = new( finishedParticipants.Count + 1, participant, raceTIme, lapTimes );
 		finishedParticipants.Add( info );
-		Music.Play( WinMusic );
+		Music.Play( Soundtrack.RACE_WIN );
 		participant.OnFinished();
 	}
 

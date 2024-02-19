@@ -8,7 +8,9 @@ namespace Bydrive;
 
 internal static class StartRace
 {
-
+	const float TIME_TRIAL_WAIT = 3.5f;
+	const string TIME_TRIAL_MUSIC_TRACK = "/sounds/music/race_timetrial.sound";
+	const float TIME_TRIAL_MUSIC_VOLUME = 0.8f;
 	public static void TimeTrial(RaceDefinition race, VehicleDefinition vehicle)
 	{
 		List<RaceMatchInformation.Participant> racers = new()
@@ -16,7 +18,16 @@ internal static class StartRace
 			new( vehicle, Player.Local, RaceStartingPosition.FIRST_PLACE )
 		};
 
-		new RaceMatchInformation( race, racers, mode: RaceMode.TimeTrial );
+		RaceParameters timeTrialParameters = new()
+		{
+			MaxLaps = race.Parameters.MaxLaps,
+			Mode = RaceMode.TimeTrial,
+			RaceMusic = ResourceLibrary.Get<SoundEvent>( TIME_TRIAL_MUSIC_TRACK ),
+			RaceMusicVolume = TIME_TRIAL_MUSIC_VOLUME,
+			RaceStartWait = TIME_TRIAL_WAIT
+		};
+
+		new RaceMatchInformation( race, racers, timeTrialParameters);
 	}
 	public static void Online(RaceDefinition race, List<RaceMatchInformation.Participant> racers)
 	{
@@ -47,7 +58,7 @@ internal static class StartRace
 
 	private static VehicleDefinition GetBotVehicle()
 	{
-		VehicleDefinition devCar = ResourceLibrary.Get<VehicleDefinition>( "data/devcar1.vehicle" );
+		VehicleDefinition devCar = StartMenu.GetDefaultVehicle();
 		return devCar;
 	}
 
