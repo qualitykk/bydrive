@@ -4,7 +4,6 @@
     {
       "Id": "5bfb1a9c-7789-41a9-a21e-0419f19c7b84",
       "Name": "Screen",
-      "Position": "149.9949,149.995,-212.125",
       "Enabled": true,
       "Components": [
         {
@@ -19,7 +18,6 @@
         {
           "Id": "29dc86c2-b957-411a-8d3f-d1aab12004ad",
           "Name": "Start Menu",
-          "Position": "0,0,0",
           "Enabled": true,
           "Components": [
             {
@@ -34,7 +32,7 @@
     {
       "Id": "e4d2acc9-e84d-4573-a4f0-bb561ca2847c",
       "Name": "Camera",
-      "Position": "128,149.995,-212.125",
+      "Position": "0,0,128",
       "Tags": "maincamera",
       "Enabled": true,
       "Components": [
@@ -80,6 +78,6 @@
   },
   "Title": "startmenu",
   "Description": "",
-  "LastSaved": "2024-02-16T22:41:18.2646066\u002B01:00",
+  "LastSaved": "2024-02-22T22:24:58.9522535\u002B01:00",
   "__references": []
 }

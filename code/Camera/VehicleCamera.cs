@@ -13,7 +13,7 @@ public class VehicleCamera : Component
 	[Property] public float MaxFieldOfView { get; set; } = 120f;
 	private CameraComponent Camera => GameManager.ActiveScene.Camera;
 	private VehicleController Vehicle => GetLocalVehicle();
-	private float CameraBackwardsOffset => Vehicle?.GetCameraPositionOffset() ?? 0f;
+	private Vector3 CameraOffset => Vehicle?.GetCameraPositionOffset() ?? 0f;
 	private VehicleController lastVehicle;
 	protected override void OnUpdate()
 	{
@@ -55,15 +55,14 @@ public class VehicleCamera : Component
 	float currentTurnOffset;
 	private Vector3 GetCameraPosition()
 	{
-		const float VERTICAL_OFFSET = 120f;
-		Vector3 position = new( -CameraBackwardsOffset, 0f, VERTICAL_OFFSET );
+		Vector3 position = CameraOffset;
 
 		float turn = Vehicle.TurnDirection;
 		currentTurnOffset = currentTurnOffset.LerpTo( turn, Time.Delta / TURN_OFFSET_DURATION );
 
 		position.y = currentTurnOffset * TURN_OFFSET_MAX_DISTANCE;
 		// Dont let camera go through walls
-		var tr = Scene.Trace.Ray( Camera.Transform.World.PointToWorld( new( -CameraBackwardsOffset, 0f, VERTICAL_OFFSET ) ), Camera.Transform.World.PointToWorld( position ) )
+		var tr = Scene.Trace.Ray( Camera.Transform.World.PointToWorld( CameraOffset ), Camera.Transform.World.PointToWorld( position ) )
 							.IgnoreGameObjectHierarchy(Vehicle.GameObject)
 							.WithTag( TraceTags.WORLD )
 							.Run();

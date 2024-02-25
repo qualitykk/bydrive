@@ -24,7 +24,7 @@ public static class ResourceHelper
 
 	private static void PopulateReferences<T>(GameObject obj, T resource) where T : GameResource, IPrefabProvider
 	{
-		var components = obj.Components.GetAll();
+		var components = obj.Components.GetAll(FindMode.EnabledInSelfAndDescendants);
 		foreach(Component component in components)
 		{
 			TypeDescription type = TypeLibrary.GetType( component.GetType() );

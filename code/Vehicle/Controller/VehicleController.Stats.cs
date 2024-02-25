@@ -209,7 +209,7 @@ public partial class VehicleController
 		return Stats.TurnSpeedVelocityFactor;
 	}
 
-	public float GetCameraPositionOffset()
+	public Vector3 GetCameraPositionOffset()
 	{
 		return Stats.CameraPositionOffset;
 	}

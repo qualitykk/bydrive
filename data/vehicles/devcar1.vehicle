@@ -2,11 +2,11 @@
   "Title": "Devcar 1",
   "Description": "Car used in development.",
   "Hidden": false,
-  "PreviewModel": "models/brokencar.vmdl",
+  "PreviewModel": "models/vehicles/vehicle_boxy.vmdl",
   "PreviewPosition": "0,0,0",
   "PreviewAngles": "0,0,0",
   "Stats": {
-    "MaxSpeed": 1100,
+    "MaxSpeed": 1200,
     "Acceleration": 1200,
     "MaxHealth": 4,
     "BoostDuration": 3,
@@ -17,10 +17,8 @@
     "TurnSpeed": 70,
     "TurnSpeedIdealDistance": 500,
     "TurnSpeedVelocityFactor": 0.6,
-    "CameraPositionOffset": 180
+    "CameraPositionOffset": "-400,0,150"
   },
   "Prefab": "prefabs/vehicles/car_devtest1.prefab",
-  "__references": [
-    "debelizmik.brokencar"
-  ]
+  "__references": []
 }
