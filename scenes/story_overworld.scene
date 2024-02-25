@@ -9,7 +9,7 @@
       "Components": [
         {
           "__type": "MapInstance",
-          "MapName": "facepunch.construct",
+          "MapName": "maps/rd_st_home.vpk",
           "OnMapLoaded": null,
           "OnMapUnloaded": null,
           "UseMapFromLaunch": false
@@ -37,7 +37,6 @@
     {
       "Id": "1c3847e4-5312-46ee-9775-84e82d510db8",
       "Name": "Camera",
-      "Position": "149.995,149.995,0",
       "Tags": "maincamera",
       "Enabled": true,
       "Components": [
@@ -62,7 +61,7 @@
     {
       "Id": "26a8a744-6266-4496-88fe-c31c21777283",
       "Name": "UI",
-      "Position": "-0.3250885,-2621.792,62.98159",
+      "Position": "0,0,128",
       "Enabled": true,
       "Components": [
         {
@@ -95,17 +94,29 @@
               "__type": "CharacterInfo"
             }
           ]
+        }
+      ]
+    },
+    {
+      "Id": "c85cc331-0850-4dda-a7ef-0f4a6c674cc8",
+      "Name": "Sun",
+      "Position": "493.8932,-247.7951,374.3571",
+      "Rotation": "-0.2721657,0.8859298,0.2200369,0.3043649",
+      "Tags": "light_directional,light,skybox",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "DirectionalLight",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.90698,0.87154,0.80573,1",
+          "Shadows": true,
+          "SkyColor": "0.73246,0.85811,0.92093,1"
         },
         {
-          "Id": "ba43f515-db14-4e92-8405-10c634e786cc",
-          "Name": "StoryMenu",
-          "Position": "0,0,0",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "StoryMenu"
-            }
-          ]
+          "__type": "SkyBox2D",
+          "SkyMaterial": "materials/skybox/wasteland_clouds_puresky.vmat",
+          "Tint": "1,1,1,1"
         }
       ]
     }
@@ -133,6 +144,8 @@
   },
   "Title": "story_overworld",
   "Description": "",
-  "LastSaved": "2024-02-19T21:05:59.7381209\u002B01:00",
-  "__references": []
+  "LastSaved": "2024-02-25T14:32:57.8339064\u002B01:00",
+  "__references": [
+    "polyhaven.wasteland_clouds_puresky"
+  ]
 }
