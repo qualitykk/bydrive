@@ -11,6 +11,7 @@ namespace Bydrive;
 public class OverworldCharacterInstance : Component, IInteractible
 {
 	[Property] public CharacterDefinition Character { get; set; }
+	[Property] public DialogTree Dialog { get; set; }
 	[Property] public SkinnedModelRenderer CharacterRenderer { get; set; }
 	[Property] public BBox InteractionBounds { get; set; } = BBox.FromPositionAndSize(Vector3.Zero, 64f);
 	protected override void OnEnabled()
@@ -23,9 +24,10 @@ public class OverworldCharacterInstance : Component, IInteractible
 		CharacterRenderer.Model = Character.WorldModel;
 		CharacterRenderer.Set( "idle", true );
 	}
-	public bool OnUse()
+	public bool OnInteract()
 	{
 		Log.Info( $"Hello from {Character.Name}!" );
+		DialogBox.Show( Dialog );
 		return true;
 	}
 	protected override void DrawGizmos()

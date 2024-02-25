@@ -8,7 +8,7 @@ namespace Bydrive;
 
 public interface IInteractible
 {
-	public bool OnUse();
+	public bool OnInteract();
 	public Vector3 Position { get; }
 	public BBox Bounds { get; }
 	public string Title { get; }

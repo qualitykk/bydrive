@@ -9,4 +9,6 @@ namespace Bydrive;
 [GameResource("NPC Dialog", "dialog", "Character Dialog")]
 public class DialogTree : GameResource
 {
+	public DialogEntry Root { get; set; }
+	public static implicit operator DialogEntry(DialogTree tree) => tree.Root;
 }

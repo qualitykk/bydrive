@@ -26,6 +26,8 @@ public partial class InteractionPrompt : PanelComponent
 			possibleInteractions = null;
 		}
 
+		if ( !HasInteractions() ) return;
+
 		foreach(var action in possibleInteractions)
 		{
 			TryPress( action );
@@ -36,7 +38,7 @@ public partial class InteractionPrompt : PanelComponent
 		bool pressed = Input.Pressed( action.Input );
 		if ( pressed )
 		{
-			action.OnUse();
+			action.OnInteract();
 		}
 	}
 	protected override int BuildHash()

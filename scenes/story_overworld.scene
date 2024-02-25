@@ -76,6 +76,7 @@
                 "go": "b354ff21-8ef8-48a5-be05-19452df63db0",
                 "component_type": "SkinnedModelRenderer"
               },
+              "Dialog": "data/story/dialog/intro_devlad01.dialog",
               "InteractionBounds": {
                 "Mins": "-64,-64,0",
                 "Maxs": "64,64,64"
@@ -92,6 +93,10 @@
               "Model": null,
               "RenderType": "On",
               "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "AwakeActionComponent",
+              "Action": null
             }
           ],
           "Children": [
@@ -110,6 +115,79 @@
                   "Surface": null
                 }
               ]
+            }
+          ]
+        },
+        {
+          "Id": "aaddebb4-6c9b-4f27-b346-dffc315e1f50",
+          "Name": "TestDoor",
+          "Position": "-876.5981,394.4496,-508.4316",
+          "Rotation": "0,0,0.7071067,0.7071068",
+          "Scale": "1,1.5,1.2",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "SkinnedModelRenderer",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/props/trim_sheets/doors/wooden_doors/wooden_door_01d.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "OverworldInteraction",
+              "Interaction": {
+                "Version": 5,
+                "UserData": {
+                  "Title": "Interaction",
+                  "id": "483b10ef-1bf9-46a1-b0ab-323d1d518d36",
+                  "ReferencedComponentTypes": []
+                },
+                "Variables": [],
+                "Nodes": [
+                  {
+                    "Id": 0,
+                    "Type": "input"
+                  },
+                  {
+                    "Id": 2,
+                    "Type": "dialog.show",
+                    "UserData": {
+                      "Position": "208,0"
+                    }
+                  }
+                ],
+                "Links": [
+                  {
+                    "SrcId": 0,
+                    "SrcName": "_signal",
+                    "DstId": 2,
+                    "DstName": "_signal"
+                  },
+                  {
+                    "Value": "This is a pretty fancy door.",
+                    "DstId": 2,
+                    "DstName": "text"
+                  }
+                ]
+              },
+              "InteractionBounds": {
+                "Mins": "-64,-48,0",
+                "Maxs": "0,0,128"
+              },
+              "InteractionTitle": "Inspect"
+            },
+            {
+              "__type": "BoxCollider",
+              "Center": "0,-24,64",
+              "IsTrigger": false,
+              "Scale": "8,50,128",
+              "Static": false,
+              "Surface": null
             }
           ]
         }
@@ -230,8 +308,9 @@
   },
   "Title": "story_overworld",
   "Description": "",
-  "LastSaved": "2024-02-25T19:46:49.3260067\u002B01:00",
+  "LastSaved": "2024-02-25T23:10:43.7166098\u002B01:00",
   "__references": [
+    "facepunch.wooden_door_01d",
     "polyhaven.wasteland_clouds_puresky"
   ]
 }

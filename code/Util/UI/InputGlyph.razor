@@ -11,11 +11,11 @@
 @code {
     public string Action { get; set; }
     public InputGlyphSize Size { get; set; } = InputGlyphSize.Small;
-    public GlyphStyle Style { get; set; } = GlyphStyle.Knockout;
+    public GlyphStyle GlpyhStyle { get; set; } = GlyphStyle.Knockout;
     Image glyphImage;
 
     public override void Tick()
     {
-        glyphImage.Texture = Input.GetGlyph(Action, Size, Style);
+        glyphImage.Texture = Input.GetGlyph(Action, Size, GlpyhStyle);
     }
 }

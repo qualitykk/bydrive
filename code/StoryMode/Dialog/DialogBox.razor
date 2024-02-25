@@ -5,9 +5,19 @@
 @inherits PanelComponent
 
 <root class="@UI.ActiveIf(!string.IsNullOrEmpty(Text))">
-	@if(!string.IsNullOrEmpty(Name))
+	@if(!string.IsNullOrEmpty(Title))
 	{
-		<label class="name">@Name</label>
+		<label class="title">@Title</label>
 	}
 	<label class="message">@GetCurrentText()</label>
+
+	@if(ShowResponses())
+	{
+		<div class="responses">
+			@foreach(var response in Entry.Responses)
+			{
+				<label class="entry @UI.TagIf("selected", response == selectedResponse)">@response.Title</label>
+			}
+		</div>
+	}
 </root>

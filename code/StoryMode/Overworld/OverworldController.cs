@@ -62,6 +62,10 @@ public class OverworldController : Component
 		Vector3 halfGravity = Scene.PhysicsWorld.Gravity * Time.Delta * 0.5f;
 
 		wishVelocity = Input.AnalogMove;
+		if(!CanMove())
+		{
+			wishVelocity = Vector3.Zero;
+		}
 
 		if ( !wishVelocity.IsNearlyZero() )
 		{
@@ -82,7 +86,7 @@ public class OverworldController : Component
 		if ( cc.IsOnGround )
 		{
 			cc.Accelerate( wishVelocity );
-			cc.Velocity = WalkMovement.Velocity.WithZ( 0 );
+			cc.Velocity = cc.Velocity.WithZ( 0 );
 		}
 		else
 		{
@@ -116,7 +120,10 @@ public class OverworldController : Component
 		}
 		Transform.Rotation = Rotation.Slerp(Transform.Rotation, wishRotation, Time.Delta * RotationSpeed);
 	}
-
+	public bool CanMove()
+	{
+		return ActiveMenu == default;
+	}
 	private void UpdateCamera()
 	{
 		CameraComponent camera = GameManager.ActiveScene.Camera;

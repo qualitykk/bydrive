@@ -3,6 +3,7 @@ global using Sandbox;
 global using System.Collections.Generic;
 global using System.Linq;
 global using static Bydrive.Globals;
+using Sandbox.UI;
 
 namespace Bydrive;
 internal static class Globals
@@ -15,9 +16,11 @@ internal static class Globals
 	{
 		lastLocalInput = null;
 		localSettings = null;
+		ActiveMenu = null;
 	}
 	private static VehiclePlayerInput lastLocalInput;
 	private static UserSettings localSettings;
+	public static Panel ActiveMenu { get; internal set; }
 	public static RaceManager Race => RaceManager.Current;
 	public static RaceMatchInformation RaceContext => RaceMatchInformation.Current;
 	public static RaceParameters RaceConfig => RaceContext?.Parameters ?? new();
@@ -73,7 +76,7 @@ internal static class InputActions
 
 	// Story
 	public const string USE = "Item";
-	public const string SKIP_DIALOG = "Break";
+	public const string DIALOG_SKIP = "Break";
 }
 
 internal static class TraceTags
@@ -94,6 +97,21 @@ internal static class UI
 			public static Color Danger => new Color( 0.6f, 0.1f, 0.1f, 0.5f );
 		}
 	}
+	public static void MakeMenu(Panel panel)
+	{
+		if ( panel == ActiveMenu ) return;
+
+		ActiveMenu?.SetClass( "menu", false );
+		ActiveMenu = panel;
+		panel?.SetClass( "menu", true );
+	}
+	public static void MakeMenuInactive(Panel panel = null)
+	{
+		if ( panel != null && ActiveMenu != panel ) return;
+
+		ActiveMenu?.SetClass( "menu", false );
+		ActiveMenu = null;
+	}
 
 	public static string TagIf(string tag, bool active, string inactiveTag = "")
 	{
@@ -105,6 +123,7 @@ internal static class UI
 	public static string ActiveIf( bool active ) => TagIf( "active", active, "disabled " );
 	public static string ActiveIf( Func<bool> check ) => ActiveIf( check?.Invoke() ?? false );
 	public static string ActiveIf( bool? active ) => ActiveIf( active == true );
+	public static string ActiveIfMenu( Panel panel ) => ActiveIf( ActiveMenu == panel );
 }
 
 internal static class VehicleStatModifiers

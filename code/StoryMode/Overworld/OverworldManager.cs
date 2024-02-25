@@ -54,6 +54,11 @@ public class OverworldManager : Component
 		}
 	}
 
+	protected override void OnDestroy()
+	{
+		ResetGlobals();
+	}
+
 	private IEnumerable<Tuple<GameObject, IInteractible>> GetUsables()
 	{
 		var objects = Scene.GetAllObjects( true );
