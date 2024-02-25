@@ -1,0 +1,95 @@
+{
+  "Id": "dev_starter_01",
+  "Title": "Testing, 1 2",
+  "Description": "Join me and my mates for a little testing.",
+  "Track": "data/races/devtest1.race",
+  "Parameters": {},
+  "CharacterParticipants": [],
+  "ExtraParticipants": 5,
+  "OnComplete": {
+    "Version": 5,
+    "UserData": {
+      "Title": "On Complete",
+      "id": "05e89c56-94c3-4505-812b-9f475f1c7efa",
+      "ReferencedComponentTypes": []
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input"
+      },
+      {
+        "Id": 1,
+        "Type": "property.set",
+        "Properties": {
+          "_type": "package.based.bydrive/Bydrive.SaveFile",
+          "_name": "Money"
+        },
+        "UserData": {
+          "Position": "544,0"
+        }
+      },
+      {
+        "Id": 3,
+        "Type": "property.get",
+        "Properties": {
+          "_type": "package.based.bydrive/Bydrive.SaveFile",
+          "_name": "Money"
+        },
+        "UserData": {
+          "Position": "176,96"
+        }
+      },
+      {
+        "Id": 4,
+        "Type": "op.add",
+        "UserData": {
+          "Position": "368,128"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 0,
+        "SrcName": "_signal",
+        "DstId": 1,
+        "DstName": "_signal"
+      },
+      {
+        "SrcId": 0,
+        "SrcName": "save",
+        "DstId": 1,
+        "DstName": "_target"
+      },
+      {
+        "SrcId": 4,
+        "SrcName": "_result",
+        "DstId": 1,
+        "DstName": "_value"
+      },
+      {
+        "SrcId": 0,
+        "SrcName": "save",
+        "DstId": 3,
+        "DstName": "_target"
+      },
+      {
+        "SrcId": 3,
+        "SrcName": "_result",
+        "DstId": 4,
+        "DstName": "a"
+      },
+      {
+        "Value": {
+          "$type": "Simple",
+          "Type": "System.Private.CoreLib/System.Single",
+          "Value": 1000
+        },
+        "DstId": 4,
+        "DstName": "b"
+      }
+    ]
+  },
+  "__references": []
+}

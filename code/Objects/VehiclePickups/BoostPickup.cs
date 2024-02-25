@@ -22,7 +22,7 @@ public class BoostPickup : RacerPickup
 		{
 			vehicle.RemainingBoost += boostAmount;
 			vehicle.RemainingBoost = vehicle.RemainingBoost.Clamp( 0, maxBoost );
-			Notifications.Add( vehicle, new("Picked up boost", UIColors.Notification.Bonus) );
+			Notifications.Add( vehicle, new("Picked up boost", UI.Colors.Notification.Bonus) );
 			return true;
 		}
 

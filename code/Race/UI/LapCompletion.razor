@@ -33,7 +33,7 @@
 		int lap = (int)MathF.Min(GetCurrentLap(), Race?.GetMaxLaps() ?? RaceParameters.DEFAULT_MAX_LAPS);
 		if(lap > highestLap)
 		{
-			Notifications.Add(new($"Completed Lap {lap-1}!", UIColors.Notification.Success, 10f, "sports_score"));
+			Notifications.Add(new($"Completed Lap {lap-1}!", UI.Colors.Notification.Success, 10f, "sports_score"));
 			highestLap = lap;
 		}
 		return highestLap;

@@ -41,5 +41,23 @@ public class OverworldManager : Component
 		GameObject spawn = Scene.GetAllComponents<SpawnPoint>().FirstOrDefault().GameObject;
 		playerObject.Transform.World = spawn.Transform.World;
 		initialised = true;
+
+		foreach (var info in GetUsables() )
+		{
+			GameObject obj = info.Item1;
+			IInteractible usable = info.Item2;
+
+			var collider = obj.Components.Create<BoxCollider>();
+			collider.Center = usable.Bounds.Center;
+			collider.Scale = usable.Bounds.Size;
+			collider.IsTrigger = true;
+		}
+	}
+
+	private IEnumerable<Tuple<GameObject, IInteractible>> GetUsables()
+	{
+		var objects = Scene.GetAllObjects( true );
+		
+		return objects.Select( obj => obj.Components.TryGet<IInteractible>( out var component ) ? new Tuple<GameObject, IInteractible>(obj, component ) : null ).Where(entry => entry != null);
 	}
 }

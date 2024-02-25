@@ -1,0 +1,21 @@
+﻿@using Sandbox.UI;
+@using System.Collections.Generic;
+@namespace Bydrive
+@attribute [StyleSheet]
+@inherits Panel
+
+<root>
+    <img @ref="glyphImage" />
+</root>
+
+@code {
+    public string Action { get; set; }
+    public InputGlyphSize Size { get; set; } = InputGlyphSize.Small;
+    public GlyphStyle Style { get; set; } = GlyphStyle.Knockout;
+    Image glyphImage;
+
+    public override void Tick()
+    {
+        glyphImage.Texture = Input.GetGlyph(Action, Size, Style);
+    }
+}

@@ -2,6 +2,7 @@
   "RootObject": {
     "Id": "4167de82-b0df-4a8f-8d3f-1140cc3b6c99",
     "Name": "story_player",
+    "Tags": "solid",
     "Enabled": true,
     "Components": [
       {
@@ -60,6 +61,17 @@
         "IgnoreLayers": "",
         "Radius": 16,
         "StepHeight": 18
+      },
+      {
+        "__type": "InteractionListener"
+      },
+      {
+        "__type": "BoxCollider",
+        "Center": "0,0,32",
+        "IsTrigger": false,
+        "Scale": "50,50,64",
+        "Static": false,
+        "Surface": null
       }
     ],
     "Children": []

@@ -1,0 +1,60 @@
+﻿InteractionPrompt {
+    position: absolute;
+    bottom: 10%;
+    left: 37.5%;
+    width: 25%;
+    height: 10%;
+    background-color: #666666aa;
+    font-family: Roboto;
+    flex-direction: row;
+    overflow: hidden;
+
+    &.disabled {
+        display: none;
+    }
+
+    .interaction {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+
+        .input {
+            height: 60%;
+        }
+
+        .content {
+            width: 70%;
+            flex-direction: column;
+            color: white;
+
+            .title {
+                font-size: 32px;
+                font-weight: bold;
+            }
+
+            .subtitle {
+                font-size: 24px;
+            }
+
+            &:not(.has_subtitle) {
+                .label {
+                    height: 100%;
+                }
+            }
+
+            &.has_subtitle {
+                .title {
+                    height: 60%;
+                }
+                .subtitle {
+                    height: 40%;
+                }
+            }
+        }
+
+        .label {
+            text-align: center;
+            align-items: center;
+        }
+    }
+}

@@ -7,21 +7,6 @@ global using static Bydrive.Globals;
 namespace Bydrive;
 internal static class Globals
 {
-	public static class UI
-	{
-		public static string ActiveIf( Func<bool> check ) => ActiveIf( check?.Invoke() ?? false );
-
-		public static string ActiveIf( bool active )
-		{
-			if ( active )
-				return "active ";
-
-			return "disabled ";
-		}
-
-		public static string ActiveIf( bool? active ) => ActiveIf( active == true );
-	}
-
 	public static class Soundtrack
 	{
 		public const string RACE_WIN = "sounds/music/menu_race_win.sound";
@@ -87,6 +72,7 @@ internal static class InputActions
 	public const string PITCH_DOWN = "Forward";
 
 	// Story
+	public const string USE = "Item";
 	public const string SKIP_DIALOG = "Break";
 }
 
@@ -96,16 +82,29 @@ internal static class TraceTags
 	public const string WORLD = "world";
 	public const string VEHICLE = "vehicle";
 }
-
-internal static class UIColors
+internal static class UI
 {
-	internal static class Notification
+	internal static class Colors
 	{
-		public static Color Success => new Color( 0x6080DF20 );
-		public static Color Critical => new Color( 0x601B48FF );
-		public static Color Bonus => new Color( 0x60EE5F13 );
-		public static Color Danger => new Color( 0.6f, 0.1f, 0.1f, 0.5f);
+		internal static class Notification
+		{
+			public static Color Success => new Color( 0x6080DF20 );
+			public static Color Critical => new Color( 0x601B48FF );
+			public static Color Bonus => new Color( 0x60EE5F13 );
+			public static Color Danger => new Color( 0.6f, 0.1f, 0.1f, 0.5f );
+		}
 	}
+
+	public static string TagIf(string tag, bool active, string inactiveTag = "")
+	{
+		if ( active )
+			return tag;
+
+		return inactiveTag;
+	}
+	public static string ActiveIf( bool active ) => TagIf( "active", active, "disabled " );
+	public static string ActiveIf( Func<bool> check ) => ActiveIf( check?.Invoke() ?? false );
+	public static string ActiveIf( bool? active ) => ActiveIf( active == true );
 }
 
 internal static class VehicleStatModifiers

@@ -25,6 +25,7 @@ public class OverworldController : Component
 	protected override void OnStart()
 	{
 		cameraRotation = Transform.Rotation;
+		wishRotation = Transform.Rotation;
 	}
 	float GetFriction()
 	{
@@ -62,7 +63,6 @@ public class OverworldController : Component
 
 		wishVelocity = Input.AnalogMove;
 
-
 		if ( !wishVelocity.IsNearlyZero() )
 		{
 			wishVelocity = new Angles( 0, cameraRotation.Yaw(), 0 ).ToRotation() * wishVelocity;
@@ -88,7 +88,6 @@ public class OverworldController : Component
 		{
 			cc.Velocity += halfGravity;
 			cc.Accelerate( wishVelocity );
-
 		}
 
 		cc.Move();
@@ -123,8 +122,9 @@ public class OverworldController : Component
 		CameraComponent camera = GameManager.ActiveScene.Camera;
 		if ( camera == null ) return;
 
-		Vector3 targetCameraPos = Transform.Position + CameraOffset * Rotation.LookAt(cameraRotation.Forward);
+		Vector3 targetCameraPos = Transform.Position + CameraOffset * cameraRotation;
 
+		/*
 		// TODO Dont allow camera to go through walls
 		var wallClipTrace = Scene.Trace.Ray( CameraCenter, targetCameraPos )
 										.Size(WalkMovement.BoundingBox)
@@ -136,6 +136,7 @@ public class OverworldController : Component
 			Vector3 safePositionDirection = wallClipTrace.EndPosition - CameraCenter;
 			targetCameraPos = CameraCenter + safePositionDirection * 0.90f;
 		}
+		*/
 
 		// smooth view z, so when going up and down stairs or ducking, it's smooth af
 		if ( lastUngrounded > 0.2f )

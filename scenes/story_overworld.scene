@@ -2,20 +2,118 @@
   "Id": "120a486a-95c3-49a0-a8b1-708c53d0a72e",
   "GameObjects": [
     {
-      "Id": "9e9a5260-b7b2-4326-8ff7-be72d7d54d9b",
+      "Id": "19c3b37e-de68-4355-966e-ac633da0d546",
       "Name": "Level",
-      "Position": "301,1,1",
       "Enabled": true,
-      "Components": [
+      "Children": [
         {
-          "__type": "MapInstance",
-          "MapName": "maps/rd_st_home.vpk",
-          "OnMapLoaded": null,
-          "OnMapUnloaded": null,
-          "UseMapFromLaunch": false
+          "Id": "c85cc331-0850-4dda-a7ef-0f4a6c674cc8",
+          "Name": "Sun",
+          "Position": "512,-256,384",
+          "Rotation": "-0.2721657,0.8859298,0.2200369,0.3043649",
+          "Tags": "light_directional,light,skybox",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "DirectionalLight",
+              "FogMode": "Enabled",
+              "FogStrength": 1,
+              "LightColor": "0.90698,0.87154,0.80573,1",
+              "Shadows": true,
+              "SkyColor": "0.73246,0.85811,0.92093,1"
+            }
+          ]
+        },
+        {
+          "Id": "8e0513a6-8ed2-42c2-b98b-46c671e6d98c",
+          "Name": "Sky",
+          "Position": "512,-224,384",
+          "Tags": "light_directional,light,skybox",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "SkyBox2D",
+              "SkyMaterial": "materials/skybox/wasteland_clouds_puresky.vmat",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "Id": "9e9a5260-b7b2-4326-8ff7-be72d7d54d9b",
+          "Name": "Instance",
+          "Position": "301,1,1",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "MapInstance",
+              "MapName": "maps/rd_st_home.vpk",
+              "OnMapLoaded": null,
+              "OnMapUnloaded": null,
+              "UseMapFromLaunch": false
+            }
+          ],
+          "Children": []
         }
-      ],
-      "Children": []
+      ]
+    },
+    {
+      "Id": "7b72b5cc-710c-4aaf-8fc0-6f723c8327f7",
+      "Name": "Objects",
+      "Position": "789.5383,-86.54926,508.4316",
+      "Enabled": true,
+      "Children": [
+        {
+          "Id": "b354ff21-8ef8-48a5-be05-19452df63db0",
+          "Name": "TestCharacter",
+          "Position": "-543.8671,0.00003814697,-517.1086",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "OverworldCharacterInstance",
+              "Character": "data/story/characters/dev_lad.prsn",
+              "CharacterRenderer": {
+                "_type": "component",
+                "go": "b354ff21-8ef8-48a5-be05-19452df63db0",
+                "component_type": "SkinnedModelRenderer"
+              },
+              "InteractionBounds": {
+                "Mins": "-64,-64,0",
+                "Maxs": "64,64,64"
+              }
+            },
+            {
+              "__type": "SkinnedModelRenderer",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": null,
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ],
+          "Children": [
+            {
+              "Id": "d9e99a9a-affd-4762-84c2-9ede7522b817",
+              "Name": "Blocker",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "BoxCollider",
+                  "Center": "0,0,32",
+                  "IsTrigger": false,
+                  "Scale": "50,50,64",
+                  "Static": false,
+                  "Surface": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "Id": "002385cc-7912-4977-92f3-e1d960dd2204",
@@ -94,29 +192,17 @@
               "__type": "CharacterInfo"
             }
           ]
-        }
-      ]
-    },
-    {
-      "Id": "c85cc331-0850-4dda-a7ef-0f4a6c674cc8",
-      "Name": "Sun",
-      "Position": "493.8932,-247.7951,374.3571",
-      "Rotation": "-0.2721657,0.8859298,0.2200369,0.3043649",
-      "Tags": "light_directional,light,skybox",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "DirectionalLight",
-          "FogMode": "Enabled",
-          "FogStrength": 1,
-          "LightColor": "0.90698,0.87154,0.80573,1",
-          "Shadows": true,
-          "SkyColor": "0.73246,0.85811,0.92093,1"
         },
         {
-          "__type": "SkyBox2D",
-          "SkyMaterial": "materials/skybox/wasteland_clouds_puresky.vmat",
-          "Tint": "1,1,1,1"
+          "Id": "aea374d2-1a95-4b55-b64e-c86fbcde022f",
+          "Name": "Interactions",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "InteractionPrompt"
+            }
+          ]
         }
       ]
     }
@@ -144,7 +230,7 @@
   },
   "Title": "story_overworld",
   "Description": "",
-  "LastSaved": "2024-02-25T14:32:57.8339064\u002B01:00",
+  "LastSaved": "2024-02-25T19:46:49.3260067\u002B01:00",
   "__references": [
     "polyhaven.wasteland_clouds_puresky"
   ]

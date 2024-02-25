@@ -18,7 +18,7 @@ public class RaceRespawnZone : Component, Component.ITriggerListener
 		var participant = other.Components.GetInAncestorsOrSelf<RaceParticipant>();
 		if(participant != null)
 		{
-			Notifications.Add( participant, new( "Vehicle out of bounds, respawning...", UIColors.Notification.Danger, RESPAWN_TIME, "warning" ) );
+			Notifications.Add( participant, new( "Vehicle out of bounds, respawning...", UI.Colors.Notification.Danger, RESPAWN_TIME, "warning" ) );
 			participant.RespawnIn(RESPAWN_TIME, RESPAWN_DAMAGE);
 		}
 	}

@@ -1,0 +1,31 @@
+﻿@using Sandbox.UI;
+
+@attribute [StyleSheet]
+@namespace Bydrive
+@inherits PanelComponent
+
+<root class="@UI.ActiveIf(HasInteractions())">
+	@if (HasInteractions())
+	{
+		@foreach (var interaction in possibleInteractions.Select(i => i.Hint))
+		{
+			<div class="interaction">
+				<InputGlyph class="input" Action=@interaction.Input/>
+				@if (string.IsNullOrEmpty(interaction.Subtitle))
+				{
+					<div class="content">
+						<label class="title">@interaction.Title</label>
+					</div>
+				}
+				else
+				{
+					<div class="content has_subtitle">
+						<label class="title">@interaction.Title</label>
+						<label class="subtitle">@interaction.Subtitle</label>
+					</div>
+				}
+			</div>
+		}
+	}
+	
+</root>
