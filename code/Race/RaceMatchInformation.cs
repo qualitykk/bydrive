@@ -68,7 +68,7 @@ public class RaceMatchInformation
 		//multiplayer = LobbyManager.MultiplayerActive;
 		multiplayer = false;
 
-		if(!definition.UseScene())
+		if (!definition.UseScene())
 		{
 			Assert.NotNull( globals );
 			Assert.NotNull( globals.Level );
@@ -86,7 +86,7 @@ public class RaceMatchInformation
 
 		Definition = definition;
 		Participants = participants;
-		if ( parameters != default )
+		if ( !parameters.Equals(default) )
 		{
 			Parameters = parameters;
 		}

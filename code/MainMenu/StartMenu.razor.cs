@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public partial class StartMenu
+public partial class StartMenu : PanelComponent
 {
 	const string MENU_SCENE = "/scenes/startmenu.scene";
 	const string RACE_LOBBY_URL = "/multiplayer/race/active";
@@ -46,10 +46,6 @@ public partial class StartMenu
 		Current?.NavPanel?.GoBack();
 	}
 	private static VehicleDefinition _localSelectedVehicle;
-	public static VehicleDefinition GetDefaultVehicle()
-	{
-		return ResourceLibrary.GetAll<VehicleDefinition>().FirstOrDefault();
-	}
 	public static VehicleDefinition SelectedVehicle 
 	{ 
 		get 
@@ -57,7 +53,7 @@ public partial class StartMenu
 			VehicleDefinition selection = LobbyManager.MultiplayerActive ? LobbyManager.Instance.LocalPlayer.SelectedVehicle : _localSelectedVehicle;
 			if( selection == null)
 			{
-				return GetDefaultVehicle();
+				return VehicleDefinition.GetDefault();
 			}
 
 			return selection;

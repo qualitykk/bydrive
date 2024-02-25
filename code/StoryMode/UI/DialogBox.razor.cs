@@ -8,12 +8,16 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public partial class DialogBox
+public partial class DialogBox : PanelComponent
 {
 	const float DIALOG_SPEED = 15.0f;
 	public static void Show(string text, float speed = DIALOG_SPEED, string name = "", List<string> responses = null)
 	{
 		Current?.SetMessage( text, speed, name, responses );
+	}
+	public static void Show( string text, float speed = DIALOG_SPEED, CharacterDefinition character = default, List<string> responses = null )
+	{
+		Show(text, speed, character?.Name, responses );
 	}
 	public static DialogBox Current { get; set; }
 	public string Text { get; set; }

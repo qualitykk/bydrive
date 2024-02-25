@@ -58,7 +58,7 @@ internal static class StartRace
 
 	private static VehicleDefinition GetBotVehicle()
 	{
-		VehicleDefinition devCar = StartMenu.GetDefaultVehicle();
+		VehicleDefinition devCar = VehicleDefinition.GetDefault();
 		return devCar;
 	}
 

@@ -21,7 +21,7 @@
 
     protected override void OnParametersSet()
     {
-        tracks = ResourceLibrary.GetAll<RaceDefinition>().Where(def => !def.Hidden);
+        tracks = RaceDefinition.GetAllVisible();
         groupedTracks = tracks.GroupBy(t => t.Group);
     }
 

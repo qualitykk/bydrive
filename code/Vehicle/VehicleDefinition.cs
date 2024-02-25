@@ -10,6 +10,10 @@ namespace Bydrive;
 [Icon( "electric_car" )]
 public class VehicleDefinition : GameResource, IPrefabProvider
 {
+	public static VehicleDefinition GetDefault()
+	{
+		return ResourceLibrary.GetAll<VehicleDefinition>().FirstOrDefault();
+	}
 	public string Title { get; set; }
 	public string Description { get; set; }
 	public bool Hidden { get; set; }
