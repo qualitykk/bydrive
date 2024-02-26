@@ -24,6 +24,7 @@ public partial class InteractionPrompt : PanelComponent
 		else
 		{
 			possibleInteractions = null;
+			UI.MakeMenuInactive( Panel );
 		}
 
 		if ( !HasInteractions() ) return;
@@ -35,6 +36,8 @@ public partial class InteractionPrompt : PanelComponent
 	}
 	private void TryPress( IInteractible action )
 	{
+		if ( ActiveMenu != null ) return;
+
 		bool pressed = Input.Pressed( action.Input );
 		if ( pressed )
 		{

@@ -11,7 +11,7 @@ namespace Bydrive;
 
 public partial class DialogBox : PanelComponent
 {
-	const float RESPONSE_HOLD_COOLDOWN = 0.5f;
+	const float RESPONSE_HOLD_COOLDOWN = 0.3f;
 	public static void Show(DialogEntry entry)
 	{
 		Current?.SetMessage( entry );
@@ -62,7 +62,7 @@ public partial class DialogBox : PanelComponent
 
 		Entry = entry;
 		selectedIndex = 0;
-		selectedResponse = entry.Responses?.ElementAtOrDefault( 0 );
+		selectedResponse = entry?.Responses?.ElementAtOrDefault( 0 );
 
 		StateHasChanged();
 	}
@@ -89,7 +89,7 @@ public partial class DialogBox : PanelComponent
 			UI.MakeMenuInactive( Panel );
 		}
 
-		if(Input.Pressed(InputActions.DIALOG_SKIP))
+		if(Input.Pressed(InputActions.DIALOG_SKIP) || Input.Pressed(InputActions.USE))
 		{
 			if(finished)
 			{
@@ -103,11 +103,21 @@ public partial class DialogBox : PanelComponent
 		// TODO: Prevent movement
 		if ( ShowResponses())
 		{
-			float forwardInput = Input.AnalogMove.x;
-			if ( forwardInput != 0 && timeSinceResponseChanged > RESPONSE_HOLD_COOLDOWN )
+			if(Input.Pressed(InputActions.DIALOG_DOWN))
 			{
-				timeSinceResponseChanged = 0;
-				MoveSelection( -MathF.Sign( forwardInput ) );
+				MoveSelection( 1 );
+			}
+			else if(Input.Pressed(InputActions.DIALOG_UP))
+			{
+				MoveSelection( -1 );
+			}
+			else
+			{
+				float forwardInput = Input.AnalogMove.x;
+				if ( forwardInput != 0 && timeSinceResponseChanged > RESPONSE_HOLD_COOLDOWN )
+				{
+					MoveSelection( -MathF.Sign( forwardInput ) );
+				}
 			}
 		}
 	}
@@ -139,10 +149,11 @@ public partial class DialogBox : PanelComponent
 		}
 
 		selectedResponse = responses[selectedIndex];
+		timeSinceResponseChanged = 0;
 	}
 
 	[ConCmd("ui_show_dialog")]
-	public static void Command_Show(string text, string name, float speed = DialogEntry.DEFAULT_SPEED)
+	private static void Command_Show(string text, string name, float speed = DialogEntry.DEFAULT_SPEED)
 	{
 		ShowAction( text, name, speed );
 	}

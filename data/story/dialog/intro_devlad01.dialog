@@ -1,4 +1,83 @@
 {
-  "Root": null,
+  "Root": {
+    "Text": "Testing testing 123",
+    "Speed": 60,
+    "Next": {
+      "Text": "Lorem ipsum?",
+      "Speed": 60,
+      "Next": {
+        "Speed": 60,
+        "Next": {
+          "Speed": 60
+        },
+        "Responses": []
+      },
+      "Responses": [
+        {
+          "Title": "Yes",
+          "Next": {
+            "Text": "Fuck You",
+            "Speed": 60,
+            "Next": {
+              "Speed": 60
+            },
+            "Responses": []
+          }
+        },
+        {
+          "Title": "No",
+          "Next": {
+            "Text": "Thanks",
+            "Speed": 60,
+            "Next": {
+              "Speed": 60
+            },
+            "Responses": [],
+            "OnFinished": {
+              "Version": 5,
+              "UserData": {
+                "Title": "On Finished",
+                "id": "ed4f8374-bb8d-428c-8d72-ff07e879f76d",
+                "ReferencedComponentTypes": []
+              },
+              "Variables": [],
+              "Nodes": [
+                {
+                  "Id": 0,
+                  "Type": "input"
+                },
+                {
+                  "Id": 1,
+                  "Type": "sound.playfile",
+                  "UserData": {
+                    "Position": "240,0"
+                  }
+                }
+              ],
+              "Links": [
+                {
+                  "SrcId": 0,
+                  "SrcName": "_signal",
+                  "DstId": 1,
+                  "DstName": "_signal"
+                },
+                {
+                  "Value": "sounds/music/music_race_win.vsnd",
+                  "DstId": 1,
+                  "DstName": "soundFile"
+                },
+                {
+                  "Value": 0.5,
+                  "DstId": 1,
+                  "DstName": "volume"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "Responses": []
+  },
   "__references": []
 }
