@@ -1,25 +1,73 @@
-StoryMenu
-{
+StoryMenu {
 	display: none;
 	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: #444;
+	top: 5%;
+	left: 5%;
+	right: 5%;
+	bottom: 5%;
+	background-color: #268b4a;
 	justify-content: center;
 	align-items: center;
 	font-weight: bold;
 	border-radius: 20px;
+	pointer-events: all;
+	font-family: Poppins;
+	z-index: 100;
 
 	&.active {
-		display:flex;
+		display: flex;
 	}
 
-	.title
-	{
-		font-size: 25px;
-		font-family: Poppins;
+	.profile {
+		flex-direction: column;
+		align-items: center;
+		width: 30%;
+		height: 100%;
 		color: #fff;
+		font-size: 24px;
+
+		.title {
+			font-size: 36px;
+		}
+	}
+
+	.main {
+		flex-direction: column;
+		width: 70%;
+		height: 100%;
+		background-color: #dcdada;
+		text-align: center;
+
+		.group {
+			font-size: 50px;
+			border-bottom: 6px solid black;
+			margin: 0 5% 0 5%;
+		}
+
+		.challenges {
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			padding: 1%;
+			background-color: #777777cc;
+
+			.entry {
+				width: 90%;
+				flex-direction: column;
+				color: white;
+				background-color: #dbc627;
+				padding: 20px;
+				border-radius: 5px;
+
+				.title {
+					text-align: center;
+					font-size: 36px;
+				}
+
+				&:hover {
+					background-color: #ebd637;
+				}
+			}
+		}
 	}
 }

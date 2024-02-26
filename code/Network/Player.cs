@@ -34,13 +34,22 @@ public class Player : Component
 		return ply;
 	}
 
-	public static Player CreateBot()
+	public static Player CreateBot(string name = "")
 	{
 		GameObject playerObject = new();
-		playerObject.Name = $"Player | BOT";
-		playerObject.Networked = true;
+		playerObject.Networked = LobbyManager.MultiplayerActive;
 		var ply = playerObject.Components.Create<Player>();
 		ply.IsBot = true;
+
+		if(string.IsNullOrEmpty(name))
+		{
+			playerObject.Name = $"Player | BOT";
+		}
+		else
+		{
+			playerObject.Name = $"Player | {name} (BOT)";
+			ply.DisplayName = name;
+		}
 
 		if(GameNetworkSystem.IsActive)
 		{

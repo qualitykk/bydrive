@@ -9,5 +9,20 @@
 }
 
 <root>
-	<div class="title">@CurrentSave.CharacterName</div>
+	<div class="profile">
+		<div class="title">@CurrentSave.CharacterName</div>
+		<div class="rank">Challenger</div>
+	</div>
+	<div class="main">
+		<label class="group">Challenges</label>
+		<div class="challenges">
+			@foreach (var challenge in ChallengeDefinition.All)
+			{
+				<div class="entry" @onclick=@(() => OnClickChallenge(challenge))>
+					<label class="title">@challenge.Title</label>
+					<label class="description">@challenge.Description</label>
+				</div>
+			}
+		</div>
+	</div>
 </root>

@@ -30,7 +30,7 @@ public class ItemPickup : RacerPickup
 
 		if ( vehicle.EquipItem( item ) )
 		{
-			Notifications.Add( vehicle, new( "Picked up item", UI.Colors.Notification.Critical ) );
+			RaceNotifications.Add( vehicle, new( "Picked up item", UI.Colors.Notification.Critical ) );
 			return true;
 		}
 

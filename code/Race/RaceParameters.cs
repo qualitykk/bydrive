@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public struct RaceParameters
+public class RaceParameters : IEqualityOperators<RaceParameters, RaceParameters, bool>
 {
 	public const int DEFAULT_MAX_LAPS = 3;
 	public const float RACE_START_WAIT = 4f;
+	public static readonly RaceParameters Default = new();
 	public int MaxLaps { get; set; } = DEFAULT_MAX_LAPS;
 	public SoundEvent RaceMusic { get; set; }
 	public float RaceMusicVolume { get; set; } = -1f;
@@ -21,5 +22,30 @@ public struct RaceParameters
 		MaxLaps = DEFAULT_MAX_LAPS;
 		RaceMusicVolume = -1;
 		RaceStartWait = RACE_START_WAIT;
+	}
+
+	public override bool Equals( object obj )
+	{
+		return obj is RaceParameters parameters &&
+			   MaxLaps == parameters.MaxLaps &&
+			   EqualityComparer<SoundEvent>.Default.Equals( RaceMusic, parameters.RaceMusic ) &&
+			   RaceMusicVolume == parameters.RaceMusicVolume &&
+			   RaceStartWait == parameters.RaceStartWait &&
+			   Mode == parameters.Mode;
+	}
+
+	public override int GetHashCode()
+	{
+		return HashCode.Combine( MaxLaps, RaceMusic, RaceMusicVolume, RaceStartWait, Mode );
+	}
+
+	public static bool operator ==( RaceParameters left, RaceParameters right )
+	{
+		return left.Equals( right );
+	}
+
+	public static bool operator !=( RaceParameters left, RaceParameters right )
+	{
+		return !left.Equals( right );
 	}
 }

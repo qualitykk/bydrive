@@ -42,9 +42,9 @@
           },
           {
             "__type": "BoxCollider",
-            "Center": "0,0,56.89997",
+            "Center": "-2.5,0,40",
             "IsTrigger": false,
-            "Scale": "308.6999,135.4001,101.4002",
+            "Scale": "227.4996,80.70023,70",
             "Static": false,
             "Surface": null
           },

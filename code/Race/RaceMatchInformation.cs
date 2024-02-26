@@ -57,7 +57,7 @@ public class RaceMatchInformation
 	private bool multiplayer;
 
 	private Dictionary<Participant,GameObject> participantObjects = new();
-	public RaceMatchInformation(RaceDefinition definition, List<Participant> participants, RaceParameters parameters = default, bool createParticipants = true)
+	public RaceMatchInformation(RaceDefinition definition, List<Participant> participants, RaceParameters parameters = null, bool createParticipants = true)
 	{
 		var globals = RaceGlobals.Current;
 
@@ -86,7 +86,7 @@ public class RaceMatchInformation
 
 		Definition = definition;
 		Participants = participants;
-		if ( !parameters.Equals(default) )
+		if ( parameters != null && !parameters.Equals(RaceParameters.Default) && parameters != definition.Parameters )
 		{
 			Parameters = parameters;
 		}

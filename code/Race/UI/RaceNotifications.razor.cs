@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public partial class Notifications : PanelComponent
+public partial class RaceNotifications : PanelComponent
 {
 	const float DEFAULT_NOTIFICATION_TIME = 5f;
 	const float FADE_TIME = 1.5f;
-	public struct NotificationInstance
+	public struct Line
 	{
 		public string Message { get; set; }
 		public Color Color { get; set; }
 		public TimeUntil TimeUntilDeletion { get; set; }
 		public string Icon { get; set; }
 
-		public NotificationInstance( string message, Color color, float time = DEFAULT_NOTIFICATION_TIME, string icon = "" )
+		public Line( string message, Color color, float time = DEFAULT_NOTIFICATION_TIME, string icon = "" )
 		{
 			Message = message;
 			Color = color;
@@ -37,32 +37,32 @@ public partial class Notifications : PanelComponent
 		}
 	}
 
-	public static Notifications Current { get; private set; }
-	private List<NotificationInstance> activeNotifications { get; set; } = new();
+	public static RaceNotifications Current { get; private set; }
+	private List<Line> activeNotifications { get; set; } = new();
 
-	private static void AddLine( NotificationInstance notification )
+	private static void AddLine( Line notification )
 	{
 		Current?.activeNotifications.Add( notification );
 	}
-	public static void Broadcast( NotificationInstance instance )
+	public static void Broadcast( Line instance )
 	{
 		AddLine( instance );
 	}
-	public static void Add( VehicleController vehicle, NotificationInstance notification )
+	public static void Add( VehicleController vehicle, Line notification )
 	{
 		if ( GetLocalVehicle() != vehicle )
 			return;
 
 		AddLine( notification );
 	}
-	public static void Add( RaceParticipant participant, NotificationInstance notification )
+	public static void Add( RaceParticipant participant, Line notification )
 	{
 		if ( GetLocalParticipantInstance() != participant )
 			return;
 
 		AddLine( notification );
 	}
-	public static void Add( NotificationInstance notification )
+	public static void Add( Line notification )
 	{
 		Add( GetLocalParticipantInstance(), notification );
 	}
@@ -75,7 +75,7 @@ public partial class Notifications : PanelComponent
 	protected override void OnUpdate()
 	{
 		base.OnUpdate();
-		foreach ( NotificationInstance line in activeNotifications.ToArray() )
+		foreach ( Line line in activeNotifications.ToArray() )
 		{
 			if ( line.TimeUntilDeletion )
 			{

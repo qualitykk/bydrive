@@ -2,14 +2,19 @@
 
 public partial class StoryMenu
 {
-	internal bool Visible { get; set; } = false;
+	internal bool active { get; set; } = false;
 	protected override void OnUpdate()
 	{
-		SetClass( "active", Visible );
+		SetClass( "active", active );
 
 		if(Input.EscapePressed)
 		{
-			Visible = !Visible;
+			active = !active;
 		}
+	}
+
+	void OnClickChallenge(ChallengeDefinition definition)
+	{
+		StartRace.Challenge( definition, VehicleDefinition.GetDefault() );
 	}
 }

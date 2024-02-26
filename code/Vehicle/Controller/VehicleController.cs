@@ -165,7 +165,7 @@ public sealed partial class VehicleController : Component
 		{
 			if(couldDrive)
 			{
-				Notifications.Add( this, new( "Unsafe vehicle position, respawning...", UI.Colors.Notification.Danger, AUTO_RESPAWN_TIME, "warning" ) );
+				RaceNotifications.Add( this, new( "Unsafe vehicle position, respawning...", UI.Colors.Notification.Danger, AUTO_RESPAWN_TIME, "warning" ) );
 				GetParticipant()?.RespawnIn( AUTO_RESPAWN_TIME, AUTO_RESPAWN_DAMAGE );
 			}
 		}

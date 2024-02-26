@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,20 @@ internal static class StartRace
 	const float TIME_TRIAL_WAIT = 3.5f;
 	const string TIME_TRIAL_MUSIC_TRACK = "/sounds/music/race_timetrial.sound";
 	const float TIME_TRIAL_MUSIC_VOLUME = 0.8f;
+	public static void Challenge(ChallengeDefinition challenge, VehicleDefinition vehicle)
+	{
+		List<RaceMatchInformation.Participant> racers = new();
+		int currentPosition = RaceStartingPosition.FIRST_PLACE;
+
+		foreach(var p in challenge.Participants.OrderBy(p => p.StartPosition))
+		{
+			racers.Add( new( p.Vehicle, Player.CreateBot(p.Name), currentPosition ) );
+			currentPosition++;
+		}
+		racers.Add( new( vehicle, Player.Local, currentPosition ) );
+
+		new RaceMatchInformation( challenge.Track, racers, challenge.Parameters );
+	}
 	public static void TimeTrial(RaceDefinition race, VehicleDefinition vehicle)
 	{
 		List<RaceMatchInformation.Participant> racers = new()

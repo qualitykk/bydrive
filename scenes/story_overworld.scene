@@ -281,6 +281,17 @@
               "__type": "InteractionPrompt"
             }
           ]
+        },
+        {
+          "Id": "0a17419e-f469-4929-93b9-ebe08ae7a2ec",
+          "Name": "Menu",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "StoryMenu"
+            }
+          ]
         }
       ]
     }
@@ -308,7 +319,7 @@
   },
   "Title": "story_overworld",
   "Description": "",
-  "LastSaved": "2024-02-25T23:10:43.7166098\u002B01:00",
+  "LastSaved": "2024-02-26T19:58:40.2719126\u002B01:00",
   "__references": [
     "facepunch.wooden_door_01d",
     "polyhaven.wasteland_clouds_puresky"
