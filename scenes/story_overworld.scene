@@ -218,7 +218,7 @@
       "Components": [
         {
           "__type": "CameraComponent",
-          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "BackgroundColor": "0,0,0,1",
           "ClearFlags": "All",
           "FieldOfView": 120,
           "IsMainCamera": true,
@@ -319,7 +319,7 @@
   },
   "Title": "story_overworld",
   "Description": "",
-  "LastSaved": "2024-02-26T19:58:40.2719126\u002B01:00",
+  "LastSaved": "2024-02-27T22:15:05.072042\u002B01:00",
   "__references": [
     "facepunch.wooden_door_01d",
     "polyhaven.wasteland_clouds_puresky"

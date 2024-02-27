@@ -1,0 +1,285 @@
+{
+  "Id": "e1ab7198-e51b-4580-815a-69ca8ab95d99",
+  "GameObjects": [
+    {
+      "Id": "4a2d193f-2855-472e-9a4f-1c539ee4e461",
+      "Name": "Level",
+      "Enabled": true,
+      "Children": [
+        {
+          "Id": "e5771e93-3aed-42a3-a189-d22bb00c84b6",
+          "Name": "Sun",
+          "Position": "512,-256,384",
+          "Rotation": "-0.2721657,0.8859298,0.2200369,0.3043649",
+          "Tags": "light_directional,light,skybox",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "DirectionalLight",
+              "FogMode": "Enabled",
+              "FogStrength": 1,
+              "LightColor": "0.90698,0.87154,0.80573,1",
+              "Shadows": true,
+              "SkyColor": "0.73246,0.85811,0.92093,1"
+            }
+          ]
+        },
+        {
+          "Id": "e77116ac-162a-4cca-91e5-d61e1bca6aa7",
+          "Name": "Sky",
+          "Position": "512,-224,384",
+          "Tags": "light_directional,light,skybox",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "SkyBox2D",
+              "SkyMaterial": "materials/skybox/wasteland_clouds_puresky.vmat",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "Id": "e76e4ef2-ad49-424b-9977-4a45ac7a6c44",
+          "Name": "Instance",
+          "Position": "301,1,1",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "MapInstance",
+              "MapName": "maps/rd_st_garage.vpk",
+              "OnMapLoaded": null,
+              "OnMapUnloaded": null,
+              "UseMapFromLaunch": false
+            }
+          ],
+          "Children": []
+        }
+      ]
+    },
+    {
+      "Id": "1f045ab9-811b-4cc4-981c-f73301ed4f95",
+      "Name": "UI",
+      "Position": "0,0,128",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ScreenPanel",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ZIndex": 100
+        }
+      ],
+      "Children": [
+        {
+          "Id": "f7b20b73-09cf-4a56-bd34-2495e3285356",
+          "Name": "Dialog",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "DialogBox"
+            }
+          ]
+        },
+        {
+          "Id": "3c5c2967-1c9b-479a-ac36-a13eff20d8b5",
+          "Name": "HUD",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "CharacterInfo"
+            }
+          ]
+        },
+        {
+          "Id": "e39e097b-24e7-4ff0-9be5-57b911529865",
+          "Name": "Interactions",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "InteractionPrompt"
+            }
+          ]
+        },
+        {
+          "Id": "c6e725ed-925d-4ca1-bfb2-ee571af66160",
+          "Name": "Menu",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "StoryMenu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "5bf35211-4f4a-4bdd-9a79-7d212b8dd019",
+      "Name": "Camera",
+      "Position": "201.8197,-205.0446,139.5152",
+      "Rotation": "-0.0116487,0.1224981,0.8857097,0.4476347",
+      "Scale": "1.887448,1,1",
+      "Tags": "maincamera",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "CameraComponent",
+          "BackgroundColor": "1,1,1,0",
+          "ClearFlags": "All",
+          "FieldOfView": 90,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        }
+      ]
+    },
+    {
+      "Id": "960f9d05-815f-403b-8242-f4c45d9c1935",
+      "Name": "VehicleCustomizeManager",
+      "Position": "-67.63286,-89.08066,73.98915",
+      "Enabled": true
+    },
+    {
+      "Id": "53f16c10-d3b5-45a7-a693-a76130537856",
+      "Name": "VehicleModel",
+      "Position": "-9.094742,-95.49846,73.98915",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "SkinnedModelRenderer",
+          "AnimationGraph": null,
+          "BodyGroups": 18446744073709551615,
+          "BoneMergeTarget": null,
+          "CreateBoneObjects": false,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/vehicles/vehicle_boxy.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ],
+      "Children": [
+        {
+          "Id": "070a6ebb-dbd8-4920-ae57-e3cbe485a042",
+          "Name": "VehicleWheel",
+          "Position": "69.50221,35.10881,15.45612",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "SkinnedModelRenderer",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/citizen_props/wheel01.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "Id": "b6393310-c07c-4339-9797-3edd6e5e4e53",
+          "Name": "VehicleWheel",
+          "Position": "69.50221,-37.3181,15.45612",
+          "Rotation": "0,0,-1,0.0000001947072",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "SkinnedModelRenderer",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/citizen_props/wheel01.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "Id": "c913c971-f38e-4906-8fab-6c98a0fd76aa",
+          "Name": "VehicleWheel",
+          "Position": "-72.74498,35.10881,15.45612",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "SkinnedModelRenderer",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/citizen_props/wheel01.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "Id": "5f5ba3c3-a3df-47b0-89b8-6bbd9fdd2227",
+          "Name": "VehicleWheel",
+          "Position": "-72.74498,-37.3181,15.45612",
+          "Rotation": "0,0,-1,0.0000001947072",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "SkinnedModelRenderer",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/citizen_props/wheel01.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "story_garage",
+  "Description": "",
+  "LastSaved": "2024-02-27T22:22:23.0615525\u002B01:00",
+  "__references": [
+    "polyhaven.wasteland_clouds_puresky"
+  ]
+}
