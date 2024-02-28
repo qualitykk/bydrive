@@ -8,7 +8,6 @@ namespace Bydrive;
 
 public partial class SaveFile
 {
-	public float Money { get; set; }
 	[ActionGraphIgnore] public Dictionary<string, ChallengeStatus> ChallengeStates { get; set; }
 	public ChallengeStatus GetChallengeStatus(string challenge)
 	{

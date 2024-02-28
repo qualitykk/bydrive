@@ -1,0 +1,53 @@
+﻿@using Sandbox.UI;
+@namespace Bydrive
+@attribute [StyleSheet]
+@inherits PanelComponent;
+
+@if(manager == null)
+{
+    return;
+}
+
+<root>
+    <div class="overlay">
+        @if (currentVehicle != null)
+        {
+            @if (CurrentSave != null && !CurrentSave.CanUseVehicle(currentVehicle))
+            {
+                <label class="locked">LOCKED</label>
+            }
+            <label class="title">@currentVehicle.Title</label>
+        }
+        else
+        {
+            <label class="title">None Selected</label>
+        }
+    </div>
+    <div class="options">
+        <nav>
+            <label class="option">Select Car</label>
+            <label class="option">Attachments</label>
+            <label class="option">Info</label>
+        </nav>
+        <div class="config">
+            @foreach(var vehicle in ResourceLibrary.GetAll<VehicleDefinition>())
+            {
+                <div class="vehicle" @onclick=@(() => OnClickVehicle(vehicle))>
+                    <ModelPreviewPanel Model=@vehicle.PreviewModel CameraPosition=@vehicle.PreviewPosition/>
+                    <label class="name">@vehicle.Title</label>
+                </div>
+            }
+        </div>
+        <div class="review">
+            @if (currentVehicle != null)
+            {
+                <label class="info">@currentVehicle.Description</label>
+            }
+            
+            <div class="controls">
+                <label class="button back">Back</label>
+                <label class="button next">Select</label>
+            </div>
+        </div>
+    </div>
+</root>

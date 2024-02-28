@@ -10,7 +10,7 @@ public partial class LoadGamePage
 {
 	void OnClickSave(SaveFile save)
 	{
-		StoryMode.Load( save );
+		Story.Load( save );
 	}
 	void OnClickBack()
 	{

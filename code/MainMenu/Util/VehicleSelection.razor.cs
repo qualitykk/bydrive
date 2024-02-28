@@ -23,11 +23,6 @@ public partial class VehicleSelection
 		if ( def == null ) return PreviewCameraPosition;
 		return def?.PreviewPosition != Vector3.Zero ? def.PreviewPosition : PreviewCameraPosition;
 	}
-	private static Angles VehiclePreviewAngles(VehicleDefinition def)
-	{
-		if(def == null) return PreviewCameraAngles;
-		return def?.PreviewAngles != Angles.Zero ? def.PreviewAngles : PreviewCameraAngles;
-	}
 	private void OnClickVehicle(VehicleDefinition def)
 	{
 		selectedVehicle = def;

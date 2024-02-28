@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public static class StoryMode
+public static class Story
 {
 	const string OVERWORLD_SCENE = "/scenes/story_overworld.scene";
 	public static bool Active { get; private set; }

@@ -1,0 +1,146 @@
+﻿VehicleCustomizeMenu {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    flex-direction: row;
+    pointer-events: all;
+
+    .overlay {
+        width: 70%;
+
+        .locked {
+            position: absolute;
+            top: 45%;
+            bottom: 20%;
+            left: 2%;
+            right: 2%;
+            border-radius: 5px;
+            align-items: center;
+            text-align: center;
+            font-size: 60px;
+            font-weight: bold;
+            color: #ffffff;
+            font-family: Roboto;
+            background-color: #a0474499;
+            backdrop-filter: blur(2px);
+        }
+
+        .title {
+            font-family: Poppins;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 10%;
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+    }
+
+    .options {
+        width: 30%;
+        flex-direction: column;
+
+        nav {
+            background-color: #aaaa;
+            height: 5%;
+            justify-content: space-evenly;
+
+            .option {
+                color: #ffffff;
+                font-size: 32px;
+                background-color: #5a5a5acc;
+                flex-grow: 1;
+                text-align: center;
+
+                &:hover {
+                    background-color: #a2a2a2;
+                }
+            }
+        }
+
+        .config {
+            background-color: #7a7a7acc;
+            backdrop-filter: blur(5px);
+            height: 65%;
+            padding: 1%;
+            gap: 20px;
+
+            .vehicle {
+                width: 180px;
+                aspect-ratio: 1;
+                background-color: #af7f6f;
+                align-items: center;
+                flex-direction: column;
+                border-radius: 10px;
+
+                &:hover {
+                    background-color: #bf8f7f;
+                }
+
+                ModelPreviewPanel {
+                    width: 80%;
+                    aspect-ratio: 1;
+                    padding: 1%;
+                }
+
+                .name {
+                    color: #ffffff;
+                    text-align: center;
+                    font-size: 32px;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .review {
+            background-color: #4f4a4acc;
+            backdrop-filter: blur(5px);
+            height: 30%;
+            flex-direction: column;
+
+            .info {
+                height: 70%;
+                text-align: center;
+                align-items: center;
+                color: #ffffff;
+                font-size: 28px;
+            }
+
+            .controls {
+                height: 30%;
+                justify-content: space-evenly;
+                padding: 1%;
+                gap: 20%;
+            }
+
+            .button {
+                color: #ffffff;
+                font-size: 32px;
+                text-align: center;
+                flex-grow: 1;
+                text-align: center;
+                align-items: center;
+
+                &.next {
+                    background-color: #779955;
+
+                    &:hover {
+                        background-color: #97b975;
+                    }
+                }
+
+                &.back {
+                    background-color: #706666;
+
+                    &:hover {
+                        background-color: #908686;
+                    }
+                }
+            }
+        }
+    }
+}

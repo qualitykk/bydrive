@@ -83,28 +83,6 @@
           ]
         },
         {
-          "Id": "3c5c2967-1c9b-479a-ac36-a13eff20d8b5",
-          "Name": "HUD",
-          "Position": "0,0,0",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "CharacterInfo"
-            }
-          ]
-        },
-        {
-          "Id": "e39e097b-24e7-4ff0-9be5-57b911529865",
-          "Name": "Interactions",
-          "Position": "0,0,0",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "InteractionPrompt"
-            }
-          ]
-        },
-        {
           "Id": "c6e725ed-925d-4ca1-bfb2-ee571af66160",
           "Name": "Menu",
           "Position": "0,0,0",
@@ -112,6 +90,9 @@
           "Components": [
             {
               "__type": "StoryMenu"
+            },
+            {
+              "__type": "VehicleCustomizeMenu"
             }
           ]
         }
@@ -146,15 +127,29 @@
     },
     {
       "Id": "960f9d05-815f-403b-8242-f4c45d9c1935",
-      "Name": "VehicleCustomizeManager",
+      "Name": "CustomizeManager",
       "Position": "-67.63286,-89.08066,73.98915",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "CustomizationManager",
+          "VehiclePreview": {
+            "_type": "gameobject",
+            "go": "9d13d9d5-09c6-4613-8327-78130fc006fd"
+          }
+        }
+      ]
+    },
+    {
+      "Id": "9d13d9d5-09c6-4613-8327-78130fc006fd",
+      "Name": "VehiclePreview",
+      "Position": "-9.094742,-95.49846,73.98915",
       "Enabled": true
     },
     {
       "Id": "53f16c10-d3b5-45a7-a693-a76130537856",
-      "Name": "VehicleModel",
+      "Name": "PreviewPreview",
       "Position": "-9.094742,-95.49846,73.98915",
-      "Enabled": true,
       "Components": [
         {
           "__type": "SkinnedModelRenderer",
@@ -278,7 +273,7 @@
   },
   "Title": "story_garage",
   "Description": "",
-  "LastSaved": "2024-02-27T22:22:23.0615525\u002B01:00",
+  "LastSaved": "2024-02-28T19:56:18.5256718\u002B01:00",
   "__references": [
     "polyhaven.wasteland_clouds_puresky"
   ]

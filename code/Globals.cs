@@ -24,7 +24,7 @@ internal static class Globals
 	public static RaceManager Race => RaceManager.Current;
 	public static RaceMatchInformation RaceContext => RaceMatchInformation.Current;
 	public static RaceParameters RaceConfig => RaceContext?.Parameters ?? new();
-	public static SaveFile CurrentSave => StoryMode.Progress;
+	public static SaveFile CurrentSave => Story.Progress;
 	public static UserSettings Settings 
 	{
 		get
