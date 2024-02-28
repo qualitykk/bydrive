@@ -20,17 +20,22 @@ public class ItemPool : GameResource
 	}
 
 	public List<Entry> Entries { get; set; } = new();
-
-	public ItemDefinition GetRandom()
+	public List<ItemDefinition> GetItemsWeighted()
 	{
-		List<ItemDefinition> roulette = new();
-		foreach(var entry in Entries)
+		List<ItemDefinition> items = new();
+		foreach ( var entry in Entries )
 		{
 			for ( int i = 0; i < entry.Weight; i++ )
 			{
-				roulette.Add( entry.Item );
+				items.Add( entry.Item );
 			}
 		}
+
+		return items;
+	}
+	public ItemDefinition GetRandom()
+	{
+		var roulette = GetItemsWeighted();
 
 		return Game.Random.FromList( roulette );
 	}

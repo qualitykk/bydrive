@@ -41,6 +41,7 @@ public struct VehicleStats
 	/// </summary>
 	[Category( "Turning" )] public float TurnSpeedVelocityFactor { get; set; } = DEFAULT_TURN_SPEED_VELOCITY_FACTOR;
 	[Category( "Visual" )] public Vector3 CameraPositionOffset { get; set; }
+	[Category("Items")] public List<ItemDefinition> BonusItems { get; set; }
 	public VehicleStats()
 	{
 		MaxSpeed = DEFAULT_MAX_SPEED;

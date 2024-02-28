@@ -3,7 +3,7 @@
   "Description": "Car used in development.",
   "Hidden": false,
   "PreviewModel": "models/vehicles/vehicle_boxy.vmdl",
-  "PreviewPosition": "0,0,0",
+  "PreviewPosition": "-192,0,64",
   "PreviewAngles": "0,0,0",
   "Stats": {
     "MaxSpeed": 1200,
@@ -20,5 +20,6 @@
     "CameraPositionOffset": "-400,0,150"
   },
   "Prefab": "prefabs/vehicles/car_devtest1.prefab",
+  "AttachmentSlots": [],
   "__references": []
 }

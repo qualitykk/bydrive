@@ -12,8 +12,10 @@ namespace Bydrive;
 [Icon("car_crash")]
 public class HitVehicles : Component, Component.ICollisionListener
 {
-	[Property] public int Amount { get; set; } = 1;
+	public delegate void VehicleHit(VehicleController victim);
+	[Title("Damage Amount"), Property] public int Amount { get; set; } = 1;
 	[Property] public bool DestroyOnHit { get; set; } = true;
+	[Property] public VehicleHit OnHit { get; set; }
 	void ICollisionListener.OnCollisionStart( Collision args )
 	{
 		var target = args.Other;
@@ -22,6 +24,7 @@ public class HitVehicles : Component, Component.ICollisionListener
 			return;
 
 		vehicle.TakeDamage( Amount );
+		OnHit?.Invoke( vehicle );
 		if(DestroyOnHit)
 		{
 			GameObject.Destroy();

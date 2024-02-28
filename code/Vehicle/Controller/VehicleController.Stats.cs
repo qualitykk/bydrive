@@ -8,7 +8,7 @@ namespace Bydrive;
 
 public partial class VehicleController
 {
-	private class StatModifier : IEquatable<StatModifier>
+	private class TemporaryStatModifier : IEquatable<TemporaryStatModifier>
 	{
 		public string Id { get; }
 		public string Stat { get; }
@@ -16,7 +16,7 @@ public partial class VehicleController
 		public float LifeTime { get; private set; }
 		public float DeletionTime { get; set; }
 
-		public StatModifier( string id, string stat, float multiplier, float lifeTime = 1f )
+		public TemporaryStatModifier( string id, string stat, float multiplier, float lifeTime = 1f )
 		{
 			Id = id;
 			Stat = stat;
@@ -31,7 +31,7 @@ public partial class VehicleController
 			DeletionTime += time;
 		}
 
-		public bool Equals( StatModifier other )
+		public bool Equals( TemporaryStatModifier other )
 		{
 			return Id.Equals( other.Id );
 		}
@@ -41,9 +41,18 @@ public partial class VehicleController
 			return $"{Id}/{DeletionTime}";
 		}
 	}
-	[Property] public VehicleStatsProvider StatProvider { get; set; }
-	public VehicleStats Stats => StatProvider?.GetStats() ?? new();
-
+	public VehicleStats GetStats()
+	{
+		VehicleStats stats = Definition?.Stats ?? new();
+		if(_attachments.Any())
+		{
+			foreach ( var attachment in _attachments )
+			{
+				stats = stats.WithChanges( attachment );
+			}
+		}
+		return stats;
+	}
 	public void ResetStats()
 	{
 		modifierIds.Clear();
@@ -56,11 +65,11 @@ public partial class VehicleController
 	}
 
 	#region Modifiers
-	private Dictionary<string, StatModifier> modifierIds = new();
-	private List<StatModifier> modifiers = new();
-	private Dictionary<string, List<StatModifier>> modifiersPerStat = new();
+	private Dictionary<string, TemporaryStatModifier> modifierIds = new();
+	private List<TemporaryStatModifier> modifiers = new();
+	private Dictionary<string, List<TemporaryStatModifier>> modifiersPerStat = new();
 	public bool AddStatModifier(string id, string stat, float multiplier, float time = 1f) => AddStatModifier( new( id, stat, multiplier, time ) );
-	private bool AddStatModifier(StatModifier modifier)
+	private bool AddStatModifier(TemporaryStatModifier modifier)
 	{
 		if(modifierIds.TryGetValue(modifier.Id, out var existing))
 		{
@@ -81,7 +90,7 @@ public partial class VehicleController
 		}
 		return true;
 	}
-	private void DeleteModifier(StatModifier modifier)
+	private void DeleteModifier(TemporaryStatModifier modifier)
 	{
 		if(!modifiers.Contains(modifier))
 		{
@@ -93,7 +102,7 @@ public partial class VehicleController
 		modifiersPerStat[modifier.Stat].Remove( modifier );
 	}
 
-	private bool ShouldDelete(StatModifier modifier)
+	private bool ShouldDelete(TemporaryStatModifier modifier)
 	{
 		return Time.Now >= modifier.DeletionTime;
 	}
@@ -113,7 +122,7 @@ public partial class VehicleController
 
 	private void TickModifiers()
 	{
-		StatModifier[] modifiersToDelete = modifiers.Where( ShouldDelete ).ToArray();
+		TemporaryStatModifier[] modifiersToDelete = modifiers.Where( ShouldDelete ).ToArray();
 		if (modifiersToDelete.Any())
 		{
 			foreach ( var mod in modifiersToDelete )
@@ -128,7 +137,7 @@ public partial class VehicleController
 		const float NO_HEALTH_SPEED_MULTIPLIER = 0.875f;
 		const float HALF_HEALTH_SPEED_MULTIPLIER = 0.95f;
 
-		float maxSpeed = Stats.MaxSpeed;
+		float maxSpeed = GetStats().MaxSpeed;
 		if(Health <= 0)
 		{
 			maxSpeed *= NO_HEALTH_SPEED_MULTIPLIER;
@@ -141,7 +150,7 @@ public partial class VehicleController
 		float multiplier = 1f;
 		if ( UsingBoost )
 		{
-			multiplier *= Stats.BoostSpeedMultiplier;
+			multiplier *= GetStats().BoostSpeedMultiplier;
 		}
 
 		ApplyStatMultipliers( VehicleStatModifiers.SPEED, ref multiplier );
@@ -151,11 +160,11 @@ public partial class VehicleController
 
 	public float GetAcceleration()
 	{
-		float acceleration = Stats.Acceleration;
+		float acceleration = GetStats().Acceleration;
 		float multiplier = 1;
 		if(UsingBoost)
 		{
-			multiplier *= Stats.BoostAccelerationMultiplier;
+			multiplier *= GetStats().BoostAccelerationMultiplier;
 		}
 
 		ApplyStatMultipliers( VehicleStatModifiers.ACCELERATION, ref multiplier );
@@ -164,30 +173,30 @@ public partial class VehicleController
 
 	public float GetBoostDuration()
 	{
-		float boost = Stats.BoostDuration;
+		float boost = GetStats().BoostDuration;
 		return boost;
 	}
 
 	public float GetBoostSpeedMultiplier()
 	{
-		float speedMultiplier = Stats.BoostSpeedMultiplier;
+		float speedMultiplier = GetStats().BoostSpeedMultiplier;
 		return speedMultiplier;
 	}
 
 	public float GetBoostRechargeCooldown()
 	{
-		float rechargeCooldown = Stats.BoostRechargeCooldown;
+		float rechargeCooldown = GetStats().BoostRechargeCooldown;
 		return rechargeCooldown;
 	}
 	public float GetBoostRechargeFactor()
 	{
-		float rechargeFactor = Stats.BoostRechargeFactor;
+		float rechargeFactor = GetStats().BoostRechargeFactor;
 		return rechargeFactor;
 	}
 
 	public int GetMaxHealth()
 	{
-		int maxHealth = Stats.MaxHealth;
+		int maxHealth = GetStats().MaxHealth;
 		return maxHealth;
 	}
 	public int GetHalfHealth()
@@ -196,21 +205,27 @@ public partial class VehicleController
 	}
 	public float GetTurnSpeed()
 	{ 
-		return Stats.TurnSpeed; 
+		return GetStats().TurnSpeed; 
 	}
 
 	public float GetTurnSpeedIdealDistance()
 	{
-		return Stats.TurnSpeedIdealDistance;
+		return GetStats().TurnSpeedIdealDistance;
 	}
 
 	public float GetTurnSpeedVelocityFactor()
 	{
-		return Stats.TurnSpeedVelocityFactor;
+		return GetStats().TurnSpeedVelocityFactor;
 	}
 
+	[Obsolete("REIMPLEMENT THIS ASAP!")]
 	public Vector3 GetCameraPositionOffset()
 	{
-		return Stats.CameraPositionOffset;
+		return GetStats().CameraPositionOffset;
+	}
+
+	public List<ItemDefinition> GetVehicleItems()
+	{
+		return GetStats().BonusItems;
 	}
 }

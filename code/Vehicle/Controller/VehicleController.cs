@@ -11,18 +11,22 @@ public sealed partial class VehicleController : Component
 	const float AUTO_RESPAWN_TIME = 2f;
 	const int AUTO_RESPAWN_DAMAGE = 1;
 	[Property, Required, Title("Physics Body")] public Rigidbody Rigidbody { get; set; }
+	[Property, AutoReference] public VehicleDefinition Definition { get; set; }
 	public PhysicsBody Body => Rigidbody?.PhysicsBody;
 	public float Speed { get; private set; }
 	public float TurnDirection { get; private set; }
 	private RaceParticipant GetParticipant()
 	{
-		return GameObject.Components.Get<RaceParticipant>( FindMode.EnabledInSelfAndDescendants );
+		return GameObject.Components.GetInDescendantsOrSelf<RaceParticipant>();
 	}
 	public override void Reset()
 	{
 		base.Reset();
+
 		InitialiseCombat();
 		InitialiseAbilities();
+		InitialiseItems();
+
 		ResetStats();
 		ResetInput();
 	}
@@ -33,6 +37,8 @@ public sealed partial class VehicleController : Component
 
 		TickAbilities();
 		TickStats();
+		TickItems();
+
 		Move();
 	}
 
@@ -61,7 +67,7 @@ public sealed partial class VehicleController : Component
 		Rotation rotation = Body.Rotation;
 		float scale = Transform.Scale.z;
 		float maxSpeed = GetMaxSpeed();
-		float baseAcceleration = Stats.Acceleration;
+		float baseAcceleration = GetStats().Acceleration;
 		float acceleration = GetAcceleration();
 
 		//Tilting is the forward and backward tilt caused by acceleration or decelleration of the vehicle

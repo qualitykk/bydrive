@@ -37,7 +37,14 @@ public class ItemPickup : RacerPickup
 		return false;
 	}
 
-	public bool CanEquip(VehicleController vehicle, ItemDefinition item)
+	public virtual ItemDefinition GetItems(VehicleController vehicle)
+	{
+		List<ItemDefinition> itemChoices = Items.GetItemsWeighted();
+		itemChoices.AddRange( vehicle.GetVehicleItems() );
+
+		return Game.Random.FromList( itemChoices );
+	}
+	public virtual bool CanEquip(VehicleController vehicle, ItemDefinition item)
 	{
 		return true;
 	}

@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public abstract class VehicleStatsProvider : Component
+public enum AttachmentSlot
 {
-	public abstract VehicleStats GetStats();
+	All,
+	Body,
+	Roof,
+	Side,
+	Tail,
+	Hood,
+	Inside,
+	Special
 }

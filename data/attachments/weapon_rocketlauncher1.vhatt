@@ -1,0 +1,10 @@
+{
+  "Title": "Rocket Launcher",
+  "Description": "Shoots rockets, pew pew!",
+  "Slot": "Roof",
+  "Model": null,
+  "StatChanges": {},
+  "Attach": null,
+  "Tick": null,
+  "__references": []
+}

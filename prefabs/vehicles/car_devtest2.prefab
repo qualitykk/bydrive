@@ -6,36 +6,25 @@
     "Enabled": true,
     "Components": [
       {
-        "__version": 0,
         "__type": "VehicleController",
-        "__enabled": true,
-        "BaseFieldOfView": 95,
-        "Camera": null,
-        "CameraPosition": "-350,0,160",
+        "Definition": null,
         "ItemSpawnPosition": "192,0,16",
-        "MaxFieldOfView": 125,
-        "Rigidbody": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
-        "StatProvider": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2"
+        "Rigidbody": {
+          "_type": "component",
+          "go": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
+          "component_type": "Rigidbody"
+        }
       },
       {
-        "__version": 0,
-        "__type": "DefinitionVehicleStats",
-        "__enabled": true,
-        "Definition": null
-      },
-      {
-        "__version": 0,
         "__type": "ModelCollider",
-        "__enabled": true,
         "IsTrigger": false,
         "Model": "zuk/zuk.vmdl",
         "Static": false,
         "Surface": null
       },
       {
-        "__version": 0,
         "__type": "SkinnedModelRenderer",
-        "__enabled": true,
+        "AnimationGraph": null,
         "BodyGroups": 18446744073709551615,
         "BoneMergeTarget": null,
         "CreateBoneObjects": false,
@@ -46,13 +35,12 @@
         "Tint": "1,1,1,1"
       },
       {
-        "__version": 0,
         "__type": "Rigidbody",
-        "__enabled": true,
         "AngularDamping": 0,
         "Gravity": true,
         "LinearDamping": 0,
         "Locking": {},
+        "MassOverride": 0,
         "RigidbodyFlags": 0,
         "StartAsleep": false
       }
@@ -66,18 +54,15 @@
         "Enabled": true,
         "Components": [
           {
-            "__version": 0,
             "__type": "VehicleWheel",
-            "__enabled": true,
             "IsDriving": true,
             "IsTurning": true,
             "Radius": 20,
             "Width": 8
           },
           {
-            "__version": 0,
             "__type": "SkinnedModelRenderer",
-            "__enabled": true,
+            "AnimationGraph": null,
             "BodyGroups": 18446744073709551615,
             "BoneMergeTarget": null,
             "CreateBoneObjects": false,
@@ -96,18 +81,15 @@
         "Enabled": true,
         "Components": [
           {
-            "__version": 0,
             "__type": "VehicleWheel",
-            "__enabled": true,
             "IsDriving": true,
             "IsTurning": true,
             "Radius": 20,
             "Width": 8
           },
           {
-            "__version": 0,
             "__type": "SkinnedModelRenderer",
-            "__enabled": true,
+            "AnimationGraph": null,
             "BodyGroups": 18446744073709551615,
             "BoneMergeTarget": null,
             "CreateBoneObjects": false,
@@ -126,18 +108,15 @@
         "Enabled": true,
         "Components": [
           {
-            "__version": 0,
             "__type": "VehicleWheel",
-            "__enabled": true,
             "IsDriving": true,
             "IsTurning": false,
             "Radius": 20,
             "Width": 8
           },
           {
-            "__version": 0,
             "__type": "SkinnedModelRenderer",
-            "__enabled": true,
+            "AnimationGraph": null,
             "BodyGroups": 18446744073709551615,
             "BoneMergeTarget": null,
             "CreateBoneObjects": false,
@@ -157,18 +136,15 @@
         "Enabled": true,
         "Components": [
           {
-            "__version": 0,
             "__type": "VehicleWheel",
-            "__enabled": true,
             "IsDriving": true,
             "IsTurning": false,
             "Radius": 20,
             "Width": 8
           },
           {
-            "__version": 0,
             "__type": "SkinnedModelRenderer",
-            "__enabled": true,
+            "AnimationGraph": null,
             "BodyGroups": 18446744073709551615,
             "BoneMergeTarget": null,
             "CreateBoneObjects": false,

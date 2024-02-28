@@ -1,0 +1,92 @@
+{
+  "RootObject": {
+    "Id": "b87a98a2-21c2-42cf-93f0-b544eb160ddd",
+    "Name": "item_rocket_simple",
+    "Tags": "item",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "HitVehicles",
+        "Amount": 1,
+        "DestroyOnHit": true,
+        "OnHit": {
+          "Version": 5,
+          "UserData": {
+            "Title": "On Hit",
+            "id": "f494e947-0964-45bc-84bf-50afd4446923"
+          },
+          "Variables": [],
+          "Nodes": [
+            {
+              "Id": 0,
+              "Type": "input"
+            },
+            {
+              "Id": 1,
+              "Type": "scene.instantiate",
+              "UserData": {
+                "Position": "192,0"
+              }
+            }
+          ],
+          "Links": []
+        }
+      },
+      {
+        "__type": "HoverObject",
+        "Distance": 16,
+        "IgnoreTags": "item,vehicle",
+        "TraceDistance": 1024
+      },
+      {
+        "__type": "BoxCollider",
+        "Center": "0,0,0",
+        "IsTrigger": false,
+        "Scale": "60,60,50",
+        "Static": false,
+        "Surface": null
+      },
+      {
+        "__type": "Lifetime",
+        "Time": 15
+      },
+      {
+        "__type": "LinearVelocity",
+        "LocalVelocity": "1400,0,0"
+      }
+    ],
+    "Children": [
+      {
+        "Id": "f5b8b554-ee32-4a70-8700-8aa50104770c",
+        "Name": "Model",
+        "Position": "0,0,-18",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "SkinnedModelRenderer",
+            "AnimationGraph": null,
+            "BodyGroups": 18446744073709551615,
+            "BoneMergeTarget": null,
+            "CreateBoneObjects": false,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "models/items/rocket/projectile_rocket.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "ConstantSpin",
+            "__enabled": false,
+            "Speed": 5
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": [
+    "baik.projectile_rocket"
+  ]
+}

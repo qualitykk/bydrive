@@ -50,21 +50,13 @@
           },
           {
             "__type": "VehicleController",
+            "Definition": null,
             "ItemSpawnPosition": "192,0,16",
             "Rigidbody": {
               "_type": "component",
               "go": "ddf66a7e-9d02-4f31-bbc6-955f7092fb72",
               "component_type": "Rigidbody"
-            },
-            "StatProvider": {
-              "_type": "component",
-              "go": "ddf66a7e-9d02-4f31-bbc6-955f7092fb72",
-              "component_type": "DefinitionVehicleStats"
             }
-          },
-          {
-            "__type": "DefinitionVehicleStats",
-            "Definition": null
           }
         ],
         "Children": [

@@ -1,0 +1,342 @@
+{
+  "RootObject": {
+    "Id": "a74b4d43-7b0f-4cf8-b06e-6f7e223dba7d",
+    "Name": "rocket_explosion",
+    "Tags": "particles",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "ParticleEffect",
+        "Alpha": {
+          "Constants": "1,0,0,0"
+        },
+        "ApplyColor": false,
+        "ApplyRotation": false,
+        "ApplyShape": false,
+        "Bounce": {
+          "Constants": "1,0,0,0"
+        },
+        "Brightness": {
+          "Constants": "1,0,0,0"
+        },
+        "Bumpiness": {},
+        "Collision": false,
+        "CollisionIgnore": null,
+        "CollisionRadius": 1,
+        "Damping": {},
+        "DieOnCollisionChance": {},
+        "Force": false,
+        "ForceDirection": "0,0,0",
+        "ForceScale": {
+          "Constants": "1,0,0,0"
+        },
+        "Friction": {
+          "Constants": "1,0,0,0"
+        },
+        "Gradient": {
+          "Evaluation": "Particle",
+          "GradientA": {
+            "color": [
+              {
+                "t": 0.5,
+                "c": "1,1,1,1"
+              }
+            ],
+            "alpha": []
+          },
+          "GradientB": {
+            "color": [
+              {
+                "t": 0.5,
+                "c": "1,1,1,1"
+              }
+            ],
+            "alpha": []
+          },
+          "ConstantA": "1,1,1,1",
+          "ConstantB": "1,1,1,1"
+        },
+        "Lifetime": {
+          "Constants": "1,0,0,0"
+        },
+        "MaxParticles": 1000,
+        "PerParticleTimeScale": {
+          "Constants": "1,0,0,0"
+        },
+        "PreWarm": 0,
+        "PushStrength": {},
+        "Roll": {},
+        "Scale": {
+          "Constants": "1,0,0,0"
+        },
+        "SequenceId": {},
+        "SequenceSpeed": {
+          "Constants": "1,0,0,0"
+        },
+        "SequenceTime": {
+          "Constants": "1,0,0,0"
+        },
+        "SheetSequence": false,
+        "Space": "World",
+        "StartVelocity": {
+          "Constants": "1,0,0,0"
+        },
+        "Stretch": {},
+        "TimeScale": 1,
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "AwakeActionComponent",
+        "Action": {
+          "Version": 5,
+          "UserData": {
+            "Title": "Action",
+            "id": "35df7816-37e5-459b-86ed-a7aeda018971",
+            "ReferencedComponentTypes": []
+          },
+          "Variables": [],
+          "Nodes": [
+            {
+              "Id": 0,
+              "Type": "input"
+            },
+            {
+              "Id": 1,
+              "Type": "call",
+              "Properties": {
+                "_name": "GetAllComponents",
+                "T": "package.based.bydrive/Bydrive.VehicleController",
+                "_isStatic": false,
+                "_type": "Sandbox.Game/Sandbox.Scene"
+              },
+              "UserData": {
+                "Position": "176,0"
+              }
+            },
+            {
+              "Id": 2,
+              "Type": "foreach",
+              "UserData": {
+                "Position": "368,-0"
+              }
+            },
+            {
+              "Id": 3,
+              "Type": "if",
+              "UserData": {
+                "Position": "1296,32"
+              }
+            },
+            {
+              "Id": 6,
+              "Type": "property.get",
+              "Properties": {
+                "_name": "Transform",
+                "_type": "Sandbox.Game/Sandbox.Component"
+              },
+              "UserData": {
+                "Position": "624,176"
+              }
+            },
+            {
+              "Id": 7,
+              "Type": "property.get",
+              "Properties": {
+                "_name": "Position",
+                "_type": "Sandbox.Game/Sandbox.GameTransform"
+              },
+              "UserData": {
+                "Position": "784,176"
+              }
+            },
+            {
+              "Id": 8,
+              "Type": "geom.dist",
+              "UserData": {
+                "Position": "976,176"
+              }
+            },
+            {
+              "Id": 9,
+              "Type": "property.get",
+              "Properties": {
+                "_name": "Transform",
+                "_type": "Sandbox.Game/Sandbox.GameObject"
+              },
+              "UserData": {
+                "Position": "640,240"
+              }
+            },
+            {
+              "Id": 10,
+              "Type": "property.get",
+              "Properties": {
+                "_name": "Position",
+                "_type": "Sandbox.Game/Sandbox.GameTransform"
+              },
+              "UserData": {
+                "Position": "784,240"
+              }
+            },
+            {
+              "Id": 11,
+              "Type": "op.lessthanorequal",
+              "UserData": {
+                "Position": "1152,192"
+              }
+            },
+            {
+              "Id": 12,
+              "Type": "nop",
+              "UserData": {
+                "Position": "624,320"
+              }
+            },
+            {
+              "Id": 13,
+              "Type": "nop",
+              "UserData": {
+                "Position": "1376,320"
+              }
+            },
+            {
+              "Id": 14,
+              "Type": "call",
+              "Properties": {
+                "_name": "TakeDamage",
+                "_isStatic": false,
+                "_type": "package.based.bydrive/Bydrive.VehicleController"
+              },
+              "UserData": {
+                "Position": "1536,64"
+              }
+            }
+          ],
+          "Links": [
+            {
+              "SrcId": 0,
+              "SrcName": "_signal",
+              "DstId": 1,
+              "DstName": "_signal"
+            },
+            {
+              "SrcId": 0,
+              "SrcName": "_target",
+              "DstId": 1,
+              "DstName": "_target"
+            },
+            {
+              "SrcId": 1,
+              "SrcName": "_signal",
+              "DstId": 2,
+              "DstName": "_signal"
+            },
+            {
+              "SrcId": 1,
+              "SrcName": "_result",
+              "DstId": 2,
+              "DstName": "enumerable"
+            },
+            {
+              "SrcId": 2,
+              "SrcName": "body",
+              "DstId": 3,
+              "DstName": "_signal"
+            },
+            {
+              "SrcId": 11,
+              "SrcName": "_result",
+              "DstId": 3,
+              "DstName": "condition"
+            },
+            {
+              "SrcId": 2,
+              "SrcName": "body.value",
+              "DstId": 6,
+              "DstName": "_target"
+            },
+            {
+              "SrcId": 6,
+              "SrcName": "_result",
+              "DstId": 7,
+              "DstName": "_target"
+            },
+            {
+              "SrcId": 7,
+              "SrcName": "_result",
+              "DstId": 8,
+              "DstName": "a"
+            },
+            {
+              "SrcId": 10,
+              "SrcName": "_result",
+              "DstId": 8,
+              "DstName": "b"
+            },
+            {
+              "SrcId": 0,
+              "SrcName": "_target",
+              "DstId": 9,
+              "DstName": "_target"
+            },
+            {
+              "SrcId": 9,
+              "SrcName": "_result",
+              "DstId": 10,
+              "DstName": "_target"
+            },
+            {
+              "SrcId": 8,
+              "SrcName": "_result",
+              "DstId": 11,
+              "DstName": "a"
+            },
+            {
+              "Value": {
+                "$type": "Simple",
+                "Type": "System.Private.CoreLib/System.Single",
+                "Value": 300
+              },
+              "DstId": 11,
+              "DstName": "b"
+            },
+            {
+              "SrcId": 2,
+              "SrcName": "body.value",
+              "DstId": 12,
+              "DstName": "in"
+            },
+            {
+              "SrcId": 12,
+              "SrcName": "out",
+              "DstId": 13,
+              "DstName": "in"
+            },
+            {
+              "SrcId": 3,
+              "SrcName": "true",
+              "DstId": 14,
+              "DstName": "_signal"
+            },
+            {
+              "SrcId": 13,
+              "SrcName": "out",
+              "DstId": 14,
+              "DstName": "_target"
+            },
+            {
+              "Value": 1,
+              "DstId": 14,
+              "DstName": "amount"
+            }
+          ]
+        }
+      }
+    ],
+    "Children": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

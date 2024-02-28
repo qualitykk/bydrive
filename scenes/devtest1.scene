@@ -6,6 +6,7 @@
       "Name": "Directional Light",
       "Position": "0,0,200",
       "Rotation": "-0.2459843,0.5938584,0.2931525,0.7077326",
+      "Tags": "skybox,light_directional,light",
       "Enabled": true,
       "Components": [
         {
@@ -48,17 +49,11 @@
       "Components": [
         {
           "__type": "RaceManager",
-          "LoseMusic": null,
-          "MaxLaps": 5,
-          "RaceMusic": "sounds/music/race_devtrack.sound",
-          "RaceMusicVolume": -1,
-          "RaceStartWait": 3.5,
           "StartCheckpoint": {
             "_type": "component",
             "go": "b8d5b8b7-1da4-4b2c-b487-c7abab2378ab",
             "component_type": "RaceCheckpoint"
-          },
-          "WinMusic": "sounds/music/menu_race_win.sound"
+          }
         }
       ]
     },
@@ -1598,9 +1593,22 @@
     "NetworkFrequency": 60,
     "ThreadedAnimation": true,
     "TimeScale": 1,
-    "UseFixedUpdate": true
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
   },
   "Title": "devtest1",
   "Description": "",
+  "LastSaved": "2024-02-27T23:34:18.2340341\u002B01:00",
   "__references": []
 }
