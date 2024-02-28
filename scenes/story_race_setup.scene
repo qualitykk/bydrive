@@ -89,10 +89,11 @@
           "Enabled": true,
           "Components": [
             {
-              "__type": "StoryMenu"
+              "__type": "StoryMenu",
+              "__enabled": false
             },
             {
-              "__type": "VehicleCustomizeMenu"
+              "__type": "RaceSetupMenu"
             }
           ]
         }
@@ -127,12 +128,12 @@
     },
     {
       "Id": "960f9d05-815f-403b-8242-f4c45d9c1935",
-      "Name": "CustomizeManager",
+      "Name": "Setup Manager",
       "Position": "-67.63286,-89.08066,73.98915",
       "Enabled": true,
       "Components": [
         {
-          "__type": "CustomizationManager",
+          "__type": "RaceSetupManager",
           "VehiclePreview": {
             "_type": "gameobject",
             "go": "9d13d9d5-09c6-4613-8327-78130fc006fd"
@@ -145,109 +146,6 @@
       "Name": "VehiclePreview",
       "Position": "-9.094742,-95.49846,73.98915",
       "Enabled": true
-    },
-    {
-      "Id": "53f16c10-d3b5-45a7-a693-a76130537856",
-      "Name": "PreviewPreview",
-      "Position": "-9.094742,-95.49846,73.98915",
-      "Components": [
-        {
-          "__type": "SkinnedModelRenderer",
-          "AnimationGraph": null,
-          "BodyGroups": 18446744073709551615,
-          "BoneMergeTarget": null,
-          "CreateBoneObjects": false,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/vehicles/vehicle_boxy.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        }
-      ],
-      "Children": [
-        {
-          "Id": "070a6ebb-dbd8-4920-ae57-e3cbe485a042",
-          "Name": "VehicleWheel",
-          "Position": "69.50221,35.10881,15.45612",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "SkinnedModelRenderer",
-              "AnimationGraph": null,
-              "BodyGroups": 18446744073709551615,
-              "BoneMergeTarget": null,
-              "CreateBoneObjects": false,
-              "MaterialGroup": null,
-              "MaterialOverride": null,
-              "Model": "models/citizen_props/wheel01.vmdl",
-              "RenderType": "On",
-              "Tint": "1,1,1,1"
-            }
-          ]
-        },
-        {
-          "Id": "b6393310-c07c-4339-9797-3edd6e5e4e53",
-          "Name": "VehicleWheel",
-          "Position": "69.50221,-37.3181,15.45612",
-          "Rotation": "0,0,-1,0.0000001947072",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "SkinnedModelRenderer",
-              "AnimationGraph": null,
-              "BodyGroups": 18446744073709551615,
-              "BoneMergeTarget": null,
-              "CreateBoneObjects": false,
-              "MaterialGroup": null,
-              "MaterialOverride": null,
-              "Model": "models/citizen_props/wheel01.vmdl",
-              "RenderType": "On",
-              "Tint": "1,1,1,1"
-            }
-          ]
-        },
-        {
-          "Id": "c913c971-f38e-4906-8fab-6c98a0fd76aa",
-          "Name": "VehicleWheel",
-          "Position": "-72.74498,35.10881,15.45612",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "SkinnedModelRenderer",
-              "AnimationGraph": null,
-              "BodyGroups": 18446744073709551615,
-              "BoneMergeTarget": null,
-              "CreateBoneObjects": false,
-              "MaterialGroup": null,
-              "MaterialOverride": null,
-              "Model": "models/citizen_props/wheel01.vmdl",
-              "RenderType": "On",
-              "Tint": "1,1,1,1"
-            }
-          ]
-        },
-        {
-          "Id": "5f5ba3c3-a3df-47b0-89b8-6bbd9fdd2227",
-          "Name": "VehicleWheel",
-          "Position": "-72.74498,-37.3181,15.45612",
-          "Rotation": "0,0,-1,0.0000001947072",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "SkinnedModelRenderer",
-              "AnimationGraph": null,
-              "BodyGroups": 18446744073709551615,
-              "BoneMergeTarget": null,
-              "CreateBoneObjects": false,
-              "MaterialGroup": null,
-              "MaterialOverride": null,
-              "Model": "models/citizen_props/wheel01.vmdl",
-              "RenderType": "On",
-              "Tint": "1,1,1,1"
-            }
-          ]
-        }
-      ]
     }
   ],
   "SceneProperties": {
@@ -271,9 +169,9 @@
       "IncludedBodies": ""
     }
   },
-  "Title": "story_garage",
+  "Title": "story_race_setup",
   "Description": "",
-  "LastSaved": "2024-02-28T19:56:18.5256718\u002B01:00",
+  "LastSaved": "2024-02-28T22:07:20.8080275\u002B01:00",
   "__references": [
     "polyhaven.wasteland_clouds_puresky"
   ]

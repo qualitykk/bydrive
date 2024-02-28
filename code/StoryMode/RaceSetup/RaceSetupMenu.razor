@@ -1,0 +1,46 @@
+﻿@using Sandbox.UI;
+@namespace Bydrive
+@attribute [StyleSheet]
+@inherits PanelComponent;
+
+@if (manager == null)
+{
+    return;
+}
+
+<root>
+    <div class="side">
+        <div class="step @UI.ActiveIf(currentStep == SetupStep.SelectRace)">
+            Select Challenge
+        </div>
+        <div class="step @UI.ActiveIf(currentStep == SetupStep.SelectVehicle)">
+            Select Vehicle
+        </div>
+        <div class="step @UI.ActiveIf(currentStep == SetupStep.ViewInfo)">
+            Start Race
+        </div>
+    </div>
+    <div class="setup">
+        <div class="header">
+            @GetHeader()
+        </div>
+        @if(currentStep <= SetupStep.SelectRace)
+        {
+            <RacePick class="main" />
+        }
+        else if(currentStep == SetupStep.SelectVehicle)
+        {
+            <VehicleCustomizeMenu class="main" />
+        }
+        else
+        {
+            <RaceStart class="main"/>
+        }
+        <div class="footer">
+            <div class="controls">
+                <label class="button back" @onclick=@OnClickBack>@GetBackLabel()</label>
+                <label class="button next @UI.ActiveIf(CanClickNext)" @onclick=@OnClickNext>@GetNextLabel()</label>
+            </div>
+        </div>
+    </div>
+</root>

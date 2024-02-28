@@ -1,0 +1,44 @@
+﻿@using Sandbox.UI;
+@namespace Bydrive
+@attribute [StyleSheet]
+@inherits Panel;
+
+@if(manager == null)
+{
+    return;
+}
+
+<root>
+    <div class="races")>
+        @foreach(var challenge in ChallengeDefinition.All)
+        {
+            <div class="item" @onclick=@(() => OnClickChallenge(challenge))>
+                <div class="thumbnail" />
+                <label class="name">@challenge.Title</label>
+            </div>
+        }
+    </div>
+    <div class="info">
+        <div class="thumbnail" />
+        @if(currentChallenge != null)
+        {
+            <label class="name">@currentChallenge.Title</label>
+            <label class="description">@currentChallenge.Description</label>
+        }
+    </div>
+</root>
+
+@code {
+    RaceSetupManager manager => RaceSetupManager.Current;
+    ChallengeDefinition currentChallenge => RaceSetupManager.Current?.SelectedChallenge;
+
+    void OnClickChallenge(ChallengeDefinition challenge)
+    {
+        manager.SelectedChallenge = challenge;
+    }
+
+    protected override int BuildHash()
+    {
+        return HashCode.Combine(currentChallenge);
+    }
+}

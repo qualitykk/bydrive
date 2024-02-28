@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public partial class VehicleCustomizeMenu : PanelComponent
+public partial class VehicleCustomizeMenu
 {
-	CustomizationManager manager => CustomizationManager.Current;
-	VehicleDefinition currentVehicle => CustomizationManager.Current?.SelectedVehicle;
+	RaceSetupManager manager => RaceSetupManager.Current;
+	VehicleDefinition currentVehicle => RaceSetupManager.Current?.SelectedVehicle;
 
 	private void OnClickVehicle(VehicleDefinition vehicle)
 	{

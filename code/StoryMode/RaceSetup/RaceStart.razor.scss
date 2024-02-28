@@ -1,0 +1,52 @@
+﻿RaceStart {
+    backdrop-filter: blur(15px);
+    font-family: Poppins;
+
+    .summary {
+        width: 70%;
+        flex-direction: column;
+
+        .title {
+            color: #fff;
+            font-size: 52px;
+            text-align: center;
+            border-bottom: 2px solid white;
+            font-weight: bold;
+        }
+
+        .info {
+            justify-content: space-around;
+
+            .description {
+                margin: 2%;
+                font-size: 32px;
+                color: #fff;
+            }
+        }
+    }
+
+    .track {
+        width: 30%;
+        flex-direction: column;
+        background-color: #7c7c7c;
+        align-items: center;
+        color: #fff;
+        margin: 5%;
+        padding: 2%;
+
+        .thumbnail {
+            width: 80%;
+            aspect-ratio: 1;
+            background-color: #00ff90;
+        }
+
+        .name {
+            width: 100%;
+            margin-top: 2%;
+            color: #fff;
+            font-size: 32px;
+            text-align: center;
+            border-bottom: 2px solid white;
+        }
+    }
+}

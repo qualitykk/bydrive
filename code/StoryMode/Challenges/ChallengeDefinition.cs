@@ -23,7 +23,7 @@ public class ChallengeDefinition : GameResource
 		public string NameOverride { get; set; }
 		public VehicleDefinition VehicleOverride { get; set; }
 		public int StartPositionOverride { get; set; }
-
+		public bool Show { get; set; }
 		public override string ToString()
 		{
 			return $"{Name}={StartPosition}";
@@ -46,6 +46,10 @@ public class ChallengeDefinition : GameResource
 	[Category( "Race" )] public RaceParameters Parameters { get; set; } = null;
 	[Category( "Race" )] public List<Participant> Participants { get; set; }
 	[Category( "Race" )] public CompletionContext OnComplete { get; set; }
+	public IEnumerable<Participant> GetVisibleParticipants()
+	{
+		return Participants.Where( p => p.Show );
+	}
 	protected override void PostLoad()
 	{
 		if(_allByDefinition.ContainsKey( Id ))

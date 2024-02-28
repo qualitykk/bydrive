@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public class CustomizationManager : Component
+[Alias("CustomizationManager")]
+public class RaceSetupManager : Component
 {
-	public static CustomizationManager Current { get; private set; }
 	static readonly Type[] previewAllowedComponents = new[] { typeof( SkinnedModelRenderer ) };
+	public static RaceSetupManager Current { get; private set; }
 	[Property] public GameObject VehiclePreview { get; set; }
+	public ChallengeDefinition SelectedChallenge { get; set; }
 	public VehicleDefinition SelectedVehicle { get; private set; }
 	public Dictionary<AttachmentSlotPosition, AttachmentDefinition> SelectedAttachments { get; private set; }
 	protected override void OnStart()

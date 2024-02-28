@@ -1,0 +1,47 @@
+﻿@using Sandbox.UI;
+@namespace Bydrive
+@attribute [StyleSheet]
+@inherits Panel;
+
+@if (manager == null)
+{
+    return;
+}
+
+<root>
+    <div class="summary">
+        <label class="title">@currentChallenge.Title</label>
+        <div class="info">
+            <label class="description">
+                @currentChallenge.Description
+            </label>
+            @if(currentChallenge.GetVisibleParticipants().Any())
+            {
+                <div class="opponents">
+                    @foreach (var p in currentChallenge.GetVisibleParticipants())
+                    {
+                        <div class="entry">
+                            @p.Name
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+    <div class="track single">
+        <div class="thumbnail" />
+        <label class="name">
+            @currentChallenge.Track.Name
+        </label>
+    </div>
+</root>
+
+@code {
+    RaceSetupManager manager => RaceSetupManager.Current;
+    ChallengeDefinition currentChallenge => RaceSetupManager.Current?.SelectedChallenge;
+
+    protected override int BuildHash()
+    {
+        return HashCode.Combine(currentChallenge);
+    }
+}

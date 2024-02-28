@@ -1,7 +1,7 @@
 ﻿@using Sandbox.UI;
 @namespace Bydrive
 @attribute [StyleSheet]
-@inherits PanelComponent;
+@inherits Panel;
 
 @if(manager == null)
 {
@@ -43,11 +43,6 @@
             {
                 <label class="info">@currentVehicle.Description</label>
             }
-            
-            <div class="controls">
-                <label class="button back">Back</label>
-                <label class="button next">Select</label>
-            </div>
         </div>
     </div>
 </root>

@@ -12,13 +12,15 @@
   "Participants": [
     {
       "Name": "Terry Ladison",
-      "Vehicle": "data/vehicles/devcar2.vehicle",
-      "Character": "data/story/characters/dev_lad.prsn"
+      "Vehicle": "data/vehicles/devcar1.vehicle",
+      "Character": "data/characters/dev_lad.prsn",
+      "Show": true
     },
     {
       "Name": "Manuel Entwicklung",
       "Vehicle": "data/vehicles/devcar1.vehicle",
-      "Character": "data/story/characters/dev_man.prsn"
+      "Character": "data/characters/dev_man.prsn",
+      "Show": true
     },
     {
       "Name": "Max Mustermann",
@@ -27,6 +29,22 @@
       "NameOverride": "Max Mustermann",
       "VehicleOverride": "data/vehicles/devcar1.vehicle",
       "StartPositionOverride": 1
+    },
+    {
+      "Name": "Manuela Musterfrau",
+      "Vehicle": "data/vehicles/devcar1.vehicle",
+      "StartPosition": 1,
+      "NameOverride": "Manuela Musterfrau",
+      "VehicleOverride": "data/vehicles/devcar1.vehicle",
+      "StartPositionOverride": 1
+    },
+    {
+      "Name": "Jon Xi Na",
+      "Vehicle": "data/vehicles/devcar1.vehicle",
+      "StartPosition": 2,
+      "NameOverride": "Jon Xi Na",
+      "VehicleOverride": "data/vehicles/devcar1.vehicle",
+      "StartPositionOverride": 2
     }
   ],
   "OnComplete": {
@@ -46,8 +64,8 @@
         "Id": 1,
         "Type": "property.set",
         "Properties": {
-          "_name": "Money",
-          "_type": "package.based.bydrive/Bydrive.SaveFile"
+          "_type": "package.based.bydrive/Bydrive.SaveFile",
+          "_name": "Money"
         },
         "UserData": {
           "Position": "544,0"
@@ -57,8 +75,8 @@
         "Id": 3,
         "Type": "property.get",
         "Properties": {
-          "_name": "Money",
-          "_type": "package.based.bydrive/Bydrive.SaveFile"
+          "_type": "package.based.bydrive/Bydrive.SaveFile",
+          "_name": "Money"
         },
         "UserData": {
           "Position": "176,96"

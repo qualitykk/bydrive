@@ -1,0 +1,67 @@
+﻿RacePick {
+    backdrop-filter: blur(15px);
+    font-family: Poppins;
+
+    .races {
+        flex-direction: row;
+        width: 75%;
+        padding: 2%;
+        gap: 2%;
+
+        .item {
+            width: 250px;
+            height: 350px;
+            flex-direction: column;
+            background-color: #7c7c7c;
+            align-items: center;
+
+            &:hover {
+                background-color: #9c9c9c;
+                border: 1px solid white;
+            }
+
+            .thumbnail {
+                width: 230px;
+                aspect-ratio: 1;
+                background-color: #307639;
+            }
+
+            .name {
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                flex-grow: 1;
+                color: #fff;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .info {
+        flex-direction: column;
+        width: 25%;
+        flex-direction: column;
+        background-color: #7c7c7c;
+        align-items: center;
+        color: #fff;
+
+        .thumbnail {
+            width: 230px;
+            aspect-ratio: 1;
+            background-color: #307639;
+        }
+
+        .name {
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .description {
+            flex-grow: 9;
+        }
+    }
+}

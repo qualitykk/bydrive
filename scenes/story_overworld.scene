@@ -70,13 +70,13 @@
           "Components": [
             {
               "__type": "OverworldCharacterInstance",
-              "Character": "data/story/characters/dev_lad.prsn",
+              "Character": "data/characters/dev_lad.prsn",
               "CharacterRenderer": {
                 "_type": "component",
                 "go": "b354ff21-8ef8-48a5-be05-19452df63db0",
                 "component_type": "SkinnedModelRenderer"
               },
-              "Dialog": "data/story/dialog/intro_devlad01.dialog",
+              "Dialog": "data/dialog/intro_devlad01.dialog",
               "InteractionBounds": {
                 "Mins": "-64,-64,0",
                 "Maxs": "64,64,64"
@@ -188,6 +188,53 @@
               "Scale": "8,50,128",
               "Static": false,
               "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "3bcdcb2c-596a-428b-bbbd-c973743f4601",
+          "Name": "Garage",
+          "Position": "-565.5383,406.5493,-508.4316",
+          "Scale": "1,1.5,1.2",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "OverworldInteraction",
+              "Interaction": {
+                "Version": 5,
+                "UserData": {
+                  "Title": "Interaction",
+                  "id": "483b10ef-1bf9-46a1-b0ab-323d1d518d36",
+                  "ReferencedComponentTypes": []
+                },
+                "Variables": [],
+                "Nodes": [
+                  {
+                    "Id": 0,
+                    "Type": "input"
+                  },
+                  {
+                    "Id": 3,
+                    "Type": "story.enter.race_setup",
+                    "UserData": {
+                      "Position": "176,0"
+                    }
+                  }
+                ],
+                "Links": [
+                  {
+                    "SrcId": 0,
+                    "SrcName": "_signal",
+                    "DstId": 3,
+                    "DstName": "_signal"
+                  }
+                ]
+              },
+              "InteractionBounds": {
+                "Mins": "-96,-64,0",
+                "Maxs": "96,0,128"
+              },
+              "InteractionTitle": "Enter"
             }
           ]
         }
@@ -319,7 +366,7 @@
   },
   "Title": "story_overworld",
   "Description": "",
-  "LastSaved": "2024-02-27T22:15:05.072042\u002B01:00",
+  "LastSaved": "2024-02-28T23:21:12.1789034\u002B01:00",
   "__references": [
     "facepunch.wooden_door_01d",
     "polyhaven.wasteland_clouds_puresky"
