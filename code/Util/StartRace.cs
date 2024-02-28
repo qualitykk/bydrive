@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sandbox.Diagnostics;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -14,6 +15,9 @@ internal static class StartRace
 	const float TIME_TRIAL_MUSIC_VOLUME = 0.8f;
 	public static void Challenge(ChallengeDefinition challenge, VehicleDefinition vehicle)
 	{
+		Assert.NotNull(challenge);
+		Assert.NotNull( vehicle );
+
 		List<RaceMatchInformation.Participant> racers = new();
 		int currentPosition = RaceStartingPosition.FIRST_PLACE;
 
@@ -23,7 +27,6 @@ internal static class StartRace
 			currentPosition++;
 		}
 		racers.Add( new( vehicle, Player.Local, currentPosition ) );
-
 		new RaceMatchInformation( challenge.Track, racers, challenge.Parameters );
 	}
 	public static void TimeTrial(RaceDefinition race, VehicleDefinition vehicle)

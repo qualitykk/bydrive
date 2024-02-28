@@ -7,6 +7,7 @@
   "MapName": "",
   "Parameters": {
     "MaxLaps": 5,
+    "RaceMusic": "sounds/music/race_devtrack.sound",
     "RaceMusicVolume": -1,
     "RaceStartWait": 5
   },

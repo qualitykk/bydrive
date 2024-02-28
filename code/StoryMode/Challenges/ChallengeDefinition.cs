@@ -30,12 +30,16 @@ public class ChallengeDefinition : GameResource
 		}
 	}
 	public static IReadOnlyList<ChallengeDefinition> All => _all;
-	private static List<ChallengeDefinition> _all = new();
-	private static Dictionary<string, ChallengeDefinition> _allByDefinition = new();
+	private static readonly List<ChallengeDefinition> _all = new();
+	private static readonly Dictionary<string, ChallengeDefinition> _allByDefinition = new();
 	public static ChallengeDefinition Get(string id)
 	{
-		if(_allByDefinition.TryGetValue( id, out var definition)) return definition;
-		return default;
+		if(!_allByDefinition.TryGetValue( id, out var definition))
+		{
+			Log.Error( $"No definition with id {id} found!" );
+		}
+		Log.Info( definition.Parameters );
+		return definition;
 	}
 	public delegate void CompletionContext( SaveFile save );
 	[Hide] public string Id => $"{GetType()}:{ResourceName}";
@@ -43,7 +47,7 @@ public class ChallengeDefinition : GameResource
 	public string Description { get; set; }
 	[Hide] public bool IsRace => Track != default;
 	[Category("Race")] public RaceDefinition Track { get; set; }
-	[Category( "Race" )] public RaceParameters Parameters { get; set; } = null;
+	[Category( "Race" )] public RaceParameters Parameters { get; set; }
 	[Category( "Race" )] public List<Participant> Participants { get; set; }
 	[Category( "Race" )] public CompletionContext OnComplete { get; set; }
 	public IEnumerable<Participant> GetVisibleParticipants()
@@ -63,11 +67,6 @@ public class ChallengeDefinition : GameResource
 	private static void Command_PlayChallenge(string id)
 	{
 		var challenge = Get( id );
-		if(challenge == null )
-		{
-			Log.Error( $"No challenge with id {id} exists!" );
-			return;
-		}
 
 		if(!challenge.IsRace)
 		{

@@ -6,8 +6,9 @@
   "Track": "data/races/devtest1.race",
   "Parameters": {
     "MaxLaps": 3,
-    "RaceMusicVolume": -1,
-    "RaceStartWait": 4
+    "RaceMusic": "sounds/music/race_ngon.sound",
+    "RaceMusicVolume": 1.2,
+    "RaceStartWait": 6
   },
   "Participants": [
     {
@@ -64,8 +65,8 @@
         "Id": 1,
         "Type": "property.set",
         "Properties": {
-          "_type": "package.based.bydrive/Bydrive.SaveFile",
-          "_name": "Money"
+          "_name": "Money",
+          "_type": "package.based.bydrive/Bydrive.SaveFile"
         },
         "UserData": {
           "Position": "544,0"
@@ -75,8 +76,8 @@
         "Id": 3,
         "Type": "property.get",
         "Properties": {
-          "_type": "package.based.bydrive/Bydrive.SaveFile",
-          "_name": "Money"
+          "_name": "Money",
+          "_type": "package.based.bydrive/Bydrive.SaveFile"
         },
         "UserData": {
           "Position": "176,96"
