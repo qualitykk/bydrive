@@ -19,12 +19,13 @@
         }
     </div>
     <div class="info">
+    @if (currentChallenge != null)
+    {
         <div class="thumbnail" />
-        @if(currentChallenge != null)
-        {
-            <label class="name">@currentChallenge.Title</label>
-            <label class="description">@currentChallenge.Description</label>
-        }
+        <label class="name">@currentChallenge.Title</label>
+        <label class="rules">@(currentChallenge.Track.Name), @(currentChallenge.GetVisibleParticipants().Count())+ Opponents</label>
+        <label class="description">@currentChallenge.Description</label>
+    }
     </div>
 </root>
 

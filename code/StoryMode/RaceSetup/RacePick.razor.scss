@@ -46,6 +46,7 @@
         color: #fff;
 
         .thumbnail {
+            flex-grow: 1;
             width: 230px;
             aspect-ratio: 1;
             background-color: #307639;
@@ -60,8 +61,16 @@
             font-weight: bold;
         }
 
+        .rules {
+            flex-grow: 1;
+            font-size: 24px;
+            border-bottom: 2px solid white;
+        }
+
         .description {
-            flex-grow: 9;
+            flex-grow: 30;
+            margin: 2%;
+            font-size: 22px;
         }
     }
 }

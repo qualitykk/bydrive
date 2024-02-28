@@ -18,10 +18,11 @@
             @if(currentChallenge.GetVisibleParticipants().Any())
             {
                 <div class="opponents">
+                    <label class="category">Known Opponents (@(currentChallenge.GetVisibleParticipants().Count())+)</label>
                     @foreach (var p in currentChallenge.GetVisibleParticipants())
                     {
                         <div class="entry">
-                            @p.Name
+                            <label class="name">@p.Name</label>
                         </div>
                     }
                 </div>

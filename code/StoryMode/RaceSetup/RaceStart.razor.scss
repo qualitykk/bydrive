@@ -16,11 +16,32 @@
 
         .info {
             justify-content: space-around;
+            height: 100%;
 
             .description {
+                flex-grow: 1;
                 margin: 2%;
                 font-size: 32px;
                 color: #fff;
+                text-align: center;
+            }
+
+            .opponents {
+                border-left: 2px solid white;
+                flex-direction: column;
+                gap: 10px;
+                padding: 2%;
+                font-size: 24px;
+                color: #fff;
+                text-align: center;
+
+                .entry {
+                    background-color: #448fb5;
+                    padding: 2%;
+                    align-items: center;
+                    height: 10%;
+                    justify-content: center;
+                }
             }
         }
     }
