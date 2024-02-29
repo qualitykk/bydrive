@@ -43,6 +43,7 @@ public partial class SaveFile
 	public Guid Id { get; set; }
 	public string CharacterName { get; set; } = "MissingNo";
 	public float Playtime { get; set; }
+	public Transform LastTransform { get; set; }
 	public void Save()
 	{
 		string path = GetFilePath();

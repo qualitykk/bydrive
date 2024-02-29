@@ -37,19 +37,7 @@ public class RaceMatchInformation
 	{ 
 		get
 		{
-			if ( Definition == default ) return false;
-
-			var globals = RaceGlobals.Current;
-
-			if(Definition.UseScene())
-			{
-				return objectsCreated;
-			}
-
-			if ( globals == null || globals.Level == null )
-				return false;
-
-			return globals.Level.IsLoaded && objectsCreated;
+			return objectsCreated;
 		} 
 	}
 	private bool objectsCreated = false;
@@ -59,8 +47,6 @@ public class RaceMatchInformation
 	private Dictionary<Participant,GameObject> participantObjects = new();
 	public RaceMatchInformation(RaceDefinition definition, List<Participant> participants, RaceParameters parameters = null, bool createParticipants = true)
 	{
-		var globals = RaceGlobals.Current;
-
 		Assert.NotNull( definition );
 		Assert.NotNull( participants );
 
@@ -68,21 +54,7 @@ public class RaceMatchInformation
 		//multiplayer = LobbyManager.MultiplayerActive;
 		multiplayer = false;
 
-		if (!definition.UseScene())
-		{
-			Assert.NotNull( globals );
-			Assert.NotNull( globals.Level );
-			Assert.NotNull( globals.Track );
-			globals.Level.MapName = definition.MapName;
-
-			GameObject trackPrefabObject = new();
-			trackPrefabObject.ApplyPrefab( definition.Prefab );
-			trackPrefabObject.Parent = globals.Track;
-		}
-		else
-		{
-			GameManager.ActiveScene.LoadFromFile( definition.Scene.ResourcePath );
-		}
+		GameManager.ActiveScene.LoadFromFile( definition.Scene.ResourcePath );
 
 		Definition = definition;
 		Participants = participants;

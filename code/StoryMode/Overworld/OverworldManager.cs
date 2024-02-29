@@ -11,6 +11,7 @@ public class OverworldManager : Component
 	[Property] public PrefabFile PlayerPrefab { get; set; }
 	[Property] public MapInstance Map { get; set; }
 	private GameObject playerObject;
+	private Transform lastPlayerPosition;
 	private bool initialised = false;
 	protected override void OnUpdate()
 	{
@@ -18,6 +19,8 @@ public class OverworldManager : Component
 		{
 			return;
 		}
+
+		lastPlayerPosition = playerObject?.Transform.World ?? default;
 
 		if(Map.IsLoaded && !initialised)
 		{
@@ -37,9 +40,13 @@ public class OverworldManager : Component
 		playerObject = new();
 		playerObject.ApplyPrefab( PlayerPrefab );
 
-		// TODO: Get story based spawn pos
-		GameObject spawn = Scene.GetAllComponents<SpawnPoint>().FirstOrDefault().GameObject;
-		playerObject.Transform.World = spawn.Transform.World;
+		// Spawn via last location, then via spawn point, then via this object
+		Transform spawnTransform = CurrentSave?.LastTransform ?? Scene.GetAllComponents<SpawnPoint>()?.FirstOrDefault()?.Transform?.World ?? Transform.World;
+
+		// Scale = bad
+		playerObject.Transform.Position = spawnTransform.Position;
+		playerObject.Transform.Rotation = spawnTransform.Rotation;
+
 		initialised = true;
 
 		foreach (var info in GetUsables() )
@@ -56,6 +63,11 @@ public class OverworldManager : Component
 
 	protected override void OnDestroy()
 	{
+		if(Story.Active)
+		{
+			CurrentSave.LastTransform = lastPlayerPosition;
+			Story.Save();
+		}
 		ResetGlobals();
 	}
 

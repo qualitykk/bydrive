@@ -2,9 +2,15 @@
   "Root": {
     "Text": "Testing testing 123",
     "Speed": 60,
+    "Title": "Terry Ladison",
+    "Image": null,
+    "Character": "data/characters/dev_lad.prsn",
     "Next": {
       "Text": "Lorem ipsum?",
       "Speed": 60,
+      "Title": "Terry Ladison",
+      "Image": null,
+      "Character": "data/characters/dev_lad.prsn",
       "Next": {
         "Speed": 60,
         "Next": {
@@ -18,6 +24,9 @@
           "Next": {
             "Text": "Fuck You",
             "Speed": 60,
+            "Title": "Terry Ladison",
+            "Image": null,
+            "Character": "data/characters/dev_lad.prsn",
             "Next": {
               "Speed": 60
             },
@@ -29,6 +38,9 @@
           "Next": {
             "Text": "Thanks",
             "Speed": 60,
+            "Title": "Terry Ladison",
+            "Image": null,
+            "Character": "data/characters/dev_lad.prsn",
             "Next": {
               "Speed": 60
             },

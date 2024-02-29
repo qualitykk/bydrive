@@ -32,6 +32,7 @@ public class InteractionListener : Component, Component.ITriggerListener
 		var usableComponents = other.Components.GetAll<IInteractible>();
 		if ( !usableComponents.Any() )
 			return;
+		usableComponents = usableComponents.Where( c => !availableInteractions.Contains( c ) );
 
 		availableInteractions.AddRange(usableComponents);
 	}

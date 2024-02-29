@@ -85,18 +85,26 @@
             {
               "__type": "SkinnedModelRenderer",
               "AnimationGraph": null,
-              "BodyGroups": 18446744073709551615,
+              "BodyGroups": 341,
               "BoneMergeTarget": null,
               "CreateBoneObjects": false,
               "MaterialGroup": null,
               "MaterialOverride": null,
-              "Model": null,
+              "Model": "models/citizen/citizen.vmdl",
               "RenderType": "On",
               "Tint": "1,1,1,1"
             },
             {
               "__type": "AwakeActionComponent",
               "Action": null
+            },
+            {
+              "__type": "BoxCollider",
+              "Center": "0,0,32",
+              "IsTrigger": true,
+              "Scale": "128,128,64",
+              "Static": false,
+              "Surface": null
             }
           ],
           "Children": [
@@ -188,6 +196,14 @@
               "Scale": "8,50,128",
               "Static": false,
               "Surface": null
+            },
+            {
+              "__type": "BoxCollider",
+              "Center": "-32,-24,64",
+              "IsTrigger": true,
+              "Scale": "64,48,128",
+              "Static": false,
+              "Surface": null
             }
           ]
         },
@@ -235,6 +251,14 @@
                 "Maxs": "96,0,128"
               },
               "InteractionTitle": "Enter"
+            },
+            {
+              "__type": "BoxCollider",
+              "Center": "0,-32,64",
+              "IsTrigger": true,
+              "Scale": "192,64,128",
+              "Static": false,
+              "Surface": null
             }
           ]
         }
@@ -260,6 +284,8 @@
     {
       "Id": "1c3847e4-5312-46ee-9775-84e82d510db8",
       "Name": "Camera",
+      "Position": "-68.89208,-121.3659,56.03125",
+      "Rotation": "0,0,0,0",
       "Tags": "maincamera",
       "Enabled": true,
       "Components": [
@@ -267,7 +293,7 @@
           "__type": "CameraComponent",
           "BackgroundColor": "0,0,0,1",
           "ClearFlags": "All",
-          "FieldOfView": 120,
+          "FieldOfView": 90,
           "IsMainCamera": true,
           "Orthographic": false,
           "OrthographicHeight": 1204,
@@ -366,7 +392,7 @@
   },
   "Title": "story_overworld",
   "Description": "",
-  "LastSaved": "2024-02-28T23:21:12.1789034\u002B01:00",
+  "LastSaved": "2024-02-29T22:11:49.7163024\u002B01:00",
   "__references": [
     "facepunch.wooden_door_01d",
     "polyhaven.wasteland_clouds_puresky"
