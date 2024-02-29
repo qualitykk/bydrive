@@ -15,6 +15,9 @@ public class CharacterDefinition : GameResource
 	public List<VehicleDefinition> PreferredVehicles { get; set; } = new();
 	public Texture GetDialogImage(string expression = "")
 	{
+		if ( string.IsNullOrEmpty( expression ) )
+			expression = "base";
+
 		if ( ExpressionImages == null )
 			return Texture.White;
 

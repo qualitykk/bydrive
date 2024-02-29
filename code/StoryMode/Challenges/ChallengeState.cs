@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public enum ChallengeStatus
+public enum ChallengeState
 {
 	Hidden,
 	InProgress,
