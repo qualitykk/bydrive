@@ -13,7 +13,7 @@ internal static class StartRace
 	const float TIME_TRIAL_WAIT = 3.5f;
 	const string TIME_TRIAL_MUSIC_TRACK = "/sounds/music/race_timetrial.sound";
 	const float TIME_TRIAL_MUSIC_VOLUME = 0.8f;
-	public static void Challenge(ChallengeDefinition challenge, VehicleDefinition vehicle)
+	public static void Challenge(ChallengeDefinition challenge, VehicleBuilder vehicle)
 	{
 		Assert.NotNull(challenge);
 		Assert.NotNull( vehicle );
@@ -23,7 +23,7 @@ internal static class StartRace
 
 		foreach(var p in challenge.Participants.OrderBy(p => p.StartPosition))
 		{
-			racers.Add( new( p.Vehicle, Player.CreateBot(p.Name), currentPosition ) );
+			racers.Add( new( VehicleBuilder.ForDefinition(p.Vehicle), Player.CreateBot(p.Name), currentPosition ) );
 			currentPosition++;
 		}
 		racers.Add( new( vehicle, Player.Local, currentPosition ) );
@@ -33,7 +33,7 @@ internal static class StartRace
 	{
 		List<RaceMatchInformation.Participant> racers = new()
 		{
-			new( vehicle, Player.Local, RaceStartingPosition.FIRST_PLACE )
+			new( VehicleBuilder.ForDefinition(vehicle), Player.Local, RaceStartingPosition.FIRST_PLACE )
 		};
 
 		RaceParameters timeTrialParameters = new()
@@ -55,7 +55,7 @@ internal static class StartRace
 	{
 		List<RaceMatchInformation.Participant> racers = new() 
 		{ 
-			new( playerVehicle, Player.Local, playerStartPos ) 
+			new( VehicleBuilder.ForDefinition(playerVehicle), Player.Local, playerStartPos ) 
 		};
 		int racerAmount = amount + 1;
 
@@ -68,7 +68,7 @@ internal static class StartRace
 
 			Player botPlayer = Player.CreateBot();
 			botPlayer.DisplayName = $"Bot {i}";
-			racers.Add( new(GetBotVehicle(), botPlayer, i) );
+			racers.Add( new(VehicleBuilder.ForDefinition(GetBotVehicle()), botPlayer, i) );
 		}
 
 		new RaceMatchInformation( race, racers );
@@ -82,6 +82,6 @@ internal static class StartRace
 
 	private static RaceMatchInformation.Participant CreateBot(VehicleDefinition def, int startPosition)
 	{
-		return new( def, Player.CreateBot(), startPosition );
+		return new( VehicleBuilder.ForDefinition(def), Player.CreateBot(), startPosition );
 	}
 }

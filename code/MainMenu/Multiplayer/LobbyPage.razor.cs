@@ -39,7 +39,7 @@ public partial class LobbyPage : Panel
 		foreach(var ply in players)
 		{
 			VehicleDefinition playerVehicle = ply.SelectedVehicle ?? VehicleDefinition.GetDefault();
-			racers.Add( new( playerVehicle, ply, i) );
+			racers.Add( new( VehicleBuilder.ForDefinition(playerVehicle), ply, i) );
 			//Log.Info( $"Start {ply} {playerVehicle}" );
 			i++;
 		}

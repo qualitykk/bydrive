@@ -28,18 +28,17 @@ public struct VehicleBuilder
 		return this;
 	}
 	// TODO: Upgrades
-	public void Build()
+	public GameObject Build()
 	{
 		GameObject instance = Vehicle.CreateObject();
 		var controller = instance.Components.GetInDescendantsOrSelf<VehicleController>();
 		if(controller == null)
 		{
-			Log.Error( "Tried to spawn vehicle without controller? WTF?" );
 			instance.DestroyImmediate();
-			return;
+			throw new InvalidOperationException( "Tried to spawn vehicle without controller? WTF?" );
 		}
 
-		if(Attachments.Any())
+		if(Attachments != null && Attachments.Any())
 		{
 			foreach ( (Guid id, AttachmentDefinition attachment) in Attachments )
 			{
@@ -49,5 +48,7 @@ public struct VehicleBuilder
 				controller.AddAttachment( new( slotInfo.LocalPosition, slotInfo.LocalRotation ), attachment );
 			}
 		}
+
+		return instance;
 	}
 }

@@ -3,6 +3,70 @@
 
     .overlay {
         width: 70%;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        .config {
+            height: 100%;
+            gap: 15px;
+            flex-direction: column;
+            width: 27.5%;
+            font-family: Poppins;
+            color: #fff;
+            background-color: #7a7a7a33;
+            backdrop-filter: blur(2px);
+            padding: 1%;
+
+            .hint {
+                width: 100%;
+                font-size: 32px;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            .group {
+                flex-direction: column;
+                border-radius: 2px;
+                margin: 1%;
+
+                .slot {
+                    font-size: 32px;
+                    border-bottom: 1px solid white;
+                    margin-bottom: 2%;
+                }
+
+                .label {
+                    text-align: center;
+                }
+
+                .attachments {
+                    flex-direction: row;
+
+                    .entry {
+                        width: 32%;
+                        aspect-ratio: 1;
+                        background-color: #af7f6f;
+                        align-items: center;
+                        flex-direction: column;
+                        border-radius: 10px;
+                        margin: 1%;
+                        justify-content: center;
+
+                        &.active {
+                            border: 2px solid white;
+                        }
+
+                        &:hover {
+                            background-color: #bf8f7f;
+                        }
+
+                        .name {
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
 
         .locked {
             position: absolute;
@@ -20,59 +84,33 @@
             background-color: #a0474499;
             backdrop-filter: blur(2px);
         }
-
-        .title {
-            font-family: Poppins;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 10%;
-            text-align: center;
-            font-size: 40px;
-            font-weight: bold;
-            color: #ffffff;
-        }
     }
 
     .options {
         width: 30%;
         flex-direction: column;
 
-        nav {
-            background-color: #aaaa;
-            height: 5%;
-            justify-content: space-evenly;
-
-            .option {
-                color: #ffffff;
-                font-size: 32px;
-                background-color: #5a5a5acc;
-                flex-grow: 1;
-                text-align: center;
-
-                &:hover {
-                    background-color: #a2a2a2;
-                }
-            }
-        }
-
-        .config {
+        .main {
             background-color: #7a7a7acc;
             backdrop-filter: blur(5px);
             height: 65%;
             padding: 1%;
             gap: 20px;
 
-            .vehicle {
-                width: 180px;
+            .entry {
+                width: 30%;
                 aspect-ratio: 1;
-                background-color: #af7f6f;
+                background-color: #ed2d2d;
                 align-items: center;
                 flex-direction: column;
                 border-radius: 10px;
 
+                &.active {
+                    border: 2px solid white;
+                }
+
                 &:hover {
-                    background-color: #bf8f7f;
+                    background-color: #cb6868;
                 }
 
                 ModelPreviewPanel {
@@ -93,45 +131,47 @@
         .review {
             background-color: #4f4a4acc;
             backdrop-filter: blur(5px);
-            height: 30%;
+            height: 35%;
             flex-direction: column;
+            font-family: Roboto;
+            color: #ffff;
 
-            .info {
-                height: 70%;
+            .title {
+                height: 15%;
+                font-size: 40px;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .description {
+                height: 20%;
                 text-align: center;
                 align-items: center;
-                color: #ffffff;
                 font-size: 28px;
             }
 
-            .controls {
-                height: 30%;
-                justify-content: space-evenly;
+            .stats {
+                flex-direction: column;
+                height: 65%;
                 padding: 1%;
-                gap: 20%;
-            }
+                gap: 10px;
 
-            .button {
-                color: #ffffff;
-                font-size: 32px;
-                text-align: center;
-                flex-grow: 1;
-                text-align: center;
-                align-items: center;
+                .group {
+                    background-color: #585858;
 
-                &.next {
-                    background-color: #779955;
-
-                    &:hover {
-                        background-color: #97b975;
+                    .name {
+                        text-align: center;
+                        width: 40%;
+                        font-size: 28px;
                     }
-                }
 
-                &.back {
-                    background-color: #706666;
+                    .progress {
+                        width: 60%;
+                        background-color: red;
 
-                    &:hover {
-                        background-color: #908686;
+                        .bar {
+                            background-color: green;
+                        }
                     }
                 }
             }

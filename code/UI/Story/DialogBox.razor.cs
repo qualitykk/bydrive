@@ -19,14 +19,14 @@ public partial class DialogBox : PanelComponent
 
 	[ActionGraphNode("dialog.show")]
 	[Title("Show Message"), Group("Dialog"), Icon( "question_answer" )]
-	private static void ShowAction(string text, string name = "", float speed = DialogEntry.DEFAULT_SPEED)
+	public static void Show(string text, string name = "", float speed = DialogEntry.DEFAULT_SPEED)
 	{
 		DialogEntry entry = new(text, speed, name);
 		Current?.SetMessage(entry );
 	}
 	[ActionGraphNode( "dialog.show_character" )]
 	[Title( "Show Message (Character)" ), Group( "Dialog" ), Icon( "question_answer" )]
-	private static void ShowAction( string text, CharacterDefinition character, float speed = DialogEntry.DEFAULT_SPEED )
+	public static void Show( string text, CharacterDefinition character, float speed = DialogEntry.DEFAULT_SPEED )
 	{
 		DialogEntry entry = new( text, speed, character );
 
@@ -34,7 +34,7 @@ public partial class DialogBox : PanelComponent
 	}
 	[ActionGraphNode( "dialog.show_tree" )]
 	[Title( "Show Message (Resource)" ), Group( "Dialog" ), Icon( "question_answer" )]
-	private static void ShowAction(DialogTree dialog)
+	public static void Show(DialogTree dialog)
 	{
 		Current?.SetMessage( dialog.Root );
 	}
@@ -155,7 +155,7 @@ public partial class DialogBox : PanelComponent
 	[ConCmd("ui_show_dialog")]
 	private static void Command_Show(string text, string name, float speed = DialogEntry.DEFAULT_SPEED)
 	{
-		ShowAction( text, name, speed );
+		Show( text, name, speed );
 	}
 
 	protected override int BuildHash()

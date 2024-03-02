@@ -1,6 +1,6 @@
 {
   "Title": "Rocket",
   "Icon": null,
-  "Prefab": null,
+  "Prefab": "prefabs/items/item_rocket_simple.prefab",
   "__references": []
 }

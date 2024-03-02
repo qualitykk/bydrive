@@ -4,7 +4,6 @@
   "Hidden": false,
   "PreviewModel": "models/vehicles/vehicle_boxy.vmdl",
   "PreviewPosition": "-192,0,64",
-  "PreviewAngles": "0,0,0",
   "Stats": {
     "MaxSpeed": 1200,
     "Acceleration": 1200,
@@ -20,6 +19,11 @@
     "CameraPositionOffset": "-400,0,150"
   },
   "Prefab": "prefabs/vehicles/car_devtest1.prefab",
-  "AttachmentSlots": [],
+  "AttachmentSlots": [
+    {
+      "Id": "b4bc6efa-1192-4fca-a0ad-acee1a14ea9a",
+      "Slot": "Roof"
+    }
+  ],
   "__references": []
 }

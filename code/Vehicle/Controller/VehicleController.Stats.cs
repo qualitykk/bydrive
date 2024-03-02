@@ -53,13 +53,14 @@ public partial class VehicleController
 		}
 		return stats;
 	}
+	[Title("Reset Stat Modifiers"), Category( "Stats" )]
 	public void ResetStats()
 	{
 		modifierIds.Clear();
 		modifiers.Clear();
 		modifiersPerStat.Clear();
 	}
-	public void TickStats()
+	private void TickStats()
 	{
 		TickModifiers();
 	}
@@ -132,6 +133,7 @@ public partial class VehicleController
 		}
 	}
 	#endregion
+	[Category("Stats")]
 	public float GetMaxSpeed()
 	{
 		const float NO_HEALTH_SPEED_MULTIPLIER = 0.875f;
@@ -157,7 +159,7 @@ public partial class VehicleController
 
 		return maxSpeed * multiplier;
 	}
-
+	[Category( "Stats" )]
 	public float GetAcceleration()
 	{
 		float acceleration = GetStats().Acceleration;
@@ -170,49 +172,52 @@ public partial class VehicleController
 		ApplyStatMultipliers( VehicleStatModifiers.ACCELERATION, ref multiplier );
 		return acceleration * multiplier;
 	}
-
+	[Category( "Stats" )]
 	public float GetBoostDuration()
 	{
 		float boost = GetStats().BoostDuration;
 		return boost;
 	}
-
+	[Category( "Stats" )]
 	public float GetBoostSpeedMultiplier()
 	{
 		float speedMultiplier = GetStats().BoostSpeedMultiplier;
 		return speedMultiplier;
 	}
-
+	[Category( "Stats" )]
 	public float GetBoostRechargeCooldown()
 	{
 		float rechargeCooldown = GetStats().BoostRechargeCooldown;
 		return rechargeCooldown;
 	}
+	[Category( "Stats" )]
 	public float GetBoostRechargeFactor()
 	{
 		float rechargeFactor = GetStats().BoostRechargeFactor;
 		return rechargeFactor;
 	}
-
+	[Category( "Stats" )]
 	public int GetMaxHealth()
 	{
 		int maxHealth = GetStats().MaxHealth;
 		return maxHealth;
 	}
+	[Category( "Stats" )]
 	public int GetHalfHealth()
 	{
 		return (int)MathF.Floor( GetMaxHealth() / 2f );
 	}
+	[Category( "Stats" )]
 	public float GetTurnSpeed()
 	{ 
 		return GetStats().TurnSpeed; 
 	}
-
+	[Category( "Stats" )]
 	public float GetTurnSpeedIdealDistance()
 	{
 		return GetStats().TurnSpeedIdealDistance;
 	}
-
+	[Category( "Stats" )]
 	public float GetTurnSpeedVelocityFactor()
 	{
 		return GetStats().TurnSpeedVelocityFactor;
@@ -223,7 +228,7 @@ public partial class VehicleController
 	{
 		return GetStats().CameraPositionOffset;
 	}
-
+	[Category( "Stats" )]
 	public List<ItemDefinition> GetVehicleItems()
 	{
 		return GetStats().BonusItems;

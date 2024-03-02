@@ -13,7 +13,8 @@
           "Version": 5,
           "UserData": {
             "Title": "On Hit",
-            "id": "f494e947-0964-45bc-84bf-50afd4446923"
+            "id": "f494e947-0964-45bc-84bf-50afd4446923",
+            "ReferencedComponentTypes": []
           },
           "Variables": [],
           "Nodes": [
@@ -25,11 +26,91 @@
               "Id": 1,
               "Type": "scene.instantiate",
               "UserData": {
-                "Position": "192,0"
+                "Position": "448,0"
+              }
+            },
+            {
+              "Id": 2,
+              "Type": "property.get",
+              "Properties": {
+                "_type": "Sandbox.Game/Sandbox.GameObject",
+                "_name": "Transform"
+              },
+              "UserData": {
+                "Position": "-144,112"
+              }
+            },
+            {
+              "Id": 3,
+              "Type": "property.get",
+              "Properties": {
+                "_type": "Sandbox.Game/Sandbox.GameTransform",
+                "_name": "Position"
+              },
+              "UserData": {
+                "Position": "80,80"
+              }
+            },
+            {
+              "Id": 4,
+              "Type": "property.get",
+              "Properties": {
+                "_type": "Sandbox.Game/Sandbox.GameTransform",
+                "_name": "Rotation"
+              },
+              "UserData": {
+                "Position": "80,144"
               }
             }
           ],
-          "Links": []
+          "Links": [
+            {
+              "SrcId": 0,
+              "SrcName": "_signal",
+              "DstId": 1,
+              "DstName": "_signal"
+            },
+            {
+              "Value": "Simple Rocket Explosion",
+              "DstId": 1,
+              "DstName": "name"
+            },
+            {
+              "SrcId": 3,
+              "SrcName": "_result",
+              "DstId": 1,
+              "DstName": "position"
+            },
+            {
+              "Value": "prefabs/items/rocket_explosion.prefab",
+              "DstId": 1,
+              "DstName": "prefab"
+            },
+            {
+              "SrcId": 4,
+              "SrcName": "_result",
+              "DstId": 1,
+              "DstName": "rotation"
+            },
+            {
+              "SrcId": 0,
+              "SrcName": "_target",
+              "DstId": 2,
+              "DstName": "_target"
+            },
+            {
+              "SrcId": 2,
+              "SrcName": "_result",
+              "DstId": 3,
+              "DstName": "_target"
+            },
+            {
+              "SrcId": 2,
+              "SrcName": "_result",
+              "DstId": 4,
+              "DstName": "_target"
+            }
+          ]
         }
       },
       {

@@ -15,6 +15,17 @@ public class TabPanel : Panel
 	public const string INACTIVE_CLASS = "hidden";
 	const int DEFAULT_INDEX = 0;
 	public int Index { get; set; } = DEFAULT_INDEX;
+	public override void Tick()
+	{
+		if(HasClass(INACTIVE_CLASS))
+		{
+			Style.Display = DisplayMode.None;
+		}
+		else if(HasClass(ACTIVE_CLASS))
+		{
+			Style.Display = DisplayMode.Flex;
+		}
+	}
 	protected override void OnParametersSet()
 	{
 		SetClass( ACTIVE_CLASS, Index == DEFAULT_INDEX );

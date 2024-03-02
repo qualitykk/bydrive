@@ -16,32 +16,62 @@
             {
                 <label class="locked">LOCKED</label>
             }
-            <label class="title">@currentVehicle.Title</label>
-        }
-        else
-        {
-            <label class="title">None Selected</label>
+            <div class="config">
+                <label class="hint">Attachments</label>
+                @foreach (var attachmentGroup in GetAttachments())
+                {
+                    @if (SlotAttachmentMax(attachmentGroup.Key) <= 0) continue;
+
+                    <div class="group">
+                        <label class="slot">@attachmentGroup.Key (@(SlotAttachmentCount(attachmentGroup.Key))/@(SlotAttachmentMax(attachmentGroup.Key)))</label>
+                        <div class="attachments">
+                            @foreach (var attachment in attachmentGroup)
+                            {
+                                <div class="entry @UI.ActiveIf(AttachmentActive(attachment))" @onclick=@(() => OnClickAttachment(attachment))>
+                                    <label class="name">@attachment.Title</label>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
         }
     </div>
     <div class="options">
-        <nav>
-            <label class="option">Select Car</label>
-            <label class="option">Attachments</label>
-            <label class="option">Info</label>
-        </nav>
-        <div class="config">
+        
+        <div class="main">
             @foreach(var vehicle in ResourceLibrary.GetAll<VehicleDefinition>())
             {
-                <div class="vehicle" @onclick=@(() => OnClickVehicle(vehicle))>
+                <div class="entry @UI.ActiveIf(vehicle == currentVehicle)" @onclick=@(() => OnClickVehicle(vehicle))>
                     <ModelPreviewPanel Model=@vehicle.PreviewModel CameraPosition=@vehicle.PreviewPosition/>
                     <label class="name">@vehicle.Title</label>
                 </div>
             }
         </div>
+        
         <div class="review">
             @if (currentVehicle != null)
             {
-                <label class="info">@currentVehicle.Description</label>
+                <label class="title">@currentVehicle.Title</label>
+                <label class="description">@currentVehicle.Description</label>
+                <div class="stats">
+                    <div class="group">
+                        <label class="name">Speed</label>
+                        <ProgressBar Value=@(0.8f) MaxValue=@(1f) />
+                    </div>
+                    <div class="group">
+                        <label class="name">Acceleration</label>
+                        <ProgressBar Value=@(0.5f) MaxValue=@(1f) />
+                    </div>
+                    <div class="group">
+                        <label class="name">Handling</label>
+                        <ProgressBar Value=@(0.65f) MaxValue=@(1f) />
+                    </div>
+                    <div class="group">
+                        <label class="name">Swag</label>
+                        <ProgressBar Value=@(1f) MaxValue=@(1f) />
+                    </div>
+                </div>
             }
         </div>
     </div>

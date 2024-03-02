@@ -2,8 +2,24 @@
   "Title": "Rocket Launcher",
   "Description": "Shoots rockets, pew pew!",
   "Slot": "Roof",
-  "Model": null,
-  "StatChanges": {},
+  "Model": "models/rust_props/light_fixtures/airfieldsirenlight.vmdl",
+  "StatChanges": {
+    "MaxSpeed": 900,
+    "Acceleration": 1200,
+    "MaxHealth": 4,
+    "BoostDuration": 3,
+    "BoostSpeedMultiplier": 1.2,
+    "BoostAccelerationMultiplier": 2,
+    "BoostRechargeCooldown": 2,
+    "BoostRechargeFactor": 0.8,
+    "TurnSpeed": 90,
+    "TurnSpeedIdealDistance": 500,
+    "TurnSpeedVelocityFactor": 0.6,
+    "BonusItems": [
+      "data/items/rocket_simple.item"
+    ]
+  },
+  "StatChangeMode": "Percent",
   "Attach": null,
   "Tick": null,
   "__references": []

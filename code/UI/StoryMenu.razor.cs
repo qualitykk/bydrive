@@ -15,6 +15,6 @@ public partial class StoryMenu
 
 	void OnClickChallenge(ChallengeDefinition definition)
 	{
-		StartRace.Challenge( definition, VehicleDefinition.GetDefault() );
+		StartRace.Challenge( definition, VehicleBuilder.ForDefinition(VehicleDefinition.GetDefault()) );
 	}
 }

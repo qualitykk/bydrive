@@ -13,11 +13,11 @@ public partial class VehicleController
 	public ItemDefinition CurrentItem { get; private set; }
 	public TimeSince TimeSinceUseItem { get; set; }
 
-	public void InitialiseItems()
+	private void InitialiseItems()
 	{
 		TimeSinceUseItem = 0;
 	}
-	public void TickItems()
+	private void TickItems()
 	{
 		if ( WantsItem && CanUseCurrentItem() )
 		{
@@ -38,8 +38,13 @@ public partial class VehicleController
 	{
 		return TimeSinceUseItem > ITEM_COOLDOWN && CurrentItem != default;
 	}
-	private void UseItem()
+	public void UseItem()
 	{
+		if(CurrentItem == null)
+		{
+			return;
+		}
+
 		Vector3 spawnPos = Transform.Local.PointToWorld( ItemSpawnPosition );
 
 		GameObject itemObject = ResourceHelper.CreateObjectFromResource( CurrentItem );

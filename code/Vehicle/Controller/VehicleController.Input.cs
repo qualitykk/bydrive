@@ -3,14 +3,14 @@ namespace Bydrive;
 
 public partial class VehicleController
 {
-	public float ThrottleInput;
-	public float TurnInput;
-	public float BreakInput;
-	public float TiltInput;
+	[ActionGraphIgnore] public float ThrottleInput;
+	[ActionGraphIgnore] public float TurnInput;
+	[ActionGraphIgnore] public float BreakInput;
+	[ActionGraphIgnore] public float TiltInput;
 
-	public bool WantsBoost;
-	public bool WantsItem;
-	public void VerifyInput()
+	[ActionGraphIgnore] public bool WantsBoost;
+	[ActionGraphIgnore] public bool WantsItem;
+	private void VerifyInput()
 	{
 		if ( !CanDrive() )
 		{

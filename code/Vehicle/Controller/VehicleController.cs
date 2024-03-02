@@ -278,7 +278,6 @@ public sealed partial class VehicleController : Component
 		foreach(var sound in sounds)
 		{
 			sound.Position = Transform.Position;
-			sound.Update();
 		}
 	}
 	public SoundHandle PlaySound(SoundEvent sound)

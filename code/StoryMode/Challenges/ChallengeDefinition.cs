@@ -74,7 +74,7 @@ public class ChallengeDefinition : GameResource
 			return;
 		}
 
-		StartRace.Challenge( challenge, VehicleDefinition.GetDefault() );
+		StartRace.Challenge( challenge, VehicleBuilder.ForDefinition(VehicleDefinition.GetDefault()) );
 	}
 
 	[ConCmd("st_challenge_dump")]

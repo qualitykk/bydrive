@@ -3,6 +3,35 @@
 @namespace Bydrive
 @inherits PanelComponent
 
+@if(currentPopup == null)
+{
+	return;
+}
+
 <root>
-	
+	<div class="window" style="color: @currentPage.Color.Hex">
+		<div class="header">
+			<label class="title">@currentPage.Title</label>
+		</div>
+		<div class="content">
+			@if(currentPage.Image != null)
+			{
+				<label class="content has_image">@currentPage.Message</label>
+				<img src=@currentPage.Image />
+			}
+			else
+			{
+				<label class="content">@currentPage.Message</label>
+			}
+		</div>
+		<div class="nav">
+			@if(currentPageMax > 0)
+			{
+				@for (int i = 0; i <= currentPageMax; i++)
+				{
+					<div class="page_indicator @UI.ActiveIf(i == currentPageNumber)" />
+				}
+			}
+		</div>
+	</div>
 </root>

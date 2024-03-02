@@ -34,6 +34,7 @@ public static class VehicleStatExtensions
 	{
 		if ( stats.Equals(default) ) return changes;
 		if ( changes.Equals(default) ) return stats;
+		VehicleStats defaultStats = new();
 
 		if(mode == VehicleStatChangeMode.Override)
 		{
@@ -41,37 +42,44 @@ public static class VehicleStatExtensions
 		}
 		else if(mode == VehicleStatChangeMode.Absolute)
 		{
-			stats.MaxSpeed += changes.MaxSpeed;
-			stats.Acceleration += changes.Acceleration;
-			stats.MaxHealth += changes.MaxHealth;
+			stats.MaxSpeed += defaultStats.MaxSpeed - changes.MaxSpeed;
+			stats.Acceleration += defaultStats.Acceleration - changes.Acceleration;
+			stats.MaxHealth += defaultStats.MaxHealth - changes.MaxHealth;
 
-			stats.TurnSpeed += changes.TurnSpeed;
-			stats.TurnSpeedIdealDistance += changes.TurnSpeedIdealDistance;
-			stats.TurnSpeedVelocityFactor += changes.TurnSpeedVelocityFactor;
+			stats.TurnSpeed += defaultStats.TurnSpeed - changes.TurnSpeed;
+			stats.TurnSpeedIdealDistance += defaultStats.TurnSpeedIdealDistance - changes.TurnSpeedIdealDistance;
+			stats.TurnSpeedVelocityFactor += defaultStats.TurnSpeedVelocityFactor - changes.TurnSpeedVelocityFactor;
 
-			stats.BoostRechargeCooldown += changes.BoostRechargeCooldown;
-			stats.BoostRechargeFactor += changes.BoostRechargeFactor;
-			stats.BoostSpeedMultiplier += changes.BoostSpeedMultiplier;
-			stats.BoostAccelerationMultiplier += changes.BoostAccelerationMultiplier;
+			stats.BoostRechargeCooldown += defaultStats.BoostRechargeCooldown - changes.BoostRechargeCooldown;
+			stats.BoostRechargeFactor += defaultStats.BoostRechargeFactor - changes.BoostRechargeFactor;
+			stats.BoostSpeedMultiplier += defaultStats.BoostSpeedMultiplier - changes.BoostSpeedMultiplier;
+			stats.BoostAccelerationMultiplier += defaultStats.BoostAccelerationMultiplier - changes.BoostAccelerationMultiplier;
 
 		}
 		else
 		{
-			stats.MaxSpeed *= 1 + changes.MaxSpeed;
-			stats.Acceleration *= 1 + changes.Acceleration;
-			stats.MaxHealth *= 1 + changes.MaxHealth;
+			stats.MaxSpeed *= changes.MaxSpeed / defaultStats.MaxSpeed;
+			stats.Acceleration *= changes.Acceleration / defaultStats.Acceleration;
+			stats.MaxHealth *= changes.MaxHealth / defaultStats.MaxHealth;
 
-			stats.TurnSpeed *= 1 + changes.TurnSpeed;
-			stats.TurnSpeedIdealDistance *= 1 + changes.TurnSpeedIdealDistance;
-			stats.TurnSpeedVelocityFactor *= 1 + changes.TurnSpeedVelocityFactor;
+			stats.TurnSpeed *= changes.TurnSpeed / defaultStats.TurnSpeed;
+			stats.TurnSpeedIdealDistance *= changes.TurnSpeedIdealDistance / defaultStats.TurnSpeedIdealDistance;
+			stats.TurnSpeedVelocityFactor *= changes.TurnSpeedVelocityFactor / defaultStats.TurnSpeedVelocityFactor;
 
-			stats.BoostRechargeCooldown *= 1 + changes.BoostRechargeCooldown;
-			stats.BoostRechargeFactor *= 1 + changes.BoostRechargeFactor;
-			stats.BoostSpeedMultiplier *= 1 + changes.BoostSpeedMultiplier;
-			stats.BoostAccelerationMultiplier *= 1 + changes.BoostAccelerationMultiplier;
+			stats.BoostRechargeCooldown *= changes.BoostRechargeCooldown / defaultStats.BoostRechargeCooldown;
+			stats.BoostRechargeFactor *= changes.BoostRechargeFactor / defaultStats.BoostRechargeFactor;
+			stats.BoostSpeedMultiplier *= changes.BoostSpeedMultiplier / defaultStats.BoostSpeedMultiplier;
+			stats.BoostAccelerationMultiplier *= changes.BoostAccelerationMultiplier / defaultStats.BoostAccelerationMultiplier;
 		}
 
-		stats.BonusItems.AddRange( changes.BonusItems );
+		if(stats.BonusItems != null)
+		{
+			stats.BonusItems.AddRange( changes.BonusItems );
+		}
+		else
+		{
+			stats.BonusItems = changes.BonusItems;
+		}
 
 		return stats;
 	}

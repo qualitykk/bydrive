@@ -15,7 +15,32 @@ public class RaceSetupManager : Component
 	[Property] public GameObject VehiclePreview { get; set; }
 	public ChallengeDefinition SelectedChallenge { get; set; }
 	public VehicleDefinition SelectedVehicle { get; private set; }
-	public Dictionary<AttachmentSlotPosition, AttachmentDefinition> SelectedAttachments { get; private set; }
+	public Dictionary<AttachmentSlot, List<AttachmentDefinition>> SelectedAttachments { get; private set; } = new();
+	public void Start()
+	{
+		Assert.NotNull( SelectedChallenge );
+		Assert.NotNull( SelectedVehicle );
+
+		var slotDefinitions = SelectedVehicle.AttachmentSlots.ToList();
+		VehicleBuilder vehicle = VehicleBuilder.ForDefinition( SelectedVehicle );
+		if(SelectedAttachments != null && SelectedAttachments.Any())
+		{
+			Dictionary<Guid, AttachmentDefinition> slotDefinitionAttachments = new();
+			foreach(var attachmentGroups in SelectedAttachments)
+			{
+				foreach(var attachment in attachmentGroups.Value )
+				{
+					AttachmentSlotPosition slot = slotDefinitions.FirstOrDefault( s => s.Slot == attachmentGroups.Key );
+					if ( slot == default ) break;
+					slotDefinitionAttachments.Add(slot.Id, attachment);
+					slotDefinitions.Remove( slot );
+				}
+			}
+			vehicle = vehicle.WithAttachments( slotDefinitionAttachments );
+		}
+
+		StartRace.Challenge( SelectedChallenge, vehicle );
+	}
 	protected override void OnStart()
 	{
 		Current = this;
@@ -30,6 +55,7 @@ public class RaceSetupManager : Component
 		Assert.NotNull( VehiclePreview );
 		Assert.NotNull( vehicle );
 
+		SelectedAttachments.Clear();
 		VehiclePreview.Children.ForEach( ( GameObject child ) => child.Destroy() );
 
 		GameObject instance = vehicle.CreateObject();

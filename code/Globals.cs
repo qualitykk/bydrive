@@ -93,10 +93,18 @@ internal static class UI
 	{
 		internal static class Notification
 		{
-			public static Color Success => new Color( 0x6080DF20 );
-			public static Color Critical => new Color( 0x601B48FF );
-			public static Color Bonus => new Color( 0x60EE5F13 );
-			public static Color Danger => new Color( 0.6f, 0.1f, 0.1f, 0.5f );
+			public static readonly Color Success = new Color( 0x6080DF20 );
+			public static readonly Color Critical = new Color( 0x601B48FF );
+			public static readonly Color Bonus = new Color( 0x60EE5F13 );
+			public static readonly Color Danger = new Color( 0.6f, 0.1f, 0.1f, 0.5f );
+		}
+
+		internal static class Popup
+		{
+			public static readonly Color Info = (Color)Color.Parse( "#f2fffc" );
+			public static readonly Color Positive = (Color)Color.Parse( "#f2a968" );
+			public static readonly Color Negative = (Color)Color.Parse( "#cf8282" );
+			public static readonly Color Major = (Color)Color.Parse( "#f2a968" );
 		}
 	}
 	public static void MakeMenu(Panel panel)

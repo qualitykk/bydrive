@@ -10,12 +10,12 @@ namespace Bydrive;
 
 public class RaceMatchInformation
 {
-	public struct Participant
+	public class Participant
 	{
-		public VehicleDefinition Vehicle { get; set; }
+		public VehicleBuilder Vehicle { get; set; }
 		public Player Player { get; set; }
 		public int StartPlacement { get; set; }
-		public Participant( VehicleDefinition vehicle, Player ply, int startPosition = RaceStartingPosition.FIRST_PLACE )
+		public Participant( VehicleBuilder vehicle, Player ply, int startPosition = RaceStartingPosition.FIRST_PLACE )
 		{
 			Vehicle = vehicle;
 			Player = ply;
@@ -97,7 +97,7 @@ public class RaceMatchInformation
 	private GameObject BuildParticipantObject(Participant participant)
 	{
 		string name = participant.Player.Name;
-		GameObject obj = ResourceHelper.CreateObjectFromResource( participant.Vehicle );
+		GameObject obj = participant.Vehicle.Build();
 		obj.Name = name;
 		if(multiplayer)
 		{

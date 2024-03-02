@@ -15,11 +15,11 @@ public class ItemPickup : RacerPickup
 		if(Items == null) return false;
 		if ( !vehicle.CanEquipItem() ) return false;
 
-		ItemDefinition item = Items.GetRandom();
+		ItemDefinition item = GetItem(vehicle);
 		int retries = 0;
 		while(!CanEquip(vehicle, item) && retries < MAX_RETRIES)
 		{
-			item = Items.GetRandom();
+			item = GetItem( vehicle );
 			retries++;
 		}
 
@@ -37,10 +37,14 @@ public class ItemPickup : RacerPickup
 		return false;
 	}
 
-	public virtual ItemDefinition GetItems(VehicleController vehicle)
+	public virtual ItemDefinition GetItem(VehicleController vehicle)
 	{
+		var vehicleItems = vehicle.GetVehicleItems();
+		if ( vehicleItems == null || !vehicleItems.Any() ) return Items.GetRandom();
+
 		List<ItemDefinition> itemChoices = Items.GetItemsWeighted();
-		itemChoices.AddRange( vehicle.GetVehicleItems() );
+		itemChoices.AddRange( vehicleItems );
+		Log.Info( vehicleItems );
 
 		return Game.Random.FromList( itemChoices );
 	}

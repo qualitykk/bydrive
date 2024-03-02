@@ -8,7 +8,7 @@ namespace Bydrive;
 
 public enum AttachmentSlot
 {
-	All,
+	None,
 	Body,
 	Roof,
 	Side,

@@ -17,7 +17,7 @@ public partial class VehicleController
 
 	private int health;
 	public int Health => health;
-	public void InitialiseCombat()
+	private void InitialiseCombat()
 	{
 		health = GetMaxHealth();
 	}

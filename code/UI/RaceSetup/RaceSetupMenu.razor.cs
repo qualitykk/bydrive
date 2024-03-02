@@ -37,7 +37,7 @@ public partial class RaceSetupMenu : PanelComponent
 		}
 		else
 		{
-			StartRace.Challenge( manager.SelectedChallenge, manager.SelectedVehicle );
+			manager.Start();
 		}
 	}
 	private bool CanClickBack()

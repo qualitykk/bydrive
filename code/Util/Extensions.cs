@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Nodes;
-using System.Threading.Tasks;
-using static Sandbox.GameObject;
-
-namespace Bydrive;
+﻿namespace Bydrive;
 
 internal static class GameObjectExtensions
 {
@@ -18,6 +10,15 @@ internal static class GameObjectExtensions
 	}
 
 	public static void ApplyPrefab( this GameObject obj, PrefabFile prefab ) => ApplyPrefab( obj, prefab?.ResourcePath );
+}
+
+internal static class SceneExtensions
+{
+	public static GameObject[] GetObjectsInRadius( this Scene scene, Vector3 origin, float radius )
+	{
+		var objects = scene.GetAllObjects( true );
+		return objects?.Where( obj => obj.Transform.Position.Distance( origin ) <= radius ).ToArray();
+	}
 }
 
 internal static class TransformExtensions

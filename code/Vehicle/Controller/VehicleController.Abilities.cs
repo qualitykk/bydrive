@@ -12,16 +12,16 @@ public partial class VehicleController
 	public bool UsingBoost { get; set; }
 	public TimeSince TimeSinceUseBoost { get; set; }
 	
-	public void InitialiseAbilities()
+	private void InitialiseAbilities()
 	{
 		RemainingBoost = GetBoostDuration();
 	}
-	public void TickAbilities()
+	private void TickAbilities()
 	{
 		TickBoost();
 	}
 
-	public void TickBoost()
+	private void TickBoost()
 	{
 		float dt = Time.Delta;
 		float maxBoost = GetBoostDuration();
@@ -43,6 +43,4 @@ public partial class VehicleController
 			RemainingBoost += dt * GetBoostRechargeFactor();
 		}
 	}
-
-	
 }
