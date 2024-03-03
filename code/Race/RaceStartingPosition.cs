@@ -27,9 +27,8 @@ public class RaceStartingPosition : Component
 
 		/*
 		Should work but doesnt?
-
-		Gizmo.Draw.Color = lineColor;
-		Gizmo.Draw.Line( Vector3.Zero, Transform.Rotation.Forward * 64f );
 		*/
+		Gizmo.Draw.Color = lineColor;
+		Gizmo.Draw.Line( Vector3.Zero, Transform.LocalRotation.Forward * 96f );
 	}
 }

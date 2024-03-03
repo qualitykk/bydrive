@@ -1,0 +1,351 @@
+{
+  "Id": "a0bb47fc-19bc-4bb0-a5a4-acd0b40fb4e8",
+  "GameObjects": [
+    {
+      "Id": "84668538-4a85-4705-b7d1-5c81b8575144",
+      "Name": "Directional Light",
+      "Position": "992,-1184,512",
+      "Rotation": "0.4188866,0.5640705,-0.2177467,0.6774547",
+      "Tags": "skybox,light_directional,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "DirectionalLight",
+          "FogMode": "WithoutShadows",
+          "FogStrength": 1,
+          "LightColor": "0.94884,0.92302,0.82968,1",
+          "Shadows": true,
+          "SkyColor": "0.58202,0.74284,0.82326,1"
+        }
+      ]
+    },
+    {
+      "Id": "aea4f1fd-77b6-4f21-8ae9-ed6413b1c427",
+      "Name": "Sky",
+      "Position": "870.4034,-1389.992,831.8393",
+      "Tags": "skybox",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "SkyBox2D",
+          "SkyMaterial": "materials/skybox/light_test_sky_sunny03.vmat",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "1f761370-2c40-457e-b24e-cde6e12c637b",
+      "Name": "Level",
+      "Rotation": "-0.0000000004070593,-0.00000004173178,0.707107,0.7071065",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "MapInstance",
+          "MapName": "maps/rd_rc_backstreet.vpk",
+          "OnMapLoaded": null,
+          "OnMapUnloaded": null,
+          "UseMapFromLaunch": false
+        }
+      ],
+      "Children": []
+    },
+    {
+      "Id": "c9761e93-f310-4e44-be06-c74bb9b29b92",
+      "Name": "Race Manager",
+      "Position": "1088,-1344,640",
+      "Rotation": "-0.0000000004070593,-0.00000004173178,0.707107,0.7071065",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "RaceManager",
+          "StartCheckpoint": null
+        }
+      ]
+    },
+    {
+      "Id": "ced29b3f-2d1b-46f4-958d-2fff7873cfda",
+      "Name": "Respawn",
+      "Position": "0,2000,-200",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "RaceRespawnZone"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": true,
+          "Scale": "10000,10000,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "eab21930-2003-4162-8ec5-4f28aa48f662",
+      "Name": "Start Positions",
+      "Enabled": true,
+      "Children": [
+        {
+          "Id": "469dce5d-74ae-4b6c-bb8d-dabf02b46f2e",
+          "Name": "1",
+          "Position": "768,-1024,32",
+          "Rotation": "0,0,0.3826834,0.9238796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "Placement": 1
+            }
+          ]
+        },
+        {
+          "Id": "fd779744-44c4-42e9-a5b9-4350116019fb",
+          "Name": "2",
+          "Position": "1024,-1120,32.00002",
+          "Rotation": "0,0,0.3826834,0.9238796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "Placement": 2
+            }
+          ]
+        },
+        {
+          "Id": "5880152e-cdf6-4711-acaa-29d6e9167443",
+          "Name": "3",
+          "Position": "1280,-1248,32.00003",
+          "Rotation": "0,0,0.3826834,0.9238796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "Placement": 3
+            }
+          ]
+        },
+        {
+          "Id": "34b87ff7-6b9b-43f9-8400-e2aed9fb9c5c",
+          "Name": "4",
+          "Position": "768,-1408,32",
+          "Rotation": "0,0,0.3826834,0.9238796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "Placement": 4
+            }
+          ]
+        },
+        {
+          "Id": "73a3e35a-32bf-4c94-b72e-9f7b0cf0abe6",
+          "Name": "5",
+          "Position": "1024,-1504,32.00002",
+          "Rotation": "0,0,0.3826834,0.9238796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "Placement": 5
+            }
+          ]
+        },
+        {
+          "Id": "613eac21-2a25-441b-b5b5-ea2f4ba942c5",
+          "Name": "6",
+          "Position": "1280,-1632,32.00003",
+          "Rotation": "0,0,0.3826834,0.9238796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "Placement": 6
+            }
+          ]
+        },
+        {
+          "Id": "7d3dc3da-0c40-4b12-99f7-039874cbba02",
+          "Name": "7",
+          "Position": "768,-1824,32",
+          "Rotation": "0,0,0.3826834,0.9238796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "Placement": 7
+            }
+          ]
+        },
+        {
+          "Id": "02119b23-67bd-435f-afed-c0e2d684c936",
+          "Name": "8",
+          "Position": "1024,-1920,32.00002",
+          "Rotation": "0,0,0.3826834,0.9238796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "Placement": 8
+            }
+          ]
+        },
+        {
+          "Id": "c62ef1bb-bdcb-49e0-bbaf-685d43c3e714",
+          "Name": "9",
+          "Position": "1280,-2048,32.00003",
+          "Rotation": "0,0,0.3826834,0.9238796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "Placement": 9
+            }
+          ]
+        },
+        {
+          "Id": "05486a49-5694-49b7-b2ab-36541373a79f",
+          "Name": "10",
+          "Position": "768,-2208,32",
+          "Rotation": "0,0,0.3826834,0.9238796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "Placement": 10
+            }
+          ]
+        },
+        {
+          "Id": "76b5765a-0d03-4e6e-af63-4bc81978ee92",
+          "Name": "11",
+          "Position": "1024,-2304,32.00002",
+          "Rotation": "0,0,0.3826834,0.9238796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "Placement": 11
+            }
+          ]
+        },
+        {
+          "Id": "61142e11-b51b-4907-bf62-f798d510d989",
+          "Name": "12",
+          "Position": "1280,-2432,32.00003",
+          "Rotation": "0,0,0.3826834,0.9238796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "Placement": 12
+            }
+          ]
+        },
+        {
+          "Id": "17ef58cb-facd-4abb-8e88-6db56501a876",
+          "Name": "13",
+          "Position": "768,-2592,32",
+          "Rotation": "0,0,0.3826834,0.9238796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "Placement": 13
+            }
+          ]
+        },
+        {
+          "Id": "61e3b18b-b182-47b9-8893-66920d372958",
+          "Name": "14",
+          "Position": "1024,-2688,32.00002",
+          "Rotation": "0,0,0.3826834,0.9238796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "Placement": 14
+            }
+          ]
+        },
+        {
+          "Id": "3f27fc29-b094-43b7-98c5-ac6f852f1009",
+          "Name": "15",
+          "Position": "1280,-2816,32.00003",
+          "Rotation": "0,0,0.3826834,0.9238796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "Placement": 15
+            }
+          ]
+        },
+        {
+          "Id": "e6fe9c4a-4345-4bea-82d2-aee3dafd12b3",
+          "Name": "16",
+          "Position": "768,-2976,32",
+          "Rotation": "0,0,0.3826834,0.9238796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "Placement": 16
+            }
+          ]
+        },
+        {
+          "Id": "a98683e2-c4c3-4143-9518-6a46a30180f0",
+          "Name": "17",
+          "Position": "1024,-3072,32.00002",
+          "Rotation": "0,0,0.3826834,0.9238796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "Placement": 17
+            }
+          ]
+        },
+        {
+          "Id": "775a67ab-4996-4477-811e-120e5cbfd6ad",
+          "Name": "18",
+          "Position": "1280,-3200,32.00003",
+          "Rotation": "0,0,0.3826834,0.9238796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RaceStartingPosition",
+              "Placement": 18
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "track_backstreet",
+  "Description": "",
+  "LastSaved": "2024-03-03T22:53:01.7956922\u002B01:00",
+  "__references": []
+}
