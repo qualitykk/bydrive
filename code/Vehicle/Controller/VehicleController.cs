@@ -1,6 +1,5 @@
 using Sandbox;
 using System.ComponentModel.DataAnnotations;
-using static Bydrive.RaceMatchInformation;
 
 namespace Bydrive;
 

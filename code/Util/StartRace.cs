@@ -18,7 +18,7 @@ internal static class StartRace
 		Assert.NotNull(challenge);
 		Assert.NotNull( vehicle );
 
-		List<RaceMatchInformation.Participant> racers = new();
+		List<RaceInformation.Participant> racers = new();
 		int currentPosition = RaceStartingPosition.FIRST_PLACE;
 
 		foreach(var p in challenge.Participants.OrderBy(p => p.StartPosition))
@@ -27,11 +27,11 @@ internal static class StartRace
 			currentPosition++;
 		}
 		racers.Add( new( vehicle, Player.Local, currentPosition ) );
-		new RaceMatchInformation( challenge.Track, racers, challenge.Parameters );
+		new RaceInformation( challenge.Track, racers, challenge.Parameters ).Start();
 	}
 	public static void TimeTrial(RaceDefinition race, VehicleDefinition vehicle)
 	{
-		List<RaceMatchInformation.Participant> racers = new()
+		List<RaceInformation.Participant> racers = new()
 		{
 			new( VehicleBuilder.ForDefinition(vehicle), Player.Local, RaceStartingPosition.FIRST_PLACE )
 		};
@@ -45,15 +45,15 @@ internal static class StartRace
 			RaceStartWait = TIME_TRIAL_WAIT
 		};
 
-		new RaceMatchInformation( race, racers, timeTrialParameters);
+		new RaceInformation( race, racers, timeTrialParameters).Start();
 	}
-	public static void Online(RaceDefinition race, List<RaceMatchInformation.Participant> racers)
+	public static void Online(RaceDefinition race, List<RaceInformation.Participant> racers)
 	{
-		new RaceMatchInformation( race, racers );
+		new RaceInformation( race, racers ).Start();
 	}
 	public static void LocalWithBots(RaceDefinition race, int amount, VehicleDefinition playerVehicle, int playerStartPos)
 	{
-		List<RaceMatchInformation.Participant> racers = new() 
+		List<RaceInformation.Participant> racers = new() 
 		{ 
 			new( VehicleBuilder.ForDefinition(playerVehicle), Player.Local, playerStartPos ) 
 		};
@@ -71,7 +71,7 @@ internal static class StartRace
 			racers.Add( new(VehicleBuilder.ForDefinition(GetBotVehicle()), botPlayer, i) );
 		}
 
-		new RaceMatchInformation( race, racers );
+		new RaceInformation( race, racers ).Start();
 	}
 
 	private static VehicleDefinition GetBotVehicle()
@@ -80,7 +80,7 @@ internal static class StartRace
 		return devCar;
 	}
 
-	private static RaceMatchInformation.Participant CreateBot(VehicleDefinition def, int startPosition)
+	private static RaceInformation.Participant CreateBot(VehicleDefinition def, int startPosition)
 	{
 		return new( VehicleBuilder.ForDefinition(def), Player.CreateBot(), startPosition );
 	}

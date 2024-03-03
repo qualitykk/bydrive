@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public class RaceMatchInformation
+public class RaceInformation
 {
 	public class Participant
 	{
@@ -28,7 +28,7 @@ public class RaceMatchInformation
 		}
 	}
 	public const int MAX_PLAYERCOUNT = 16;
-	public static RaceMatchInformation Current { get; set; }
+	public static RaceInformation Current { get; set; }
 	public RaceDefinition Definition { get; set; }
 	public RaceParameters Parameters { get; set; }
 	public List<Participant> Participants { get; set; }
@@ -45,20 +45,15 @@ public class RaceMatchInformation
 	private bool multiplayer;
 
 	private Dictionary<Participant,GameObject> participantObjects = new();
-	public RaceMatchInformation(RaceDefinition definition, List<Participant> participants, RaceParameters parameters = null, bool createParticipants = true)
+	public RaceInformation(RaceDefinition definition, List<Participant> participants, RaceParameters parameters = null)
 	{
 		Assert.NotNull( definition );
 		Assert.NotNull( participants );
 
-		Current = this;
-		//multiplayer = LobbyManager.MultiplayerActive;
-		multiplayer = false;
-
-		GameManager.ActiveScene.LoadFromFile( definition.Scene.ResourcePath );
-
 		Definition = definition;
 		Participants = participants;
-		if ( parameters != null && !parameters.Equals(RaceParameters.Default) && parameters != definition.Parameters )
+
+		if ( parameters != null && !parameters.Equals( RaceParameters.Default ) && parameters != definition.Parameters )
 		{
 			Parameters = parameters;
 		}
@@ -66,24 +61,30 @@ public class RaceMatchInformation
 		{
 			Parameters = definition.Parameters;
 		}
+	}
 
-		if (createParticipants)
-		{
-			CreateParticipantObjects();
-		}
+	public void Start()
+	{
+		Assert.NotNull( Definition );
+		Assert.NotNull( Participants );
 
-		StartMenu.Close();
+		Current = this;
+
+		GameManager.ActiveScene.LoadFromFile( Definition.Scene.ResourcePath );
+
+		CreateParticipantObjects();
+
 		InitialiseMode();
-		if(multiplayer)
+		if ( multiplayer )
 		{
-			foreach(var obj in GameManager.ActiveScene.GetAllObjects(false))
+			foreach ( var obj in GameManager.ActiveScene.GetAllObjects( false ) )
 			{
 				obj.BreakFromPrefab();
 			}
 		}
 	}
 
-	public void CreateParticipantObjects()
+	private void CreateParticipantObjects()
 	{
 		foreach ( var participantInfo in Participants )
 		{
@@ -139,7 +140,10 @@ public class RaceMatchInformation
 		input.ParticipantInstance = participantComponent;
 		input.VehicleController = vehicle;
 
-		obj.NetworkSpawn();
+		if(multiplayer)
+		{
+			obj.NetworkSpawn();
+		}
 
 		return obj;
 	}
@@ -208,7 +212,7 @@ public class RaceMatchInformation
 		}
 	}
 
-	public void DestroyParticipantObjects()
+	private void DestroyParticipantObjects()
 	{
 		foreach((Participant data, GameObject obj) in participantObjects)
 		{

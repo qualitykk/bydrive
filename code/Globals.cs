@@ -22,7 +22,7 @@ internal static class Globals
 	private static UserSettings localSettings;
 	public static Panel ActiveMenu { get; internal set; }
 	public static RaceManager Race => RaceManager.Current;
-	public static RaceMatchInformation RaceContext => RaceMatchInformation.Current;
+	public static RaceInformation RaceContext => RaceInformation.Current;
 	public static RaceParameters RaceConfig => RaceContext?.Parameters ?? new();
 	public static SaveFile CurrentSave => Story.Progress;
 	public static UserSettings Settings 

@@ -10,7 +10,7 @@ namespace Bydrive;
 
 public partial class LobbyPage : Panel
 {
-	int playerCount = RaceMatchInformation.MAX_PLAYERCOUNT;
+	int playerCount = RaceInformation.MAX_PLAYERCOUNT;
 	RaceDefinition selectedTrack;
 	IEnumerable<Player> players => LobbyManager.Instance?.Players;
 	public override void Tick()
@@ -34,7 +34,7 @@ public partial class LobbyPage : Panel
 	}
 	private void OnClickStart()
 	{
-		List<RaceMatchInformation.Participant> racers = new();
+		List<RaceInformation.Participant> racers = new();
 		int i = 1;
 		foreach(var ply in players)
 		{
