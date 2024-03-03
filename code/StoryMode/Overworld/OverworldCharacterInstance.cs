@@ -26,7 +26,6 @@ public class OverworldCharacterInstance : Component, IInteractible
 	}
 	public bool OnInteract()
 	{
-		Log.Info( $"Hello from {Character.Name}!" );
 		DialogBox.Show( Dialog );
 		return true;
 	}

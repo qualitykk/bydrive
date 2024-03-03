@@ -38,7 +38,6 @@ public class ChallengeDefinition : GameResource
 		{
 			Log.Error( $"No definition with id {id} found!" );
 		}
-		Log.Info( definition.Parameters );
 		return definition;
 	}
 	public delegate void CompletionContext( SaveFile save );

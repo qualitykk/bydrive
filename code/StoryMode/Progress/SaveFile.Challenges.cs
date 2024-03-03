@@ -28,15 +28,31 @@ public partial class SaveFile
 	{
 		return ChallengeStates.ToDictionary(kv => ChallengeDefinition.Get( kv.Key ), kv => kv.Value);
 	}
-	public void SetChallengeState(string challenge, ChallengeState status)
+	public void SetChallengeState(string challenge, ChallengeState state)
 	{
+		var definition = ChallengeDefinition.Get( challenge );
 		if( ChallengeStates.ContainsKey(challenge))
 		{
-			ChallengeStates[challenge] = status;
+			ChallengeStates[challenge] = state;
 		}
 		else
 		{
-			ChallengeStates.Add(challenge, status);
+			ChallengeStates.Add(challenge, state);
+		}
+
+		if ( definition != null )
+			ShowUnlockMessage( definition, state );
+	}
+
+	private void ShowUnlockMessage(ChallengeDefinition definition, ChallengeState state)
+	{
+		if ( state == ChallengeState.InProgress )
+		{
+			Popup.Add( new PopupPage( "Challenge", $"Received a challenge: {definition.Title}", UI.Colors.Popup.Positive ) );
+		}
+		else if(state == ChallengeState.Complete)
+		{
+			Popup.Add( new PopupPage( "Challenge", $"Challenge Completed: {definition.Title}", UI.Colors.Popup.Positive ) );
 		}
 	}
 	public void SetChallengeState( ChallengeDefinition challenge, ChallengeState state ) => SetChallengeState( challenge.Id, state );

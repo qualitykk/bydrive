@@ -3,15 +3,14 @@
 @namespace Bydrive
 @inherits PanelComponent
 
-@if(currentPopup == null)
-{
-	return;
-}
-
-<root>
-	<div class="window" style="color: @currentPage.Color.Hex">
+<root class="@UI.ActiveIfMenu(Panel)">
+	@if (currentPopup == null)
+	{
+		return;
+	}
+	<div class="window" style="background-color: @currentPage.Color.Hex">
 		<div class="header">
-			<label class="title">@currentPage.Title</label>
+			<label class="title">@currentPage.Title.ToUpper()</label>
 		</div>
 		<div class="content">
 			@if(currentPage.Image != null)

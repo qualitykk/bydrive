@@ -1,0 +1,51 @@
+﻿Popup {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: #2f2f2faa;
+    backdrop-filter: blur(2px);
+
+    &.disabled {
+        display: none;
+    }
+
+    .window {
+        width: 45%;
+        height: 35%;
+        flex-direction: column;
+        font-family: Poppins;
+        pointer-events: all;
+        border-radius: 10px;
+
+        .header {
+            justify-content: center;
+            align-items: center;
+            background-color: #afafaf;
+            height: 20%;
+            color: #fff;
+            padding-left: 1%;
+            font-size: 36px;
+            font-weight: bolder;
+        }
+
+        .content {
+            height: 70%;
+            margin: 1%;
+            font-size: 28px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .nav {
+            height: 10%;
+
+            .page_indicator {
+                background-color: grey;
+            }
+        }
+    }
+}

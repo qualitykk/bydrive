@@ -97,14 +97,6 @@
             {
               "__type": "AwakeActionComponent",
               "Action": null
-            },
-            {
-              "__type": "BoxCollider",
-              "Center": "0,0,32",
-              "IsTrigger": true,
-              "Scale": "128,128,64",
-              "Static": false,
-              "Surface": null
             }
           ],
           "Children": [
@@ -196,14 +188,6 @@
               "Scale": "8,50,128",
               "Static": false,
               "Surface": null
-            },
-            {
-              "__type": "BoxCollider",
-              "Center": "-32,-24,64",
-              "IsTrigger": true,
-              "Scale": "64,48,128",
-              "Static": false,
-              "Surface": null
             }
           ]
         },
@@ -251,14 +235,6 @@
                 "Maxs": "96,0,128"
               },
               "InteractionTitle": "Enter"
-            },
-            {
-              "__type": "BoxCollider",
-              "Center": "0,-32,64",
-              "IsTrigger": true,
-              "Scale": "192,64,128",
-              "Static": false,
-              "Surface": null
             }
           ]
         }
@@ -403,7 +379,7 @@
   },
   "Title": "story_overworld",
   "Description": "",
-  "LastSaved": "2024-03-01T18:53:26.5769986\u002B01:00",
+  "LastSaved": "2024-03-03T02:28:43.1258864\u002B01:00",
   "__references": [
     "facepunch.wooden_door_01d",
     "polyhaven.wasteland_clouds_puresky"

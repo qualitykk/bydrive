@@ -44,6 +44,7 @@ public class RaceSetupManager : Component
 	protected override void OnStart()
 	{
 		Current = this;
+		SetPreview( VehicleDefinition.GetDefault() );
 	}
 	protected override void OnDisabled()
 	{

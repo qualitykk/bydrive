@@ -101,10 +101,10 @@ internal static class UI
 
 		internal static class Popup
 		{
-			public static readonly Color Info = (Color)Color.Parse( "#f2fffc" );
-			public static readonly Color Positive = (Color)Color.Parse( "#f2a968" );
-			public static readonly Color Negative = (Color)Color.Parse( "#cf8282" );
-			public static readonly Color Major = (Color)Color.Parse( "#f2a968" );
+			public static readonly Color Info = (Color)Color.Parse( "#5589d9" );
+			public static readonly Color Positive = (Color)Color.Parse( "#5bd955" );
+			public static readonly Color Negative = (Color)Color.Parse( "#d96b55" );
+			public static readonly Color Major = (Color)Color.Parse( "#e6932e" );
 		}
 	}
 	public static void MakeMenu(Panel panel)

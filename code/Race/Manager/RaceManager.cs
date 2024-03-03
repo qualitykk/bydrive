@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Sandbox.Engine;
+using Sandbox.Internal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -63,7 +65,6 @@ public sealed partial class RaceManager : Component
 	{
 		SetupRace();
 	}
-
 	private void SetupRace()
 	{
 		Participants?.Clear();

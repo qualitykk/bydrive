@@ -49,7 +49,7 @@
               "Version": 5,
               "UserData": {
                 "Title": "On Finished",
-                "id": "ed4f8374-bb8d-428c-8d72-ff07e879f76d",
+                "id": "4f64e4f2-3991-4cfc-b04c-3045a24fa2d8",
                 "ReferencedComponentTypes": []
               },
               "Variables": [],
@@ -60,9 +60,9 @@
                 },
                 {
                   "Id": 1,
-                  "Type": "sound.playfile",
+                  "Type": "savefile.challenge.unlock",
                   "UserData": {
-                    "Position": "240,0"
+                    "Position": "176,0"
                   }
                 }
               ],
@@ -74,14 +74,9 @@
                   "DstName": "_signal"
                 },
                 {
-                  "Value": "sounds/music/music_race_win.vsnd",
+                  "Value": "data/challenges/dev_starter_01.chal",
                   "DstId": 1,
-                  "DstName": "soundFile"
-                },
-                {
-                  "Value": 0.5,
-                  "DstId": 1,
-                  "DstName": "volume"
+                  "DstName": "challenge"
                 }
               ]
             }

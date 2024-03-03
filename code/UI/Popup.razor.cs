@@ -48,6 +48,7 @@ public partial class Popup : PanelComponent
 		{
 			currentPopup = popupQueue.First();
 			popupQueue.RemoveAt( 0 );
+			UI.MakeMenu( Panel );
 		}
 
 		if(currentPopup != null)
@@ -58,6 +59,7 @@ public partial class Popup : PanelComponent
 				{
 					currentPopup = null;
 					currentPageNumber = 0;
+					UI.MakeMenuInactive( Panel );
 				}
 				else
 				{
@@ -70,6 +72,17 @@ public partial class Popup : PanelComponent
 	protected override int BuildHash()
 	{
 		return HashCode.Combine( currentPopup, popupQueue, currentPage );
+	}
+
+	[ConCmd("ui_show_popup")]
+	private static void Command_ShowPopup(string title, string message, string color = "")
+	{
+		if(string.IsNullOrEmpty(color))
+		{
+			color = UI.Colors.Popup.Info.ToString(true, true);
+		}
+
+		Add( new PopupPage( title, message, Color.Parse( color ) ?? UI.Colors.Popup.Info ) );
 	}
 }
 

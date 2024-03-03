@@ -10,7 +10,7 @@
 
 <root>
     <div class="races")>
-        @foreach(var challenge in ChallengeDefinition.All)
+        @foreach(var challenge in GetChallenges())
         {
             <div class="item" @onclick=@(() => OnClickChallenge(challenge))>
                 <div class="thumbnail" />
@@ -36,6 +36,18 @@
     void OnClickChallenge(ChallengeDefinition challenge)
     {
         manager.SelectedChallenge = challenge;
+    }
+
+    private IEnumerable<ChallengeDefinition> GetChallenges()
+    {
+        if(!Story.Active)
+        {
+            return ChallengeDefinition.All;
+        }
+        else
+        {
+            return CurrentSave.GetUnlockedChallenges().Keys;
+        }
     }
 
     protected override int BuildHash()
