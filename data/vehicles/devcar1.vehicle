@@ -22,7 +22,8 @@
   "AttachmentSlots": [
     {
       "Id": "b4bc6efa-1192-4fca-a0ad-acee1a14ea9a",
-      "Slot": "Roof"
+      "Slot": "Roof",
+      "LocalPosition": "0,0,70.5"
     }
   ],
   "__references": []

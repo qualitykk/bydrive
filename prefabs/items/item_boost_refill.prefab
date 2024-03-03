@@ -7,19 +7,15 @@
       {
         "__type": "VehicleItemEvents",
         "OnItemUsed": {
-          "Kind": "Action",
-          "Version": 3,
-          "Variables": [
-            {
-              "Name": "_this",
-              "Type": "Sandbox.Game/Sandbox.Component",
-              "Default": {
-                "_type": "component",
-                "go": "deb074dc-dcba-476e-98fd-8566f642477a",
-                "component_type": "VehicleItemEvents"
-              }
-            }
-          ],
+          "Version": 5,
+          "UserData": {
+            "Title": "On Item Used",
+            "id": "713f493c-e77d-4bf1-88f1-6ab49e6c142f",
+            "ReferencedComponentTypes": [
+              "package.based.bydrive/Bydrive.VehicleItemEvents"
+            ]
+          },
+          "Variables": [],
           "Nodes": [
             {
               "Id": 0,
@@ -58,14 +54,14 @@
                 "value": 0.5
               },
               "UserData": {
-                "Position": "256,160"
+                "Position": "272,160"
               }
             },
             {
               "Id": 8,
               "Type": "op.multiply",
               "UserData": {
-                "Position": "416,64"
+                "Position": "432,80"
               }
             },
             {
@@ -83,21 +79,21 @@
                 "_type": "package.based.bydrive/Bydrive.VehicleController"
               },
               "UserData": {
-                "Position": "416,208"
+                "Position": "384,240"
               }
             },
             {
               "Id": 13,
               "Type": "nop",
               "UserData": {
-                "Position": "560,96"
+                "Position": "576,112"
               }
             },
             {
               "Id": 14,
               "Type": "op.add",
               "UserData": {
-                "Position": "656,96"
+                "Position": "672,96"
               }
             },
             {
@@ -132,10 +128,43 @@
               "Id": 20,
               "Type": "comment",
               "UserData": {
-                "Position": "240,32",
+                "Position": "256,48",
                 "Size": "528,300",
                 "Title": "Add percentage of max boost",
                 "Layer": 1
+              }
+            },
+            {
+              "Id": 24,
+              "Type": "scene.get",
+              "Properties": {
+                "T": "package.based.bydrive/Bydrive.VehicleItemEvents"
+              },
+              "UserData": {
+                "Position": "656,-256"
+              }
+            },
+            {
+              "Id": 26,
+              "Type": "property.get",
+              "Properties": {
+                "_name": "GameObject",
+                "_type": "Sandbox.Game/Sandbox.Component"
+              },
+              "UserData": {
+                "Position": "896,-256"
+              }
+            },
+            {
+              "Id": 27,
+              "Type": "call",
+              "Properties": {
+                "_name": "Destroy",
+                "_isStatic": false,
+                "_type": "Sandbox.Game/Sandbox.GameObject"
+              },
+              "UserData": {
+                "Position": "1152,-64"
               }
             }
           ],
@@ -150,13 +179,13 @@
               "SrcId": 17,
               "SrcName": "out",
               "DstId": 1,
-              "DstName": "target"
+              "DstName": "_target"
             },
             {
               "SrcId": 14,
               "SrcName": "_result",
               "DstId": 1,
-              "DstName": "value"
+              "DstName": "_value"
             },
             {
               "SrcId": 0,
@@ -192,7 +221,7 @@
               "SrcId": 10,
               "SrcName": "out",
               "DstId": 12,
-              "DstName": "target"
+              "DstName": "_target"
             },
             {
               "SrcId": 8,
@@ -247,15 +276,36 @@
               "SrcName": "_result",
               "DstId": 18,
               "DstName": "condition"
+            },
+            {
+              "SrcId": 0,
+              "SrcName": "_target",
+              "DstId": 24,
+              "DstName": "_this"
+            },
+            {
+              "SrcId": 24,
+              "SrcName": "_result",
+              "DstId": 26,
+              "DstName": "_target"
+            },
+            {
+              "SrcId": 18,
+              "SrcName": "_signal",
+              "DstId": 27,
+              "DstName": "_signal"
+            },
+            {
+              "SrcId": 26,
+              "SrcName": "_result",
+              "DstId": 27,
+              "DstName": "_target"
             }
-          ],
-          "UserData": {
-            "Title": "On Item Used",
-            "id": "713f493c-e77d-4bf1-88f1-6ab49e6c142f"
-          }
+          ]
         }
       }
-    ]
+    ],
+    "Children": []
   },
   "ShowInMenu": false,
   "MenuPath": null,

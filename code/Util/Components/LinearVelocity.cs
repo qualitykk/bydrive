@@ -11,20 +11,33 @@ namespace Bydrive;
 public class LinearVelocity : Component
 {
 	[Property] public Vector3 LocalVelocity { get; set; }
+	[Property] public Action OnHit { get; set; }
+	[Property] public TagSet IgnoreTags { get; set; }
+	[Property] public bool DestroyOnHit { get; set; }
 
 	protected override void OnUpdate()
 	{
 		Vector3 endPos = GetNextPosition();
 		var tr = Scene.Trace.Ray( Transform.Position, endPos )
+							.WithoutTags( IgnoreTags )
 							.Run();
 
-		Transform.Position = tr.Hit ? tr.HitPosition : endPos;
+		if(tr.Hit)
+		{
+			OnHit?.Invoke();
+			if(DestroyOnHit)
+			{
+				Destroy();
+				return;
+			}
+		}
+		Transform.Position = tr.EndPosition;
 	}
 
 	protected virtual Vector3 GetNextPosition()
 	{
-		Vector3 velocity = LocalVelocity * Transform.LocalRotation;
-		return Transform.Position + Transform.Local.VelocityToWorld( velocity * Time.Delta);
+		Vector3 velocity = Transform.World.VelocityToWorld( LocalVelocity ) * Time.Delta;
+		return Transform.Position + velocity;
 	}
 }
 
@@ -32,7 +45,6 @@ public class LinearVelocity : Component
 public class LinearVelocityBounce : LinearVelocity
 {
 	const float DEFAULT_BOUNCE_DISTANCE = 8f;
-	[Property] public TagSet IgnoreTags { get; set; }
 	[Property] public float BounceDistance { get; set; } = DEFAULT_BOUNCE_DISTANCE;
 	[Property] public Action<int> OnBounce { get;set; }
 	[Property] public int MaxBounces { get; set; }
@@ -61,7 +73,7 @@ public class LinearVelocityBounce : LinearVelocity
 		if(tr.Hit)
 		{
 			Vector3 endPos = tr.EndPosition;
-			Vector3 normal = tr.Normal.Normal;
+			Vector3 normal = tr.Normal;
 			lastEndPos = endPos;
 			lastNormal = normal;
 

@@ -19,15 +19,15 @@
 							},
 							{
 								from = "cylinder.002.vmat"
-								to = "materials/dev/gray_25.vmat"
+								to = "cylinder.002.vmat"
 							},
 							{
 								from = "cylinder.003.vmat"
-								to = "materials/dev/gray_25.vmat"
+								to = "cylinder.003.vmat"
 							},
 							{
 								from = "cylinder.004.vmat"
-								to = "materials/dev/gray_25.vmat"
+								to = "cylinder.004.vmat"
 							},
 						]
 						use_global_default = false

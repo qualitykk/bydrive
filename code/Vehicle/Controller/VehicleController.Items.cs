@@ -62,4 +62,18 @@ public partial class VehicleController
 		WantsItem = false;
 		TimeSinceUseItem = 0;
 	}
+
+	[ConCmd("rc_give_item")]
+	private static void Command_GiveItem(string name)
+	{
+		ItemDefinition item = ResourceLibrary.GetAll<ItemDefinition>().FirstOrDefault( i => i.ResourceName == name );
+		if(item == null)
+		{
+			Log.Warning( $"No item with name {name} exists!" );
+			return;
+		}
+
+		var localVehicle = GetLocalVehicle();
+		localVehicle?.EquipItem( item );
+	}
 }
