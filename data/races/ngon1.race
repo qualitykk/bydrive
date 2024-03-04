@@ -1,9 +1,0 @@
-{
-  "Name": "Ngon Raceway",
-  "Group": "",
-  "Hidden": true,
-  "Scene": "scenes/ngon1.scene",
-  "Prefab": null,
-  "MapName": "",
-  "__references": []
-}

@@ -25,10 +25,7 @@ public class RaceStartingPosition : Component
 		int displayPlacement = Placement - FIRST_PLACE + 1;
 		Gizmo.Draw.Text( $"<<{displayPlacement}>>", new(Vector3.Up * TEXT_VERTICAL_OFFSET), size: TEXT_SIZE );
 
-		/*
-		Should work but doesnt?
-		*/
 		Gizmo.Draw.Color = lineColor;
-		Gizmo.Draw.Line( Vector3.Zero, Transform.LocalRotation.Forward * 96f );
+		Gizmo.Draw.Line( Vector3.Zero, Vector3.Forward * 128f );
 	}
 }

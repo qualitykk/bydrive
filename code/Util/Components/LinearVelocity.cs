@@ -94,7 +94,7 @@ public class LinearVelocityBounce : LinearVelocity
 		base.DrawGizmos();
 
 		Gizmo.Draw.Color = Color.Yellow;
-		Gizmo.Draw.Line( Vector3.Zero, Vector3.Zero + Transform.LocalRotation.Forward * BounceDistance );
+		Gizmo.Draw.Line( Vector3.Zero, Vector3.Forward * BounceDistance );
 
 		if ( lastNormal != default )
 		{
