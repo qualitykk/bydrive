@@ -32,7 +32,8 @@
     {
       "Id": "e4d2acc9-e84d-4573-a4f0-bb561ca2847c",
       "Name": "Camera",
-      "Position": "0,0,128",
+      "Position": "286.818,253.4005,62.03771",
+      "Rotation": "0.0662692,-0.01577758,-0.9614445,0.2664284",
       "Tags": "maincamera",
       "Enabled": true,
       "Components": [
@@ -40,7 +41,7 @@
           "__type": "CameraComponent",
           "BackgroundColor": "0.33333,0.46275,0.52157,1",
           "ClearFlags": "All",
-          "FieldOfView": 60,
+          "FieldOfView": 65,
           "IsMainCamera": true,
           "Orthographic": false,
           "OrthographicHeight": 1204,
@@ -51,6 +52,90 @@
           "Viewport": "0,0,1,1",
           "ZFar": 10000,
           "ZNear": 10
+        }
+      ]
+    },
+    {
+      "Id": "92857404-6313-4d82-a488-23e9fbf88198",
+      "Name": "Background",
+      "Position": "189.7035,46.7067,152.4566",
+      "Enabled": true,
+      "Children": [
+        {
+          "Id": "a0fb1b8d-7328-4c05-b8f1-7e8f1f4f9e0c",
+          "Name": "BackgroundMap",
+          "Position": "-1009.553,-20.28614,-58.00658",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "MapInstance",
+              "MapName": "maps/rd_st_garage.vpk",
+              "OnMapLoaded": null,
+              "OnMapUnloaded": null,
+              "UseMapFromLaunch": false
+            }
+          ],
+          "Children": []
+        },
+        {
+          "Id": "95f2685e-52d4-47c0-8440-0ec58a007eb3",
+          "Name": "Car",
+          "Position": "-219.9103,-146.0429,-81.61025",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "SkinnedModelRenderer",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/vehicles/vehicle_boxy.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "Id": "f9ace0db-d5e1-4a5b-9043-1cad15fcc793",
+          "Name": "Wheel1",
+          "Position": "-151.1964,-102.5887,-67.30394",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "SkinnedModelRenderer",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/citizen_props/wheel01.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "Id": "c1de5e17-b40c-4719-bdce-f2d216aa05f8",
+          "Name": "Wheel1",
+          "Position": "-289.2774,-102.5887,-67.30394",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "SkinnedModelRenderer",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/citizen_props/wheel01.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
         }
       ]
     }
@@ -78,6 +163,6 @@
   },
   "Title": "startmenu",
   "Description": "",
-  "LastSaved": "2024-02-28T23:46:47.1926577\u002B01:00",
+  "LastSaved": "2024-03-04T18:44:36.6285468\u002B01:00",
   "__references": []
 }

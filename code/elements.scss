@@ -1,16 +1,21 @@
-﻿.button:not(.dropdown) {
+﻿@import "/colors.scss";
+
+.button:not(.dropdown) {
     cursor: pointer;
     pointer-events: all;
-    font-size: 32px;
-    padding: 25px;
-    border-radius: 5px;
+    font-family: Roboto;
+    font-weight: bold;
+    background-color: $button_primary;
     color: #fff;
-    background-color: #888288;
-    align-items: center;
+    font-size: 32px;
+    text-transform: uppercase;
     justify-content: center;
-    border: 8px solid #777777;
-    height: 10%;
-    width: 20vw;
+    align-items: center;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: $button_primary_hover;
+    }
 
     &.tall {
         height: 15%;
@@ -20,12 +25,8 @@
         text-align: center;
     }
 
-    &:hover {
-        background-color: #aaa2aa;
-    }
-
     &.disabled {
-        color: #888;
+        color: $button_primary_disabled;
         cursor: not-allowed;
         pointer-events: none;
         background-color: #555;

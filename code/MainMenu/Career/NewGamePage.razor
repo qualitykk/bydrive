@@ -7,15 +7,16 @@
 <root>
     <div class="options">
         <label class="header">Career</label>
-        <div>
-            <label>Name</label>
-            <textentry class="nameinput" @ref="NameInput"></textentry>
+        <div class="field">
+            <label class="name">Name</label>
+            <textentry class="textinput" @ref="NameInput"></textentry>
         </div>
     </div>
     
-
-    <div class="button @UI.ActiveIf(CanCreate)" @onclick=@OnClickStart>Start Game</div>
-    <div class="button" @onclick=@OnClickBack>Return</div>
+    <div class="controls">
+        <div class="button @UI.ActiveIf(CanCreate)" @onclick=@OnClickStart>Start Game</div>
+        <div class="button" @onclick=@OnClickBack>Back</div>
+    </div>
 </root>
 
 @code {

@@ -1,12 +1,15 @@
-﻿ControlsPage {
+﻿@import "/colors.scss";
+
+ControlsPage {
     align-items: center;
 
     .controls {
-        background-color: #9a9a9acc;
+        background-color: $background_config;
         height: 80%;
         width: 80%;
         align-items: center;
         overflow-y: scroll;
+        margin: 2%;
 
         .label {
             text-align: center;
@@ -28,7 +31,6 @@
             justify-content: center;
             align-items: center;
             gap: 20px;
-
             font-size: 28px;
 
             .name {
@@ -50,5 +52,10 @@
         justify-content: center;
         align-items: center;
         height: 20%;
+
+        .button {
+            width: 20%;
+            height: 30%;
+        }
     }
 }

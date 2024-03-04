@@ -1,11 +1,14 @@
-﻿settingspage {
+﻿@import "/colors.scss";
+
+settingspage {
     align-items: center;
 
     .options {
-        background-color: #9a9a9acc;
+        background-color: $background_config;
         height: 80%;
         width: 80%;
         align-items: center;
+        margin: 2%;
 
         .label {
             text-align: center;
@@ -41,5 +44,10 @@
         justify-content: center;
         align-items: center;
         height: 20%;
+
+        .button {
+            width: 20%;
+            height: 30%;
+        }
     }
 }

@@ -36,4 +36,24 @@ StartMenu {
 	&.bg-fade {
 		background-image: linear-gradient(#fffafa,#aca2a2);
 	}
+
+	.game_info {
+		position: absolute;
+		z-index: 1000;
+		bottom: 1%;
+		right: 1%;
+		flex-direction: column;
+		font-size: 32px;
+		color: #fff;
+		font-family: Roboto;
+
+		.version {
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+
+		.label {
+			text-align: right;
+		}
+	}
 }

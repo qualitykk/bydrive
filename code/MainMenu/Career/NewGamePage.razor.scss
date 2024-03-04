@@ -1,4 +1,6 @@
-﻿NewGamePage {
+﻿@import "/colors.scss";
+
+NewGamePage {
     flex-direction: column;
     width: 100%;
     height: 100%;
@@ -10,15 +12,21 @@
         flex-direction: column;
         margin: 3%;
         padding: 2%;
-        background-color: #777777aa;
+        background-color: $background_config;
 
-        div {
+        .field {
             width: 100%;
+            font-family: Poppins;
 
             .label {
                 width: 20%;
                 align-items: center;
             }
+
+            .name {
+                font-size: 28px;
+            }
+
             .textentry {
                 width: 80%;
             }
@@ -33,6 +41,20 @@
         .header {
             font-size: 48px;
             font-weight: bold;
+        }
+    }
+
+    .controls {
+        flex-direction: column;
+        width: 30%;
+        gap: 10px;
+        align-items: center;
+        justify-content: flex-end;
+        height: 20%;
+
+        .button {
+            width: 100%;
+            height: 50%;
         }
     }
 }
