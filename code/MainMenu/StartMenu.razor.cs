@@ -13,11 +13,23 @@ public partial class StartMenu : PanelComponent
 {
 	const string MENU_SCENE = "/scenes/startmenu.scene";
 	const string RACE_LOBBY_URL = "/multiplayer/race/active";
+	private float GetHorizontalScroll()
+	{
+		const float HORIZONTALL_SCROLL_TIME = 25f;
+		float current = (RealTime.Now % HORIZONTALL_SCROLL_TIME) / HORIZONTALL_SCROLL_TIME;
+		return current * 100;
+	}
+	private float GetVerticalScroll()
+	{
+		const float VERTICAL_SCROLL_TIME = 60f;
+		float current = (RealTime.Now % VERTICAL_SCROLL_TIME) / VERTICAL_SCROLL_TIME;
+		return current * 100;
+	}
 	public static StartMenu Current { get; set; }
 	public static void Open()
 	{
 		var scene = ResourceLibrary.Get<SceneFile>( MENU_SCENE );
-		GameManager.ActiveScene.Load( scene );
+		Game.ActiveScene.Load( scene );
 
 		if ( Current == null )
 			return;
@@ -95,5 +107,10 @@ public partial class StartMenu : PanelComponent
 	private void PlayMusic( )
 	{
 		Music.Play( BackgroundMusic, BackgroundMusicVolume );
+	}
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine( RealTime.Now );
 	}
 }
