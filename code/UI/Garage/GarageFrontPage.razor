@@ -1,0 +1,39 @@
+﻿@using Sandbox.UI;
+@namespace Bydrive
+@page "/";
+@attribute [StyleSheet]
+@inherits Panel
+
+<root>
+    <div class="person group">
+        <label class="header">@GetName()</label>
+        <div class="career garage_button" @onclick=@(() => this.Navigate("/completion"))>
+            Career
+        </div>
+        <div class="challenges garage_button" @onclick=@(() => this.Navigate("/challenges"))>
+            Challenges
+        </div>
+        <div class="controls">
+            <div class="button" @onclick=@OnClickBack>Back</div>
+        </div>
+    </div>
+    <div class="team group">
+        <label class="header">@GetTeamName()</label>
+        <div class="upgrades garage_button" @onclick=@(() => this.Navigate("/upgrades"))>
+            Upgrades
+        </div>
+        <div class="vehicles garage_button" @onclick=@(() => this.Navigate("/vehicles"))>
+            Vehicles
+        </div>
+    </div>
+</root>
+
+@code {
+    private string GetName() => CurrentSave?.CharacterName ?? "Lorem Ipsum";
+    private string GetTeamName() => "Team Muster";
+
+    void OnClickBack()
+    {
+        Story.EnterOverworld();
+    }
+}

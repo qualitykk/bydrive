@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sandbox.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public partial class RaceSetupMenu : PanelComponent
+public partial class ChallengesPage : Panel
 {
 	RaceSetupManager manager => RaceSetupManager.Current;
 
@@ -26,7 +27,8 @@ public partial class RaceSetupMenu : PanelComponent
 		}
 		else
 		{
-			Story.EnterOverworld();
+			//Story.EnterOverworld();
+			this.Navigate( "/" );
 		}
 	}
 	private void OnClickNext()
@@ -69,10 +71,14 @@ public partial class RaceSetupMenu : PanelComponent
 	}
 	private string GetBackLabel()
 	{
+		return "Back";
+
+		/*
 		if ( currentStep == SetupStep.SelectRace )
 			return "Quit";
 
 		return "Back";
+		*/
 	}
 
 	private string GetNextLabel()

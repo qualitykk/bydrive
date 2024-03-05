@@ -89,11 +89,11 @@
           "Enabled": true,
           "Components": [
             {
-              "__type": "StoryMenu",
-              "__enabled": false
+              "__type": "GarageMenu"
             },
             {
-              "__type": "RaceSetupMenu"
+              "__type": "StoryMenu",
+              "__enabled": false
             }
           ]
         }
@@ -171,7 +171,7 @@
   },
   "Title": "story_race_setup",
   "Description": "",
-  "LastSaved": "2024-03-03T01:24:15.7462534\u002B01:00",
+  "LastSaved": "2024-03-05T22:56:39.8456308\u002B01:00",
   "__references": [
     "polyhaven.wasteland_clouds_puresky"
   ]

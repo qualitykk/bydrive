@@ -1,0 +1,59 @@
+﻿@using Sandbox.UI
+@namespace Bydrive
+
+@page "/completion";
+@attribute [StyleSheet]
+@inherits Panel;
+<root>
+    <div class="side racer">
+        <img class="avatar" src="@GetAvatar()" />
+        <label class="name">@GetName()</label>
+        <div class="stats">
+            <div class="entry">
+                <label class="key">Races Won</label>
+                <label class="value">187</label>
+            </div>
+            <div class="entry">
+                <label class="key">Items Used</label>
+                <label class="value">1420</label>
+            </div>
+            <div class="entry">
+                <label class="key">Skill Issues</label>
+                <label class="value">0</label>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="progress">
+            <div class="rank">
+                <div class="icon" />
+                <label class="title">Challenger</label>
+            </div>
+            <div class="score">
+                <label class="value">50/100 RS</label>
+                <ProgressBar Value=@(50f) MaxValue=@(100f) />
+            </div>
+            <div class="status">
+                <div class="entry total">
+                    <div class="key">Total Completion</div>
+                    <div class="value">36%</div>
+                </div>
+                <div class="entry">
+                    <div class="key">Upgrades Unlocked</div>
+                    <div class="value">0%</div>
+                </div>
+                <div class="entry">
+                    <div class="key">Vehicles Unlocked</div>
+                    <div class="value">100%</div>
+                </div>
+                <div class="entry">
+                    <div class="key">Attachments Unlocked</div>
+                    <div class="value">50%</div>
+                </div>
+            </div>
+        </div>
+        <div class="controls">
+            <div class="button" @onclick=@OnClickBack>Back</div>
+        </div>
+    </div>
+</root>

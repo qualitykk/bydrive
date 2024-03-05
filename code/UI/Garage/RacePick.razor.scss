@@ -1,5 +1,7 @@
-﻿RacePick {
-    backdrop-filter: blur(15px);
+﻿@import "/colors.scss";
+
+RacePick {
+    backdrop-filter: blur(10px);
     font-family: Poppins;
 
     .races {
@@ -41,7 +43,7 @@
         flex-direction: column;
         width: 25%;
         flex-direction: column;
-        background-color: #7c7c7c;
+        background-color: $background_config;
         align-items: center;
         color: #fff;
 

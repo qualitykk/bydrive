@@ -1,4 +1,6 @@
-﻿RaceSetupMenu {
+﻿@import "/colors.scss";
+
+ChallengesPage {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -9,7 +11,7 @@
     .side {
         width: 12%;
         flex-direction: column;
-        background-color: #fbfafa88;
+        background-color: $background_clear;
         backdrop-filter: blur(15px);
         justify-content: space-evenly;
 
@@ -20,10 +22,11 @@
             justify-content: center;
             align-items: center;
             font-size: 28px;
+            color: #fff;
 
             &.active {
-                background-color: #abaaaaff;
-                color: #fff;
+                background-color: $background_light;
+                color: #000;
                 font-weight: bold;
             }
         }
@@ -35,12 +38,13 @@
 
         .header {
             height: 5%;
-            background-color: #dbdada88;
+            background-color: $background_clear;
             backdrop-filter: blur(15px);
             justify-content: center;
             align-items: center;
             font-size: 35px;
             font-weight: bold;
+            color: #fff;
         }
 
         .main {
@@ -49,7 +53,7 @@
 
         .footer {
             height: 5%;
-            background-color: #dbdada88;
+            background-color: $background_clear;
             backdrop-filter: blur(15px);
 
             .controls {
@@ -57,7 +61,7 @@
                 width: 100%;
 
                 .button {
-                    background-color: #878787;
+                    background-color: $button_primary;
                     width: 10%;
                     text-align: center;
                     justify-content: center;

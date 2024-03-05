@@ -1,0 +1,84 @@
+﻿@import "/colors.scss";
+@import "/elements.scss";
+
+GarageFrontPage {
+    background-color: $background_clear;
+    backdrop-filter: blur(5px);
+    padding: 4%;
+    pointer-events: all;
+
+    .group {
+        width: 50%;
+        flex-direction: column;
+        padding: 1%;
+        margin: 1%;
+        gap: 20px;
+        background-color: #80808066;
+
+        .header {
+            height: 10%;
+            color: #fff;
+            border-bottom: 1px solid white;
+            font-size: 38px;
+            font-family: Poppins;
+        }
+    }
+
+    .garage_button {
+        color: #fff;
+        font-family: Roboto;
+        justify-content: center;
+        align-items: center;
+        font-size: 72px;
+        font-weight: bolder;
+        border-radius: 5px;
+
+        .label {
+            text-align: center;
+        }
+    }
+
+    .career {
+        background-color: #ea7e30cc;
+        height: 30%;
+
+        &:hover {
+            background-color: #ea9a60;
+        }
+    }
+
+    .challenges {
+        height: 60%;
+        background-color: #b02727cc;
+
+        &:hover {
+            background-color: #d15858;
+        }
+    }
+
+    .upgrades {
+        height: 50%;
+        background-color: #4f8edccc;
+
+        &:hover {
+            background-color: #7caae4;
+        }
+    }
+
+    .vehicles {
+        height: 40%;
+        background-color: #1e5e1bcc;
+
+        &:hover {
+            background-color: #41853e;
+        }
+    }
+
+    .controls {
+        height: 8%;
+
+        .button {
+            width: 35%;
+        }
+    }
+}
