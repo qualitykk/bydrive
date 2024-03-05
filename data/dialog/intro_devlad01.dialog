@@ -74,7 +74,7 @@
                   "DstName": "_signal"
                 },
                 {
-                  "Value": "data/challenges/dev_starter_01.chal",
+                  "Value": "data/challenges/dev_test_bots.chal",
                   "DstId": 1,
                   "DstName": "challenge"
                 }

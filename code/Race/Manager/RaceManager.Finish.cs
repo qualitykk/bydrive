@@ -23,6 +23,7 @@ public partial class RaceManager
 		}
 	}
 	public bool IsTimeTrial { get; set; }
+	public bool IsFinished { get; set; }
 	public IReadOnlyList<ParticipantFinishInformation> FinishedParticipants => finishedParticipants;
 	public IReadOnlyDictionary<RaceParticipant, List<float>> ParticipantLapTimes => participantLapTimes;
 	private List<RaceParticipant> completionOrderedParticipants = new();
@@ -32,17 +33,28 @@ public partial class RaceManager
 	{
 		return finishedParticipants.FirstOrDefault( f => f.Participant == participant );
 	}
-	public bool IsFinished( RaceParticipant participant )
+	public bool HasParticipantFinished( RaceParticipant participant )
 	{
 		const float COMPLETION_FINISH_TOLERANCE = 0.001f;
 		return GetParticipantCompletion( participant ).SnapToGrid( COMPLETION_FINISH_TOLERANCE ) >= GetMaxLaps();
+	}
+	public void Finish()
+	{
+		foreach( var participant in Participants.Where(p => !HasParticipantFinished(p)) ) 
+		{
+			ParticipantFinishInformation finish = new( finishedParticipants.Count + 1, participant, float.MaxValue, new() );
+			finishedParticipants.Add( finish );
+		}
+
+		RaceContext.Finish( finishedParticipants.OrderBy( f => f.Placement ).Select( f => RaceContext.GetParticipant(f.Participant) ).ToList() );
+		IsFinished = true;
 	}
 
 	private void ParticipantFinished( RaceParticipant participant )
 	{
 		participant.OnFinished();
 
-		float raceTIme = TimeSinceRaceStart;
+		float raceTime = TimeSinceRaceStart;
 		List<float> lapTimes = new();
 		float lastTime = 0;
 		foreach(float time in participantLapTimes[participant] )
@@ -50,11 +62,10 @@ public partial class RaceManager
 			lapTimes.Add( time - lastTime );
 			lastTime = time;
 		}
-		lapTimes.Add( raceTIme - lastTime );
+		lapTimes.Add( raceTime - lastTime );
 
-		ParticipantFinishInformation info = new( finishedParticipants.Count + 1, participant, raceTIme, lapTimes );
+		ParticipantFinishInformation info = new( finishedParticipants.Count + 1, participant, raceTime, lapTimes );
 		finishedParticipants.Add( info );
-		Music.Play( Soundtrack.RACE_WIN );
 		participant.OnFinished();
 	}
 

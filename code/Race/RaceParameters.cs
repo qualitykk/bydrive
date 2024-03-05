@@ -1,51 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public class RaceParameters : IEqualityOperators<RaceParameters, RaceParameters, bool>
+public class RaceParameters : IEquatable<RaceParameters>
 {
 	public const int DEFAULT_MAX_LAPS = 3;
-	public const float RACE_START_WAIT = 4f;
-	public static readonly RaceParameters Default = new();
 	public int MaxLaps { get; set; } = DEFAULT_MAX_LAPS;
-	public SoundEvent RaceMusic { get; set; }
-	public float RaceMusicVolume { get; set; } = -1f;
-	public float RaceStartWait { get; set; } = RACE_START_WAIT;
 	public RaceMode Mode { get; set; }
 	public RaceParameters()
 	{
 		MaxLaps = DEFAULT_MAX_LAPS;
-		RaceMusicVolume = -1;
-		RaceStartWait = RACE_START_WAIT;
 	}
 
 	public override bool Equals( object obj )
 	{
-		return obj is RaceParameters parameters &&
-			   MaxLaps == parameters.MaxLaps &&
-			   EqualityComparer<SoundEvent>.Default.Equals( RaceMusic, parameters.RaceMusic ) &&
-			   RaceMusicVolume == parameters.RaceMusicVolume &&
-			   RaceStartWait == parameters.RaceStartWait &&
-			   Mode == parameters.Mode;
+		return Equals( obj as RaceParameters );
+	}
+
+	public bool Equals( RaceParameters other )
+	{
+		return other is not null &&
+			   MaxLaps == other.MaxLaps;
 	}
 
 	public override int GetHashCode()
 	{
-		return HashCode.Combine( MaxLaps, RaceMusic, RaceMusicVolume, RaceStartWait, Mode );
+		return HashCode.Combine( MaxLaps );
 	}
 
 	public static bool operator ==( RaceParameters left, RaceParameters right )
 	{
-		return left.Equals( right );
+		return EqualityComparer<RaceParameters>.Default.Equals( left, right );
 	}
 
 	public static bool operator !=( RaceParameters left, RaceParameters right )
 	{
-		return !left.Equals( right );
+		return !(left == right);
 	}
 }

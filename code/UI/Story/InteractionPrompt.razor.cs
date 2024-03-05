@@ -17,14 +17,15 @@ public partial class InteractionPrompt : PanelComponent
 
 	protected override void OnUpdate()
 	{
-		if(InteractionListener.Exists)
+		if ( ActiveMenu != null ) return;
+
+		if ( InteractionListener.Exists)
 		{
 			possibleInteractions = InteractionListener.GetBestInteractions();
 		}
 		else
 		{
 			possibleInteractions = null;
-			UI.MakeMenuInactive( Panel );
 		}
 
 		if ( !HasInteractions() ) return;
@@ -36,8 +37,6 @@ public partial class InteractionPrompt : PanelComponent
 	}
 	private void TryPress( IInteractible action )
 	{
-		if ( ActiveMenu != null ) return;
-
 		bool pressed = Input.Pressed( action.Input );
 		if ( pressed )
 		{

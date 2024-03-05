@@ -67,7 +67,7 @@ public class Player : Component
 	public bool IsHost => IsLocal || Connection?.IsHost == true;
 	public bool IsLocal => Connection == null || Game.SteamId == (long)Connection.SteamId;
 	public VehicleDefinition SelectedVehicle { get; set; }
-	public RaceDefinition SelectedTrack { get; set; }
+	public TrackDefinition SelectedTrack { get; set; }
 	protected override void OnAwake()
 	{
 		GameObject.Flags |= GameObjectFlags.DontDestroyOnLoad;

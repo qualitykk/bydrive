@@ -23,19 +23,19 @@ public sealed partial class RaceManager : Component
 	public bool HasLoaded { get; private set; } = false;
 	public SoundEvent GetRaceMusic()
 	{
-		return RaceConfig.RaceMusic;
+		return RaceMusic.RaceMusic;
 	}
 	public float GetRaceMusicVolume()
 	{
-		return RaceConfig.RaceMusicVolume;
+		return RaceMusic.RaceMusicVolume;
 	}
 	public float GetRaceWaitTime()
 	{
-		return RaceConfig.RaceStartWait;
+		return RaceMusic.RaceStartWait;
 	}
 	public int GetMaxLaps()
 	{
-		return RaceConfig.MaxLaps;
+		return RaceContext.CurrentParameters.MaxLaps;
 	}
 	protected override void OnAwake()
 	{

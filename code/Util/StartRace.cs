@@ -27,9 +27,9 @@ internal static class StartRace
 			currentPosition++;
 		}
 		racers.Add( new( vehicle, Player.Local, currentPosition ) );
-		new RaceInformation( challenge.Track, racers, challenge.Parameters ).Start();
+		new RaceInformation( challenge.Races, racers).Start();
 	}
-	public static void TimeTrial(RaceDefinition race, VehicleDefinition vehicle)
+	public static void TimeTrial(TrackDefinition track, Dictionary<string, string> variables, VehicleDefinition vehicle)
 	{
 		List<RaceInformation.Participant> racers = new()
 		{
@@ -38,20 +38,21 @@ internal static class StartRace
 
 		RaceParameters timeTrialParameters = new()
 		{
-			MaxLaps = race.Parameters.MaxLaps,
-			Mode = RaceMode.TimeTrial,
+			MaxLaps = track.Parameters.MaxLaps,
+			Mode = RaceMode.TimeTrial
+		};
+			
+		TrackMusicParameters timeTrialMusic = new()
+		{
 			RaceMusic = ResourceLibrary.Get<SoundEvent>( TIME_TRIAL_MUSIC_TRACK ),
 			RaceMusicVolume = TIME_TRIAL_MUSIC_VOLUME,
 			RaceStartWait = TIME_TRIAL_WAIT
 		};
 
-		new RaceInformation( race, racers, timeTrialParameters).Start();
+		var race = new RaceInformation( new RaceSetup( track, timeTrialParameters, variables, timeTrialMusic ), racers );
+		race.Start();
 	}
-	public static void Online(RaceDefinition race, List<RaceInformation.Participant> racers)
-	{
-		new RaceInformation( race, racers ).Start();
-	}
-	public static void LocalWithBots(RaceDefinition race, int amount, VehicleDefinition playerVehicle, int playerStartPos)
+	public static void LocalWithBots(TrackDefinition race, int amount, VehicleDefinition playerVehicle, int playerStartPos)
 	{
 		List<RaceInformation.Participant> racers = new() 
 		{ 

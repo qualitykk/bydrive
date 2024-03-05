@@ -23,7 +23,7 @@
     {
         <div class="thumbnail" />
         <label class="name">@currentChallenge.Title</label>
-        <label class="rules">@(currentChallenge.Track.Name), @(currentChallenge.GetVisibleParticipants().Count())+ Opponents</label>
+        <label class="rules">@(GetTrackNames()), @(currentChallenge.GetVisibleParticipants().Count())+ Opponents</label>
         <label class="description">@currentChallenge.Description</label>
     }
     </div>
@@ -48,6 +48,16 @@
         {
             return CurrentSave.GetUnlockedChallenges().Keys;
         }
+    }
+
+    private string GetTrackNames()
+    {
+        if(currentChallenge.IsSingle)
+        {
+            return currentChallenge.Races.FirstOrDefault().Track?.Name;
+        }
+
+        return "Multi-Race";
     }
 
     protected override int BuildHash()

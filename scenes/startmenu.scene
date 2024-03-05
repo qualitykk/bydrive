@@ -4,6 +4,7 @@
     {
       "Id": "5bfb1a9c-7789-41a9-a21e-0419f19c7b84",
       "Name": "Screen",
+      "Position": "0,0,32",
       "Enabled": true,
       "Components": [
         {
@@ -18,6 +19,7 @@
         {
           "Id": "29dc86c2-b957-411a-8d3f-d1aab12004ad",
           "Name": "Start Menu",
+          "Position": "0,0,0",
           "Enabled": true,
           "Components": [
             {
@@ -163,6 +165,6 @@
   },
   "Title": "startmenu",
   "Description": "",
-  "LastSaved": "2024-03-04T18:44:36.6285468\u002B01:00",
+  "LastSaved": "2024-03-04T23:21:28.0667365\u002B01:00",
   "__references": []
 }

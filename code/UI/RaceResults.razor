@@ -42,6 +42,30 @@
 				}
 			}
 		}
+		else if(finished && showScores)
+		{
+			@foreach(var kv in scores)
+			{
+				@{
+					int placement = totalPlacement.IndexOf(kv) + 1;
+					RaceInformation.Participant participant = kv.Key;
+					int score = kv.Value;
+					int addedScore = score - oldScores[participant];
+				}
+				<div class="entry racer">
+					<label class="placement @GetPlacementTag(placement)">@placement</label>
+					<label class="name">@participant.Player.DisplayName</label>
+					<div class="score">
+						<label class="added">
+							@($"+{addedScore}")
+						</label>
+						<label class="value">
+							@score
+						</label>
+					</div>
+				</div>
+			}
+		}
 		else if (GetPlacements() != null)
 		{
 			@foreach (var result in GetPlacements())
@@ -56,71 +80,10 @@
 		
 	</div>
 	<div class="footer">
-		<div class="button" @onclick=@OnClickNext>Back to Menu</div>
+		<div class="button" @onclick=@OnClickNext>@GetNextLabel()</div>
 		@if (Race.IsTimeTrial)
 		{
 			<div class="button @UI.ActiveIf(!hasSaved)" @onclick=@OnClickSave>Save Time</div>
 		}
 	</div>
 </root>
-
-@code
-{
-	private bool ShouldDraw()
-	{
-		return Race != null && Race.IsFinished(GetLocalParticipantInstance());
-	}
-
-	private IReadOnlyList<RaceManager.ParticipantFinishInformation> GetPlacements()
-	{
-		//return Race.Participants
-		return Race?.FinishedParticipants ?? default;
-	}
-
-	private string GetPlacementTag(int placement)
-	{
-		int lastPlace = Race?.LastPlace ?? 1;
-
-		return placement switch
-		{
-			1 => "first",
-			2 => "second",
-			3 => "third",
-			int p when p == lastPlace => "last",
-			_ => "middle",
-		};
-	}
-
-	private List<TimeTrialData> GetPreviousData()
-	{
-		return TimeTrialData.ReadForTrack(RaceContext.Definition.ResourcePath);
-	}
-
-	private void OnClickNext()
-	{
-		RaceContext.Stop();
-	}
-
-	bool hasSaved = false;
-
-	private void OnClickSave()
-	{
-		if (hasSaved)
-			return;
-
-		string track = RaceContext.Definition.ResourcePath;
-		List<float> lapTimes = Race.GetParticipantFinish(GetLocalParticipantInstance()).LapTimes;
-		float totalTime = lapTimes.Sum();
-
-		var existingData = TimeTrialData.ReadForTrack(track);
-		if (existingData == default || !existingData.Any(d => d?.TotalTime < totalTime))
-		{
-			TimeTrialData data = new(GetLocalName(), track, lapTimes);
-			TimeTrialData.WriteNew(data);
-		}
-
-		hasSaved = true;
-	}
-
-	protected override int BuildHash() => HashCode.Combine(GetPlacements(), GetPlacements().Count, ShouldDraw());
-}

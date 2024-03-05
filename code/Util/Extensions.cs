@@ -50,6 +50,11 @@ internal static class NumberExtensions
 {
 	public static string FormatAsRaceTime(this float time)
 	{
+		if(time == float.MaxValue)
+		{
+			return "DNF";
+		}
+
 		var timeSpan = TimeSpan.FromSeconds( time );
 		return timeSpan.ToString( @"mm\:ss\:ff" );
 	}

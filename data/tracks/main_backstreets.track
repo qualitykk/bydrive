@@ -1,0 +1,27 @@
+{
+  "Name": "Backstreets",
+  "Group": "City",
+  "Visible": true,
+  "Scene": "scenes/track_backstreet.scene",
+  "Variables": [
+    {
+      "Key": "route",
+      "Values": [
+        "a",
+        "b",
+        "a_reverse",
+        "b_reverse"
+      ],
+      "Required": true,
+      "Title": "Route"
+    }
+  ],
+  "Parameters": {
+    "MaxLaps": 3
+  },
+  "Music": {
+    "RaceMusicVolume": -1,
+    "RaceStartWait": 5
+  },
+  "__references": []
+}

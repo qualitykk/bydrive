@@ -10,12 +10,12 @@ namespace Bydrive;
 public partial class BotRacePage
 {
 	int botCount { get; set; } = 3;
-	RaceDefinition selectedTrack;
+	TrackDefinition selectedTrack;
 	protected override void OnParametersSet()
 	{
-		selectedTrack = ResourceLibrary.GetAll<RaceDefinition>().First();
+		selectedTrack = ResourceLibrary.GetAll<TrackDefinition>().First();
 	}
-	private void OnTrackSelected( RaceDefinition def )
+	private void OnTrackSelected( TrackDefinition def )
 	{
 		selectedTrack = def;
 	}

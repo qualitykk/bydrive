@@ -16,13 +16,8 @@ public partial class StartMenu : PanelComponent
 	public static StartMenu Current { get; set; }
 	public static void Open()
 	{
-		if(RaceContext?.Definition.UseScene() == true)
-		{
-			var scene = ResourceLibrary.Get<SceneFile>( MENU_SCENE );
-			GameManager.ActiveScene.Load( scene );
-
-			return;
-		}
+		var scene = ResourceLibrary.Get<SceneFile>( MENU_SCENE );
+		GameManager.ActiveScene.Load( scene );
 
 		if ( Current == null )
 			return;

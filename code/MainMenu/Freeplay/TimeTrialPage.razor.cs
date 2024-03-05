@@ -10,14 +10,15 @@ namespace Bydrive;
 public partial class TimeTrialPage
 {
 	
-	RaceDefinition selectedTrack;
-	private void OnTrackSelected( RaceDefinition def )
+	TrackDefinition selectedTrack;
+	private void OnTrackSelected( TrackDefinition def )
 	{
 		selectedTrack = def;
 	}
 
 	private void OnClickStart()
 	{
+		/*
 		if( selectedTrack == null )
 		{
 			return;
@@ -26,6 +27,8 @@ public partial class TimeTrialPage
 		VehicleDefinition playerCar = StartMenu.SelectedVehicle;
 
 		StartRace.TimeTrial( selectedTrack, playerCar );
+		*/
+		Log.Warning( "TODO: Reimplement seperate time trial" );
 	}
 
 	private void OnClickBack()

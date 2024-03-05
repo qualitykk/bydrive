@@ -13,6 +13,7 @@ RaceResults {
 	font-weight: bold;
 	flex-direction: column;
 	gap: 20px;
+	z-index: 10;
 
 	.title {
 		font-size: 64px;
@@ -33,7 +34,7 @@ RaceResults {
 		margin-top: 30px;
 		flex-direction: column;
 		width: 50%;
-		background-color: #46464677;
+		background-color: #464646ff;
 		align-items: center;
 		padding: 30px;
 		gap: 25px;
@@ -86,6 +87,28 @@ RaceResults {
 				width: 30%;
 				color: #ffffff;
 				font-size: 32px;
+				text-align: right;
+			}
+
+			.score {
+				width: 30%;
+				color: #ffffff;
+				align-items: center;
+
+				.label {
+					text-align: right;
+					height: 100%;
+				}
+
+				.value {
+					width: 50%;
+					font-size: 48px;
+				}
+
+				.added {
+					width: 50%;
+					font-size: 28px;
+				}
 			}
 		}
 
@@ -120,6 +143,8 @@ RaceResults {
 
 	.footer {
 		flex-direction: row;
+		height: 10%;
+		padding: 0.2%;
 	}
 
 	.button {

@@ -1,0 +1,55 @@
+{
+  "Id": "Bydrive.ChallengeDefinition:dev_test_bots",
+  "Title": "DEVTEST Bots",
+  "Description": null,
+  "IsRace": true,
+  "IsSingle": true,
+  "Races": [
+    {
+      "Track": "data/tracks/main_backstreets.track",
+      "Parameters": {
+        "MaxLaps": 3
+      },
+      "Variables": {
+        "route": "a"
+      },
+      "Music": {
+        "RaceMusicVolume": -1,
+        "RaceStartWait": 4
+      }
+    }
+  ],
+  "Participants": [
+    {
+      "Name": "Terry Ladison",
+      "Vehicle": "data/vehicles/devcar1.vehicle",
+      "Character": "data/characters/dev_lad.prsn",
+      "Show": true
+    },
+    {
+      "Name": "Manuel Entwicklung",
+      "Vehicle": "data/vehicles/devcar1.vehicle",
+      "Character": "data/characters/dev_man.prsn",
+      "Show": true
+    },
+    {
+      "Name": "Extra Bot 1",
+      "Vehicle": "data/vehicles/devcar1.vehicle",
+      "NameOverride": "Extra Bot 1",
+      "VehicleOverride": "data/vehicles/devcar1.vehicle"
+    },
+    {
+      "Name": "Extra Bot 2",
+      "Vehicle": "data/vehicles/devcar1.vehicle",
+      "NameOverride": "Extra Bot 2",
+      "VehicleOverride": "data/vehicles/devcar1.vehicle"
+    },
+    {
+      "Name": "Extra Bot 3",
+      "Vehicle": "data/vehicles/devcar1.vehicle",
+      "NameOverride": "Extra Bot 3",
+      "VehicleOverride": "data/vehicles/devcar1.vehicle"
+    }
+  ],
+  "__references": []
+}

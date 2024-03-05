@@ -3,11 +3,18 @@
     position: absolute;
     left: 5%;
     bottom: 5%;
-    width: 10%;
-    height: 5%;
+    width: 12%;
+    height: 8%;
+    flex-direction: column;
+    padding: 2%;
 
     font-size: 32px;
     font-family: Poppins;
     color: white;
     background-color: #777777aa;
+    border-radius: 10px;
+
+    .label {
+        width: 100%;
+    }
 }

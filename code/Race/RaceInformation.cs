@@ -27,12 +27,22 @@ public class RaceInformation
 			return Player.Name;
 		}
 	}
+	public delegate void RaceFinished( RaceInformation information, List<Participant> participants );
 	public const int MAX_PLAYERCOUNT = 16;
 	public static RaceInformation Current { get; set; }
-	public RaceDefinition Definition { get; set; }
-	public RaceParameters Parameters { get; set; }
+	public List<RaceSetup> Races { get; set; }
+	public bool IsMultiRace => Races != null && Races.Count > 1;
 	public List<Participant> Participants { get; set; }
-	public Action OnParticipantsLoaded { get; set; }
+	
+	public int CurrentIndex { get; set; }
+	private RaceSetup currentSetup => Races.ElementAtOrDefault( CurrentIndex );
+	public TrackDefinition CurrentDefinition => currentSetup.Track;
+	public RaceParameters CurrentParameters => currentSetup.Parameters ?? CurrentDefinition.Parameters;
+	public TrackMusicParameters CurrentMusic => currentSetup.Music ?? CurrentDefinition.Music;
+	public Dictionary<string, string> CurrentVariables => currentSetup.Variables;
+	public Action OnParticipantsCreated { get; set; }
+	public RaceFinished OnRaceFinished { get; set; }
+	public RaceFinished OnAllRacesFinished { get; set; }
 	public bool FinishedLoading 
 	{ 
 		get
@@ -43,38 +53,51 @@ public class RaceInformation
 	private bool objectsCreated = false;
 	public RaceMode Mode { get; set; }
 	private bool multiplayer;
+	/// <summary>
+	/// Total participant score, used in multi-race only.
+	/// </summary>
+	private Dictionary<Participant, int> participantScore = new();
 
 	private Dictionary<Participant,GameObject> participantObjects = new();
-	public RaceInformation(RaceDefinition definition, List<Participant> participants, RaceParameters parameters = null)
+	private Dictionary<GameObject, Participant> objectParticipants = new();
+	public RaceInformation( List<RaceSetup> races, List<Participant> participants)
 	{
-		Assert.NotNull( definition );
+		Assert.NotNull( races );
 		Assert.NotNull( participants );
 
-		Definition = definition;
+		Races = races;
 		Participants = participants;
-
-		if ( parameters != null && !parameters.Equals( RaceParameters.Default ) && parameters != definition.Parameters )
-		{
-			Parameters = parameters;
-		}
-		else
-		{
-			Parameters = definition.Parameters;
-		}
 	}
-
+	public RaceInformation(RaceSetup race, List<Participant> participants) : this( new List<RaceSetup> () { race}, participants ) { }
+	public RaceInformation( TrackDefinition track, List<Participant> participants ) : this( new RaceSetup() { Track = track }, participants ) { }
 	public void Start()
 	{
-		Assert.NotNull( Definition );
+		Assert.NotNull( CurrentDefinition );
+		Assert.NotNull( CurrentDefinition.Scene );
 		Assert.NotNull( Participants );
 
 		Current = this;
 
-		GameManager.ActiveScene.LoadFromFile( Definition.Scene.ResourcePath );
+		GameManager.ActiveScene.LoadFromFile( CurrentDefinition.Scene.ResourcePath );
+
+		if ( CurrentVariables != null && CurrentDefinition.Variables.Any() )
+		{
+			foreach ( var raceVariables in CurrentDefinition.Variables )
+			{
+				if ( raceVariables.Required )
+				{
+					if ( !CurrentVariables.ContainsKey( raceVariables.Key ) )
+					{
+						throw new InvalidOperationException( $"Cant start track {CurrentDefinition} without required parameter {raceVariables.Key}" );
+					}
+				}
+			}
+		}
 
 		CreateParticipantObjects();
-
+		OnParticipantsCreated?.Invoke();
 		InitialiseMode();
+
 		if ( multiplayer )
 		{
 			foreach ( var obj in GameManager.ActiveScene.GetAllObjects( false ) )
@@ -82,8 +105,128 @@ public class RaceInformation
 				obj.BreakFromPrefab();
 			}
 		}
+
+		var variableToggles = GameManager.ActiveScene.GetAllComponents<TrackVariableToggle>();
+		if(variableToggles.Any())
+		{
+			foreach ( var variableToggle in variableToggles)
+			{
+				if(CurrentVariables.TryGetValue(variableToggle.Key, out string actualValue))
+				{
+					variableToggle.GameObject.Enabled = variableToggle.Value == actualValue;
+				}
+				else
+				{
+					variableToggle.GameObject.Enabled = false;
+				}
+			}
+		}
+	}
+	/// <summary>
+	/// Applies results, win logic, etc
+	/// </summary>
+	/// <param name="results">Finished participants ordered by placement (first = first place, etc)</param>
+	public void Finish( List<Participant> results )
+	{
+		if ( results == null )
+			results = new();
+
+		foreach(var participant in Participants.Except(results) )
+		{
+			results.Add( participant );
+		}
+
+		if ( IsMultiRace )
+		{
+			int racerCount = results.Count;
+			for ( int i = 0; i < racerCount; i++ )
+			{
+				Participant p = results[i];
+				if ( p == null ) continue;
+
+				int addedScore = CalculateAddedScore( i + 1, racerCount );
+				if ( participantScore.ContainsKey( p))
+				{
+					participantScore[p] += addedScore;
+				}
+				else
+				{
+					participantScore.Add(p, addedScore);
+				}
+			}
+		}
+
+		// TODO: Win/Lose music?
+		Music.Play( Soundtrack.RACE_WIN );
+	}
+	public void NextOrStop()
+	{
+		if ( CurrentIndex >= Races.Count )
+		{
+			Stop();
+			return;
+		}
+
+		CurrentIndex++;
+		if(OnRaceFinished != null)
+		{ 
+			OnRaceFinished.Invoke( this, Participants.OrderByDescending( GetScore ).ToList() );
+		}
+		else
+		{
+			DestroyParticipantObjects();
+			Start();
+		}
 	}
 
+	/// <summary>
+	/// Stops current race, boot back to menu
+	/// </summary>
+	public void Stop()
+	{
+		DestroyParticipantObjects();
+		if ( OnRaceFinished != null )
+		{
+			OnAllRacesFinished.Invoke( this, Participants );
+		}
+		else
+		{
+			StartMenu.Open();
+		}
+
+		Current = null;
+	}
+	public IReadOnlyDictionary<Participant, int> GetAllScores() => participantScore.AsReadOnly();
+	public int GetScore( Participant p )
+	{
+		if ( participantScore.TryGetValue( p, out int score ) )
+		{
+			return score;
+		}
+
+		return 0;
+	}
+
+	public Participant GetParticipant(GameObject obj)
+	{
+		if ( objectParticipants.TryGetValue( obj, out Participant p ) ) return p;
+		return null;
+	}
+	public Participant GetParticipant( Component c ) => GetParticipant( c.GameObject );
+	/// <summary>
+	/// Calculate score to add for a won race.
+	/// </summary>
+	/// <param name="placement">Racer placement with 1 = first place</param>
+	/// <param name="playercount">Total amount of racers in race</param>
+	/// <returns></returns>
+	public int CalculateAddedScore(int placement, int playercount)
+	{
+		const int RACE_MAX_SCORE = 20;
+		float placementFraction = (playercount-placement+1) / (float)playercount;
+		float score = placementFraction * RACE_MAX_SCORE;
+
+		return score.CeilToInt();
+	}
 	private void CreateParticipantObjects()
 	{
 		foreach ( var participantInfo in Participants )
@@ -125,6 +268,7 @@ public class RaceInformation
 		if ( !participantObjects.ContainsKey( participant ) )
 		{
 			participantObjects.Add( participant, obj );
+			objectParticipants.Add( obj, participant );
 		}
 
 		if ( participant.Player.IsBot )
@@ -220,17 +364,7 @@ public class RaceInformation
 		}
 
 		participantObjects.Clear();
+		objectParticipants.Clear();
 		objectsCreated = false;
-	}
-
-	/// <summary>
-	/// Stops current race, boot back to menu
-	/// </summary>
-	public void Stop()
-	{
-		DestroyParticipantObjects();
-		// TODO: Return to lobby
-		StartMenu.Open();
-		Current = null;
 	}
 }

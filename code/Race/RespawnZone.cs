@@ -8,8 +8,8 @@ namespace Bydrive;
 
 [Group("Race")]
 [Icon( "rv_hookup" )]
-[Alias("ParticipantRespawnZone", "RaceParticipantRespawnZone")]
-public class RaceRespawnZone : Component, Component.ITriggerListener
+[Alias("ParticipantRespawnZone", "RaceParticipantRespawnZone", "RaceRespawnZone")]
+public class RespawnZone : Component, Component.ITriggerListener
 {
 	const float RESPAWN_TIME = 1.2f;
 	const int RESPAWN_DAMAGE = 2;

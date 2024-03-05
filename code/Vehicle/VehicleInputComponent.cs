@@ -33,6 +33,6 @@ public abstract class VehicleInputComponent : Component
 
 	public virtual bool CanInput()
 	{
-		return Race == null || (Race.HasStarted && !Race.IsFinished( ParticipantInstance ));
+		return Race == null || (Race.HasStarted && !Race.HasParticipantFinished( ParticipantInstance ));
 	}
 }

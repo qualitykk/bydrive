@@ -20,7 +20,7 @@ public partial class MainPage
 	}
 	void OnClickRaceQuickplay()
 	{
-		RaceDefinition randomTrack = Game.Random.FromArray(RaceDefinition.GetAllVisible());
+		TrackDefinition randomTrack = Game.Random.FromArray(TrackDefinition.GetAllVisible());
 
 		StartRace.LocalWithBots( randomTrack, 3, StartMenu.SelectedVehicle, 4 );
 	}

@@ -13,19 +13,19 @@
 
 @code
 {
-    public Action<RaceDefinition> TrackSelected { get; set; }
+    public Action<TrackDefinition> TrackSelected { get; set; }
 
-    IEnumerable<IGrouping<string, RaceDefinition>> groupedTracks;
-    IEnumerable<RaceDefinition> tracks;
-    RaceDefinition selectedTrack;
+    IEnumerable<IGrouping<string, TrackDefinition>> groupedTracks;
+    IEnumerable<TrackDefinition> tracks;
+    TrackDefinition selectedTrack;
 
     protected override void OnParametersSet()
     {
-        tracks = RaceDefinition.GetAllVisible();
+        tracks = TrackDefinition.GetAllVisible();
         groupedTracks = tracks.GroupBy(t => t.Group);
     }
 
-    private string GetClasses(RaceDefinition def)
+    private string GetClasses(TrackDefinition def)
     {
         string classes = "";
         if(def == selectedTrack)
@@ -36,7 +36,7 @@
         return classes;
     }
 
-    private void OnClickTrack(RaceDefinition def)
+    private void OnClickTrack(TrackDefinition def)
     {
         TrackSelected?.Invoke(def);
         selectedTrack = def;

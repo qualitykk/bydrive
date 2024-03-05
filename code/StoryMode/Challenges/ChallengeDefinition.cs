@@ -36,7 +36,8 @@ public class ChallengeDefinition : GameResource
 	{
 		if(!_allByDefinition.TryGetValue( id, out var definition))
 		{
-			Log.Error( $"No definition with id {id} found!" );
+			Log.Warning( $"No definition with id {id} found!" );
+			return null;
 		}
 		return definition;
 	}
@@ -44,11 +45,10 @@ public class ChallengeDefinition : GameResource
 	[Hide] public string Id => $"{GetType()}:{ResourceName}";
 	public string Title { get; set; }
 	public string Description { get; set; }
-	[Hide] public bool IsRace => Track != default;
-	[Category("Race")] public RaceDefinition Track { get; set; }
-	[Category( "Race" )] public RaceParameters Parameters { get; set; }
+	[Hide] public bool IsRace => Races != default;
+	[Hide] public bool IsSingle => IsRace && Races.Count == 1;
+	[Category("Race")] public List<RaceSetup> Races { get; set; }
 	[Category( "Race" )] public List<Participant> Participants { get; set; }
-	[Category( "Race" )] public CompletionContext OnComplete { get; set; }
 	public IEnumerable<Participant> GetVisibleParticipants()
 	{
 		return Participants.Where( p => p.Show );

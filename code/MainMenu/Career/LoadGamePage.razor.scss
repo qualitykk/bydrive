@@ -28,8 +28,13 @@ LoadGamePage {
             text-align: center;
             padding: 1%;
 
-            .main .left {
+            .main {
                 font-weight: bold;
+                font-size: 32px;
+            }
+
+            .footer {
+                font-size: 26px;
             }
 
             &:hover {
