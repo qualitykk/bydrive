@@ -11,7 +11,7 @@ public class VehicleCamera : Component
 {
 	[Property] public float BaseFieldOfView { get; set; } = 90f;
 	[Property] public float MaxFieldOfView { get; set; } = 120f;
-	private CameraComponent Camera => GameManager.ActiveScene.Camera;
+	private CameraComponent Camera => Game.ActiveScene.Camera;
 	private VehicleController Vehicle => GetLocalVehicle();
 	private Vector3 CameraOffset => Vehicle?.GetCameraPositionOffset() ?? 0f;
 	private VehicleController lastVehicle;

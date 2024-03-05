@@ -21,7 +21,7 @@ public class RaceCheckpoint : Component, Component.ITriggerListener
 	private List<RaceCheckpoint> previousCheckpointsReferences = new();
 	internal static void RebuildCheckpointReferences()
 	{
-		IEnumerable<RaceCheckpoint> checkpoints = GameManager.ActiveScene.GetAllComponents<RaceCheckpoint>();
+		IEnumerable<RaceCheckpoint> checkpoints = Game.ActiveScene.GetAllComponents<RaceCheckpoint>();
 		foreach(var checkpoint in checkpoints )
 		{
 			checkpoint.previousCheckpointsReferences.Clear();

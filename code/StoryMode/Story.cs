@@ -42,12 +42,12 @@ public static class Story
 	[Title( "Enter Overworld" ), Group( "Story" )]
 	public static void EnterOverworld()
 	{
-		GameManager.ActiveScene.LoadFromFile( OVERWORLD_SCENE );
+		Game.ActiveScene.LoadFromFile( OVERWORLD_SCENE );
 	}
 	[ActionGraphNode( "story.enter.race_setup" )]
 	[Title( "Enter Race Setup" ), Group( "Story" )]
 	public static void EnterRaceSetup()
 	{
-		GameManager.ActiveScene.LoadFromFile( RACE_SETUP_SCENE );
+		Game.ActiveScene.LoadFromFile( RACE_SETUP_SCENE );
 	}
 }

@@ -126,7 +126,7 @@ public class OverworldController : Component
 	}
 	private void UpdateCamera()
 	{
-		CameraComponent camera = GameManager.ActiveScene.Camera;
+		CameraComponent camera = Game.ActiveScene.Camera;
 		if ( camera == null ) return;
 
 		Vector3 targetCameraPos = Transform.Position + CameraOffset * cameraRotation;

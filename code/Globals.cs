@@ -42,7 +42,7 @@ internal static class Globals
 			return lastLocalInput;
 		}
 
-		Scene scene = GameManager.ActiveScene;
+		Scene scene = Game.ActiveScene;
 		VehiclePlayerInput input = scene?.GetAllComponents<VehiclePlayerInput>().FirstOrDefault( input => input.IsLocalInput() );
 
 		lastLocalInput = input;

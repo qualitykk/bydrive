@@ -78,7 +78,7 @@ public class RaceInformation
 
 		Current = this;
 
-		GameManager.ActiveScene.LoadFromFile( CurrentDefinition.Scene.ResourcePath );
+		Game.ActiveScene.LoadFromFile( CurrentDefinition.Scene.ResourcePath );
 
 		if ( CurrentVariables != null && CurrentDefinition.Variables.Any() )
 		{
@@ -100,13 +100,13 @@ public class RaceInformation
 
 		if ( multiplayer )
 		{
-			foreach ( var obj in GameManager.ActiveScene.GetAllObjects( false ) )
+			foreach ( var obj in Game.ActiveScene.GetAllObjects( false ) )
 			{
 				obj.BreakFromPrefab();
 			}
 		}
 
-		var variableToggles = GameManager.ActiveScene.GetAllComponents<TrackVariableToggle>();
+		var variableToggles = Game.ActiveScene.GetAllComponents<TrackVariableToggle>();
 		if(variableToggles.Any())
 		{
 			foreach ( var variableToggle in variableToggles)
@@ -161,14 +161,15 @@ public class RaceInformation
 	}
 	public void NextOrStop()
 	{
+		CurrentIndex++;
+
 		if ( CurrentIndex >= Races.Count )
 		{
 			Stop();
 			return;
 		}
 
-		CurrentIndex++;
-		if(OnRaceFinished != null)
+		if (OnRaceFinished != null)
 		{ 
 			OnRaceFinished.Invoke( this, Participants.OrderByDescending( GetScore ).ToList() );
 		}
@@ -196,7 +197,7 @@ public class RaceInformation
 
 		Current = null;
 	}
-	public IReadOnlyDictionary<Participant, int> GetAllScores() => participantScore.AsReadOnly();
+	public IReadOnlyDictionary<Participant, int> GetAllScores() => participantScore.ToDictionary(kv => kv.Key, kv => kv.Value).AsReadOnly();
 	public int GetScore( Participant p )
 	{
 		if ( participantScore.TryGetValue( p, out int score ) )
@@ -328,7 +329,7 @@ public class RaceInformation
 		Assert.NotNull( obj, "Cant initialise a null object!" );
 		Assert.NotNull( participant, "Cant initialise with no participant!!" );
 
-		var startingPositions = GameManager.ActiveScene.GetAllComponents<RaceStartingPosition>();
+		var startingPositions = Game.ActiveScene.GetAllComponents<RaceStartingPosition>();
 		if ( !startingPositions.Any() )
 		{
 			Log.Error( "No starting positions placed in scene, cant place participant objects!" );
@@ -346,7 +347,7 @@ public class RaceInformation
 
 	private void InitialiseMode()
 	{
-		RaceManager manager = GameManager.ActiveScene.GetAllComponents<RaceManager>().FirstOrDefault();
+		RaceManager manager = Game.ActiveScene.GetAllComponents<RaceManager>().FirstOrDefault();
 		if ( manager == null )
 			return;
 
