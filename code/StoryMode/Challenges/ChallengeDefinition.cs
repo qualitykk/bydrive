@@ -44,7 +44,9 @@ public class ChallengeDefinition : GameResource
 	public delegate void CompletionContext( SaveFile save );
 	[Hide] public string Id => $"{GetType()}:{ResourceName}";
 	public string Title { get; set; }
-	public string Description { get; set; }
+	[TextArea] public string Description { get; set; }
+	[Title("Reward"), TextArea] public string RewardDisplay { get; set; }
+	public CompletionContext OnComplete { get; set; }
 	[Hide] public bool IsRace => Races != default;
 	[Hide] public bool IsSingle => IsRace && Races.Count == 1;
 	[Category("Race")] public List<RaceSetup> Races { get; set; }

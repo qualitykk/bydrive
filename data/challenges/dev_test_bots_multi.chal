@@ -1,7 +1,9 @@
 {
   "Id": "Bydrive.ChallengeDefinition:dev_test_bots_multi",
   "Title": "DEVTEST Bots MULTI",
-  "Description": null,
+  "Description": "Test against some bots on all variants of Backstreets.",
+  "RewardDisplay": "",
+  "OnComplete": null,
   "IsRace": true,
   "IsSingle": false,
   "Races": [

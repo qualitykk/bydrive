@@ -12,6 +12,14 @@ public static class Story
 	const string RACE_SETUP_SCENE = "/scenes/story_race_setup.scene";
 	public static bool Active { get; private set; }
 	public static SaveFile Progress { get; set; }
+	public static string GetPlayerName()
+	{
+		return Progress?.CharacterName ?? GetLocalName() ?? "Max Mustermann";
+	}
+	public static string GetTeamName()
+	{
+		return "Team Muster";
+	}
 	public static void Load(SaveFile save)
 	{
 		Active = true;

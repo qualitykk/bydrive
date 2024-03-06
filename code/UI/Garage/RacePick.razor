@@ -25,6 +25,22 @@
         <label class="name">@currentChallenge.Title</label>
         <label class="rules">@(GetTrackNames()), @(currentChallenge.GetVisibleParticipants().Count())+ Opponents</label>
         <label class="description">@currentChallenge.Description</label>
+
+        @{
+            var rewards = GetRewardLines();
+        }
+
+        @if(rewards.Any())
+        {
+        <div class="rewards">
+            <div class="hint">Rewards:</div>
+            
+            @foreach(var line in rewards)
+            {
+                <label class="entry">@line</label>
+            }
+        </div>
+        }
     }
     </div>
 </root>
@@ -32,6 +48,17 @@
 @code {
     RaceSetupManager manager => RaceSetupManager.Current;
     ChallengeDefinition currentChallenge => RaceSetupManager.Current?.SelectedChallenge;
+    private List<string> GetRewardLines()
+    {
+        List<string> lines = new();
+        string display = currentChallenge.RewardDisplay;
+        if(!string.IsNullOrWhiteSpace(display))
+        {
+            lines.AddRange(display.Split("\n"));
+        }
+
+        return lines;
+    }
 
     void OnClickChallenge(ChallengeDefinition challenge)
     {

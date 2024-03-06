@@ -6,7 +6,7 @@
 
 <root>
     <div class="person group">
-        <label class="header">@GetName()</label>
+        <label class="header">@Story.GetPlayerName()</label>
         <div class="career garage_button" @onclick=@(() => this.Navigate("/completion"))>
             Career
         </div>
@@ -18,7 +18,7 @@
         </div>
     </div>
     <div class="team group">
-        <label class="header">@GetTeamName()</label>
+        <label class="header">@Story.GetTeamName()</label>
         <div class="upgrades garage_button" @onclick=@(() => this.Navigate("/upgrades"))>
             Upgrades
         </div>
@@ -29,9 +29,6 @@
 </root>
 
 @code {
-    private string GetName() => CurrentSave?.CharacterName ?? "Lorem Ipsum";
-    private string GetTeamName() => "Team Muster";
-
     void OnClickBack()
     {
         Story.EnterOverworld();

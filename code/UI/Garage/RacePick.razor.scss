@@ -48,7 +48,6 @@ RacePick {
         color: #fff;
 
         .thumbnail {
-            flex-grow: 1;
             width: 230px;
             aspect-ratio: 1;
             background-color: #307639;
@@ -73,6 +72,25 @@ RacePick {
             flex-grow: 30;
             margin: 2%;
             font-size: 22px;
+        }
+
+        .rewards {
+            flex-grow: 30;
+            margin: 2%;
+            padding: 1%;
+            flex-direction: column;
+            .label {
+                width: 100%;
+            }
+            .hint {
+                text-align: center;
+                font-weight: bold;
+                font-size: 32px;
+            }
+
+            .entry {
+                font-size: 22px;
+            }
         }
     }
 }

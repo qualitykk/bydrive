@@ -1,7 +1,9 @@
 {
   "Id": "Bydrive.ChallengeDefinition:dev_test_bots",
   "Title": "DEVTEST Bots",
-  "Description": null,
+  "Description": "Test against some bots on Backstreets A.",
+  "RewardDisplay": "- Sense of Pride\n- Sense of Accomplishment\n- Idk",
+  "OnComplete": null,
   "IsRace": true,
   "IsSingle": true,
   "Races": [

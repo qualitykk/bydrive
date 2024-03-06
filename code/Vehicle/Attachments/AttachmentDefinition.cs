@@ -11,7 +11,7 @@ namespace Bydrive;
 public class AttachmentDefinition : GameResource
 {
 	public string Title { get; set; }
-	public string Description { get; set; }
+	[TextArea] public string Description { get; set; }
 	public AttachmentSlot Slot { get; set; }
 	public Model Model { get; set; }
 	public VehicleStats StatChanges { get; set; }

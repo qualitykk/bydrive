@@ -13,11 +13,6 @@ public partial class CompletionPage
 		return $"avatarbig:{Game.SteamId}";
 	}
 
-	private string GetName()
-	{
-		return CurrentSave?.CharacterName ?? GetLocalName();
-	}
-
 	void OnClickBack()
 	{
 		this.Navigate( "/" );
