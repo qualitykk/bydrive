@@ -1,0 +1,10 @@
+{
+  "Title": "Dev - All Vehicle Stats",
+  "Description": "Increase all vehicle stats by 10%.",
+  "OnRaceStart": null,
+  "MoneyCost": 5000,
+  "TokenCost": 0,
+  "CanUnlock": null,
+  "UnlockCriteriaDisplay": "",
+  "__references": []
+}

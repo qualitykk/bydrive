@@ -1,0 +1,10 @@
+{
+  "Title": "Dev - Devcar 1 Stats",
+  "Description": "",
+  "OnRaceStart": null,
+  "MoneyCost": 2500,
+  "TokenCost": 10,
+  "CanUnlock": null,
+  "UnlockCriteriaDisplay": "",
+  "__references": []
+}

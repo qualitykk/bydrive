@@ -41,16 +41,19 @@ public class ChallengeDefinition : GameResource
 		}
 		return definition;
 	}
-	public delegate void CompletionContext( SaveFile save );
 	[Hide] public string Id => $"{GetType()}:{ResourceName}";
 	public string Title { get; set; }
 	[TextArea] public string Description { get; set; }
 	[Title("Reward"), TextArea] public string RewardDisplay { get; set; }
-	public CompletionContext OnComplete { get; set; }
-	[Hide] public bool IsRace => Races != default;
-	[Hide] public bool IsSingle => IsRace && Races.Count == 1;
+	public Story.CompletionProgress OnComplete { get; set; }
+	/// <summary>
+	/// Called when save file is updated
+	/// </summary>
+	public Story.UnlockCheck ShouldUnlock { get; set; }
 	[Category("Race")] public List<RaceSetup> Races { get; set; }
 	[Category( "Race" )] public List<Participant> Participants { get; set; }
+	[Hide] public bool IsSingle => IsRace && Races.Count == 1;
+	[Hide] public bool IsRace => Races != default;
 	public IEnumerable<Participant> GetVisibleParticipants()
 	{
 		return Participants.Where( p => p.Show );

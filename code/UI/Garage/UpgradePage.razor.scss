@@ -1,0 +1,245 @@
+﻿@import "/colors.scss";
+@import "/elements.scss";
+
+UpgradePage {
+    pointer-events: all;
+    background-color: $background_clear;
+    backdrop-filter: blur(5px);
+    padding: 4%;
+    pointer-events: all;
+    flex-direction: row;
+
+    .side {
+        width: 20%;
+        flex-direction: column;
+        background-color: $background_light;
+        align-items: center;
+        font-family: Poppins;
+        gap: 10px;
+        padding: 2%;
+        border-radius: 5px 0 0 5px;
+
+        .group {
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+
+            .title {
+                width: 80%;
+                font-size: 48px;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                border-bottom: 5px solid black;
+            }
+
+            .entry {
+                width: 100%;
+                margin: 2%;
+                border-radius: 5px;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                font-size: 38px;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .player {
+                height: 50%;
+                background-color: #ea7e30ff;
+
+                &:hover {
+                    background-color: #ea9a60;
+                }
+            }
+
+            .team {
+                height: 50%;
+                background-color: #4f8edcff;
+
+                &:hover {
+                    background-color: #7caae4;
+                }
+            }
+
+            .vehicle {
+                background-color: #1e5e1b;
+
+                &:hover {
+                    background-color: #41853e;
+                }
+            }
+        }
+
+        .static {
+            height: 30%;
+
+            .entry {
+                height: 50%;
+            }
+        }
+
+        .dynamic {
+            height: 70%;
+
+            .entry {
+                height: 15%;
+            }
+        }
+    }
+
+
+    .main {
+        width: 80%;
+        flex-direction: row;
+        border-radius: 0 5px 5px 0;
+        background-color: $background_clear_light;
+
+        .content {
+            flex-direction: column;
+            width: 70%;
+
+            .upgrades {
+                height: 90%;
+                flex-direction: column;
+                margin: 2%;
+                overflow: scroll;
+
+                .entry {
+                    height: 12%;
+                    margin-top: 1%;
+                    padding: 1%;
+                    border-radius: 5px;
+                    background-color: $background_clear_dark;
+                    color: #fff;
+                    align-items: center;
+                    font-family: Roboto;
+
+                    &:hover {
+                        background-color: $background_config;
+                    }
+
+                    &.buyable {
+                        background-color: #c3ccc1;
+
+                        &:hover {
+                            background-color: $background_light;
+                        }
+                    }
+
+                    &.unlocked {
+                        background-color: #35a131;
+
+                        &:hover {
+                            background-color: #6bad68;
+                        }
+                    }
+
+                    .name {
+                        font-size: 38px;
+                        font-weight: bold;
+                        flex-grow: 3;
+                    }
+
+                    .requirements {
+                        flex-grow: 1;
+                        justify-content: flex-end;
+
+                        .cost {
+                            font-size: 30px;
+
+                            .label {
+                                margin-left: 2%;
+                                height: 100%;
+                                align-items: center;
+                            }
+
+                            .icon {
+                                aspect-ratio: 1;
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .footer {
+                height: 10%;
+
+
+                .controls {
+                    align-items: center;
+                    justify-content: center;
+                    width: 40%;
+
+                    .button {
+                        height: 70%;
+                        width: 50%;
+                    }
+                }
+
+                .status {
+                    padding: 1%;
+                    width: 60%;
+                    align-items: center;
+                    justify-content: flex-end;
+
+                    .amount {
+                        width: 30%;
+
+                        .icon {
+                            height: 90%;
+                            aspect-ratio: 1;
+                        }
+
+                        .value {
+                            font-family: Poppins;
+                            color: #fff;
+                            font-size: 30px;
+                            width: 100%;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+
+        .info {
+            width: 30%;
+            height: 100%;
+            padding: 1%;
+            flex-direction: column;
+            align-items: center;
+            background-color: $background_config;
+            color: #fff;
+            font-family: Poppins;
+
+            .content {
+                height: 90%;
+
+                .name {
+                    font-size: 40px;
+                    font-weight: bold;
+                    border-bottom: 1px solid white;
+                    text-align: center;
+                }
+
+                .description {
+                    font-size: 28px;
+                }
+            }
+
+
+            .controls {
+                height: 10%;
+                align-items: flex-end;
+
+                .button {
+                    width: 100%;
+                    height: 50%;
+                }
+            }
+        }
+    }
+}

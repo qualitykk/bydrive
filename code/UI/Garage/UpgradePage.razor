@@ -1,0 +1,94 @@
+﻿@using Sandbox.UI;
+@namespace Bydrive
+@page "/upgrades";
+@attribute [StyleSheet]
+@inherits Panel;
+
+<root>
+    <div class="side">
+        <div class="static group">
+            <div class="player entry">
+                @Story.GetPlayerName()
+            </div>
+            <div class="team entry">
+                @Story.GetTeamName()
+            </div>
+        </div>
+        <div class="dynamic group">
+            <div class="title">Vehicles</div>
+            @foreach (var vehicle in GetUpgradableVehicles())
+            {
+                <div class="vehicle entry">
+                    @vehicle.Title
+                </div>
+            }
+        </div>
+    </div>
+    <div class="main">
+        <div class="content">
+            <div class="upgrades">
+                @{
+                    var upgrades = GetUpgrades();
+                }
+                @if (upgrades != null && upgrades.Any())
+                {
+                    @foreach (var upgrade in upgrades)
+                    {
+                        <div class="entry @GetClasses(upgrade)" @onclick=@(() => OnClickUpgrade(upgrade))>
+                            <label class="name">@upgrade.Title</label>
+                            <div class="requirements">
+                                @if (upgrade.TokenCost > 0)
+                                {
+                                    <div class="cost tokens">
+                                        <div class="icon" style="background-color: #2dc64c;" />
+                                        <label class="amount">@upgrade.TokenCost</label>
+                                    </div>
+                                }
+                                @if (upgrade.MoneyCost > 0)
+                                {
+                                    <div class="cost money">
+                                        <div class="icon" style="background-color: #ea7e30" />
+                                        <label class="amount">@upgrade.MoneyCost</label>
+                                    </div>
+                                }
+                            </div>
+
+                        </div>
+                    }
+                }
+            </div>
+            <div class="footer">
+                <div class="controls">
+                    <div class="button" @onclick=@OnClickBack>Back</div>
+                </div>
+                <div class="status">
+                    <div class="amount tokens">
+                        <div class="icon" style="background-color: #2dc64c;" />
+                        <label class="value">@GetTokens()</label>
+                    </div>
+                    <div class="amount money">
+                        <div class="icon" style="background-color: #ea7e30" />
+                        <label class="value">@GetMoney()</label>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="info">
+            @if(selectedUpgrade != null)
+            {
+                <div class="content">
+                    <label class="name">@selectedUpgrade.Title</label>
+                    <label class="description">@selectedUpgrade.Description</label>
+                    @if (!string.IsNullOrWhiteSpace(selectedUpgrade.UnlockCriteriaDisplay))
+                    {
+                        <label class="criteria">@selectedUpgrade.UnlockCriteriaDisplay</label>
+                    }
+                </div>
+                <div class="controls">
+                    <div class="button buy @UI.ActiveIf(CanBuy(selectedUpgrade))">Buy</div>
+                </div>
+            }
+        </label>
+    </div>
+</root>
