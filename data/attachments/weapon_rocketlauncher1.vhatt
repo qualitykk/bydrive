@@ -19,7 +19,7 @@
       "data/items/rocket_simple.item"
     ]
   },
-  "StatChangeMode": "Percent",
+  "StatChangeMode": "PercentRelative",
   "Attach": null,
   "Tick": null,
   "__references": []

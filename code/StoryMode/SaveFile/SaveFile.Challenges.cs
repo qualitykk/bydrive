@@ -8,12 +8,12 @@ namespace Bydrive;
 
 public partial class SaveFile
 {
+	private Dictionary<string, ChallengeState> ChallengeStates { get; set; } = new();
 	public Dictionary<ChallengeDefinition, ChallengeState> GetUnlockedChallenges()
 	{
 		return ChallengeStates.Where( kv => kv.Value > ChallengeState.Hidden )
 							.ToDictionary( kv => ChallengeDefinition.Get( kv.Key ), kv => kv.Value );
 	}
-	[ActionGraphIgnore] public Dictionary<string, ChallengeState> ChallengeStates { get; set; } = new();
 	public ChallengeState GetChallengeState( string challenge )
 	{
 		if ( ChallengeStates.TryGetValue( challenge, out ChallengeState state ) )

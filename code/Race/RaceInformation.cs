@@ -136,23 +136,26 @@ public class RaceInformation
 			results.Add( participant );
 		}
 
-		if ( IsMultiRace )
-		{
-			int racerCount = results.Count;
-			for ( int i = 0; i < racerCount; i++ )
-			{
-				Participant p = results[i];
-				if ( p == null ) continue;
 
-				int addedScore = CalculateAddedScore( i + 1, racerCount );
-				if ( participantScore.ContainsKey( p))
-				{
-					participantScore[p] += addedScore;
-				}
-				else
-				{
-					participantScore.Add(p, addedScore);
-				}
+		int racerCount = results.Count;
+		for ( int i = 0; i < racerCount; i++ )
+		{
+			Participant p = results[i];
+			if ( p == null ) continue;
+
+			int addedScore = racerCount - i;
+			if ( IsMultiRace )
+			{
+				addedScore = CalculateAddedScore( i + 1, racerCount );
+			}
+
+			if ( participantScore.ContainsKey( p))
+			{
+				participantScore[p] += addedScore;
+			}
+			else
+			{
+				participantScore.Add(p, addedScore);
 			}
 		}
 
@@ -170,8 +173,9 @@ public class RaceInformation
 		}
 
 		if (OnRaceFinished != null)
-		{ 
-			OnRaceFinished.Invoke( this, Participants.OrderByDescending( GetScore ).ToList() );
+		{
+			var participantFinishes = Participants.OrderByDescending( GetScore );
+			OnRaceFinished.Invoke( this, participantFinishes.ToList() );
 		}
 		else
 		{
@@ -186,9 +190,10 @@ public class RaceInformation
 	public void Stop()
 	{
 		DestroyParticipantObjects();
-		if ( OnRaceFinished != null )
+		if ( OnAllRacesFinished != null )
 		{
-			OnAllRacesFinished.Invoke( this, Participants );
+			var participantFinishes = Participants.OrderByDescending( GetScore );
+			OnAllRacesFinished.Invoke( this, participantFinishes.ToList() );
 		}
 		else
 		{

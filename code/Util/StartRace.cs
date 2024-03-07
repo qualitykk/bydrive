@@ -27,7 +27,38 @@ internal static class StartRace
 			currentPosition++;
 		}
 		racers.Add( new( vehicle, Player.Local, currentPosition ) );
-		new RaceInformation( challenge.Races, racers).Start();
+		var race = new RaceInformation( challenge.Races, racers );
+		race.OnAllRacesFinished += ( RaceInformation info, List<RaceInformation.Participant> participants ) => ChallengeRaceAllFinished(challenge, info, participants);
+		race.Start();
+	}
+	private static void ChallengeRaceAllFinished(ChallengeDefinition challenge, RaceInformation info, List<RaceInformation.Participant> participants )
+	{
+		Player firstPlace = participants.FirstOrDefault()?.Player;
+		bool win = firstPlace.IsBot == false;
+		if(!Story.Active)
+		{
+			Log.Warning( "Completed challenge with no save file? Returning to main menu..." );
+			StartMenu.Open();
+			return;
+		}
+
+		Story.EnterOverworld();
+		if(win)
+		{
+			Log.Info( "Win!" );
+			if(CurrentSave.GetChallengeState(challenge) != ChallengeState.Complete)
+			{
+				CurrentSave.SetChallengeState( challenge, ChallengeState.Complete );
+				challenge.OnComplete?.Invoke( CurrentSave );
+
+				CurrentSave.AutoSave();
+			}
+			
+		}
+		else
+		{
+			Log.Info( "Lose..." );
+		}
 	}
 	public static void TimeTrial(TrackDefinition track, Dictionary<string, string> variables, VehicleDefinition vehicle)
 	{

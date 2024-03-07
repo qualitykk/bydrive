@@ -10,7 +10,7 @@ RacePick {
         padding: 2%;
         gap: 2%;
 
-        .item {
+        .entry {
             width: 250px;
             height: 350px;
             flex-direction: column;
@@ -22,10 +22,19 @@ RacePick {
                 border: 1px solid white;
             }
 
+            &.complete {
+                background-color: #307639;
+
+                &:hover {
+                    background-color: #60b46b;
+                    border: 1px solid white;
+                }
+            }
+
             .thumbnail {
                 width: 230px;
                 aspect-ratio: 1;
-                background-color: #307639;
+                background-color: #ff0000;
             }
 
             .name {
@@ -50,7 +59,7 @@ RacePick {
         .thumbnail {
             width: 230px;
             aspect-ratio: 1;
-            background-color: #307639;
+            background-color: #ff0000;
         }
 
         .name {
@@ -79,9 +88,11 @@ RacePick {
             margin: 2%;
             padding: 1%;
             flex-direction: column;
+
             .label {
                 width: 100%;
             }
+
             .hint {
                 text-align: center;
                 font-weight: bold;

@@ -66,6 +66,22 @@ internal static class ActionGraph
 	}
 	#endregion
 
+	#region UI
+	[ActionGraphNode("ui.popup.show_single")]
+	[Title("Show Popup"), Group("UI")]
+	private static void Action_ShowPopup(string title, string message, string color)
+	{
+		Popup.Add( new PopupPage( title, message, color ) );
+	}
+
+	[ActionGraphNode( "ui.popup.show_multi" )]
+	[Title( "Show Popup (Multi-Page)" ), Group( "UI" )]
+	private static void Action_ShowPopupMulti( List<PopupPage> pages )
+	{
+		Popup.Add( pages );
+	}
+	#endregion UI
+
 	[ActionGraphNode("util.construct"), Pure]
 	[Title("New Object")]
 	private static T Action_CreateObject<T>()

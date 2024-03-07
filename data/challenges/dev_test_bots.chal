@@ -3,9 +3,52 @@
   "Title": "DEVTEST Bots",
   "Description": "Test against some bots on Backstreets A.",
   "RewardDisplay": "- Sense of Pride\n- Sense of Accomplishment\n- Idk",
-  "OnComplete": null,
-  "IsRace": true,
-  "IsSingle": true,
+  "OnComplete": {
+    "Version": 5,
+    "UserData": {
+      "Title": "On Complete",
+      "id": "58c3a86b-aa41-4f66-876e-8a700cf4f194",
+      "ReferencedComponentTypes": []
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input"
+      },
+      {
+        "Id": 1,
+        "Type": "ui.popup.show_single",
+        "UserData": {
+          "Position": "336,0"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 0,
+        "SrcName": "_signal",
+        "DstId": 1,
+        "DstName": "_signal"
+      },
+      {
+        "Value": "#fecece",
+        "DstId": 1,
+        "DstName": "color"
+      },
+      {
+        "Value": "Well Done.",
+        "DstId": 1,
+        "DstName": "message"
+      },
+      {
+        "Value": "You completed the test against bots!",
+        "DstId": 1,
+        "DstName": "title"
+      }
+    ]
+  },
+  "ShouldUnlock": null,
   "Races": [
     {
       "Track": "data/tracks/main_backstreets.track",
@@ -53,5 +96,7 @@
       "VehicleOverride": "data/vehicles/devcar1.vehicle"
     }
   ],
+  "IsSingle": true,
+  "IsRace": true,
   "__references": []
 }

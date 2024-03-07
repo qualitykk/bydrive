@@ -52,7 +52,7 @@ public partial class SaveFile
 	public void AutoSave()
 	{
 		string path = GetFilePath();
-		path += $"_autosave_{DateTime.UtcNow}";
+		path += $"_autosave_{DateTime.UtcNow.Ticks}";
 
 		Save( path, this );
 	}

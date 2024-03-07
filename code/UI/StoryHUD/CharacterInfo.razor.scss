@@ -1,18 +1,29 @@
-﻿CharacterInfo
+﻿@import "/colors.scss";
+
+CharacterInfo
 {
     position: absolute;
     left: 5%;
     bottom: 5%;
-    width: 12%;
-    height: 8%;
+    width: 15%;
+    height: 10%;
     flex-direction: column;
-    padding: 2%;
+    padding: 3%;
+    border-radius: 10px;
 
-    font-size: 32px;
     font-family: Poppins;
     color: white;
-    background-color: #777777aa;
-    border-radius: 10px;
+    background-color: $background_clear;
+    backdrop-filter: blur(5px);
+
+    .name {
+        font-size: 32px;
+        font-weight: bold;
+    }
+
+    .currency {
+        font-size: 28px;
+    }
 
     .label {
         width: 100%;

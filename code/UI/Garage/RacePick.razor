@@ -10,9 +10,9 @@
 
 <root>
     <div class="races")>
-        @foreach(var challenge in GetChallenges())
+        @foreach((ChallengeDefinition challenge, ChallengeState state) in GetChallenges())
         {
-            <div class="item" @onclick=@(() => OnClickChallenge(challenge))>
+            <div class="entry @UI.TagIf("complete", state == ChallengeState.Complete)" @onclick=@(() => OnClickChallenge(challenge))>
                 <div class="thumbnail" />
                 <label class="name">@challenge.Title</label>
             </div>
@@ -44,51 +44,3 @@
     }
     </div>
 </root>
-
-@code {
-    RaceSetupManager manager => RaceSetupManager.Current;
-    ChallengeDefinition currentChallenge => RaceSetupManager.Current?.SelectedChallenge;
-    private List<string> GetRewardLines()
-    {
-        List<string> lines = new();
-        string display = currentChallenge.RewardDisplay;
-        if(!string.IsNullOrWhiteSpace(display))
-        {
-            lines.AddRange(display.Split("\n"));
-        }
-
-        return lines;
-    }
-
-    void OnClickChallenge(ChallengeDefinition challenge)
-    {
-        manager.SelectedChallenge = challenge;
-    }
-
-    private IEnumerable<ChallengeDefinition> GetChallenges()
-    {
-        if(!Story.Active)
-        {
-            return ChallengeDefinition.All;
-        }
-        else
-        {
-            return CurrentSave.GetUnlockedChallenges().Keys;
-        }
-    }
-
-    private string GetTrackNames()
-    {
-        if(currentChallenge.IsSingle)
-        {
-            return currentChallenge.Races.FirstOrDefault().Track?.Name;
-        }
-
-        return "Multi-Race";
-    }
-
-    protected override int BuildHash()
-    {
-        return HashCode.Combine(currentChallenge);
-    }
-}
