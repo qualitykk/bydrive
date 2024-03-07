@@ -73,12 +73,15 @@
       "Children": [
         {
           "Id": "f7b20b73-09cf-4a56-bd34-2495e3285356",
-          "Name": "Dialog",
+          "Name": "Global",
           "Position": "0,0,0",
           "Enabled": true,
           "Components": [
             {
               "__type": "DialogBox"
+            },
+            {
+              "__type": "Popup"
             }
           ]
         },
@@ -171,7 +174,7 @@
   },
   "Title": "story_race_setup",
   "Description": "",
-  "LastSaved": "2024-03-07T00:14:42.192165\u002B01:00",
+  "LastSaved": "2024-03-07T13:51:53.0708225\u002B01:00",
   "__references": [
     "polyhaven.wasteland_clouds_puresky"
   ]

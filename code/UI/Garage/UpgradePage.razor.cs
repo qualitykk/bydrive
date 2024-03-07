@@ -12,7 +12,7 @@ public partial class UpgradePage
 	const string GROUP_PLAYER = "__PLAYER";
 	const string GROUP_TEAM = "__TEAM";
 
-	string selectedGroup;
+	string selectedGroup = GROUP_PLAYER;
 	UpgradeDefinition selectedUpgrade;
 	private IEnumerable<VehicleDefinition> GetUpgradableVehicles()
 	{
@@ -21,21 +21,51 @@ public partial class UpgradePage
 
 	private IEnumerable<UpgradeDefinition> GetUpgrades()
 	{
-		return ResourceLibrary.GetAll<UpgradeDefinition>();
+		if(string.IsNullOrWhiteSpace(selectedGroup))
+		{
+			return null;
+		}
+
+		var upgrades = ResourceLibrary.GetAll<UpgradeDefinition>();
+
+		if(selectedGroup == GROUP_PLAYER)
+		{
+			return upgrades.Where( u => u.Target == UpgradeTarget.Player );
+		}
+		else if(selectedGroup == GROUP_TEAM)
+		{
+			return upgrades.Where( u => u.Target == UpgradeTarget.Team );
+		}
+		else
+		{
+			return upgrades.Where(u => u.Target == UpgradeTarget.Vehicle && u.TargetVehicle?.ResourcePath == selectedGroup);
+		}
 	}
 
 	private string GetClasses(UpgradeDefinition upgrade)
 	{
 		string classes = "";
-		if ( CanBuy( upgrade ) )
+		if ( Unlocked( upgrade ) )
+			classes += "unlocked ";
+		else if ( CanBuy( upgrade ) )
 			classes += "buyable ";
 
 		return classes;
 	}
-
+	private bool Unlocked(UpgradeDefinition upgrade)
+	{
+		return CurrentSave != null && CurrentSave.UpgradeUnlocked( upgrade );
+	}
 	private bool CanBuy(UpgradeDefinition upgrade)
 	{
 		return CurrentSave != null && CurrentSave.CanBuy( upgrade );
+	}
+	private void TryBuySelected()
+	{
+		if ( CurrentSave == null )
+			return;
+
+		CurrentSave.UpgradeBuy( selectedUpgrade );
 	}
 
 	private int GetMoney()
@@ -51,6 +81,12 @@ public partial class UpgradePage
 	void OnClickUpgrade(UpgradeDefinition definition)
 	{
 		selectedUpgrade = definition;
+	}
+
+	void OnClickGroup(string id)
+	{
+		selectedGroup = id;
+		selectedUpgrade = null;
 	}
 
 	void OnClickBack()

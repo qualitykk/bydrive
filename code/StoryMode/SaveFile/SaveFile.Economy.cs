@@ -20,17 +20,25 @@ public partial class SaveFile
 	/// </summary>
 	public int Licenses { get; set; }
 
-	public bool CanBuy(UpgradeDefinition upgrade)
+	public bool CanBuy(IEconomyItem item)
 	{
-		bool canBuy = Money >= upgrade.MoneyCost && Tokens >= upgrade.TokenCost;
-		if(upgrade.CanUnlock != null)
+		bool canBuy = Money >= item.MoneyCost && Tokens >= item.TokenCost;
+		if(item.CanPurchase != null)
 		{
-			canBuy &= upgrade.CanUnlock.Invoke( this );
+			canBuy &= item.CanPurchase.Invoke( this );
 		}
 
 		return canBuy;
 	}
+	public bool Buy(IEconomyItem item)
+	{
+		if(!CanBuy(item)) return false;
 
+		Money -= item.MoneyCost;
+		Tokens -= item.TokenCost;
+
+		return true;
+	}
 	[ConCmd("st_econ_setmoney")]
 	private static void Command_SetMoney(float amount)
 	{

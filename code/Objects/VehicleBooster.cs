@@ -18,8 +18,8 @@ public class VehicleBooster : Component, Component.ITriggerListener
 	public static bool ApplyBoost(VehicleController vehicle, float time)
 	{
 		bool added = true;
-		added = added & vehicle.AddStatModifier( BOOSTER_SPEED_MODIFIER, VehicleStatModifiers.SPEED, BOOSTER_SPEED_MULTIPLIER, time );
-		added = added & vehicle.AddStatModifier( BOOSTER_ACCELERATION_MODIFIER, VehicleStatModifiers.ACCELERATION, BOOSTER_ACCELERATION_MULTIPLIER, time );
+		added = added & vehicle.AddTemporaryStatModifier( BOOSTER_SPEED_MODIFIER, VehicleStatModifiers.SPEED, BOOSTER_SPEED_MULTIPLIER, time );
+		added = added & vehicle.AddTemporaryStatModifier( BOOSTER_ACCELERATION_MODIFIER, VehicleStatModifiers.ACCELERATION, BOOSTER_ACCELERATION_MULTIPLIER, time );
 		return added;
 	}
 	void ITriggerListener.OnTriggerEnter( Collider other )

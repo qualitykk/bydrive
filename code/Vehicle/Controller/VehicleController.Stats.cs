@@ -41,6 +41,13 @@ public partial class VehicleController
 			return $"{Id}/{DeletionTime}";
 		}
 	}
+	private List<VehicleStatModifier> permamentStatModifiers = new();
+	[ActionGraphIgnore]
+	public void AddPermanentStatModifier(VehicleStatModifier modifier)
+	{
+		permamentStatModifiers.Add( modifier );
+	}
+	public void AddPermanentStatModifier( VehicleStats stats, VehicleStatChangeMode mode ) => AddPermanentStatModifier( new( stats, mode ) );
 	public VehicleStats GetStats()
 	{
 		VehicleStats stats = Definition?.Stats ?? new();
@@ -51,6 +58,14 @@ public partial class VehicleController
 				stats = stats.WithChanges( attachment );
 			}
 		}
+		if(permamentStatModifiers.Any())
+		{
+			foreach(var modifier in permamentStatModifiers)
+			{
+				stats = stats.WithChanges( modifier.Stats, modifier.Mode );
+			}
+		}
+
 		return stats;
 	}
 	[Title("Reset Stat Modifiers"), Category( "Stats" )]
@@ -62,15 +77,15 @@ public partial class VehicleController
 	}
 	private void TickStats()
 	{
-		TickModifiers();
+		TickTemporaryModifiers();
 	}
 
 	#region Modifiers
 	private Dictionary<string, TemporaryStatModifier> modifierIds = new();
 	private List<TemporaryStatModifier> modifiers = new();
 	private Dictionary<string, List<TemporaryStatModifier>> modifiersPerStat = new();
-	public bool AddStatModifier(string id, string stat, float multiplier, float time = 1f) => AddStatModifier( new( id, stat, multiplier, time ) );
-	private bool AddStatModifier(TemporaryStatModifier modifier)
+	public bool AddTemporaryStatModifier(string id, string stat, float multiplier, float time = 1f) => AddTemporaryStatModifier( new( id, stat, multiplier, time ) );
+	private bool AddTemporaryStatModifier(TemporaryStatModifier modifier)
 	{
 		if(modifierIds.TryGetValue(modifier.Id, out var existing))
 		{
@@ -91,7 +106,7 @@ public partial class VehicleController
 		}
 		return true;
 	}
-	private void DeleteModifier(TemporaryStatModifier modifier)
+	private void DeleteTemporaryStatModifier(TemporaryStatModifier modifier)
 	{
 		if(!modifiers.Contains(modifier))
 		{
@@ -103,12 +118,12 @@ public partial class VehicleController
 		modifiersPerStat[modifier.Stat].Remove( modifier );
 	}
 
-	private bool ShouldDelete(TemporaryStatModifier modifier)
+	private bool ShouldDeleteTemporaryModifier(TemporaryStatModifier modifier)
 	{
 		return Time.Now >= modifier.DeletionTime;
 	}
 
-	private void ApplyStatMultipliers(string id, ref float multiplier)
+	private void ApplyTemporaryStatMultipliers(string id, ref float multiplier)
 	{
 		if(!modifiersPerStat.TryGetValue(id, out var modifiers) || !modifiers.Any())
 		{
@@ -121,14 +136,14 @@ public partial class VehicleController
 		}
 	}
 
-	private void TickModifiers()
+	private void TickTemporaryModifiers()
 	{
-		TemporaryStatModifier[] modifiersToDelete = modifiers.Where( ShouldDelete ).ToArray();
+		TemporaryStatModifier[] modifiersToDelete = modifiers.Where( ShouldDeleteTemporaryModifier ).ToArray();
 		if (modifiersToDelete.Any())
 		{
 			foreach ( var mod in modifiersToDelete )
 			{
-				DeleteModifier( mod );
+				DeleteTemporaryStatModifier( mod );
 			}
 		}
 	}
@@ -155,7 +170,7 @@ public partial class VehicleController
 			multiplier *= GetStats().BoostSpeedMultiplier;
 		}
 
-		ApplyStatMultipliers( VehicleStatModifiers.SPEED, ref multiplier );
+		ApplyTemporaryStatMultipliers( VehicleStatModifiers.SPEED, ref multiplier );
 
 		return maxSpeed * multiplier;
 	}
@@ -169,7 +184,7 @@ public partial class VehicleController
 			multiplier *= GetStats().BoostAccelerationMultiplier;
 		}
 
-		ApplyStatMultipliers( VehicleStatModifiers.ACCELERATION, ref multiplier );
+		ApplyTemporaryStatMultipliers( VehicleStatModifiers.ACCELERATION, ref multiplier );
 		return acceleration * multiplier;
 	}
 	[Category( "Stats" )]
@@ -232,5 +247,17 @@ public partial class VehicleController
 	public List<ItemDefinition> GetVehicleItems()
 	{
 		return GetStats().BonusItems;
+	}
+}
+
+public class VehicleStatModifier
+{
+	public VehicleStats Stats { get; set; }
+	public VehicleStatChangeMode Mode { get; set; }
+
+	public VehicleStatModifier( VehicleStats stats, VehicleStatChangeMode mode )
+	{
+		Stats = stats;
+		Mode = mode;
 	}
 }

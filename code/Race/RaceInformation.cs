@@ -311,6 +311,19 @@ public class RaceInformation
 		obj.ApplyPrefab( PLAYER_PREFAB );
 		obj.Parent = parent;
 		obj.Name = participant.Player.Name;
+
+		// TODO: This is stupid, we need to make an event system ASAP!
+		if(Story.Active)
+		{
+			var upgrades = CurrentSave.GetUnlockedUpgrades();
+			if(upgrades != null && upgrades.Any())
+			{
+				foreach(var upgrade in upgrades)
+				{
+					upgrade.OnRaceStart?.Invoke( controller );
+				}
+			}
+		}
 	}
 
 	/// <summary>

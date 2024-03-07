@@ -65,4 +65,11 @@ internal static class ActionGraph
 		CurrentSave.SetChallengeState( challenge, ChallengeState.InProgress );
 	}
 	#endregion
+
+	[ActionGraphNode("util.construct"), Pure]
+	[Title("New Object")]
+	private static T Action_CreateObject<T>()
+	{
+		return TypeLibrary.Create<T>();
+	}
 }

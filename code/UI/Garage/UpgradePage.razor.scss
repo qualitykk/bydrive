@@ -43,6 +43,10 @@ UpgradePage {
                 font-size: 38px;
                 font-weight: bold;
                 text-align: center;
+
+                &.active {
+                    border: 5px solid white;
+                }
             }
 
             .player {

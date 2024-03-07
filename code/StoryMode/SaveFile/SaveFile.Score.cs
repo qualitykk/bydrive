@@ -39,10 +39,14 @@ public partial class SaveFile
 		new( 8200,  "Legend" ),
 		new( 10000, "Champion" ),
 	};
+	public static LeagueRank GetScoreRank(int score)
+	{
+		return Ranks.LastOrDefault( rank => rank.Points <= score );
+	}
 	public int Score { get; set; }
 	public LeagueRank GetRank()
 	{
-		return Ranks.LastOrDefault( rank => rank.Points <= Score );
+		return GetScoreRank( Score );
 	}
 	public LeagueRank GetNextRank()
 	{

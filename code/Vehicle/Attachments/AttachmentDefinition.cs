@@ -22,15 +22,19 @@ public class AttachmentDefinition : GameResource
 public enum VehicleStatChangeMode
 {
 	/// <summary>
+	/// Increase by percentage relative to base stats (1200 vs 900 base = 30% increase, etc)
+	/// </summary>
+	PercentRelative,
+	/// <summary>
 	/// Percentage increase with 0 = 100%, 0.5 = 150%, -0.5 = 50% etc.
 	/// </summary>
-	Percent,
+	PercentRaw,
 	Absolute,
 	Override
 }
 public static class VehicleStatExtensions
 {
-	public static VehicleStats WithChanges(this VehicleStats stats, VehicleStats changes, VehicleStatChangeMode mode = VehicleStatChangeMode.Percent)
+	public static VehicleStats WithChanges(this VehicleStats stats, VehicleStats changes, VehicleStatChangeMode mode = VehicleStatChangeMode.PercentRaw)
 	{
 		if ( stats.Equals(default) ) return changes;
 		if ( changes.Equals(default) ) return stats;
@@ -55,6 +59,19 @@ public static class VehicleStatExtensions
 			stats.BoostSpeedMultiplier += defaultStats.BoostSpeedMultiplier - changes.BoostSpeedMultiplier;
 			stats.BoostAccelerationMultiplier += defaultStats.BoostAccelerationMultiplier - changes.BoostAccelerationMultiplier;
 
+		}
+		else if(mode == VehicleStatChangeMode.PercentRaw)
+		{
+			stats.MaxSpeed *= 1 + changes.MaxSpeed;
+			stats.Acceleration *= 1 + changes.Acceleration;
+			stats.MaxHealth += changes.MaxHealth;
+			stats.TurnSpeed *= 1 + changes.TurnSpeed;
+			stats.TurnSpeedIdealDistance *= 1 + changes.TurnSpeedIdealDistance;
+			stats.TurnSpeedVelocityFactor *= 1 + changes.TurnSpeedVelocityFactor;
+			stats.BoostRechargeCooldown *= 1 + changes.TurnSpeedVelocityFactor;
+			stats.BoostRechargeFactor *= 1 + changes.BoostRechargeFactor;
+			stats.BoostSpeedMultiplier *= 1 + changes.BoostSpeedMultiplier;
+			stats.BoostAccelerationMultiplier *= 1 + changes.BoostAccelerationMultiplier;
 		}
 		else
 		{

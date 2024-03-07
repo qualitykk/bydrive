@@ -7,10 +7,10 @@
 <root>
     <div class="side">
         <div class="static group">
-            <div class="player entry">
+            <div class="player entry @UI.ActiveIf(selectedGroup == GROUP_PLAYER)" @onclick=@(() => OnClickGroup(GROUP_PLAYER))>
                 @Story.GetPlayerName()
             </div>
-            <div class="team entry">
+            <div class="team entry @UI.ActiveIf(selectedGroup == GROUP_TEAM)" @onclick=@(() => OnClickGroup(GROUP_TEAM))>
                 @Story.GetTeamName()
             </div>
         </div>
@@ -18,7 +18,7 @@
             <div class="title">Vehicles</div>
             @foreach (var vehicle in GetUpgradableVehicles())
             {
-                <div class="vehicle entry">
+                <div class="vehicle entry @UI.ActiveIf(selectedGroup == vehicle.ResourcePath)" @onclick=@(() => OnClickGroup(vehicle.ResourcePath))>
                     @vehicle.Title
                 </div>
             }
@@ -86,7 +86,10 @@
                     }
                 </div>
                 <div class="controls">
-                    <div class="button buy @UI.ActiveIf(CanBuy(selectedUpgrade))">Buy</div>
+                    @if(!Unlocked(selectedUpgrade))
+                    {
+                        <div class="button buy @UI.ActiveIf(CanBuy(selectedUpgrade))" @onclick=@TryBuySelected>Buy</div>
+                    }
                 </div>
             }
         </label>

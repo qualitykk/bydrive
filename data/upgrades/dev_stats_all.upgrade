@@ -1,6 +1,8 @@
 {
   "Title": "Dev - All Vehicle Stats",
   "Description": "Increase all vehicle stats by 10%.",
+  "Target": "Player",
+  "TargetVehicle": null,
   "OnRaceStart": null,
   "MoneyCost": 5000,
   "TokenCost": 0,
