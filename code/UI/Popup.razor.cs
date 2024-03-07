@@ -22,25 +22,23 @@ public partial class Popup : PanelComponent
 			Pages = new PopupPage[1] { page };		
 		}
 	}
-	public static Popup Instance { get; private set; }
-	private List<QueueEntry> popupQueue { get; set; } = new();
-	private QueueEntry currentPopup;
-	private int currentPageNumber;
-	private int currentPageMax => currentPopup.Pages.Length - 1;
-	private PopupPage currentPage => currentPopup?.Pages?.ElementAtOrDefault( currentPageNumber ) ?? default;
+	private static List<QueueEntry> popupQueue = new();
+	private static QueueEntry currentPopup;
+	private static int currentPageNumber;
+	private static int currentPageMax => currentPopup.Pages.Length - 1;
+	private static PopupPage currentPage => currentPopup?.Pages?.ElementAtOrDefault( currentPageNumber ) ?? default;
 	public static void Add( PopupPage notification )
 	{
-		Instance?.popupQueue.Add( new(notification) );
+		popupQueue.Add( new(notification) );
 	}
 	public static void Add(IEnumerable<PopupPage> pages)
 	{
-		Instance?.popupQueue.Add( new(pages.ToArray()));
+		popupQueue.Add( new(pages.ToArray()));
 	}
 
 	protected override void OnEnabled()
 	{
 		base.OnEnabled();
-		Instance = this;
 	}
 	protected override void OnUpdate()
 	{
@@ -48,11 +46,11 @@ public partial class Popup : PanelComponent
 		{
 			currentPopup = popupQueue.First();
 			popupQueue.RemoveAt( 0 );
-			UI.MakeMenu( Panel );
 		}
 
 		if(currentPopup != null)
 		{
+			UI.MakeMenu( Panel );
 			if(Input.Pressed(InputActions.DIALOG_SKIP) || Input.Pressed(InputActions.USE)) 
 			{
 				if(currentPageNumber == currentPageMax ) 
@@ -69,9 +67,14 @@ public partial class Popup : PanelComponent
 		}
 	}
 
+	protected override void OnDestroy()
+	{
+		UI.MakeMenuInactive( Panel );
+	}
+
 	protected override int BuildHash()
 	{
-		return HashCode.Combine( currentPopup, popupQueue, currentPage );
+		return HashCode.Combine( currentPopup, popupQueue, currentPage, ActiveMenu );
 	}
 
 	[ConCmd("ui_show_popup")]

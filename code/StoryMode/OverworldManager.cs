@@ -29,6 +29,8 @@ public class OverworldManager : Component
 	}
 	private void Initialise()
 	{
+		ResetGlobals();
+
 		if ( PlayerPrefab == null )
 		{
 			Log.Error( "Overworld without player???" );
@@ -68,7 +70,6 @@ public class OverworldManager : Component
 			CurrentSave.LastTransform = lastPlayerPosition;
 			Story.Save();
 		}
-		ResetGlobals();
 	}
 
 	private IEnumerable<Tuple<GameObject, IInteractible>> GetUsables()

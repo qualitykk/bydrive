@@ -53,7 +53,7 @@
     {
       "Track": "data/tracks/main_backstreets.track",
       "Parameters": {
-        "MaxLaps": 3
+        "MaxLaps": 1
       },
       "Variables": {
         "route": "a"

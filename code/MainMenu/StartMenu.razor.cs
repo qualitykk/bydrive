@@ -95,12 +95,12 @@ public partial class StartMenu : PanelComponent
 		PlayMusic();
 		NavPanel?.Navigate( "/front" );
 		SelectedVehicle = default;
+		ResetGlobals();
 	}
 
 	protected override void OnDestroy()
 	{
 		base.OnDestroy();
-		ResetGlobals();
 		Music.Stop();
 	}
 

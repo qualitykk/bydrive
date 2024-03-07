@@ -46,6 +46,7 @@ public partial class SaveFile
 
 	private void ShowUnlockMessage(ChallengeDefinition definition, ChallengeState state)
 	{
+		Log.Info( $"ShowUnlockMessage {definition} {state}" );
 		if ( state == ChallengeState.InProgress )
 		{
 			Popup.Add( new PopupPage( "Challenge", $"Received a challenge: {definition.Title}", UI.Colors.Popup.Positive ) );

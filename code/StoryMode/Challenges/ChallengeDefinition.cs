@@ -81,6 +81,26 @@ public class ChallengeDefinition : GameResource
 		StartRace.Challenge( challenge, VehicleBuilder.ForDefinition(VehicleDefinition.GetDefault()) );
 	}
 
+	[ConCmd("st_challenge_setstate")]
+	private static void Command_SetChallengeUnlocked(string id, int state)
+	{
+		if(!Story.Active)
+		{
+			Log.Warning( "Story mode not active, cant unlock challenge!" );
+			return;
+		}
+
+		var challenge = Get( id );
+
+		if ( !challenge.IsRace )
+		{
+			Log.Warning( "Selected challenge is not a race, cant start it!" );
+			return;
+		}
+
+		CurrentSave.SetChallengeState( challenge, (ChallengeState)state );
+	}
+
 	[ConCmd("st_challenge_dump")]
 	private static void Command_DumpChallenges()
 	{

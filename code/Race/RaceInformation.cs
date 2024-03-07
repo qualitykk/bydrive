@@ -77,7 +77,7 @@ public class RaceInformation
 		Assert.NotNull( Participants );
 
 		Current = this;
-
+		ResetGlobals();
 		Game.ActiveScene.LoadFromFile( CurrentDefinition.Scene.ResourcePath );
 
 		if ( CurrentVariables != null && CurrentDefinition.Variables.Any() )

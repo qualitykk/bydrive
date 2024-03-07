@@ -46,19 +46,24 @@ public partial class SaveFile
 	public Transform LastTransform { get; set; }
 	public void Save()
 	{
-		string path = GetFilePath();
+		string path = $"{GetFileName()}{GetFIleExtension()}";
 		Save( path, this );
 	}
 	public void AutoSave()
 	{
-		string path = GetFilePath();
+		string path = GetFileName();
 		path += $"_autosave_{DateTime.UtcNow.Ticks}";
+		path += GetFIleExtension();
 
 		Save( path, this );
 	}
-	private string GetFilePath()
+	public string GetFileName()
 	{
-		return $"{SAVE_DIRECTORY}/{Id}.save";
+		return $"{SAVE_DIRECTORY}/{Id}";
+	}
+	public string GetFIleExtension()
+	{
+		return ".save";
 	}
 
 	public override string ToString()
