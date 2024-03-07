@@ -1,0 +1,22 @@
+﻿@using Sandbox.UI;
+@namespace Bydrive
+@inherits PanelComponent;
+
+<root class="@UI.ActiveIfMenu(Panel)">
+    <div class="content">
+        @if(rankupActive)
+        {
+            <label class="header">LEAGUE RANK UP!</label>
+            <label class="newrank">@startRank -> @endRank</label>
+        }
+        else if(gainActive)
+        {
+            <div class="rank">
+                <div class="icon" style="background-color: #ffd800;" />
+                <label class="name">@startRank.Title</label>
+            </div>
+            <label class="gain">+@(endScore - startScore) RS</label>
+            <ProgressBar Value=@displayScore MaxValue=@maxScore />
+        }
+    </div>
+</root>

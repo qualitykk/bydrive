@@ -14,6 +14,7 @@ public static class Story
 	public delegate void CompletionProgress( SaveFile file );
 	public static bool Active { get; private set; }
 	public static SaveFile Progress { get; set; }
+	public static bool InOverworld => Game.ActiveScene.Title == "story_overworld";
 	public static string GetPlayerName()
 	{
 		return Progress?.CharacterName ?? GetLocalName() ?? "Max Mustermann";

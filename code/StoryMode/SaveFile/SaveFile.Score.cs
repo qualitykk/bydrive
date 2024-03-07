@@ -6,25 +6,25 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
+public struct LeagueRank
+{
+	public int Points { get; set; }
+	public string Title { get; set; }
+	public string Icon { get; set; }
+	public LeagueRank( int points, string title, string icon = "" )
+	{
+		Points = points;
+		Title = title;
+		Icon = icon;
+	}
+
+	public override string ToString()
+	{
+		return Title;
+	}
+}
 public partial class SaveFile
 {
-	public struct LeagueRank
-	{
-		public int Points { get;set; }
-		public string Title { get;set; }
-		public string Icon { get;set; }
-		public LeagueRank( int points, string title, string icon = "" )
-		{
-			Points = points;
-			Title = title;
-			Icon = icon;
-		}
-
-		public override string ToString()
-		{
-			return Title;
-		}
-	}
 	public static readonly LeagueRank DefaultRank = new( 0, "Amateur" );
 	public static readonly List<LeagueRank> Ranks = new()
 	{
@@ -43,18 +43,30 @@ public partial class SaveFile
 	{
 		return Ranks.LastOrDefault( rank => rank.Points <= score );
 	}
-	public int Score { get; set; }
+	public static LeagueRank GetNextRank(int score)
+	{
+		var rank = Ranks.FirstOrDefault( rank => rank.Points > score );
+		if ( string.IsNullOrWhiteSpace( rank.Title ) )
+			return Ranks.Last();
+
+		return rank;
+	}
+	[ActionGraphIgnore] public int Score { get; set; }
+	public void GainScore(int amount)
+	{
+		amount = (int)MathF.Abs( amount );
+		int newScore = Score + amount;
+
+		LeagueScoreGain.Show( Score, newScore );
+		Score = newScore;
+	}
 	public LeagueRank GetRank()
 	{
 		return GetScoreRank( Score );
 	}
 	public LeagueRank GetNextRank()
 	{
-		var rank = Ranks.FirstOrDefault( rank => rank.Points > Score );
-		if (string.IsNullOrWhiteSpace(rank.Title))
-			return Ranks.Last();
-
-		return rank;
+		return GetNextRank( Score );
 	}
 
 	[ConCmd("st_league_setscore")]

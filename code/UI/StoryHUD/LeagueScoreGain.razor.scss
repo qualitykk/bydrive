@@ -1,0 +1,76 @@
+﻿@import "/colors.scss";
+
+LeagueScoreGain {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: $background_clear;
+    backdrop-filter: blur(2px);
+
+    &.disabled {
+        display: none;
+    }
+
+    .content {
+        height: 40%;
+        width: 40%;
+        border-radius: 5px;
+        flex-direction: column;
+        align-items: center;
+        background-color: $background_config;
+        font-family: Poppins;
+
+        .rank {
+            height: 30%;
+            margin-top: 5%;
+            align-items: center;
+            color: #fff;
+            font-size: 72px;
+            font-weight: bold;
+
+            .icon {
+                height: 80%;
+                aspect-ratio: 1;
+                margin-right: 5%;
+            }
+        }
+
+        .gain {
+            height: 20%;
+            align-items: center;
+            color: $color_score;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .header {
+            height: 50%;
+            align-items: flex-end;
+            color: $color_score;
+            font-size: 72px;
+            font-weight: bold;
+        }
+
+        .newrank {
+            height: 40%;
+            color: #fff;
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        ProgressBar {
+            width: 80%;
+            height: 20%;
+            border-radius: 5px;
+            background-color: $background_dark;
+
+            .bar {
+                background-color: $color_score;
+            }
+        }
+    }
+}
