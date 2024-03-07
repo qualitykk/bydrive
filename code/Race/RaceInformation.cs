@@ -94,6 +94,36 @@ public class RaceInformation
 			}
 		}
 
+		var toggles = Game.ActiveScene.Components.GetAll<TrackVariableToggle>( FindMode.EverythingInSelfAndDescendants );
+		if ( toggles.Any() )
+		{
+			foreach ( var variableToggle in toggles )
+			{
+				if ( CurrentVariables.TryGetValue( variableToggle.Key, out string actualValue ) )
+				{
+					bool result = true;
+					if ( variableToggle.FullMatch )
+					{
+						result = variableToggle.Value == actualValue;
+					}
+					else
+					{
+						result = variableToggle.Value.Contains( actualValue );
+					}
+
+					if ( variableToggle.Invert )
+					{
+						result = !result;
+					}
+					variableToggle.GameObject.Enabled = result;
+				}
+				else
+				{
+					variableToggle.GameObject.Enabled = variableToggle.Invert;
+				}
+			}
+		}
+
 		CreateParticipantObjects();
 		OnParticipantsCreated?.Invoke();
 		InitialiseMode();
@@ -103,22 +133,6 @@ public class RaceInformation
 			foreach ( var obj in Game.ActiveScene.GetAllObjects( false ) )
 			{
 				obj.BreakFromPrefab();
-			}
-		}
-
-		var variableToggles = Game.ActiveScene.GetAllComponents<TrackVariableToggle>();
-		if(variableToggles.Any())
-		{
-			foreach ( var variableToggle in variableToggles)
-			{
-				if(CurrentVariables.TryGetValue(variableToggle.Key, out string actualValue))
-				{
-					variableToggle.GameObject.Enabled = variableToggle.Value == actualValue;
-				}
-				else
-				{
-					variableToggle.GameObject.Enabled = false;
-				}
 			}
 		}
 	}

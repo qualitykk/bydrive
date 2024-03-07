@@ -95,10 +95,10 @@ CompletionPage {
                 ProgressBar {
                     height: 70%;
                     border-radius: 5px;
-                    background-color: #5a5a5a;
+                    background-color: $background_dark;
 
                     .bar {
-                        background-color: #abe8ab;
+                        background-color: $color_score;
                     }
                 }
             }

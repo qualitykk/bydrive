@@ -50,14 +50,14 @@
 					int placement = totalPlacement.IndexOf(kv) + 1;
 					RaceInformation.Participant participant = kv.Key;
 					int score = kv.Value;
-					int addedScore = score - oldScores[participant];
+					int oldScore = oldScores.ContainsKey(participant) ? oldScores[participant] : 0;
 				}
 				<div class="entry racer">
 					<label class="placement @GetPlacementTag(placement)">@placement</label>
 					<label class="name">@participant.Player.DisplayName</label>
 					<div class="score">
 						<label class="added">
-							@($"+{addedScore}")
+							@($"+{score - oldScore}")
 						</label>
 						<label class="value">
 							@score

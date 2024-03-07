@@ -37,5 +37,5 @@ public partial class LapCompletion
 	/// <summary>
 	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
 	/// </summary>
-	protected override int BuildHash() => HashCode.Combine( Game.ActiveScene, GetCurrentCompletion() );
+	protected override int BuildHash() => HashCode.Combine( Game.ActiveScene, GetCurrentCompletion(), DebugCheckpoints );
 }

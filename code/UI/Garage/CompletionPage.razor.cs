@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 namespace Bydrive;
 public partial class CompletionPage
 {
-	private SaveFile.LeagueRank GetCurrentRank()
+	private LeagueRank GetCurrentRank()
 	{
 		return CurrentSave?.GetRank() ?? SaveFile.DefaultRank;
 	}
 
-	private SaveFile.LeagueRank GetNextRank()
+	private LeagueRank GetNextRank()
 	{
 		return CurrentSave?.GetNextRank() ?? SaveFile.Ranks.Last();
 	}

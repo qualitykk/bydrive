@@ -13,16 +13,16 @@ public partial class RaceManager
 	private int maxCheckpointOrder = 0;
 	public void OrderCheckpoints()
 	{
-		if ( StartCheckpoint == null )
+		if ( StartCheckpointOptions == null )
 		{
 			Log.Warning( "Race Manager requires starting checkpoint, running without race manager!" );
 			return;
 		}
 
 		checkpointOrder.Clear();
-		checkpointOrder.Add( StartCheckpoint, 0 );
+		checkpointOrder.Add( GetStartCheckpoint(), 0 );
 
-		List<RaceCheckpoint> nextCheckpoints = StartCheckpoint.NextCheckpoints;
+		List<RaceCheckpoint> nextCheckpoints = GetStartCheckpoint().NextCheckpoints;
 		Assert.NotNull(nextCheckpoints, $"Cant have race without checkpoints!");
 		int currentOrder = 1;
 		bool foundStart = false;
@@ -33,7 +33,7 @@ public partial class RaceManager
 			{
 				RaceCheckpoint checkpoint = nextCheckpoints[i];
 
-				if ( checkpoint == StartCheckpoint )
+				if ( checkpoint == GetStartCheckpoint() )
 				{
 					pointsToContinue.Remove( checkpoint );
 					foundStart = true;

@@ -13,4 +13,6 @@ public class TrackVariableToggle : Component
 {
 	[Property] public string Key { get;set; }
 	[Property] public string Value { get;set; }
+	[Property] public bool FullMatch { get;set; }
+	[Property] public bool Invert { get;set; }
 }

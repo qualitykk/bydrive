@@ -15,12 +15,13 @@ namespace Bydrive;
 public sealed partial class RaceManager : Component
 {
 	public static RaceManager Current { get; private set; }
-	[Property] public RaceCheckpoint StartCheckpoint {get;set;}
+	[Property] public List<RaceCheckpoint> StartCheckpointOptions { get; set; } = new();
 	public List<RaceParticipant> Participants { get; private set; } = new();
 	public TimeUntil TimeUntilRaceStart { get; private set; }
 	public TimeSince TimeSinceRaceStart { get; private set; }
 	public bool HasStarted { get; private set; } = false;
 	public bool HasLoaded { get; private set; } = false;
+	private RaceCheckpoint startCheckpoint;
 	public SoundEvent GetRaceMusic()
 	{
 		return RaceMusic.RaceMusic;
@@ -36,6 +37,12 @@ public sealed partial class RaceManager : Component
 	public int GetMaxLaps()
 	{
 		return RaceContext.CurrentParameters.MaxLaps;
+	}
+	public RaceCheckpoint GetStartCheckpoint()
+	{
+		if ( startCheckpoint != null ) return startCheckpoint;
+		startCheckpoint = StartCheckpointOptions?.FirstOrDefault( c => c.GameObject.Active == true );
+		return startCheckpoint;
 	}
 	protected override void OnAwake()
 	{
@@ -63,6 +70,7 @@ public sealed partial class RaceManager : Component
 
 	public override void Reset()
 	{
+		startCheckpoint = null;
 		SetupRace();
 	}
 	private void SetupRace()
@@ -85,7 +93,7 @@ public sealed partial class RaceManager : Component
 		InitialiseParticipants( Participants);
 		foreach(var participant in Participants)
 		{
-			participant.PassCheckpoint( StartCheckpoint, true );
+			participant.PassCheckpoint( GetStartCheckpoint(), true );
 		}
 
 		StartCountdown();
@@ -134,7 +142,7 @@ public sealed partial class RaceManager : Component
 		const float TEXT_SIZE = 24f;
 		const float WORLD_TEXT_SIZE = 16f;
 
-		if(StartCheckpoint == null)
+		if(StartCheckpointOptions == null)
 		{
 			Gizmo.Draw.Color = Color.Red;
 			Gizmo.Draw.ScreenText( "No start point set for race manager!", new( 200 ), size: TEXT_SIZE );
@@ -143,8 +151,10 @@ public sealed partial class RaceManager : Component
 
 		Color startColor = Color.Orange;
 		Color checkpointColor = Color.Yellow;
-		Vector3 startPosition = Transform.World.PointToLocal( StartCheckpoint.Transform.Position );
-
+		var start = GetStartCheckpoint();
+		Vector3 startPosition = Transform.World.PointToLocal( start?.Transform.Position ?? Vector3.Zero );
+		Gizmo.Draw.ScreenText( $"Start Checkpoint: {start}", new( 200 ), size: TEXT_SIZE );
+;
 		Gizmo.Draw.Color = startColor;
 		Gizmo.Draw.LineSphere( startPosition, START_POSITION_RADIUS );
 
