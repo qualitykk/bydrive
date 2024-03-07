@@ -8,8 +8,9 @@
 
 @code {
     public float Value { get; set; }
+    public float MinValue { get; set; }
     public float MaxValue { get; set; }
-    public float Fraction => (Value / MaxValue).Clamp(0,1);
+    public float Fraction => ((Value - MinValue) / (MaxValue - MinValue)).Clamp(0,1);
 
     Panel bar;
 

@@ -27,11 +27,25 @@
         <div class="progress">
             <div class="rank">
                 <div class="icon" />
-                <label class="title">Challenger</label>
+                <label class="title">@GetCurrentRank().Title</label>
             </div>
             <div class="score">
-                <label class="value">50/100 RS</label>
-                <ProgressBar Value=@(50f) MaxValue=@(100f) />
+                @{
+                    int score = CurrentSave?.Score ?? 0;
+                    int requiredScore = GetNextRank().Points;
+                    bool finished = GetCurrentRank().Equals(GetNextRank());
+                }
+                @if(finished)
+                {
+                    <label class="value">@score RS</label>
+                    <ProgressBar/>
+                }
+                else
+                {
+                    <label class="value">@(score)/@(requiredScore) RS</label>
+                    <ProgressBar Value=@(score) MaxValue=@(requiredScore)/>
+                }
+                
             </div>
             <div class="status">
                 <div class="entry">

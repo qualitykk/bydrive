@@ -8,6 +8,15 @@ using System.Threading.Tasks;
 namespace Bydrive;
 public partial class CompletionPage
 {
+	private SaveFile.LeagueRank GetCurrentRank()
+	{
+		return CurrentSave?.GetRank() ?? SaveFile.DefaultRank;
+	}
+
+	private SaveFile.LeagueRank GetNextRank()
+	{
+		return CurrentSave?.GetNextRank() ?? SaveFile.Ranks.Last();
+	}
 	private string GetAvatar()
 	{
 		return $"avatarbig:{Game.SteamId}";
@@ -16,5 +25,10 @@ public partial class CompletionPage
 	void OnClickBack()
 	{
 		this.Navigate( "/" );
+	}
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine( CurrentSave, CurrentSave?.Score );
 	}
 }
