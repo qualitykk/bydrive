@@ -104,11 +104,11 @@ public class RaceInformation
 					bool result = true;
 					if ( variableToggle.FullMatch )
 					{
-						result = variableToggle.Value == actualValue;
+						result = actualValue == variableToggle.Value;
 					}
 					else
 					{
-						result = variableToggle.Value.Contains( actualValue );
+						result = actualValue.Contains( variableToggle.Value );
 					}
 
 					if ( variableToggle.Invert )

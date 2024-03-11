@@ -33,17 +33,18 @@ public sealed class VehicleWheel : Component
 		}
 
 		PhysicsBody physics = physicsComponent.PhysicsBody;
-		float length = Radius + lengthExtend;
+		float length = Radius * 2 + lengthExtend;
 
 		Rotation rotation = GameObject.Parent.Transform.Rotation;
 		Vector3 wheelAttachPos = GetAttachmentWorldPosition();
-		Vector3 wheelExtend = wheelAttachPos - rotation.Up * (length * Transform.Scale);
+		Vector3 wheelExtend = wheelAttachPos - Vector3.Up * (length * Transform.Scale);
+
 
 		var tr = Scene.Trace.Ray( wheelAttachPos, wheelExtend )
+			.WithTag(TraceTags.SOLID)
 			.WithoutTags("nocollide")
 			.IgnoreGameObject(GameObject.Parent)
 			.IgnoreGameObject(GameObject )
-			.UsePhysicsWorld()
 			.Run();
 
 		if ( !tr.Hit || !doPhysics )
@@ -91,15 +92,15 @@ public sealed class VehicleWheel : Component
 
 		if ( springForce > 300f )
 		{
-			Log.Info( $"spring: {springForce}" );
+			//Log.Info( $"spring: {springForce}" );
 		}
 		if ( damperForce > 100f )
 		{
-			Log.Info( $"damp: {damperForce} ({springVelocity})" );
+			//Log.Info( $"damp: {damperForce} ({springVelocity})" );
 		}
 		if (correctionForce > 100f)
 		{
-			Log.Info( $"corr: {correctionForce}" );
+			//Log.Info( $"corr: {correctionForce}" );
 		}
 
 		return true;
@@ -118,12 +119,14 @@ public sealed class VehicleWheel : Component
 		const float EXTEND_GIZMO_LENGTH = 20f;
 
 		Gizmo.Draw.Color = Color.Red;
-		float length = Radius + EXTEND_GIZMO_LENGTH;
+		float length = Radius * 2 + EXTEND_GIZMO_LENGTH;
 
-		Rotation rotation = GameObject.Parent.Transform.Rotation;
+		Vector3 up = Transform.Local.PointToLocal( Transform.LocalPosition + Vector3.Up );
 		Vector3 wheelAttachPos = Transform.Local.PointToLocal(initialPosition);
-		Vector3 wheelExtend = wheelAttachPos - rotation.Up * (length * Transform.Scale);
+		Vector3 wheelExtend = wheelAttachPos - up * (length * Transform.Scale);
 
 		Gizmo.Draw.Line( wheelAttachPos, wheelExtend );
+		Gizmo.Draw.SolidSphere( wheelAttachPos, 4f );
+		Gizmo.Draw.LineSphere( wheelExtend, 4f );
 	}
 }

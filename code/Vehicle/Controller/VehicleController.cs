@@ -1,5 +1,6 @@
 using Sandbox;
 using System.ComponentModel.DataAnnotations;
+using System.Numerics;
 
 namespace Bydrive;
 
@@ -49,7 +50,7 @@ public sealed partial class VehicleController : Component
 	private bool canDrive;
 	private float CalculateTurnFactor( float direction, float forwardsSpeed )
 	{
-		const float MAX_TURN_FACTOR = 0.9f;
+		const float MAX_TURN_FACTOR = 0.5f;
 		// Turning rate is at its highest a certain forwards speed 
 		// After that, it decreases
 
@@ -139,10 +140,11 @@ public sealed partial class VehicleController : Component
 			const float TURN_AIR_MULTIPLIER = 0.35f;
 			float turnSpeed = GetTurnSpeed();
 			float turnAmount = MathF.Sign( localVelocity.x ) * turnSpeed * CalculateTurnFactor( TurnDirection, MathF.Abs( localVelocity.x ) ) * dt;
-			if ( !turningWheelsOnGround )
+			if (!turningWheelsOnGround )
 			{
 				turnAmount *= TURN_AIR_MULTIPLIER;
 			}
+
 			Body.AngularVelocity += rotation * new Vector3( 0f, 0f, turnAmount );
 
 			if ( drivingWheelsOnGround )
@@ -230,9 +232,8 @@ public sealed partial class VehicleController : Component
 		if ( canAirControl && airTilt != 0 )
 		{
 			float offset = 50;
-			var s = Body.Position + (rotation * Body.LocalMassCenter) + (rotation.Down * (10 * scale));
-			var st = Body.MassCenter;
-			var tr = Scene.Trace.Ray( st, st + rotation.Right * (40 * scale) )
+			Vector3 center = Body.MassCenter;
+			var tr = Scene.Trace.Ray( center, center + rotation.Right * (40 * scale) )
 				.IgnoreGameObject( GameObject )
 				.Run();
 
@@ -240,8 +241,8 @@ public sealed partial class VehicleController : Component
 
 			if ( !tr.Hit && airTilt.Clamp( -1, 1 ) != 0 )
 			{
-				var force = 200.0f;
-				Body.ApplyForceAt( Body.MassCenter + rotation.Forward * (offset * airTilt), (rotation.Down * airTilt) * (airTilt * (Body.Mass * force)) );
+				const float AIR_FORCE = 100.0f;
+				Body.ApplyForceAt( Body.MassCenter + rotation.Forward * (offset * airTilt), (rotation.Down * airTilt) * (airTilt * (Body.Mass * AIR_FORCE)) );
 
 				dampen = true;
 			}
@@ -289,5 +290,7 @@ public sealed partial class VehicleController : Component
 	{
 		const float POSITION_HELPER_RADIUS = 4f;
 		Gizmo.Draw.SolidSphere( ItemSpawnPosition, POSITION_HELPER_RADIUS );
+
+		Gizmo.Draw.Text( $"Wheels: {wheelsOnGround}={turningWheelsOnGround}&{drivingWheelsOnGround}", global::Transform.Zero );
 	}
 }

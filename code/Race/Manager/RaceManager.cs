@@ -40,6 +40,7 @@ public sealed partial class RaceManager : Component
 	}
 	public RaceCheckpoint GetStartCheckpoint()
 	{
+		if ( StartCheckpointOptions == null || !StartCheckpointOptions.Any() ) return startCheckpoint;
 		if ( startCheckpoint != null ) return startCheckpoint;
 		startCheckpoint = StartCheckpointOptions?.FirstOrDefault( c => c.GameObject.Active == true );
 		return startCheckpoint;

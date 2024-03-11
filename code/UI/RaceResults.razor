@@ -44,7 +44,7 @@
 		}
 		else if(finished && showScores)
 		{
-			@foreach(var kv in scores)
+			@foreach (var kv in scores.OrderBy(kv => totalPlacement.IndexOf(kv)))
 			{
 				@{
 					int placement = totalPlacement.IndexOf(kv) + 1;

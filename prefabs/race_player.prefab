@@ -11,9 +11,7 @@
       },
       {
         "__type": "VehiclePlayerInput",
-        "DebugLocal": false,
-        "ParticipantInstance": null,
-        "VehicleController": null
+        "DebugLocal": false
       }
     ],
     "Children": [
@@ -27,7 +25,7 @@
         "Components": [
           {
             "__type": "CameraComponent",
-            "BackgroundColor": "0.33333,0.46275,0.52157,1",
+            "BackgroundColor": "0.33333,0.46196,0.52157,0",
             "ClearFlags": "All",
             "FieldOfView": 90,
             "IsMainCamera": true,
@@ -38,7 +36,7 @@
             "RenderTags": "",
             "TargetEye": "None",
             "Viewport": "0,0,1,1",
-            "ZFar": 10000,
+            "ZFar": 12000,
             "ZNear": 10
           },
           {
