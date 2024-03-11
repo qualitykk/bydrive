@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Bydrive;
@@ -52,8 +53,8 @@ public class ChallengeDefinition : GameResource
 	public Story.UnlockCheck ShouldUnlock { get; set; }
 	[Category("Race")] public List<RaceSetup> Races { get; set; }
 	[Category( "Race" )] public List<Participant> Participants { get; set; }
-	[Hide] public bool IsSingle => IsRace && Races.Count == 1;
-	[Hide] public bool IsRace => Races != default;
+	[JsonIgnore, Hide] public bool IsSingle => IsRace && Races.Count == 1;
+	[JsonIgnore, Hide] public bool IsRace => Races != default;
 	public IEnumerable<Participant> GetVisibleParticipants()
 	{
 		return Participants.Where( p => p.Show );

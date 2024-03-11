@@ -7,6 +7,7 @@
       "Position": "1088,-1344,640",
       "Rotation": "-0.0000000004070593,-0.00000004173178,0.707107,0.7071065",
       "Enabled": true,
+      "NetworkMode": 2,
       "Components": [
         {
           "__type": "RaceManager",
@@ -14,6 +15,21 @@
             {
               "_type": "component",
               "go": "8d2a1966-6b18-40e9-8436-8b3ecf8bfd51",
+              "component_type": "RaceCheckpoint"
+            },
+            {
+              "_type": "component",
+              "go": "8ac61123-796e-423d-9e45-18d42e47cec4",
+              "component_type": "RaceCheckpoint"
+            },
+            {
+              "_type": "component",
+              "go": "e0ea066c-5b72-4fba-abb9-3ba1d8594b07",
+              "component_type": "RaceCheckpoint"
+            },
+            {
+              "_type": "component",
+              "go": "db7dc02c-12e3-4026-aa49-9fc55ee087a1",
               "component_type": "RaceCheckpoint"
             }
           ]
@@ -25,6 +41,7 @@
       "Name": "Level",
       "Rotation": "-0.0000000004070593,-0.00000004173178,0.707107,0.7071065",
       "Enabled": true,
+      "NetworkMode": 2,
       "Components": [
         {
           "__type": "MapInstance",
@@ -40,6 +57,7 @@
       "Position": "870.4034,-1389.992,831.8393",
       "Tags": "skybox",
       "Enabled": true,
+      "NetworkMode": 2,
       "Components": [
         {
           "__type": "SkyBox2D",
@@ -55,6 +73,7 @@
       "Rotation": "0.4188866,0.5640705,-0.2177467,0.6774547",
       "Tags": "skybox,light_directional,light",
       "Enabled": true,
+      "NetworkMode": 2,
       "Components": [
         {
           "__type": "DirectionalLight",
@@ -71,6 +90,7 @@
       "Name": "Respawn",
       "Position": "-4928,-5216,-32",
       "Enabled": true,
+      "NetworkMode": 2,
       "Components": [
         {
           "__type": "RespawnZone"
@@ -89,6 +109,7 @@
       "Name": "Respawn (1)",
       "Position": "-4576,5408,-32",
       "Enabled": true,
+      "NetworkMode": 2,
       "Components": [
         {
           "__type": "RespawnZone"
@@ -107,6 +128,7 @@
       "Name": "Fog",
       "Position": "-32.0163,-2178.654,661.5569",
       "Enabled": true,
+      "NetworkMode": 2,
       "Components": [
         {
           "__type": "GradientFog",
@@ -123,7 +145,7 @@
       "Id": "b03c1011-b1f1-4d9e-b045-9deea326630e",
       "Name": "Regular",
       "Position": "570.2944,450.5512,1047.921",
-      "Enabled": true,
+      "NetworkMode": 2,
       "Components": [
         {
           "__type": "TrackVariableToggle",
@@ -139,18 +161,30 @@
           "Name": "Route A",
           "Position": "0,0,0",
           "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "TrackVariableToggle",
+              "FullMatch": false,
+              "Invert": false,
+              "Key": "route",
+              "Value": "a"
+            }
+          ],
           "Children": [
             {
               "Id": "7f58b107-98bd-49c5-b920-f95587503ef8",
               "Name": "Checkpoints",
               "Position": "0,0,0",
               "Enabled": true,
+              "NetworkMode": 2,
               "Children": [
                 {
                   "Id": "8d2a1966-6b18-40e9-8436-8b3ecf8bfd51",
                   "Name": "a1",
                   "Position": "-538.2944,61.44882,-823.921",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "RaceCheckpoint",
@@ -180,6 +214,7 @@
                   "Position": "-2270.333,924.9166,-1014.947",
                   "Rotation": "0,0,-0.3826834,0.9238796",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "RaceCheckpoint",
@@ -208,6 +243,7 @@
                   "Name": "a3",
                   "Position": "-5178.294,3293.449,-759.921",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "RaceCheckpoint",
@@ -236,6 +272,7 @@
                   "Name": "a4",
                   "Position": "-5018.294,6205.449,-759.921",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "RaceCheckpoint",
@@ -264,6 +301,7 @@
                   "Name": "a5",
                   "Position": "-5135.911,7613.449,-722.5253",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "RaceCheckpoint",
@@ -293,6 +331,7 @@
                   "Position": "-7130.294,8125.449,-471.921",
                   "Rotation": "0,0,-0.7071067,0.7071068",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "RaceCheckpoint",
@@ -322,6 +361,7 @@
                   "Position": "-10316.54,8125.449,-919.921",
                   "Rotation": "0,0,-0.7071067,0.7071068",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "RaceCheckpoint",
@@ -351,6 +391,7 @@
                   "Position": "-11945.46,5501.449,-727.921",
                   "Rotation": "0,0,-0.9999999,0.0000001490116",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "RaceCheckpoint",
@@ -380,6 +421,7 @@
                   "Position": "-11450.29,829.4488,-727.921",
                   "Rotation": "0,0,-0.9999999,0.0000001490116",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "RaceCheckpoint",
@@ -409,6 +451,7 @@
                   "Position": "-9306.293,-2914.55,-727.921",
                   "Rotation": "0,0,-0.7071069,-0.7071065",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "RaceCheckpoint",
@@ -438,6 +481,7 @@
                   "Position": "-8442.294,-5890.551,-727.921",
                   "Rotation": "0,0,-0.0000003576279,-1",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "RaceCheckpoint",
@@ -467,6 +511,7 @@
                   "Position": "-5210.287,-8290.555,-727.9218",
                   "Rotation": "0,0,0.7071065,-0.7071071",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "RaceCheckpoint",
@@ -496,6 +541,7 @@
                   "Position": "-122.2874,-8290.549,-727.9218",
                   "Rotation": "0,0,0.7071065,-0.7071071",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "RaceCheckpoint",
@@ -525,6 +571,7 @@
                   "Position": "2885.71,-5762.548,-727.921",
                   "Rotation": "0,0,0.7071065,-0.7071071",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "RaceCheckpoint",
@@ -554,6 +601,7 @@
                   "Position": "1029.709,-4322.55,-727.921",
                   "Rotation": "0,0,0.7071065,-0.7071071",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "RaceCheckpoint",
@@ -582,6 +630,7 @@
                   "Name": "a16",
                   "Position": "-634.2944,-3234.551,-759.921",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "RaceCheckpoint",
@@ -612,6 +661,7 @@
               "Name": "Blockers",
               "Position": "0,0,0",
               "Enabled": true,
+              "NetworkMode": 2,
               "Children": [
                 {
                   "Id": "d493b154-ce3f-4849-9924-66ca69544769",
@@ -619,6 +669,7 @@
                   "Position": "-4624.836,7394.55,-902.9204",
                   "Rotation": "0.00000000000000001962615,-0.00000000000000001962615,0.7071066,0.7071067",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_left.prefab"
                 },
                 {
@@ -627,6 +678,7 @@
                   "Position": "-4624.836,7133.449,-902.9204",
                   "Rotation": "0.00000000000000001962615,-0.00000000000000001962615,0.7071066,0.7071067",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_left.prefab"
                 },
                 {
@@ -635,6 +687,7 @@
                   "Position": "-4624.836,6877.449,-902.9204",
                   "Rotation": "0.00000000000000001962615,-0.00000000000000001962615,0.7071066,0.7071067",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_left.prefab"
                 },
                 {
@@ -643,6 +696,7 @@
                   "Position": "-4624.836,6621.449,-902.9204",
                   "Rotation": "0.00000000000000001962615,-0.00000000000000001962615,0.7071066,0.7071067",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_left.prefab"
                 },
                 {
@@ -651,6 +705,7 @@
                   "Position": "-6874.291,8573.451,-662.9209",
                   "Rotation": "0,0,1,0.0000001788139",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_left.prefab"
                 },
                 {
@@ -659,6 +714,7 @@
                   "Position": "-7130.291,8573.451,-662.9209",
                   "Rotation": "0,0,1,0.0000001788139",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_left.prefab"
                 },
                 {
@@ -667,6 +723,7 @@
                   "Position": "-7355.283,8573.451,-662.9209",
                   "Rotation": "0,0,1,0.0000001788139",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_left.prefab"
                 },
                 {
@@ -674,6 +731,7 @@
                   "Name": "barrier_right",
                   "Position": "-6874.294,7645.449,-662.921",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_right.prefab"
                 },
                 {
@@ -681,6 +739,7 @@
                   "Name": "barrier_right (1)",
                   "Position": "-7098.294,7645.449,-662.921",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_right.prefab"
                 },
                 {
@@ -688,6 +747,7 @@
                   "Name": "barrier_right (2)",
                   "Position": "-7322.294,7645.449,-662.921",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_right.prefab"
                 },
                 {
@@ -696,6 +756,7 @@
                   "Position": "-12442.29,4797.446,-902.921",
                   "Rotation": "0,0,-0.7071067,0.7071068",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_left.prefab"
                 },
                 {
@@ -704,6 +765,7 @@
                   "Position": "-12442.29,4573.446,-902.921",
                   "Rotation": "0,0,-0.7071067,0.7071068",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_left.prefab"
                 },
                 {
@@ -712,6 +774,7 @@
                   "Position": "-12442.29,4349.446,-902.921",
                   "Rotation": "0,0,-0.7071067,0.7071068",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_left.prefab"
                 },
                 {
@@ -720,6 +783,7 @@
                   "Position": "-12442.29,4125.446,-902.921",
                   "Rotation": "0,0,-0.7071067,0.7071068",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_left.prefab"
                 },
                 {
@@ -728,6 +792,7 @@
                   "Position": "-1274.248,-7714.553,-906.7943",
                   "Rotation": "-0.0000002086163,-0.000001054214,0.9999999,-0.000003162642",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_right.prefab"
                 },
                 {
@@ -736,6 +801,7 @@
                   "Position": "-1050.248,-7714.551,-906.7942",
                   "Rotation": "-0.0000002086163,-0.000001054214,0.9999999,-0.000003162642",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_right.prefab"
                 },
                 {
@@ -744,6 +810,7 @@
                   "Position": "-794.2484,-7714.55,-906.7941",
                   "Rotation": "-0.0000002086163,-0.000001054214,0.9999999,-0.000003162642",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_right.prefab"
                 },
                 {
@@ -752,6 +819,7 @@
                   "Position": "-570.2485,-7714.548,-906.7939",
                   "Rotation": "-0.0000002086163,-0.000001054214,0.9999999,-0.000003162642",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_right.prefab"
                 },
                 {
@@ -759,6 +827,7 @@
                   "Name": "Wall",
                   "Position": "-12442.29,4493.449,-728.0031",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "BoxCollider",
@@ -775,6 +844,7 @@
                   "Position": "-7098.292,8573.447,-471.921",
                   "Rotation": "0,0,-0.7071067,0.7071068",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "BoxCollider",
@@ -791,6 +861,7 @@
                   "Position": "-4602.294,7073.55,-727.921",
                   "Rotation": "0,0,-0.9999999,0.0000001490116",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "BoxCollider",
@@ -807,6 +878,7 @@
                   "Position": "-7098.291,7581.447,-471.921",
                   "Rotation": "0,0,0.7071069,0.7071068",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "BoxCollider",
@@ -823,6 +895,7 @@
                   "Position": "-986.2793,-7682.553,-695.921",
                   "Rotation": "0,0,0.7071069,0.7071068",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "BoxCollider",
@@ -839,6 +912,7 @@
                   "Position": "-474.2903,-4962.552,-695.921",
                   "Rotation": "0,0,0.7071069,0.7071068",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "BoxCollider",
@@ -855,6 +929,7 @@
                   "Position": "4318.687,-4432.245,-902.921",
                   "Rotation": "0,0,0.7933533,0.6087615",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_left.prefab"
                 },
                 {
@@ -863,6 +938,7 @@
                   "Position": "4217.729,-4167.458,-902.9208",
                   "Rotation": "0,0,0.9238795,0.3826835",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_left.prefab"
                 },
                 {
@@ -871,6 +947,7 @@
                   "Position": "3996.635,-3973.691,-902.9208",
                   "Rotation": "0,0,0.9914449,0.1305263",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_left.prefab"
                 },
                 {
@@ -879,6 +956,7 @@
                   "Position": "3685.707,-3906.554,-902.9208",
                   "Rotation": "0,0,1,0.0000001490116",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_left.prefab"
                 },
                 {
@@ -887,6 +965,7 @@
                   "Position": "-48.25574,-4742.812,-902.9238",
                   "Rotation": "0.0000005948682,-0.000001785373,-0.1305249,0.9914449",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_right.prefab"
                 },
                 {
@@ -895,6 +974,7 @@
                   "Position": "-303.53,-4678.681,-902.9247",
                   "Rotation": "0.0000005948682,-0.000001785373,-0.1305249,0.9914449",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_right.prefab"
                 },
                 {
@@ -903,6 +983,7 @@
                   "Position": "-541.2389,-4569.536,-902.9255",
                   "Rotation": "0.0000008228169,-0.000001692453,-0.2588178,0.9659261",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_right.prefab"
                 },
                 {
@@ -911,6 +992,7 @@
                   "Position": "-751.6674,-4390.117,-902.9261",
                   "Rotation": "0.000001036687,-0.000001570575,-0.3826822,0.92388",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_right.prefab"
                 },
                 {
@@ -919,6 +1001,7 @@
                   "Position": "-872.3505,-4157.936,-902.9264",
                   "Rotation": "0.000001407857,-0.000001248745,-0.6087604,0.7933543",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/barrier_right.prefab"
                 }
               ]
@@ -928,6 +1011,7 @@
               "Name": "Objects",
               "Position": "0,0,0",
               "Enabled": true,
+              "NetworkMode": 2,
               "Children": [
                 {
                   "Id": "5fb56159-cd13-428d-9249-96fc8c5e7068",
@@ -935,6 +1019,7 @@
                   "Position": "-10042.29,8413.449,-1017.921",
                   "Tags": "pickup,item",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/pickups/pickup_boost1.prefab"
                 },
                 {
@@ -943,6 +1028,7 @@
                   "Position": "3109.706,-5570.551,-877.0946",
                   "Tags": "pickup,item",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/pickups/pickup_item1.prefab"
                 },
                 {
@@ -951,6 +1037,7 @@
                   "Position": "3109.706,-5410.551,-877.0947",
                   "Tags": "pickup,item",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/pickups/pickup_item1.prefab"
                 },
                 {
@@ -959,6 +1046,845 @@
                   "Position": "1605.705,-4002.552,-901.921",
                   "Rotation": "0,0,0.7071067,0.7071068",
                   "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/race_booster.prefab"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "fd3ec78c-3482-4a9b-b18b-461fcb5f772a",
+          "Name": "Route B",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "TrackVariableToggle",
+              "FullMatch": false,
+              "Invert": false,
+              "Key": "route",
+              "Value": "b"
+            }
+          ],
+          "Children": [
+            {
+              "Id": "0d2c9007-cc18-4dd5-a82e-bf69b799ec13",
+              "Name": "Checkpoints",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Children": [
+                {
+                  "Id": "8ac61123-796e-423d-9e45-18d42e47cec4",
+                  "Name": "b1",
+                  "Position": "-538.2944,61.44882,-823.921",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "d4ddbd00-66ab-45dc-89ac-8977426c9db8",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "d4ddbd00-66ab-45dc-89ac-8977426c9db8",
+                  "Name": "b2",
+                  "Position": "-2270.333,924.9166,-1014.947",
+                  "Rotation": "0,0,-0.3826834,0.9238796",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "8aa83088-4ee4-4276-9988-90ad482af6cf",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "8aa83088-4ee4-4276-9988-90ad482af6cf",
+                  "Name": "b3",
+                  "Position": "-5178.294,3293.449,-759.921",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "d55bac59-43cb-4688-8b9b-ffba2bc74519",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "d55bac59-43cb-4688-8b9b-ffba2bc74519",
+                  "Name": "b4",
+                  "Position": "-5018.294,6205.449,-759.921",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "5b598783-28ee-478f-82e8-b0fc16f52433",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "5b598783-28ee-478f-82e8-b0fc16f52433",
+                  "Name": "b5",
+                  "Position": "-3002.294,8957.449,-619.5042",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "eac65ec4-5f82-4436-ad14-370ed59e87dc",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "eac65ec4-5f82-4436-ad14-370ed59e87dc",
+                  "Name": "b6",
+                  "Position": "-7130.294,8125.449,-471.921",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "c42feefb-f151-4ad6-8b23-40e40f8a1544",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "c42feefb-f151-4ad6-8b23-40e40f8a1544",
+                  "Name": "b7",
+                  "Position": "-10138.29,8765.442,-471.921",
+                  "Rotation": "0,0,-0.9999999,0.0000001490116",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "5bee25d4-f5b6-42cc-b700-5c26a18c59af",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "5bee25d4-f5b6-42cc-b700-5c26a18c59af",
+                  "Name": "b8",
+                  "Position": "-13306.29,6237.441,-695.921",
+                  "Rotation": "0,0,-0.9999999,0.0000001490116",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "2cbaa0f6-8cc5-4e74-bd92-efd0d94eeb17",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "2cbaa0f6-8cc5-4e74-bd92-efd0d94eeb17",
+                  "Name": "a9",
+                  "Position": "-11450.29,829.4488,-727.921",
+                  "Rotation": "0,0,-0.9999999,0.0000001490116",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "d4e9e599-e296-4cad-b2f1-c1e701958bfb",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "d4e9e599-e296-4cad-b2f1-c1e701958bfb",
+                  "Name": "b10",
+                  "Position": "-9306.293,-2914.55,-727.921",
+                  "Rotation": "0,0,-0.7071069,-0.7071065",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "15ebfa92-35c3-4ed2-ae5e-9ff3f4c063c1",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "15ebfa92-35c3-4ed2-ae5e-9ff3f4c063c1",
+                  "Name": "b11",
+                  "Position": "-8442.294,-5890.551,-727.921",
+                  "Rotation": "0,0,-0.0000003576279,-1",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "89b1af93-db99-453b-9a6b-c0e23da36e42",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "89b1af93-db99-453b-9a6b-c0e23da36e42",
+                  "Name": "b12",
+                  "Position": "-5210.287,-8290.555,-727.9218",
+                  "Rotation": "0,0,0.7071065,-0.7071071",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "fa468a15-b45b-44ea-872d-bb9534c0d58b",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "fa468a15-b45b-44ea-872d-bb9534c0d58b",
+                  "Name": "b13",
+                  "Position": "-737.6379,-6931.505,-727.9219",
+                  "Rotation": "0,0,-0.0000003427267,-1",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "39abde50-0e0f-4d4f-a1f5-327e1138bf5a",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "39abde50-0e0f-4d4f-a1f5-327e1138bf5a",
+                  "Name": "b14",
+                  "Position": "-634.2944,-3234.551,-759.921",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "8ac61123-796e-423d-9e45-18d42e47cec4",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Id": "853528dd-deaf-44c2-b701-5b4bdebf7a78",
+              "Name": "Blockers",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Children": [
+                {
+                  "Id": "5341406b-7b97-43b7-9115-69679269f795",
+                  "Name": "barrier_left (4)",
+                  "Position": "-7514.294,8349.449,-662.9209",
+                  "Rotation": "0,0,0.7071069,-0.7071066",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "596bf99e-3da6-4c61-b95a-35a622fd524d",
+                  "Name": "barrier_left (5)",
+                  "Position": "-7514.294,8125.449,-662.9209",
+                  "Rotation": "0,0,0.7071069,-0.7071066",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "4022b6cf-1555-4baa-8141-b6f73d801d7a",
+                  "Name": "barrier_left (6)",
+                  "Position": "-7514.294,7901.449,-663.921",
+                  "Rotation": "0,0,0.7071069,-0.7071066",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "a9b22176-6a2a-4f7e-92e7-1b7ea1294c46",
+                  "Name": "barrier_right",
+                  "Position": "-6650.294,8349.449,-662.921",
+                  "Rotation": "0,0,0.7071067,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "c4b7fe24-8542-4107-a494-0972672f2acb",
+                  "Name": "barrier_right (1)",
+                  "Position": "-6650.294,8125.449,-662.921",
+                  "Rotation": "0,0,0.7071067,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "400f75b9-81e6-451e-8298-f4d96817daeb",
+                  "Name": "barrier_right (2)",
+                  "Position": "-6650.294,7901.449,-662.921",
+                  "Rotation": "0,0,0.7071067,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "fe560a06-1d71-4a69-a0cf-32253e345ddc",
+                  "Name": "Wall",
+                  "Position": "-11930.29,4541.449,-727.921",
+                  "Rotation": "0,0,0.3826834,0.9238796",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": false,
+                      "Scale": "16,1200,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "511d7765-6eed-4fa5-a9f6-61e60700eea1",
+                  "Name": "Wall (1)",
+                  "Position": "-7546.294,8157.449,-471.9211",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": false,
+                      "Scale": "16,1200,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "5089abeb-fa10-47ca-be3d-4f70504f14b4",
+                  "Name": "Wall (3)",
+                  "Position": "-5114.294,7133.449,-727.921",
+                  "Rotation": "0,0,-0.9238795,-0.3826832",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": false,
+                      "Scale": "16,1200,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "48176f27-0e4b-4ba2-812c-829e9f904740",
+                  "Name": "Wall (2)",
+                  "Position": "-6618.304,8093.449,-471.921",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": false,
+                      "Scale": "16,1200,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "b9e35d57-2745-4b47-831e-e5e0ec8aa031",
+                  "Name": "Wall (4)",
+                  "Position": "-694.8942,-8286.599,-695.921",
+                  "Rotation": "0,0,0.9276328,0.3734938",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": false,
+                      "Scale": "16,1200,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "04635f06-f0c1-48c5-9724-5bfe6ecfc273",
+                  "Name": "Wall (5)",
+                  "Position": "97.23096,-4444.542,-695.921",
+                  "Rotation": "0,0,0.1309546,0.9913885",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": false,
+                      "Scale": "16,1200,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "b8ca061c-a41b-42fc-bf79-dccdc66842f9",
+                  "Name": "barrier_right (3)",
+                  "Position": "-11730.14,4117.812,-902.921",
+                  "Rotation": "0,0,0.886719,0.4623087",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "9e2c5ae8-06fb-47d7-a9a6-cb42fb76a911",
+                  "Name": "barrier_right (2)",
+                  "Position": "-11898.72,4333.222,-902.921",
+                  "Rotation": "0,0,0.9117034,0.4108488",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "3bb0d626-b9ad-493f-b3ea-aaf703a2eb4a",
+                  "Name": "barrier_right (1)",
+                  "Position": "-12067.5,4534.255,-902.921",
+                  "Rotation": "0,0,0.9117034,0.4108488",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "d329f7cb-0db7-4d27-aa9c-3b926ff31402",
+                  "Name": "barrier_right",
+                  "Position": "-12237.23,4742.787,-902.921",
+                  "Rotation": "0,0,0.9117034,0.4108488",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "54e214b3-321e-4b1c-83fa-49122a5ef1f7",
+                  "Name": "barrier_right (1)",
+                  "Position": "-9968.851,6041.723,-649.0559",
+                  "Rotation": "-0.06738181,-0.0004002415,-0.2525028,0.965247",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "76e489b0-2bd2-4618-adb0-162a4dbbf40f",
+                  "Name": "barrier_right",
+                  "Position": "-9667.051,5892.538,-641.4039",
+                  "Rotation": "-0.09330252,-0.0142691,-0.1093298,0.9895141",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "91015e80-71f5-4878-a3f0-2048f460379f",
+                  "Name": "barrier_right (2)",
+                  "Position": "-4970.435,7277.09,-904.9207",
+                  "Rotation": "0,0,-0.9045212,0.4264287",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "1d78d9e0-ab59-46eb-92c2-7b528f071c33",
+                  "Name": "barrier_right (1)",
+                  "Position": "-5143.521,7079.428,-904.9208",
+                  "Rotation": "0,0,-0.9045212,0.4264287",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "50c29143-0407-443c-bd85-1ef0a6851092",
+                  "Name": "barrier_right",
+                  "Position": "-5309.12,6888.655,-904.9211",
+                  "Rotation": "0,0,-0.9238795,0.3826834",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "e7fe5242-a21e-44aa-b1d9-77a9b877c275",
+                  "Name": "barrier_right (3)",
+                  "Position": "-4794.444,7456.931,-904.9202",
+                  "Rotation": "0,0,-0.9250785,0.3797758",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "4c214848-0e50-4eb7-9c58-02773716388e",
+                  "Name": "barrier_right (2)",
+                  "Position": "-10230.82,6247.39,-667.3043",
+                  "Rotation": "-0.06655107,-0.01055576,-0.3951595,0.9161377",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "8dadadc1-6927-47c8-9bf0-7686c51d6df5",
+                  "Name": "barrier_left (7)",
+                  "Position": "132.137,-4719.571,-901.4478",
+                  "Rotation": "-0.000001664067,0.0000008665976,0.7933539,0.6087605",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "e018f2ff-d3f5-4906-811d-6fc30a3ad8de",
+                  "Name": "barrier_left (6)",
+                  "Position": "82.1767,-4525.468,-901.4477",
+                  "Rotation": "-0.000001664067,0.0000008665976,0.7933539,0.6087605",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "50b1775f-7189-41e9-9fad-cddd35d9a2a0",
+                  "Name": "barrier_left (5)",
+                  "Position": "35.25452,-4327.084,-901.4477",
+                  "Rotation": "-0.000001664067,0.0000008665976,0.7933539,0.6087605",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "f1bd7e2d-9765-419c-a196-c5c9bf0319f7",
+                  "Name": "barrier_left (4)",
+                  "Position": "-15.06665,-4122.7,-902.9235",
+                  "Rotation": "-0.000001664067,0.0000008665976,0.7933539,0.6087605",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "d1a2b829-15a2-4690-b5fb-283e68dbe2b8",
+                  "Name": "barrier_left",
+                  "Position": "-538.2944,-8002.551,-904.9211",
+                  "Rotation": "0.00000000000000002403703,0.00000000000000001387779,0.4999999,0.8660254",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "069ffb54-7e5b-4415-a81f-144d2e612cc8",
+                  "Name": "barrier_left (1)",
+                  "Position": "-708.9816,-8197.779,-904.9214",
+                  "Rotation": "0.00000000000000002590872,0.000000000000000009955403,0.358681,0.9334601",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "7ae78220-3619-47e7-b49d-a1212840dbb5",
+                  "Name": "barrier_left (2)",
+                  "Position": "-934.1916,-8367.908,-904.9212",
+                  "Rotation": "0.00000000000000002642208,0.000000000000000008499732,0.3062349,0.9519559",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "127d2e68-d6aa-4b0d-ac24-9d4a2726f424",
+                  "Name": "barrier_left (3)",
+                  "Position": "-1160.335,-8503.639,-904.9214",
+                  "Rotation": "0.00000000000000002706788,0.000000000000000006140151,0.221222,0.9752234",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                }
+              ]
+            },
+            {
+              "Id": "a2a600b4-3b34-4145-8071-53fd7f488c1f",
+              "Name": "Objects",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Children": [
+                {
+                  "Id": "74b8299a-6188-43da-92f0-32568b2edf75",
+                  "Name": "pickup_boost1",
+                  "Position": "-10426.29,8349.449,-631.921",
+                  "Tags": "pickup,item",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/pickups/pickup_boost1.prefab"
+                },
+                {
+                  "Id": "ebc5b655-360f-4f56-acc4-00a768f61808",
+                  "Name": "pickup_item1 (4)",
+                  "Position": "-9914.281,8381.448,-631.921",
+                  "Tags": "pickup,item",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+                },
+                {
+                  "Id": "47c41389-380e-4fa1-b338-4244ed2fa011",
+                  "Name": "pickup_item1 (1)",
+                  "Position": "-10042.29,8381.449,-631.921",
+                  "Tags": "pickup,item",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+                },
+                {
+                  "Id": "a32433ec-25b9-4856-8aab-e49cfd271a79",
+                  "Name": "pickup_item1 (3)",
+                  "Position": "-10170.28,8381.448,-631.921",
+                  "Tags": "pickup,item",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+                },
+                {
+                  "Id": "a4b04207-ebcf-4f08-b093-d05d8813a063",
+                  "Name": "race_booster",
+                  "Position": "-13562.29,8285.449,-661.921",
+                  "Rotation": "0,0,1,0.00000008940697",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/race_booster.prefab"
+                },
+                {
+                  "Id": "816663fa-ce31-4682-9034-c56f19c5e39b",
+                  "Name": "race_booster (1)",
+                  "Position": "-13434.29,8285.449,-661.921",
+                  "Rotation": "0,0,1,0.00000008940697",
+                  "Enabled": true,
+                  "NetworkMode": 2,
                   "__Prefab": "prefabs/objects/race_booster.prefab"
                 }
               ]
@@ -970,6 +1896,7 @@
           "Name": "Blockers",
           "Position": "0,0,0",
           "Enabled": true,
+          "NetworkMode": 2,
           "Children": [
             {
               "Id": "cdf4286a-3370-4a32-88a4-a830781a522e",
@@ -977,6 +1904,7 @@
               "Position": "-4318.167,2725.147,-903.921",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "__Prefab": "prefabs/objects/barrier_left.prefab"
             },
             {
@@ -985,6 +1913,7 @@
               "Position": "-4318.168,2501.147,-903.921",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "__Prefab": "prefabs/objects/barrier_left.prefab"
             },
             {
@@ -993,6 +1922,7 @@
               "Position": "-4318.168,2282.957,-903.921",
               "Rotation": "0,0,0.7071067,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "__Prefab": "prefabs/objects/barrier_left.prefab"
             }
           ]
@@ -1002,6 +1932,7 @@
           "Name": "Start Positions",
           "Position": "-826.2944,-98.55121,-951.921",
           "Enabled": true,
+          "NetworkMode": 2,
           "Children": [
             {
               "Id": "558da7f6-d405-4693-b32d-ad25590514c9",
@@ -1009,6 +1940,7 @@
               "Position": "0.0006103516,-0.0004882812,32",
               "Rotation": "0,0,0.7071068,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "RaceStartingPosition",
@@ -1022,6 +1954,7 @@
               "Position": "256.0006,-96.00049,32",
               "Rotation": "0,0,0.7071068,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "RaceStartingPosition",
@@ -1035,6 +1968,7 @@
               "Position": "512.0007,-224.0005,32",
               "Rotation": "0,0,0.7071068,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "RaceStartingPosition",
@@ -1048,6 +1982,7 @@
               "Position": "0.0006561279,-384.0005,32",
               "Rotation": "0,0,0.7071068,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "RaceStartingPosition",
@@ -1061,6 +1996,7 @@
               "Position": "256.0007,-480.0005,32",
               "Rotation": "0,0,0.7071068,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "RaceStartingPosition",
@@ -1074,6 +2010,7 @@
               "Position": "512.0007,-608.0005,32",
               "Rotation": "0,0,0.7071068,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "RaceStartingPosition",
@@ -1087,6 +2024,7 @@
               "Position": "0.000705719,-800.0005,32",
               "Rotation": "0,0,0.7071068,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "RaceStartingPosition",
@@ -1100,6 +2038,7 @@
               "Position": "256.0007,-896.0005,32",
               "Rotation": "0,0,0.7071068,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "RaceStartingPosition",
@@ -1113,6 +2052,7 @@
               "Position": "512.0008,-1024.001,32",
               "Rotation": "0,0,0.7071068,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "RaceStartingPosition",
@@ -1126,6 +2066,7 @@
               "Position": "0.0007514954,-1184.001,32",
               "Rotation": "0,0,0.7071068,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "RaceStartingPosition",
@@ -1139,6 +2080,7 @@
               "Position": "256.0008,-1280.001,32",
               "Rotation": "0,0,0.7071068,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "RaceStartingPosition",
@@ -1152,6 +2094,7 @@
               "Position": "512.0009,-1408.001,32",
               "Rotation": "0,0,0.7071068,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "RaceStartingPosition",
@@ -1165,6 +2108,7 @@
               "Position": "0.0007972717,-1568.001,32",
               "Rotation": "0,0,0.7071068,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "RaceStartingPosition",
@@ -1178,6 +2122,7 @@
               "Position": "256.0009,-1664.001,32",
               "Rotation": "0,0,0.7071068,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "RaceStartingPosition",
@@ -1191,6 +2136,7 @@
               "Position": "512.0009,-1792.001,32",
               "Rotation": "0,0,0.7071068,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "RaceStartingPosition",
@@ -1204,6 +2150,7 @@
               "Position": "0.0008430481,-1952.001,32",
               "Rotation": "0,0,0.7071068,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "RaceStartingPosition",
@@ -1217,6 +2164,7 @@
               "Position": "256.0009,-2048.001,32",
               "Rotation": "0,0,0.7071068,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "RaceStartingPosition",
@@ -1230,6 +2178,7 @@
               "Position": "512.0009,-2176.001,32",
               "Rotation": "0,0,0.7071068,0.7071068",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "RaceStartingPosition",
@@ -1244,6 +2193,7 @@
           "Name": "Objects",
           "Position": "0,0,0",
           "Enabled": true,
+          "NetworkMode": 2,
           "Children": [
             {
               "Id": "bf2c0528-f0d6-47de-8c8e-dd25d70e959b",
@@ -1251,6 +2201,7 @@
               "Position": "-11514.29,-418.5551,-901.921",
               "Rotation": "0,0,-1,0.0000001788139",
               "Enabled": true,
+              "NetworkMode": 2,
               "__Prefab": "prefabs/objects/race_booster.prefab"
             },
             {
@@ -1259,6 +2210,7 @@
               "Position": "-8163.506,-2760.57,-875.6331",
               "Tags": "pickup,item",
               "Enabled": true,
+              "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_boost1.prefab"
             },
             {
@@ -1267,6 +2219,7 @@
               "Position": "-12186.29,2094.743,-873.2874",
               "Tags": "pickup,item",
               "Enabled": true,
+              "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
             },
             {
@@ -1275,6 +2228,7 @@
               "Position": "-11962.29,2094.743,-873.2874",
               "Tags": "pickup,item",
               "Enabled": true,
+              "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
             },
             {
@@ -1283,6 +2237,7 @@
               "Position": "-11738.29,2094.743,-873.2874",
               "Tags": "pickup,item",
               "Enabled": true,
+              "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
             },
             {
@@ -1291,6 +2246,7 @@
               "Position": "-6522.294,-8002.551,-873.878",
               "Tags": "pickup,item",
               "Enabled": true,
+              "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
             },
             {
@@ -1299,6 +2255,7 @@
               "Position": "-6522.294,-8162.551,-873.878",
               "Tags": "pickup,item",
               "Enabled": true,
+              "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
             },
             {
@@ -1307,6 +2264,7 @@
               "Position": "-6522.294,-8322.551,-873.878",
               "Tags": "pickup,item",
               "Enabled": true,
+              "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
             },
             {
@@ -1315,6 +2273,7 @@
               "Position": "-6522.294,-8482.551,-873.878",
               "Tags": "pickup,item",
               "Enabled": true,
+              "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
             },
             {
@@ -1323,6 +2282,7 @@
               "Position": "-5306.294,4925.449,-873.3506",
               "Tags": "pickup,item",
               "Enabled": true,
+              "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
             },
             {
@@ -1331,6 +2291,7 @@
               "Position": "-5178.294,4925.449,-873.3506",
               "Tags": "pickup,item",
               "Enabled": true,
+              "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
             },
             {
@@ -1339,6 +2300,7 @@
               "Position": "-5050.294,4925.449,-873.3506",
               "Tags": "pickup,item",
               "Enabled": true,
+              "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
             },
             {
@@ -1347,6 +2309,7 @@
               "Position": "-4922.294,4925.449,-873.3506",
               "Tags": "pickup,item",
               "Enabled": true,
+              "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
             },
             {
@@ -1355,6 +2318,2231 @@
               "Position": "-4794.294,4925.449,-873.3506",
               "Tags": "pickup,item",
               "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "0bd3c986-17e4-4535-b1ec-3dd00166a9a5",
+      "Name": "Reverse",
+      "Position": "570.2944,450.5512,1047.921",
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "TrackVariableToggle",
+          "FullMatch": false,
+          "Invert": false,
+          "Key": "route",
+          "Value": "reverse"
+        }
+      ],
+      "Children": [
+        {
+          "Id": "e2d16d59-d1f6-49a4-9137-094e82e86f14",
+          "Name": "Route A",
+          "Position": "0,0,0",
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "TrackVariableToggle",
+              "FullMatch": false,
+              "Invert": false,
+              "Key": "route",
+              "Value": "a"
+            }
+          ],
+          "Children": [
+            {
+              "Id": "fb6a66c2-9f49-4b1e-bc40-bd7f221bd982",
+              "Name": "Checkpoints",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Children": [
+                {
+                  "Id": "e0ea066c-5b72-4fba-abb9-3ba1d8594b07",
+                  "Name": "r_a1",
+                  "Position": "-634.2944,-3234.551,-759.921",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "a86186f1-5896-4f0e-93b1-acb42c09bc9a",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "a86186f1-5896-4f0e-93b1-acb42c09bc9a",
+                  "Name": "r_a2",
+                  "Position": "1029.709,-4322.55,-727.921",
+                  "Rotation": "0,0,0.7071065,-0.7071071",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "03e42465-cbfe-4398-9e73-356ba1777689",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "03e42465-cbfe-4398-9e73-356ba1777689",
+                  "Name": "r_a3",
+                  "Position": "2885.71,-5762.548,-727.921",
+                  "Rotation": "0,0,0.7071065,-0.7071071",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "b93e0416-dca7-4976-8e0d-fd2f3a74d89c",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "b93e0416-dca7-4976-8e0d-fd2f3a74d89c",
+                  "Name": "r_a4",
+                  "Position": "-122.2874,-8290.549,-727.9218",
+                  "Rotation": "0,0,0.7071065,-0.7071071",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "dfd815f0-ca02-4e98-bc7c-d7b4574c83db",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "dfd815f0-ca02-4e98-bc7c-d7b4574c83db",
+                  "Name": "r_a5",
+                  "Position": "-5210.287,-8290.555,-727.9218",
+                  "Rotation": "0,0,0.7071065,-0.7071071",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "78b57620-3e97-45a7-9094-95abf994637b",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "78b57620-3e97-45a7-9094-95abf994637b",
+                  "Name": "r_a6",
+                  "Position": "-8442.294,-5890.551,-727.921",
+                  "Rotation": "0,0,-0.0000003576279,-1",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "18d222a8-dcfc-4cf3-b252-11c356d47b31",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "18d222a8-dcfc-4cf3-b252-11c356d47b31",
+                  "Name": "r_a7",
+                  "Position": "-9306.293,-2914.55,-727.921",
+                  "Rotation": "0,0,-0.7071069,-0.7071065",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "6b443d43-e53b-40ae-a846-c0b00878a98b",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "6b443d43-e53b-40ae-a846-c0b00878a98b",
+                  "Name": "r_a8",
+                  "Position": "-11450.29,829.4488,-727.921",
+                  "Rotation": "0,0,-0.9999999,0.0000001490116",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "c77e173b-caaa-43b3-a4dd-b1214eab3f74",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "c77e173b-caaa-43b3-a4dd-b1214eab3f74",
+                  "Name": "r_a9",
+                  "Position": "-11945.46,5501.449,-727.921",
+                  "Rotation": "0,0,-0.9999999,0.0000001490116",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "3dcfc842-75d0-414d-b014-b9092b06ee17",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "3dcfc842-75d0-414d-b014-b9092b06ee17",
+                  "Name": "r_a10",
+                  "Position": "-10316.54,8125.449,-919.921",
+                  "Rotation": "0,0,-0.7071067,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "01a66225-41bd-4e66-b6b6-c5e032b4f938",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "01a66225-41bd-4e66-b6b6-c5e032b4f938",
+                  "Name": "r_a11",
+                  "Position": "-7130.294,8125.449,-471.921",
+                  "Rotation": "0,0,-0.7071067,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "8ce79d46-89f8-4423-acae-7e174b2b1698",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "8ce79d46-89f8-4423-acae-7e174b2b1698",
+                  "Name": "r_a12",
+                  "Position": "-5135.911,7613.449,-722.5253",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "10136019-0526-4e52-b705-83e353e7ea4f",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "10136019-0526-4e52-b705-83e353e7ea4f",
+                  "Name": "r_a13",
+                  "Position": "-5018.294,6205.449,-759.921",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "e09ccba0-65f8-4b90-b214-fa861c6c8a55",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "e09ccba0-65f8-4b90-b214-fa861c6c8a55",
+                  "Name": "r_a14",
+                  "Position": "-5178.294,3293.449,-759.921",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "553d66e0-3845-494f-80f9-ce2c99de8c90",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "553d66e0-3845-494f-80f9-ce2c99de8c90",
+                  "Name": "r_a15",
+                  "Position": "-2270.333,924.9166,-1014.947",
+                  "Rotation": "0,0,-0.3826834,0.9238796",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "caa56059-b37a-4fb1-93fb-e45131f48db2",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "caa56059-b37a-4fb1-93fb-e45131f48db2",
+                  "Name": "r_a16",
+                  "Position": "-538.2944,61.44882,-823.921",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "e0ea066c-5b72-4fba-abb9-3ba1d8594b07",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Id": "a4c5e059-e21b-4c8a-be8c-53254b310583",
+              "Name": "Blockers",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Children": [
+                {
+                  "Id": "f2902222-7d34-400d-b3d2-aacf3c6e6199",
+                  "Name": "barrier_left (4)",
+                  "Position": "-6874.292,7690.394,-662.9209",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "4f5b6d61-5fa5-4899-8824-a5e86fb87743",
+                  "Name": "barrier_left (5)",
+                  "Position": "-7130.292,7690.394,-662.9209",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "b3ba318b-4fe8-4736-b9d6-15b0eb02798b",
+                  "Name": "barrier_left (6)",
+                  "Position": "-7355.284,7690.394,-662.9209",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "cd81445c-75d3-4493-85cb-429585356cb7",
+                  "Name": "barrier_right",
+                  "Position": "-6874.294,8549.681,-662.921",
+                  "Rotation": "0,0,1,-0.00000004371139",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "a4cc4d98-8ad6-4fde-bbff-f4d3c906a6d7",
+                  "Name": "barrier_right (1)",
+                  "Position": "-7098.294,8549.681,-662.921",
+                  "Rotation": "0,0,1,-0.00000004371139",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "7bc244f9-cdcb-4b94-ba4a-a581ffa755d0",
+                  "Name": "barrier_right (2)",
+                  "Position": "-7322.294,8549.681,-662.921",
+                  "Rotation": "0,0,1,-0.00000004371139",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "b0b0e826-ffff-4a0a-a716-c2898fb20f79",
+                  "Name": "barrier_right (3)",
+                  "Position": "-1274.248,-7714.553,-906.7943",
+                  "Rotation": "-0.0000002086163,-0.000001054214,0.9999999,-0.000003162642",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "6bc240bf-2728-491a-a0b2-6706b1d93595",
+                  "Name": "barrier_right (4)",
+                  "Position": "-1050.248,-7714.551,-906.7942",
+                  "Rotation": "-0.0000002086163,-0.000001054214,0.9999999,-0.000003162642",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "f3b73710-e887-4ac1-87b2-ef966d277433",
+                  "Name": "barrier_right (5)",
+                  "Position": "-794.2484,-7714.55,-906.7941",
+                  "Rotation": "-0.0000002086163,-0.000001054214,0.9999999,-0.000003162642",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "08b3e850-c167-438f-ae09-a5604bdbb332",
+                  "Name": "barrier_right (6)",
+                  "Position": "-570.2485,-7714.548,-906.7939",
+                  "Rotation": "-0.0000002086163,-0.000001054214,0.9999999,-0.000003162642",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "7efdd794-203f-463a-bff4-c2705f982eed",
+                  "Name": "barrier_left (5)",
+                  "Position": "215.3314,-4663.514,-904.9211",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "5a17622f-9811-41a7-8362-4839db5c092d",
+                  "Name": "barrier_left (4)",
+                  "Position": "-17.25055,-4635.751,-904.9214",
+                  "Rotation": "0,0,-0.06557868,0.9978475",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "c127e456-b409-4bfe-b252-8ce1240a5cde",
+                  "Name": "barrier_left (3)",
+                  "Position": "-250.2039,-4585.002,-904.9214",
+                  "Rotation": "0,0,-0.1305261,0.9914449",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "6a8eaba1-8069-4de4-a48f-31bde576ea5b",
+                  "Name": "barrier_left (2)",
+                  "Position": "-510.9463,-4500.073,-904.921",
+                  "Rotation": "0,0,-0.1305261,0.9914449",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "9acf56a6-f390-4e44-a0d3-735470e16d63",
+                  "Name": "barrier_left (1)",
+                  "Position": "-720.654,-4357.556,-904.9214",
+                  "Rotation": "0,0,-0.3826834,0.9238796",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "77c3aa62-7057-43fc-ac72-56e5fcb30d94",
+                  "Name": "barrier_left",
+                  "Position": "-872.0592,-4148.401,-904.9213",
+                  "Rotation": "0,0,-0.6087614,0.7933534",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "d3041ca8-cb2a-40fe-be75-6252759122ef",
+                  "Name": "barrier_right (1)",
+                  "Position": "-4634.291,7133.449,-902.9211",
+                  "Rotation": "0,0,0.7071067,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "81c582dc-382e-4917-b9a6-9608e7d98a76",
+                  "Name": "barrier_right (2)",
+                  "Position": "-4634.291,6889.487,-902.9211",
+                  "Rotation": "0,0,0.7071067,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "357890c7-d11e-4a58-965b-bf4050d7294b",
+                  "Name": "barrier_right (3)",
+                  "Position": "-4634.29,6653.449,-902.9211",
+                  "Rotation": "0,0,0.7071067,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "606d709c-11de-496a-ad24-0aa821573301",
+                  "Name": "barrier_right (4)",
+                  "Position": "-12471.4,4164.769,-902.921",
+                  "Rotation": "0,0,-0.7071067,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "afc21f9c-ade4-4413-b0bc-2b270e6cf2df",
+                  "Name": "barrier_right (5)",
+                  "Position": "-12471.4,4390.495,-902.921",
+                  "Rotation": "0,0,-0.7071067,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "f800d866-038e-4ec5-9c8a-55d513bce243",
+                  "Name": "barrier_right (6)",
+                  "Position": "-12471.4,4625.615,-902.921",
+                  "Rotation": "0,0,-0.7071067,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "0951ac1f-46ea-4b97-b9d9-7a5de429317a",
+                  "Name": "barrier_right (7)",
+                  "Position": "-12471.4,4861.446,-902.921",
+                  "Rotation": "0,0,-0.7071067,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "e723bb64-293d-42a8-b764-9fee4ad80db2",
+                  "Name": "barrier_right (8)",
+                  "Position": "-12471.39,4837.938,-902.921",
+                  "Rotation": "0,0,-0.7071067,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "190cc7e9-0a0f-47c5-b897-82775ba6c4d0",
+                  "Name": "barrier_right",
+                  "Position": "-4634.292,7392.801,-902.9211",
+                  "Rotation": "0,0,0.7071067,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "44962152-5427-4630-8f9d-b93952d02102",
+                  "Name": "barrier_right (9)",
+                  "Position": "4333.717,-3941.134,-902.9212",
+                  "Rotation": "0,0,0.7071067,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "6e91a0c7-2f86-4325-8d46-fb0025c2f0d7",
+                  "Name": "barrier_right (10)",
+                  "Position": "4333.715,-4162.552,-902.9212",
+                  "Rotation": "0,0,0.7071067,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "2de7b3ea-381d-41e8-bb0d-4bbe5c783201",
+                  "Name": "barrier_right (11)",
+                  "Position": "4333.714,-4386.552,-902.9212",
+                  "Rotation": "0,0,0.7071067,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "ab82b25b-8868-4aab-a764-882e3976ee5a",
+                  "Name": "Wall",
+                  "Position": "-12442.29,4493.449,-728.0031",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": false,
+                      "Scale": "16,1200,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "c390b12d-46ba-4e4a-9f1e-4911bcb2be7c",
+                  "Name": "Wall (1)",
+                  "Position": "-7098.292,8573.447,-471.921",
+                  "Rotation": "0,0,-0.7071067,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": false,
+                      "Scale": "16,1200,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "ce155d88-d2af-4d48-a90a-b09ec24f4956",
+                  "Name": "Wall (3)",
+                  "Position": "-4602.294,7073.55,-727.921",
+                  "Rotation": "0,0,-0.9999999,0.0000001490116",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": false,
+                      "Scale": "16,1200,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "63ff6895-83f6-4b70-a93a-a056b151e028",
+                  "Name": "Wall (2)",
+                  "Position": "-7098.291,7581.447,-471.921",
+                  "Rotation": "0,0,0.7071069,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": false,
+                      "Scale": "16,1200,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "c4ef733e-b662-4582-a672-04b24c11fb8f",
+                  "Name": "Wall (4)",
+                  "Position": "-986.2793,-7682.553,-695.921",
+                  "Rotation": "0,0,0.7071069,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": false,
+                      "Scale": "16,1200,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "d58c1141-d872-4386-81a4-2c8f339cff9b",
+                  "Name": "Wall (5)",
+                  "Position": "-474.2903,-4962.552,-695.921",
+                  "Rotation": "0,0,0.7071069,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": false,
+                      "Scale": "16,1200,400",
+                      "Static": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Id": "f6ea9d64-3981-4aa8-9fa2-05b370a319ad",
+              "Name": "Objects",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Children": [
+                {
+                  "Id": "6168df5a-85a8-4474-b656-629a983f34c0",
+                  "Name": "pickup_boost1",
+                  "Position": "-10042.29,8413.449,-1017.921",
+                  "Tags": "pickup,item",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/pickups/pickup_boost1.prefab"
+                },
+                {
+                  "Id": "73f30a0f-89e1-40f5-97e8-8d96a48d4eee",
+                  "Name": "pickup_item1 (1)",
+                  "Position": "3109.706,-5958.45,-877.0946",
+                  "Tags": "pickup,item",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+                },
+                {
+                  "Id": "2f47ba35-143d-4722-9627-f73bfbda3a29",
+                  "Name": "pickup_item1",
+                  "Position": "3109.706,-5798.45,-877.0947",
+                  "Tags": "pickup,item",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+                },
+                {
+                  "Id": "8b037b7d-ef7f-44eb-916f-5d5a73d4c46e",
+                  "Name": "race_booster",
+                  "Position": "-186.2957,-8034.551,-905.5258",
+                  "Rotation": "0,0,0.7071067,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/race_booster.prefab"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "56ba18f7-3dd4-47cc-be71-432f7b4913ef",
+          "Name": "Route B",
+          "Position": "0,0,0",
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "TrackVariableToggle",
+              "FullMatch": false,
+              "Invert": false,
+              "Key": "route",
+              "Value": "b"
+            }
+          ],
+          "Children": [
+            {
+              "Id": "8973c7f9-d599-4723-8097-57874899bbe5",
+              "Name": "Checkpoints",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Children": [
+                {
+                  "Id": "db7dc02c-12e3-4026-aa49-9fc55ee087a1",
+                  "Name": "r_b1",
+                  "Position": "-634.2944,-3234.551,-759.921",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "3907dcb8-07aa-4827-a34c-4c3ab8d9afca",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "3907dcb8-07aa-4827-a34c-4c3ab8d9afca",
+                  "Name": "r_b2",
+                  "Position": "-737.6379,-6931.505,-727.9219",
+                  "Rotation": "0,0,-0.0000003427267,-1",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "ca19da9b-164d-460b-b224-2e0dd48e7481",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "ca19da9b-164d-460b-b224-2e0dd48e7481",
+                  "Name": "r_b3",
+                  "Position": "-5210.287,-8290.555,-727.9218",
+                  "Rotation": "0,0,0.7071065,-0.7071071",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "fc7d2786-c2b2-47df-a4c0-d78cbe334744",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "fc7d2786-c2b2-47df-a4c0-d78cbe334744",
+                  "Name": "r_b4",
+                  "Position": "-8442.294,-5890.551,-727.921",
+                  "Rotation": "0,0,-0.0000003576279,-1",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "18fb6775-da69-454c-846e-6b982cdb47fc",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "18fb6775-da69-454c-846e-6b982cdb47fc",
+                  "Name": "r_b5",
+                  "Position": "-9306.293,-2914.55,-727.921",
+                  "Rotation": "0,0,-0.7071069,-0.7071065",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "f8e05c8c-5474-41da-a6f7-ccc2816ab9f2",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "f8e05c8c-5474-41da-a6f7-ccc2816ab9f2",
+                  "Name": "r_b6",
+                  "Position": "-11450.29,829.4488,-727.921",
+                  "Rotation": "0,0,-0.9999999,0.0000001490116",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "8b5812cd-a6a6-4e7c-a337-a3c6c61d6f0c",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "8b5812cd-a6a6-4e7c-a337-a3c6c61d6f0c",
+                  "Name": "r_b7",
+                  "Position": "-13306.29,6237.441,-695.921",
+                  "Rotation": "0,0,-0.9999999,0.0000001490116",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "77e37270-42b5-4304-8d25-8866030d4c0c",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "77e37270-42b5-4304-8d25-8866030d4c0c",
+                  "Name": "r_b8",
+                  "Position": "-10138.29,8765.442,-471.921",
+                  "Rotation": "0,0,-0.9999999,0.0000001490116",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "857b7582-4cc4-4585-80e0-551022b3b4ef",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "857b7582-4cc4-4585-80e0-551022b3b4ef",
+                  "Name": "r_b9",
+                  "Position": "-7130.294,8125.449,-471.921",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "e1c1621a-a0a7-4dd9-8d7c-7cd010b11829",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "e1c1621a-a0a7-4dd9-8d7c-7cd010b11829",
+                  "Name": "r_b10",
+                  "Position": "-3002.294,8957.449,-619.5042",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "0ea4d73a-960f-4618-bd53-835c33c7a200",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "0ea4d73a-960f-4618-bd53-835c33c7a200",
+                  "Name": "r_b11",
+                  "Position": "-5018.294,6205.449,-759.921",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "b3626557-fe35-4743-834d-e8851073a30c",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "b3626557-fe35-4743-834d-e8851073a30c",
+                  "Name": "r_b12",
+                  "Position": "-5178.294,3293.449,-759.921",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "36362385-1585-4af3-808c-f89b5346ab4c",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "36362385-1585-4af3-808c-f89b5346ab4c",
+                  "Name": "r_b13",
+                  "Position": "-2270.333,924.9166,-1014.947",
+                  "Rotation": "0,0,-0.3826834,0.9238796",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "67a5c0cf-ecf9-424a-978c-6fcd4abbd3ce",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "67a5c0cf-ecf9-424a-978c-6fcd4abbd3ce",
+                  "Name": "r_b14",
+                  "Position": "-538.2944,61.44882,-823.921",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "RaceCheckpoint",
+                      "IsRequired": true,
+                      "NextCheckpoints": [
+                        {
+                          "_type": "component",
+                          "go": "db7dc02c-12e3-4026-aa49-9fc55ee087a1",
+                          "component_type": "RaceCheckpoint"
+                        }
+                      ],
+                      "RespawnPosition": "0,0,32",
+                      "RespawnRotation": "0,0,0"
+                    },
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": true,
+                      "Scale": "1024,50,400",
+                      "Static": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Id": "61433d03-4cea-46c4-a9f1-d715985ab192",
+              "Name": "Blockers",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Children": [
+                {
+                  "Id": "858b8b10-c71e-49d2-9219-bbcbea1d5bc5",
+                  "Name": "barrier_left (4)",
+                  "Position": "-6683.19,8349.447,-662.9209",
+                  "Rotation": "0,0,0.7071068,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "6c9c6d9c-c18f-477e-a77a-f172bc65d23d",
+                  "Name": "barrier_left (5)",
+                  "Position": "-6683.19,8125.447,-662.9209",
+                  "Rotation": "0,0,0.7071068,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "bf7e6d06-db4e-4e2a-8166-985a840648bc",
+                  "Name": "barrier_left (6)",
+                  "Position": "-6683.19,7901.447,-663.921",
+                  "Rotation": "0,0,0.7071068,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "7671e9d7-9a54-4c23-927c-c1ec88cadde1",
+                  "Name": "barrier_right",
+                  "Position": "-7517.806,8349.445,-662.921",
+                  "Rotation": "0,-0,-0.7071068,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "984f9fa1-3081-4209-bc77-046b96fa79ca",
+                  "Name": "barrier_right (1)",
+                  "Position": "-7517.806,8125.445,-662.921",
+                  "Rotation": "0,-0,-0.7071068,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "6e73af6c-ac50-40ec-944f-d3b5213babef",
+                  "Name": "barrier_right (2)",
+                  "Position": "-7517.806,7901.445,-662.921",
+                  "Rotation": "0,-0,-0.7071068,0.7071068",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "89d6fee5-6ff8-4a0d-a97a-87d8599da33d",
+                  "Name": "barrier_left",
+                  "Position": "-4804.816,7468.782,-902.921",
+                  "Rotation": "0,0,-0.9229325,0.3849621",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "0532bbf0-d65b-4ca9-85a7-54a3c19f2f46",
+                  "Name": "barrier_left (1)",
+                  "Position": "-4966.52,7305.471,-902.921",
+                  "Rotation": "0,0,-0.9229325,0.3849621",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "0d977a7c-439e-48b5-a5ff-65b48ee6d7e7",
+                  "Name": "barrier_left (2)",
+                  "Position": "-5117.955,7137.679,-902.921",
+                  "Rotation": "0,0,-0.9229325,0.3849621",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "e8ef10d5-932e-4605-9d94-8aeca8acf36a",
+                  "Name": "barrier_left (3)",
+                  "Position": "-5255.551,6940.969,-902.9209",
+                  "Rotation": "0,0,-0.8774722,0.4796278",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "6dd17b03-09a9-48d5-8235-4be511ceaa69",
+                  "Name": "barrier_left (4)",
+                  "Position": "-5368.363,6722.224,-902.9209",
+                  "Rotation": "0,0,-0.8073614,0.5900576",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "f55736a3-b112-40e4-8235-e58b0343c509",
+                  "Name": "barrier_left (5)",
+                  "Position": "-9606.088,5927.526,-652.4532",
+                  "Rotation": "-0.04593077,-0.01947508,-0.1085234,0.9928414",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "fc8f78f5-36b2-4e37-ad05-b126383841fd",
+                  "Name": "barrier_left (6)",
+                  "Position": "-9855.479,6005.533,-658.2021",
+                  "Rotation": "-0.04435433,-0.02283873,-0.1820984,0.982014",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "ae07760d-03e5-4d19-adb1-d4dee2755c9f",
+                  "Name": "barrier_left (7)",
+                  "Position": "-10089.32,6136.327,-667.9783",
+                  "Rotation": "-0.04254593,-0.02605298,-0.2541467,0.9658782",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "ccc9881f-3916-4102-a4ee-cf10d6fb03d9",
+                  "Name": "barrier_left (8)",
+                  "Position": "-10284.44,6294.77,-676.1008",
+                  "Rotation": "-0.1273815,-0.002206946,-0.3810605,0.9157302",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "c815e6f3-f0b5-4216-b1cf-4e6f03d0f423",
+                  "Name": "barrier_left (9)",
+                  "Position": "-12284.88,4784.452,-902.921",
+                  "Rotation": "0,0,0.9238795,0.3826834",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "1ac401b2-9110-491b-81b8-f8f18b1fb154",
+                  "Name": "barrier_left (10)",
+                  "Position": "-12115.9,4602.947,-902.9211",
+                  "Rotation": "0,0,0.9043405,0.4268115",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "39bebd76-3bfe-4971-bc33-411b8b4ce9ab",
+                  "Name": "barrier_left (11)",
+                  "Position": "-11958.94,4406.532,-902.9211",
+                  "Rotation": "0,0,0.9043405,0.4268115",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "9036143a-ad07-46f8-a849-b9ced10172d9",
+                  "Name": "barrier_left (12)",
+                  "Position": "-11805.84,4211.82,-902.921",
+                  "Rotation": "0,0,0.9043405,0.4268115",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "94a8efcc-b93f-46d4-980c-fa09bf43da80",
+                  "Name": "barrier_left (13)",
+                  "Position": "-11670.58,4020.435,-902.921",
+                  "Rotation": "0,0,0.8684813,0.4957216",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_left.prefab"
+                },
+                {
+                  "Id": "d78922d4-6abd-4e7d-9b38-84d6bf4b608c",
+                  "Name": "barrier_right",
+                  "Position": "-19.91571,-4119.525,-902.9231",
+                  "Rotation": "-0.000001240988,-0.000001417964,0.7933539,0.6087604",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "89c33fc2-7b95-4e57-ac9c-6ecbe5dc7c7b",
+                  "Name": "barrier_right (1)",
+                  "Position": "32.0929,-4313.645,-902.923",
+                  "Rotation": "-0.000001240988,-0.000001417964,0.7933539,0.6087604",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "4ded5775-cf24-4060-9ebc-21cc3b6a410e",
+                  "Name": "barrier_right (2)",
+                  "Position": "81.29675,-4497.299,-902.923",
+                  "Rotation": "-0.000001240988,-0.000001417964,0.7933539,0.6087604",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "35486795-a249-47c7-8117-d35798484ace",
+                  "Name": "barrier_right (3)",
+                  "Position": "131.7725,-4685.687,-902.923",
+                  "Rotation": "-0.000001240988,-0.000001417964,0.7933539,0.6087604",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "cd2336ef-28a6-4c8a-a3ed-850327462d3b",
+                  "Name": "barrier_right (4)",
+                  "Position": "-534.709,-7989.924,-904.921",
+                  "Rotation": "0.00000000000000002512643,-0.00000000000000001179128,0.4248256,0.905275",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "8982603d-eef9-435c-a97a-9f08ab00e4a5",
+                  "Name": "barrier_right (5)",
+                  "Position": "-711.9377,-8161.306,-904.9213",
+                  "Rotation": "0.00000000000000002561655,-0.00000000000000001068477,0.3849593,0.9229335",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "3716d101-e4ed-4e44-9372-ba2a58e41023",
+                  "Name": "barrier_right (6)",
+                  "Position": "-894.8488,-8303.424,-904.9207",
+                  "Rotation": "0.00000000000000002631364,-0.000000000000000008829744,0.3181249,0.9480486",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "845d8888-94c2-42f0-bb7f-837aaefbeb18",
+                  "Name": "barrier_right (7)",
+                  "Position": "-1119.35,-8456.023,-904.9209",
+                  "Rotation": "0.00000000000000002677741,-0.000000000000000007303571,0.2631389,0.9647578",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "83857eec-6187-46ee-bd55-71bbc0725e54",
+                  "Name": "barrier_right (8)",
+                  "Position": "-1342.05,-8548.794,-904.9207",
+                  "Rotation": "0.00000000000000002743622,-0.000000000000000004198332,0.1512609,0.9884937",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/barrier_right.prefab"
+                },
+                {
+                  "Id": "5e5892d9-39e3-46ac-aa58-a556c9be0820",
+                  "Name": "Wall",
+                  "Position": "-11930.29,4541.449,-727.921",
+                  "Rotation": "0,0,0.3826834,0.9238796",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": false,
+                      "Scale": "16,1200,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "69f8ab27-1efb-48c1-a1d6-011bf44246cd",
+                  "Name": "Wall (1)",
+                  "Position": "-7546.294,8157.449,-471.9211",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": false,
+                      "Scale": "16,1200,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "ce4ac467-e063-48e7-bac3-bb3a8fc18ed5",
+                  "Name": "Wall (3)",
+                  "Position": "-5114.294,7133.449,-727.921",
+                  "Rotation": "0,0,-0.9238795,-0.3826832",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": false,
+                      "Scale": "16,1200,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "6fb1406f-9f13-48cc-8c5f-a0feb1f54a98",
+                  "Name": "Wall (2)",
+                  "Position": "-6618.304,8093.449,-471.921",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": false,
+                      "Scale": "16,1200,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "aa11103a-99f0-4ba6-8d03-d7bcf1f60af4",
+                  "Name": "Wall (4)",
+                  "Position": "-694.8942,-8286.599,-695.921",
+                  "Rotation": "0,0,0.9276328,0.3734938",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": false,
+                      "Scale": "16,1200,400",
+                      "Static": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "8b72d000-16b1-48ba-9345-2658c91e19e7",
+                  "Name": "Wall (5)",
+                  "Position": "97.23096,-4444.542,-695.921",
+                  "Rotation": "0,0,0.1309546,0.9913885",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "BoxCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": false,
+                      "Scale": "16,1200,400",
+                      "Static": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Id": "f9c41bbd-a8d4-44e2-aacb-0b485f0868a1",
+              "Name": "Objects",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Children": [
+                {
+                  "Id": "67206680-d429-4679-9bd1-35196c66431d",
+                  "Name": "pickup_boost1",
+                  "Position": "-10426.29,8349.449,-631.921",
+                  "Tags": "pickup,item",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/pickups/pickup_boost1.prefab"
+                },
+                {
+                  "Id": "8b67a704-4f66-4c96-bfd1-2f69da64e993",
+                  "Name": "pickup_item1 (4)",
+                  "Position": "-9914.281,8381.448,-631.921",
+                  "Tags": "pickup,item",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+                },
+                {
+                  "Id": "e14652e8-7d71-479e-932c-03078f30f145",
+                  "Name": "pickup_item1 (1)",
+                  "Position": "-10042.29,8381.449,-631.921",
+                  "Tags": "pickup,item",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+                },
+                {
+                  "Id": "9be3192c-7cf5-40e4-90ad-9d26398a645d",
+                  "Name": "pickup_item1 (3)",
+                  "Position": "-10170.28,8381.448,-631.921",
+                  "Tags": "pickup,item",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+                },
+                {
+                  "Id": "02511635-6afb-4a2c-be9b-b0a544f83ce6",
+                  "Name": "race_booster",
+                  "Position": "-13050.29,8285.449,-661.921",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/race_booster.prefab"
+                },
+                {
+                  "Id": "e5fec206-3192-42cf-b38f-121e4f4b7e6d",
+                  "Name": "race_booster (1)",
+                  "Position": "-12922.29,8285.449,-661.921",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "__Prefab": "prefabs/objects/race_booster.prefab"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "9e20c324-6026-4f37-9625-f088e0668aed",
+          "Name": "Blockers",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Children": [
+            {
+              "Id": "0c079893-6a0e-4b1f-8974-ec983130874f",
+              "Name": "barrier_right (14)",
+              "Position": "-4373.898,2255.652,-902.921",
+              "Rotation": "0,0,0.7071067,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/objects/barrier_right.prefab"
+            },
+            {
+              "Id": "b57895e9-1fcd-44d7-bb11-253281e4de30",
+              "Name": "barrier_right (13)",
+              "Position": "-4373.898,2483.383,-902.921",
+              "Rotation": "0,0,0.7071067,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/objects/barrier_right.prefab"
+            },
+            {
+              "Id": "40570040-5ce7-4579-b8d9-b44ac8d8494d",
+              "Name": "barrier_right (12)",
+              "Position": "-4373.899,2723.493,-902.921",
+              "Rotation": "0,0,0.7071067,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/objects/barrier_right.prefab"
+            }
+          ]
+        },
+        {
+          "Id": "2da65099-e63f-41b8-889e-22c82a0c0d9b",
+          "Name": "Start Positions",
+          "Position": "-349.93,-3050.543,-927.8011",
+          "Rotation": "0,0,1,-0.00000004371139",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Children": [
+            {
+              "Id": "4b63df65-c8f9-404c-b176-73f0c972de15",
+              "Name": "1",
+              "Position": "0.0006103516,-0.0004882812,32",
+              "Rotation": "0,0,0.7071068,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "RaceStartingPosition",
+                  "Placement": 1
+                }
+              ]
+            },
+            {
+              "Id": "ae347dcb-4c1a-4462-b222-bc2a98f7dc3c",
+              "Name": "2",
+              "Position": "256.0006,-96.00049,32",
+              "Rotation": "0,0,0.7071068,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "RaceStartingPosition",
+                  "Placement": 2
+                }
+              ]
+            },
+            {
+              "Id": "89774cce-0def-4d03-9c43-60b729b12a6b",
+              "Name": "3",
+              "Position": "512.0007,-224.0005,32",
+              "Rotation": "0,0,0.7071068,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "RaceStartingPosition",
+                  "Placement": 3
+                }
+              ]
+            },
+            {
+              "Id": "95fd60e2-7cb7-4f77-8013-782737fbd720",
+              "Name": "4",
+              "Position": "0.0006561279,-384.0005,32",
+              "Rotation": "0,0,0.7071068,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "RaceStartingPosition",
+                  "Placement": 4
+                }
+              ]
+            },
+            {
+              "Id": "0481ed46-5c08-436b-ac44-80e5cec89e5d",
+              "Name": "5",
+              "Position": "256.0007,-480.0005,32",
+              "Rotation": "0,0,0.7071068,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "RaceStartingPosition",
+                  "Placement": 5
+                }
+              ]
+            },
+            {
+              "Id": "73a20704-ab6d-47d2-8d53-432a6335887e",
+              "Name": "6",
+              "Position": "512.0007,-608.0005,32",
+              "Rotation": "0,0,0.7071068,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "RaceStartingPosition",
+                  "Placement": 6
+                }
+              ]
+            },
+            {
+              "Id": "e9283747-d61c-47df-82a9-cd9f0565a905",
+              "Name": "7",
+              "Position": "0.000705719,-800.0005,32",
+              "Rotation": "0,0,0.7071068,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "RaceStartingPosition",
+                  "Placement": 7
+                }
+              ]
+            },
+            {
+              "Id": "e3404d3b-76f0-4fd5-9f5c-28ec7bd0aab2",
+              "Name": "8",
+              "Position": "256.0007,-896.0005,32",
+              "Rotation": "0,0,0.7071068,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "RaceStartingPosition",
+                  "Placement": 8
+                }
+              ]
+            },
+            {
+              "Id": "4bf952b7-25f0-4eff-bebe-accfff57b133",
+              "Name": "9",
+              "Position": "512.0008,-1024.001,32",
+              "Rotation": "0,0,0.7071068,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "RaceStartingPosition",
+                  "Placement": 9
+                }
+              ]
+            },
+            {
+              "Id": "88c415b0-996a-4df2-80e6-ac9244e11ece",
+              "Name": "10",
+              "Position": "0.0007514954,-1184.001,32",
+              "Rotation": "0,0,0.7071068,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "RaceStartingPosition",
+                  "Placement": 10
+                }
+              ]
+            },
+            {
+              "Id": "65826e2f-11c0-465c-8899-8570d8f03384",
+              "Name": "11",
+              "Position": "256.0008,-1280.001,32",
+              "Rotation": "0,0,0.7071068,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "RaceStartingPosition",
+                  "Placement": 11
+                }
+              ]
+            },
+            {
+              "Id": "88acc034-a8e8-4030-bdc3-8a1e3823e464",
+              "Name": "12",
+              "Position": "512.0009,-1408.001,32",
+              "Rotation": "0,0,0.7071068,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "RaceStartingPosition",
+                  "Placement": 12
+                }
+              ]
+            },
+            {
+              "Id": "36e54922-2eb4-4a3a-b176-62c8ee438d8c",
+              "Name": "13",
+              "Position": "0.0007972717,-1568.001,32",
+              "Rotation": "0,0,0.7071068,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "RaceStartingPosition",
+                  "Placement": 13
+                }
+              ]
+            },
+            {
+              "Id": "7b47b2d5-0c06-4cdf-a0be-0162fec1c5bf",
+              "Name": "14",
+              "Position": "256.0009,-1664.001,32",
+              "Rotation": "0,0,0.7071068,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "RaceStartingPosition",
+                  "Placement": 14
+                }
+              ]
+            },
+            {
+              "Id": "dfc80dfc-52a9-48ae-8d05-54cdb970e387",
+              "Name": "15",
+              "Position": "512.0009,-1792.001,32",
+              "Rotation": "0,0,0.7071068,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "RaceStartingPosition",
+                  "Placement": 15
+                }
+              ]
+            },
+            {
+              "Id": "17b4cdb9-4627-4e4b-b8f8-48936320996a",
+              "Name": "16",
+              "Position": "0.0008430481,-1952.001,32",
+              "Rotation": "0,0,0.7071068,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "RaceStartingPosition",
+                  "Placement": 16
+                }
+              ]
+            },
+            {
+              "Id": "8f0a19c8-e61d-4205-8cf1-cd15b7b155d0",
+              "Name": "17",
+              "Position": "256.0009,-2048.001,32",
+              "Rotation": "0,0,0.7071068,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "RaceStartingPosition",
+                  "Placement": 17
+                }
+              ]
+            },
+            {
+              "Id": "0478616c-e088-4168-9f32-b93575422c7e",
+              "Name": "18",
+              "Position": "512.0009,-2176.001,32",
+              "Rotation": "0,0,0.7071068,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "RaceStartingPosition",
+                  "Placement": 18
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "a7ddd805-8a0b-40ad-8044-9dec150a96e1",
+          "Name": "Objects",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Children": [
+            {
+              "Id": "8cb683ae-9c28-421c-8188-01e98089c286",
+              "Name": "race_booster",
+              "Position": "-10876.82,-418.5551,-901.921",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/objects/race_booster.prefab"
+            },
+            {
+              "Id": "de2a112f-38bd-4e61-aef7-f32d91ce6cd4",
+              "Name": "pickup_boost1",
+              "Position": "-8163.506,-2760.57,-875.6331",
+              "Tags": "pickup,item",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/pickups/pickup_boost1.prefab"
+            },
+            {
+              "Id": "519d3a8e-af2d-4e16-b124-ee8a125d2b72",
+              "Name": "pickup_item1 (2)",
+              "Position": "-12186.29,2094.743,-873.2874",
+              "Tags": "pickup,item",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+            },
+            {
+              "Id": "4285adcc-0d1b-48c3-b5e1-5ef06ac9a39a",
+              "Name": "pickup_item1 (1)",
+              "Position": "-11962.29,2094.743,-873.2874",
+              "Tags": "pickup,item",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+            },
+            {
+              "Id": "517d1409-0b09-4390-957c-7045e96f358e",
+              "Name": "pickup_item1",
+              "Position": "-11738.29,2094.743,-873.2874",
+              "Tags": "pickup,item",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+            },
+            {
+              "Id": "0cb625b1-ca0f-4f4f-aa78-5a289ec8c458",
+              "Name": "pickup_item1 (3)",
+              "Position": "-6522.294,-8002.551,-873.878",
+              "Tags": "pickup,item",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+            },
+            {
+              "Id": "639f4673-d919-4391-835b-2fdeada438e5",
+              "Name": "pickup_item1 (4)",
+              "Position": "-6522.294,-8162.551,-873.878",
+              "Tags": "pickup,item",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+            },
+            {
+              "Id": "032a9aec-371b-40a5-9de0-2ab3ff30f213",
+              "Name": "pickup_item1 (5)",
+              "Position": "-6522.294,-8322.551,-873.878",
+              "Tags": "pickup,item",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+            },
+            {
+              "Id": "8a4130ed-12b9-43b5-8a7b-8702acc51cac",
+              "Name": "pickup_item1 (6)",
+              "Position": "-6522.294,-8482.551,-873.878",
+              "Tags": "pickup,item",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+            },
+            {
+              "Id": "cef052b5-aefe-427d-a484-231c2f38cd52",
+              "Name": "pickup_item1 (7)",
+              "Position": "-5306.294,4925.449,-873.3506",
+              "Tags": "pickup,item",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+            },
+            {
+              "Id": "827b15fe-a82b-42b6-b7eb-33cce4eeae3f",
+              "Name": "pickup_item1 (8)",
+              "Position": "-5178.294,4925.449,-873.3506",
+              "Tags": "pickup,item",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+            },
+            {
+              "Id": "ba53a91c-2440-4324-bf21-d5e59e9af228",
+              "Name": "pickup_item1 (9)",
+              "Position": "-5050.294,4925.449,-873.3506",
+              "Tags": "pickup,item",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+            },
+            {
+              "Id": "d00a3468-13d7-4581-ac70-5e119083013b",
+              "Name": "pickup_item1 (10)",
+              "Position": "-4922.294,4925.449,-873.3506",
+              "Tags": "pickup,item",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+            },
+            {
+              "Id": "cdde1c67-597b-48d2-a9f4-8a4da2e254e3",
+              "Name": "pickup_item1 (11)",
+              "Position": "-4794.294,4925.449,-873.3506",
+              "Tags": "pickup,item",
+              "Enabled": true,
+              "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
             }
           ]
@@ -1385,7 +4573,7 @@
   },
   "Title": "track_forest",
   "Description": "",
-  "LastSaved": "2024-03-11T13:01:39.0093063\u002B01:00",
+  "LastSaved": "2024-03-11T20:52:33.5486126\u002B01:00",
   "__references": [
     "polyhaven.kloofendal_overcast_puresky"
   ]

@@ -3,7 +3,17 @@
   "Group": null,
   "Visible": true,
   "Scene": "scenes/track_forest.scene",
-  "Variables": [],
+  "Variables": [
+    {
+      "Key": "route",
+      "Values": [
+        "a",
+        "b"
+      ],
+      "Required": true,
+      "Title": "Route"
+    }
+  ],
   "Parameters": {
     "MaxLaps": 2
   },

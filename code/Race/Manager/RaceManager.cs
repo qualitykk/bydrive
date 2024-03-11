@@ -42,7 +42,7 @@ public sealed partial class RaceManager : Component
 	{
 		if ( StartCheckpointOptions == null || !StartCheckpointOptions.Any() ) return startCheckpoint;
 		if ( startCheckpoint != null ) return startCheckpoint;
-		startCheckpoint = StartCheckpointOptions?.FirstOrDefault( c => c.GameObject.Active == true );
+		startCheckpoint = StartCheckpointOptions?.FirstOrDefault( c => c?.GameObject?.Active == true );
 		return startCheckpoint;
 	}
 	protected override void OnAwake()

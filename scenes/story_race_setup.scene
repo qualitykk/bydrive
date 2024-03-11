@@ -5,6 +5,7 @@
       "Id": "4a2d193f-2855-472e-9a4f-1c539ee4e461",
       "Name": "Level",
       "Enabled": true,
+      "NetworkMode": 2,
       "Children": [
         {
           "Id": "e5771e93-3aed-42a3-a189-d22bb00c84b6",
@@ -13,6 +14,7 @@
           "Rotation": "-0.2721657,0.8859298,0.2200369,0.3043649",
           "Tags": "light_directional,light,skybox",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "DirectionalLight",
@@ -30,6 +32,7 @@
           "Position": "512,-224,384",
           "Tags": "light_directional,light,skybox",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "SkyBox2D",
@@ -43,12 +46,11 @@
           "Name": "Instance",
           "Position": "301,1,1",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "MapInstance",
               "MapName": "maps/rd_st_garage.vpk",
-              "OnMapLoaded": null,
-              "OnMapUnloaded": null,
               "UseMapFromLaunch": false
             }
           ],
@@ -61,6 +63,7 @@
       "Name": "UI",
       "Position": "0,0,128",
       "Enabled": true,
+      "NetworkMode": 2,
       "Components": [
         {
           "__type": "ScreenPanel",
@@ -76,6 +79,7 @@
           "Name": "Global",
           "Position": "0,0,0",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "DialogBox"
@@ -90,6 +94,7 @@
           "Name": "Menu",
           "Position": "0,0,0",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "GarageMenu"
@@ -110,6 +115,7 @@
       "Scale": "1.887448,1,1",
       "Tags": "maincamera",
       "Enabled": true,
+      "NetworkMode": 2,
       "Components": [
         {
           "__type": "CameraComponent",
@@ -134,6 +140,7 @@
       "Name": "Setup Manager",
       "Position": "-67.63286,-89.08066,73.98915",
       "Enabled": true,
+      "NetworkMode": 2,
       "Components": [
         {
           "__type": "RaceSetupManager",
@@ -148,7 +155,8 @@
       "Id": "9d13d9d5-09c6-4613-8327-78130fc006fd",
       "Name": "VehiclePreview",
       "Position": "-9.094742,-95.49846,73.98915",
-      "Enabled": true
+      "Enabled": true,
+      "NetworkMode": 2
     }
   ],
   "SceneProperties": {
@@ -174,7 +182,7 @@
   },
   "Title": "story_race_setup",
   "Description": "",
-  "LastSaved": "2024-03-07T13:51:53.0708225\u002B01:00",
+  "LastSaved": "2024-03-11T20:59:45.855249\u002B01:00",
   "__references": [
     "polyhaven.wasteland_clouds_puresky"
   ]
