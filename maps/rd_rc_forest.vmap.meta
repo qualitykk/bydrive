@@ -1,0 +1,37 @@
+{
+  "publish": {
+    "Allowed": true,
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "rd_rc_forest",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "rd_rc_forest",
+      "Tags": null,
+      "Schema": 0,
+      "HasAssets": false,
+      "AssetsPath": null,
+      "Resources": null,
+      "MenuResources": "*",
+      "HasCode": false,
+      "CodePath": null,
+      "PackageReferences": [],
+      "EditorReferences": [
+        "facepunch.floor_slick_asphalt#18678",
+        "facepunch.floor_gravel_sand_blend_a#18654",
+        "facepunch.floor_asphalt_dirt_blend#18640",
+        "facepunch.floor_gravel_sand_leaves_blend_a#18660",
+        "facepunch.floor_grass_dirt_cliff_blend_a#18754",
+        "facepunch.tree_oak_big_a#38050",
+        "facepunch.tree_oak_medium_a#33692",
+        "facepunch.tree_oak_big_b#33691",
+        "facepunch.tree_oak_small_a#33693",
+        "facepunch.cliff_a#18627",
+        "rust.field_day_breeze_01a#43855"
+      ],
+      "Metadata": {
+        "SingleAssetSource": "maps/rd_rc_forest.vmap"
+      }
+    }
+  }
+}

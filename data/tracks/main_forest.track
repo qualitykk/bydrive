@@ -1,0 +1,15 @@
+{
+  "Name": "Forest",
+  "Group": null,
+  "Visible": true,
+  "Scene": "scenes/track_forest.scene",
+  "Variables": [],
+  "Parameters": {
+    "MaxLaps": 2
+  },
+  "Music": {
+    "RaceMusicVolume": -1,
+    "RaceStartWait": 4
+  },
+  "__references": []
+}

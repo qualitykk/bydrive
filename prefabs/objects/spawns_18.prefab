@@ -1,0 +1,248 @@
+{
+  "RootObject": {
+    "Id": "7b56a5d9-e811-40b1-b750-899feeeb1465",
+    "Name": "Start Positions",
+    "Position": "-256,352,96",
+    "Enabled": true,
+    "Children": [
+      {
+        "Id": "558da7f6-d405-4693-b32d-ad25590514c9",
+        "Name": "1",
+        "Position": "0.0006103516,-0.0004882812,32",
+        "Rotation": "0,0,0.7071068,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "RaceStartingPosition",
+            "Placement": 1
+          }
+        ]
+      },
+      {
+        "Id": "e026b8b4-b6b4-45e8-adce-5c8cdf29eed9",
+        "Name": "2",
+        "Position": "256.0006,-96.00049,32",
+        "Rotation": "0,0,0.7071068,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "RaceStartingPosition",
+            "Placement": 2
+          }
+        ]
+      },
+      {
+        "Id": "77818825-f687-406e-9bca-851c5603e983",
+        "Name": "3",
+        "Position": "512.0007,-224.0005,32",
+        "Rotation": "0,0,0.7071068,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "RaceStartingPosition",
+            "Placement": 3
+          }
+        ]
+      },
+      {
+        "Id": "9f1984d0-9904-44e2-b217-1dac83b0a7fb",
+        "Name": "4",
+        "Position": "0.0006561279,-384.0005,32",
+        "Rotation": "0,0,0.7071068,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "RaceStartingPosition",
+            "Placement": 4
+          }
+        ]
+      },
+      {
+        "Id": "48f7251e-f69f-4011-8cc1-34e93488de8d",
+        "Name": "5",
+        "Position": "256.0007,-480.0005,32",
+        "Rotation": "0,0,0.7071068,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "RaceStartingPosition",
+            "Placement": 5
+          }
+        ]
+      },
+      {
+        "Id": "41660b29-6327-4533-8b21-7fafb48a2457",
+        "Name": "6",
+        "Position": "512.0007,-608.0005,32",
+        "Rotation": "0,0,0.7071068,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "RaceStartingPosition",
+            "Placement": 6
+          }
+        ]
+      },
+      {
+        "Id": "258475f9-532d-4923-b15e-2b3fa2624ce8",
+        "Name": "7",
+        "Position": "0.000705719,-800.0005,32",
+        "Rotation": "0,0,0.7071068,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "RaceStartingPosition",
+            "Placement": 7
+          }
+        ]
+      },
+      {
+        "Id": "50528a1f-e47a-4fa5-974a-c1b1fdf0b109",
+        "Name": "8",
+        "Position": "256.0007,-896.0005,32",
+        "Rotation": "0,0,0.7071068,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "RaceStartingPosition",
+            "Placement": 8
+          }
+        ]
+      },
+      {
+        "Id": "9de43757-e439-4825-b5ab-ae572313b069",
+        "Name": "9",
+        "Position": "512.0008,-1024.001,32",
+        "Rotation": "0,0,0.7071068,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "RaceStartingPosition",
+            "Placement": 9
+          }
+        ]
+      },
+      {
+        "Id": "85bdc26c-b243-4333-b403-791460e4fdc8",
+        "Name": "10",
+        "Position": "0.0007514954,-1184.001,32",
+        "Rotation": "0,0,0.7071068,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "RaceStartingPosition",
+            "Placement": 10
+          }
+        ]
+      },
+      {
+        "Id": "b32c6ae4-f55d-4d20-8083-27161ba4ae4d",
+        "Name": "11",
+        "Position": "256.0008,-1280.001,32",
+        "Rotation": "0,0,0.7071068,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "RaceStartingPosition",
+            "Placement": 11
+          }
+        ]
+      },
+      {
+        "Id": "903fa1db-c795-455e-99e9-1bb2d6a21bd5",
+        "Name": "12",
+        "Position": "512.0009,-1408.001,32",
+        "Rotation": "0,0,0.7071068,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "RaceStartingPosition",
+            "Placement": 12
+          }
+        ]
+      },
+      {
+        "Id": "2d4a769b-0997-47d9-95a1-89997e6feea9",
+        "Name": "13",
+        "Position": "0.0007972717,-1568.001,32",
+        "Rotation": "0,0,0.7071068,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "RaceStartingPosition",
+            "Placement": 13
+          }
+        ]
+      },
+      {
+        "Id": "b1d3bba1-3ec3-46f0-93ff-6fdf5079a6ae",
+        "Name": "14",
+        "Position": "256.0009,-1664.001,32",
+        "Rotation": "0,0,0.7071068,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "RaceStartingPosition",
+            "Placement": 14
+          }
+        ]
+      },
+      {
+        "Id": "2ea5b00b-eae9-4ef4-9d1e-98499791cc1c",
+        "Name": "15",
+        "Position": "512.0009,-1792.001,32",
+        "Rotation": "0,0,0.7071068,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "RaceStartingPosition",
+            "Placement": 15
+          }
+        ]
+      },
+      {
+        "Id": "78096b5f-8541-4cd5-892d-d7df46dacf75",
+        "Name": "16",
+        "Position": "0.0008430481,-1952.001,32",
+        "Rotation": "0,0,0.7071068,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "RaceStartingPosition",
+            "Placement": 16
+          }
+        ]
+      },
+      {
+        "Id": "08903f62-e2ca-45e1-9377-01307d46afa7",
+        "Name": "17",
+        "Position": "256.0009,-2048.001,32",
+        "Rotation": "0,0,0.7071068,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "RaceStartingPosition",
+            "Placement": 17
+          }
+        ]
+      },
+      {
+        "Id": "c479d1f8-0759-4699-bc72-7d1c9d0f5f18",
+        "Name": "18",
+        "Position": "512.0009,-2176.001,32",
+        "Rotation": "0,0,0.7071068,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "RaceStartingPosition",
+            "Placement": 18
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

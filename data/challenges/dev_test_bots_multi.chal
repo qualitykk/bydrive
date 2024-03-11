@@ -2,32 +2,16 @@
   "Id": "Bydrive.ChallengeDefinition:dev_test_bots_multi",
   "Title": "DEVTEST Bots MULTI",
   "Description": "Test against some bots on all variants of Backstreets.",
-  "RewardDisplay": "",
+  "RewardDisplay": "None\nat\nall!",
   "OnComplete": null,
-  "IsRace": true,
-  "IsSingle": false,
+  "ShouldUnlock": null,
   "Races": [
     {
-      "Track": "data/tracks/main_backstreets.track",
+      "Track": "data/tracks/main_forest.track",
       "Parameters": {
-        "MaxLaps": 1
+        "MaxLaps": 2
       },
-      "Variables": {
-        "route": "a"
-      },
-      "Music": {
-        "RaceMusicVolume": -1,
-        "RaceStartWait": 4
-      }
-    },
-    {
-      "Track": "data/tracks/main_backstreets.track",
-      "Parameters": {
-        "MaxLaps": 1
-      },
-      "Variables": {
-        "route": "b"
-      },
+      "Variables": {},
       "Music": {
         "RaceMusicVolume": -1,
         "RaceStartWait": 4
@@ -66,5 +50,7 @@
       "VehicleOverride": "data/vehicles/devcar1.vehicle"
     }
   ],
+  "IsSingle": true,
+  "IsRace": true,
   "__references": []
 }

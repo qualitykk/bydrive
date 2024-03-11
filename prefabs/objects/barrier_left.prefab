@@ -1,0 +1,28 @@
+{
+  "RootObject": {
+    "Id": "d493b154-ce3f-4849-9924-66ca69544769",
+    "Name": "barrier_left",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "ModelRenderer",
+        "BodyGroups": 18446744073709551615,
+        "Model": "models/props/concrete_barrier.vmdl",
+        "RenderType": "On",
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "BoxCollider",
+        "Center": "0,0,45",
+        "IsTrigger": false,
+        "Scale": "160,50,96",
+        "Static": false
+      }
+    ],
+    "Children": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

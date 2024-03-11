@@ -7,7 +7,6 @@
     "Components": [
       {
         "__type": "VehicleController",
-        "Definition": null,
         "ItemSpawnPosition": "192,0,16",
         "Rigidbody": {
           "_type": "component",
@@ -17,12 +16,8 @@
       },
       {
         "__type": "SkinnedModelRenderer",
-        "AnimationGraph": null,
         "BodyGroups": 18446744073709551615,
-        "BoneMergeTarget": null,
         "CreateBoneObjects": false,
-        "MaterialGroup": null,
-        "MaterialOverride": null,
         "Model": "models/vehicles/vehicle_boxy.vmdl",
         "RenderType": "On",
         "Tint": "1,1,1,1"
@@ -42,8 +37,7 @@
         "Center": "-2.5,0,40",
         "IsTrigger": false,
         "Scale": "227.4996,80.70023,70",
-        "Static": false,
-        "Surface": null
+        "Static": false
       }
     ],
     "Children": [
@@ -63,20 +57,14 @@
           },
           {
             "__type": "ModelCollider",
-            "__enabled": false,
             "IsTrigger": false,
             "Model": "models/citizen_props/wheel01.vmdl",
-            "Static": false,
-            "Surface": null
+            "Static": false
           },
           {
             "__type": "SkinnedModelRenderer",
-            "AnimationGraph": null,
             "BodyGroups": 18446744073709551615,
-            "BoneMergeTarget": null,
             "CreateBoneObjects": false,
-            "MaterialGroup": null,
-            "MaterialOverride": null,
             "Model": "models/citizen_props/wheel01.vmdl",
             "RenderType": "On",
             "Tint": "1,1,1,1"
@@ -98,20 +86,14 @@
           },
           {
             "__type": "ModelCollider",
-            "__enabled": false,
             "IsTrigger": false,
             "Model": "models/citizen_props/wheel01.vmdl",
-            "Static": false,
-            "Surface": null
+            "Static": false
           },
           {
             "__type": "SkinnedModelRenderer",
-            "AnimationGraph": null,
             "BodyGroups": 18446744073709551615,
-            "BoneMergeTarget": null,
             "CreateBoneObjects": false,
-            "MaterialGroup": null,
-            "MaterialOverride": null,
             "Model": "models/citizen_props/wheel01.vmdl",
             "RenderType": "On",
             "Tint": "1,1,1,1"
@@ -133,20 +115,14 @@
           },
           {
             "__type": "ModelCollider",
-            "__enabled": false,
             "IsTrigger": false,
             "Model": "models/citizen_props/wheel01.vmdl",
-            "Static": false,
-            "Surface": null
+            "Static": false
           },
           {
             "__type": "SkinnedModelRenderer",
-            "AnimationGraph": null,
             "BodyGroups": 18446744073709551615,
-            "BoneMergeTarget": null,
             "CreateBoneObjects": false,
-            "MaterialGroup": null,
-            "MaterialOverride": null,
             "Model": "models/citizen_props/wheel01.vmdl",
             "RenderType": "On",
             "Tint": "1,1,1,1"
@@ -169,20 +145,14 @@
           },
           {
             "__type": "ModelCollider",
-            "__enabled": false,
             "IsTrigger": false,
             "Model": "models/citizen_props/wheel01.vmdl",
-            "Static": false,
-            "Surface": null
+            "Static": false
           },
           {
             "__type": "SkinnedModelRenderer",
-            "AnimationGraph": null,
             "BodyGroups": 18446744073709551615,
-            "BoneMergeTarget": null,
             "CreateBoneObjects": false,
-            "MaterialGroup": null,
-            "MaterialOverride": null,
             "Model": "models/citizen_props/wheel01.vmdl",
             "RenderType": "On",
             "Tint": "1,1,1,1"
