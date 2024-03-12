@@ -20,6 +20,7 @@ public sealed partial class RaceManager : Component
 	public TimeUntil TimeUntilRaceStart { get; private set; }
 	public TimeSince TimeSinceRaceStart { get; private set; }
 	public bool HasStarted { get; private set; } = false;
+	public bool HasCountdownStarted { get; private set; }
 	public bool HasLoaded { get; private set; } = false;
 	public bool HasSetup { get; private set; } = false;
 	private RaceCheckpoint startCheckpoint;
@@ -56,26 +57,12 @@ public sealed partial class RaceManager : Component
 		HasStarted = false;
 	}
 
-	private void StartCountdown()
-	{
-		const float RACE_START_COUNTDOWN = 3f;
-		HasStarted = false;
-		TimeUntilRaceStart = RACE_START_COUNTDOWN + GetRaceWaitTime();
-		Music.Play( GetRaceMusic(), GetRaceMusicVolume() );
-	}
-
-	private void StartRace()
-	{
-		HasStarted = true;
-		TimeSinceRaceStart = 0;
-	}
-
 	public override void Reset()
 	{
 		startCheckpoint = null;
-		SetupRace();
+		Setup();
 	}
-	private void SetupRace()
+	public void Setup(bool autoStart = false)
 	{
 		Participants?.Clear();
 		ResetParticipants();
@@ -98,6 +85,16 @@ public sealed partial class RaceManager : Component
 			participant.PassCheckpoint( GetStartCheckpoint(), true );
 		}
 
+		if(autoStart)
+		{
+			Start();
+		}
+
+		HasSetup = true;
+	}
+
+	public void Start()
+	{
 		var cameras = Scene.GetAllComponents<VehicleCamera>();
 		foreach ( var camera in cameras )
 		{
@@ -105,7 +102,21 @@ public sealed partial class RaceManager : Component
 		}
 
 		StartCountdown();
-		HasSetup = true;
+	}
+
+	private void StartCountdown()
+	{
+		const float RACE_START_COUNTDOWN = 3f;
+		HasStarted = false;
+		HasCountdownStarted = true;
+		TimeUntilRaceStart = RACE_START_COUNTDOWN + GetRaceWaitTime();
+		Music.Play( GetRaceMusic(), GetRaceMusicVolume() );
+	}
+
+	private void FinishCountdown()
+	{
+		HasStarted = true;
+		TimeSinceRaceStart = 0;
 	}
 
 	public void InitialiseParticipants( List<RaceParticipant> participants )
@@ -128,19 +139,21 @@ public sealed partial class RaceManager : Component
 	}
 	protected override void OnFixedUpdate()
 	{
-		if ( RaceContext == null || !HasSetup ) return;
+		if ( RaceContext == null ) return;
 
 		if(!HasLoaded && RaceContext.FinishedLoading)
 		{
 			HasLoaded = true;
 
 			OrderCheckpoints();
-			//SetupRace();
+			Setup();
 		}
 
-		if(TimeUntilRaceStart && !HasStarted)
+		if ( !HasSetup ) return;
+
+		if(TimeUntilRaceStart && HasCountdownStarted && !HasStarted)
 		{
-			StartRace();
+			FinishCountdown();
 		}
 
 		UpdateCompletion();

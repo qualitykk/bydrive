@@ -24,6 +24,6 @@ public struct RaceSetup
 	public override string ToString()
 	{
 		string variablesString = (Variables != null && Variables.Any()) ? string.Join( ',', Variables.Select( kv => $"{kv.Key}={kv.Value}" ) ) : "NONE";
-		return $"{Track.Name} ({variablesString})";
+		return $"{Track?.Name ?? "None"} ({variablesString})";
 	}
 }

@@ -12,7 +12,7 @@
         "MaxLaps": 2
       },
       "Variables": {
-        "route": "reverse_a"
+        "route": "a"
       },
       "Music": {
         "RaceMusicVolume": -1,
@@ -25,7 +25,33 @@
         "MaxLaps": 2
       },
       "Variables": {
-        "route": "reverse_b"
+        "route": "a_reverse"
+      },
+      "Music": {
+        "RaceMusicVolume": -1,
+        "RaceStartWait": 4
+      }
+    },
+    {
+      "Track": "data/tracks/main_forest.track",
+      "Parameters": {
+        "MaxLaps": 3
+      },
+      "Variables": {
+        "route": "b"
+      },
+      "Music": {
+        "RaceMusicVolume": -1,
+        "RaceStartWait": 4
+      }
+    },
+    {
+      "Track": "data/tracks/main_forest.track",
+      "Parameters": {
+        "MaxLaps": 3
+      },
+      "Variables": {
+        "route": "b_reverse"
       },
       "Music": {
         "RaceMusicVolume": -1,

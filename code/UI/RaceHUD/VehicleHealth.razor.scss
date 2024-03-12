@@ -17,6 +17,10 @@ VehicleHealth {
 	gap: 10px;
 	flex-direction: column;
 
+	&.disabled {
+		display: none;
+	}
+
 	.title {
 		text-align: left;
 		font-family: Poppins;

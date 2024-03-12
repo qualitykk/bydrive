@@ -11,7 +11,7 @@ namespace Bydrive;
 public class PathCamera : Component, ICameraMode
 {
 	[Property] public List<CameraShot> Shots { get; set; }
-	[Property] public bool MoveOnEnabled { get; set; }
+	[Property] public bool MoveOnStart { get; set; }
 	[Property] public bool Loop { get; set; }
 	[Property] public float TimeScale { get; set; } = 1;
 	[Property] public Action OnFinishMove { get; set; }
@@ -52,9 +52,9 @@ public class PathCamera : Component, ICameraMode
 		hasFinished = true;
 	}
 
-	protected override void OnEnabled()
+	protected override void OnStart()
 	{
-		if ( MoveOnEnabled )
+		if(MoveOnStart)
 		{
 			Start();
 		}

@@ -13,6 +13,10 @@ CurrentItem {
 	padding: 20px;
 	background-color: $background_dev;
 
+	&.disabled {
+		display: none;
+	}
+
 	&.has_item {
 		border: 2px solid #aa1122;
 	}

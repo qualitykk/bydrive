@@ -17,6 +17,10 @@ Speedometer {
 	border-radius: 5px;
 	gap: 10px;
 
+	&.disabled {
+		display: none;
+	}
+
 	.current {
 		font-size: 40px;
 		width: 60%;
@@ -39,6 +43,7 @@ Speedometer {
 				border-radius: 5px;
 			}
 		}
+
 		.name {
 			font-size: 22px;
 			text-align: center;

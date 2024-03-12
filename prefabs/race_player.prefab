@@ -183,6 +183,19 @@
                 "__type": "RaceMenu"
               }
             ]
+          },
+          {
+            "Id": "3225ea21-1d10-4d6b-9714-2e04e69ef2e4",
+            "Name": "Race Intro",
+            "Position": "0,0,0",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "RaceIntro",
+                "AutoStopTime": 14.5
+              }
+            ]
           }
         ]
       },

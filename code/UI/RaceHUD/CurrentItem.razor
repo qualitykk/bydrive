@@ -2,7 +2,7 @@
 @inherits PanelComponent
 @namespace Bydrive
 
-<root class="@GetClasses()">
+<root class="@UI.ActiveIf(CameraManager.IsActive<VehicleCamera>()) @GetClasses()">
 	@if(HasItem())
 	{
 		<label class="item">
@@ -26,5 +26,5 @@
 		if(HasItem()) return "has_item";
 		return "";
 	}
-	protected override int BuildHash() => System.HashCode.Combine( GetCurrentItem(), HasItem() );
+	protected override int BuildHash() => System.HashCode.Combine( GetCurrentItem(), HasItem(), CameraManager.Instance?.CurrentCameraMode );
 }

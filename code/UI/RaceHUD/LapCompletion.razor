@@ -6,7 +6,7 @@
 @if (Race == null)
 	return;
 
-<root>
+<root class="@UI.ActiveIf(CameraManager.IsActive<VehicleCamera>())">
 	<label class="title">@GetDisplayLaps()/@Race.GetMaxLaps()</label>
 	@if(DebugCheckpoints)
 	{

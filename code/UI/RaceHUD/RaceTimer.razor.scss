@@ -13,6 +13,10 @@ RaceTimer {
 	border-radius: 5px;
 	flex-direction: column;
 
+	&.disabled {
+		display: none;
+	}
+
 	&.timetrial {
 		top: 5%;
 		height: 12%;
@@ -23,7 +27,7 @@ RaceTimer {
 		}
 
 		.title {
-			font-size: 25px;			
+			font-size: 25px;
 		}
 	}
 

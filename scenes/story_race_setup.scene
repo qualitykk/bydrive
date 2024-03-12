@@ -164,10 +164,10 @@
         {
           "__type": "PathCamera",
           "Loop": false,
-          "MoveOnEnabled": true,
+          "MoveOnStart": true,
           "Shots": [
             {
-              "Duration": 1.5,
+              "Duration": 0.6,
               "StartMarker": {
                 "_type": "gameobject",
                 "go": "5f218ccc-30e2-4b7a-a97c-c3a85ce87c47"
@@ -231,7 +231,12 @@
       "NetworkMode": 2,
       "Components": [
         {
-          "__type": "CameraManager"
+          "__type": "CameraManager",
+          "Camera": {
+            "_type": "component",
+            "go": "782e08c4-8a61-48e6-ba9b-f787b2a30537",
+            "component_type": "CameraComponent"
+          }
         }
       ]
     }
@@ -259,7 +264,7 @@
   },
   "Title": "story_race_setup",
   "Description": "",
-  "LastSaved": "2024-03-12T02:33:40.4505322\u002B01:00",
+  "LastSaved": "2024-03-12T14:16:46.44859\u002B01:00",
   "__references": [
     "polyhaven.wasteland_clouds_puresky"
   ]

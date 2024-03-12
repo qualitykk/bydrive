@@ -7,7 +7,7 @@
 @if (Race == null)
 	return;
 
-<root class="@GetClasses()">
+<root class="@UI.ActiveIf(CameraManager.IsActive<VehicleCamera>()) @GetClasses()">
 	<div>
 		<label class="title">Time</label>
 		<label class="time">@GetRaceTime().FormatAsRaceTime()</label>

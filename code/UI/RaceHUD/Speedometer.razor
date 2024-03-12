@@ -4,7 +4,7 @@
 @namespace Bydrive
 @attribute [Icon("speed")]
 
-<root>
+<root class="@UI.ActiveIf(CameraManager.IsActive<VehicleCamera>())" >
 	<div class="speed">
 		<label class="current">@($"{GetSpeedAmount():F0}")</label>
 		<label class="unit">@GetSpeedUnit()</label>

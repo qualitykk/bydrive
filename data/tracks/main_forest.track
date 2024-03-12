@@ -1,5 +1,5 @@
 {
-  "Name": "Forest",
+  "Name": "Crossing",
   "Group": null,
   "Visible": true,
   "Scene": "scenes/track_forest.scene",
@@ -8,7 +8,9 @@
       "Key": "route",
       "Values": [
         "a",
-        "b"
+        "b",
+        "a_reverse",
+        "b_reverse"
       ],
       "Required": true,
       "Title": "Route"

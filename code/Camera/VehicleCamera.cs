@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-[Alias("VehicleCameraView")]
 public class VehicleCamera : Component, ICameraMode
 {
 	[Property] public float BaseFieldOfView { get; set; } = 90f;

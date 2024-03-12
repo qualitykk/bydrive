@@ -4558,10 +4558,10 @@
         {
           "__type": "PathCamera",
           "Loop": true,
-          "MoveOnEnabled": true,
+          "MoveOnStart": true,
           "Shots": [
             {
-              "Duration": 8,
+              "Duration": 5,
               "StartMarker": {
                 "_type": "gameobject",
                 "go": "bb3fddde-05a4-43b7-b893-b5353ac4bd7f"
@@ -4584,7 +4584,7 @@
               "EnableRotation": true
             },
             {
-              "Duration": 8,
+              "Duration": 5,
               "StartMarker": {
                 "_type": "gameobject",
                 "go": "3859104e-845e-4299-a1f0-36a0fd619b08"
@@ -4617,7 +4617,7 @@
               ]
             },
             {
-              "Duration": 8,
+              "Duration": 5,
               "StartMarker": {
                 "_type": "gameobject",
                 "go": "bc20e496-3002-4fc0-8825-3f10f50b6ad6"
@@ -4657,7 +4657,7 @@
         {
           "Id": "bb3fddde-05a4-43b7-b893-b5353ac4bd7f",
           "Name": "StartLineStart",
-          "Position": "13.81195,-3629.373,1092.564",
+          "Position": "13.81195,-3880.668,887.0643",
           "Rotation": "-0.1536603,0.1536603,0.6902089,0.6902091",
           "Enabled": true,
           "NetworkMode": 2
@@ -4665,7 +4665,7 @@
         {
           "Id": "8dffdef7-d491-40d1-bfdf-4d1f43de423d",
           "Name": "StartLineEnd",
-          "Position": "13.81195,-1400.592,1092.564",
+          "Position": "13.81195,-1651.887,887.0643",
           "Rotation": "-0.1536603,0.1536603,0.6902089,0.6902091",
           "Enabled": true,
           "NetworkMode": 2
@@ -4708,7 +4708,6 @@
       "Id": "0f100489-a28c-44af-b2fb-dfc0d117a02d",
       "Name": "FlythroughTestCamera",
       "Position": "-5735.161,-6937.549,334.9208",
-      "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
@@ -4761,7 +4760,7 @@
   },
   "Title": "track_forest",
   "Description": "",
-  "LastSaved": "2024-03-12T02:35:33.5521644\u002B01:00",
+  "LastSaved": "2024-03-12T14:45:31.5529415\u002B01:00",
   "__references": [
     "polyhaven.kloofendal_overcast_puresky"
   ]

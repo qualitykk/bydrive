@@ -1,5 +1,4 @@
-LapCompletion
-{
+LapCompletion {
 	position: absolute;
 	top: 5%;
 	right: 15%;
@@ -9,11 +8,14 @@ LapCompletion
 	font-weight: bold;
 	padding: 30px;
 	flex-direction: column;
-
 	font-family: Poppins;
 	color: #fff;
-	.title
-	{
+
+	&.disabled {
+		display: none;
+	}
+
+	.title {
 		font-size: 32px;
 		font-weight: bold;
 	}

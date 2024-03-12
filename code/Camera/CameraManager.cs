@@ -18,6 +18,15 @@ public class CameraManager : Component
 	{
 		Instance?.StopCameraMode( mode );
 	}
+	public static bool IsActive(ICameraMode mode)
+	{
+		return Instance?.CurrentCameraMode == mode;
+	}
+
+	public static bool IsActive<T>() where T : ICameraMode
+	{
+		return Instance?.CurrentCameraMode?.GetType() == typeof(T);
+	}
 	[Property] public CameraComponent Camera { get; set; }
 	public ICameraMode CurrentCameraMode { get; private set; }
 	private int currentPriority;
@@ -46,5 +55,10 @@ public class CameraManager : Component
 		{
 			CurrentCameraMode.UpdateCamera( Camera ?? Game.ActiveScene.Camera );
 		}
+	}
+
+	protected override void DrawGizmos()
+	{
+		Gizmo.Draw.ScreenText( $"Camera Mode: {CurrentCameraMode}", new(200, 100 ));
 	}
 }
