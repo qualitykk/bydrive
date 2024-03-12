@@ -1,10 +1,10 @@
 {
   "Title": "Devcar 2",
+  "FullTitle": null,
   "Description": "Bigger Car used in development.",
   "Hidden": true,
   "PreviewModel": "zuk/zuk.vmdl",
   "PreviewPosition": "-250,0,128",
-  "PreviewAngles": "0,0,0",
   "Stats": {
     "MaxSpeed": 1000,
     "Acceleration": 1100,
@@ -16,7 +16,10 @@
     "BoostRechargeFactor": 1,
     "TurnSpeed": 72,
     "TurnSpeedIdealDistance": 500,
-    "TurnSpeedVelocityFactor": 0.6
+    "TurnSpeedLowVelocityFactor": 0.3,
+    "TurnSpeedVelocityFactor": 0.6,
+    "AngularDamping": 5,
+    "BonusItems": []
   },
   "Prefab": "prefabs/vehicles/car_devtest2.prefab",
   "AttachmentSlots": [],

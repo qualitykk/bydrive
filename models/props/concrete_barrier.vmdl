@@ -18,8 +18,8 @@
 								to = "materials/models/props/concrete_barrier.vmat"
 							},
 							{
-								from = "arrows.vmat"
-								to = "materials/dev/red.vmat"
+								from = "arrows_v2.vmat"
+								to = "materials/models/props/barrier_arrows.vmat"
 							},
 						]
 						use_global_default = false
@@ -47,6 +47,7 @@
 							exception_list = 
 							[
 								"concrete_barrier_v2",
+								"concrete_barrier_v4_left",
 							]
 						}
 					},

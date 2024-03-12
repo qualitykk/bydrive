@@ -1,70 +1,280 @@
-﻿TimeTrialPage {
-    font-weight: bold;
-    border-radius: 20px;
+﻿@import "/colors.scss";
+
+
+TimeTrialPage {
     width: 100%;
     height: 100%;
+    font-family: Poppins;
+    flex-direction: column;
 
-    .side {
-        background-color: #33333377;
-        justify-content: center;
+    .header {
+        height: 10%;
         align-items: center;
-        width: 40%;
+        padding: 2%;
+        border-bottom: 1px solid white;
+        background-color: $background_clear_dark;
+        backdrop-filter: blur(10px);
+
+        .title {
+            color: #fff;
+            font-size: 60px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px $branding_red;
+        }
+    }
+
+    .footer {
+        height: 10%;
+        align-items: center;
+        padding: 2%;
+        border-top: 1px solid white;
+        background-color: $background_clear_dark;
+        backdrop-filter: blur(10px);
+        gap: 5%;
+
+        .button {
+            width: 22vw;
+            height: 8vh;
+        }
     }
 
     .main {
-        width: 60%;
+        height: 80%;
     }
 
     .setup {
-        width: 60%;
-        height: 50%;
-        color: #ffffff;
-        font-family: Roboto;
-        gap: 5vh;
-        align-items: center;
+        width: 30%;
+        height: 100%;
+        flex-direction: column;
+        background-color: $background_config;
+        backdrop-filter: blur(5px);
+        color: #fff;
+        padding: 2%;
 
-        .name {
-            text-align: center;
+        .track_name {
+            height: 15%;
             font-size: 48px;
-            width: 40%;
+            font-weight: bold;
         }
 
-        .control {
-            font-size: 32px;
-            width: 60%;
-            text-align: center;
-            align-items: center;
+        .variables {
+            height: 70%;
+            flex-direction: column;
+
+            .entry {
+                flex-direction: column;
+
+                .key {
+                    font-size: 24px;
+                }
+
+                .options {
+                    gap: 10px;
+                    flex-wrap: wrap;
+                }
+
+                .button {
+                    height: 5vh;
+                    width: 45%;
+
+                    &.selected {
+                        border: 3px solid white;
+                    }
+                }
+            }
+        }
+
+        .vehicle {
+            height: 15%;
         }
     }
 
-    .tracklist {
-        margin: 2%;
-        width: 100%;
-        height: 90%;
-        background-color: #00359833;
-        flex-direction: column;
-        align-items: center;
+    .times {
+        padding: 2%;
+        width: 70%;
+        gap: 5%;
 
-        .track {
-            width: 90%;
-            height: 10vh;
-            justify-content: center;
+        .entry {
+            height: 8vh;
+            font-weight: bold;
+            background-color: $background_light;
             align-items: center;
-            margin: 1%;
-            background-color: #2256aa;
-            color: #ffffff;
-            font-size: 64px;
             pointer-events: all;
 
+            &:hover {
+                background-color: #999999;
+            }
+
             &.selected {
-                background-color: #2276cc;
-                border: 3px solid white;
+                border: 3px solid black;
+            }
+
+            .label {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .placement {
+                width: 7.5%;
+                font-size: 55px;
+
+                &.first {
+                    color: $placement_first;
+                }
+
+                &.second {
+                    color: $placement_second;
+                }
+
+                &.third {
+                    color: $placement_third;
+                }
+            }
+
+            .country {
+                width: 7.5%;
+            }
+
+            .player {
+                font-size: 32px;
+                width: 35%;
+            }
+
+            .vehicle {
+                font-size: 24px;
+                width: 15%;
+            }
+
+            .time {
+                font-size: 32px;
+                width: 35%;
             }
         }
     }
 
-    .button {
-        width: 400px;
-        height: 10%;
+    .tracklist {
+        width: 75%;
+        padding: 2%;
+        gap: 5%;
+        flex-direction: row;
+
+        .track {
+            width: 350px;
+            height: 350px;
+            border-radius: 5px;
+            background-color: $background_dark;
+
+            &:hover {
+                background-color: #7c7c7c;
+                border: 1px solid white;
+            }
+
+            .name {
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                flex-grow: 1;
+                color: #fff;
+                font-weight: bold;
+                font-size: 48px;
+            }
+        }
+    }
+
+    .selected_vehicle {
+        width: 30%;
+        background-color: $background_clear;
+        backdrop-filter: blur(5px);
+        flex-direction: column;
+        font-family: Poppins;
+        color: #ffff;
+
+        .placeholder {
+            height: 100%;
+            width: 100%;
+            font-size: 72px;
+            font-weight: bold;
+            text-align: center;
+            align-items: center;
+        }
+
+        .title {
+            height: 20%;
+            font-size: 56px;
+            font-weight: bold;
+            text-align: center;
+            align-items: center;
+        }
+
+        .description {
+            height: 30%;
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .stats {
+            flex-direction: column;
+            height: 50%;
+            padding: 1%;
+            gap: 10px;
+
+            .group {
+                background-color: #585858;
+                height: 5vh;
+
+                .name {
+                    text-align: center;
+                    width: 40%;
+                    font-size: 28px;
+                }
+
+                ProgressBar {
+                    width: 60%;
+                    background-color: red;
+
+                    .bar {
+                        background-color: green;
+                    }
+                }
+            }
+        }
+    }
+
+    VehicleSelection {
+        width: 70%;
+        height: 100%;
+        flex-direction: row;
+        padding: 1%;
+        gap: 20px;
+
+        .entry {
+            width: 15vw;
+            aspect-ratio: 1;
+            background-color: #ed2d2d;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 10px;
+
+            &.active {
+                border: 2px solid white;
+            }
+
+            &:hover {
+                background-color: #cb6868;
+            }
+
+            ModelPreviewPanel {
+                width: 80%;
+                aspect-ratio: 1;
+                padding: 1%;
+            }
+
+            .name {
+                color: #ffffff;
+                text-align: center;
+                font-size: 32px;
+                font-weight: bold;
+            }
+        }
     }
 }

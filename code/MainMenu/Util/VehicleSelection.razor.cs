@@ -12,6 +12,8 @@ public partial class VehicleSelection
 	private static readonly Vector3 PreviewCameraPosition = new( -150, 12, 90 );
 	private static readonly Angles PreviewCameraAngles = new( 32, 0, 0 );
 
+	public Action<VehicleDefinition> OnVehicleSelected { get; set; }
+
 	VehicleDefinition selectedVehicle;
 	IEnumerable<VehicleDefinition> vehicles;
 	protected override void OnParametersSet()
@@ -26,14 +28,6 @@ public partial class VehicleSelection
 	private void OnClickVehicle(VehicleDefinition def)
 	{
 		selectedVehicle = def;
-	}
-	private void OnClickBack()
-	{
-		StartMenu.Current.NavPanel.GoBack();
-	}
-	private void OnClickSelect()
-	{
-		StartMenu.SelectedVehicle = selectedVehicle;
-		StartMenu.Current.NavPanel.GoBack();
+		OnVehicleSelected?.Invoke( def );
 	}
 }

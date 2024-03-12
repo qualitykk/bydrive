@@ -4,22 +4,104 @@
 @namespace Bydrive
 
 <root>
-	<div class="side flex-col">
-		<div class="setup flex-col">
-			<div>
-				<label class="name">Track</label>
-				<label class="control">@selectedTrack?.Name</label>
-			</div>
-			<div>
-				<label class="name">Vehicle</label>
-				<label class="control">@StartMenu.SelectedVehicle</label>
-			</div>
-		</div>
-		<div class="button @UI.ActiveIf(selectedTrack != null)" @onclick=@OnClickStart>Start</div>
-		<div class="button" @onclick=@(() => this.Navigate("/vehicle"))>Select Vehicle</div>
-		<div class="button" @onclick=@OnClickBack>Back</div>
+	<div class="header flex-row">
+		<div class="title">Time Trials</div>
 	</div>
-	<div class="main flex-col">
-		<TrackList class="tracklist" TrackSelected=@OnTrackSelected />
+	<div class="main flex-row">
+		@if(stage == 1)
+		{
+			@if (selectedTrack == null)
+				return;
+
+			<div class="setup">
+				<label class="track_name">@selectedTrack.Name</label>
+				<div class="variables">
+					@foreach(var entry in selectedTrack.Variables)
+					{
+						<div class="entry">
+							<label class="key">@entry.Title</label>
+							<div class="options">
+							@foreach(string option in entry.Values)
+							{
+								<div class="button @GetVariableClasses(entry.Key, option)" @onclick=@(() => OnTrackVariableSelected(entry.Key, option))>@UI.FormatRoute( option )</div>
+							}
+							</div>
+						</div>
+					}
+				</div>
+			</div>
+
+			<div class="times flex-col">
+				@{
+					int placement = 0;
+				}
+				@foreach(var entry in GetTimeTrials())
+				{
+					@{
+						placement++;	
+					}
+					<div class="entry @GetTimeTrialEntryClasses(entry)" @onclick=@(() => OnTimeTrialEntrySelect(entry))>
+						<label class="placement @GetPlacementClass(placement)">@placement</label>
+						<label class="country">@entry.PlayerCountry</label>
+						<label class="player">@entry.PlayerName</label>
+						<label class="vehicle">Jet RX</label>
+						<label class="time">@entry.TotalTime.FormatAsRaceTime()</label>
+					</div>
+				}
+			</div>
+		}
+		else if(stage == 2)
+		{
+			<div class="selected_vehicle">
+				<div class="info flex-col">
+					@if(selectedVehicle != null)
+					{
+						<ModelPreviewPanel class="preview" Model=@selectedVehicle.PreviewModel CameraPosition=@selectedVehicle.PreviewPosition/>
+						<label class="title">@selectedVehicle.FullTitle</label>
+						<label class="description">@selectedVehicle.Description</label>
+						<div class="stats">
+							<div class="group">
+								<label class="name">Speed</label>
+								<ProgressBar Value=@(0.8f) MaxValue=@(1f) />
+							</div>
+							<div class="group">
+								<label class="name">Acceleration</label>
+								<ProgressBar Value=@(0.5f) MaxValue=@(1f) />
+							</div>
+							<div class="group">
+								<label class="name">Handling</label>
+								<ProgressBar Value=@(0.65f) MaxValue=@(1f) />
+							</div>
+							<div class="group">
+								<label class="name">Swag</label>
+								<ProgressBar Value=@(1f) MaxValue=@(1f) />
+							</div>
+						</div>
+					}
+					else
+					{
+						<label class="placeholder">None Selected</label>
+					}
+				</div>
+				
+			</div>
+			<VehicleSelection @OnVehicleSelected=@OnVehicleSelect />
+		}
+		else
+		{
+			<TrackList class="tracklist" TrackSelected=@OnTrackSelected />
+		}
+	</div>
+	<div class="footer flex-row">
+		<div class="button" @onclick=@OnClickBack>Back</div>
+		@if(stage == 1)
+		{
+			<div class="button @UI.ActiveIf(AllVariablesSelected)" @onclick=@OnClickSelectVehicle>Next</div>
+			<div class="button @UI.ActiveIf(selectedTimeTrial != null)">Watch @selectedTimeTrial?.PlayerName</div>
+		}
+		else if(stage == 2)
+		{
+			<div class="button @UI.ActiveIf(selectedVehicle != null)" @onclick=@OnClickStart>Start</div>
+		}
 	</div>
 </root>

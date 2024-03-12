@@ -1,0 +1,28 @@
+{
+  "Title": "Jet RX",
+  "FullTitle": "Kraftmotor Jet RX",
+  "Description": "A no-gimmicks car purpose-built for extreme racing.",
+  "Hidden": false,
+  "PreviewModel": "models/vehicles/vehicle_boxy.vmdl",
+  "PreviewPosition": "-192,0,64",
+  "Stats": {
+    "MaxSpeed": 1750,
+    "Acceleration": 1100,
+    "MaxHealth": 4,
+    "BoostDuration": 1.75,
+    "BoostSpeedMultiplier": 1.1,
+    "BoostAccelerationMultiplier": 2,
+    "BoostRechargeCooldown": 3,
+    "BoostRechargeFactor": 0.75,
+    "TurnSpeed": 40,
+    "TurnSpeedIdealDistance": 1000,
+    "TurnSpeedLowVelocityFactor": 0.8,
+    "TurnSpeedVelocityFactor": 0.8,
+    "AngularDamping": 8,
+    "CameraPositionOffset": "-400,0,150",
+    "BonusItems": []
+  },
+  "Prefab": "prefabs/vehicles/boxy1.prefab",
+  "AttachmentSlots": [],
+  "__references": []
+}

@@ -134,6 +134,17 @@ internal static class UI
 	public static string ActiveIf( Func<bool> check ) => ActiveIf( check?.Invoke() ?? false );
 	public static string ActiveIf( bool? active ) => ActiveIf( active == true );
 	public static string ActiveIfMenu( Panel panel ) => ActiveIf( ActiveMenu == panel );
+
+	public static string FormatRoute(string value)
+	{
+		string[] parts = value.Split( '_' );
+		if ( parts.Length > 1 )
+		{
+			return $"{parts[0].ToTitleCase()} ({string.Join( ' ', parts.Skip( 1 ).Select( p => p.ToTitleCase() ) )})";
+		}
+
+		return value.ToTitleCase();
+	}
 }
 
 internal static class VehicleStatModifiers

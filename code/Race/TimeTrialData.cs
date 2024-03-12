@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Sandbox.Localization;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Text.Json.Serialization;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Bydrive;
@@ -30,14 +34,20 @@ public class TimeTrialData
 		FileSystem.Data.WriteJson( RACE_DATA, allData );
 	}
 	public string PlayerName { get; set; }
+	public string PlayerCountry { get; set; }
 	public string Track { get; set; }
+	public string Vehicle { get; set; }
+	public Dictionary<string, string> TrackVariables { get; set; }
 	[JsonIgnore] public float TotalTime => LapTimes.Sum();
 	public List<float> LapTimes { get; set; }
 
-	public TimeTrialData( string playerName, string track, List<float> lapTimes )
+	public TimeTrialData( string playerName, string track, string vehicle, Dictionary<string, string> variables, List<float> lapTimes )
 	{
 		PlayerName = playerName;
+		PlayerCountry = RegionInfo.CurrentRegion.TwoLetterISORegionName;
 		Track = track;
+		Vehicle = vehicle;
+		TrackVariables = variables;
 		LapTimes = lapTimes;
 	}
 }

@@ -177,7 +177,7 @@ public sealed partial class RaceManager : Component
 		Color checkpointColor = Color.Yellow;
 		var start = GetStartCheckpoint();
 		Vector3 startPosition = Transform.World.PointToLocal( start?.Transform.Position ?? Vector3.Zero );
-		Gizmo.Draw.ScreenText( $"Start Checkpoint: {start}", new( 200 ), size: TEXT_SIZE );
+		//Gizmo.Draw.ScreenText( $"Start Checkpoint: {start}", new( 200 ), size: TEXT_SIZE );
 ;
 		Gizmo.Draw.Color = startColor;
 		Gizmo.Draw.LineSphere( startPosition, START_POSITION_RADIUS );

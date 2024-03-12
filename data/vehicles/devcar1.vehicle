@@ -1,7 +1,8 @@
 {
   "Title": "Devcar 1",
+  "FullTitle": null,
   "Description": "Car used in development.",
-  "Hidden": false,
+  "Hidden": true,
   "PreviewModel": "models/vehicles/vehicle_boxy.vmdl",
   "PreviewPosition": "-192,0,64",
   "Stats": {
@@ -15,8 +16,11 @@
     "BoostRechargeFactor": 0.8,
     "TurnSpeed": 70,
     "TurnSpeedIdealDistance": 500,
+    "TurnSpeedLowVelocityFactor": 0.3,
     "TurnSpeedVelocityFactor": 0.6,
-    "CameraPositionOffset": "-400,0,150"
+    "AngularDamping": 5,
+    "CameraPositionOffset": "-400,0,150",
+    "BonusItems": []
   },
   "Prefab": "prefabs/vehicles/car_devtest1.prefab",
   "AttachmentSlots": [

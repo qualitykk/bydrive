@@ -15,6 +15,7 @@ public class VehicleDefinition : GameResource, IPrefabProvider
 		return ResourceLibrary.GetAll<VehicleDefinition>().FirstOrDefault();
 	}
 	public string Title { get; set; }
+	public string FullTitle { get; set; }
 	[TextArea] public string Description { get; set; }
 	public bool Hidden { get; set; }
 	[Category("Preview")] public Model PreviewModel { get; set; }

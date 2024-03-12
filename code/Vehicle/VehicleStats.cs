@@ -20,7 +20,10 @@ public struct VehicleStats
 
 	public const float DEFAULT_TURN_SPEED = 90f;
 	public const float DEFAULT_TURN_SPEED_IDEAL_DISTANCE = 500f;
+	public const float DEFAULT_TURN_SPEED_LOW_VELOCITY_FACTOR = 0.3f;
 	public const float DEFAULT_TURN_SPEED_VELOCITY_FACTOR = 0.6f;
+
+	public const float DEFAULT_ANGULAR_DAMPING = 5f;
 
 	public float MaxSpeed { get; set; } = DEFAULT_MAX_SPEED;
 	public float Acceleration { get; set; } = DEFAULT_ACCELERATION;
@@ -37,9 +40,14 @@ public struct VehicleStats
 	[Category( "Turning" )] public float TurnSpeed { get; set; } = DEFAULT_TURN_SPEED;
 	[Category( "Turning" )] public float TurnSpeedIdealDistance { get; set; } = DEFAULT_TURN_SPEED_IDEAL_DISTANCE;
 	/// <summary>
-	/// Decreaes turn speed by this factor at max speed
+	/// Turn speed multiplier at 0 speed
+	/// </summary>
+	[Category( "Turning" )] public float TurnSpeedLowVelocityFactor { get; set; } = DEFAULT_TURN_SPEED_LOW_VELOCITY_FACTOR;
+	/// <summary>
+	/// Turn speed multiplier at max speed
 	/// </summary>
 	[Category( "Turning" )] public float TurnSpeedVelocityFactor { get; set; } = DEFAULT_TURN_SPEED_VELOCITY_FACTOR;
+	[Category( "Physics" )] public float AngularDamping { get; set; } = DEFAULT_ANGULAR_DAMPING;
 	[Category( "Visual" )] public Vector3 CameraPositionOffset { get; set; }
 	[Category("Items")] public List<ItemDefinition> BonusItems { get; set; }
 	public VehicleStats()
@@ -56,6 +64,9 @@ public struct VehicleStats
 
 		TurnSpeed = DEFAULT_TURN_SPEED;
 		TurnSpeedIdealDistance = DEFAULT_TURN_SPEED_IDEAL_DISTANCE;
+		TurnSpeedLowVelocityFactor = DEFAULT_TURN_SPEED_LOW_VELOCITY_FACTOR;
 		TurnSpeedVelocityFactor = DEFAULT_TURN_SPEED_VELOCITY_FACTOR;
+
+		AngularDamping = DEFAULT_ANGULAR_DAMPING;
 	}
 }

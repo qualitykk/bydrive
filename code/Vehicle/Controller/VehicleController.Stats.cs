@@ -233,9 +233,19 @@ public partial class VehicleController
 		return GetStats().TurnSpeedIdealDistance;
 	}
 	[Category( "Stats" )]
-	public float GetTurnSpeedVelocityFactor()
+	public float GetTurnSpeedLowVelocityFactor()
+	{
+		return GetStats().TurnSpeedLowVelocityFactor;
+	}
+	[Category( "Stats" )]
+	public float GetTurnSpeedHighVelocityFactor()
 	{
 		return GetStats().TurnSpeedVelocityFactor;
+	}
+	[Category("Stats")]
+	public float GetAngularDamping()
+	{
+		return GetStats().AngularDamping;
 	}
 
 	[Obsolete("REIMPLEMENT THIS ASAP!")]

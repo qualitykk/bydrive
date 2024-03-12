@@ -50,14 +50,21 @@ public sealed partial class VehicleController : Component
 	private bool canDrive;
 	private float CalculateTurnFactor( float direction, float forwardsSpeed )
 	{
-		const float MAX_TURN_FACTOR = 0.5f;
+		const float MAX_TURN_FACTOR = 0.8f;
 		// Turning rate is at its highest a certain forwards speed 
 		// After that, it decreases
 
-		float lowSpeedFactor = MathF.Min( forwardsSpeed / GetTurnSpeedIdealDistance(), 1 );
-		float highSpeedFactor = 1.0f - (forwardsSpeed / GetMaxSpeed()).Clamp( 0, GetTurnSpeedVelocityFactor() );
+		float totalSpeedFraction = forwardsSpeed / GetMaxSpeed();
+
+		float lowSpeedFactor = forwardsSpeed / GetTurnSpeedIdealDistance();
+		lowSpeedFactor = lowSpeedFactor.Remap(0, 1, GetTurnSpeedLowVelocityFactor(), 1);
+
+		float highSpeedFactor = 1.0f - totalSpeedFraction;
+		highSpeedFactor = highSpeedFactor.Remap( 0, 1, GetTurnSpeedHighVelocityFactor(), 1 );
+
 		float factor = direction * lowSpeedFactor * highSpeedFactor;
 		factor = MathF.Abs( factor ).Clamp( 0, MAX_TURN_FACTOR ) * MathF.Sign( factor );
+
 		return factor;
 	}
 
@@ -115,10 +122,9 @@ public sealed partial class VehicleController : Component
 		float velocityDelta = MathF.Pow( (relativeVelocity.Length / maxSpeed).Clamp( 0, 1 ), 5.0f ).Clamp( 0, 1 );
 		if ( velocityDelta < 0.01f ) velocityDelta = 0;
 
-		//So as far as I can tell, this is how grip gets applied, it takes a dot product of the forward velocity with our velocity and sets our grip accordingly
-		var angle = (rotation.Forward.Normal * MathF.Sign( localVelocity.x )).Normal.Dot( relativeVelocity.Normal ).Clamp( 0.0f, 1.0f );
+		// Gets forward angle as single number
+		float angle = (rotation.Forward.Normal * MathF.Sign( localVelocity.x )).Normal.Dot( relativeVelocity.Normal ).Clamp( 0.0f, 1.0f );
 		angle = angle.LerpTo( 1.0f, 1.0f - velocityDelta );
-		grip = grip.LerpTo( angle, 1.0f - MathF.Pow( 0.001f, dt ) );
 
 		// Check if we havent flipped over or gotten stuck in any other way
 		const float DRIVABLE_PITCH = 50f;
@@ -177,10 +183,13 @@ public sealed partial class VehicleController : Component
 			}
 		}
 
+		// Gets grip (damping delta) based on velocity
+		grip = grip.LerpTo( angle, 1.0f - MathF.Pow( 0.001f, dt ) );
+
 		//Angular Damping, lerps to 5 based off grip
-		const float MAX_ANGULAR_DAMPING = 5f;
+		float maxAngularDamping = GetAngularDamping();
 		var angularDamping = 0.0f;
-		angularDamping = angularDamping.LerpTo( MAX_ANGULAR_DAMPING, grip );
+		angularDamping = angularDamping.LerpTo( maxAngularDamping, grip );
 
 		Body.LinearDamping = 0;
 		Body.AngularDamping = fullyGrounded ? angularDamping : 0.5f;
@@ -256,7 +265,11 @@ public sealed partial class VehicleController : Component
 
 		const float MAX_ANGULAR_VELOCITY_X = 0.5f;
 		const float MAX_ANGULAR_VELOCITY_Y = 0.8f;
-		Body.AngularVelocity = Body.AngularVelocity.WithX( Body.AngularVelocity.x.Clamp( -MAX_ANGULAR_VELOCITY_X, MAX_ANGULAR_VELOCITY_X ) ).WithY( Body.AngularVelocity.y.Clamp( -MAX_ANGULAR_VELOCITY_Y, MAX_ANGULAR_VELOCITY_Y ) );
+		Vector3 clampedAngularVelocity = new Vector3( Body.AngularVelocity );
+		clampedAngularVelocity.x = clampedAngularVelocity.x.Clamp( -MAX_ANGULAR_VELOCITY_X, MAX_ANGULAR_VELOCITY_X );
+		clampedAngularVelocity.y = clampedAngularVelocity.y.Clamp( -MAX_ANGULAR_VELOCITY_Y, MAX_ANGULAR_VELOCITY_Y );
+
+		Body.AngularVelocity = clampedAngularVelocity;
 	}
 	/// <summary>
 	/// Dampens our velocity
@@ -290,7 +303,5 @@ public sealed partial class VehicleController : Component
 	{
 		const float POSITION_HELPER_RADIUS = 4f;
 		Gizmo.Draw.SolidSphere( ItemSpawnPosition, POSITION_HELPER_RADIUS );
-
-		Gizmo.Draw.Text( $"Wheels: {wheelsOnGround}={turningWheelsOnGround}&{drivingWheelsOnGround}", global::Transform.Zero );
 	}
 }

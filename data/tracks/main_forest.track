@@ -1,6 +1,6 @@
 {
   "Name": "Crossing",
-  "Group": null,
+  "Group": "Forest",
   "Visible": true,
   "Scene": "scenes/track_forest.scene",
   "Variables": [

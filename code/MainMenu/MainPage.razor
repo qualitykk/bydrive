@@ -12,10 +12,14 @@
 			<div class="button main_button singleplayer" @onclick=@OnClickCareerNew>New Game</div>
 			<div class="button main_button singleplayer" @onclick=@OnClickCareerLoad>Load Game</div>
 		</div>
+
+		<div class="group flex-col">
+			<label class="header">Freeplay</label>
+			<div class="button main_button singleplayer" onclick=@OnClickTimeTrial>Time Trial</div>
+		</div>
 		
 		<div class="group flex-col">
 			<label class="header">Other</label>
-			<div class="button main_button" @onclick=@OnClickControls>Controls</div>
 			<div class="button main_button" @onclick=@OnClickSettings>Settings</div>
 		</div>
 	</div>

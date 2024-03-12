@@ -16,25 +16,28 @@
             {
                 <label class="locked">LOCKED</label>
             }
-            <div class="config">
-                <label class="hint">Attachments</label>
-                @foreach (var attachmentGroup in GetAttachments())
-                {
-                    @if (SlotAttachmentMax(attachmentGroup.Key) <= 0) continue;
+            @if(currentVehicle.AttachmentSlots.Any())
+            {
+                <div class="config">
+                    <label class="hint">Attachments</label>
+                    @foreach (var attachmentGroup in GetAttachments())
+                    {
+                        @if (SlotAttachmentMax(attachmentGroup.Key) <= 0) continue;
 
-                    <div class="group">
-                        <label class="slot">@attachmentGroup.Key (@(SlotAttachmentCount(attachmentGroup.Key))/@(SlotAttachmentMax(attachmentGroup.Key)))</label>
-                        <div class="attachments">
-                            @foreach (var attachment in attachmentGroup)
-                            {
-                                <div class="entry @UI.ActiveIf(AttachmentActive(attachment))" @onclick=@(() => OnClickAttachment(attachment))>
-                                    <label class="name">@attachment.Title</label>
-                                </div>
-                            }
+                        <div class="group">
+                            <label class="slot">@attachmentGroup.Key (@(SlotAttachmentCount(attachmentGroup.Key))/@(SlotAttachmentMax(attachmentGroup.Key)))</label>
+                            <div class="attachments">
+                                @foreach (var attachment in attachmentGroup)
+                                {
+                                    <div class="entry @UI.ActiveIf(AttachmentActive(attachment))" @onclick=@(() => OnClickAttachment(attachment))>
+                                        <label class="name">@attachment.Title</label>
+                                    </div>
+                                }
+                            </div>
                         </div>
-                    </div>
-                }
-            </div>
+                    }
+                </div>
+            }
         }
     </div>
     <div class="options">
@@ -52,7 +55,7 @@
         <div class="review">
             @if (currentVehicle != null)
             {
-                <label class="title">@currentVehicle.Title</label>
+                <label class="title">@(currentVehicle.FullTitle ?? currentVehicle.Title)</label>
                 <label class="description">@currentVehicle.Description</label>
                 <div class="stats">
                     <div class="group">

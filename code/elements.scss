@@ -17,6 +17,14 @@
         background-color: $button_primary_hover;
     }
 
+    &.secondary {
+        background-color: $button_secondary;
+
+        &:hover {
+            background-color: $button_secondary;
+        }
+    }
+
     &.tall {
         height: 15%;
     }

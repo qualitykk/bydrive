@@ -80,7 +80,7 @@ public partial class RaceResults
 		var existingData = TimeTrialData.ReadForTrack( track );
 		if ( existingData == default || !existingData.Any( d => d?.TotalTime < totalTime ) )
 		{
-			TimeTrialData data = new( GetLocalName(), track, lapTimes );
+			TimeTrialData data = new( GetLocalName(), track, GetLocalVehicle().Definition.ResourcePath, RaceContext.CurrentVariables, lapTimes );
 			TimeTrialData.WriteNew( data );
 		}
 

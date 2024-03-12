@@ -74,11 +74,7 @@ public partial class RaceIntro
 	{
 		if(definition.Key == "route")
 		{
-			string[] parts = value.Split( '_' );
-			if ( parts.Length > 1 )
-			{
-				return $"{parts[0].ToTitleCase()} ({string.Join(' ',parts.Skip(1).Select(p => p.ToTitleCase()))})";
-			}
+			UI.FormatRoute( value );
 		}
 
 		return value.ToTitleCase();
