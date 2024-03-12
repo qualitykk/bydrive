@@ -108,12 +108,80 @@
       ]
     },
     {
-      "Id": "5bf35211-4f4a-4bdd-9a79-7d212b8dd019",
+      "Id": "960f9d05-815f-403b-8242-f4c45d9c1935",
+      "Name": "Setup Manager",
+      "Position": "-67.63286,-89.08066,73.98915",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "RaceSetupManager",
+          "VehiclePreview": {
+            "_type": "gameobject",
+            "go": "9d13d9d5-09c6-4613-8327-78130fc006fd"
+          }
+        }
+      ]
+    },
+    {
+      "Id": "9d13d9d5-09c6-4613-8327-78130fc006fd",
+      "Name": "VehiclePreview",
+      "Position": "-9.094742,-95.49846,73.98915",
+      "Enabled": true,
+      "NetworkMode": 2
+    },
+    {
+      "Id": "3a3df21e-14d9-4a81-b32c-2407a4e4e85c",
+      "Name": "CameraIntro",
+      "Position": "1.095112,-749.6252,708.8674",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "PathCamera",
+          "MoveOnEnabled": true,
+          "Shots": [
+            {
+              "Duration": 1,
+              "StartMarker": {
+                "_type": "gameobject",
+                "go": "5f218ccc-30e2-4b7a-a97c-c3a85ce87c47"
+              },
+              "EndMarker": {
+                "_type": "gameobject",
+                "go": "5bf35211-4f4a-4bdd-9a79-7d212b8dd019"
+              },
+              "EnablePosition": true,
+              "PositionCurve": [
+                {
+                  "in": -2.4444447,
+                  "out": 2.4444447
+                },
+                {
+                  "x": 1,
+                  "y": 1,
+                  "in": -0.025316399,
+                  "out": 0.025316399
+                }
+              ],
+              "EnableRotation": true,
+              "RotationCurve": [
+                {},
+                {
+                  "x": 1,
+                  "y": 1
+                }
+              ]
+            }
+          ],
+          "TimeScale": 1
+        }
+      ]
+    },
+    {
+      "Id": "782e08c4-8a61-48e6-ba9b-f787b2a30537",
       "Name": "Camera",
-      "Position": "201.8197,-205.0446,139.5152",
-      "Rotation": "-0.0116487,0.1224981,0.8857097,0.4476347",
-      "Scale": "1.887448,1,1",
-      "Tags": "maincamera",
+      "Position": "217.4315,-333.5259,282.8753",
       "Enabled": true,
       "NetworkMode": 2,
       "Components": [
@@ -136,27 +204,31 @@
       ]
     },
     {
-      "Id": "960f9d05-815f-403b-8242-f4c45d9c1935",
-      "Name": "Setup Manager",
-      "Position": "-67.63286,-89.08066,73.98915",
+      "Id": "007cc48d-87e7-474d-a9c1-ce14dc15e07c",
+      "Name": "Keyframes",
+      "Position": "-5.579903,-219.2437,158.6163",
       "Enabled": true,
       "NetworkMode": 2,
-      "Components": [
+      "Children": [
         {
-          "__type": "RaceSetupManager",
-          "VehiclePreview": {
-            "_type": "gameobject",
-            "go": "9d13d9d5-09c6-4613-8327-78130fc006fd"
-          }
+          "Id": "5f218ccc-30e2-4b7a-a97c-c3a85ce87c47",
+          "Name": "VehicleZoomStart",
+          "Position": "268.3559,1.237106,-11.46022",
+          "Rotation": "-0.02154116,0.1211506,0.9190837,0.3743578",
+          "Scale": "1.887448,1,1",
+          "Enabled": true,
+          "NetworkMode": 2
+        },
+        {
+          "Id": "5bf35211-4f4a-4bdd-9a79-7d212b8dd019",
+          "Name": "VehicleZoomEnd",
+          "Position": "207.3996,14.19911,-19.10112",
+          "Rotation": "-0.0116487,0.1224981,0.8857097,0.4476347",
+          "Scale": "1.887448,1,1",
+          "Enabled": true,
+          "NetworkMode": 2
         }
       ]
-    },
-    {
-      "Id": "9d13d9d5-09c6-4613-8327-78130fc006fd",
-      "Name": "VehiclePreview",
-      "Position": "-9.094742,-95.49846,73.98915",
-      "Enabled": true,
-      "NetworkMode": 2
     }
   ],
   "SceneProperties": {
@@ -182,7 +254,7 @@
   },
   "Title": "story_race_setup",
   "Description": "",
-  "LastSaved": "2024-03-11T20:59:45.855249\u002B01:00",
+  "LastSaved": "2024-03-12T01:25:51.9048927\u002B01:00",
   "__references": [
     "polyhaven.wasteland_clouds_puresky"
   ]
