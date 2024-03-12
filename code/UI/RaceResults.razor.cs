@@ -40,7 +40,7 @@ public partial class RaceResults
 
 	private List<TimeTrialData> GetPreviousData()
 	{
-		return TimeTrialData.ReadForTrack( RaceContext.CurrentDefinition.ResourcePath );
+		return TimeTrialData.ReadForTrack( RaceContext.CurrentDefinition.ResourcePath, RaceContext.CurrentVariables );
 	}
 
 	private void OnClickNext()
@@ -77,7 +77,7 @@ public partial class RaceResults
 		List<float> lapTimes = Race.GetParticipantFinish( GetLocalParticipantInstance() ).LapTimes;
 		float totalTime = lapTimes.Sum();
 
-		var existingData = TimeTrialData.ReadForTrack( track );
+		var existingData = TimeTrialData.ReadForTrack( track, RaceContext.CurrentVariables );
 		if ( existingData == default || !existingData.Any( d => d?.TotalTime < totalTime ) )
 		{
 			TimeTrialData data = new( GetLocalName(), track, GetLocalVehicle().Definition.ResourcePath, RaceContext.CurrentVariables, lapTimes );

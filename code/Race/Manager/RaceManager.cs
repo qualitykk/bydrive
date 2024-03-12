@@ -64,6 +64,8 @@ public sealed partial class RaceManager : Component
 	}
 	public void Setup(bool autoStart = false)
 	{
+		IsTimeTrial = RaceContext.CurrentParameters.Mode == RaceMode.TimeTrial;
+
 		Participants?.Clear();
 		ResetParticipants();
 

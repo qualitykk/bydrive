@@ -18,9 +18,9 @@ public class TimeTrialData
 	{
 		return FileSystem.Data.ReadJson<List<TimeTrialData>>( RACE_DATA );
 	}
-	public static List<TimeTrialData> ReadForTrack(string track)
+	public static List<TimeTrialData> ReadForTrack(string track, Dictionary<string, string> trackVariables)
 	{
-		return Read()?.Where(d => d.Track == track).ToList();
+		return Read()?.Where(d => d.Track == track && d.TrackVariables.SequenceEqual(trackVariables)).ToList();
 	}
 	public static void WriteNew(TimeTrialData data)
 	{
@@ -41,13 +41,13 @@ public class TimeTrialData
 	[JsonIgnore] public float TotalTime => LapTimes.Sum();
 	public List<float> LapTimes { get; set; }
 
-	public TimeTrialData( string playerName, string track, string vehicle, Dictionary<string, string> variables, List<float> lapTimes )
+	public TimeTrialData( string playerName, string track, string vehicle, Dictionary<string, string> trackVariables, List<float> lapTimes )
 	{
 		PlayerName = playerName;
 		PlayerCountry = RegionInfo.CurrentRegion.TwoLetterISORegionName;
 		Track = track;
 		Vehicle = vehicle;
-		TrackVariables = variables;
+		TrackVariables = trackVariables;
 		LapTimes = lapTimes;
 	}
 }

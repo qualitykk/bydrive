@@ -40,7 +40,7 @@ public partial class RaceManager
 	}
 	public void Finish()
 	{
-		foreach( var participant in Participants.Where(p => !HasParticipantFinished(p)) ) 
+		foreach( var participant in completionOrderedParticipants.Where(p => !HasParticipantFinished(p)) ) 
 		{
 			ParticipantFinishInformation finish = new( finishedParticipants.Count + 1, participant, float.MaxValue, new() );
 			finishedParticipants.Add( finish );
@@ -67,6 +67,11 @@ public partial class RaceManager
 		ParticipantFinishInformation info = new( finishedParticipants.Count + 1, participant, raceTime, lapTimes );
 		finishedParticipants.Add( info );
 		participant.OnFinished();
+
+		if(finishedParticipants.Count >= Participants.Count - 1) 
+		{
+			Finish();
+		}
 	}
 
 	private void UpdateTimeSplits(RaceParticipant participant)

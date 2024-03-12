@@ -379,14 +379,7 @@ public class RaceInformation
 
 	private void InitialiseMode()
 	{
-		RaceManager manager = Game.ActiveScene.GetAllComponents<RaceManager>().FirstOrDefault();
-		if ( manager == null )
-			return;
 
-		if(Mode == RaceMode.TimeTrial)
-		{
-			manager.IsTimeTrial = true;
-		}
 	}
 
 	private void DestroyParticipantObjects()

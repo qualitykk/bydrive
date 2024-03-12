@@ -163,6 +163,9 @@ TimeTrialPage {
             height: 350px;
             border-radius: 5px;
             background-color: $background_dark;
+            flex-direction: column;
+            color: #fff;
+            font-family: poppins;
 
             &:hover {
                 background-color: #7c7c7c;
@@ -170,13 +173,19 @@ TimeTrialPage {
             }
 
             .name {
+                height: 60%;
                 text-align: center;
-                align-items: center;
-                justify-content: center;
-                flex-grow: 1;
-                color: #fff;
+                align-items: flex-end;
                 font-weight: bold;
                 font-size: 48px;
+            }
+
+            .group {
+                height: 40%;
+                width: 100%;
+                text-align: center;
+                align-items: flex-start;
+                font-size: 20px;
             }
         }
     }
@@ -204,6 +213,7 @@ TimeTrialPage {
             font-weight: bold;
             text-align: center;
             align-items: center;
+            text-shadow: 1px 1px 8px black;
         }
 
         .description {

@@ -16,12 +16,7 @@ public partial class TimeTrialPage : INavigatorPage
 	VehicleDefinition selectedVehicle;
 	private IEnumerable<TimeTrialData> GetTimeTrials()
 	{
-		return new TimeTrialData[] { 
-			new( "Player5", "data/tracks/main_forest.track", VehicleDefinition.GetDefault().ResourcePath, new(), new() { 1f, 2f, 3f } ),
-			new( "quality", "data/tracks/main_forest.track", VehicleDefinition.GetDefault().ResourcePath, new(), new() { 4f, 5f, 6f } ),
-			new( "noQuality", "data/tracks/main_forest.track", VehicleDefinition.GetDefault().ResourcePath, new(), new() { 7f, 8f, 9f } )
-		};
-		//return TimeTrialData.ReadForTrack( selectedTrack.ResourcePath );
+		return TimeTrialData.ReadForTrack( selectedTrack.ResourcePath, trackVariableValues );
 	}
 	private bool AllVariablesSelected()
 	{
