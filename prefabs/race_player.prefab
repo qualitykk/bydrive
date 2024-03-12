@@ -3,6 +3,7 @@
     "Id": "712a457d-86ee-4794-8366-47a88dfec995",
     "Name": "race_player",
     "Enabled": true,
+    "NetworkMode": 2,
     "Components": [
       {
         "__type": "VehicleCamera",
@@ -17,18 +18,18 @@
     "Children": [
       {
         "Id": "1ca9e11c-6c23-437f-8ff2-68cf7e73a54e",
-        "Name": "Main Camera",
+        "Name": "Player Camera",
         "Position": "-190,-0.000000000000682121,120",
         "Rotation": "0,0.1305263,0,0.9914448",
-        "Tags": "maincamera",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "CameraComponent",
             "BackgroundColor": "0.33333,0.46196,0.52157,0",
             "ClearFlags": "All",
             "FieldOfView": 90,
-            "IsMainCamera": true,
+            "IsMainCamera": false,
             "Orthographic": false,
             "OrthographicHeight": 1204,
             "Priority": 1,
@@ -49,6 +50,7 @@
         "Name": "UI",
         "Position": "0,0,651.6465",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "ScreenPanel",
@@ -64,6 +66,7 @@
             "Name": "Lap Completion",
             "Position": "0,0,0",
             "Enabled": true,
+            "NetworkMode": 2,
             "Components": [
               {
                 "__type": "LapCompletion",
@@ -76,6 +79,7 @@
             "Name": "Start Countdown",
             "Position": "0,0,0",
             "Enabled": true,
+            "NetworkMode": 2,
             "Components": [
               {
                 "__type": "RaceStartCountdown",
@@ -89,6 +93,7 @@
             "Name": "Results",
             "Position": "0,0,0",
             "Enabled": true,
+            "NetworkMode": 2,
             "Components": [
               {
                 "__type": "RaceResults"
@@ -100,6 +105,7 @@
             "Name": "Speedometer",
             "Position": "0,0,0",
             "Enabled": true,
+            "NetworkMode": 2,
             "Components": [
               {
                 "__type": "Speedometer"
@@ -111,6 +117,7 @@
             "Name": "Placement",
             "Position": "0,0,0",
             "Enabled": true,
+            "NetworkMode": 2,
             "Components": [
               {
                 "__type": "RacePlacement"
@@ -122,6 +129,7 @@
             "Name": "Timer",
             "Position": "0,0,0",
             "Enabled": true,
+            "NetworkMode": 2,
             "Components": [
               {
                 "__type": "RaceTimer"
@@ -133,6 +141,7 @@
             "Name": "Vehicle Health",
             "Position": "0,0,0",
             "Enabled": true,
+            "NetworkMode": 2,
             "Components": [
               {
                 "__type": "VehicleHealth"
@@ -144,6 +153,7 @@
             "Name": "Notifications",
             "Position": "0,0,0",
             "Enabled": true,
+            "NetworkMode": 2,
             "Components": [
               {
                 "__type": "RaceNotifications"
@@ -155,6 +165,7 @@
             "Name": "Item",
             "Position": "0,0,0",
             "Enabled": true,
+            "NetworkMode": 2,
             "Components": [
               {
                 "__type": "CurrentItem"
@@ -166,11 +177,29 @@
             "Name": "Race Menu",
             "Position": "0,0,0",
             "Enabled": true,
+            "NetworkMode": 2,
             "Components": [
               {
                 "__type": "RaceMenu"
               }
             ]
+          }
+        ]
+      },
+      {
+        "Id": "73036eb0-2643-4b03-a237-b40f957765c2",
+        "Name": "CameraManager",
+        "Position": "291.9493,-3685.134,1055.211",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "CameraManager",
+            "Camera": {
+              "_type": "component",
+              "go": "1ca9e11c-6c23-437f-8ff2-68cf7e73a54e",
+              "component_type": "CameraComponent"
+            }
           }
         ]
       }

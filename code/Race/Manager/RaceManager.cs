@@ -21,6 +21,7 @@ public sealed partial class RaceManager : Component
 	public TimeSince TimeSinceRaceStart { get; private set; }
 	public bool HasStarted { get; private set; } = false;
 	public bool HasLoaded { get; private set; } = false;
+	public bool HasSetup { get; private set; } = false;
 	private RaceCheckpoint startCheckpoint;
 	public SoundEvent GetRaceMusic()
 	{
@@ -97,7 +98,14 @@ public sealed partial class RaceManager : Component
 			participant.PassCheckpoint( GetStartCheckpoint(), true );
 		}
 
+		var cameras = Scene.GetAllComponents<VehicleCamera>();
+		foreach ( var camera in cameras )
+		{
+			CameraManager.MakeActive( camera );
+		}
+
 		StartCountdown();
+		HasSetup = true;
 	}
 
 	public void InitialiseParticipants( List<RaceParticipant> participants )
@@ -120,12 +128,14 @@ public sealed partial class RaceManager : Component
 	}
 	protected override void OnFixedUpdate()
 	{
+		if ( RaceContext == null || !HasSetup ) return;
+
 		if(!HasLoaded && RaceContext.FinishedLoading)
 		{
 			HasLoaded = true;
 
 			OrderCheckpoints();
-			SetupRace();
+			//SetupRace();
 		}
 
 		if(TimeUntilRaceStart && !HasStarted)

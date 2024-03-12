@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public class PathCamera : Component
+[Icon( "video_camera_back" )]
+public class PathCamera : Component, ICameraMode
 {
 	[Property] public List<CameraShot> Shots { get; set; }
 	[Property] public bool MoveOnEnabled { get; set; }
@@ -15,7 +16,6 @@ public class PathCamera : Component
 	[Property] public float TimeScale { get; set; } = 1;
 	[Property] public Action OnFinishMove { get; set; }
 	public bool Finished { get; set; }
-	private CameraComponent Camera => Game.ActiveScene.Camera;
 	float time => timeSinceStart * TimeScale;
 	float totalDuration;
 	TimeSince timeSinceStart;
@@ -45,6 +45,7 @@ public class PathCamera : Component
 		totalDuration = GetTotalDuration();
 		startTimes = CalculateStartTimes();
 		hasFinished = true;
+		CameraManager.MakeActive( this );
 	}
 	public void Stop()
 	{
@@ -54,13 +55,15 @@ public class PathCamera : Component
 	protected override void OnEnabled()
 	{
 		if ( MoveOnEnabled )
-			Start();
-	}
-	protected override void OnUpdate()
-	{
-		if( time >= totalDuration)
 		{
-			if(Loop)
+			Start();
+		}
+	}
+	public void UpdateCamera( CameraComponent camera )
+	{
+		if ( time >= totalDuration )
+		{
+			if ( Loop )
 			{
 				timeSinceStart = 0;
 			}
@@ -70,40 +73,40 @@ public class PathCamera : Component
 			}
 		}
 
-		if(!Finished)
+		if ( !Finished )
 		{
 			(float shotStart, CameraShot currentShot) = startTimes.LastOrDefault( kv => kv.Key <= time );
 			float shotFraction = (time - shotStart) / currentShot.Duration;
-			UpdateCamera( currentShot, shotFraction );
+			UpdateCamera( camera, currentShot, shotFraction );
 
 		}
-		else if(!hasFinished)
+		else if ( !hasFinished )
 		{
-			FinishMove();
+			FinishMove(camera);
 		}
 	}
-	private void FinishMove()
+	private void FinishMove(CameraComponent camera)
 	{
 		var lastTransform = Shots.LastOrDefault()?.EndTransform ?? Transform.World;
-		Camera.Transform.Position = lastTransform.Position;
-		Camera.Transform.Rotation = lastTransform.Rotation;
+		camera.Transform.Position = lastTransform.Position;
+		camera.Transform.Rotation = lastTransform.Rotation;
 
 		OnFinishMove?.Invoke();
 	}
-	private void UpdateCamera(CameraShot shot, float frac)
+	private void UpdateCamera(CameraComponent camera, CameraShot shot, float frac)
 	{
 		Transform start = shot.StartTransform;
 		Transform end = shot.EndTransform;
 		if(shot.EnablePosition)
 		{
 			float positionFraction = shot.PositionCurve.EvaluateDelta( frac );
-			Camera.Transform.Position = start.Position.LerpTo( end.Position, positionFraction, false );
+			camera.Transform.Position = start.Position.LerpTo( end.Position, positionFraction, false );
 		}
 
 		if(shot.EnableRotation)
 		{
 			float rotationFraction = shot.RotationCurve.EvaluateDelta( frac );
-			Camera.Transform.Rotation = Rotation.Slerp( start.Rotation, end.Rotation, rotationFraction, false );
+			camera.Transform.Rotation = Rotation.Slerp( start.Rotation, end.Rotation, rotationFraction, false );
 		}
 	}
 

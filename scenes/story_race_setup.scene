@@ -131,55 +131,6 @@
       "NetworkMode": 2
     },
     {
-      "Id": "3a3df21e-14d9-4a81-b32c-2407a4e4e85c",
-      "Name": "CameraIntro",
-      "Position": "1.095112,-749.6252,708.8674",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "Components": [
-        {
-          "__type": "PathCamera",
-          "Loop": false,
-          "MoveOnEnabled": true,
-          "Shots": [
-            {
-              "Duration": 1,
-              "StartMarker": {
-                "_type": "gameobject",
-                "go": "5f218ccc-30e2-4b7a-a97c-c3a85ce87c47"
-              },
-              "EndMarker": {
-                "_type": "gameobject",
-                "go": "5bf35211-4f4a-4bdd-9a79-7d212b8dd019"
-              },
-              "EnablePosition": true,
-              "PositionCurve": [
-                {
-                  "in": -2.4444447,
-                  "out": 2.4444447
-                },
-                {
-                  "x": 1,
-                  "y": 1,
-                  "in": -0.025316399,
-                  "out": 0.025316399
-                }
-              ],
-              "EnableRotation": true,
-              "RotationCurve": [
-                {},
-                {
-                  "x": 1,
-                  "y": 1
-                }
-              ]
-            }
-          ],
-          "TimeScale": 1
-        }
-      ]
-    },
-    {
       "Id": "782e08c4-8a61-48e6-ba9b-f787b2a30537",
       "Name": "Camera",
       "Position": "217.4315,-333.5259,282.8753",
@@ -205,16 +156,57 @@
       ]
     },
     {
-      "Id": "007cc48d-87e7-474d-a9c1-ce14dc15e07c",
-      "Name": "Keyframes",
-      "Position": "-5.579903,-219.2437,158.6163",
+      "Id": "3a3df21e-14d9-4a81-b32c-2407a4e4e85c",
+      "Name": "CameraIntro",
       "Enabled": true,
       "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "PathCamera",
+          "Loop": false,
+          "MoveOnEnabled": true,
+          "Shots": [
+            {
+              "Duration": 1.5,
+              "StartMarker": {
+                "_type": "gameobject",
+                "go": "5f218ccc-30e2-4b7a-a97c-c3a85ce87c47"
+              },
+              "EndMarker": {
+                "_type": "gameobject",
+                "go": "5bf35211-4f4a-4bdd-9a79-7d212b8dd019"
+              },
+              "EnablePosition": true,
+              "PositionCurve": [
+                {
+                  "in": -3.3333328,
+                  "out": 3.3333328
+                },
+                {
+                  "x": 1,
+                  "y": 1,
+                  "in": -0.070175335,
+                  "out": 0.070175335
+                }
+              ],
+              "EnableRotation": true,
+              "RotationCurve": [
+                {},
+                {
+                  "x": 1,
+                  "y": 1
+                }
+              ]
+            }
+          ],
+          "TimeScale": 1
+        }
+      ],
       "Children": [
         {
           "Id": "5f218ccc-30e2-4b7a-a97c-c3a85ce87c47",
           "Name": "VehicleZoomStart",
-          "Position": "268.3559,1.237106,-11.46022",
+          "Position": "262.776,-218.0066,147.1561",
           "Rotation": "-0.02154116,0.1211506,0.9190837,0.3743578",
           "Scale": "1.887448,1,1",
           "Enabled": true,
@@ -223,11 +215,23 @@
         {
           "Id": "5bf35211-4f4a-4bdd-9a79-7d212b8dd019",
           "Name": "VehicleZoomEnd",
-          "Position": "207.3996,14.19911,-19.10112",
+          "Position": "201.8197,-205.0446,139.5152",
           "Rotation": "-0.0116487,0.1224981,0.8857097,0.4476347",
           "Scale": "1.887448,1,1",
           "Enabled": true,
           "NetworkMode": 2
+        }
+      ]
+    },
+    {
+      "Id": "ab99906d-b603-4b3a-b97e-5449e5c19d2f",
+      "Name": "CameraManager",
+      "Position": "30.4542,-565.8482,621.6483",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "CameraManager"
         }
       ]
     }
@@ -255,7 +259,7 @@
   },
   "Title": "story_race_setup",
   "Description": "",
-  "LastSaved": "2024-03-12T01:37:06.5510235\u002B01:00",
+  "LastSaved": "2024-03-12T02:33:40.4505322\u002B01:00",
   "__references": [
     "polyhaven.wasteland_clouds_puresky"
   ]

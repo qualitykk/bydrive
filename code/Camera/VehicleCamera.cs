@@ -7,15 +7,14 @@ using System.Threading.Tasks;
 namespace Bydrive;
 
 [Alias("VehicleCameraView")]
-public class VehicleCamera : Component
+public class VehicleCamera : Component, ICameraMode
 {
 	[Property] public float BaseFieldOfView { get; set; } = 90f;
 	[Property] public float MaxFieldOfView { get; set; } = 120f;
-	private CameraComponent Camera => Game.ActiveScene.Camera;
 	private VehicleController Vehicle => GetLocalVehicle();
 	private Vector3 CameraOffset => Vehicle?.GetCameraPositionOffset() ?? 0f;
 	private VehicleController lastVehicle;
-	protected override void OnUpdate()
+	public void UpdateCamera( CameraComponent camera )
 	{
 		if ( Vehicle != lastVehicle )
 		{
@@ -23,29 +22,29 @@ public class VehicleCamera : Component
 			lastVehicle = Vehicle;
 		}
 
-		if ( Camera == null || Vehicle == null ) return;
+		if ( Vehicle == null ) return;
 
-		Vector3 position = GetCameraPosition();
+		Vector3 position = GetCameraPosition(camera);
 		Rotation rotation = GetCameraRotation();
 
-		Camera.Transform.LocalPosition = position;
-		Camera.Transform.LocalRotation = rotation;
+		camera.Transform.LocalPosition = position;
+		camera.Transform.LocalRotation = rotation;
 
 		float dt = Time.Delta;
 
 		float maxSpeed = Vehicle.GetStats().MaxSpeed;
 		float speedFraction = Vehicle.Speed / maxSpeed;
-		float currentFov = Camera.FieldOfView;
+		float currentFov = camera.FieldOfView;
 		float targetFov = speedFraction.Remap( 0, 1, BaseFieldOfView, MaxFieldOfView, false );
 
 		if ( currentFov < targetFov )
 		{
-			Camera.FieldOfView = currentFov.LerpTo( targetFov, dt );
+			camera.FieldOfView = currentFov.LerpTo( targetFov, dt );
 		}
 		else
 		{
 			const float BREAK_FOV_DECREASE_MULTIPLIER = 4f;
-			Camera.FieldOfView = currentFov.LerpTo( targetFov, dt * BREAK_FOV_DECREASE_MULTIPLIER );
+			camera.FieldOfView = currentFov.LerpTo( targetFov, dt * BREAK_FOV_DECREASE_MULTIPLIER );
 		}
 	}
 
@@ -53,7 +52,7 @@ public class VehicleCamera : Component
 	const float TURN_OFFSET_MAX_DISTANCE = 48f;
 	const float TURN_OFFSET_MAX_YAW = -10f;
 	float currentTurnOffset;
-	private Vector3 GetCameraPosition()
+	private Vector3 GetCameraPosition(CameraComponent camera)
 	{
 		Vector3 position = CameraOffset;
 
@@ -62,11 +61,11 @@ public class VehicleCamera : Component
 
 		position.y = currentTurnOffset * TURN_OFFSET_MAX_DISTANCE;
 		// Dont let camera go through walls
-		var tr = Scene.Trace.Ray( Camera.Transform.World.PointToWorld( CameraOffset ), Camera.Transform.World.PointToWorld( position ) )
+		var tr = Scene.Trace.Ray( camera.Transform.World.PointToWorld( CameraOffset ), camera.Transform.World.PointToWorld( position ) )
 							.IgnoreGameObjectHierarchy(Vehicle.GameObject)
 							.WithTag( TraceTags.WORLD )
 							.Run();
-		return Camera.Transform.World.PointToLocal(tr.EndPosition);
+		return camera.Transform.World.PointToLocal(tr.EndPosition);
 	}
 
 	private Rotation GetCameraRotation()

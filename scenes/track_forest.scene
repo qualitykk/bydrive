@@ -4548,6 +4548,194 @@
           ]
         }
       ]
+    },
+    {
+      "Id": "bc63acbb-f59d-4cf7-b18a-d7c779033c9f",
+      "Name": "CameraFlythrough",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "PathCamera",
+          "Loop": true,
+          "MoveOnEnabled": true,
+          "Shots": [
+            {
+              "Duration": 8,
+              "StartMarker": {
+                "_type": "gameobject",
+                "go": "bb3fddde-05a4-43b7-b893-b5353ac4bd7f"
+              },
+              "EndMarker": {
+                "_type": "gameobject",
+                "go": "8dffdef7-d491-40d1-bfdf-4d1f43de423d"
+              },
+              "EnablePosition": true,
+              "PositionCurve": [
+                {
+                  "mode": "Linear"
+                },
+                {
+                  "x": 1,
+                  "y": 1,
+                  "mode": "Linear"
+                }
+              ],
+              "EnableRotation": true
+            },
+            {
+              "Duration": 8,
+              "StartMarker": {
+                "_type": "gameobject",
+                "go": "3859104e-845e-4299-a1f0-36a0fd619b08"
+              },
+              "EndMarker": {
+                "_type": "gameobject",
+                "go": "9b7455cc-63f1-4a03-a803-67286c133dd4"
+              },
+              "EnablePosition": true,
+              "PositionCurve": [
+                {
+                  "mode": "Linear"
+                },
+                {
+                  "x": 1,
+                  "y": 1,
+                  "mode": "Linear"
+                }
+              ],
+              "EnableRotation": true,
+              "RotationCurve": [
+                {
+                  "mode": "Linear"
+                },
+                {
+                  "x": 1,
+                  "y": 1,
+                  "mode": "Linear"
+                }
+              ]
+            },
+            {
+              "Duration": 8,
+              "StartMarker": {
+                "_type": "gameobject",
+                "go": "bc20e496-3002-4fc0-8825-3f10f50b6ad6"
+              },
+              "EndMarker": {
+                "_type": "gameobject",
+                "go": "588176bf-8a8a-45ca-8b30-6cb067696564"
+              },
+              "EnablePosition": true,
+              "PositionCurve": [
+                {
+                  "mode": "Linear"
+                },
+                {
+                  "x": 1,
+                  "y": 1,
+                  "mode": "Linear"
+                }
+              ],
+              "EnableRotation": true,
+              "RotationCurve": [
+                {
+                  "mode": "Linear"
+                },
+                {
+                  "x": 1,
+                  "y": 1,
+                  "mode": "Linear"
+                }
+              ]
+            }
+          ],
+          "TimeScale": 1
+        }
+      ],
+      "Children": [
+        {
+          "Id": "bb3fddde-05a4-43b7-b893-b5353ac4bd7f",
+          "Name": "StartLineStart",
+          "Position": "13.81195,-3629.373,1092.564",
+          "Rotation": "-0.1536603,0.1536603,0.6902089,0.6902091",
+          "Enabled": true,
+          "NetworkMode": 2
+        },
+        {
+          "Id": "8dffdef7-d491-40d1-bfdf-4d1f43de423d",
+          "Name": "StartLineEnd",
+          "Position": "13.81195,-1400.592,1092.564",
+          "Rotation": "-0.1536603,0.1536603,0.6902089,0.6902091",
+          "Enabled": true,
+          "NetworkMode": 2
+        },
+        {
+          "Id": "3859104e-845e-4299-a1f0-36a0fd619b08",
+          "Name": "BridgeStart",
+          "Position": "-2933.678,2416.756,1167.842",
+          "Rotation": "-0.2183146,-0.004739943,0.9739735,0.06076033",
+          "Enabled": true,
+          "NetworkMode": 2
+        },
+        {
+          "Id": "9b7455cc-63f1-4a03-a803-67286c133dd4",
+          "Name": "BridgeEnd",
+          "Position": "-2933.678,6081.5,1167.842",
+          "Rotation": "-0.2183146,-0.004739943,0.9739735,0.06076033",
+          "Enabled": true,
+          "NetworkMode": 2
+        },
+        {
+          "Id": "bc20e496-3002-4fc0-8825-3f10f50b6ad6",
+          "Name": "TunnelStart",
+          "Position": "-5582.928,-6981.295,600",
+          "Rotation": "-0.1665703,0.04414642,0.9521674,0.2523545",
+          "Enabled": true,
+          "NetworkMode": 2
+        },
+        {
+          "Id": "588176bf-8a8a-45ca-8b30-6cb067696564",
+          "Name": "TunnelEnd",
+          "Position": "-5582.928,-4081.369,600",
+          "Rotation": "-0.1665703,0.04414642,0.9521674,0.2523545",
+          "Enabled": true,
+          "NetworkMode": 2
+        }
+      ]
+    },
+    {
+      "Id": "0f100489-a28c-44af-b2fb-dfc0d117a02d",
+      "Name": "FlythroughTestCamera",
+      "Position": "-5735.161,-6937.549,334.9208",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "CameraComponent",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 90,
+          "IsMainCamera": false,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 12000,
+          "ZNear": 10
+        },
+        {
+          "__type": "CameraManager",
+          "Camera": {
+            "_type": "component",
+            "go": "0f100489-a28c-44af-b2fb-dfc0d117a02d",
+            "component_type": "CameraComponent"
+          }
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -4573,7 +4761,7 @@
   },
   "Title": "track_forest",
   "Description": "",
-  "LastSaved": "2024-03-11T20:52:33.5486126\u002B01:00",
+  "LastSaved": "2024-03-12T02:35:33.5521644\u002B01:00",
   "__references": [
     "polyhaven.kloofendal_overcast_puresky"
   ]
