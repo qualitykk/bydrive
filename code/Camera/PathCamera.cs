@@ -11,9 +11,10 @@ public class PathCamera : Component
 {
 	[Property] public List<CameraShot> Shots { get; set; }
 	[Property] public bool MoveOnEnabled { get; set; }
+	[Property] public bool Loop { get; set; }
 	[Property] public float TimeScale { get; set; } = 1;
 	[Property] public Action OnFinishMove { get; set; }
-	public bool Finished => time >= totalDuration;
+	public bool Finished { get; set; }
 	private CameraComponent Camera => Game.ActiveScene.Camera;
 	float time => timeSinceStart * TimeScale;
 	float totalDuration;
@@ -45,6 +46,10 @@ public class PathCamera : Component
 		startTimes = CalculateStartTimes();
 		hasFinished = true;
 	}
+	public void Stop()
+	{
+		hasFinished = true;
+	}
 
 	protected override void OnEnabled()
 	{
@@ -53,11 +58,24 @@ public class PathCamera : Component
 	}
 	protected override void OnUpdate()
 	{
+		if( time >= totalDuration)
+		{
+			if(Loop)
+			{
+				timeSinceStart = 0;
+			}
+			else
+			{
+				Finished = true;
+			}
+		}
+
 		if(!Finished)
 		{
 			(float shotStart, CameraShot currentShot) = startTimes.LastOrDefault( kv => kv.Key <= time );
 			float shotFraction = (time - shotStart) / currentShot.Duration;
 			UpdateCamera( currentShot, shotFraction );
+
 		}
 		else if(!hasFinished)
 		{
