@@ -6,16 +6,16 @@ Speedometer {
 	bottom: 5%;
 	width: 14%;
 	height: 15%;
-	background-color: $background_dev;
 	justify-content: center;
 	align-items: center;
-	font-weight: bold;
 	padding: 25px;
-	flex-direction: column;
-	font-family: Poppins;
-	color: #fff;
 	border-radius: 5px;
+	flex-direction: column;
 	gap: 10px;
+	color: #fff;
+	background-color: $background_clear;
+	font-family: Poppins;
+	font-weight: bold;
 
 	&.disabled {
 		display: none;
@@ -25,16 +25,17 @@ Speedometer {
 		font-size: 40px;
 		width: 60%;
 		text-align: right;
+		align-items: center;
 	}
 
 	.unit {
 		font-size: 25px;
 		width: 40%;
 		text-align: center;
+		align-items: center;
 	}
 
 	.boost {
-
 		ProgressBar {
 			width: 60%;
 

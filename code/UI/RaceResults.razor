@@ -36,6 +36,7 @@
 				@for(int i = 0; i < MathF.Min(GetPreviousData().Count,3); i++)
 				{
 					<div class="racer entry" style="height: 6vh;">
+						<label class="placement">#@(i+1)</label>
 						<label class="name @GetPlacementTag(i+1)">@GetPreviousData().OrderBy(p => p.TotalTime).ElementAt(i).PlayerName</label>
 						<label class="time">@GetPreviousData().OrderBy(p => p.TotalTime).ElementAt(i).TotalTime.FormatAsRaceTime()</label>
 					</div>

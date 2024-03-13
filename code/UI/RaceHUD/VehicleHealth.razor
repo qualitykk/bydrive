@@ -3,7 +3,7 @@
 @attribute [Icon("speed")]
 @inherits PanelComponent
 
-<root class="@UI.ActiveIf(CameraManager.IsActive<VehicleCamera>())">
+<root class="@UI.ActiveAsRaceHUD()">
 	<label class="title">HEALTH</label>
 	<div class="points">
 		@for (int i = 1; i < MaxHealth + 1; i++)
@@ -37,5 +37,5 @@
 		return "";
 	}
 
-	protected override int BuildHash() => HashCode.Combine(Health, MaxHealth, CameraManager.Instance.CurrentCameraMode);
+	protected override int BuildHash() => HashCode.Combine(Health, MaxHealth, UI.ShowRaceHUD());
 }

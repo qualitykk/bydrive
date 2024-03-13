@@ -134,7 +134,11 @@ internal static class UI
 	public static string ActiveIf( Func<bool> check ) => ActiveIf( check?.Invoke() ?? false );
 	public static string ActiveIf( bool? active ) => ActiveIf( active == true );
 	public static string ActiveIfMenu( Panel panel ) => ActiveIf( ActiveMenu == panel );
-
+	public static string ActiveAsRaceHUD() => ActiveIf( ShowRaceHUD() );
+	public static bool ShowRaceHUD()
+	{
+		return Race != null && CameraManager.IsActive<VehicleCamera>() && !Race.IsFinished;
+	}
 	public static string FormatRoute(string value)
 	{
 		string[] parts = value.Split( '_' );

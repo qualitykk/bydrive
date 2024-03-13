@@ -14,7 +14,7 @@
 {
 	public bool ShouldDraw()
 	{
-		return Race.Participants.Count > 1 && CameraManager.IsActive<VehicleCamera>();
+		return Race.Participants.Count > 1 && UI.ShowRaceHUD();
 	}
 
 	public string GetPlacementText()
@@ -56,5 +56,5 @@
 	/// <summary>
 	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
 	/// </summary>
-	protected override int BuildHash() => System.HashCode.Combine(GetPlacement(), CameraManager.Instance.CurrentCameraMode);
+	protected override int BuildHash() => HashCode.Combine(GetPlacement(), UI.ShowRaceHUD());
 }

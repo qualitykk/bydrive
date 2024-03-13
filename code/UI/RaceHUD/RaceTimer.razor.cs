@@ -55,5 +55,5 @@ public partial class RaceTimer
 	/// <summary>
 	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
 	/// </summary>
-	protected override int BuildHash() => System.HashCode.Combine( Race?.HasStarted, Time.Now );
+	protected override int BuildHash() => HashCode.Combine( Race?.HasStarted, Time.Now );
 }

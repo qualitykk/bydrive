@@ -9,9 +9,9 @@ CurrentItem {
 	justify-content: center;
 	align-items: center;
 	font-weight: bold;
-	border-radius: 20px;
+	border-radius: 5px;
 	padding: 20px;
-	background-color: $background_dev;
+	background-color: $background_clear;
 
 	&.disabled {
 		display: none;

@@ -12,6 +12,7 @@ public partial class LapCompletion
 	int highestLap = 1;
 	protected override void OnEnabled()
 	{
+		base.OnEnabled();
 		if ( Race == null ) return;
 		Race.OnReset += OnReset;
 	}
@@ -48,5 +49,5 @@ public partial class LapCompletion
 	/// <summary>
 	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
 	/// </summary>
-	protected override int BuildHash() => HashCode.Combine( Game.ActiveScene, GetCurrentCompletion(), DebugCheckpoints, CameraManager.Instance.CurrentCameraMode );
+	protected override int BuildHash() => HashCode.Combine( GetCurrentCompletion(), DebugCheckpoints, UI.ShowRaceHUD() );
 }

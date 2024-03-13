@@ -1,8 +1,10 @@
+@import "colors.scss";
+
 LapCompletion {
 	position: absolute;
 	top: 5%;
 	right: 15%;
-	background-color: #4a4a4a66;
+	background-color: $background_clear;
 	justify-content: center;
 	align-items: center;
 	font-weight: bold;
