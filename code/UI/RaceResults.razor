@@ -83,6 +83,7 @@
 		<div class="button" @onclick=@OnClickNext>@GetNextLabel()</div>
 		@if (Race.IsTimeTrial)
 		{
+			<div class="button" @onclick=@OnClickRestart>Restart</div>
 			<div class="button @UI.ActiveIf(!hasSaved)" @onclick=@OnClickSave>Save Time</div>
 		}
 	</div>

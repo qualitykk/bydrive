@@ -67,6 +67,12 @@ public partial class RaceResults
 		return "Done";
 	}
 
+	private void OnClickRestart()
+	{
+		Race.Setup(true);
+		hasSaved = false;
+	}
+
 	bool hasSaved = false;
 	private void OnClickSave()
 	{

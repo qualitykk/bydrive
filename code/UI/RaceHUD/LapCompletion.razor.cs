@@ -10,6 +10,17 @@ public partial class LapCompletion
 {
 	[Property] public bool DebugCheckpoints { get; set; } = false;
 	int highestLap = 1;
+	protected override void OnEnabled()
+	{
+		if ( Race == null ) return;
+		Race.OnReset += OnReset;
+	}
+
+	private void OnReset()
+	{
+		highestLap = 1;
+	}
+
 	private int GetDisplayLaps()
 	{
 		if ( Race == null ) return 1;

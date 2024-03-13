@@ -16,6 +16,7 @@ public sealed partial class RaceManager : Component
 {
 	public static RaceManager Current { get; private set; }
 	[Property] public List<RaceCheckpoint> StartCheckpointOptions { get; set; } = new();
+	[Property] public Action OnReset { get; set; }
 	public List<RaceParticipant> Participants { get; private set; } = new();
 	public TimeUntil TimeUntilRaceStart { get; private set; }
 	public TimeSince TimeSinceRaceStart { get; private set; }

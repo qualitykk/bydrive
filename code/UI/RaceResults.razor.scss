@@ -145,9 +145,15 @@ RaceResults {
 		flex-direction: row;
 		height: 10%;
 		padding: 0.2%;
+		gap: 20vw;
+		width: 50%;
+
+		.button {
+			flex-grow: 1;
+		}
 	}
 
 	.button {
-		width: 20%;
+		width: 20vw;
 	}
 }
