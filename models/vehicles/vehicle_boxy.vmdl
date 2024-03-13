@@ -71,7 +71,7 @@
 						_class = "PhysicsHullFile"
 						name = "vehicle_boxy"
 						parent_bone = ""
-						surface_prop = "default"
+						surface_prop = "metal"
 						collision_tags = "solid"
 						recenter_on_parent_bone = false
 						offset_origin = [ 0.0, 0.0, 0.0 ]
@@ -90,6 +90,42 @@
 							exclude_by_default = false
 							exception_list = [  ]
 						}
+					},
+					{
+						_class = "PhysicsShapeCylinder"
+						parent_bone = ""
+						surface_prop = "default"
+						collision_tags = "solid wheel"
+						radius = 18.0
+						point0 = [ 70.0, 40.0, 15.0 ]
+						point1 = [ 70.0, 30.0, 15.0 ]
+					},
+					{
+						_class = "PhysicsShapeCylinder"
+						parent_bone = ""
+						surface_prop = "default"
+						collision_tags = "solid wheel"
+						radius = 18.0
+						point0 = [ -70.0, -40.0, 15.0 ]
+						point1 = [ -70.0, -30.0, 15.0 ]
+					},
+					{
+						_class = "PhysicsShapeCylinder"
+						parent_bone = ""
+						surface_prop = "default"
+						collision_tags = "solid wheel"
+						radius = 18.0
+						point0 = [ 70.0, -40.0, 15.0 ]
+						point1 = [ 70.0, -30.0, 15.0 ]
+					},
+					{
+						_class = "PhysicsShapeCylinder"
+						parent_bone = ""
+						surface_prop = "default"
+						collision_tags = "solid wheel"
+						radius = 18.0
+						point0 = [ -70.0, 40.0, 15.0 ]
+						point1 = [ -70.0, 30.0, 15.0 ]
 					},
 				]
 			},

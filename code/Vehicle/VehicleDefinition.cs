@@ -19,6 +19,7 @@ public class VehicleDefinition : GameResource, IPrefabProvider
 	[TextArea] public string Description { get; set; }
 	public bool Hidden { get; set; }
 	[Category("Preview")] public Model PreviewModel { get; set; }
+	[Category( "Preview" )] public Color PreviewTint { get; set; } = Color.White;
 	[Category("Preview")] public Vector3 PreviewPosition { get; set; }
 	public VehicleStats Stats { get;set; }
 	public PrefabFile Prefab { get; set; }

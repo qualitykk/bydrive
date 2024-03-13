@@ -50,7 +50,7 @@ public class RaceParticipant : Component
 		{
 			foreach ( var model in GetModels() )
 			{
-				model.Tint = new( 1f, 1 - timeUntilRespawn.Fraction );
+				model.Tint = model.Tint.WithAlpha(1 - timeUntilRespawn.Fraction );
 			}
 		}
 
@@ -58,7 +58,7 @@ public class RaceParticipant : Component
 		{
 			foreach ( var model in GetModels() )
 			{
-				model.Tint = new( 1f );
+				model.Tint.WithAlpha( 1f );
 			}
 			respawning = false;
 			cancelRespawn = false;

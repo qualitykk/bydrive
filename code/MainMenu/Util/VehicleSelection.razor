@@ -5,7 +5,7 @@
     @foreach(var vehicle in vehicles)
     {
         <div class="entry flex-col pointer-events @UI.ActiveIf(selectedVehicle == vehicle)" @onclick=@(() => OnClickVehicle(vehicle))>
-            <ModelPreviewPanel class="preview w-100" Model=@vehicle.PreviewModel CameraPosition=@VehiclePreviewPosition(vehicle)/>
+            <ModelPreviewPanel class="preview w-100" Model=@vehicle.PreviewModel ModelTint=@vehicle.PreviewTint CameraPosition=@VehiclePreviewPosition(vehicle)/>
             <label class="name w-100">@vehicle.Title</label>
         </div>
     }

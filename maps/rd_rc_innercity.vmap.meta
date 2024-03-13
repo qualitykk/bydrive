@@ -1,0 +1,27 @@
+{
+  "publish": {
+    "Allowed": true,
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "rd_rc_innercity",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "rd_rc_innercity",
+      "Tags": null,
+      "Schema": 0,
+      "HasAssets": false,
+      "AssetsPath": null,
+      "Resources": null,
+      "MenuResources": "*",
+      "HasCode": false,
+      "CodePath": null,
+      "PackageReferences": [],
+      "EditorReferences": [
+        "facepunch.tree_oak_small_a#33693"
+      ],
+      "Metadata": {
+        "SingleAssetSource": "maps/rd_rc_innercity.vmap"
+      }
+    }
+  }
+}

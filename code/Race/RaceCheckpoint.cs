@@ -40,7 +40,7 @@ public class RaceCheckpoint : Component, Component.ITriggerListener
 	}
 	protected override void OnFixedUpdate()
 	{
-		if(!previousCheckpointsReferences.Any() && RaceContext.FinishedLoading )
+		if( RaceContext != null && !previousCheckpointsReferences.Any() && RaceContext.FinishedLoading )
 		{
 			RebuildCheckpointReferences();
 		}

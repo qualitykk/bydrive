@@ -4,6 +4,9 @@ Layer0
 {
 	shader "shaders/complex.shader"
 
+	//---- Color ----
+	F_TINT_MASK 1
+
 	//---- Ambient Occlusion ----
 	g_flAmbientOcclusionDirectDiffuse "0.000"
 	g_flAmbientOcclusionDirectSpecular "0.000"
@@ -12,7 +15,8 @@ Layer0
 	//---- Color ----
 	g_flModelTintAmount "1.000"
 	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
-	TextureColor "materials/models/vehicles/vehicle_boxy.psd"
+	TextureColor "materials/models/vehicles/vehicle_boxy_color.png"
+	TextureTintMask "materials/models/vehicles/vehicle_boxy_tint.png"
 
 	//---- Fade ----
 	g_flFadeExponent "1.000"

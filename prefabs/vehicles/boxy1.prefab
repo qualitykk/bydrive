@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
+    "__guid": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
     "Name": "boxy1",
     "Tags": "vehicle",
     "Enabled": true,
@@ -8,33 +8,39 @@
     "Components": [
       {
         "__type": "VehicleController",
+        "__guid": "df67d81f-1cfe-46aa-b208-dc3c2b83787a",
         "ItemSpawnPosition": "192,0,16",
         "Rigidbody": {
           "_type": "component",
+          "component_id": "f95c11ab-4742-4074-81f4-1da5333a9d36",
           "go": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
           "component_type": "Rigidbody"
         }
       },
       {
         "__type": "SkinnedModelRenderer",
+        "__guid": "95c78e91-1157-4f46-ae10-5fa36075f44e",
         "BodyGroups": 18446744073709551615,
         "CreateBoneObjects": false,
         "Model": "models/vehicles/vehicle_boxy.vmdl",
         "RenderType": "On",
-        "Tint": "1,1,1,1"
+        "Tint": "1,0,0,1"
       },
       {
         "__type": "Rigidbody",
+        "__guid": "f95c11ab-4742-4074-81f4-1da5333a9d36",
         "AngularDamping": 0,
         "Gravity": true,
         "LinearDamping": 0,
         "Locking": {},
         "MassOverride": 0,
+        "MotionEnabled": true,
         "RigidbodyFlags": 0,
         "StartAsleep": false
       },
       {
         "__type": "BoxCollider",
+        "__guid": "1999dff9-a426-4bd4-a96a-c3a8304e2698",
         "__enabled": false,
         "Center": "-2.5,0,38",
         "IsTrigger": false,
@@ -43,14 +49,15 @@
       },
       {
         "__type": "ModelCollider",
+        "__guid": "663db198-2a0c-47fe-8267-1d9884390926",
         "IsTrigger": false,
-        "Model": "models/brokencar.vmdl",
+        "Model": "models/vehicles/vehicle_boxy.vmdl",
         "Static": false
       }
     ],
     "Children": [
       {
-        "Id": "17d96138-8247-427e-a376-1464ec709df6",
+        "__guid": "17d96138-8247-427e-a376-1464ec709df6",
         "Name": "BackRight",
         "Position": "-69.33028,-37.54224,19.40883",
         "Rotation": "0.00000005584116,0.0000000014764,1,-0.0000006556511",
@@ -59,6 +66,7 @@
         "Components": [
           {
             "__type": "VehicleWheel",
+            "__guid": "7b0f4b22-b158-474a-b5d3-a5f4e377478e",
             "IsDriving": true,
             "IsTurning": false,
             "Radius": 22,
@@ -66,6 +74,7 @@
           },
           {
             "__type": "SkinnedModelRenderer",
+            "__guid": "7b1e3724-e3c6-43c2-a57a-a0ea6119f819",
             "BodyGroups": 18446744073709551615,
             "CreateBoneObjects": false,
             "Model": "models/citizen_props/wheel01.vmdl",
@@ -75,7 +84,7 @@
         ]
       },
       {
-        "Id": "15be5a0a-3a05-4d6d-9b4c-3f5586ab6109",
+        "__guid": "15be5a0a-3a05-4d6d-9b4c-3f5586ab6109",
         "Name": "BackLeft",
         "Position": "-69.32976,37.542,19.40883",
         "Enabled": true,
@@ -83,6 +92,7 @@
         "Components": [
           {
             "__type": "VehicleWheel",
+            "__guid": "7826ab52-5542-4612-b4e2-6d78353a5d2a",
             "IsDriving": true,
             "IsTurning": false,
             "Radius": 22,
@@ -90,6 +100,7 @@
           },
           {
             "__type": "SkinnedModelRenderer",
+            "__guid": "8620f784-0c1c-4c90-84aa-35cd3e507a2f",
             "BodyGroups": 18446744073709551615,
             "CreateBoneObjects": false,
             "Model": "models/citizen_props/wheel01.vmdl",
@@ -99,7 +110,7 @@
         ]
       },
       {
-        "Id": "ab8cc685-5290-4115-ad3a-5fb2a7b08567",
+        "__guid": "ab8cc685-5290-4115-ad3a-5fb2a7b08567",
         "Name": "FrontLeft",
         "Position": "68.31885,37.54196,19.409",
         "Enabled": true,
@@ -107,6 +118,7 @@
         "Components": [
           {
             "__type": "VehicleWheel",
+            "__guid": "1549e713-14f7-4b70-9961-0c744979154d",
             "IsDriving": true,
             "IsTurning": true,
             "Radius": 22,
@@ -114,6 +126,7 @@
           },
           {
             "__type": "SkinnedModelRenderer",
+            "__guid": "ce2f5aa5-a76d-4d81-98e4-05e4aa7e456d",
             "BodyGroups": 18446744073709551615,
             "CreateBoneObjects": false,
             "Model": "models/citizen_props/wheel01.vmdl",
@@ -123,7 +136,7 @@
         ]
       },
       {
-        "Id": "70b21dc4-56fe-42ea-adee-87f872b0acde",
+        "__guid": "70b21dc4-56fe-42ea-adee-87f872b0acde",
         "Name": "FrontRight",
         "Position": "68.46494,-37.54228,19.409",
         "Rotation": "0.00000005584115,0.000000001476387,1,-0.0000006556511",
@@ -132,6 +145,7 @@
         "Components": [
           {
             "__type": "VehicleWheel",
+            "__guid": "5b57652c-4c7a-45a4-9d06-f05cbdf90d34",
             "IsDriving": true,
             "IsTurning": true,
             "Radius": 22,
@@ -139,6 +153,7 @@
           },
           {
             "__type": "SkinnedModelRenderer",
+            "__guid": "02ae0d29-296f-4f95-9e40-f2a8508896c9",
             "BodyGroups": 18446744073709551615,
             "CreateBoneObjects": false,
             "Model": "models/citizen_props/wheel01.vmdl",
@@ -152,7 +167,5 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
-  "__references": [
-    "debelizmik.brokencar"
-  ]
+  "__references": []
 }

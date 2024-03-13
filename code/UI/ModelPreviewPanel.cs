@@ -19,6 +19,7 @@ public class ModelPreviewPanel : ScenePanel
 		get => currentModel.ResourcePath;
 		set => requestedModel = Model.Load( value );
 	}
+	public Color ModelTint { get; set; } = Color.White;
 	public Rotation StartRotation { get; set; }
 	public float ModelRotationSpeed { get; set; } = 1;
 	public Vector3 CameraPosition { get; set; }
@@ -51,9 +52,6 @@ public class ModelPreviewPanel : ScenePanel
 		if ( sceneModel == null || ModelRotationSpeed == 0 )
 			return;
 
-		
-		// This doesnt work. investigate this in the future.
-
 		float rotateDegrees = ModelRotationSpeed * ConstantSpin.DEGREES_PER_SECOND * Time.Delta;
 		if(sceneModel.Rotation == default)
 		{
@@ -73,6 +71,7 @@ public class ModelPreviewPanel : ScenePanel
 		
 		sceneModel?.Delete();
 		sceneModel = new( World, model, new(Vector3.Zero, StartRotation) );
+		sceneModel.ColorTint = ModelTint;
 		currentModel = model;
 	}
 }
