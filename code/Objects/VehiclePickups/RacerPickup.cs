@@ -47,7 +47,7 @@ public abstract class RacerPickup : Component, Component.ITriggerListener
 
 		if(PickupSound != default)
 		{
-			Sound.Play( PickupSound, Transform.Position );
+			GameSound.Play( PickupSound, Transform.Position, GameSoundChannel.Effect );
 		}
 
 		Available = false;

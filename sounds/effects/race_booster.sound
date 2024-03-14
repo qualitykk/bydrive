@@ -1,6 +1,6 @@
 {
-  "UI": false,
-  "Volume": "0.60,0.60,0",
+  "UI": true,
+  "Volume": "0.15,0.60,0",
   "Pitch": "1.00,1.00,0",
   "Decibels": 70,
   "SelectionMode": "Random",
@@ -9,10 +9,10 @@
   ],
   "Occlusion": true,
   "Reflections": false,
-  "AirAbsorption": true,
-  "Transmission": true,
+  "AirAbsorption": false,
+  "Transmission": false,
   "OcclusionRadius": 64,
-  "DistanceAttenuation": true,
+  "DistanceAttenuation": false,
   "ResourceVersion": 0,
   "__version": 0,
   "__references": []

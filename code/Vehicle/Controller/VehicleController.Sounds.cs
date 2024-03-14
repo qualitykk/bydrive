@@ -23,7 +23,7 @@ public partial class VehicleController
 	float targetPitch = 1;
 	public SoundHandle PlaySound( SoundEvent sound )
 	{
-		var handle = Sound.Play( sound, Transform.Position );
+		var handle = GameSound.Play( sound, Transform.Position, GameSoundChannel.Vehicle );
 		activeSounds.Add( handle );
 		return handle;
 	}

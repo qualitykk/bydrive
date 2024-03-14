@@ -1,0 +1,13 @@
+{
+  "MasterVolume": "1.00,1.00,0",
+  "LoopedSounds": [
+    {
+      "SoundFile": "sounds/soundscape/soundscape_backstreets.vsnd",
+      "Volume": "1.00,1.00,0"
+    }
+  ],
+  "StingSounds": [],
+  "ResourceVersion": 0,
+  "__version": 0,
+  "__references": []
+}

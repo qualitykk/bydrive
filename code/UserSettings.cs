@@ -13,6 +13,7 @@ public class UserSettings
 	{
 		return Cookie.Get<UserSettings>( SETTINGS_KEY, new() );
 	}
+	[Category("Sound"), MinMax( 0f, 2f )] public float VehicleVolume { get; set; } = 1.0f;
 	[Category("Sound"), MinMax( 0f, 2f )] public float SoundEffectVolume { get; set; } = 1.0f;
 	[Category("Sound"), MinMax(0f, 2f)] public float MusicVolume { get; set; } = 1.0f;
 	[Category("UI")] public VehicleSpeedUnit SpeedometerUnit { get;set; }

@@ -1,111 +1,31 @@
 {
   "RootObject": {
-    "Id": "26326434-a149-4d25-ac90-3f8b88b06c7e",
+    "__guid": "26326434-a149-4d25-ac90-3f8b88b06c7e",
     "Name": "pickup_boost1",
     "Tags": "pickup,item",
     "Enabled": true,
+    "NetworkMode": 2,
     "Components": [
       {
-        "__version": 0,
         "__type": "BoostPickup",
-        "__enabled": true,
+        "__guid": "28c173b1-6f2e-4c4c-bfb9-db9a6714bcc6",
+        "Amount": 1,
         "OnAvailableAction": {
-          "Kind": "Action",
-          "Variables": [
-            {
-              "Id": 1,
-              "Name": "_this",
-              "Type": "Sandbox.Game/Sandbox.Component",
-              "Default": "26326434-a149-4d25-ac90-3f8b88b06c7e"
-            }
-          ],
-          "Nodes": [
-            {
-              "Id": 0,
-              "Type": "input"
-            },
-            {
-              "Id": 2,
-              "Type": "scene.getobject",
-              "UserData": {
-                "Position": "-0,48"
-              }
-            },
-            {
-              "Id": 3,
-              "Type": "call",
-              "Properties": {
-                "_type": "Sandbox.Game/Sandbox.IComponentLister",
-                "_name": "Get",
-                "_isStatic": false,
-                "T": {
-                  "$type": "Type",
-                  "Type": "Sandbox.Game/Sandbox.SkinnedModelRenderer"
-                }
-              },
-              "Inputs": {
-                "search": {
-                  "$type": "Simple",
-                  "Type": "Sandbox.Game/Sandbox.FindMode",
-                  "Value": "EnabledInSelfAndDescendants"
-                }
-              },
-              "UserData": {
-                "Position": "304,48"
-              }
-            },
-            {
-              "Id": 4,
-              "Type": "property.set",
-              "Properties": {
-                "_type": "Sandbox.Game/Sandbox.ModelRenderer",
-                "_name": "Tint"
-              },
-              "Inputs": {
-                "value": {
-                  "$type": "Simple",
-                  "Type": "Sandbox.System/Color",
-                  "Value": "1,1,1,1"
-                }
-              },
-              "UserData": {
-                "Position": "560,0"
-              }
-            }
-          ],
-          "Links": [
-            [
-              0,
-              "_signal",
-              4,
-              "_signal"
-            ],
-            [
-              2,
-              "_result",
-              3,
-              "_target"
-            ],
-            [
-              3,
-              "_result",
-              4,
-              "target"
-            ]
-          ],
+          "Version": 5,
           "UserData": {
             "Title": "On Available",
             "id": "eba42add-c56a-43cb-b935-51384327a4b9"
-          }
-        },
-        "OnUnavailableAction": {
-          "Kind": "Action",
+          },
           "Variables": [
             {
-              "Id": 1,
               "Name": "_this",
               "Type": "Sandbox.Game/Sandbox.Component",
-              "Default": "26326434-a149-4d25-ac90-3f8b88b06c7e"
+              "Default": {
+                "_type": "component",
+                "component_id": "28c173b1-6f2e-4c4c-bfb9-db9a6714bcc6",
+                "go": "26326434-a149-4d25-ac90-3f8b88b06c7e",
+                "component_type": "BoostPickup"
+              }
             }
           ],
           "Nodes": [
@@ -132,11 +52,93 @@
                   "Type": "Sandbox.Game/Sandbox.SkinnedModelRenderer"
                 }
               },
-              "Inputs": {
-                "search": {
-                  "$type": "Simple",
-                  "Type": "Sandbox.Game/Sandbox.FindMode",
-                  "Value": "EnabledInSelfAndDescendants"
+              "UserData": {
+                "Position": "304,48"
+              }
+            },
+            {
+              "Id": 4,
+              "Type": "property.set",
+              "Properties": {
+                "_type": "Sandbox.Game/Sandbox.ModelRenderer",
+                "_name": "Tint"
+              },
+              "UserData": {
+                "Position": "560,0"
+              }
+            }
+          ],
+          "Links": [
+            {
+              "SrcId": 2,
+              "SrcName": "_result",
+              "DstId": 3,
+              "DstName": "_target"
+            },
+            {
+              "Value": "EnabledInSelfAndDescendants",
+              "DstId": 3,
+              "DstName": "search"
+            },
+            {
+              "SrcId": 0,
+              "SrcName": "_signal",
+              "DstId": 4,
+              "DstName": "_signal"
+            },
+            {
+              "SrcId": 3,
+              "SrcName": "_result",
+              "DstId": 4,
+              "DstName": "_target"
+            },
+            {
+              "Value": "1,1,1,1",
+              "DstId": 4,
+              "DstName": "_value"
+            }
+          ]
+        },
+        "OnUnavailableAction": {
+          "Version": 5,
+          "UserData": {
+            "Title": "On Unavailable",
+            "id": "9b53d300-7061-4e79-ab59-bc4239079ffa"
+          },
+          "Variables": [
+            {
+              "Name": "_this",
+              "Type": "Sandbox.Game/Sandbox.Component",
+              "Default": {
+                "_type": "component",
+                "component_id": "28c173b1-6f2e-4c4c-bfb9-db9a6714bcc6",
+                "go": "26326434-a149-4d25-ac90-3f8b88b06c7e",
+                "component_type": "BoostPickup"
+              }
+            }
+          ],
+          "Nodes": [
+            {
+              "Id": 0,
+              "Type": "input"
+            },
+            {
+              "Id": 2,
+              "Type": "scene.getobject",
+              "UserData": {
+                "Position": "-0,48"
+              }
+            },
+            {
+              "Id": 3,
+              "Type": "call",
+              "Properties": {
+                "_type": "Sandbox.Game/Sandbox.IComponentLister",
+                "_name": "Get",
+                "_isStatic": false,
+                "T": {
+                  "$type": "Type",
+                  "Type": "Sandbox.Game/Sandbox.SkinnedModelRenderer"
                 }
               },
               "UserData": {
@@ -150,93 +152,86 @@
                 "_type": "Sandbox.Game/Sandbox.ModelRenderer",
                 "_name": "Tint"
               },
-              "Inputs": {
-                "value": {
-                  "$type": "Simple",
-                  "Type": "Sandbox.System/Color",
-                  "Value": "1,0.44314,0.44314,0.33333"
-                }
-              },
               "UserData": {
                 "Position": "560,0"
               }
             }
           ],
           "Links": [
-            [
-              0,
-              "_signal",
-              4,
-              "_signal"
-            ],
-            [
-              2,
-              "_result",
-              3,
-              "_target"
-            ],
-            [
-              3,
-              "_result",
-              4,
-              "target"
-            ]
-          ],
-          "UserData": {
-            "Title": "On Unavailable",
-            "id": "9b53d300-7061-4e79-ab59-bc4239079ffa"
-          }
+            {
+              "SrcId": 2,
+              "SrcName": "_result",
+              "DstId": 3,
+              "DstName": "_target"
+            },
+            {
+              "Value": "EnabledInSelfAndDescendants",
+              "DstId": 3,
+              "DstName": "search"
+            },
+            {
+              "SrcId": 0,
+              "SrcName": "_signal",
+              "DstId": 4,
+              "DstName": "_signal"
+            },
+            {
+              "SrcId": 3,
+              "SrcName": "_result",
+              "DstId": 4,
+              "DstName": "_target"
+            },
+            {
+              "Value": "1,0.44314,0.44314,0.33333",
+              "DstId": 4,
+              "DstName": "_value"
+            }
+          ]
         },
+        "PickupSound": "sounds/effects/race_item_pickup.sound",
         "RespawnTime": 10
       },
       {
-        "__version": 0,
         "__type": "HighlightOutline",
+        "__guid": "d44aa1f0-c223-48d5-b039-0d212b3eae0b",
         "__enabled": false,
         "Color": "0.10588,0.48235,1,0.53333",
         "InsideColor": "0,0,0,0",
         "InsideObscuredColor": "0,0,0,0",
-        "Material": null,
         "ObscuredColor": "0,0,0,0",
         "Width": 1
       },
       {
-        "__version": 0,
         "__type": "BoxCollider",
-        "__enabled": true,
+        "__guid": "77939314-c26e-41e2-8f29-a73be50c0b7f",
         "Center": "0,0,0",
         "IsTrigger": true,
         "Scale": "64,64,64",
-        "Static": false,
-        "Surface": null
+        "Static": false
       }
     ],
     "Children": [
       {
-        "Id": "99de1c25-e195-4af4-b170-775c50a849e9",
+        "__guid": "99de1c25-e195-4af4-b170-775c50a849e9",
         "Name": "Model",
         "Position": "0,0,-16",
         "Rotation": "0.1045285,0,0,0.9945219",
         "Scale": "3,3,3",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
-            "__version": 0,
             "__type": "SkinnedModelRenderer",
-            "__enabled": true,
+            "__guid": "389b1e12-ba20-4301-9a69-d7139a873a7d",
             "BodyGroups": 18446744073709551615,
-            "BoneMergeTarget": null,
             "CreateBoneObjects": false,
-            "MaterialGroup": null,
-            "MaterialOverride": null,
             "Model": "models/addons/sbox_can.vmdl",
             "RenderType": "On",
             "Tint": "1,1,1,1"
           },
           {
-            "__version": 0,
             "__type": "ConstantSpin",
-            "__enabled": true,
+            "__guid": "86313b1d-ecdc-4334-adf0-44ea5cc1d69e",
             "Speed": 3
           }
         ]
@@ -246,6 +241,8 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": [
     "foxtrot.sbox_can"
   ]
