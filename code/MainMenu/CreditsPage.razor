@@ -1,0 +1,38 @@
+﻿@using Sandbox.UI;
+
+@page "/credits";
+@attribute [StyleSheet]
+@namespace Bydrive
+
+<root class="menu_page">
+	<div class="header">
+		<label class="title">Credits</label>
+	</div>
+	<div class="main flex-col">
+		<label class="group_name">Developers</label>
+		@foreach (var developer in developmentEntries)
+		{
+			<div class="entry developer">
+				<img class="avatar" src="avatarsmall:@developer.SteamID" />
+				<div class="person flex-col">
+					<label class="name">@developer.Name</label>
+					<label class="handle">@($"@{developer.Handle}")</label>
+				</div>
+				<label class="credit">@developer.Credit</label>
+			</div>
+		}
+		<label class="group_name">Attributions</label>
+		@foreach(var attribution in attributionEntries)
+		{
+			<div class="entry attribution">
+				<div class="person">
+					<label class="name">@attribution.Name</label>
+				</div>
+				<label class="credit">@attribution.Credit</label>
+			</div>
+		}
+	</div>
+	<div class="footer">
+		<button class="button" @onclick=@StartMenu.Back>Back</button>
+	</div>
+</root>

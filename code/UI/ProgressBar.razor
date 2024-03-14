@@ -11,11 +11,16 @@
     public float MinValue { get; set; }
     public float MaxValue { get; set; }
     public float Fraction => ((Value - MinValue) / (MaxValue - MinValue)).Clamp(0,1);
+    public Color BarColor { get; set; }
 
     Panel bar;
 
     public override void Tick()
     {
         bar.Style.Width = Length.Fraction(Fraction);
+        if(BarColor != default)
+        {
+            bar.Style.BackgroundColor = BarColor;
+        }
     }
 }

@@ -18,7 +18,7 @@ public partial class VehicleSelection
 	IEnumerable<VehicleDefinition> vehicles;
 	protected override void OnParametersSet()
 	{
-		vehicles = ResourceLibrary.GetAll<VehicleDefinition>().Where(def => !def.Hidden);
+		vehicles = VehicleDefinition.GetAllVisible();
 	}
 	private static Vector3 VehiclePreviewPosition(VehicleDefinition def)
 	{

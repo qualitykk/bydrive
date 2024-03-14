@@ -84,11 +84,8 @@ public partial class RaceResults
 		float totalTime = lapTimes.Sum();
 
 		var existingData = TimeTrialData.ReadForTrack( track, RaceContext.CurrentVariables );
-		if ( existingData == default || !existingData.Any( d => d?.TotalTime < totalTime ) )
-		{
-			TimeTrialData data = new( GetLocalName(), track, GetLocalVehicle().Definition.ResourcePath, RaceContext.CurrentVariables, lapTimes );
-			TimeTrialData.WriteNew( data );
-		}
+		TimeTrialData data = new( GetLocalName(), track, GetLocalVehicle().Definition.ResourcePath, RaceContext.CurrentVariables, lapTimes );
+		TimeTrialData.WriteNew( data );
 
 		hasSaved = true;
 	}

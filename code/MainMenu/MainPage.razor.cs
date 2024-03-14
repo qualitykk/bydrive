@@ -40,4 +40,9 @@ public partial class MainPage
 	{
 		this.Navigate( "/settings" );
 	}
+
+	void OnClickCredits()
+	{
+		this.Navigate( "/credits" );
+	}
 }

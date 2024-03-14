@@ -10,9 +10,13 @@ namespace Bydrive;
 [Icon( "electric_car" )]
 public class VehicleDefinition : GameResource, IPrefabProvider
 {
+	public static IEnumerable<VehicleDefinition> GetAllVisible()
+	{
+		return ResourceLibrary.GetAll<VehicleDefinition>().Where( v => !v.Hidden );
+	}
 	public static VehicleDefinition GetDefault()
 	{
-		return ResourceLibrary.GetAll<VehicleDefinition>().FirstOrDefault();
+		return GetAllVisible().FirstOrDefault();
 	}
 	public string Title { get; set; }
 	public string FullTitle { get; set; }
@@ -21,6 +25,10 @@ public class VehicleDefinition : GameResource, IPrefabProvider
 	[Category("Preview")] public Model PreviewModel { get; set; }
 	[Category( "Preview" )] public Color PreviewTint { get; set; } = Color.White;
 	[Category("Preview")] public Vector3 PreviewPosition { get; set; }
+	[Category("Preview"), Range(0f, 1f)] public float DisplaySpeed { get; set; }
+	[Category("Preview"), Range( 0f, 1f )] public float DisplayAcceleration { get; set; }
+	[Category("Preview"), Range( 0f, 1f )] public float DisplayHandling { get; set; }
+	[Category("Preview"), Range( 0f, 1f )] public float DisplayBoost { get; set; }
 	public VehicleStats Stats { get;set; }
 	public PrefabFile Prefab { get; set; }
 	public List<AttachmentSlotPosition> AttachmentSlots { get; set; }

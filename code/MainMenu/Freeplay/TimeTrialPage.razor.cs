@@ -98,7 +98,7 @@ public partial class TimeTrialPage : Panel, INavigatorPage
 
 	protected override int BuildHash()
 	{
-		return HashCode.Combine( selectedTrack, selectedTimeTrial, trackVariableValues );
+		return HashCode.Combine( selectedTrack, selectedTimeTrial, trackVariableValues, selectedVehicle );
 	}
 
 	void INavigatorPage.OnNavigationClose()
@@ -106,6 +106,6 @@ public partial class TimeTrialPage : Panel, INavigatorPage
 		selectedTrack = null;
 		trackVariableValues.Clear();
 		selectedTimeTrial = null;
-		selectedVehicle = null;
+		selectedVehicle = VehicleDefinition.GetDefault();
 	}
 }

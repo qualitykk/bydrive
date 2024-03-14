@@ -92,6 +92,7 @@ TimeTrialPage {
             }
 
             .country {
+                font-size: 32px;
                 width: 7.5%;
             }
 
@@ -183,13 +184,13 @@ TimeTrialPage {
         }
 
         .stats {
-            flex-direction: column;
             height: 50%;
             padding: 1%;
+            flex-direction: column;
             gap: 10px;
+            background-color: $background_clear_dark;
 
             .group {
-                background-color: #585858;
                 height: 5vh;
 
                 .name {
@@ -199,11 +200,14 @@ TimeTrialPage {
                 }
 
                 ProgressBar {
+                    margin: 1%;
                     width: 60%;
-                    background-color: red;
+                    border-radius: 5px;
+                    background-color: $background_dark;
 
                     .bar {
-                        background-color: green;
+                        border-radius: 5px;
+                        background-color: $background_light;
                     }
                 }
             }

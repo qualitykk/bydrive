@@ -92,7 +92,7 @@ public class ObjectEditorPanel : Panel
 					Max = minMax.MaxValue,
 					Step = t == typeof( int ) ? 1.0f : 0.1f,
 					Value = GetValue<float>( prop ),
-					ShowRange = true,
+					ShowRange = false,
 				};
 				slider.OnValueChanged += ( float value ) =>
 				{

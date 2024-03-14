@@ -42,6 +42,14 @@ public sealed partial class VehicleController : Component
 		Move();
 	}
 
+	protected override void OnDestroy()
+	{
+		foreach(var sound in activeSounds)
+		{
+			sound.Stop();
+		}
+	}
+
 	#region Movement
 
 	private float turnLean;

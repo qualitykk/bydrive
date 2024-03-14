@@ -6,11 +6,15 @@
   "PreviewModel": "models/vehicles/vehicle_boxy.vmdl",
   "PreviewTint": "1,0,0,1",
   "PreviewPosition": "-192,0,64",
+  "DisplaySpeed": 0.89,
+  "DisplayAcceleration": 0.71,
+  "DisplayHandling": 0.64,
+  "DisplayBoost": 0.2,
   "Stats": {
     "MaxSpeed": 1650,
     "Acceleration": 1100,
     "MaxHealth": 4,
-    "BoostDuration": 1.75,
+    "BoostDuration": 1.5,
     "BoostSpeedMultiplier": 1.1,
     "BoostAccelerationMultiplier": 2,
     "BoostRechargeCooldown": 3,
@@ -25,5 +29,7 @@
   },
   "Prefab": "prefabs/vehicles/boxy1.prefab",
   "AttachmentSlots": [],
+  "ResourceVersion": 0,
+  "__version": 0,
   "__references": []
 }

@@ -1,0 +1,63 @@
+﻿@import "/colors.scss";
+
+creditspage {
+    .main {
+        color: #fff;
+        align-items: center;
+        overflow-y: scroll;
+
+        .group_name {
+            width: 50%;
+            text-align: center;
+            margin: 2%;
+            border-bottom: 1px solid white;
+            font-size: 58px;
+            font-weight: bold;
+        }
+
+        .entry {
+            width: 75%;
+            background-color: $background_dark;
+            align-items: stretch;
+            justify-content: space-around;
+
+            &.developer {
+                margin: 1%;
+                height: 15vh;
+            }
+
+            &.attribution {
+                margin: 0.2% 1% 0.2% 1%;
+                height: 8vh;
+            }
+
+            .avatar {
+                margin: 0.5%;
+                aspect-ratio: 1;
+            }
+
+            .person {
+                flex-grow: 1;
+                align-items: stretch;
+                justify-content: center;
+
+                .name {
+                    font-weight: bold;
+                    font-size: 50px;
+                }
+
+                .handle {
+                    font-size: 25px;
+                }
+            }
+
+            .credit {
+                flex-grow: 1;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                font-size: 35px;
+            }
+        }
+    }
+}

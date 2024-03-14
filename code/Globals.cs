@@ -8,6 +8,7 @@ using Sandbox.UI;
 namespace Bydrive;
 internal static class Globals
 {
+	public const string VERSION = "PROTOTYPE";
 	public static class Soundtrack
 	{
 		public const string RACE_WIN = "sounds/music/menu_race_win.sound";
@@ -105,6 +106,13 @@ internal static class UI
 			public static readonly Color Positive = (Color)Color.Parse( "#5bd955" );
 			public static readonly Color Negative = (Color)Color.Parse( "#d96b55" );
 			public static readonly Color Major = (Color)Color.Parse( "#e6932e" );
+		}
+
+		public static Color GetStatColor(float fraction)
+		{
+			Color badColor = (Color)Color.Parse("#ff7733");
+			Color goodColor = (Color)Color.Parse( "#77ff33" );
+			return Color.Lerp(badColor, goodColor, fraction);
 		}
 	}
 	public static void MakeMenu(Panel panel)

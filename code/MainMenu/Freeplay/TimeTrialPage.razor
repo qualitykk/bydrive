@@ -62,19 +62,19 @@
 						<div class="stats">
 							<div class="group">
 								<label class="name">Speed</label>
-								<ProgressBar Value=@(0.8f) MaxValue=@(1f) />
+								<ProgressBar Value=@selectedVehicle.DisplaySpeed MaxValue=@(1f) BarColor=@UI.Colors.GetStatColor(selectedVehicle.DisplaySpeed)/>
 							</div>
 							<div class="group">
 								<label class="name">Acceleration</label>
-								<ProgressBar Value=@(0.5f) MaxValue=@(1f) />
+								<ProgressBar Value=@selectedVehicle.DisplayAcceleration MaxValue=@(1f) BarColor=@UI.Colors.GetStatColor(selectedVehicle.DisplayAcceleration)/>
 							</div>
 							<div class="group">
 								<label class="name">Handling</label>
-								<ProgressBar Value=@(0.65f) MaxValue=@(1f) />
+								<ProgressBar Value=@selectedVehicle.DisplayHandling MaxValue=@(1f) BarColor=@UI.Colors.GetStatColor(selectedVehicle.DisplayHandling) />
 							</div>
 							<div class="group">
-								<label class="name">Swag</label>
-								<ProgressBar Value=@(1f) MaxValue=@(1f) />
+								<label class="name">Boost</label>
+								<ProgressBar Value=@selectedVehicle.DisplayBoost MaxValue=@(1f) BarColor=@UI.Colors.GetStatColor(selectedVehicle.DisplayBoost) />
 							</div>
 						</div>
 					}
