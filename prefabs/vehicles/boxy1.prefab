@@ -9,13 +9,16 @@
       {
         "__type": "VehicleController",
         "__guid": "df67d81f-1cfe-46aa-b208-dc3c2b83787a",
+        "IdleSound": "sounds/vehicle/idle.sound",
         "ItemSpawnPosition": "192,0,16",
+        "RevSound": "sounds/vehicle/rev.sound",
         "Rigidbody": {
           "_type": "component",
           "component_id": "f95c11ab-4742-4074-81f4-1da5333a9d36",
           "go": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
           "component_type": "Rigidbody"
-        }
+        },
+        "SlowdownSound": "sounds/vehicle/rev.sound"
       },
       {
         "__type": "SkinnedModelRenderer",
@@ -167,5 +170,7 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": []
 }

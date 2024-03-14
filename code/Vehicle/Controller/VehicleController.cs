@@ -284,21 +284,6 @@ public sealed partial class VehicleController : Component
 	}
 
 	#endregion
-
-	private List<SoundHandle> sounds = new();
-	private void TickSounds()
-	{
-		foreach(var sound in sounds)
-		{
-			sound.Position = Transform.Position;
-		}
-	}
-	public SoundHandle PlaySound(SoundEvent sound)
-	{
-		var handle = Sound.Play( sound, Transform.Position );
-		sounds.Add( handle );
-		return handle;
-	}
 	protected override void DrawGizmos()
 	{
 		const float POSITION_HELPER_RADIUS = 4f;

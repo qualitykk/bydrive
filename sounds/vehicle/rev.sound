@@ -2,10 +2,10 @@
   "UI": false,
   "Volume": "1.00,1.00,0",
   "Pitch": "1.00,1.00,0",
-  "Decibels": 70,
+  "Decibels": 120,
   "SelectionMode": "Random",
   "Sounds": [
-    "sounds/effects/powerup.vsnd"
+    "sounds/vehicle/rev.vsnd"
   ],
   "Occlusion": true,
   "Reflections": false,
