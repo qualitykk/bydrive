@@ -26,6 +26,7 @@ public partial class RaceIntro
 		{
 			timeSinceStartDraw = 0;
 			startedDraw = true;
+			UI.HideRaceHud();
 		}
 		else if(!ShouldDraw() && startedDraw)
 		{

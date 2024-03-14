@@ -1,10 +1,11 @@
 @using Sandbox;
 @using Sandbox.UI;
 @inherits PanelComponent
+@implements IRaceHudPanel
 @namespace Bydrive
 @attribute [Icon("speed")]
 
-<root class="@UI.ActiveAsRaceHUD()">
+<root>
 	<div class="speed">
 		<label class="current">@($"{GetSpeedAmount():F0}")</label>
 		<label class="unit">@GetSpeedUnit()</label>

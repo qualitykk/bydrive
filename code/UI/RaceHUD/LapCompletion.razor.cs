@@ -49,5 +49,5 @@ public partial class LapCompletion
 	/// <summary>
 	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
 	/// </summary>
-	protected override int BuildHash() => HashCode.Combine( GetCurrentCompletion(), DebugCheckpoints, UI.ShowRaceHUD() );
+	protected override int BuildHash() => HashCode.Combine( GetCurrentCompletion(), DebugCheckpoints);
 }

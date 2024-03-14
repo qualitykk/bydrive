@@ -1,9 +1,10 @@
 @using Sandbox;
 @using Sandbox.UI;
 @inherits PanelComponent
+@implements IRaceHudPanel
 @namespace Bydrive
 
-<root class="@UI.ActiveAsRaceHUD()">
+<root>
 	<label class="title">@GetDisplayLaps()/@Race.GetMaxLaps()</label>
 	@if(DebugCheckpoints)
 	{

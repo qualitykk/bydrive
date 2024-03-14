@@ -134,10 +134,23 @@ internal static class UI
 	public static string ActiveIf( Func<bool> check ) => ActiveIf( check?.Invoke() ?? false );
 	public static string ActiveIf( bool? active ) => ActiveIf( active == true );
 	public static string ActiveIfMenu( Panel panel ) => ActiveIf( ActiveMenu == panel );
-	public static string ActiveAsRaceHUD() => ActiveIf( ShowRaceHUD() );
-	public static bool ShowRaceHUD()
+	public static IEnumerable<PanelComponent> GetRaceHudElements()
 	{
-		return Race != null && CameraManager.IsActive<VehicleCamera>() && !Race.IsFinished;
+		return Game.ActiveScene.Components.GetAll<PanelComponent>( FindMode.EverythingInSelfAndDescendants).Where( p => p is IRaceHudPanel );
+	}
+	public static void ShowRaceHUD()
+	{
+		foreach(var panel in GetRaceHudElements() )
+		{
+			panel.Enabled = true;
+		}
+	}
+	public static void HideRaceHud()
+	{
+		foreach ( var panel in GetRaceHudElements() )
+		{
+			panel.Enabled = false;
+		}
 	}
 	public static string FormatRoute(string value)
 	{

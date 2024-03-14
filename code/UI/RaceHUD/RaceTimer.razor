@@ -1,13 +1,14 @@
 @using Sandbox;
 @using Sandbox.UI;
 @inherits PanelComponent
+@implements IRaceHudPanel
 @namespace Bydrive
 @attribute [Icon("timer")]
 
 @if (Race == null)
 	return;
 
-<root class="@UI.ActiveAsRaceHUD() @GetClasses()">
+<root class="@GetClasses()">
 	<div>
 		<label class="title">Time</label>
 		<label class="time">@GetRaceTime().FormatAsRaceTime()</label>

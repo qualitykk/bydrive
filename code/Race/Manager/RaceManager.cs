@@ -104,6 +104,8 @@ public sealed partial class RaceManager : Component
 			CameraManager.MakeActive( camera );
 		}
 
+		UI.ShowRaceHUD();
+
 		StartCountdown();
 	}
 

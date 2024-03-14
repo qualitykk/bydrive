@@ -1,6 +1,7 @@
 @using Sandbox;
 @using Sandbox.UI;
 @namespace Bydrive
+@implements IRaceHudPanel
 @inherits PanelComponent
 
 @if (Race == null)
@@ -14,7 +15,7 @@
 {
 	public bool ShouldDraw()
 	{
-		return Race.Participants.Count > 1 && UI.ShowRaceHUD();
+		return Race.Participants.Count > 1;
 	}
 
 	public string GetPlacementText()
@@ -56,5 +57,5 @@
 	/// <summary>
 	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
 	/// </summary>
-	protected override int BuildHash() => HashCode.Combine(GetPlacement(), UI.ShowRaceHUD());
+	protected override int BuildHash() => HashCode.Combine(GetPlacement());
 }

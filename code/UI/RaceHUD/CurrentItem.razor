@@ -1,8 +1,9 @@
 @using Sandbox.UI;
 @inherits PanelComponent
+@implements IRaceHudPanel
 @namespace Bydrive
 
-<root class="@UI.ActiveIf(UI.ShowRaceHUD() || !Race.IsTimeTrial) @GetClasses()">
+<root class="@UI.ActiveIf(!Race.IsTimeTrial) @GetClasses()">
 	@if(HasItem())
 	{
 		<label class="item">
@@ -26,5 +27,5 @@
 		if(HasItem()) return "has_item";
 		return "";
 	}
-	protected override int BuildHash() => HashCode.Combine( GetCurrentItem(), HasItem(), UI.ShowRaceHUD() );
+	protected override int BuildHash() => HashCode.Combine( GetCurrentItem(), HasItem());
 }
