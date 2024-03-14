@@ -52,7 +52,7 @@ TimeTrialPage {
     .times {
         padding: 2%;
         width: 70%;
-        gap: 5%;
+        gap: 15px;
 
         .entry {
             height: 8vh;
@@ -60,6 +60,7 @@ TimeTrialPage {
             background-color: $background_light;
             align-items: center;
             pointer-events: all;
+            box-shadow: 5px -5px 1px $highlight_dark;
 
             &:hover {
                 background-color: #999999;
@@ -116,7 +117,7 @@ TimeTrialPage {
     .tracklist {
         width: 75%;
         padding: 2%;
-        gap: 5%;
+        gap: 50px;
         flex-direction: row;
 
         .track {
@@ -127,6 +128,7 @@ TimeTrialPage {
             flex-direction: column;
             color: #fff;
             font-family: poppins;
+            box-shadow: 5px -5px 1px $highlight_dark;
 
             &:hover {
                 background-color: #7c7c7c;

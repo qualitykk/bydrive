@@ -6,11 +6,11 @@
     justify-content: center;
     color: #fff;
     background-color: $button_primary;
-    font-family: Roboto;
-    font-size: 32px;
-    font-weight: bold;
+    font-family:'Agency FB';
+    font-size: 38px;
     text-transform: uppercase;
     pointer-events: all;
+    box-shadow: 5px -5px 1px $highlight_neutral;
 
     &:hover {
         cursor: pointer;
@@ -38,6 +38,7 @@
         cursor: not-allowed;
         pointer-events: none;
         background-color: #555;
+        box-shadow: 5px -5px 1px $highlight_dark;
     }
 }
 

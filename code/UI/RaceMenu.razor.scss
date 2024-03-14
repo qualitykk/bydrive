@@ -1,44 +1,37 @@
 @import "colors.scss";
+@import "elements.scss";
 
 RaceMenu {
+	z-index: 100;
 	display: none;
-	flex-direction: column;
 	width: 100%;
 	height: 100%;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
-	background-color: #88888855;
-
-	.label {
-		font-size: 32px;
-		font-weight: bold;
-		font-family: Poppins;
-		color: #ffffffff;
-		text-align: center;
-	}
+	background-color: $background_clear_dark;
+	backdrop-filter: blur(10px);
 
 	&.active {
 		display: flex;
 	}
 
-	.header {
-		width: 20%;
-		height: 10%;
-		font-size: 64px;
-		color: #ffccccff;
+	.title {
+		z-index: 105;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		bottom: 55%;
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-image: url("ui/title.png");
 	}
 
 	.button {
-		width: 20%;
-		height: 8%;
-		background-color: #5a5a5add;
+		width: 20vw;
+		height: 9vh;
 		border-radius: 5px;
-		pointer-events: all;
-		align-items: center;
-
-		&:hover {
-			border: 5px solid #eeeeee99;
-		}
 	}
 }

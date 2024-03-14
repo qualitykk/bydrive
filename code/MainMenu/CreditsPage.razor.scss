@@ -4,12 +4,14 @@ creditspage {
     .main {
         color: #fff;
         align-items: center;
-        overflow-y: scroll;
+        overflow: scroll;
+        pointer-events: all;
 
         .group_name {
             width: 50%;
+            height: 300px;
             text-align: center;
-            margin: 2%;
+            margin: 20px;
             border-bottom: 1px solid white;
             font-size: 58px;
             font-weight: bold;
@@ -22,22 +24,22 @@ creditspage {
             justify-content: space-around;
 
             &.developer {
-                margin: 1%;
-                height: 15vh;
+                margin: 20px;
+                height: 400px;
             }
 
             &.attribution {
-                margin: 0.2% 1% 0.2% 1%;
-                height: 8vh;
+                margin: 10px 20px 20px 10px;
+                height: 200px;
             }
 
             .avatar {
-                margin: 0.5%;
+                margin: 5px;
                 aspect-ratio: 1;
             }
 
             .person {
-                flex-grow: 1;
+                width: 42%;
                 align-items: stretch;
                 justify-content: center;
 
@@ -52,7 +54,7 @@ creditspage {
             }
 
             .credit {
-                flex-grow: 1;
+                width: 42%;
                 align-items: center;
                 justify-content: center;
                 text-align: center;

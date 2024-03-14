@@ -8,13 +8,12 @@
     pointer-events: all;
 
     .title {
+        z-index: 10;
         position: absolute;
         top: 0;
-        left: 10%;
+        left: 8%;
         right: 0;
-        bottom: 65%;
-        justify-content: center;
-        align-items: center;
+        bottom: 55%;
         background-size: contain;
         background-repeat: no-repeat;
         background-image: url("ui/title.png");
@@ -22,14 +21,15 @@
 
     .options {
         position: absolute;
-        top: 20%;
+        top: 35%;
         left: 10%;
         height: 80%;
         width: 30%;
 
         .group {
-            gap: 10px;
+            gap: 10vh;
             align-items: center;
+            margin-bottom: 1vh;
         }
 
         .header {

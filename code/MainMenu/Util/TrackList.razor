@@ -7,7 +7,9 @@
     {
         <div class="track item @(GetClasses(track))" style="pointer-events:all;" @onclick=@(() => OnClickTrack(track))>
             <label class="name">@track.Name</label>
-            <label class="group">@track.Group</label>
+            <!--
+                <label class="group">@track.Group</label>
+            -->
         </div>
     }
 </root>
