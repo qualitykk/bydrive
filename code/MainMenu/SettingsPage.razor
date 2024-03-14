@@ -1,0 +1,42 @@
+﻿@using Sandbox.UI;
+
+@page "/settings";
+@attribute [StyleSheet]
+@namespace Bydrive
+
+<root class="menu_page">
+	<div class="header">
+		<label class="title">Settings</label>
+	</div>
+	<div class="main">
+		<div class="side flex-col">
+			<div class="nav" @onclick=@(() => ClickPage(0))>Settings</div>
+			<div class="nav" @onclick=@(() => ClickPage(1))>Controls</div>
+		</div>
+		<div class="content">
+			@if(page == 1)
+			{
+				<div class="controls flex-col">
+					@foreach (var group in Input.GetActions().GroupBy(action => action.GroupName))
+					{
+						<label class="group">@group.Key</label>
+						@foreach (InputAction action in group)
+						{
+							<div class="entry">
+								<label class="name">@action.Name</label>
+								<InputGlyphImage Glyph=@action.Name />
+							</div>
+						}
+					}
+				</div>
+			}
+			else
+			{
+				<ObjectEditorPanel class="options flex-col" Target=@Settings Save=@Settings.Save />
+			}
+		</div>
+	</div>
+	<div class="footer">
+		<button class="button" @onclick=@StartMenu.Back>Back</button>
+	</div>
+</root>

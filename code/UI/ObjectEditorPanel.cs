@@ -56,7 +56,12 @@ public class ObjectEditorPanel : Panel
 	}
 	private Panel AddGroup(string group)
 	{
-		return Add.Label( group, "group" );
+		Panel groupPanel = Add.Panel( "group" );
+		if(!string.IsNullOrWhiteSpace(group))
+		{
+			groupPanel.Add.Label( group, "group_name" );
+		}
+		return groupPanel;
 	}
 	private Panel AddPropertyControl(PropertyDescription prop)
 	{
@@ -128,7 +133,8 @@ public class ObjectEditorPanel : Panel
 		else if ( t.IsEnum )
 		{
 			DropDown drop = new();
-			drop.Value = GetValue<object>(prop);
+			drop.BuildOptions = () => BuildDropdownOptions(t);
+			drop.Value = GetValue<Enum>(prop);
 			drop.ValueChanged += ( string value ) =>
 			{
 				SetValue( prop, Enum.Parse(t, drop.Value.ToString()) );
@@ -138,6 +144,20 @@ public class ObjectEditorPanel : Panel
 		}
 
 		throw new ArgumentException($"Cant create editor for {t.Name}!");
+	}
+
+	private List<Option> BuildDropdownOptions(Type enumType)
+	{
+		List<Option> options = new();
+		var values = Enum.GetValues( enumType );
+		var valueDisplay = DisplayInfo.ForEnumValues( enumType );
+		for ( int i = 0; i < values.Length; i++ )
+		{
+			DisplayInfo display = valueDisplay[i];
+			options.Add( new( display.Name, display.Icon, values.GetValue(i) ) );
+		}
+
+		return options;
 	}
 
 	private void DoSave()

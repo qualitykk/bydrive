@@ -3,7 +3,7 @@
 @attribute [StyleSheet]
 @namespace Bydrive
 
-<root>
+<root class="menu_page">
 	<div class="header flex-row">
 		<div class="title">Time Trials</div>
 	</div>
@@ -97,7 +97,9 @@
 		@if(stage == 1)
 		{
 			<div class="button @UI.ActiveIf(AllVariablesSelected)" @onclick=@OnClickSelectVehicle>Next</div>
-			<div class="button @UI.ActiveIf(selectedTimeTrial != null)">Watch @selectedTimeTrial?.PlayerName</div>
+			<!--
+			<div class="button @UI.ActiveIf(selectedTimeTrial != null)" @onclick=@OnClickWatch>Watch @selectedTimeTrial?.PlayerName</div>
+			-->
 		}
 		else if(stage == 2)
 		{

@@ -1,19 +1,19 @@
 ﻿@import "/colors.scss";
 
 .button:not(.dropdown) {
-    cursor: pointer;
-    pointer-events: all;
-    font-family: Roboto;
-    font-weight: bold;
-    background-color: $button_primary;
-    color: #fff;
-    font-size: 32px;
-    text-transform: uppercase;
-    justify-content: center;
-    align-items: center;
     border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: $button_primary;
+    font-family: Roboto;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    pointer-events: all;
 
     &:hover {
+        cursor: pointer;
         background-color: $button_primary_hover;
     }
 
@@ -42,16 +42,30 @@
 }
 
 .dropdown {
-    cursor: pointer;
-    pointer-events: all;
-    font-size: 32px;
-    padding: 25px;
     border-radius: 5px;
+    align-items: center;
     color: #fff;
-    background-color: #888288;
-    border: 8px solid #777777;
-    height: 10%;
-    width: 20vw;
+    background-color: $background_dark;
+    font-size: 32px;
+    pointer-events: all;
+
+    .button-label {
+        padding-left: 5%;
+    }
+
+    :hover {
+        cursor: pointer;
+    }
+}
+
+.popup-panel {
+    .button {
+        background-color: $background_neutral;
+
+        &.active {
+            background-color: $background_light;
+        }
+    }
 }
 
 .textentry {

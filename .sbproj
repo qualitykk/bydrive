@@ -47,6 +47,7 @@
         {
           "Name": "Forward",
           "KeyboardCode": "W",
+          "GamepadCode": "A",
           "GroupName": "Movement"
         },
         {
@@ -67,32 +68,14 @@
         {
           "Name": "Break",
           "KeyboardCode": "space",
-          "GamepadCode": "A",
+          "GamepadCode": "B",
           "GroupName": "Movement"
         },
         {
           "Name": "Boost",
           "KeyboardCode": "shift",
-          "GamepadCode": "LeftJoystickButton",
-          "GroupName": "Movement"
-        },
-        {
-          "Name": "Pitch Down",
-          "KeyboardCode": "ctrl",
-          "GamepadCode": "B",
-          "GroupName": "Movement"
-        },
-        {
-          "Name": "attack1",
-          "KeyboardCode": "mouse1",
-          "GamepadCode": "RightTrigger",
-          "GroupName": "Actions"
-        },
-        {
-          "Name": "attack2",
-          "KeyboardCode": "mouse2",
           "GamepadCode": "LeftTrigger",
-          "GroupName": "Actions"
+          "GroupName": "Movement"
         },
         {
           "Name": "Respawn",
@@ -103,55 +86,8 @@
         {
           "Name": "Item",
           "KeyboardCode": "e",
-          "GamepadCode": "Y",
+          "GamepadCode": "RightTrigger",
           "GroupName": "Actions"
-        },
-        {
-          "Name": "Slot1",
-          "KeyboardCode": "1",
-          "GamepadCode": "DpadWest",
-          "GroupName": "Inventory"
-        },
-        {
-          "Name": "Slot2",
-          "KeyboardCode": "2",
-          "GamepadCode": "DpadEast",
-          "GroupName": "Inventory"
-        },
-        {
-          "Name": "Slot3",
-          "KeyboardCode": "3",
-          "GamepadCode": "DpadSouth",
-          "GroupName": "Inventory"
-        },
-        {
-          "Name": "SlotPrev",
-          "KeyboardCode": "mouse4",
-          "GamepadCode": "SwitchLeftBumper",
-          "GroupName": "Inventory"
-        },
-        {
-          "Name": "SlotNext",
-          "KeyboardCode": "mouse5",
-          "GamepadCode": "SwitchRightBumper",
-          "GroupName": "Inventory"
-        },
-        {
-          "Name": "View",
-          "KeyboardCode": "C",
-          "GamepadCode": "RightJoystickButton",
-          "GroupName": "Other"
-        },
-        {
-          "Name": "Score",
-          "KeyboardCode": "tab",
-          "GamepadCode": "SwitchLeftMenu",
-          "GroupName": "Other"
-        },
-        {
-          "Name": "Chat",
-          "KeyboardCode": "enter",
-          "GroupName": "Other"
         }
       ]
     },

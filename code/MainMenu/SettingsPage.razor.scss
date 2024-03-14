@@ -1,0 +1,109 @@
+﻿@import "/colors.scss";
+
+settingspage {
+    .main {
+        .side {
+            width: 30%;
+            align-items: center;
+            padding: 2%;
+            gap: 5vh;
+
+            .nav {
+                height: 10vh;
+                width: 100%;
+                border-radius: 5px;
+                align-items: center;
+                justify-content: center;
+                background-color: $background_dark;
+                color: #fff;
+                font-size: 48px;
+                pointer-events: all;
+
+                &:hover {
+                    background-color: $background_neutral;
+                }
+            }
+        }
+
+        .content {
+            width: 70%;
+        }
+    }
+
+    .options {
+        background-color: $background_config;
+        height: 100%;
+        margin: 2%;
+        padding: 2%;
+        color: #fff;
+
+        .group {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .group_name {
+            width: 100%;
+            height: 6vh;
+            margin: 1vh 0 1vh 0;
+            font-size: 48px;
+            border-bottom: 1px solid white;
+        }
+
+        .property {
+            .name {
+                height: 100%;
+                width: 30%;
+                justify-content: center;
+                align-items: center;
+                font-size: 32px;
+            }
+
+            .control {
+                width: 70%;
+                height: 8vh;
+            }
+        }
+    }
+
+    .controls {
+        background-color: $background_config;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        overflow-y: scroll;
+        margin: 2%;
+        padding: 2%;
+        color: #fff;
+
+        .group {
+            width: 100%;
+            height: 6vh;
+            margin: 1vh 0 1vh 0;
+            font-size: 48px;
+            border-bottom: 1px solid white;
+        }
+
+        .entry {
+            width: 100%;
+            height: 8vh;
+            gap: 20px;
+            font-size: 28px;
+
+            .name {
+                height: 100%;
+                width: 20%;
+                align-items: center;
+                font-size: 32px;
+                text-transform: capitalize;
+            }
+
+            .input-glyph {
+                width: 20%;
+                margin: 1%;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+}

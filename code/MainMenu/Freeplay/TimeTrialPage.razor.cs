@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public partial class TimeTrialPage : INavigatorPage
+public partial class TimeTrialPage : Panel, INavigatorPage
 {
 	int stage = 0;
 	TrackDefinition selectedTrack;

@@ -1,0 +1,30 @@
+﻿@using Sandbox.UI;
+
+@namespace Bydrive
+@inherits Image;
+
+<root>
+</root>
+
+@code
+{
+    public string Glyph { get; set; }
+    public InputGlyphSize Size { get; set; } = InputGlyphSize.Small;
+
+    public InputGlyphImage() : base()
+    {
+        AddClass("input-glyph");
+    }
+
+    public override void Tick()
+    {
+        try
+        {
+            Texture = Input.GetGlyph(Glyph, Size, GlyphStyle.Knockout) ?? Texture.Invalid;
+        }
+        catch
+        {
+            Log.Info($"Input.GetGlyph fucked up on: {Glyph} ({Input.GetButtonOrigin(Glyph)})");
+        }
+    }
+}

@@ -78,7 +78,7 @@ internal static class InputActions
 	public const string USE = "Item";
 	public const string DIALOG_SKIP = "Break";
 	public const string DIALOG_UP = "Forward";
-	public const string DIALOG_DOWN = "Forward";
+	public const string DIALOG_DOWN = "Backward";
 }
 
 internal static class TraceTags
