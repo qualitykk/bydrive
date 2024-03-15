@@ -374,6 +374,20 @@ public class RaceInformation
 			start = startingPositions.FirstOrDefault();
 		}
 
+		/*
+		 * THIS SANITY CHECK CRASHES THE GAME... WTF?
+		 * 
+		BBox bounds = obj.GetBounds();
+
+		var tr = Game.ActiveScene.Trace.Ray( start.Transform.Position, Vector3.Down * 512f )
+										.WithTag( "Solid" )
+										.Size(bounds)
+										.Run();
+
+		Vector3 spawnPosition = tr.EndPosition + Vector3.Up * bounds.Center.z;
+		obj.Transform.World = new(spawnPosition, start.Transform.Rotation);
+		*/
+
 		obj.Transform.World = start.Transform.World;
 	}
 

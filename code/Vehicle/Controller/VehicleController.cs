@@ -10,7 +10,7 @@ public sealed partial class VehicleController : Component
 {
 	const float AUTO_RESPAWN_TIME = 2f;
 	const int AUTO_RESPAWN_DAMAGE = 1;
-	[Property, Required, Title("Physics Body")] public Rigidbody Rigidbody { get; set; }
+	[Property, RequireComponent, Title("Physics Body")] public Rigidbody Rigidbody { get; set; }
 	[Property, AutoReference] public VehicleDefinition Definition { get; set; }
 	public PhysicsBody Body => Rigidbody?.PhysicsBody;
 	public float Speed { get; private set; }
@@ -22,6 +22,9 @@ public sealed partial class VehicleController : Component
 	public override void Reset()
 	{
 		base.Reset();
+
+		Body.Velocity = 0;
+		Body.AngularVelocity = 0;
 
 		InitialiseCombat();
 		InitialiseAbilities();

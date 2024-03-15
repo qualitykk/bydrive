@@ -12,11 +12,11 @@ public partial class LapCompletion
 	const string SOUND_LAP_FINAL = "/sounds/effects/lap_complete_final.sound";
 	[Property] public bool DebugCheckpoints { get; set; } = false;
 	int highestLap = 1;
-	protected override void OnEnabled()
+	protected override void OnStart()
 	{
-		base.OnEnabled();
-		if ( Race == null ) return;
-		Race.OnReset += OnReset;
+		base.OnStart();
+		if(Race != null)
+			Race.OnReset += OnReset;
 	}
 
 	private void OnReset()

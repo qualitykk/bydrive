@@ -20,7 +20,7 @@ public class TimeTrialData
 	}
 	public static List<TimeTrialData> ReadForTrack(string track, Dictionary<string, string> trackVariables)
 	{
-		return Read()?.Where(d => d.Track == track && d.TrackVariables.SequenceEqual(trackVariables)).ToList();
+		return Read()?.Where(d => d.Track == track && (!d.TrackVariables.Any() || d.TrackVariables.SequenceEqual(trackVariables))).ToList();
 	}
 	public static void WriteNew(TimeTrialData data)
 	{

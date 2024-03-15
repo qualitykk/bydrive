@@ -97,10 +97,9 @@ public partial class StartMenu : PanelComponent
 		SelectedVehicle = default;
 		ResetGlobals();
 	}
-
-	protected override void OnDestroy()
+	protected override void OnDisabled()
 	{
-		base.OnDestroy();
+		base.OnDisabled();
 		Music.Stop();
 	}
 

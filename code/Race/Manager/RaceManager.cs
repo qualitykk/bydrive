@@ -60,13 +60,12 @@ public sealed partial class RaceManager : Component
 
 	public override void Reset()
 	{
-		OnReset?.Invoke();
-
 		startCheckpoint = null;
 		Setup();
 	}
 	public void Setup(bool autoStart = false)
 	{
+		OnReset?.Invoke();
 		IsTimeTrial = RaceContext.CurrentParameters.Mode == RaceMode.TimeTrial;
 
 		Participants?.Clear();

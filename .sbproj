@@ -7,7 +7,7 @@
   "Schema": 1,
   "HasAssets": true,
   "AssetsPath": "/",
-  "Resources": "/fonts/*",
+  "Resources": "/fonts/*\n/UI/*",
   "HasCode": true,
   "CodePath": "/code/",
   "PackageReferences": [],

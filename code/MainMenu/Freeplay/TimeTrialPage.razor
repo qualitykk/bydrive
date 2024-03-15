@@ -34,19 +34,23 @@
 			<div class="times flex-col">
 				@{
 					int placement = 0;
+					var trialData = GetTimeTrials();
 				}
-				@foreach(var entry in GetTimeTrials())
+				@if(trialData != null && trialData.Any())
 				{
-					@{
-						placement++;	
+					@foreach(var entry in trialData)
+					{
+						@{
+							placement++;	
+						}
+						<div class="entry @GetTimeTrialEntryClasses(entry)" @onclick=@(() => OnTimeTrialEntrySelect(entry))>
+							<label class="placement @GetPlacementClass(placement)">@placement</label>
+							<label class="country">@entry.PlayerCountry</label>
+							<label class="player">@entry.PlayerName</label>
+							<label class="vehicle">Jet RX</label>
+							<label class="time">@entry.TotalTime.FormatAsRaceTime()</label>
+						</div>
 					}
-					<div class="entry @GetTimeTrialEntryClasses(entry)" @onclick=@(() => OnTimeTrialEntrySelect(entry))>
-						<label class="placement @GetPlacementClass(placement)">@placement</label>
-						<label class="country">@entry.PlayerCountry</label>
-						<label class="player">@entry.PlayerName</label>
-						<label class="vehicle">Jet RX</label>
-						<label class="time">@entry.TotalTime.FormatAsRaceTime()</label>
-					</div>
 				}
 			</div>
 		}
