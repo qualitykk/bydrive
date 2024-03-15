@@ -27,6 +27,7 @@ public partial class VehicleController
 		activeSounds.Add( handle );
 		return handle;
 	}
+	public SoundHandle PlaySound( string sound ) => PlaySound( ResourceLibrary.Get<SoundEvent>( sound ) );
 	private void TickSounds()
 	{
 		TickEngineSound();

@@ -38,7 +38,7 @@
 				}
 				@if(trialData != null && trialData.Any())
 				{
-					@foreach(var entry in trialData)
+					@foreach(var entry in trialData.OrderBy(d => d.TotalTime).Take(10))
 					{
 						@{
 							placement++;	

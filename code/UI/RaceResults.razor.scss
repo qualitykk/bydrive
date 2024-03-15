@@ -64,6 +64,10 @@ RaceResults {
 					color: $placement_third;
 				}
 
+				&.middle {
+					color: $background_neutral;
+				}
+
 				&.last {
 					color: $placement_last;
 				}
