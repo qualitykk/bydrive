@@ -11,6 +11,7 @@
         {
           "__guid": "84668538-4a85-4705-b7d1-5c81b8575144",
           "Name": "Directional Light",
+          "Position": "0,0,0",
           "Rotation": "0.4283002,0.5328747,-0.1985915,0.702257",
           "Tags": "skybox,light_directional,light",
           "Enabled": true,
@@ -30,6 +31,7 @@
         {
           "__guid": "aea4f1fd-77b6-4f21-8ae9-ed6413b1c427",
           "Name": "Sky",
+          "Position": "0,0,0",
           "Rotation": "0,0,0.2877116,0.9577171",
           "Tags": "skybox",
           "Enabled": true,
@@ -46,6 +48,7 @@
         {
           "__guid": "097b5fda-eb41-4f3d-bb52-e380fca015ae",
           "Name": "Fog",
+          "Position": "0,0,0",
           "Enabled": true,
           "NetworkMode": 2,
           "Components": [
@@ -161,6 +164,7 @@
     {
       "__guid": "4e9aa458-2d4a-441e-a1f2-30016bd7893b",
       "Name": "Regular",
+      "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
@@ -2074,13 +2078,20 @@
               "__Prefab": "prefabs/objects/barrier_left.prefab"
             }
           ]
+        },
+        {
+          "__guid": "4e938450-994f-41bf-ab51-b59dad8f16ff",
+          "Name": "finish_line",
+          "Position": "1024,-704,512",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "__Prefab": "prefabs/objects/finish_line.prefab"
         }
       ]
     },
     {
       "__guid": "8418c95c-3c79-4905-ad40-be087e3917f0",
       "Name": "Reverse",
-      "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
@@ -4007,6 +4018,14 @@
               "__Prefab": "prefabs/objects/barrier_left.prefab"
             }
           ]
+        },
+        {
+          "__guid": "77f7c7ff-2628-464c-8f7f-0e5b202ae768",
+          "Name": "finish_line",
+          "Position": "1024,-2656,512",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "__Prefab": "prefabs/objects/finish_line.prefab"
         }
       ]
     },
@@ -4214,7 +4233,7 @@
   },
   "Title": "track_backstreet",
   "Description": "",
-  "LastSaved": "2024-03-14T19:18:08.1880866\u002B01:00",
+  "LastSaved": "2024-03-15T22:03:57.0015205\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [

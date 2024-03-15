@@ -184,6 +184,7 @@
       "__guid": "b03c1011-b1f1-4d9e-b045-9deea326630e",
       "Name": "Regular",
       "Position": "570.2944,450.5512,1047.921",
+      "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
@@ -2482,6 +2483,156 @@
               "Enabled": true,
               "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
+            }
+          ]
+        },
+        {
+          "__guid": "dc421420-c860-4283-b04c-9149d95cfe94",
+          "Name": "Finish Line",
+          "Position": "-806.3742,783.7798,193.2396",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Children": [
+            {
+              "__guid": "554e2cf9-2dbd-4919-837d-c15defe2d706",
+              "Name": "finish_line",
+              "Position": "172.0581,-722.3235,-564.61",
+              "Rotation": "-0.000007084523,0,0.00002125357,0.9999999",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/objects/finish_line.prefab"
+            },
+            {
+              "__guid": "1090c5a6-3d0e-4666-b504-bac7e099fc86",
+              "Name": "Box",
+              "Position": "663.0678,-696.6019,-880.1486",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "MeshComponent",
+                  "__guid": "da4ce9a9-016d-439c-89cc-bd42997e14cf",
+                  "Collision": "Mesh",
+                  "Color": "1,1,1,1",
+                  "IsTrigger": false,
+                  "Mesh": {
+                    "Topology": "H4sIAAAAAAAACk2QiQ6DMAxDC4xrnBvn//8o\u002BEmO1EhWEjex23YppVuohUEohM39IfTCJfyEiNJzn2wnuecMzM5EI1QG2uQ82B\u002B9T/21/6PgDtTwbeZzWge\u002BM0cfs3iv9g5davi/tdDnbdTw7EfezVNP1mCef8CDfrEmPP9EcJfYx/MFC7erpGABAAA=",
+                    "TextureOrigin": "426.988,519.3833,368.1105",
+                    "Positions": [
+                      "21.01196,-39.3833,463.8895",
+                      "53.01196,-39.3833,463.8895",
+                      "53.01215,-7.383362,463.8895",
+                      "21.01215,-7.383362,463.8895",
+                      "21.01215,-7.383362,-64",
+                      "21.01196,-39.3833,-64",
+                      "53.01196,-39.3833,-64",
+                      "53.01215,-7.383362,-64"
+                    ],
+                    "TextureUAxis": [
+                      "1,0,0",
+                      "0,-1,0",
+                      "0,1,0",
+                      "-1,0,0",
+                      "1,0,0"
+                    ],
+                    "TextureVAxis": [
+                      "0,-1,0",
+                      "0,0,-1",
+                      "0,0,-1",
+                      "0,0,-1",
+                      "0,0,-1"
+                    ],
+                    "TextureScale": [
+                      "0.25,0.25",
+                      "0.25,0.25",
+                      "0.25,0.25",
+                      "0.25,0.25",
+                      "0.25,0.25"
+                    ],
+                    "TextureAngle": [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "MaterialIndex": [
+                      -1,
+                      -1,
+                      -1,
+                      -1,
+                      -1
+                    ]
+                  },
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "5f25efd7-90ee-46f7-bdda-dc3655209080",
+              "Name": "Box (1)",
+              "Position": "-392.7357,-697.7395,-861.1677",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "MeshComponent",
+                  "__guid": "bf1f524a-4997-4585-8145-eb25f61dec97",
+                  "Collision": "Mesh",
+                  "Color": "1,1,1,1",
+                  "IsTrigger": false,
+                  "Mesh": {
+                    "Topology": "H4sIAAAAAAAACk2QiQ6DMAxDC4xrnBvn//8o\u002BEmO1EhWEjex23YppVuohUEohM39IfTCJfyEiNJzn2wnuecMzM5EI1QG2uQ82B\u002B9T/21/6PgDtTwbeZzWge\u002BM0cfs3iv9g5davi/tdDnbdTw7EfezVNP1mCef8CDfrEmPP9EcJfYx/MFC7erpGABAAA=",
+                    "TextureOrigin": "426.988,519.3833,368.1105",
+                    "Positions": [
+                      "21.01196,-39.3833,439.4595",
+                      "53.01196,-39.3833,439.4595",
+                      "53.01215,-7.383362,439.4595",
+                      "21.01215,-7.383362,439.4595",
+                      "21.01215,-7.383362,121.152",
+                      "21.01196,-39.3833,121.152",
+                      "53.01196,-39.3833,121.152",
+                      "53.01215,-7.383362,121.152"
+                    ],
+                    "TextureUAxis": [
+                      "1,0,0",
+                      "0,-1,0",
+                      "0,1,0",
+                      "-1,0,0",
+                      "1,0,0"
+                    ],
+                    "TextureVAxis": [
+                      "0,-1,0",
+                      "0,0,-1",
+                      "0,0,-1",
+                      "0,0,-1",
+                      "0,0,-1"
+                    ],
+                    "TextureScale": [
+                      "0.25,0.25",
+                      "0.25,0.25",
+                      "0.25,0.25",
+                      "0.25,0.25",
+                      "0.25,0.25"
+                    ],
+                    "TextureAngle": [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "MaterialIndex": [
+                      -1,
+                      -1,
+                      -1,
+                      -1,
+                      -1
+                    ]
+                  },
+                  "Static": true
+                }
+              ]
             }
           ]
         }
@@ -4831,6 +4982,158 @@
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
             }
           ]
+        },
+        {
+          "__guid": "383f54b8-e54e-430d-9d59-03ff31f55a89",
+          "Name": "Finish Line",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Children": [
+            {
+              "__guid": "07bba9a7-b24c-44f7-907f-49d13bafb2a6",
+              "Name": "Box (1)",
+              "Position": "-5.285217,-3226.685,-696.6757",
+              "Rotation": "0,0,1,0.0000001947072",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "MeshComponent",
+                  "__guid": "8c0fd452-1498-45fb-8862-d5fc324473ef",
+                  "Collision": "Mesh",
+                  "Color": "1,1,1,1",
+                  "IsTrigger": false,
+                  "Mesh": {
+                    "Topology": "H4sIAAAAAAAACk2QiQ6DMAxDC4xrnBvn//8o\u002BEmO1EhWEjex23YppVuohUEohM39IfTCJfyEiNJzn2wnuecMzM5EI1QG2uQ82B\u002B9T/21/6PgDtTwbeZzWge\u002BM0cfs3iv9g5davi/tdDnbdTw7EfezVNP1mCef8CDfrEmPP9EcJfYx/MFC7erpGABAAA=",
+                    "TextureOrigin": "426.988,519.3833,368.1105",
+                    "Positions": [
+                      "21.01198,-39.38329,485.711",
+                      "53.01195,-39.38328,485.711",
+                      "53.01215,-7.38328,485.711",
+                      "21.01215,-7.383293,485.711",
+                      "21.01215,-7.383362,121.152",
+                      "21.01196,-39.3833,121.152",
+                      "53.01196,-39.3833,121.152",
+                      "53.01215,-7.383362,121.152"
+                    ],
+                    "TextureUAxis": [
+                      "1,0,0",
+                      "0,-1,0",
+                      "0,1,0",
+                      "-1,0,0",
+                      "1,0,0"
+                    ],
+                    "TextureVAxis": [
+                      "0,-1,0",
+                      "0,0,-1",
+                      "0,0,-1",
+                      "0,0,-1",
+                      "0,0,-1"
+                    ],
+                    "TextureScale": [
+                      "0.25,0.25",
+                      "0.25,0.25",
+                      "0.25,0.25",
+                      "0.25,0.25",
+                      "0.25,0.25"
+                    ],
+                    "TextureAngle": [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "MaterialIndex": [
+                      -1,
+                      -1,
+                      -1,
+                      -1,
+                      -1
+                    ]
+                  },
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "94823c73-e070-4b80-8320-a49eb342109c",
+              "Name": "Box",
+              "Position": "-1050.426,-3228.916,-663.921",
+              "Rotation": "0,0,1,0.0000001947072",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "MeshComponent",
+                  "__guid": "a9b21876-80d0-419c-a651-510587fb2c6a",
+                  "Collision": "Mesh",
+                  "Color": "1,1,1,1",
+                  "IsTrigger": false,
+                  "Mesh": {
+                    "Topology": "H4sIAAAAAAAACk2QiQ6DMAxDC4xrnBvn//8o\u002BEmO1EhWEjex23YppVuohUEohM39IfTCJfyEiNJzn2wnuecMzM5EI1QG2uQ82B\u002B9T/21/6PgDtTwbeZzWge\u002BM0cfs3iv9g5davi/tdDnbdTw7EfezVNP1mCef8CDfrEmPP9EcJfYx/MFC7erpGABAAA=",
+                    "TextureOrigin": "426.988,519.3833,368.1105",
+                    "Positions": [
+                      "21.01196,-39.3833,463.8895",
+                      "53.01196,-39.3833,463.8895",
+                      "53.01215,-7.383362,463.8895",
+                      "21.01215,-7.383362,463.8895",
+                      "21.01215,-7.383362,-64",
+                      "21.01196,-39.3833,-64",
+                      "53.01196,-39.3833,-64",
+                      "53.01215,-7.383362,-64"
+                    ],
+                    "TextureUAxis": [
+                      "1,0,0",
+                      "0,-1,0",
+                      "0,1,0",
+                      "-1,0,0",
+                      "1,0,0"
+                    ],
+                    "TextureVAxis": [
+                      "0,-1,0",
+                      "0,0,-1",
+                      "0,0,-1",
+                      "0,0,-1",
+                      "0,0,-1"
+                    ],
+                    "TextureScale": [
+                      "0.25,0.25",
+                      "0.25,0.25",
+                      "0.25,0.25",
+                      "0.25,0.25",
+                      "0.25,0.25"
+                    ],
+                    "TextureAngle": [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "MaterialIndex": [
+                      -1,
+                      -1,
+                      -1,
+                      -1,
+                      -1
+                    ]
+                  },
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "7cd1de6f-2347-4b6f-91bb-450c8a137f0c",
+              "Name": "finish_line",
+              "Position": "-570.2944,-3202.551,-343.921",
+              "Rotation": "-0.000000000001379408,-0.000007084523,0.9999999,-0.00002105886",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "__Prefab": "prefabs/objects/finish_line.prefab"
+            }
+          ]
         }
       ]
     },
@@ -5049,7 +5352,7 @@
   },
   "Title": "track_forest",
   "Description": "",
-  "LastSaved": "2024-03-14T19:18:16.1845602\u002B01:00",
+  "LastSaved": "2024-03-15T22:11:41.6827139\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [

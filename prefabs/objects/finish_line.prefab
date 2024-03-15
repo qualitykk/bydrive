@@ -1,0 +1,32 @@
+{
+  "RootObject": {
+    "__guid": "77f7c7ff-2628-464c-8f7f-0e5b202ae768",
+    "Name": "finish_line",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "Children": [
+      {
+        "__guid": "5e652875-39cc-40ae-a293-e78a12cb7a1d",
+        "Name": "GameObject",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "__guid": "bb9f38a1-ecf9-488b-9f80-0b5b6420297b",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/finish_line.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}
