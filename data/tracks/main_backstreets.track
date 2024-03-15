@@ -20,8 +20,11 @@
     "MaxLaps": 3
   },
   "Music": {
+    "RaceMusic": "sounds/music/track_basic.sound",
     "RaceMusicVolume": -1,
     "RaceStartWait": 5
   },
+  "ResourceVersion": 0,
+  "__version": 0,
   "__references": []
 }

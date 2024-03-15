@@ -72,13 +72,16 @@ internal static class StartRace
 			MaxLaps = track.Parameters.MaxLaps,
 			Mode = RaceMode.TimeTrial
 		};
-			
+
+		/*
 		TrackMusicParameters timeTrialMusic = new()
 		{
 			RaceMusic = ResourceLibrary.Get<SoundEvent>( TIME_TRIAL_MUSIC_TRACK ),
 			RaceMusicVolume = TIME_TRIAL_MUSIC_VOLUME,
 			RaceStartWait = TIME_TRIAL_WAIT
 		};
+		*/
+		TrackMusicParameters timeTrialMusic = default;
 
 		var race = new RaceInformation( new RaceSetup( track, timeTrialParameters, variables, timeTrialMusic ), racers );
 		race.Start();

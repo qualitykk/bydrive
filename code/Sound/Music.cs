@@ -18,12 +18,12 @@ public static class Music
 
 	public static void Play(SoundEvent sound, float volume = -1f)
 	{
+		Stop();
 		if(sound == null)
 		{
 			Log.Warning( "Tried to play null sound for music!" );
 			return;
 		}
-		Stop();
 
 		float trackVolume = volume > 0 ? volume : 1;
 		trackVolume *= Settings.MusicVolume;
