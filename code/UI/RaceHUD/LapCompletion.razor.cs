@@ -8,6 +8,8 @@ namespace Bydrive;
 
 public partial class LapCompletion
 {
+	const string SOUND_LAP = "/sounds/effects/lap_complete.sound";
+	const string SOUND_LAP_FINAL = "/sounds/effects/lap_complete_final.sound";
 	[Property] public bool DebugCheckpoints { get; set; } = false;
 	int highestLap = 1;
 	protected override void OnEnabled()
@@ -31,6 +33,15 @@ public partial class LapCompletion
 		{
 			RaceNotifications.Add( new( $"Completed Lap {lap - 1}!", UI.Colors.Notification.Success, 10f, "sports_score" ) );
 			highestLap = lap;
+
+			if(highestLap == Race?.GetMaxLaps())
+			{
+				GameSound.Play( SOUND_LAP_FINAL, GameSoundChannel.Effect );
+			}
+			else
+			{
+				GameSound.Play( SOUND_LAP, GameSoundChannel.Effect );
+			}
 		}
 		return highestLap;
 	}

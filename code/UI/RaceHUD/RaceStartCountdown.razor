@@ -6,17 +6,32 @@
 
 @if(!ShowCountdown())
 {
+	playedCountdown = false;
 	return;
 }
 
+@{
+	string countdown = GetCountdown();
+	if(!string.IsNullOrEmpty(countdown))
+	{
+		if (!playedCountdown)
+		{
+			GameSound.Play(SOUND_COUNTDOWN, GameSoundChannel.Effect);
+			playedCountdown = true;
+		}
+	}
+}
+
 <root>
-	<div class="title">@GetCountdown()</div>
+	<div class="title">@countdown</div>
 </root>
 
 @code
 {
+	const string SOUND_COUNTDOWN = "/sounds/effects/countdown.sound";
 	const float DEFAULT_START_TEXT_FADE = 2f;
 	const float DEFAULT_COUNTDOWN_TIME = 3f;
+	bool playedCountdown;
 
 	[Property] public float StartTextFade { get; set; } = DEFAULT_START_TEXT_FADE;
 	[Property] public float CountdownTime { get; set; } = DEFAULT_COUNTDOWN_TIME;

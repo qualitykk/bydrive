@@ -60,6 +60,8 @@ public sealed partial class RaceManager : Component
 
 	public override void Reset()
 	{
+		OnReset?.Invoke();
+
 		startCheckpoint = null;
 		Setup();
 	}
