@@ -27,14 +27,11 @@ public static class Music
 
 		float trackVolume = volume > 0 ? volume : 1;
 		trackVolume *= Settings.MusicVolume;
-		if ( trackVolume > 0)
+		currentTrack = Sound.Play( sound );
+		if ( currentTrack.IsValid() )
 		{
-			currentTrack = Sound.Play( sound );
-			if ( currentTrack.IsValid() )
-			{
-				currentTrack.Volume = trackVolume;
-				currentTrack.ListenLocal = true;
-			}
+			currentTrack.Volume = trackVolume;
+			currentTrack.ListenLocal = true;
 		}
 
 		currentVolume = volume;

@@ -19,11 +19,10 @@ public static class GameSound
 	{
 		float trackVolume = volume > 0 ? volume : 1;
 		trackVolume *= GetSoundChannelVolume(channel);
-		if ( trackVolume > 0 )
-		{
-			return Sound.Play( sound, position );
-		}
-		return default;
+		var soundInstance = Sound.Play( sound, position );
+		soundInstance.Volume = trackVolume;
+
+		return soundInstance;
 	}
 
 	private static float GetSoundChannelVolume(GameSoundChannel channel)

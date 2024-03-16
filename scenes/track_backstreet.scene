@@ -164,6 +164,7 @@
     {
       "__guid": "4e9aa458-2d4a-441e-a1f2-30016bd7893b",
       "Name": "Regular",
+      "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
@@ -2145,7 +2146,6 @@
     {
       "__guid": "8418c95c-3c79-4905-ad40-be087e3917f0",
       "Name": "Reverse",
-      "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
@@ -4286,7 +4286,6 @@
     {
       "__guid": "36e8443d-55fb-4cf7-ab46-e8668fc7688e",
       "Name": "FlythroughTestCamera",
-      "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
@@ -4317,6 +4316,42 @@
           }
         }
       ]
+    },
+    {
+      "__guid": "32a0a52e-9c4c-4a14-847d-891fbb885bb5",
+      "Name": "barrier_left",
+      "Position": "3200,6912,65",
+      "Rotation": "0,0,0.7071067,0.7071068",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/objects/barrier_left.prefab"
+    },
+    {
+      "__guid": "7253a11b-b45d-48ca-b094-45f38b43ae68",
+      "Name": "barrier_left (1)",
+      "Position": "3200,7136,65",
+      "Rotation": "0,0,0.7071067,0.7071068",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/objects/barrier_left.prefab"
+    },
+    {
+      "__guid": "bf7d1ea7-f389-4d9e-bbb7-125ab0c61e30",
+      "Name": "barrier_left (2)",
+      "Position": "3104,7360,64.99999",
+      "Rotation": "0,0,0.9238795,0.3826836",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/objects/barrier_left.prefab"
+    },
+    {
+      "__guid": "41c8455e-ad0f-424f-b8fa-4e6a9e3bc619",
+      "Name": "barrier_left (3)",
+      "Position": "2912,7488,64.99998",
+      "Rotation": "0,0,0.9914449,0.1305264",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/objects/barrier_left.prefab"
     }
   ],
   "SceneProperties": {
@@ -4342,7 +4377,7 @@
   },
   "Title": "track_backstreet",
   "Description": "",
-  "LastSaved": "2024-03-15T23:44:30.2524757\u002B01:00",
+  "LastSaved": "2024-03-16T03:09:53.0548348\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
