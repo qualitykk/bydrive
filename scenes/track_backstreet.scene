@@ -4286,6 +4286,7 @@
     {
       "__guid": "36e8443d-55fb-4cf7-ab46-e8668fc7688e",
       "Name": "FlythroughTestCamera",
+      "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
@@ -4341,7 +4342,7 @@
   },
   "Title": "track_backstreet",
   "Description": "",
-  "LastSaved": "2024-03-15T22:55:47.1083707\u002B01:00",
+  "LastSaved": "2024-03-15T23:44:30.2524757\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [

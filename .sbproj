@@ -89,7 +89,8 @@
           "GamepadCode": "RightTrigger",
           "GroupName": "Actions"
         }
-      ]
+      ],
+      "__guid": "5e1eaf89-977c-4fdb-af00-c6f76b362d35"
     },
     "LaunchMode": "Normal"
   }
