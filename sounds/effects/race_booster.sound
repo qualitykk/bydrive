@@ -7,10 +7,10 @@
   "Sounds": [
     "sounds/effects/boost.vsnd"
   ],
-  "Occlusion": true,
+  "Occlusion": false,
   "Reflections": false,
   "AirAbsorption": false,
-  "Transmission": false,
+  "Transmission": true,
   "OcclusionRadius": 64,
   "DistanceAttenuation": false,
   "ResourceVersion": 0,

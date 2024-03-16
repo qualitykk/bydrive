@@ -10,7 +10,6 @@ public static class Music
 {
 	static SoundHandle currentTrack;
 	static string currentTrackName;
-	static float currentVolume;
 	public static void Play( string name, float volume = -1f)
 	{
 		Play(ResourceLibrary.Get<SoundEvent>(name), volume);
@@ -21,20 +20,12 @@ public static class Music
 		Stop();
 		if(sound == null)
 		{
-			Log.Warning( "Tried to play null sound for music!" );
+			//Log.Warning( "Tried to play null sound for music!" );
 			return;
 		}
 
-		float trackVolume = volume > 0 ? volume : 1;
-		trackVolume *= Settings.MusicVolume;
-		currentTrack = Sound.Play( sound );
-		if ( currentTrack.IsValid() )
-		{
-			currentTrack.Volume = trackVolume;
-			currentTrack.ListenLocal = true;
-		}
+		currentTrack = GameSound.Play( sound, GameSoundChannel.Music, volume );
 
-		currentVolume = volume;
 		currentTrackName = sound.ResourcePath;
 	}
 

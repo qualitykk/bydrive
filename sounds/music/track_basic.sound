@@ -1,13 +1,13 @@
 {
   "UI": true,
-  "Volume": "1.20,1.00,0",
+  "Volume": "0.50,1.00,0",
   "Pitch": "1.00,1.00,0",
   "Decibels": 110,
   "SelectionMode": "Random",
   "Sounds": [
     "sounds/music/track_basic.vsnd"
   ],
-  "Occlusion": true,
+  "Occlusion": false,
   "Reflections": true,
   "AirAbsorption": true,
   "Transmission": true,

@@ -29,7 +29,7 @@
               "__type": "StartMenu",
               "__guid": "5a46c62f-68ca-4255-b6ca-3a284ef0e444",
               "BackgroundMusic": "sounds/music/menu_loop1.sound",
-              "BackgroundMusicVolume": 0.45
+              "BackgroundMusicVolume": 0.5
             }
           ]
         }
@@ -166,7 +166,7 @@
   },
   "Title": "startmenu",
   "Description": "",
-  "LastSaved": "2024-03-15T18:18:01.4670435\u002B01:00",
+  "LastSaved": "2024-03-16T17:20:09.1125034\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []

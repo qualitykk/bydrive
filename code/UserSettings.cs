@@ -21,5 +21,7 @@ public class UserSettings
 	public void Save()
 	{
 		Cookie.Set( SETTINGS_KEY, this );
+
+		GameSound.Update();
 	}
 }
