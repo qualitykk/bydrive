@@ -87,7 +87,6 @@ public static class TimeTrialLeaderboard
 
 		string leaderboardName = GetLeaderboardName( track, trackVariables );
 		double leaderboardAmount = time;
-		Log.Info( $"{leaderboardName}/{leaderboardAmount}" );
 
 		Sandbox.Services.Stats.SetValue( leaderboardName, leaderboardAmount );
 	}

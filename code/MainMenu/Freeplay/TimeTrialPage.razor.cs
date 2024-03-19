@@ -53,7 +53,6 @@ public partial class TimeTrialPage : Panel, INavigatorPage
 
 	private void OnTimeDisplaySelected(int display)
 	{
-		Log.Info( "Click" );
 		timeDisplay = display;
 	}
 
