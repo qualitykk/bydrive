@@ -114,12 +114,13 @@ public partial class TimeTrialRecording
 	}
 	public static void Write( TimeTrialRecording data )
 	{
-		if ( !FileSystem.Data.DirectoryExists( RACE_DATA_DIRECTORY ) )
+		string trackPath = GetTrackPath( data.Track );
+		if ( !FileSystem.Data.DirectoryExists( trackPath ) )
 		{
-			FileSystem.Data.CreateDirectory( RACE_DATA_DIRECTORY );
+			FileSystem.Data.CreateDirectory( trackPath );
 		}
 
-		var fileStream = FileSystem.Data.OpenWrite( GetPath( data ) );
+		var fileStream = FileSystem.Data.OpenWrite( trackPath );
 		using var writer = new BinaryWriter( fileStream, Encoding.UTF8, false );
 		writer.Write( data.Id.ToByteArray() );
 		writer.Write( data.SteamId );

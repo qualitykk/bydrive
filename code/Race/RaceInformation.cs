@@ -279,7 +279,6 @@ public class RaceInformation
 		{
 			Log.Error( "Prefabs for vehicles MUST include a vehicle controller!" );
 			obj.Destroy();
-			obj.Destroy();
 
 			return null;
 		}
