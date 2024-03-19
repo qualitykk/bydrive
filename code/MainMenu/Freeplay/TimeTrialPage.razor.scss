@@ -3,7 +3,6 @@
 
 TimeTrialPage {
     .setup {
-        width: 30%;
         height: 100%;
         flex-direction: column;
         background-color: $background_config;
@@ -49,9 +48,36 @@ TimeTrialPage {
         }
     }
 
+    .time_display_options {
+        .entry {
+            flex-grow: 1;
+            margin: 10px;
+            padding: 10px;
+            pointer-events: all;
+            border-bottom: 1px solid white;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            font-size: 24px;
+            background-color: $background_clear;
+
+            &:hover {
+                background-color: $background_clear_dark;
+            }
+
+            &.active {
+                background-color: $background_clear_light;
+
+                &:hover {
+                    background-color: $background_light;
+                }
+            }
+        }
+    }
+
     .times {
         padding: 2%;
-        width: 70%;
+        width: 100%;
         gap: 15px;
 
         .entry {
@@ -100,6 +126,18 @@ TimeTrialPage {
             .player {
                 font-size: 32px;
                 width: 35%;
+
+                &.first {
+                    color: $placement_first;
+                }
+
+                &.second {
+                    color: $placement_second;
+                }
+
+                &.third {
+                    color: $placement_third;
+                }
             }
 
             .vehicle {
@@ -154,7 +192,6 @@ TimeTrialPage {
     }
 
     .selected_vehicle {
-        width: 30%;
         background-color: $background_clear;
         backdrop-filter: blur(5px);
         flex-direction: column;
@@ -217,7 +254,6 @@ TimeTrialPage {
     }
 
     VehicleSelection {
-        width: 70%;
         height: 100%;
         flex-direction: row;
         padding: 1%;
@@ -252,5 +288,13 @@ TimeTrialPage {
                 font-weight: bold;
             }
         }
+    }
+
+    .side {
+        width: 30%;
+    }
+
+    .content {
+        width: 70%;
     }
 }

@@ -10,13 +10,24 @@ namespace Bydrive;
 public partial class TimeTrialPage : Panel, INavigatorPage
 {
 	int stage = 0;
+	int timeDisplay = 0;
+
 	TrackDefinition selectedTrack;
 	Dictionary<string, string> trackVariableValues = new();
-	TimeTrialData selectedTimeTrial;
+	ITimeTrialData selectedTimeTrial;
 	VehicleDefinition selectedVehicle;
-	private IEnumerable<TimeTrialData> GetTimeTrials()
+	private IEnumerable<ITimeTrialData> GetTimeTrials()
 	{
-		return TimeTrialData.ReadForTrack( selectedTrack.ResourcePath, trackVariableValues );
+		string track = selectedTrack.ResourceName;
+		switch(timeDisplay)
+		{
+			case 1:
+				return TimeTrialLeaderboard.GetLeaderboardTimes( track, trackVariableValues, "friends" );
+			case 2:
+				return TimeTrialLeaderboard.GetRecordings(track, trackVariableValues);
+			default:
+				return TimeTrialLeaderboard.GetLeaderboardTimes( track, trackVariableValues );
+		}
 	}
 	private bool AllVariablesSelected()
 	{
@@ -40,12 +51,18 @@ public partial class TimeTrialPage : Panel, INavigatorPage
 		trackVariableValues[key] = value;
 	}
 
-	private void OnTimeTrialEntrySelect(TimeTrialData entry)
+	private void OnTimeDisplaySelected(int display)
+	{
+		Log.Info( "Click" );
+		timeDisplay = display;
+	}
+
+	private void OnTimeTrialEntrySelected(ITimeTrialData entry)
 	{
 		selectedTimeTrial = entry;
 	}
 
-	private void OnVehicleSelect(VehicleDefinition vehicle)
+	private void OnVehicleSelected(VehicleDefinition vehicle)
 	{
 		selectedVehicle = vehicle;
 	}
@@ -58,11 +75,14 @@ public partial class TimeTrialPage : Panel, INavigatorPage
 
 		return classes;
 	}
-	private string GetTimeTrialEntryClasses(TimeTrialData entry)
+	private string GetTimeTrialEntryClasses(ITimeTrialData entry)
 	{
 		string classes = "";
 		if ( selectedTimeTrial == entry )
 			classes += " selected";
+
+		if ( entry is TimeTrialRecording )
+			classes += " recording";
 
 		return classes;
 	}
@@ -98,7 +118,7 @@ public partial class TimeTrialPage : Panel, INavigatorPage
 
 	protected override int BuildHash()
 	{
-		return HashCode.Combine( selectedTrack, selectedTimeTrial, trackVariableValues, selectedVehicle );
+		return HashCode.Combine( selectedTrack, selectedTimeTrial, trackVariableValues, selectedVehicle, timeDisplay );
 	}
 
 	void INavigatorPage.OnNavigationClose()

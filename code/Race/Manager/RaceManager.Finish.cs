@@ -25,9 +25,9 @@ public partial class RaceManager
 	public bool IsTimeTrial { get; set; }
 	public bool IsFinished { get; set; }
 	public IReadOnlyList<ParticipantFinishInformation> FinishedParticipants => finishedParticipants;
-	public IReadOnlyDictionary<RaceParticipant, List<float>> ParticipantLapTimes => participantLapTimes;
+	public IReadOnlyDictionary<RaceParticipant, List<float>> ParticipantLapFinishTimestamps => participantLapFinishTimes;
 	private List<RaceParticipant> completionOrderedParticipants = new();
-	private Dictionary<RaceParticipant, List<float>> participantLapTimes = new();
+	private Dictionary<RaceParticipant, List<float>> participantLapFinishTimes = new();
 	private Dictionary<RaceParticipant, int> participantLastLap = new();
 	public ParticipantFinishInformation GetParticipantFinish( RaceParticipant participant )
 	{
@@ -48,6 +48,7 @@ public partial class RaceManager
 
 		RaceContext.Finish( finishedParticipants.OrderBy( f => f.Placement ).Select( f => RaceContext.GetParticipant(f.Participant) ).ToList() );
 		IsFinished = true;
+		OnAllFinished?.Invoke();
 	}
 
 	private void ParticipantFinished( RaceParticipant participant )
@@ -57,7 +58,7 @@ public partial class RaceManager
 		float raceTime = TimeSinceRaceStart;
 		List<float> lapTimes = new();
 		float lastTime = 0;
-		foreach(float time in participantLapTimes[participant] )
+		foreach(float time in participantLapFinishTimes[participant] )
 		{
 			lapTimes.Add( time - lastTime );
 			lastTime = time;
@@ -67,8 +68,9 @@ public partial class RaceManager
 		ParticipantFinishInformation info = new( finishedParticipants.Count + 1, participant, raceTime, lapTimes );
 		finishedParticipants.Add( info );
 		participant.OnFinished();
+		OnParticipantFinished?.Invoke( participant );
 
-		if(finishedParticipants.Count >= Participants.Count - 1) 
+		if (finishedParticipants.Count >= Participants.Count - 1) 
 		{
 			Finish();
 		}
@@ -84,13 +86,13 @@ public partial class RaceManager
 		if ( lap > 1 && GetParticipantLap(participant) != lastLap)
 		{
 			participantLastLap[participant] = lap;
-			if(participantLapTimes.TryGetValue(participant, out List<float> lapTimes) )
+			if(participantLapFinishTimes.TryGetValue(participant, out List<float> lapFinishTimes) )
 			{
-				lapTimes.Add( TimeSinceRaceStart );
+				lapFinishTimes.Add( TimeSinceRaceStart );
 			}
 			else
 			{
-				participantLapTimes.Add( participant, new() { TimeSinceRaceStart } );
+				participantLapFinishTimes.Add( participant, new() { TimeSinceRaceStart } );
 			}
 		}
 	}

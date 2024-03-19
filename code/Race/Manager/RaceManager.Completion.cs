@@ -50,8 +50,6 @@ public partial class RaceManager
 	{
 		return completionOrderedParticipants.IndexOf( participant ) + 1;
 	}
-
-
 	public void UpdateCompletion()
 	{
 		float singleCheckpointFraction = 1 / ((float)maxCheckpointOrder + 1);

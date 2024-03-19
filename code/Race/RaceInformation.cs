@@ -40,9 +40,12 @@ public class RaceInformation
 	public RaceParameters CurrentParameters => currentSetup.Parameters ?? CurrentDefinition.Parameters;
 	public TrackMusicParameters CurrentMusic => currentSetup.Music ?? CurrentDefinition.Music;
 	public Dictionary<string, string> CurrentVariables => currentSetup.Variables;
+	public List<InputRecorder> VehicleInputRecorders { get; set; } = new();
 	public Action OnParticipantsCreated { get; set; }
 	public RaceFinished OnRaceFinished { get; set; }
 	public RaceFinished OnAllRacesFinished { get; set; }
+	[Obsolete]
+	public RaceMode Mode => CurrentParameters.Mode;
 	public bool FinishedLoading 
 	{ 
 		get
@@ -51,7 +54,6 @@ public class RaceInformation
 		} 
 	}
 	private bool objectsCreated = false;
-	public RaceMode Mode { get; set; }
 	private bool multiplayer;
 	/// <summary>
 	/// Total participant score, used in multi-race only.
@@ -265,7 +267,7 @@ public class RaceInformation
 		obj.Name = name;
 		if(multiplayer)
 		{
-			obj.Networked = true;
+			obj.NetworkMode = NetworkMode.Object;
 			if(!participant.Player.IsBot)
 			{
 				obj.Network.AssignOwnership( participant.Player.Connection );
@@ -391,14 +393,9 @@ public class RaceInformation
 		obj.Transform.World = start.Transform.World;
 	}
 
-	private void InitialiseMode()
-	{
-
-	}
-
 	private void DestroyParticipantObjects()
 	{
-		foreach((Participant data, GameObject obj) in participantObjects)
+		foreach ( (Participant data, GameObject obj) in participantObjects )
 		{
 			obj.Destroy();
 		}
@@ -406,5 +403,48 @@ public class RaceInformation
 		participantObjects.Clear();
 		objectParticipants.Clear();
 		objectsCreated = false;
+	}
+
+	private void InitialiseMode()
+	{
+		if(CurrentParameters.Mode == RaceMode.TimeTrial)
+		{
+			Race.OnRaceStart += OnStartTimeTrial;
+			Race.OnParticipantFinished += OnRacerFinishedTimeTrial;
+		}
+	}
+	private void OnStartTimeTrial()
+	{
+		var vehicles = Game.ActiveScene.GetAllComponents<VehicleController>();
+		foreach(var vehicle in vehicles)
+		{
+			InputRecorder recorder = VehicleInputRecorders.FirstOrDefault( r => r.Vehicle == vehicle );
+			if ( recorder == null )
+			{
+				recorder = new( vehicle );
+				VehicleInputRecorders.Add( recorder );
+			}
+
+			recorder.Start();
+		}
+	}
+	private void OnRacerFinishedTimeTrial( RaceParticipant participant )
+	{
+		InputRecorder recorder = VehicleInputRecorders.FirstOrDefault( r => r.Vehicle == participant.GetVehicle() );
+		recorder?.Stop();
+
+		var finish = Race.GetParticipantFinish( participant );
+		SaveTimeTrial( participant, finish.LapTimes, recorder );
+	}
+
+	void SaveTimeTrial(RaceParticipant participant, List<float> lapTimes, InputRecorder input)
+	{
+		string track = CurrentDefinition.ResourcePath;
+
+		long participantSteamId = (long?)participant.Network.OwnerConnection?.SteamId ?? Game.SteamId;
+		TimeTrialRecording data = new( participantSteamId, track, input.Vehicle.Definition.ResourcePath, CurrentVariables, input.Timestamps, lapTimes );
+		TimeTrialRecording.Write( data );
+
+		TimeTrialLeaderboard.SubmitTime( CurrentDefinition.ResourceName, CurrentVariables, lapTimes.Sum() );
 	}
 }

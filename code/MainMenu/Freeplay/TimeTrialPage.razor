@@ -13,7 +13,7 @@
 			@if (selectedTrack == null)
 				return;
 
-			<div class="setup">
+			<div class="side setup">
 				<label class="track_name">@selectedTrack.Name</label>
 				<div class="variables">
 					@foreach(var entry in selectedTrack.Variables)
@@ -31,32 +31,39 @@
 				</div>
 			</div>
 
-			<div class="times flex-col">
-				@{
-					int placement = 0;
-					var trialData = GetTimeTrials();
-				}
-				@if(trialData != null && trialData.Any())
-				{
-					@foreach(var entry in trialData.OrderBy(d => d.TotalTime).Take(10))
-					{
-						@{
-							placement++;	
-						}
-						<div class="entry @GetTimeTrialEntryClasses(entry)" @onclick=@(() => OnTimeTrialEntrySelect(entry))>
-							<label class="placement @GetPlacementClass(placement)">@placement</label>
-							<label class="country">@entry.PlayerCountry</label>
-							<label class="player">@entry.PlayerName</label>
-							<label class="vehicle">Jet RX</label>
-							<label class="time">@entry.TotalTime.FormatAsRaceTime()</label>
-						</div>
+			<div class="content flex-col">
+				<div class="time_display_options">
+					<label class="entry @UI.ActiveIf(timeDisplay == 0)" @onclick=@(() => OnTimeDisplaySelected(0))>Global</label>
+					<label class="entry @UI.ActiveIf(timeDisplay == 1)" @onclick=@(() => OnTimeDisplaySelected(1))>Friends</label>
+					<label class="entry @UI.ActiveIf(timeDisplay == 2)" @onclick=@(() => OnTimeDisplaySelected(2))>Local</label>
+				</div>
+				<div class="times flex-col">
+					@{
+						int placement = 0;
+						var trialData = GetTimeTrials();
 					}
-				}
+					@if(trialData != null && trialData.Any())
+					{
+						@foreach(ITimeTrialData entry in trialData.OrderBy(d => d.TotalTime))
+						{
+							@{
+								Friend steamUser = new Friend(entry.SteamId);
+								placement++;
+							}
+							<div class="entry @GetTimeTrialEntryClasses(entry)" @onclick=@(() => OnTimeTrialEntrySelected(entry))>
+								<label class="placement @GetPlacementClass(placement)">@placement</label>
+								<label class="player @GetPlacementClass(placement)">@steamUser.Name</label>
+								<label class="vehicle">Jet RX</label>
+								<label class="time">@entry.TotalTime.FormatAsRaceTime()</label>
+							</div>
+						}
+					}
+				</div>
 			</div>
 		}
 		else if(stage == 2)
 		{
-			<div class="selected_vehicle">
+			<div class="side selected_vehicle">
 				<div class="info flex-col">
 					@if(selectedVehicle != null)
 					{
@@ -89,7 +96,7 @@
 				</div>
 				
 			</div>
-			<VehicleSelection @OnVehicleSelected=@OnVehicleSelect />
+			<VehicleSelection class="content" @OnVehicleSelected=@OnVehicleSelected />
 		}
 		else
 		{

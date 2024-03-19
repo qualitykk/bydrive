@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public class RaceParameters : IEquatable<RaceParameters>
+public class RaceParameters
 {
 	public const int DEFAULT_MAX_LAPS = 3;
 	public int MaxLaps { get; set; } = DEFAULT_MAX_LAPS;
@@ -18,18 +18,14 @@ public class RaceParameters : IEquatable<RaceParameters>
 
 	public override bool Equals( object obj )
 	{
-		return Equals( obj as RaceParameters );
-	}
-
-	public bool Equals( RaceParameters other )
-	{
-		return other is not null &&
-			   MaxLaps == other.MaxLaps;
+		return obj is RaceParameters parameters &&
+			   MaxLaps == parameters.MaxLaps &&
+			   Mode == parameters.Mode;
 	}
 
 	public override int GetHashCode()
 	{
-		return HashCode.Combine( MaxLaps );
+		return HashCode.Combine( MaxLaps, Mode );
 	}
 
 	public static bool operator ==( RaceParameters left, RaceParameters right )

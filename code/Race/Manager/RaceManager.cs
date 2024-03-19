@@ -16,6 +16,9 @@ public sealed partial class RaceManager : Component
 {
 	public static RaceManager Current { get; private set; }
 	[Property] public List<RaceCheckpoint> StartCheckpointOptions { get; set; } = new();
+	[Property] public Action OnRaceStart { get; set; }
+	[Property] public Action<RaceParticipant> OnParticipantFinished { get; set; }
+	[Property] public Action OnAllFinished { get; set; }
 	[Property] public Action OnReset { get; set; }
 	public List<RaceParticipant> Participants { get; private set; } = new();
 	public TimeUntil TimeUntilRaceStart { get; private set; }
@@ -123,6 +126,8 @@ public sealed partial class RaceManager : Component
 	{
 		HasStarted = true;
 		TimeSinceRaceStart = 0;
+
+		OnRaceStart?.Invoke();
 	}
 
 	public void InitialiseParticipants( List<RaceParticipant> participants )
@@ -131,7 +136,7 @@ public sealed partial class RaceManager : Component
 		{
 			participantRaceCompletion.Add( participant, 0f );
 			participantLastOrder.Add( participant, 0 );
-			participantLapTimes.Add( participant, new() );
+			participantLapFinishTimes.Add( participant, new() );
 			participantLastLap.Add( participant, 0 );
 		}
 	}
@@ -140,7 +145,7 @@ public sealed partial class RaceManager : Component
 		participantRaceCompletion.Clear();
 		participantLastOrder.Clear();
 		participantLastLap.Clear();
-		participantLapTimes.Clear();
+		participantLapFinishTimes.Clear();
 		finishedParticipants.Clear();
 	}
 	protected override void OnFixedUpdate()

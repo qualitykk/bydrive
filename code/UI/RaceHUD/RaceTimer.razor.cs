@@ -34,12 +34,12 @@ public partial class RaceTimer
 		{
 			return Race.GetParticipantFinish( participant ).LapTimes.LastOrDefault();
 		}
-		else if ( !Race.ParticipantLapTimes.ContainsKey( participant ) )
+		else if ( !Race.ParticipantLapFinishTimestamps.ContainsKey( participant ) )
 		{
 			return Race.TimeSinceRaceStart;
 		}
 
-		return Race.TimeSinceRaceStart - Race.ParticipantLapTimes[participant].LastOrDefault();
+		return Race.TimeSinceRaceStart - Race.ParticipantLapFinishTimestamps[participant].LastOrDefault();
 	}
 
 	private string GetClasses()

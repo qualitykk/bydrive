@@ -65,11 +65,11 @@ public class RaceParticipant : Component
 			nextRespawnDamage = 0;
 		}
 	}
-	private IEnumerable<SkinnedModelRenderer> GetModels()
+	public IEnumerable<SkinnedModelRenderer> GetModels()
 	{
 		return Components.GetAll<SkinnedModelRenderer>( FindMode.EnabledInSelfAndDescendants | FindMode.InAncestors );
 	}
-	private VehicleController GetVehicle()
+	public VehicleController GetVehicle()
 	{
 		return Components.Get<VehicleController>( FindMode.EnabledInSelfAndDescendants | FindMode.InAncestors );
 	}

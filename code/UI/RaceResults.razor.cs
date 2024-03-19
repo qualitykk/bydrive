@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bydrive;
 
-public partial class RaceResults
+public partial class RaceResults : PanelComponent
 {
 	private IReadOnlyDictionary<RaceInformation.Participant, int> oldScores;
 	private IReadOnlyDictionary<RaceInformation.Participant, int> scores;
@@ -38,9 +38,9 @@ public partial class RaceResults
 		};
 	}
 
-	private List<TimeTrialData> GetPreviousData()
+	private List<TimeTrialRecording> GetPreviousData()
 	{
-		return TimeTrialData.ReadForTrack( RaceContext.CurrentDefinition.ResourcePath, RaceContext.CurrentVariables );
+		return TimeTrialRecording.Read( RaceContext.CurrentDefinition.ResourcePath, RaceContext.CurrentVariables );
 	}
 
 	private void OnClickNext()
@@ -70,24 +70,6 @@ public partial class RaceResults
 	private void OnClickRestart()
 	{
 		Race.Setup(true);
-		hasSaved = false;
-	}
-
-	bool hasSaved = false;
-	private void OnClickSave()
-	{
-		if ( hasSaved )
-			return;
-
-		string track = RaceContext.CurrentDefinition.ResourcePath;
-		List<float> lapTimes = Race.GetParticipantFinish( GetLocalParticipantInstance() ).LapTimes;
-		float totalTime = lapTimes.Sum();
-
-		var existingData = TimeTrialData.ReadForTrack( track, RaceContext.CurrentVariables );
-		TimeTrialData data = new( GetLocalName(), track, GetLocalVehicle().Definition.ResourcePath, RaceContext.CurrentVariables, lapTimes );
-		TimeTrialData.WriteNew( data );
-
-		hasSaved = true;
 	}
 
 	protected override int BuildHash() => HashCode.Combine( GetPlacements(), GetPlacements().Count, ShouldDraw() );
