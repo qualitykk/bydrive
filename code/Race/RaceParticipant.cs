@@ -29,7 +29,7 @@ public class RaceParticipant : Component
 	public int GetLap() => Race?.GetParticipantLap( this ) ?? 0;
 
 	bool respawning;
-	bool cancelRespawn;
+	bool finishRespawn;
 	TimeUntil timeUntilRespawn;
 	int nextRespawnDamage;
 	protected override void OnAwake()
@@ -54,14 +54,14 @@ public class RaceParticipant : Component
 			}
 		}
 
-		if ( cancelRespawn )
+		if ( finishRespawn )
 		{
 			foreach ( var model in GetModels() )
 			{
-				model.Tint.WithAlpha( 1f );
+				model.Tint = model.Tint.WithAlpha( 1f );
 			}
 			respawning = false;
-			cancelRespawn = false;
+			finishRespawn = false;
 			nextRespawnDamage = 0;
 		}
 	}
@@ -80,7 +80,8 @@ public class RaceParticipant : Component
 			LastKeyCheckpoint.Respawn( GameObject );
 		}
 
-		cancelRespawn = true;
+		finishRespawn = true;
+		respawning = false;
 
 		if(damage != 0)
 		{
@@ -99,7 +100,7 @@ public class RaceParticipant : Component
 	}
 	public void RespawnCancel()
 	{
-		cancelRespawn = true;
+		finishRespawn = true;
 	}
 
 	public void PassCheckpoint(RaceCheckpoint checkpoint, bool forceLast = false)

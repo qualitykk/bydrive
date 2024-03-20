@@ -184,7 +184,6 @@
       "__guid": "b03c1011-b1f1-4d9e-b045-9deea326630e",
       "Name": "Regular",
       "Position": "570.2944,450.5512,1047.921",
-      "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
@@ -240,7 +239,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -273,7 +272,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -305,7 +304,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -337,7 +336,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -369,7 +368,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -402,7 +401,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -435,7 +434,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -468,7 +467,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -501,7 +500,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -534,7 +533,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -567,7 +566,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -600,7 +599,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -633,7 +632,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -666,7 +665,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -699,7 +698,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -731,7 +730,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -1152,7 +1151,6 @@
           "__guid": "fd3ec78c-3482-4a9b-b18b-461fcb5f772a",
           "Name": "Route B",
           "Position": "0,0,0",
-          "Enabled": true,
           "NetworkMode": 2,
           "Components": [
             {
@@ -1192,7 +1190,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -1225,7 +1223,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -1257,7 +1255,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -1289,7 +1287,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,55,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -1321,7 +1319,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -1353,7 +1351,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -1386,7 +1384,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -1419,7 +1417,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -1452,7 +1450,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -1485,7 +1483,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -1518,7 +1516,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -1551,7 +1549,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -1584,7 +1582,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -1616,7 +1614,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -2641,6 +2639,7 @@
       "__guid": "0bd3c986-17e4-4535-b1ec-3dd00166a9a5",
       "Name": "Reverse",
       "Position": "570.2944,450.5512,1047.921",
+      "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
@@ -2696,7 +2695,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -2729,7 +2728,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -2762,7 +2761,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -2795,7 +2794,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -2828,7 +2827,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -2861,7 +2860,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,65,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -2894,7 +2893,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -2927,7 +2926,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-60,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -2960,7 +2959,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -2993,7 +2992,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -3026,7 +3025,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -3058,7 +3057,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -3090,7 +3089,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -3122,7 +3121,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -3155,7 +3154,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -3187,7 +3186,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -3616,6 +3615,7 @@
           "__guid": "56ba18f7-3dd4-47cc-be71-432f7b4913ef",
           "Name": "Route B",
           "Position": "0,0,0",
+          "Enabled": true,
           "NetworkMode": 2,
           "Components": [
             {
@@ -3655,7 +3655,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -3688,7 +3688,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -3721,7 +3721,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -3754,7 +3754,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,60,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -3787,7 +3787,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -3820,7 +3820,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -3853,7 +3853,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -3886,7 +3886,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -3918,7 +3918,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -3950,7 +3950,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -3982,7 +3982,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -4014,7 +4014,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -4047,7 +4047,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -4079,7 +4079,7 @@
                         }
                       ],
                       "RespawnPosition": "0,0,32",
-                      "RespawnRotation": "0,0,0"
+                      "RespawnRotation": "0,-90,0"
                     },
                     {
                       "__type": "BoxCollider",
@@ -5351,7 +5351,7 @@
   },
   "Title": "track_forest",
   "Description": "",
-  "LastSaved": "2024-03-16T02:21:52.3300265\u002B01:00",
+  "LastSaved": "2024-03-20T01:28:01.1910604\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
