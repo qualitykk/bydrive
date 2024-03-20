@@ -31,7 +31,7 @@ public partial class TimeTrialRecording
 	public static List<TimeTrialRecording> Read( string track, Dictionary<string, string> trackVariables )
 	{
 		string trackPath = GetTrackPath( track );
-		if(!FileSystem.Data.DirectoryExists(trackPath))
+		if ( !FileSystem.Data.DirectoryExists( trackPath ) )
 		{
 			FileSystem.Data.CreateDirectory( trackPath );
 		}
@@ -114,13 +114,12 @@ public partial class TimeTrialRecording
 	}
 	public static void Write( TimeTrialRecording data )
 	{
-		string trackPath = GetTrackPath( data.Track );
-		if ( !FileSystem.Data.DirectoryExists( trackPath ) )
+		if ( !FileSystem.Data.DirectoryExists( GetTrackPath(data.Track) ) )
 		{
-			FileSystem.Data.CreateDirectory( trackPath );
+			FileSystem.Data.CreateDirectory( GetTrackPath( data.Track ) );
 		}
 
-		var fileStream = FileSystem.Data.OpenWrite( trackPath );
+		var fileStream = FileSystem.Data.OpenWrite( GetPath(data) );
 		using var writer = new BinaryWriter( fileStream, Encoding.UTF8, false );
 		writer.Write( data.Id.ToByteArray() );
 		writer.Write( data.SteamId );

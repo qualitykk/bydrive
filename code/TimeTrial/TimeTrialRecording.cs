@@ -27,12 +27,12 @@ public partial class TimeTrialRecording : ITimeTrialData
 	public List<float> LapTimes { get; set; }
 	[JsonIgnore] public float TotalTime => LapTimes.Sum();
 
-	public TimeTrialRecording( long steamId, string track, string vehicle, Dictionary<string, string> trackVariables, List<TimestampedVehicleInput> inputs, List<float> lapTimes )
+	public TimeTrialRecording( long steamId, TrackDefinition track, VehicleDefinition vehicle, Dictionary<string, string> trackVariables, List<TimestampedVehicleInput> inputs, List<float> lapTimes )
 	{
 		Id = Guid.NewGuid();
 		SteamId = steamId;
-		Track = track;
-		Vehicle = vehicle;
+		Track = track.ResourcePath;
+		Vehicle = vehicle.ResourcePath;
 		TrackVariables = trackVariables;
 		Inputs = inputs;
 		LapTimes = lapTimes;
