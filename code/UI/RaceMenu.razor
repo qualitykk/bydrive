@@ -4,15 +4,50 @@
 @inherits PanelComponent
 
 <root class="@GetClasses()">
-	<div class="title" />
-	<div class="button" @onclick=@OnClickResume>Resume</div>
-	<div class="button" @onclick=@OnClickRestart>Restart</div>
-	<div class="button" @onclick=@OnClickExit>Exit Race</div>
+	@if(page.Contains("settings"))
+	{
+		<div class="header">
+			<label class="entry @UI.ActiveIf(page == "settings")" @onclick=@OnClickSettings>Settings</label>
+			<label class="entry @UI.ActiveIf(page == "settings_controls")" @onclick=@OnClickControls>Controls</label>
+		</div>
+		@if(page == "settings")
+		{
+			<ObjectEditorPanel class="content options" Target=@Settings Save=@Settings.Save />
+		}
+		else if(page == "settings_controls")
+		{
+			<div class="content controls">
+				@foreach (var group in Input.GetActions().GroupBy(action => action.GroupName))
+				{
+					<label class="group">@group.Key</label>
+					@foreach (InputAction action in group)
+					{
+						<div class="entry">
+							<label class="name">@action.Name</label>
+							<InputGlyphImage Glyph=@action.Name />
+						</div>
+					}
+				}
+			</div>
+		}
+		<div class="footer">
+			<button class="button" @onclick=@OnClickBack>Back</button>
+		</div>
+	}
+	else
+	{
+		<div class="title" />
+		<div class="button" @onclick=@OnClickResume>Resume</div>
+		<div class="button" @onclick=@OnClickRestart>Restart</div>
+		<div class="button" @onclick=@OnClickSettings>Settings</div>
+		<div class="button" @onclick=@OnClickExit>Exit Race</div>
+	}
 </root>
 
 @code
 {
 	bool wantsDraw = false;
+	string page = "";
 
 	public bool ShouldDraw()
 	{
@@ -45,6 +80,21 @@
 	{
 		Race.Setup(true);
 		wantsDraw = false;
+	}
+
+	void OnClickSettings()
+	{
+		page = "settings";
+	}
+
+	void OnClickControls()
+	{
+		page = "settings_controls";
+	}
+
+	void OnClickBack()
+	{
+		page = "";
 	}
 
 	void OnClickExit()
