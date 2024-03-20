@@ -47,12 +47,11 @@
 						@foreach(ITimeTrialData entry in trialData.OrderBy(d => d.TotalTime))
 						{
 							@{
-								Friend steamUser = new Friend(entry.SteamId);
 								placement++;
 							}
 							<div class="entry @GetTimeTrialEntryClasses(entry)" @onclick=@(() => OnTimeTrialEntrySelected(entry))>
 								<label class="placement @GetPlacementClass(placement)">@placement</label>
-								<label class="player @GetPlacementClass(placement)">@steamUser.Name</label>
+								<label class="player @GetPlacementClass(placement)">@entry.PlayerName</label>
 								<label class="vehicle">Jet RX</label>
 								<label class="time">@entry.TotalTime.FormatAsRaceTime()</label>
 							</div>

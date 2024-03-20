@@ -20,6 +20,7 @@ public partial class TimeTrialRecording : ITimeTrialData
 {
 	public Guid Id { get; set; }
 	public long SteamId { get; set; }
+	public string PlayerName { get; set; }
 	public string Track { get; set; }
 	public string Vehicle { get; set; }
 	public Dictionary<string, string> TrackVariables { get; set; }
@@ -31,6 +32,7 @@ public partial class TimeTrialRecording : ITimeTrialData
 	{
 		Id = Guid.NewGuid();
 		SteamId = steamId;
+		PlayerName = new Friend( steamId ).Name;
 		Track = track.ResourcePath;
 		Vehicle = vehicle.ResourcePath;
 		TrackVariables = trackVariables;

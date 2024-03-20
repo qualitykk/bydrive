@@ -93,16 +93,16 @@ public static class TimeTrialLeaderboard
 }
 public class TimeTrialLeaderboardEntry : ITimeTrialData
 {
-
 	public long SteamId { get; }
+	public string PlayerName { get; }
 	public string Track { get; }
 	public Dictionary<string, string> TrackVariables { get; }
-
 	public float TotalTime { get; }
 
 	public TimeTrialLeaderboardEntry( Sandbox.Services.Leaderboards.Entry entry, string track, Dictionary<string, string> trackVariables)
 	{
 		SteamId = entry.SteamId;
+		PlayerName = entry.DisplayName;
 		Track = track;
 		TrackVariables = trackVariables;
 		TotalTime = (float)entry.Value;
