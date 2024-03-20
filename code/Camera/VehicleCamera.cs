@@ -12,22 +12,27 @@ public class VehicleCamera : Component, ICameraMode
 	[Property] public float MaxFieldOfView { get; set; } = 120f;
 	private VehicleController Vehicle => GetLocalVehicle();
 	private Vector3 CameraOffset => Vehicle?.GetCameraPositionOffset() ?? 0f;
-	private VehicleController lastVehicle;
+	VehicleController lastVehicle;
 	public void UpdateCamera( CameraComponent camera )
 	{
 		if ( Vehicle != lastVehicle )
 		{
-			GameObject.Parent = Vehicle?.GameObject;
+			camera.GameObject.Parent = Vehicle?.GameObject;
 			lastVehicle = Vehicle;
 		}
 
 		if ( Vehicle == null ) return;
 
-		Vector3 position = GetCameraPosition(camera);
-		Rotation rotation = GetCameraRotation();
+		Transform baseTransform = Vehicle.Transform.World;
+		baseTransform.Position = baseTransform.Position.SnapToGrid( 8f, false, false );
+		baseTransform.Rotation = Rotation.FromYaw( baseTransform.Rotation.Yaw() );
+		float delta = 1.0f - MathF.Pow( 0.000001f, Time.Delta);
 
-		camera.Transform.LocalPosition = position;
-		camera.Transform.LocalRotation = rotation;
+		Vector3 position = GetCameraPosition(camera, baseTransform, delta );
+		Rotation rotation = GetCameraRotation(camera, baseTransform, delta );
+
+		camera.Transform.Position = position;
+		camera.Transform.Rotation = rotation;
 
 		float dt = Time.Delta;
 
@@ -51,7 +56,7 @@ public class VehicleCamera : Component, ICameraMode
 	const float TURN_OFFSET_MAX_DISTANCE = 48f;
 	const float TURN_OFFSET_MAX_YAW = -10f;
 	float currentTurnOffset;
-	private Vector3 GetCameraPosition(CameraComponent camera)
+	private Vector3 GetCameraPosition(CameraComponent camera, Transform transform, float delta)
 	{
 		Vector3 position = CameraOffset;
 
@@ -60,20 +65,22 @@ public class VehicleCamera : Component, ICameraMode
 
 		position.y = currentTurnOffset * TURN_OFFSET_MAX_DISTANCE;
 		// Dont let camera go through walls
-		var tr = Scene.Trace.Ray( camera.Transform.World.PointToWorld( CameraOffset ), camera.Transform.World.PointToWorld( position ) )
+		var tr = Scene.Trace.Ray( transform.PointToWorld( CameraOffset ), transform.PointToWorld( position ) )
 							.IgnoreGameObjectHierarchy(Vehicle.GameObject)
 							.WithTag( TraceTags.WORLD )
 							.Run();
-		return camera.Transform.World.PointToLocal(tr.EndPosition);
+
+		return camera.Transform.Position.LerpTo( tr.EndPosition, delta );
 	}
 
-	private Rotation GetCameraRotation()
+	private Rotation GetCameraRotation( CameraComponent camera, Transform transform, float delta )
 	{
 		const float PITCH_OFFSET = 15f;
 
 		float pitch = PITCH_OFFSET;
 		float yaw = currentTurnOffset * TURN_OFFSET_MAX_YAW;
+		yaw += transform.Rotation.Yaw();
 
-		return Rotation.From( pitch, yaw, 0f );
+		return Rotation.Slerp(camera.Transform.Rotation, Rotation.From( pitch, yaw, 0f ), delta );
 	}
 }

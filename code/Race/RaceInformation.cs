@@ -292,16 +292,17 @@ public class RaceInformation
 			objectParticipants.Add( obj, participant );
 		}
 
+		GameObject participantObject;
 		if ( participant.Player.IsBot )
 		{
-			CreateBotObjects( obj, vehicle );
+			participantObject = CreateBotObjects( vehicle );
 		}
 		else
 		{
-			CreatePlayerObjects( obj, vehicle, participant );
+			participantObject = CreatePlayerObjects( vehicle, participant );
 		}
 
-		var input = obj.Components.GetInDescendantsOrSelf<VehicleInputComponent>();
+		var input = participantObject.Components.GetInDescendantsOrSelf<VehicleInputComponent>();
 		input.ParticipantInstance = participantComponent;
 		input.VehicleController = vehicle;
 
@@ -312,25 +313,25 @@ public class RaceInformation
 
 		return obj;
 	}
-	private void CreateBotObjects(GameObject parent, VehicleController controller)
+	private GameObject CreateBotObjects(VehicleController controller)
 	{
 		const string BOT_PREFAB = "prefabs/race_bot.prefab";
 
 		GameObject obj = new();
 		obj.ApplyPrefab( BOT_PREFAB );
-		obj.Parent = parent;
-		obj.Name = "Bot";
+		obj.Name = "Bot ()";
+
+		return obj;
 	}
-	private void CreatePlayerObjects(GameObject parent, VehicleController controller, Participant participant)
+	private GameObject CreatePlayerObjects(VehicleController controller, Participant participant)
 	{
 		const string PLAYER_PREFAB = "prefabs/race_player.prefab";
 		if ( !participant.Player.IsLocal )
-			return;
+			return null;
 
 		GameObject obj = new();
 		obj.ApplyPrefab( PLAYER_PREFAB );
-		obj.Parent = parent;
-		obj.Name = participant.Player.Name;
+		obj.Name = $"Player ({participant.Player.Name})";
 
 		// TODO: This is stupid, we need to make an event system ASAP!
 		if(Story.Active)
@@ -344,6 +345,8 @@ public class RaceInformation
 				}
 			}
 		}
+
+		return obj;
 	}
 
 	/// <summary>
@@ -438,10 +441,8 @@ public class RaceInformation
 
 	void SaveTimeTrial(RaceParticipant participant, List<float> lapTimes, InputRecorder input)
 	{
-		string track = CurrentDefinition.ResourcePath;
-
 		long participantSteamId = (long?)participant.Network.OwnerConnection?.SteamId ?? Game.SteamId;
-		TimeTrialRecording data = new( participantSteamId, track, input.Vehicle.Definition.ResourcePath, CurrentVariables, input.Timestamps, lapTimes );
+		TimeTrialRecording data = new( participantSteamId, CurrentDefinition, input.Vehicle.Definition, CurrentVariables, input.Timestamps, lapTimes );
 		TimeTrialRecording.Write( data );
 
 		TimeTrialLeaderboard.SubmitTime( CurrentDefinition.ResourceName, CurrentVariables, lapTimes.Sum() );
