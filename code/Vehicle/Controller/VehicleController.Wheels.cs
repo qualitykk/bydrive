@@ -28,24 +28,23 @@ public partial class VehicleController
 
 		foreach(var wheel in GetWheels())
 		{
-			Rotation wheelRotation;
-			if(wheel.IsTurning)
+			float yaw = wheel.InitialRotation.Yaw();
+			if (wheel.IsTurning)
 			{
-				wheelRotation = Rotation.From( wheelRevolute, wheelAngle, 0 );
+				wheel.Transform.LocalRotation = Rotation.FromYaw(wheel.InitialRotation.Yaw() + wheelAngle );
+				yaw += wheelAngle;
+			
 			}
-			else
-			{
-				wheelRotation = Rotation.From( wheelRevolute, 0, 0 );
-			}
-
-			wheel.GameObject.Transform.LocalRotation = wheelRotation;
+			wheel.Renderer.SceneObject.Rotation = Rotation.From( wheel.InitialRotation.Pitch() + wheelRevolute, yaw, 0f );
 		}
 	}
 
 	private void RaycastWheels(bool doPhysics, float dt )
 	{
+		/*
 		var tiltAmount = AccelerationTilt * 2.5f;
 		var leanAmount = turnLean * 2.5f;
+		*/
 
 		wheelsOnGround = false;
 		drivingWheelsOnGround = false;
@@ -53,7 +52,7 @@ public partial class VehicleController
 
 		foreach ( var wheel in GetWheels() )
 		{
-			if(wheel.Raycast( tiltAmount + leanAmount, doPhysics, dt ))
+			if(wheel.Raycast( doPhysics, dt ))
 			{
 				wheelsOnGround = true;
 				if ( wheel.IsDriving )

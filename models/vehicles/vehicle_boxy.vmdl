@@ -93,6 +93,7 @@
 					},
 					{
 						_class = "PhysicsShapeCylinder"
+						disabled = true
 						parent_bone = ""
 						surface_prop = "default"
 						collision_tags = "solid wheel"
@@ -102,6 +103,7 @@
 					},
 					{
 						_class = "PhysicsShapeCylinder"
+						disabled = true
 						parent_bone = ""
 						surface_prop = "default"
 						collision_tags = "solid wheel"
@@ -111,6 +113,7 @@
 					},
 					{
 						_class = "PhysicsShapeCylinder"
+						disabled = true
 						parent_bone = ""
 						surface_prop = "default"
 						collision_tags = "solid wheel"
@@ -120,12 +123,29 @@
 					},
 					{
 						_class = "PhysicsShapeCylinder"
+						disabled = true
 						parent_bone = ""
 						surface_prop = "default"
 						collision_tags = "solid wheel"
 						radius = 18.0
 						point0 = [ -70.0, 40.0, 15.0 ]
 						point1 = [ -70.0, 30.0, 15.0 ]
+					},
+				]
+			},
+			{
+				_class = "PhysicsBodyMarkupList"
+				children = 
+				[
+					{
+						_class = "PhysicsBodyMarkup"
+						target_body = "undefined"
+						mass_override = 2000.0
+						inertia_scale = 1.0
+						linear_damping = 0.0
+						angular_damping = 0.0
+						use_mass_center_override = false
+						mass_center_override = [ 0.0, 0.0, 0.0 ]
 					},
 				]
 			},

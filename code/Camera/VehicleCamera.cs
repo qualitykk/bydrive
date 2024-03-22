@@ -17,16 +17,16 @@ public class VehicleCamera : Component, ICameraMode
 	{
 		if ( Vehicle != lastVehicle )
 		{
-			camera.GameObject.Parent = Vehicle?.GameObject;
+			//camera.GameObject.Parent = Vehicle?.GameObject;
 			lastVehicle = Vehicle;
 		}
 
 		if ( Vehicle == null ) return;
 
 		Transform baseTransform = Vehicle.Transform.World;
-		baseTransform.Position = baseTransform.Position.SnapToGrid( 8f, false, false );
+		baseTransform.Position = baseTransform.Position.SnapToGrid( 8f, false, false, true);
 		baseTransform.Rotation = Rotation.FromYaw( baseTransform.Rotation.Yaw() );
-		float delta = 1.0f - MathF.Pow( 0.000001f, Time.Delta);
+		float delta = 1.0f - MathF.Pow( 0.00001f, Time.Delta);
 
 		Vector3 position = GetCameraPosition(camera, baseTransform, delta );
 		Rotation rotation = GetCameraRotation(camera, baseTransform, delta );
