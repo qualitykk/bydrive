@@ -20,7 +20,63 @@
           "go": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
           "component_type": "Rigidbody"
         },
-        "SlowdownSound": "sounds/vehicle/rev.sound"
+        "SlowdownSound": "sounds/vehicle/rev.sound",
+        "Wheels": [
+          {
+            "Renderer": {
+              "_type": "component",
+              "component_id": "66568c78-ad7e-438c-b3ae-9a16d5cfa4f5",
+              "go": "4630f1d1-40e9-491e-818a-877bd99a7726",
+              "component_type": "SkinnedModelRenderer"
+            },
+            "Radius": 22,
+            "Width": 8,
+            "Mass": 8,
+            "IsDriving": true,
+            "IsTurning": true,
+            "InitialPosition": "68.319,37.542,19.409"
+          },
+          {
+            "Renderer": {
+              "_type": "component",
+              "component_id": "8850bb87-ef4c-46ef-aab0-5553a4f50ed4",
+              "go": "32e957c3-5376-4da1-9691-2fc40f756a43",
+              "component_type": "SkinnedModelRenderer"
+            },
+            "Radius": 22,
+            "Width": 8,
+            "Mass": 8,
+            "IsDriving": true,
+            "IsTurning": true,
+            "InitialPosition": "68.465,-37.542,19.409"
+          },
+          {
+            "Renderer": {
+              "_type": "component",
+              "component_id": "54b09465-afdc-48d5-8d8a-42fa6ec4b5c7",
+              "go": "e3389b97-b9a1-4d62-8d32-e8cbde6b0db8",
+              "component_type": "SkinnedModelRenderer"
+            },
+            "Radius": 22,
+            "Width": 8,
+            "Mass": 8,
+            "IsDriving": true,
+            "InitialPosition": "-69.33,37.542,19.409"
+          },
+          {
+            "Renderer": {
+              "_type": "component",
+              "component_id": "8eb4cfad-de00-48ce-b85d-b3c0c1cd3d6d",
+              "go": "370331ae-fb44-4850-b93b-05b17c5940ee",
+              "component_type": "SkinnedModelRenderer"
+            },
+            "Radius": 22,
+            "Width": 8,
+            "Mass": 8,
+            "IsDriving": true,
+            "InitialPosition": "-69.33,-37.542,19.409"
+          }
+        ]
       },
       {
         "__type": "SkinnedModelRenderer",
@@ -36,7 +92,7 @@
         "__guid": "f95c11ab-4742-4074-81f4-1da5333a9d36",
         "AngularDamping": 0,
         "Gravity": true,
-        "LinearDamping": 0,
+        "LinearDamping": 0.1,
         "Locking": {},
         "MassOverride": 2000,
         "MotionEnabled": true,
@@ -62,74 +118,15 @@
     ],
     "Children": [
       {
-        "__guid": "70b21dc4-56fe-42ea-adee-87f872b0acde",
-        "Name": "FrontRight",
-        "Position": "68.46494,-37.54228,19.409",
-        "Rotation": "1,0.0000006715443,0.00000004371139,-0.00000000147638",
-        "Enabled": true,
-        "NetworkMode": 2,
-        "Components": [
-          {
-            "__type": "VehicleWheel",
-            "__guid": "5b57652c-4c7a-45a4-9d06-f05cbdf90d34",
-            "IsDriving": true,
-            "IsTurning": true,
-            "Radius": 24,
-            "Renderer": {
-              "_type": "component",
-              "component_id": "02ae0d29-296f-4f95-9e40-f2a8508896c9",
-              "go": "70b21dc4-56fe-42ea-adee-87f872b0acde",
-              "component_type": "SkinnedModelRenderer"
-            },
-            "Vehicle": {
-              "_type": "component",
-              "component_id": "df67d81f-1cfe-46aa-b208-dc3c2b83787a",
-              "go": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
-              "component_type": "VehicleController"
-            },
-            "Width": 6
-          },
-          {
-            "__type": "SkinnedModelRenderer",
-            "__guid": "02ae0d29-296f-4f95-9e40-f2a8508896c9",
-            "BodyGroups": 18446744073709551615,
-            "CreateBoneObjects": false,
-            "Model": "models/citizen_props/wheel01.vmdl",
-            "RenderType": "On",
-            "Tint": "1,1,1,1"
-          }
-        ]
-      },
-      {
-        "__guid": "ab8cc685-5290-4115-ad3a-5fb2a7b08567",
+        "__guid": "4630f1d1-40e9-491e-818a-877bd99a7726",
         "Name": "FrontLeft",
         "Position": "68.31885,37.54196,19.409",
         "Enabled": true,
         "NetworkMode": 2,
         "Components": [
           {
-            "__type": "VehicleWheel",
-            "__guid": "1549e713-14f7-4b70-9961-0c744979154d",
-            "IsDriving": true,
-            "IsTurning": true,
-            "Radius": 24,
-            "Renderer": {
-              "_type": "component",
-              "component_id": "ce2f5aa5-a76d-4d81-98e4-05e4aa7e456d",
-              "go": "ab8cc685-5290-4115-ad3a-5fb2a7b08567",
-              "component_type": "SkinnedModelRenderer"
-            },
-            "Vehicle": {
-              "_type": "component",
-              "component_id": "df67d81f-1cfe-46aa-b208-dc3c2b83787a",
-              "go": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
-              "component_type": "VehicleController"
-            },
-            "Width": 6
-          },
-          {
             "__type": "SkinnedModelRenderer",
-            "__guid": "ce2f5aa5-a76d-4d81-98e4-05e4aa7e456d",
+            "__guid": "66568c78-ad7e-438c-b3ae-9a16d5cfa4f5",
             "BodyGroups": 18446744073709551615,
             "CreateBoneObjects": false,
             "Model": "models/citizen_props/wheel01.vmdl",
@@ -139,36 +136,16 @@
         ]
       },
       {
-        "__guid": "17d96138-8247-427e-a376-1464ec709df6",
-        "Name": "BackRight",
-        "Position": "-69.33028,-37.54224,19.40883",
-        "Rotation": "1,0.0000006715443,0.00000004371139,-0.000000001476393",
+        "__guid": "32e957c3-5376-4da1-9691-2fc40f756a43",
+        "Name": "FrontRight",
+        "Position": "68.46494,-37.54228,19.409",
+        "Rotation": "1,0.000000000000001910685,0.00000004371139,-0.00000004371139",
         "Enabled": true,
         "NetworkMode": 2,
         "Components": [
           {
-            "__type": "VehicleWheel",
-            "__guid": "7b0f4b22-b158-474a-b5d3-a5f4e377478e",
-            "IsDriving": true,
-            "IsTurning": false,
-            "Radius": 24,
-            "Renderer": {
-              "_type": "component",
-              "component_id": "7b1e3724-e3c6-43c2-a57a-a0ea6119f819",
-              "go": "17d96138-8247-427e-a376-1464ec709df6",
-              "component_type": "SkinnedModelRenderer"
-            },
-            "Vehicle": {
-              "_type": "component",
-              "component_id": "df67d81f-1cfe-46aa-b208-dc3c2b83787a",
-              "go": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
-              "component_type": "VehicleController"
-            },
-            "Width": 6
-          },
-          {
             "__type": "SkinnedModelRenderer",
-            "__guid": "7b1e3724-e3c6-43c2-a57a-a0ea6119f819",
+            "__guid": "8850bb87-ef4c-46ef-aab0-5553a4f50ed4",
             "BodyGroups": 18446744073709551615,
             "CreateBoneObjects": false,
             "Model": "models/citizen_props/wheel01.vmdl",
@@ -178,35 +155,34 @@
         ]
       },
       {
-        "__guid": "15be5a0a-3a05-4d6d-9b4c-3f5586ab6109",
+        "__guid": "e3389b97-b9a1-4d62-8d32-e8cbde6b0db8",
         "Name": "BackLeft",
         "Position": "-69.32976,37.542,19.40883",
         "Enabled": true,
         "NetworkMode": 2,
         "Components": [
           {
-            "__type": "VehicleWheel",
-            "__guid": "7826ab52-5542-4612-b4e2-6d78353a5d2a",
-            "IsDriving": true,
-            "IsTurning": false,
-            "Radius": 24,
-            "Renderer": {
-              "_type": "component",
-              "component_id": "8620f784-0c1c-4c90-84aa-35cd3e507a2f",
-              "go": "15be5a0a-3a05-4d6d-9b4c-3f5586ab6109",
-              "component_type": "SkinnedModelRenderer"
-            },
-            "Vehicle": {
-              "_type": "component",
-              "component_id": "df67d81f-1cfe-46aa-b208-dc3c2b83787a",
-              "go": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
-              "component_type": "VehicleController"
-            },
-            "Width": 6
-          },
+            "__type": "SkinnedModelRenderer",
+            "__guid": "54b09465-afdc-48d5-8d8a-42fa6ec4b5c7",
+            "BodyGroups": 18446744073709551615,
+            "CreateBoneObjects": false,
+            "Model": "models/citizen_props/wheel01.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "370331ae-fb44-4850-b93b-05b17c5940ee",
+        "Name": "BackRight",
+        "Position": "-69.33028,-37.54224,19.40883",
+        "Rotation": "1,0.000000000000001910685,0.00000004371139,-0.00000004371139",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
           {
             "__type": "SkinnedModelRenderer",
-            "__guid": "8620f784-0c1c-4c90-84aa-35cd3e507a2f",
+            "__guid": "8eb4cfad-de00-48ce-b85d-b3c0c1cd3d6d",
             "BodyGroups": 18446744073709551615,
             "CreateBoneObjects": false,
             "Model": "models/citizen_props/wheel01.vmdl",

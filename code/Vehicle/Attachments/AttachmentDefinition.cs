@@ -47,12 +47,9 @@ public static class VehicleStatExtensions
 		else if(mode == VehicleStatChangeMode.Absolute)
 		{
 			stats.MaxSpeed += defaultStats.MaxSpeed - changes.MaxSpeed;
-			stats.Acceleration += defaultStats.Acceleration - changes.Acceleration;
 			stats.MaxHealth += defaultStats.MaxHealth - changes.MaxHealth;
 
 			stats.TurnSpeed += defaultStats.TurnSpeed - changes.TurnSpeed;
-			stats.TurnSpeedIdealDistance += defaultStats.TurnSpeedIdealDistance - changes.TurnSpeedIdealDistance;
-			stats.TurnSpeedVelocityFactor += defaultStats.TurnSpeedVelocityFactor - changes.TurnSpeedVelocityFactor;
 
 			stats.BoostRechargeCooldown += defaultStats.BoostRechargeCooldown - changes.BoostRechargeCooldown;
 			stats.BoostRechargeFactor += defaultStats.BoostRechargeFactor - changes.BoostRechargeFactor;
@@ -63,12 +60,8 @@ public static class VehicleStatExtensions
 		else if(mode == VehicleStatChangeMode.PercentRaw)
 		{
 			stats.MaxSpeed *= 1 + changes.MaxSpeed;
-			stats.Acceleration *= 1 + changes.Acceleration;
 			stats.MaxHealth += changes.MaxHealth;
 			stats.TurnSpeed *= 1 + changes.TurnSpeed;
-			stats.TurnSpeedIdealDistance *= 1 + changes.TurnSpeedIdealDistance;
-			stats.TurnSpeedVelocityFactor *= 1 + changes.TurnSpeedVelocityFactor;
-			stats.BoostRechargeCooldown *= 1 + changes.TurnSpeedVelocityFactor;
 			stats.BoostRechargeFactor *= 1 + changes.BoostRechargeFactor;
 			stats.BoostSpeedMultiplier *= 1 + changes.BoostSpeedMultiplier;
 			stats.BoostAccelerationMultiplier *= 1 + changes.BoostAccelerationMultiplier;
@@ -76,12 +69,9 @@ public static class VehicleStatExtensions
 		else
 		{
 			stats.MaxSpeed *= changes.MaxSpeed / defaultStats.MaxSpeed;
-			stats.Acceleration *= changes.Acceleration / defaultStats.Acceleration;
 			stats.MaxHealth *= changes.MaxHealth / defaultStats.MaxHealth;
 
 			stats.TurnSpeed *= changes.TurnSpeed / defaultStats.TurnSpeed;
-			stats.TurnSpeedIdealDistance *= changes.TurnSpeedIdealDistance / defaultStats.TurnSpeedIdealDistance;
-			stats.TurnSpeedVelocityFactor *= changes.TurnSpeedVelocityFactor / defaultStats.TurnSpeedVelocityFactor;
 
 			stats.BoostRechargeCooldown *= changes.BoostRechargeCooldown / defaultStats.BoostRechargeCooldown;
 			stats.BoostRechargeFactor *= changes.BoostRechargeFactor / defaultStats.BoostRechargeFactor;

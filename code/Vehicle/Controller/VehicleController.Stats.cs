@@ -175,9 +175,11 @@ public partial class VehicleController
 		return maxSpeed * multiplier;
 	}
 	[Category( "Stats" )]
-	public float GetAcceleration()
+	public float GetAcceleration(float speed)
 	{
-		float acceleration = GetStats().Acceleration;
+		float speedFraction = speed / GetMaxSpeed();
+		float accelerationFactor = GetStats().AccelerationCurve.Evaluate( speedFraction );
+		float acceleration = GetStats().Acceleration * accelerationFactor;
 		float multiplier = 1;
 		if(UsingBoost)
 		{
@@ -187,6 +189,7 @@ public partial class VehicleController
 		ApplyTemporaryStatMultipliers( VehicleStatModifiers.ACCELERATION, ref multiplier );
 		return acceleration * multiplier;
 	}
+
 	[Category( "Stats" )]
 	public float GetBoostDuration()
 	{
@@ -228,19 +231,31 @@ public partial class VehicleController
 		return GetStats().TurnSpeed; 
 	}
 	[Category( "Stats" )]
-	public float GetTurnSpeedIdealDistance()
+	public float GetTurnFactor(float speed)
 	{
-		return GetStats().TurnSpeedIdealDistance;
+		float speedFraction = speed / GetMaxSpeed();
+		return GetStats().TurnFactorCurve.Evaluate( speedFraction );
+	}
+	[Category("Stats")]
+	public float GetSpringStrength()
+	{
+		return GetStats().SpringStrength;
 	}
 	[Category( "Stats" )]
-	public float GetTurnSpeedLowVelocityFactor()
+	public float GetSpringDamping()
 	{
-		return GetStats().TurnSpeedLowVelocityFactor;
+		return GetStats().SpringDamping;
 	}
-	[Category( "Stats" )]
-	public float GetTurnSpeedHighVelocityFactor()
+	[Category("Stats")]
+	public float GetGrip()
 	{
-		return GetStats().TurnSpeedVelocityFactor;
+		return GetStats().Grip;
+	}
+	[Category("Stats")]
+	public float GetSlideGrip(float velocity, float maxVelocity = 512f)
+	{
+		float velocityFraction = MathF.Abs(velocity) / maxVelocity;
+		return GetStats().SlidingGripCurve.Evaluate( velocityFraction );
 	}
 	[Category("Stats")]
 	public float GetAngularDamping()
@@ -248,7 +263,6 @@ public partial class VehicleController
 		return GetStats().AngularDamping;
 	}
 
-	[Obsolete("REIMPLEMENT THIS ASAP!")]
 	public Vector3 GetCameraPositionOffset()
 	{
 		return GetStats().CameraPositionOffset;

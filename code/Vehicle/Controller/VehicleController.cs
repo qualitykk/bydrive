@@ -31,6 +31,7 @@ public sealed partial class VehicleController : Component
 		Body.Velocity = Vector3.Zero;
 		Body.AngularVelocity = Vector3.Zero;
 
+		InitialiseWheels();
 		InitialiseCombat();
 		InitialiseAbilities();
 		InitialiseItems();
@@ -69,22 +70,7 @@ public sealed partial class VehicleController : Component
 	private bool canDrive;
 	private float CalculateTurnFactor( float direction, float forwardsSpeed )
 	{
-		const float MAX_TURN_FACTOR = 0.8f;
-		// Turning rate is at its highest a certain forwards speed 
-		// After that, it decreases
-
-		float totalSpeedFraction = forwardsSpeed / GetMaxSpeed();
-
-		float lowSpeedFactor = forwardsSpeed / GetTurnSpeedIdealDistance();
-		lowSpeedFactor = lowSpeedFactor.Remap(0, 1, GetTurnSpeedLowVelocityFactor(), 1);
-
-		float highSpeedFactor = 1.0f - totalSpeedFraction;
-		highSpeedFactor = highSpeedFactor.Remap( 0, 1, GetTurnSpeedHighVelocityFactor(), 1 );
-
-		float factor = direction * lowSpeedFactor * highSpeedFactor;
-		factor = MathF.Abs( factor ).Clamp( 0, MAX_TURN_FACTOR ) * MathF.Sign( factor );
-
-		return factor;
+		return direction * GetTurnFactor(forwardsSpeed);
 	}
 
 	private void Move()
@@ -93,13 +79,6 @@ public sealed partial class VehicleController : Component
 		Rotation rotation = Body.Rotation;
 		float scale = Transform.Scale.z;
 		float maxSpeed = GetMaxSpeed();
-		float baseAcceleration = GetStats().Acceleration;
-		float acceleration = GetAcceleration();
-
-		//Tilting is the forward and backward tilt caused by acceleration or decelleration of the vehicle
-		float targetTilt = 0;
-		//Lean is the rotation around an axis going through the car from back to font, represents the forces caused by turning at high speeds
-		float targetLean = 0;
 
 		//Acceleration direction here appears to simply refer to the input, and therefore the speed.
 		accelerateDirection = ThrottleInput.Clamp( -1, 1 );
@@ -144,8 +123,6 @@ public sealed partial class VehicleController : Component
 				GetParticipant()?.RespawnCancel();
 			}
 
-			/*
-
 			// Turn even when not on ground
 			// Calculate turn factor takes in our turn direction and the absolute value of our velocity this basically all effects how fast we can turn
 			const float TURN_AIR_MULTIPLIER = 0.35f;
@@ -157,28 +134,6 @@ public sealed partial class VehicleController : Component
 			}
 
 			Body.AngularVelocity += rotation * new Vector3( 0f, 0f, turnAmount );
-
-			if ( drivingWheelsOnGround )
-			{
-				const float REVERSING_ACCELERATION_MULTIPLIER = 0.8f;
-				//Basically we're saying as the angle of the cars totaly velocity versus the angle of the cars forward direction approaches 90 degrees
-				//Give us a big boost to the speed of our forward acceleration in order to not loose all momentum when drifting. 
-				var fac = 1.0f;
-				float f = MathF.Pow( 1 - angle, 4f );
-				fac = fac.LerpTo( 10f, f );
-
-				//The speed factor decreases the amount of acceleration we have depending on how fast we're currently going
-				float speedFactor = 1.0f - MathF.Pow( forwardSpeed / maxSpeed, 3.5f );
-				speedFactor = speedFactor.Clamp( 0.0f, 1.0f );
-
-				//Calculate our acceleration based on our input..
-				//Slow down acceleration if going backwards
-				float forwardimpulse = speedFactor * (accelerateDirection < 0f ? baseAcceleration * REVERSING_ACCELERATION_MULTIPLIER : acceleration * fac) * accelerateDirection * dt;
-				//Use this to then get the impulse and apply it to our body's velocity
-				var impulse = rotation * new Vector3( forwardimpulse, 0, 0 );
-				Body.Velocity += impulse;
-			}
-			*/
 		}
 		else
 		{
@@ -190,14 +145,12 @@ public sealed partial class VehicleController : Component
 		}
 
 		// Gets grip (damping delta) based on velocity
-		grip = grip.LerpTo( angle, 1.0f - MathF.Pow( 0.001f, dt ) );
+		turningGrip = turningGrip.LerpTo( angle, 1.0f - MathF.Pow( 0.001f, dt ) );
 
 		//Angular Damping, lerps to 5 based off grip
 		float maxAngularDamping = GetAngularDamping();
 		var angularDamping = 0.0f;
-		angularDamping = angularDamping.LerpTo( maxAngularDamping, grip );
-
-		Body.LinearDamping = 0.01f;
+		angularDamping = angularDamping.LerpTo( maxAngularDamping, turningGrip );
 		Body.AngularDamping = fullyGrounded ? angularDamping : 0.5f;
 
 		//If we're on the ground
@@ -208,28 +161,27 @@ public sealed partial class VehicleController : Component
 			// Get our local velocity
 			localVelocity = rotation.Inverse * Body.Velocity;
 			// Wheel rotation speed
-			WheelSpeed = localVelocity.x;
+			wheelSpeed = localVelocity.x.SnapToGrid(5f);
 
 			airTilt = 0;
 
-			// Forward grip, gets lerped between 0.1 and 0.9 based on whether or not we are breaking
+			// Forward grip, gets lerped between 1x and 9x based on whether or not we are breaking
 			var forwardGrip = 0.1f;
-			forwardGrip = forwardGrip.LerpTo( 0.9f, BreakInput );
+			forwardGrip = forwardGrip.LerpTo( forwardGrip * 9, BreakInput );
 
 			// Get the forward speed then a value representing how close to the 'top speed' we are from 0-1
 			float speedFactor = (forwardSpeed / maxSpeed).Clamp( 0.0f, 1.0f );
 
 			// If we are moving gast enough, we basically make it so our grip is a lot less the closer our velocity 
-			var fac = 0.0f;
+			float turningGripDamping = 0.0f;
 			if ( speedFactor > 0.5f )
 			{
-				float f = (1 - angle);
-				fac = fac.LerpTo( 0.4f, f );
+				turningGripDamping = turningGripDamping.LerpTo( 0.4f, 1 - angle );
 			}
 
 			// Velocity damping function, we pass the current velocity ,rotation, and a vector3 with our grip and forward grip 
 
-			Vector3 dampenedVelocity = VelocityDamping( Body.Velocity, rotation, new Vector3( forwardGrip, grip - fac, 0 ), dt ); ;
+			Vector3 dampenedVelocity = VelocityDamping( Body.Velocity, rotation, new Vector3( forwardGrip, turningGrip - turningGripDamping, 0 ), dt ); ;
 			Body.Velocity = dampenedVelocity;
 		}
 		else
@@ -293,6 +245,32 @@ public sealed partial class VehicleController : Component
 	protected override void DrawGizmos()
 	{
 		const float POSITION_HELPER_RADIUS = 4f;
+		const float FORWARD_HELPER_SIZE = 40f;
+		const float EXTEND_GIZMO_LENGTH = 20f;
 		Gizmo.Draw.SolidSphere( ItemSpawnPosition, POSITION_HELPER_RADIUS );
+
+		if(Wheels != null && Wheels.Any())
+		{
+			foreach ( var wheel in Wheels )
+			{
+				Gizmo.Draw.Color = Color.Magenta;
+				Vector3 wheelPosition = Transform.World.PointToLocal( wheel.InitialPosition );
+				Rotation wheelRotation = Transform.World.RotationToLocal( wheel.InitialRotation );
+
+				Vector3 direction =  wheelRotation.Left * wheel.Width;
+				Gizmo.Draw.SolidCylinder( wheelPosition - direction, wheelPosition + direction, wheel.Radius );
+				Gizmo.Draw.Line( wheelPosition, wheelPosition + wheelRotation.Forward * FORWARD_HELPER_SIZE );
+
+				Gizmo.Draw.Color = Color.Red;
+				float length = wheel.Radius + EXTEND_GIZMO_LENGTH;
+
+				Vector3 wheelAttachPos = wheel.InitialPosition;
+				Vector3 wheelExtend = wheelAttachPos - wheelRotation.Up * (length * Transform.Scale);
+
+				Gizmo.Draw.Line( wheelAttachPos, wheelExtend );
+				Gizmo.Draw.SolidSphere( wheelAttachPos, 4f );
+				Gizmo.Draw.LineSphere( wheelExtend, 4f );
+			}
+		}
 	}
 }

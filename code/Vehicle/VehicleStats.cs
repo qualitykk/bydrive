@@ -27,6 +27,11 @@ public struct VehicleStats
 
 	public float MaxSpeed { get; set; } = DEFAULT_MAX_SPEED;
 	public float Acceleration { get; set; } = DEFAULT_ACCELERATION;
+	/// <summary>
+	/// Acceleration relative to speed
+	/// </summary>
+	public Curve AccelerationCurve { get; set; } = 1f;
+
 	public int MaxHealth { get; set; } = DEFAULT_MAX_HEALTH;
 
 	/// <summary>
@@ -37,36 +42,24 @@ public struct VehicleStats
 	[Category( "Boost" )] public float BoostAccelerationMultiplier { get; set; } = DEFAULT_BOOST_ACCELERATION_FACTOR;
 	[Category( "Boost" )] public float BoostRechargeCooldown { get; set; } = DEFAULT_BOOST_RECHARGE_COOLDOWN;
 	[Category( "Boost" )] public float BoostRechargeFactor { get; set; } = DEFAULT_BOOST_RECHARGE_FACTOR;
-	[Category( "Turning" )] public float TurnSpeed { get; set; } = DEFAULT_TURN_SPEED;
-	[Category( "Turning" )] public float TurnSpeedIdealDistance { get; set; } = DEFAULT_TURN_SPEED_IDEAL_DISTANCE;
+	[Category( "Handling" )] public float TurnSpeed { get; set; } = DEFAULT_TURN_SPEED;
 	/// <summary>
-	/// Turn speed multiplier at 0 speed
+	/// Turn factor relative to speed
 	/// </summary>
-	[Category( "Turning" )] public float TurnSpeedLowVelocityFactor { get; set; } = DEFAULT_TURN_SPEED_LOW_VELOCITY_FACTOR;
+	[Category( "Handling" )] public Curve TurnFactorCurve { get; set; } = 1f;
+	[Category( "Suspension" )] public float SpringStrength { get; set; } = 100f;
+	[Category( "Suspension" )] public float SpringDamping { get; set; } = 50f;
+	[Category( "Suspension" )] public float Grip { get; set; } = 1f;
 	/// <summary>
-	/// Turn speed multiplier at max speed
+	/// Grip relative to speed
 	/// </summary>
-	[Category( "Turning" )] public float TurnSpeedVelocityFactor { get; set; } = DEFAULT_TURN_SPEED_VELOCITY_FACTOR;
-	[Category( "Physics" )] public float AngularDamping { get; set; } = DEFAULT_ANGULAR_DAMPING;
-	[Category( "Visual" )] public Vector3 CameraPositionOffset { get; set; }
-	[Category("Items")] public List<ItemDefinition> BonusItems { get; set; }
+	[Category( "Suspension" )] public Curve SlidingGripCurve { get; set; } = 1f;
+	
+	[Category( "Suspension" )] public float AngularDamping { get; set; } = DEFAULT_ANGULAR_DAMPING;
+	[Category( "Visual" )] public Vector3 CameraPositionOffset { get; set; } = new();
+	[Category( "Items" )] public List<ItemDefinition> BonusItems { get; set; } = new();
 	public VehicleStats()
 	{
-		MaxSpeed = DEFAULT_MAX_SPEED;
-		Acceleration = DEFAULT_ACCELERATION;
-		MaxHealth = DEFAULT_MAX_HEALTH;
-
-		BoostDuration = DEFAULT_BOOST_DURATION;
-		BoostSpeedMultiplier = DEFAULT_BOOST_SPEED_FACTOR;
-		BoostAccelerationMultiplier = DEFAULT_BOOST_ACCELERATION_FACTOR;
-		BoostRechargeCooldown = DEFAULT_BOOST_RECHARGE_COOLDOWN;
-		BoostRechargeFactor = DEFAULT_BOOST_RECHARGE_FACTOR;
-
-		TurnSpeed = DEFAULT_TURN_SPEED;
-		TurnSpeedIdealDistance = DEFAULT_TURN_SPEED_IDEAL_DISTANCE;
-		TurnSpeedLowVelocityFactor = DEFAULT_TURN_SPEED_LOW_VELOCITY_FACTOR;
-		TurnSpeedVelocityFactor = DEFAULT_TURN_SPEED_VELOCITY_FACTOR;
-
-		AngularDamping = DEFAULT_ANGULAR_DAMPING;
+		
 	}
 }

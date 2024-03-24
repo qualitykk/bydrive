@@ -164,6 +164,7 @@
     {
       "__guid": "4e9aa458-2d4a-441e-a1f2-30016bd7893b",
       "Name": "Regular",
+      "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
@@ -475,7 +476,6 @@
               "Name": "pickup_item1",
               "Position": "-256,2944,0",
               "Tags": "pickup,item",
-              "Enabled": true,
               "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
             },
@@ -484,7 +484,6 @@
               "Name": "pickup_item1 (1)",
               "Position": "-128,2944,0",
               "Tags": "pickup,item",
-              "Enabled": true,
               "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
             },
@@ -493,7 +492,6 @@
               "Name": "pickup_item1 (2)",
               "Position": "0,2944,0",
               "Tags": "pickup,item",
-              "Enabled": true,
               "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
             },
@@ -522,7 +520,6 @@
               "Position": "-97.18401,-2816,152.719",
               "Rotation": "-0.00000001734365,0.1091167,0.0000001579968,0.9940289",
               "Tags": "pickup,item",
-              "Enabled": true,
               "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
             },
@@ -532,7 +529,6 @@
               "Position": "-97.1839,-3072,152.719",
               "Rotation": "-0.00000001734365,0.1091167,0.0000001579968,0.9940289",
               "Tags": "pickup,item",
-              "Enabled": true,
               "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
             },
@@ -542,7 +538,6 @@
               "Position": "-97.18385,-3328,152.719",
               "Rotation": "-0.00000001734365,0.1091167,0.0000001579968,0.9940289",
               "Tags": "pickup,item",
-              "Enabled": true,
               "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
             },
@@ -551,7 +546,6 @@
               "Name": "pickup_item1 (13)",
               "Position": "2560,5120,-96",
               "Tags": "pickup,item",
-              "Enabled": true,
               "NetworkMode": 2,
               "__Prefab": "prefabs/pickups/pickup_item1.prefab"
             }
@@ -1214,6 +1208,7 @@
         {
           "__guid": "a96c25e4-ebd6-4a53-89c0-4f25d1294197",
           "Name": "Route B",
+          "Enabled": true,
           "NetworkMode": 2,
           "Components": [
             {
@@ -1738,7 +1733,6 @@
                   "Name": "pickup_item1",
                   "Position": "64,6784,-172",
                   "Tags": "pickup,item",
-                  "Enabled": true,
                   "NetworkMode": 2,
                   "__Prefab": "prefabs/pickups/pickup_item1.prefab"
                 },
@@ -1747,7 +1741,6 @@
                   "Name": "pickup_item1 (1)",
                   "Position": "64,6912,-172",
                   "Tags": "pickup,item",
-                  "Enabled": true,
                   "NetworkMode": 2,
                   "__Prefab": "prefabs/pickups/pickup_item1.prefab"
                 },
@@ -1756,7 +1749,6 @@
                   "Name": "pickup_item1 (2)",
                   "Position": "64,7040,-172",
                   "Tags": "pickup,item",
-                  "Enabled": true,
                   "NetworkMode": 2,
                   "__Prefab": "prefabs/pickups/pickup_item1.prefab"
                 },
@@ -1765,7 +1757,6 @@
                   "Name": "pickup_item1 (3)",
                   "Position": "64,7168,-172",
                   "Tags": "pickup,item",
-                  "Enabled": true,
                   "NetworkMode": 2,
                   "__Prefab": "prefabs/pickups/pickup_item1.prefab"
                 },
@@ -1792,7 +1783,6 @@
                   "Name": "pickup_item1 (4)",
                   "Position": "-2848,2560,84.00006",
                   "Tags": "pickup,item",
-                  "Enabled": true,
                   "NetworkMode": 2,
                   "__Prefab": "prefabs/pickups/pickup_item1.prefab"
                 },
@@ -1801,7 +1791,6 @@
                   "Name": "pickup_item1 (5)",
                   "Position": "-2976,2560,84.00006",
                   "Tags": "pickup,item",
-                  "Enabled": true,
                   "NetworkMode": 2,
                   "__Prefab": "prefabs/pickups/pickup_item1.prefab"
                 },
@@ -1810,7 +1799,6 @@
                   "Name": "pickup_item1 (6)",
                   "Position": "-3104,2560,84.00006",
                   "Tags": "pickup,item",
-                  "Enabled": true,
                   "NetworkMode": 2,
                   "__Prefab": "prefabs/pickups/pickup_item1.prefab"
                 }
@@ -2180,7 +2168,6 @@
     {
       "__guid": "8418c95c-3c79-4905-ad40-be087e3917f0",
       "Name": "Reverse",
-      "Enabled": true,
       "NetworkMode": 2,
       "Components": [
         {
@@ -4376,7 +4363,7 @@
   },
   "Title": "track_backstreet",
   "Description": "",
-  "LastSaved": "2024-03-17T14:55:19.7154232\u002B01:00",
+  "LastSaved": "2024-03-23T16:12:18.331754\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
