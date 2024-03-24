@@ -47,6 +47,7 @@ public static class VehicleStatExtensions
 		else if(mode == VehicleStatChangeMode.Absolute)
 		{
 			stats.MaxSpeed += defaultStats.MaxSpeed - changes.MaxSpeed;
+			stats.Acceleration += defaultStats.Acceleration - changes.Acceleration;
 			stats.MaxHealth += defaultStats.MaxHealth - changes.MaxHealth;
 
 			stats.TurnSpeed += defaultStats.TurnSpeed - changes.TurnSpeed;
@@ -56,19 +57,31 @@ public static class VehicleStatExtensions
 			stats.BoostSpeedMultiplier += defaultStats.BoostSpeedMultiplier - changes.BoostSpeedMultiplier;
 			stats.BoostAccelerationMultiplier += defaultStats.BoostAccelerationMultiplier - changes.BoostAccelerationMultiplier;
 
+			stats.SpringStrength += defaultStats.SpringStrength - changes.SpringStrength;
+			stats.SpringDamping += defaultStats.SpringDamping - changes.SpringDamping;
+			stats.Grip += defaultStats.Grip - changes.Grip;
+
 		}
 		else if(mode == VehicleStatChangeMode.PercentRaw)
 		{
 			stats.MaxSpeed *= 1 + changes.MaxSpeed;
+			stats.Acceleration *= 1 + changes.Acceleration;
 			stats.MaxHealth += changes.MaxHealth;
 			stats.TurnSpeed *= 1 + changes.TurnSpeed;
+
+			stats.BoostRechargeCooldown *= 1 + changes.BoostRechargeCooldown;
 			stats.BoostRechargeFactor *= 1 + changes.BoostRechargeFactor;
 			stats.BoostSpeedMultiplier *= 1 + changes.BoostSpeedMultiplier;
 			stats.BoostAccelerationMultiplier *= 1 + changes.BoostAccelerationMultiplier;
+
+			stats.SpringStrength *= 1 + changes.SpringStrength;
+			stats.SpringDamping *= 1 +  changes.SpringDamping;
+			stats.Grip *= 1 + changes.Grip;
 		}
 		else
 		{
 			stats.MaxSpeed *= changes.MaxSpeed / defaultStats.MaxSpeed;
+			stats.Acceleration *= changes.Acceleration / defaultStats.Acceleration;
 			stats.MaxHealth *= changes.MaxHealth / defaultStats.MaxHealth;
 
 			stats.TurnSpeed *= changes.TurnSpeed / defaultStats.TurnSpeed;
@@ -77,6 +90,10 @@ public static class VehicleStatExtensions
 			stats.BoostRechargeFactor *= changes.BoostRechargeFactor / defaultStats.BoostRechargeFactor;
 			stats.BoostSpeedMultiplier *= changes.BoostSpeedMultiplier / defaultStats.BoostSpeedMultiplier;
 			stats.BoostAccelerationMultiplier *= changes.BoostAccelerationMultiplier / defaultStats.BoostAccelerationMultiplier;
+
+			stats.SpringStrength *= changes.SpringStrength / defaultStats.SpringStrength;
+			stats.SpringDamping *= changes.SpringDamping / defaultStats.SpringDamping;
+			stats.Grip *= changes.Grip / defaultStats.Grip;
 		}
 
 		if(stats.BonusItems != null)
@@ -86,6 +103,11 @@ public static class VehicleStatExtensions
 		else
 		{
 			stats.BonusItems = changes.BonusItems;
+		}
+
+		if(changes.AngularDamping != VehicleStats.DEFAULT_ANGULAR_DAMPING)
+		{
+			stats.AngularDamping = changes.AngularDamping;
 		}
 
 		return stats;
