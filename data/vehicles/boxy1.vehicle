@@ -40,7 +40,7 @@
     "BoostAccelerationMultiplier": 2,
     "BoostRechargeCooldown": 3,
     "BoostRechargeFactor": 0.75,
-    "TurnSpeed": 8,
+    "TurnSpeed": 11,
     "TurnFactorCurve": [
       {
         "in": -3.151514,

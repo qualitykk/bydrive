@@ -122,7 +122,7 @@
     {
       "__guid": "0a80f767-9c5f-4221-887a-3403d6400f75",
       "Name": "Respawn (1)",
-      "Position": "-4576,5408,-32",
+      "Position": "-5408,4928,-32.00005",
       "Enabled": true,
       "NetworkMode": 2,
       "Components": [
@@ -135,7 +135,7 @@
           "__guid": "3c27e767-5ae0-4a83-9712-c88763919839",
           "Center": "0,0,0",
           "IsTrigger": true,
-          "Scale": "5000,2000,50",
+          "Scale": "7000,5000,50",
           "Static": false
         }
       ]
@@ -5351,7 +5351,7 @@
   },
   "Title": "track_forest",
   "Description": "",
-  "LastSaved": "2024-03-20T01:28:01.1910604\u002B01:00",
+  "LastSaved": "2024-03-24T23:53:37.4847884\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
