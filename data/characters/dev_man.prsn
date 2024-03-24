@@ -1,6 +1,11 @@
 {
   "Name": "Manuel Entwicklung",
   "WorldModel": "models/humans/male.vmdl",
-  "PreferredVehicles": [],
+  "ExpressionImages": {},
+  "PreferredVehicles": [
+    "data/vehicles/boxy1.vehicle"
+  ],
+  "ResourceVersion": 0,
+  "__version": 0,
   "__references": []
 }

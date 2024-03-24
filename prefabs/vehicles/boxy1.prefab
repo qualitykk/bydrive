@@ -31,7 +31,7 @@
             },
             "Radius": 22,
             "Width": 8,
-            "Mass": 8,
+            "Mass": 15,
             "IsDriving": true,
             "IsTurning": true,
             "InitialPosition": "68.319,37.542,19.409"
@@ -45,7 +45,7 @@
             },
             "Radius": 22,
             "Width": 8,
-            "Mass": 8,
+            "Mass": 15,
             "IsDriving": true,
             "IsTurning": true,
             "InitialPosition": "68.465,-37.542,19.409"
@@ -59,7 +59,7 @@
             },
             "Radius": 22,
             "Width": 8,
-            "Mass": 8,
+            "Mass": 15,
             "IsDriving": true,
             "InitialPosition": "-69.33,37.542,19.409"
           },
@@ -72,7 +72,7 @@
             },
             "Radius": 22,
             "Width": 8,
-            "Mass": 8,
+            "Mass": 15,
             "IsDriving": true,
             "InitialPosition": "-69.33,-37.542,19.409"
           }
@@ -92,7 +92,7 @@
         "__guid": "f95c11ab-4742-4074-81f4-1da5333a9d36",
         "AngularDamping": 0,
         "Gravity": true,
-        "LinearDamping": 0.1,
+        "LinearDamping": 0.2,
         "Locking": {},
         "MassOverride": 2000,
         "MotionEnabled": true,

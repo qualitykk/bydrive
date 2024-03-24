@@ -34,7 +34,7 @@ public class VehicleDefinition : GameResource, IPrefabProvider
 	public List<AttachmentSlotPosition> AttachmentSlots { get; set; }
 	public override string ToString()
 	{
-		return Title;
+		return Title ?? ResourcePath;
 	}
 }
 

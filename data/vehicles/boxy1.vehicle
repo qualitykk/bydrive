@@ -19,13 +19,19 @@
       },
       {
         "x": 0.5014881,
-        "y": 0.9069149,
+        "y": 1,
         "in": -0.0333337,
         "out": 0.0333337
       },
       {
+        "x": 0.7,
+        "y": 0.5,
+        "in": 1.0641909,
+        "out": -1.0641909
+      },
+      {
         "x": 1,
-        "y": 0.24734043
+        "y": 0.25
       }
     ],
     "MaxHealth": 4,
@@ -34,11 +40,11 @@
     "BoostAccelerationMultiplier": 2,
     "BoostRechargeCooldown": 3,
     "BoostRechargeFactor": 0.75,
-    "TurnSpeed": 15,
+    "TurnSpeed": 8,
     "TurnFactorCurve": [
       {
-        "in": -1.5087714,
-        "out": 1.5087714
+        "in": -3.151514,
+        "out": 3.151514
       },
       {
         "x": 0.55,
@@ -46,16 +52,20 @@
       },
       {
         "x": 1,
-        "y": 0.5
+        "y": 0.6
       }
     ],
-    "SpringStrength": 2000,
+    "SpringStrength": 2500,
     "SpringDamping": 250,
-    "Grip": 1,
+    "Grip": 12,
     "SlidingGripCurve": [
       {
         "x": 0.5,
         "y": 1
+      },
+      {
+        "x": 0.667,
+        "y": 0.33300003
       }
     ],
     "AngularDamping": 12,

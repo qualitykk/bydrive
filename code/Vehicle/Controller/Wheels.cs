@@ -59,19 +59,26 @@ public partial class VehicleController
 
 		foreach(var wheel in Wheels)
 		{
+			Angles initialRotation = wheel.InitialRotation;
 			Angles displayAngles = wheel.InitialModelRotation;
 			if (wheel.IsTurning)
 			{
-				wheel.Transform.Rotation = wheel.Transform.Rotation.Angles().WithYaw( wheel.InitialRotation.yaw + wheelAngle );
+				wheel.Transform.Rotation = initialRotation.WithYaw( initialRotation.yaw + wheelAngle );
 				displayAngles.yaw += wheelAngle;
 			}
+			else
+			{
+				wheel.Transform.Rotation = initialRotation;
+			}
+			wheel.Renderer.Transform.LocalPosition = wheel.Transform.Position;
 			wheel.Renderer.Transform.LocalRotation = displayAngles.WithPitch( wheelRevolute);
-			//wheel.Renderer.Transform.LocalPosition = wheel.Transform.Position;
 		}
 	}
 
 	private void RaycastWheels(bool doPhysics, float dt )
 	{
+		const float ACCELERATION_REVERSE_FACTOR = 0.4f;
+
 		wheelsOnGround = false;
 		drivingWheelsOnGround = false;
 		turningWheelsOnGround = false;
@@ -96,8 +103,10 @@ public partial class VehicleController
 
 			PhysicsBody physics = Rigidbody.PhysicsBody;
 			Vector3 wheelAttachPosition = Transform.World.PointToWorld( wheel.InitialPosition );
+			Rotation wheelRotation = Transform.World.RotationToWorld(wheel.Transform.Rotation);
 
-			wheel.Transform.Position = tr.EndPosition + Vector3.Up * wheel.Radius;
+			wheel.Transform.Position = Transform.World.PointToLocal(tr.EndPosition + Vector3.Up * wheel.Radius);
+
 			// Spring Forces
 			float springStrength = GetSpringStrength();
 			float stringDamping = GetSpringDamping();
@@ -106,13 +115,12 @@ public partial class VehicleController
 			Vector3 localVelocity = Transform.Local.VelocityToLocal( velocity );
 			Vector3 springDirection = Rigidbody.Transform.Rotation.Up;
 
-			Vector3 forward = Transform.Rotation.Forward;
+			Vector3 forward = wheelRotation.Forward;
 			float forwardVelocity = localVelocity.x;
 
 			float springFraction = 1 - tr.Fraction; // What fraction of the wheel is below ground
 			float springOffset = springFraction * wheel.Radius;
 			float springVelocity = localVelocity.z;
-			//Log.Info( $"{springOffset}" );
 
 			float springForce = (springOffset * springStrength) - (springVelocity * stringDamping);
 
@@ -120,16 +128,15 @@ public partial class VehicleController
 
 			// Correction / Steering force
 
-			Vector3 steerDirection = wheel.Transform.Rotation.Right;
-			float steerVelocity = localVelocity.y;
+			Vector3 steerDirection = wheelRotation.Right;
+			float steerVelocity = velocity.Dot( steerDirection );
 			float tireGrip = GetSlideGrip( steerVelocity );
 			if ( BreakInput > 0f )
 			{
 				tireGrip *= BreakInput.Remap( 0, 1, 1, 3 );
 			}
 
-			float correctionForce = -steerVelocity * tireGrip;
-			//Gizmo.Draw.WorldText( $"{steerVelocity:00.0}", new( wheel.Transform.Position + Vector3.Up * 130, Rotation.FromRoll( 90f ) ) );
+			float correctionForce = -steerVelocity * tireGrip / Time.Delta;
 
 			physics.ApplyForceAt( wheelAttachPosition, steerDirection * wheel.Mass * correctionForce );
 
@@ -141,6 +148,11 @@ public partial class VehicleController
 				if ( throttle != 0 )
 				{
 					float acceleration = GetAcceleration( forwardVelocity );
+					if(throttle < 0)
+					{
+						//acceleration *= ACCELfewdsadwaERATION_REVERSE_FACTOR;
+					}
+
 					float torque = acceleration * throttle * 10;
 					physics.ApplyImpulseAt( wheelAttachPosition, torque * forward );
 				}

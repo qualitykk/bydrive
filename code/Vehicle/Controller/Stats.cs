@@ -255,7 +255,7 @@ public partial class VehicleController
 	public float GetSlideGrip(float velocity, float maxVelocity = 512f)
 	{
 		float velocityFraction = MathF.Abs(velocity) / maxVelocity;
-		return GetStats().SlidingGripCurve.Evaluate( velocityFraction );
+		return GetStats().SlidingGripCurve.Evaluate( velocityFraction ) * GetGrip();
 	}
 	[Category("Stats")]
 	public float GetAngularDamping()

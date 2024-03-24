@@ -4,10 +4,10 @@
   "Description": "Test against some bots on Backstreets A.",
   "RewardDisplay": "- Sense of Pride\n- Sense of Accomplishment\n- Idk",
   "OnComplete": {
-    "Version": 5,
+    "__version": 5,
+    "__guid": "58c3a86b-aa41-4f66-876e-8a700cf4f194",
     "UserData": {
       "Title": "On Complete",
-      "id": "58c3a86b-aa41-4f66-876e-8a700cf4f194",
       "ReferencedComponentTypes": []
     },
     "Variables": [],
@@ -79,24 +79,24 @@
     },
     {
       "Name": "Extra Bot 1",
-      "Vehicle": "data/vehicles/devcar1.vehicle",
+      "Vehicle": "data/vehicles/boxy1.vehicle",
       "NameOverride": "Extra Bot 1",
-      "VehicleOverride": "data/vehicles/devcar1.vehicle"
+      "VehicleOverride": "data/vehicles/boxy1.vehicle"
     },
     {
       "Name": "Extra Bot 2",
-      "Vehicle": "data/vehicles/devcar1.vehicle",
+      "Vehicle": "data/vehicles/boxy1.vehicle",
       "NameOverride": "Extra Bot 2",
-      "VehicleOverride": "data/vehicles/devcar1.vehicle"
+      "VehicleOverride": "data/vehicles/boxy1.vehicle"
     },
     {
       "Name": "Extra Bot 3",
-      "Vehicle": "data/vehicles/devcar1.vehicle",
+      "Vehicle": "data/vehicles/boxy1.vehicle",
       "NameOverride": "Extra Bot 3",
-      "VehicleOverride": "data/vehicles/devcar1.vehicle"
+      "VehicleOverride": "data/vehicles/boxy1.vehicle"
     }
   ],
-  "IsSingle": true,
-  "IsRace": true,
+  "ResourceVersion": 0,
+  "__version": 0,
   "__references": []
 }

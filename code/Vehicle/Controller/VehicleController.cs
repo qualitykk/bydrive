@@ -19,6 +19,10 @@ public sealed partial class VehicleController : Component
 	{
 		return GameObject.Components.GetInDescendantsOrSelf<RaceParticipant>();
 	}
+	protected override void OnStart()
+	{
+		Reset();
+	}
 	public override void Reset()
 	{
 		if(Rigidbody == null)
@@ -64,9 +68,6 @@ public sealed partial class VehicleController : Component
 
 	#region Movement
 
-	private float turnLean;
-	private float airTilt;
-
 	private bool canDrive;
 	private float CalculateTurnFactor( float direction, float forwardsSpeed )
 	{
@@ -84,9 +85,6 @@ public sealed partial class VehicleController : Component
 		accelerateDirection = ThrottleInput.Clamp( -1, 1 );
 		TurnDirection = TurnDirection.LerpTo( TurnInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.0003f, dt ) );
 
-		//Same as above, but for the roll and tilt inpuuts, slower than turning.
-		airTilt = airTilt.LerpTo( TiltInput.Clamp( -1, 1 ), 1.0f - MathF.Pow( 0.0001f, dt ) );
-
 		Vector3 localVelocity = Transform.Local.VelocityToLocal(Body.Velocity);
 		float forwardSpeed = MathF.Abs(localVelocity.x);
 
@@ -94,9 +92,6 @@ public sealed partial class VehicleController : Component
 		bool fullyGrounded = drivingWheelsOnGround && turningWheelsOnGround;
 
 		UpdateWheels();
-
-		//Set a local variable for if we can use air control
-		bool canAirControl = false;
 
 		//This is the lateral velocity of the car without its z component. Multiplied by the rotation to get its velocity relative to the vehicle
 		Vector3 relativeVelocity = rotation * localVelocity.WithZ( 0 );
@@ -125,7 +120,7 @@ public sealed partial class VehicleController : Component
 
 			// Turn even when not on ground
 			// Calculate turn factor takes in our turn direction and the absolute value of our velocity this basically all effects how fast we can turn
-			const float TURN_AIR_MULTIPLIER = 0.35f;
+			const float TURN_AIR_MULTIPLIER = 0.1f;
 			float turnSpeed = GetTurnSpeed();
 			float turnAmount = MathF.Sign( localVelocity.x ) * turnSpeed * CalculateTurnFactor( TurnDirection, MathF.Abs( localVelocity.x ) ) * dt;
 			if (!turningWheelsOnGround )
@@ -163,8 +158,6 @@ public sealed partial class VehicleController : Component
 			// Wheel rotation speed
 			wheelSpeed = localVelocity.x.SnapToGrid(5f);
 
-			airTilt = 0;
-
 			// Forward grip, gets lerped between 1x and 9x based on whether or not we are breaking
 			var forwardGrip = 0.1f;
 			forwardGrip = forwardGrip.LerpTo( forwardGrip * 9, BreakInput );
@@ -192,30 +185,6 @@ public sealed partial class VehicleController : Component
 			var tr = Scene.Trace.Ray( tracePosition, tracePosition + rotation.Down * 50 )
 				.IgnoreGameObject( GameObject )
 				.Run();
-
-			canAirControl = !tr.Hit;
-		}
-
-		if ( canAirControl && airTilt != 0 )
-		{
-			float offset = 50;
-			Vector3 center = Body.MassCenter;
-			var tr = Scene.Trace.Ray( center, center + rotation.Right * (40 * scale) )
-				.IgnoreGameObject( GameObject )
-				.Run();
-
-			bool dampen = false;
-
-			if ( !tr.Hit && airTilt.Clamp( -1, 1 ) != 0 )
-			{
-				const float AIR_FORCE = 100.0f;
-				Body.ApplyForceAt( Body.MassCenter + rotation.Forward * (offset * airTilt), (rotation.Down * airTilt) * (airTilt * (Body.Mass * AIR_FORCE)) );
-
-				dampen = true;
-			}
-
-			if ( dampen )
-				Body.AngularVelocity = VelocityDamping( Body.AngularVelocity, rotation, 0.95f, dt );
 		}
 
 		localVelocity = rotation.Inverse * Body.Velocity;
@@ -254,11 +223,18 @@ public sealed partial class VehicleController : Component
 			foreach ( var wheel in Wheels )
 			{
 				Gizmo.Draw.Color = Color.Magenta;
-				Vector3 wheelPosition = Transform.World.PointToLocal( wheel.InitialPosition );
-				Rotation wheelRotation = Transform.World.RotationToLocal( wheel.InitialRotation );
+				Vector3 wheelPosition = wheel.InitialPosition;
+				Rotation wheelRotation = wheel.InitialRotation;
 
-				Vector3 direction =  wheelRotation.Left * wheel.Width;
-				Gizmo.Draw.SolidCylinder( wheelPosition - direction, wheelPosition + direction, wheel.Radius );
+				/*
+				Transform debugTransform = wheel.Transform;
+				debugTransform.Position += Vector3.Up * 80f;
+				debugTransform.Rotation = Rotation.From( 0, 90f, 90f );
+				Gizmo.Draw.WorldText( $"{wheel.Transform.Rotation.Yaw()}", debugTransform, size: 10 );
+				*/
+
+				Vector3 wheelSize = wheelRotation.Left * wheel.Width;
+				Gizmo.Draw.SolidCylinder( wheelPosition - wheelSize, wheelPosition + wheelSize, wheel.Radius );
 				Gizmo.Draw.Line( wheelPosition, wheelPosition + wheelRotation.Forward * FORWARD_HELPER_SIZE );
 
 				Gizmo.Draw.Color = Color.Red;
