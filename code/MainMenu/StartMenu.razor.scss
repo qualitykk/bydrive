@@ -45,7 +45,6 @@ StartMenu {
 				font-weight: bold;
 				text-shadow: 2px 2px 4px $branding_red;
 			}
-
 		}
 
 		.footer {
@@ -76,6 +75,7 @@ StartMenu {
 
 	&.bg-image {
 		background-image: url(ui/menubackground.png);
+		background-size: 100%;
 	}
 
 	&.bg-fade {

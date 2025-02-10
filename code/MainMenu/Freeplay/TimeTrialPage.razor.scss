@@ -99,10 +99,6 @@ TimeTrialPage {
             pointer-events: all;
             box-shadow: 5px -5px 1px $highlight_dark;
 
-            // REMOVE STYLES BELOW WHEN TIMES WORK AGAIN
-            filter: blur(25px);
-            pointer-events: none;
-
             &:hover {
                 background-color: #999999;
             }

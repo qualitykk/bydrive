@@ -28,7 +28,7 @@ public class ModelPreviewPanel : ScenePanel
 	private Model requestedModel;
 	private Model currentModel;
 	private SceneModel sceneModel;
-
+	private SceneDirectionalLight light;
 	public ModelPreviewPanel() : base()
 	{
 		Camera.World = new();
@@ -37,7 +37,7 @@ public class ModelPreviewPanel : ScenePanel
 	{
 		Camera.Position = CameraPosition;
 		Camera.Angles = CameraAngles;
-		new SceneDirectionalLight( World, Rotation.LookAt( Vector3.Down ), LightingColor );
+		World.AmbientLightColor = LightingColor;
 	}
 	public override void Tick()
 	{
