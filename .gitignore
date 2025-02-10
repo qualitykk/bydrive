@@ -27,3 +27,4 @@ materials/hidden/*
 *.sln
 
 *idea
+/.sbox
