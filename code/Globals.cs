@@ -8,7 +8,7 @@ using Sandbox.UI;
 namespace Bydrive;
 internal static class Globals
 {
-	public const string VERSION = "ALPHA 2.0.0";
+	public const string VERSION = "ALPHA 2.0.1";
 	public static class Soundtrack
 	{
 		public const string RACE_WIN = "sounds/music/menu_race_win.sound";

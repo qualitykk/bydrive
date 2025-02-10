@@ -13,10 +13,18 @@ public partial class RaceIntro
 	RealTimeSince timeSinceStartDraw;
 	bool startedDraw;
 	bool finishedDraw;
+	public void Reset()
+	{
+		startedDraw = false;
+		finishedDraw = false;
+	}
 	public void Stop()
 	{
+		if ( Race == null ) return;
+
 		finishedDraw = true;
-		Race?.Start();
+		Race.Start();
+		Race.OnAllFinished += Reset;
 	}
 	public override void Tick()
 	{
