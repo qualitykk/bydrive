@@ -37,7 +37,12 @@
 					<label class="entry @UI.ActiveIf(timeDisplay == 1)" @onclick=@(() => OnTimeDisplaySelected(1))>Friends</label>
 					<label class="entry @UI.ActiveIf(timeDisplay == 2)" @onclick=@(() => OnTimeDisplaySelected(2))>Local</label>
 				</div>
+				
 				<div class="times flex-col">
+					<label class="message">
+						Leaderboards are disabled right now, sorry!
+					</label>
+					<!--
 					@{
 						int placement = 0;
 						var trialData = GetTimeTrials();
@@ -46,9 +51,8 @@
 					{
 						@foreach(ITimeTrialData entry in trialData.OrderBy(d => d.TotalTime))
 						{
-							@{
-								placement++;
-							}
+							placement++;
+
 							<div class="entry @GetTimeTrialEntryClasses(entry)" @onclick=@(() => OnTimeTrialEntrySelected(entry))>
 								<label class="placement @GetPlacementClass(placement)">@placement</label>
 								<label class="player @GetPlacementClass(placement)">@entry.PlayerName</label>
@@ -57,6 +61,7 @@
 							</div>
 						}
 					}
+					-->
 				</div>
 			</div>
 		}

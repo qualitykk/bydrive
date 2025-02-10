@@ -14,7 +14,7 @@ public class OverworldController : Component
 	[Property] public float Speed { get; set; } = 220f;
 	[Property] public float RotationSpeed { get; set; } = 5f;
 	[Property] public Vector3 CameraOffset { get; set; }
-	public Vector3 CameraCenter => Transform.Position.WithZ( CameraOffset.z );
+	public Vector3 CameraCenter => WorldPosition.WithZ( CameraOffset.z );
 	Rotation cameraRotation;
 
 	Vector3 wishVelocity;
@@ -24,8 +24,8 @@ public class OverworldController : Component
 	RealTimeSince lastUngrounded;
 	protected override void OnStart()
 	{
-		cameraRotation = Transform.Rotation;
-		wishRotation = Transform.Rotation;
+		cameraRotation = WorldRotation;
+		wishRotation = WorldRotation;
 	}
 	float GetFriction()
 	{
@@ -118,7 +118,7 @@ public class OverworldController : Component
 		{
 			wishRotation = Rotation.LookAt( wishVelocity );
 		}
-		Transform.Rotation = Rotation.Slerp(Transform.Rotation, wishRotation, Time.Delta * RotationSpeed);
+		WorldRotation = Rotation.Slerp(WorldRotation, wishRotation, Time.Delta * RotationSpeed);
 	}
 	public bool CanMove()
 	{
@@ -129,7 +129,7 @@ public class OverworldController : Component
 		CameraComponent camera = Game.ActiveScene.Camera;
 		if ( camera == null ) return;
 
-		Vector3 targetCameraPos = Transform.Position + CameraOffset * cameraRotation;
+		Vector3 targetCameraPos = WorldPosition + CameraOffset * cameraRotation;
 
 		/*
 		// TODO Dont allow camera to go through walls
@@ -148,11 +148,11 @@ public class OverworldController : Component
 		// smooth view z, so when going up and down stairs or ducking, it's smooth af
 		if ( lastUngrounded > 0.2f )
 		{
-			targetCameraPos.z = camera.Transform.Position.z.LerpTo( targetCameraPos.z, RealTime.Delta * 25.0f );
+			targetCameraPos.z = camera.WorldPosition.z.LerpTo( targetCameraPos.z, RealTime.Delta * 25.0f );
 		}
 
-		camera.Transform.Position = targetCameraPos;
-		camera.Transform.Rotation = cameraRotation;
+		camera.WorldPosition = targetCameraPos;
+		camera.WorldRotation = cameraRotation;
 		camera.FieldOfView = 90f;
 	}
 

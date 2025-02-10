@@ -13,7 +13,7 @@ public class OverworldInteraction : Component, IInteractible
 	[Property] public BBox InteractionBounds { get; set; } = BBox.FromPositionAndSize( Vector3.Zero, 64f );
 	[Property] public Action Interaction { get; set; }
 
-	Vector3 IInteractible.Position => Transform.Position;
+	Vector3 IInteractible.Position => WorldPosition;
 
 	BBox IInteractible.Bounds => InteractionBounds;
 

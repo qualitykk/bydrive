@@ -8,14 +8,14 @@ namespace Bydrive;
 
 public partial class RaceResults : PanelComponent
 {
-	private IReadOnlyDictionary<RaceInformation.Participant, int> oldScores;
-	private IReadOnlyDictionary<RaceInformation.Participant, int> scores;
-	private List<KeyValuePair<RaceInformation.Participant, int>> totalPlacement;
+	private IReadOnlyDictionary<RoundParticipant, int> oldScores;
+	private IReadOnlyDictionary<RoundParticipant, int> scores;
+	private List<KeyValuePair<RoundParticipant, int>> totalPlacement;
 	private bool showScores = false;
 	private bool finished => Race?.IsFinished ?? false;
 	private bool ShouldDraw()
 	{
-		return Race != null && Race.HasParticipantFinished( GetLocalParticipantInstance() );
+		return Race != null && Race.HasParticipantFinished( GetLocalParticipant() );
 	}
 
 	private IReadOnlyList<RaceManager.ParticipantFinishInformation> GetPlacements()
@@ -72,5 +72,5 @@ public partial class RaceResults : PanelComponent
 		Race.Setup(true);
 	}
 
-	protected override int BuildHash() => HashCode.Combine( GetPlacements(), GetPlacements().Count, ShouldDraw() );
+	protected override int BuildHash() => HashCode.Combine( GetPlacements(), GetPlacements()?.Count, ShouldDraw() );
 }

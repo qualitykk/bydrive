@@ -3,15 +3,12 @@
   "Type": "game",
   "Org": "based",
   "Ident": "bydrive",
-  "Tags": null,
   "Schema": 1,
-  "HasAssets": true,
-  "AssetsPath": "/",
+  "IncludeSourceFiles": false,
   "Resources": "/fonts/*\n/UI/*",
-  "HasCode": true,
-  "CodePath": "/code/",
   "PackageReferences": [],
   "EditorReferences": null,
+  "IsWhitelistDisabled": false,
   "Metadata": {
     "MaxPlayers": 16,
     "MinPlayers": 1,
@@ -41,56 +38,6 @@
     "ControlModes": {
       "Keyboard": true,
       "Gamepad": true
-    },
-    "InputSettings": {
-      "Actions": [
-        {
-          "Name": "Forward",
-          "KeyboardCode": "W",
-          "GamepadCode": "A",
-          "GroupName": "Movement"
-        },
-        {
-          "Name": "Backward",
-          "KeyboardCode": "S",
-          "GroupName": "Movement"
-        },
-        {
-          "Name": "Left",
-          "KeyboardCode": "A",
-          "GroupName": "Movement"
-        },
-        {
-          "Name": "Right",
-          "KeyboardCode": "D",
-          "GroupName": "Movement"
-        },
-        {
-          "Name": "Break",
-          "KeyboardCode": "space",
-          "GamepadCode": "B",
-          "GroupName": "Movement"
-        },
-        {
-          "Name": "Boost",
-          "KeyboardCode": "shift",
-          "GamepadCode": "LeftTrigger",
-          "GroupName": "Movement"
-        },
-        {
-          "Name": "Respawn",
-          "KeyboardCode": "r",
-          "GamepadCode": "X",
-          "GroupName": "Actions"
-        },
-        {
-          "Name": "Item",
-          "KeyboardCode": "e",
-          "GamepadCode": "RightTrigger",
-          "GroupName": "Actions"
-        }
-      ],
-      "__guid": "5e1eaf89-977c-4fdb-af00-c6f76b362d35"
     },
     "LaunchMode": "Normal"
   }

@@ -8,7 +8,7 @@ using Sandbox.UI;
 namespace Bydrive;
 internal static class Globals
 {
-	public const string VERSION = "ALPHA 1.0.0";
+	public const string VERSION = "ALPHA 2.0.0";
 	public static class Soundtrack
 	{
 		public const string RACE_WIN = "sounds/music/menu_race_win.sound";
@@ -22,8 +22,8 @@ internal static class Globals
 	private static VehiclePlayerInput lastLocalInput;
 	private static UserSettings localSettings;
 	public static Panel ActiveMenu { get; internal set; }
-	public static RaceManager Race => RaceManager.Current;
-	public static RaceInformation RaceContext => RaceInformation.Current;
+	public static RaceManager Race => RaceManager.Instance;
+	public static RoundInformation RaceContext => RoundInformation.Current;
 	public static TrackMusicParameters RaceMusic => RaceContext?.CurrentMusic ?? new();
 	public static SaveFile CurrentSave => Story.Progress;
 	public static UserSettings Settings 
@@ -54,9 +54,9 @@ internal static class Globals
 	{
 		return GetLocalInput()?.VehicleController;
 	}
-	public static RaceParticipant GetLocalParticipantInstance()
+	public static RaceParticipant GetLocalParticipant()
 	{
-		return GetLocalInput()?.ParticipantInstance;
+		return GetLocalInput()?.Participant;
 	}
 	public static string GetLocalName()
 	{
@@ -146,6 +146,7 @@ internal static class UI
 	{
 		return Game.ActiveScene.Components.GetAll<PanelComponent>( FindMode.EverythingInSelfAndDescendants).Where( p => p is IRaceHudPanel );
 	}
+	/*
 	public static void ShowRaceHUD()
 	{
 		foreach(var panel in GetRaceHudElements() )
@@ -160,6 +161,7 @@ internal static class UI
 			panel.Enabled = false;
 		}
 	}
+	*/
 	public static string FormatRoute(string value)
 	{
 		string[] parts = value.Split( '_' );

@@ -22,6 +22,6 @@ public class UserSettings
 	{
 		Cookie.Set( SETTINGS_KEY, this );
 
-		GameSound.Update();
+		SoundManager.Instance.Update();
 	}
 }

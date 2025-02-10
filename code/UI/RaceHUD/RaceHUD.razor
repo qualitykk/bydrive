@@ -1,0 +1,37 @@
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Bydrive
+
+<root class="@UI.ActiveIf(Race != null && Race.HasLoaded)">
+	<RaceStartCountdown StartTextFade=@StartTextFade CountdownTime=@CountdownTime />
+	<RaceIntro />
+	<RaceMenu />
+
+	@if (Race != null && Race.HasLoaded && Race.HasCountdownStarted)
+	{
+		@if(Race.HasParticipantFinished(GetLocalParticipant()))
+		{
+			<RacePlacement />
+		}
+		else
+		{
+			<CurrentItem />
+			<LapCompletion />
+			<RaceNotifications />
+			<RaceTimer />
+			<Speedometer />
+			<VehicleHealth />
+		}
+	}
+		
+</root>
+
+@code {
+	[Property] public float StartTextFade { get; set; } = 2f;
+	[Property] public float CountdownTime { get; set; } = 3f;
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine(Race, Race?.HasLoaded, Race?.HasSetup, Race?.HasCountdownStarted, Race?.FinishedParticipants);
+	}
+}

@@ -1,0 +1,30 @@
+{
+  "Name": "Crossing",
+  "Group": "Forest",
+  "Visible": true,
+  "Scene": "scenes/track_forest.scene",
+  "Variables": [
+    {
+      "Key": "route",
+      "Values": [
+        "a",
+        "b",
+        "a_reverse",
+        "b_reverse"
+      ],
+      "Required": true,
+      "Title": "Route"
+    }
+  ],
+  "Parameters": {
+    "MaxLaps": 2,
+    "Mode": "None"
+  },
+  "Music": {
+    "RaceMusic": null,
+    "RaceMusicVolume": -1,
+    "RaceStartWait": 3.8
+  },
+  "__references": [],
+  "__version": 0
+}

@@ -28,10 +28,6 @@ creditspage {
                 height: 400px;
             }
 
-            &.attribution {
-                margin: 10px 20px 20px 10px;
-                height: 200px;
-            }
 
             .avatar {
                 margin: 5px;
@@ -59,6 +55,19 @@ creditspage {
                 justify-content: center;
                 text-align: center;
                 font-size: 35px;
+            }
+
+            &.attribution {
+                margin: 10px 20px 20px 10px;
+                height: 200px;
+
+                .person label {
+                    font-size: 30px;
+                }
+
+                label {
+                    font-size: 20px;
+                }
             }
         }
     }

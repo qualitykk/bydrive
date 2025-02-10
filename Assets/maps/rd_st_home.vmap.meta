@@ -1,0 +1,26 @@
+{
+  "publish": {
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "rd_st_home",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "rd_st_home",
+      "Schema": 0,
+      "IncludeSourceFiles": false,
+      "Resources": null,
+      "PackageReferences": [],
+      "EditorReferences": [
+        "debelizmik.brokencar#30442",
+        "facepunch.concrete_c_blend_hs#28985",
+        "facepunch.concrete_hs_01#28793",
+        "facepunch.concrete_pol_01#17391"
+      ],
+      "IsWhitelistDisabled": false,
+      "Metadata": {
+        "SingleAssetSource": "maps/rd_st_home.vmap",
+        "ParentPackage": "based.bydrive"
+      }
+    }
+  }
+}

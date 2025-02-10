@@ -55,7 +55,7 @@ public partial class RaceManager
 		float singleCheckpointFraction = 1 / ((float)maxCheckpointOrder + 1);
 		foreach ( var participant in Participants )
 		{
-			RaceCheckpoint checkpoint = participant.LastCheckpoint;
+			TrackCheckpoint checkpoint = participant.LastCheckpoint;
 			if ( checkpoint == null || !checkpointOrder.TryGetValue( checkpoint, out int order ) || !participantLastOrder.TryGetValue(participant, out int lastOrder) )
 			{
 				// Participant either hasnt passed any checkpoints or passed checkpoints arent valid this race.
@@ -96,9 +96,9 @@ public partial class RaceManager
 	/// <returns></returns>
 	private float ClosestKeyCheckpointDistance(RaceParticipant participant)
 	{
-		Vector3 position = participant.Transform.Position;
+		Vector3 position = participant.WorldPosition;
 		var next = participant.NextKeyCheckpoints;
-		return next.Min( n => n.Transform.Position.DistanceSquared( position ) );
+		return next.Min( n => n.WorldPosition.DistanceSquared( position ) );
 	}
 
 }

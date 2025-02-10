@@ -12,8 +12,10 @@ public class Player : Component
 {
 	public static Player Create( Connection connection )
 	{
+		Assert.True( LobbyManager.MultiplayerActive, "Cant create other player object in single player mode!" );
+
 		GameObject playerObject = new();
-		//playerObject.Networked = true;
+		playerObject.NetworkMode = NetworkMode.Object;
 		playerObject.Name = $"Player | {connection.Name}";
 
 		var ply = playerObject.Components.Create<Player>();
@@ -24,7 +26,7 @@ public class Player : Component
 
 	public static Player CreateLocal()
 	{
-		Assert.False( GameNetworkSystem.IsActive || GameNetworkSystem.IsConnecting, "Cant create local dummy player in multiplayer games!" );
+		Assert.False( Networking.IsActive || Networking.IsConnecting, "Cant create local dummy player in multiplayer games!" );
 
 		GameObject playerObject = new();
 		playerObject.Name = $"Player | LOCAL";
@@ -37,7 +39,10 @@ public class Player : Component
 	public static Player CreateBot(string name = "")
 	{
 		GameObject playerObject = new();
-		playerObject.Networked = LobbyManager.MultiplayerActive;
+		if(LobbyManager.MultiplayerActive)
+		{
+			playerObject.NetworkMode = NetworkMode.Object;
+		}
 		var ply = playerObject.Components.Create<Player>();
 		ply.IsBot = true;
 
@@ -51,7 +56,7 @@ public class Player : Component
 			ply.DisplayName = name;
 		}
 
-		if(GameNetworkSystem.IsActive)
+		if(Networking.IsActive)
 		{
 			playerObject.NetworkSpawn();
 		}
@@ -59,11 +64,11 @@ public class Player : Component
 		return ply;
 	}
 	public static Player Local => LobbyManager.Instance?.LocalPlayer ?? CreateLocal();
-	public Connection Connection => Network.OwnerConnection;
+	public Connection Connection => Network.Owner;
 	public string Name => DisplayName ?? Connection?.DisplayName ?? "Player";
-	public ulong SteamId => Connection?.SteamId ?? 0;
+	public ulong SteamId => Connection?.SteamId ?? (ulong)0;
 	[Property, Sync] public string DisplayName { get; set; }
-	[Property, Sync] public bool IsBot { get; set; }
+	[Property, Sync(SyncFlags.FromHost)] public bool IsBot { get; set; }
 	public bool IsHost => IsLocal || Connection?.IsHost == true;
 	public bool IsLocal => Connection == null || Game.SteamId == (long)Connection.SteamId;
 	public VehicleDefinition SelectedVehicle { get; set; }

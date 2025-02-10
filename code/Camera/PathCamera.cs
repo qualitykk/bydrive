@@ -88,8 +88,8 @@ public class PathCamera : Component, ICameraMode
 	private void FinishMove(CameraComponent camera)
 	{
 		var lastTransform = Shots.LastOrDefault()?.EndTransform ?? Transform.World;
-		camera.Transform.Position = lastTransform.Position;
-		camera.Transform.Rotation = lastTransform.Rotation;
+		camera.WorldPosition = lastTransform.Position;
+		camera.WorldRotation = lastTransform.Rotation;
 
 		OnFinishMove?.Invoke();
 	}
@@ -100,13 +100,13 @@ public class PathCamera : Component, ICameraMode
 		if(shot.EnablePosition)
 		{
 			float positionFraction = shot.PositionCurve.EvaluateDelta( frac );
-			camera.Transform.Position = start.Position.LerpTo( end.Position, positionFraction, false );
+			camera.WorldPosition = start.Position.LerpTo( end.Position, positionFraction, false );
 		}
 
 		if(shot.EnableRotation)
 		{
 			float rotationFraction = shot.RotationCurve.EvaluateDelta( frac );
-			camera.Transform.Rotation = Rotation.Slerp( start.Rotation, end.Rotation, rotationFraction, false );
+			camera.WorldRotation = Rotation.Slerp( start.Rotation, end.Rotation, rotationFraction, false );
 		}
 	}
 

@@ -12,10 +12,9 @@ namespace Bydrive;
 [Category("Race")]
 [EditorHandle( "materials/gizmo/charactercontroller.png" )]
 [Icon( "flag" )]
-public sealed partial class RaceManager : Component
+public sealed partial class RaceManager : SingletonComponent<RaceManager>
 {
-	public static RaceManager Current { get; private set; }
-	[Property] public List<RaceCheckpoint> StartCheckpointOptions { get; set; } = new();
+	[Property] public List<TrackCheckpoint> StartCheckpointOptions { get; set; } = new();
 	[Property] public Action OnRaceStart { get; set; }
 	[Property] public Action<RaceParticipant> OnParticipantFinished { get; set; }
 	[Property] public Action OnAllFinished { get; set; }
@@ -27,7 +26,7 @@ public sealed partial class RaceManager : Component
 	public bool HasCountdownStarted { get; private set; }
 	public bool HasLoaded { get; private set; } = false;
 	public bool HasSetup { get; private set; } = false;
-	private RaceCheckpoint startCheckpoint;
+	private TrackCheckpoint startCheckpoint;
 	public SoundEvent GetRaceMusic()
 	{
 		return RaceMusic.RaceMusic;
@@ -44,7 +43,7 @@ public sealed partial class RaceManager : Component
 	{
 		return RaceContext.CurrentParameters.MaxLaps;
 	}
-	public RaceCheckpoint GetStartCheckpoint()
+	public TrackCheckpoint GetStartCheckpoint()
 	{
 		if ( StartCheckpointOptions == null || !StartCheckpointOptions.Any() ) return startCheckpoint;
 		if ( startCheckpoint != null ) return startCheckpoint;
@@ -53,11 +52,7 @@ public sealed partial class RaceManager : Component
 	}
 	protected override void OnAwake()
 	{
-		if(Current != null)
-		{
-			Current.Destroy();
-		}
-		Current = this;
+		base.OnAwake();
 		HasStarted = false;
 	}
 
@@ -76,7 +71,7 @@ public sealed partial class RaceManager : Component
 
 		foreach(var vehicle in Scene.GetAllComponents<VehicleController>())
 		{
-			vehicle.Reset();
+			vehicle.Initialise();
 		}
 
 		foreach ( var item in Scene.GetAllComponents<ItemPickup>() )
@@ -86,7 +81,7 @@ public sealed partial class RaceManager : Component
 
 		RaceContext?.ResetParticipantObjects();
 		Participants = Scene.GetAllComponents<RaceParticipant>().ToList();
-		InitialiseParticipants( Participants);
+		InitialiseParticipants( Participants );
 		foreach(var participant in Participants)
 		{
 			participant.PassCheckpoint( GetStartCheckpoint(), true );
@@ -108,7 +103,7 @@ public sealed partial class RaceManager : Component
 			CameraManager.MakeActive( camera );
 		}
 
-		UI.ShowRaceHUD();
+		//UI.ShowRaceHUD();
 
 		StartCountdown();
 	}
@@ -187,7 +182,7 @@ public sealed partial class RaceManager : Component
 		Color startColor = Color.Orange;
 		Color checkpointColor = Color.Yellow;
 		var start = GetStartCheckpoint();
-		Vector3 startPosition = Transform.World.PointToLocal( start?.Transform.Position ?? Vector3.Zero );
+		Vector3 startPosition = Transform.World.PointToLocal( start?.WorldPosition ?? Vector3.Zero );
 		//Gizmo.Draw.ScreenText( $"Start Checkpoint: {start}", new( 200 ), size: TEXT_SIZE );
 ;
 		Gizmo.Draw.Color = startColor;
@@ -197,7 +192,7 @@ public sealed partial class RaceManager : Component
 
 		foreach(var kv in checkpointOrder)
 		{
-			Vector3 checkpointPosition = Transform.World.PointToLocal( kv.Key.Transform.Position );
+			Vector3 checkpointPosition = Transform.World.PointToLocal( kv.Key.WorldPosition );
 			Gizmo.Draw.Color = checkpointColor;
 			Gizmo.Draw.Text( $"{kv.Key.GameObject.Name} [{kv.Value}]", kv.Key.Transform.World.WithPosition(checkpointPosition + Vector3.Up * CHECKPOINT_TEXT_OFFSET), size: WORLD_TEXT_SIZE );
 		}

@@ -56,7 +56,7 @@ StartMenu {
 			border-top: 1px solid white;
 			background-color: $background_clear_dark;
 			backdrop-filter: blur(10px);
-			gap: 5%;
+			gap: 25px;
 			transition: all 0.3s ease-out;
 
 			.button {

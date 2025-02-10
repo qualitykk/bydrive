@@ -80,6 +80,17 @@ TimeTrialPage {
         width: 100%;
         gap: 15px;
 
+        .message {
+            align-self: center;
+            position: absolute;
+            font-size: 64px;
+            font-family: Roboto;
+            color: #fff;
+            z-index: 100;
+            background-color: #ad2d2d;
+            padding: 10px;
+        }
+
         .entry {
             height: 8vh;
             font-weight: bold;
@@ -87,6 +98,10 @@ TimeTrialPage {
             align-items: center;
             pointer-events: all;
             box-shadow: 5px -5px 1px $highlight_dark;
+
+            // REMOVE STYLES BELOW WHEN TIMES WORK AGAIN
+            filter: blur(25px);
+            pointer-events: none;
 
             &:hover {
                 background-color: #999999;

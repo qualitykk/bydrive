@@ -1,0 +1,103 @@
+{
+  "Title": "Jet RX",
+  "FullTitle": "Kraftmotor Jet RX",
+  "Description": "A no-gimmicks car purpose-built for extreme racing.",
+  "Hidden": false,
+  "PreviewModel": "models/vehicles/vehicle_boxy.vmdl",
+  "PreviewTint": "1,0,0,1",
+  "PreviewPosition": "-192,0,64",
+  "DisplaySpeed": 0.89,
+  "DisplayAcceleration": 0.71,
+  "DisplayHandling": 0.64,
+  "DisplayBoost": 0.2,
+  "Stats": {
+    "MaxSpeed": 1650,
+    "Acceleration": 1100,
+    "AccelerationCurve": [
+      {
+        "x": 0,
+        "y": 0.6569149,
+        "in": 0,
+        "out": 0,
+        "mode": "Mirrored"
+      },
+      {
+        "x": 0.5014881,
+        "y": 1,
+        "in": -0.0333337,
+        "out": 0.0333337,
+        "mode": "Mirrored"
+      },
+      {
+        "x": 0.7,
+        "y": 0.5,
+        "in": 1.0641909,
+        "out": -1.0641909,
+        "mode": "Mirrored"
+      },
+      {
+        "x": 1,
+        "y": 0.25,
+        "in": 0,
+        "out": 0,
+        "mode": "Mirrored"
+      }
+    ],
+    "MaxHealth": 4,
+    "BoostDuration": 1.5,
+    "BoostSpeedMultiplier": 1.1,
+    "BoostAccelerationMultiplier": 2,
+    "BoostRechargeCooldown": 3,
+    "BoostRechargeFactor": 0.75,
+    "TurnSpeed": 11,
+    "TurnFactorCurve": [
+      {
+        "x": 0,
+        "y": 0,
+        "in": -3.151514,
+        "out": 3.151514,
+        "mode": "Mirrored"
+      },
+      {
+        "x": 0.55,
+        "y": 1,
+        "in": 0,
+        "out": 0,
+        "mode": "Mirrored"
+      },
+      {
+        "x": 1,
+        "y": 0.6,
+        "in": 0,
+        "out": 0,
+        "mode": "Mirrored"
+      }
+    ],
+    "SpringStrength": 2500,
+    "SpringDamping": 250,
+    "Grip": 12,
+    "SlidingGripCurve": [
+      {
+        "x": 0.5,
+        "y": 1,
+        "in": 0,
+        "out": 0,
+        "mode": "Mirrored"
+      },
+      {
+        "x": 0.667,
+        "y": 0.33300003,
+        "in": 0,
+        "out": 0,
+        "mode": "Mirrored"
+      }
+    ],
+    "AngularDamping": 12,
+    "CameraPositionOffset": "-400,0,150",
+    "BonusItems": []
+  },
+  "Prefab": "prefabs/vehicles/boxy1.prefab",
+  "AttachmentSlots": [],
+  "__references": [],
+  "__version": 0
+}

@@ -15,7 +15,7 @@ public partial class RaceTimer
 		if ( Race == null || !Race.HasStarted )
 			return 0f;
 
-		var participant = GetLocalParticipantInstance();
+		var participant = GetLocalParticipant();
 		if ( Race.HasParticipantFinished( participant ) )
 		{
 			return Race.GetParticipantFinish( participant ).Time;
@@ -29,7 +29,7 @@ public partial class RaceTimer
 		if ( Race == null || !Race.HasStarted )
 			return 0f;
 
-		RaceParticipant participant = GetLocalParticipantInstance();
+		RaceParticipant participant = GetLocalParticipant();
 		if ( Race.HasParticipantFinished( participant ) )
 		{
 			return Race.GetParticipantFinish( participant ).LapTimes.LastOrDefault();

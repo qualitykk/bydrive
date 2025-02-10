@@ -8,13 +8,13 @@ namespace Bydrive;
 
 public abstract class VehicleInputComponent : Component
 {
-	[Property] public RaceParticipant ParticipantInstance { get; set; }
+	[Property] public RaceParticipant Participant { get; set; }
 	[Property] public VehicleController VehicleController { get; set; }
 
 	protected abstract void BuildInput();
 	protected override void OnUpdate()
 	{
-		if ( ParticipantInstance == null || VehicleController == null ) return;
+		if ( Participant == null || VehicleController == null ) return;
 
 		if(CanInput())
 		{
@@ -33,6 +33,6 @@ public abstract class VehicleInputComponent : Component
 
 	public virtual bool CanInput()
 	{
-		return Race == null || (Race.HasStarted && !Race.HasParticipantFinished( ParticipantInstance ));
+		return Race == null || (Race.HasStarted && !Race.HasParticipantFinished( Participant ));
 	}
 }

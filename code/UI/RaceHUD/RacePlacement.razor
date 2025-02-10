@@ -2,7 +2,7 @@
 @using Sandbox.UI;
 @namespace Bydrive
 @implements IRaceHudPanel
-@inherits PanelComponent
+@inherits Panel
 
 @if (Race == null)
 	return;
@@ -52,7 +52,7 @@
 
 	private int GetPlacement()
 	{
-		return Race?.GetParticipantPlacement(GetLocalParticipantInstance()) ?? 1;
+		return Race?.GetParticipantPlacement(GetLocalParticipant()) ?? 1;
 	}
 	/// <summary>
 	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt

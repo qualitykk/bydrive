@@ -1,8 +1,7 @@
 @using Sandbox;
 @using Sandbox.UI;
-@attribute [Alias("RaceStart")]
 @namespace Bydrive
-@inherits PanelComponent
+@inherits Panel
 
 @if(!ShowCountdown())
 {
@@ -16,7 +15,7 @@
 	{
 		if (!playedCountdown)
 		{
-			GameSound.Play(SOUND_COUNTDOWN, GameSoundChannel.Effect);
+			SoundManager.Instance.Play(SOUND_COUNTDOWN, GameSoundChannel.Effect);
 			playedCountdown = true;
 		}
 	}

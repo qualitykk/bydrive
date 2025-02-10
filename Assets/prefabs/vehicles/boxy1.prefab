@@ -1,0 +1,419 @@
+{
+  "RootObject": {
+    "__guid": "ec7e8a0a-d4a6-4ae1-85f1-c6f626df0dc2",
+    "Flags": 0,
+    "Name": "boxy1",
+    "Tags": "vehicle",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Bydrive.VehicleController",
+        "__guid": "df67d81f-1cfe-46aa-b208-dc3c2b83787a",
+        "IdleSound": "sounds/vehicle/idle.sound",
+        "ItemSpawnPosition": "192,0,16",
+        "MaxEnginePitch": 2,
+        "MinEnginePitch": 0.5,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "RevSound": "sounds/vehicle/rev.sound",
+        "SlowdownSound": "sounds/vehicle/rev.sound",
+        "Wheels": [
+          {
+            "Renderer": {
+              "_type": "component",
+              "component_id": "66568c78-ad7e-438c-b3ae-9a16d5cfa4f5",
+              "go": "4630f1d1-40e9-491e-818a-877bd99a7726",
+              "component_type": "SkinnedModelRenderer"
+            },
+            "Radius": 22,
+            "Width": 8,
+            "Mass": 15,
+            "IsDriving": true,
+            "IsTurning": true,
+            "InitialPosition": "68.319,37.542,19.409",
+            "InitialRotation": "0,0,0"
+          },
+          {
+            "Renderer": {
+              "_type": "component",
+              "component_id": "8850bb87-ef4c-46ef-aab0-5553a4f50ed4",
+              "go": "32e957c3-5376-4da1-9691-2fc40f756a43",
+              "component_type": "SkinnedModelRenderer"
+            },
+            "Radius": 22,
+            "Width": 8,
+            "Mass": 15,
+            "IsDriving": true,
+            "IsTurning": true,
+            "InitialPosition": "68.465,-37.542,19.409",
+            "InitialRotation": "0,0,0"
+          },
+          {
+            "Renderer": {
+              "_type": "component",
+              "component_id": "54b09465-afdc-48d5-8d8a-42fa6ec4b5c7",
+              "go": "e3389b97-b9a1-4d62-8d32-e8cbde6b0db8",
+              "component_type": "SkinnedModelRenderer"
+            },
+            "Radius": 22,
+            "Width": 8,
+            "Mass": 15,
+            "IsDriving": true,
+            "IsTurning": false,
+            "InitialPosition": "-69.33,37.542,19.409",
+            "InitialRotation": "0,0,0"
+          },
+          {
+            "Renderer": {
+              "_type": "component",
+              "component_id": "8eb4cfad-de00-48ce-b85d-b3c0c1cd3d6d",
+              "go": "370331ae-fb44-4850-b93b-05b17c5940ee",
+              "component_type": "SkinnedModelRenderer"
+            },
+            "Radius": 22,
+            "Width": 8,
+            "Mass": 15,
+            "IsDriving": true,
+            "IsTurning": false,
+            "InitialPosition": "-69.33,-37.542,19.409",
+            "InitialRotation": "0,0,0"
+          }
+        ]
+      },
+      {
+        "__type": "Sandbox.SkinnedModelRenderer",
+        "__guid": "95c78e91-1157-4f46-ae10-5fa36075f44e",
+        "AnimationGraph": null,
+        "BodyGroups": 18446744073709551615,
+        "BoneMergeTarget": null,
+        "CreateAttachments": false,
+        "CreateBoneObjects": false,
+        "MaterialGroup": null,
+        "MaterialOverride": null,
+        "Model": "models/vehicles/vehicle_boxy.vmdl",
+        "Morphs": {},
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Parameters": {
+          "bools": {},
+          "ints": {},
+          "floats": {},
+          "vectors": {},
+          "rotations": {}
+        },
+        "RenderOptions": {
+          "GameLayer": true,
+          "OverlayLayer": false,
+          "BloomLayer": false,
+          "AfterUILayer": false
+        },
+        "RenderType": "On",
+        "Sequence": {
+          "Name": null
+        },
+        "Tint": "1,0,0,1",
+        "UseAnimGraph": true
+      },
+      {
+        "__type": "Sandbox.Rigidbody",
+        "__guid": "f95c11ab-4742-4074-81f4-1da5333a9d36",
+        "AngularDamping": 0,
+        "Gravity": true,
+        "LinearDamping": 0.2,
+        "Locking": {
+          "X": false,
+          "Y": false,
+          "Z": false,
+          "Pitch": false,
+          "Yaw": false,
+          "Roll": false
+        },
+        "MassCenterOverride": "0,0,0",
+        "MassOverride": 2000,
+        "MotionEnabled": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "OverrideMassCenter": false,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
+      },
+      {
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "1999dff9-a426-4bd4-a96a-c3a8304e2698",
+        "__enabled": false,
+        "Center": "-2.5,0,38",
+        "Friction": null,
+        "IsTrigger": false,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "OnObjectTriggerEnter": null,
+        "OnObjectTriggerExit": null,
+        "OnTriggerEnter": null,
+        "OnTriggerExit": null,
+        "Scale": "227.4996,80.70023,80",
+        "Static": false,
+        "Surface": null,
+        "SurfaceVelocity": "0,0,0"
+      },
+      {
+        "__type": "Sandbox.ModelCollider",
+        "__guid": "663db198-2a0c-47fe-8267-1d9884390926",
+        "Friction": null,
+        "IsTrigger": false,
+        "Model": "models/vehicles/vehicle_boxy.vmdl",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "OnObjectTriggerEnter": null,
+        "OnObjectTriggerExit": null,
+        "OnTriggerEnter": null,
+        "OnTriggerExit": null,
+        "Static": false,
+        "Surface": null,
+        "SurfaceVelocity": "0,0,0"
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "4630f1d1-40e9-491e-818a-877bd99a7726",
+        "Flags": 0,
+        "Name": "FrontLeft",
+        "Position": "68.31885,37.54196,19.409",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.SkinnedModelRenderer",
+            "__guid": "66568c78-ad7e-438c-b3ae-9a16d5cfa4f5",
+            "AnimationGraph": null,
+            "BodyGroups": 18446744073709551615,
+            "BoneMergeTarget": null,
+            "CreateAttachments": false,
+            "CreateBoneObjects": false,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "models/citizen_props/wheel01.vmdl",
+            "Morphs": {},
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Parameters": {
+              "bools": {},
+              "ints": {},
+              "floats": {},
+              "vectors": {},
+              "rotations": {}
+            },
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Sequence": {
+              "Name": null
+            },
+            "Tint": "1,1,1,1",
+            "UseAnimGraph": true
+          }
+        ]
+      },
+      {
+        "__guid": "32e957c3-5376-4da1-9691-2fc40f756a43",
+        "Flags": 0,
+        "Name": "FrontRight",
+        "Position": "68.46494,-37.54228,19.409",
+        "Rotation": "1,0.000000000000001910685,0.00000004371139,-0.00000004371139",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.SkinnedModelRenderer",
+            "__guid": "8850bb87-ef4c-46ef-aab0-5553a4f50ed4",
+            "AnimationGraph": null,
+            "BodyGroups": 18446744073709551615,
+            "BoneMergeTarget": null,
+            "CreateAttachments": false,
+            "CreateBoneObjects": false,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "models/citizen_props/wheel01.vmdl",
+            "Morphs": {},
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Parameters": {
+              "bools": {},
+              "ints": {},
+              "floats": {},
+              "vectors": {},
+              "rotations": {}
+            },
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Sequence": {
+              "Name": null
+            },
+            "Tint": "1,1,1,1",
+            "UseAnimGraph": true
+          }
+        ]
+      },
+      {
+        "__guid": "e3389b97-b9a1-4d62-8d32-e8cbde6b0db8",
+        "Flags": 0,
+        "Name": "BackLeft",
+        "Position": "-69.32976,37.542,19.40883",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.SkinnedModelRenderer",
+            "__guid": "54b09465-afdc-48d5-8d8a-42fa6ec4b5c7",
+            "AnimationGraph": null,
+            "BodyGroups": 18446744073709551615,
+            "BoneMergeTarget": null,
+            "CreateAttachments": false,
+            "CreateBoneObjects": false,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "models/citizen_props/wheel01.vmdl",
+            "Morphs": {},
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Parameters": {
+              "bools": {},
+              "ints": {},
+              "floats": {},
+              "vectors": {},
+              "rotations": {}
+            },
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Sequence": {
+              "Name": null
+            },
+            "Tint": "1,1,1,1",
+            "UseAnimGraph": true
+          }
+        ]
+      },
+      {
+        "__guid": "370331ae-fb44-4850-b93b-05b17c5940ee",
+        "Flags": 0,
+        "Name": "BackRight",
+        "Position": "-69.33028,-37.54224,19.40883",
+        "Rotation": "1,0.000000000000001910685,0.00000004371139,-0.00000004371139",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.SkinnedModelRenderer",
+            "__guid": "8eb4cfad-de00-48ce-b85d-b3c0c1cd3d6d",
+            "AnimationGraph": null,
+            "BodyGroups": 18446744073709551615,
+            "BoneMergeTarget": null,
+            "CreateAttachments": false,
+            "CreateBoneObjects": false,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "models/citizen_props/wheel01.vmdl",
+            "Morphs": {},
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Parameters": {
+              "bools": {},
+              "ints": {},
+              "floats": {},
+              "vectors": {},
+              "rotations": {}
+            },
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Sequence": {
+              "Name": null
+            },
+            "Tint": "1,1,1,1",
+            "UseAnimGraph": true
+          }
+        ]
+      }
+    ],
+    "__variables": [],
+    "__properties": {
+      "FixedUpdateFrequency": 50,
+      "MaxFixedUpdates": 5,
+      "NetworkFrequency": 30,
+      "NetworkInterpolation": true,
+      "PhysicsSubSteps": 1,
+      "ThreadedAnimation": true,
+      "TimeScale": 1,
+      "UseFixedUpdate": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

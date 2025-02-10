@@ -5,7 +5,7 @@ public partial class CreditsPage
 {
 	private static readonly List<CreditsEntry> developmentEntries = new()
 	{
-		new(76561198835895479, "qualityk", "kilianq", "Main Developer"),
+		new(76561198835895479, "qualityk", "qualitykk", "Main Developer"),
 		new(76561198282489899, "Kanalratte", "kanalratte", "Models, Textures"),
 		new(76561198162417562, "SlimesMcDingle", "slimesmcdingle", "Models, Textures"),
 	};

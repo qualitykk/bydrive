@@ -46,8 +46,8 @@ public class OverworldManager : Component
 		Transform spawnTransform = CurrentSave?.LastTransform ?? Scene.GetAllComponents<SpawnPoint>()?.FirstOrDefault()?.Transform?.World ?? Transform.World;
 
 		// Scale = bad
-		playerObject.Transform.Position = spawnTransform.Position;
-		playerObject.Transform.Rotation = spawnTransform.Rotation;
+		playerObject.WorldPosition = spawnTransform.Position;
+		playerObject.WorldRotation = spawnTransform.Rotation;
 
 		initialised = true;
 

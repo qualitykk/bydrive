@@ -1,8 +1,10 @@
 @using Sandbox;
 @using Sandbox.UI;
-@inherits PanelComponent
+@inherits Panel
 @implements IRaceHudPanel
 @namespace Bydrive
+
+@if (Race == null) return;
 
 <root>
 	<label class="title">@GetDisplayLaps()/@Race.GetMaxLaps()</label>

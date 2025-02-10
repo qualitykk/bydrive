@@ -6,9 +6,6 @@
 @if (!ShouldDraw())
 	return;
 
-@{
-	UI.HideRaceHud();
-}
 <root>
 	<div class="title">Results</div>
 	<div class="list">
@@ -38,9 +35,8 @@
 				<label class="header">Previous Times</label>
 				@for(int i = 0; i < MathF.Min(GetPreviousData().Count,5); i++)
 				{
-					@{
-						TimeTrialRecording entry = GetPreviousData().OrderBy(p => p.TotalTime).ElementAt(i);
-					}
+					TimeTrialRecording entry = GetPreviousData().OrderBy(p => p.TotalTime).ElementAt(i);
+
 					<div class="racer entry" style="height: 6vh;">
 						<label class="placement @GetPlacementTag(i+1)">@(i + 1)</label>
 						<label class="name @GetPlacementTag(i+1)">@(new Friend(entry.SteamId).Name)</label>
@@ -53,12 +49,11 @@
 		{
 			@foreach (var kv in scores.OrderBy(kv => totalPlacement.IndexOf(kv)))
 			{
-				@{
-					int placement = totalPlacement.IndexOf(kv) + 1;
-					RaceInformation.Participant participant = kv.Key;
-					int score = kv.Value;
-					int oldScore = oldScores.ContainsKey(participant) ? oldScores[participant] : 0;
-				}
+				int placement = totalPlacement.IndexOf(kv) + 1;
+				RoundParticipant participant = kv.Key;
+				int score = kv.Value;
+				int oldScore = oldScores.ContainsKey(participant) ? oldScores[participant] : 0;
+
 				<div class="entry racer">
 					<label class="placement @GetPlacementTag(placement)">@placement</label>
 					<label class="name @GetPlacementTag(placement)">participant.Player.DisplayName</label>

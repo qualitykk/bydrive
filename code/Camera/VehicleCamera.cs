@@ -31,8 +31,8 @@ public class VehicleCamera : Component, ICameraMode
 		Vector3 position = GetCameraPosition(camera, baseTransform, delta );
 		Rotation rotation = GetCameraRotation(camera, baseTransform, delta );
 
-		camera.Transform.Position = position;
-		camera.Transform.Rotation = rotation;
+		camera.WorldPosition = position;
+		camera.WorldRotation = rotation;
 
 		float dt = Time.Delta;
 
@@ -70,7 +70,7 @@ public class VehicleCamera : Component, ICameraMode
 							.WithTag( TraceTags.WORLD )
 							.Run();
 
-		return camera.Transform.Position.LerpTo( tr.EndPosition, delta );
+		return camera.WorldPosition.LerpTo( tr.EndPosition, delta );
 	}
 
 	private Rotation GetCameraRotation( CameraComponent camera, Transform transform, float delta )
@@ -81,6 +81,6 @@ public class VehicleCamera : Component, ICameraMode
 		float yaw = currentTurnOffset * TURN_OFFSET_MAX_YAW;
 		yaw += transform.Rotation.Yaw();
 
-		return Rotation.Slerp(camera.Transform.Rotation, Rotation.From( pitch, yaw, 0f ), delta );
+		return Rotation.Slerp(camera.WorldRotation, Rotation.From( pitch, yaw, 0f ), delta );
 	}
 }

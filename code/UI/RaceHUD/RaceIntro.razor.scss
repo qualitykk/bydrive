@@ -1,0 +1,25 @@
+RaceIntro {
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	right: 0;
+	bottom: 0;
+	//background-color: #44444422;
+	font-weight: bold;
+	border-radius: 20px;
+	font-family: 'Agency FB';
+	color: #fff;
+	flex-direction: column;
+
+	label {
+		text-shadow: 5px 5px 2px black;
+	}
+
+	.title {
+		font-size: 128px;
+	}
+
+	.subtitle {
+		font-size: 48px;
+	}
+}

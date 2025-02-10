@@ -18,13 +18,13 @@ public class RaceParticipant : Component
 	/// Bypass key checkpoint checks
 	/// </summary>
 	[Property] public bool BypassChecks { get; set; } = false;
-	public RaceCheckpoint LastKeyCheckpoint { get; private set; }
+	public TrackCheckpoint LastKeyCheckpoint { get; private set; }
 	/// <summary>
 	/// Last checkpoint key or non-key checkpoint, used to determine standings in the race.
 	/// </summary>
-	public RaceCheckpoint LastCheckpoint { get; private set; }
-	public List<RaceCheckpoint> NextKeyCheckpoints { get; private set; } = new();
-	public List<RaceCheckpoint> PreviousKeyCheckpoints { get; private set; } = new();
+	public TrackCheckpoint LastCheckpoint { get; private set; }
+	public List<TrackCheckpoint> NextKeyCheckpoints { get; private set; } = new();
+	public List<TrackCheckpoint> PreviousKeyCheckpoints { get; private set; } = new();
 	public float GetCompletion() => Race?.GetParticipantCompletion( this ) ?? 0f;
 	public int GetLap() => Race?.GetParticipantLap( this ) ?? 0;
 
@@ -103,7 +103,7 @@ public class RaceParticipant : Component
 		finishRespawn = true;
 	}
 
-	public void PassCheckpoint(RaceCheckpoint checkpoint, bool forceLast = false)
+	public void PassCheckpoint(TrackCheckpoint checkpoint, bool forceLast = false)
 	{
 		if(!CanPass(checkpoint) && !forceLast)
 		{
@@ -120,12 +120,12 @@ public class RaceParticipant : Component
 		LastCheckpoint = checkpoint;
 	}
 
-	private List<RaceCheckpoint> FindNextKeyCheckpoints(RaceCheckpoint checkpoint)
+	private List<TrackCheckpoint> FindNextKeyCheckpoints(TrackCheckpoint checkpoint)
 	{
 		if ( !checkpoint.NextCheckpoints.Any() )
 			return new();
 
-		List<RaceCheckpoint> keyCheckpoints = new();
+		List<TrackCheckpoint> keyCheckpoints = new();
 
 		foreach(var next in checkpoint.NextCheckpoints)
 		{
@@ -142,12 +142,12 @@ public class RaceParticipant : Component
 		return keyCheckpoints;
 	}
 
-	private List<RaceCheckpoint> FindPreviousKeyCheckpoints( RaceCheckpoint checkpoint )
+	private List<TrackCheckpoint> FindPreviousKeyCheckpoints( TrackCheckpoint checkpoint )
 	{
 		if ( !checkpoint.PreviousCheckpoints.Any() )
 			return new();
 
-		List<RaceCheckpoint> keyCheckpoints = new();
+		List<TrackCheckpoint> keyCheckpoints = new();
 
 		foreach ( var previous in checkpoint.PreviousCheckpoints )
 		{
@@ -164,7 +164,7 @@ public class RaceParticipant : Component
 		return keyCheckpoints;
 	}
 
-	private bool CanPass(RaceCheckpoint checkpoint)
+	private bool CanPass(TrackCheckpoint checkpoint)
 	{
 		if ( BypassChecks ) return true;
 

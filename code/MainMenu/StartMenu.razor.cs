@@ -80,7 +80,7 @@ public partial class StartMenu : PanelComponent
 	private string[] GetLobbyUrls() => new string[] { "/vehicle", RACE_LOBBY_URL };
 	protected override void OnUpdate()
 	{
-		if(GameNetworkSystem.IsConnecting || GameNetworkSystem.IsActive)
+		if(Networking.IsConnecting || Networking.IsActive)
 		{
 			if(!GetLobbyUrls().Any( NavPanel.CurrentUrl.Contains ) )
 			{
@@ -93,6 +93,7 @@ public partial class StartMenu : PanelComponent
 		base.OnEnabled();
 		Current = this;
 		PlayMusic();
+		CameraManager.MakeActive<StaticCamera>();
 		NavPanel?.Navigate( "/front" );
 		SelectedVehicle = default;
 		ResetGlobals();
@@ -105,7 +106,7 @@ public partial class StartMenu : PanelComponent
 
 	private void PlayMusic( )
 	{
-		Music.Play( BackgroundMusic, BackgroundMusicVolume );
+		//Music.Play( BackgroundMusic, BackgroundMusicVolume );
 	}
 
 	protected override int BuildHash()

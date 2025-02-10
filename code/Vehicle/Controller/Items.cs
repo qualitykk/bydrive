@@ -54,9 +54,9 @@ public partial class VehicleController
 			itemHook.OnItemUsed?.Invoke( this );
 		}
 
-		itemObject.Transform.Position = spawnPos;
+		itemObject.WorldPosition = spawnPos;
 		// Only use the vehicle yaw, we dont wanna mess with item pitch & roll
-		itemObject.Transform.Rotation = Rotation.FromYaw( Transform.Rotation.Yaw() );
+		itemObject.WorldRotation = Rotation.FromYaw( WorldRotation.Yaw() );
 
 		CurrentItem = default;
 		WantsItem = false;

@@ -23,7 +23,7 @@ public partial class VehicleController
 	float targetPitch = 1;
 	public SoundHandle PlaySound( SoundEvent sound )
 	{
-		var handle = GameSound.Play( sound, Transform.Position, GameSoundChannel.Vehicle );
+		var handle = SoundManager.Instance.Play( sound, GameSoundChannel.Vehicle, WorldPosition );
 		activeSounds.Add( handle );
 		return handle;
 	}
@@ -34,12 +34,14 @@ public partial class VehicleController
 
 		foreach ( var sound in activeSounds )
 		{
-			sound.Position = Transform.Position;
+			sound.Position = WorldPosition;
 		}
 	}
 
 	private void TickEngineSound()
-	{ 
+	{
+		if ( Race?.HasCountdownStarted != true ) return;
+
 		float forwardSpeed = MathF.Abs( Transform.Local.VelocityToLocal( Body.Velocity ).x );
 
 		float speedFraction = forwardSpeed / GetMaxSpeed();

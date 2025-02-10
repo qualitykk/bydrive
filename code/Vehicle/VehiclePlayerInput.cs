@@ -26,11 +26,11 @@ public class VehiclePlayerInput : VehicleInputComponent
 		// Participant Inputs
 		if ( Input.Released( InputActions.RESPAWN ) )
 		{
-			ParticipantInstance.RespawnCancel();
+			Participant.RespawnCancel();
 		}
 		else if (Input.Pressed(InputActions.RESPAWN))
 		{
-			ParticipantInstance.RespawnIn(RESPAWN_TIME);
+			Participant.RespawnIn(RESPAWN_TIME);
 		}
 	}
 

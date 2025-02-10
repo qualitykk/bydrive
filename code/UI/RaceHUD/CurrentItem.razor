@@ -1,9 +1,9 @@
 @using Sandbox.UI;
-@inherits PanelComponent
+@inherits Panel
 @implements IRaceHudPanel
 @namespace Bydrive
 
-<root class="@UI.ActiveIf(!Race.IsTimeTrial) @GetClasses()">
+<root class="@UI.ActiveIf(Race != null && !Race.IsTimeTrial) @GetClasses()">
 	@if(HasItem())
 	{
 		<label class="item">

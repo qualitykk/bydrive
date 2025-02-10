@@ -24,7 +24,7 @@ public static class Music
 			return;
 		}
 
-		currentTrack = GameSound.Play( sound, GameSoundChannel.Music, volume );
+		currentTrack = SoundManager.Instance.Play( sound, GameSoundChannel.Music, volume );
 
 		currentTrackName = sound.ResourcePath;
 	}

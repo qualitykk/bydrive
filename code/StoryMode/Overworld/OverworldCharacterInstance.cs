@@ -45,5 +45,5 @@ public class OverworldCharacterInstance : Component, IInteractible
 	BBox IInteractible.Bounds => InteractionBounds;
 	string IInteractible.Title => "Talk";
 	string IInteractible.Subtitle => Character?.Name;
-	Vector3 IInteractible.Position => Transform.Position;
+	Vector3 IInteractible.Position => WorldPosition;
 }

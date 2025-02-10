@@ -37,10 +37,10 @@ public class VehicleBot : VehicleInputComponent
 	float currentTurnaroundDirection;
 	private void UpdateTurning(Vector3 goal)
 	{
-		Vector3 goalDirection = goal - Transform.Position;
+		Vector3 goalDirection = goal - WorldPosition;
 		Vector3 localGoal = Transform.World.PointToLocal( goal );
 		// Calculate if the direction to the goal is left or right form our forward vector. (https://discussions.unity.com/t/steer-towards-target/186660)
-		float goalSteerDirection = Vector3.Dot( Vector3.Cross( Transform.Rotation.Forward, goalDirection.Normal ), Vector3.Up );
+		float goalSteerDirection = Vector3.Dot( Vector3.Cross( WorldRotation.Forward, goalDirection.Normal ), Vector3.Up );
 		float turnDirection = goalSteerDirection;
 
 		if( localGoal.x < 0f )
@@ -61,8 +61,8 @@ public class VehicleBot : VehicleInputComponent
 		turnDirection = MathF.Max( MathF.Abs( turnDirection ), MIN_TURN_INPUT ) * MathF.Sign( turnDirection );
 
 		/*
-		var trLeft = SafeCheckTrace( Transform.Rotation.Left, SAFE_WALL_MIN_SIDE_DISTANCE );
-		var trRight = SafeCheckTrace( Transform.Rotation.Right, SAFE_WALL_MIN_SIDE_DISTANCE );
+		var trLeft = SafeCheckTrace( WorldRotation.Left, SAFE_WALL_MIN_SIDE_DISTANCE );
+		var trRight = SafeCheckTrace( WorldRotation.Right, SAFE_WALL_MIN_SIDE_DISTANCE );
 
 		if(trLeft.Hit && trRight.Hit)
 		{
@@ -98,7 +98,7 @@ public class VehicleBot : VehicleInputComponent
 		}
 		else 
 		{
-			var tr = SafeCheckTrace( Transform.Rotation.Forward, SAFE_WALL_SLOW_DISTANCE );
+			var tr = SafeCheckTrace( WorldRotation.Forward, SAFE_WALL_SLOW_DISTANCE );
 			if ( tr.Hit && !IsDrivableNormal(tr.Normal) )
 			{
 				if ( tr.Distance < SAFE_WALL_MIN_FRONT_DISTANCE )
@@ -136,10 +136,10 @@ public class VehicleBot : VehicleInputComponent
 				nextBotPath = Game.Random.FromList( currentBotPath.NextPaths );
 			}
 
-			return nextBotPath.GetTargetPosition(Transform.Position);
+			return nextBotPath.GetTargetPosition(WorldPosition);
 		}
 
-		return ParticipantInstance.NextKeyCheckpoints.ElementAtOrDefault( 0 )?.Transform.Position ?? Transform.Position;
+		return Participant.NextKeyCheckpoints.ElementAtOrDefault( 0 )?.WorldPosition ?? WorldPosition;
 	}
 
 	private Vector3 LocalTracePosition => VehicleController.Body.LocalMassCenter;
@@ -163,6 +163,6 @@ public class VehicleBot : VehicleInputComponent
 		Gizmo.Draw.WorldText( $"currentBotPath: {currentBotPath}", new( LocalTracePosition, Rotation.Identity ) );
 
 		Gizmo.Draw.Color = Color.Red;
-		Gizmo.Draw.Line( LocalTracePosition, Transform.LocalRotation.Forward * SAFE_WALL_SLOW_DISTANCE );
+		Gizmo.Draw.Line( LocalTracePosition, LocalRotation.Forward * SAFE_WALL_SLOW_DISTANCE );
 	}
 }

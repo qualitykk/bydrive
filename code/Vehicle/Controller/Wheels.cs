@@ -21,7 +21,8 @@ public partial class VehicleController
 		public bool IsTurning { get; set; }
 		public Vector3 InitialPosition { get; set; }
 		public Angles InitialRotation { get; set; }
-		[Hide, JsonIgnore] public Transform Transform;
+		[Hide, JsonIgnore] public Vector3 Position;
+		[Hide, JsonIgnore] public Rotation Rotation;
 		internal Angles InitialModelRotation { get; set; }
 	}
 
@@ -43,8 +44,9 @@ public partial class VehicleController
 
 		foreach ( var wheel in Wheels)
 		{
-			wheel.Transform = new( wheel.InitialPosition, wheel.InitialRotation );
-			wheel.InitialModelRotation = wheel.Renderer.Transform.LocalRotation.Angles();
+			wheel.Position = wheel.InitialPosition;
+			wheel.Rotation = wheel.InitialRotation;
+			wheel.InitialModelRotation = wheel.Renderer.LocalRotation.Angles();
 		}
 	}
 	private void UpdateWheels()
@@ -63,15 +65,15 @@ public partial class VehicleController
 			Angles displayAngles = wheel.InitialModelRotation;
 			if (wheel.IsTurning)
 			{
-				wheel.Transform.Rotation = initialRotation.WithYaw( initialRotation.yaw + wheelAngle );
+				wheel.Rotation = initialRotation.WithYaw( initialRotation.yaw + wheelAngle );
 				displayAngles.yaw += wheelAngle;
 			}
 			else
 			{
-				wheel.Transform.Rotation = initialRotation;
+				wheel.Rotation = initialRotation;
 			}
-			wheel.Renderer.Transform.LocalPosition = wheel.Transform.Position;
-			wheel.Renderer.Transform.LocalRotation = displayAngles.WithPitch( wheelRevolute);
+			wheel.Renderer.LocalPosition = wheel.Position;
+			wheel.Renderer.LocalRotation = displayAngles.WithPitch( wheelRevolute);
 		}
 	}
 
@@ -103,9 +105,9 @@ public partial class VehicleController
 
 			PhysicsBody physics = Rigidbody.PhysicsBody;
 			Vector3 wheelAttachPosition = Transform.World.PointToWorld( wheel.InitialPosition );
-			Rotation wheelRotation = Transform.World.RotationToWorld(wheel.Transform.Rotation);
+			Rotation wheelRotation = Transform.World.RotationToWorld(wheel.Rotation);
 
-			wheel.Transform.Position = Transform.World.PointToLocal(tr.EndPosition + Vector3.Up * wheel.Radius);
+			wheel.Position = Transform.World.PointToLocal(tr.EndPosition + Vector3.Up * wheel.Radius);
 
 			// Spring Forces
 			float springStrength = GetSpringStrength();
@@ -113,7 +115,7 @@ public partial class VehicleController
 
 			Vector3 velocity = physics.GetVelocityAtPoint( wheelAttachPosition );
 			Vector3 localVelocity = Transform.Local.VelocityToLocal( velocity );
-			Vector3 springDirection = Rigidbody.Transform.Rotation.Up;
+			Vector3 springDirection = Rigidbody.WorldRotation.Up;
 
 			Vector3 forward = wheelRotation.Forward;
 			float forwardVelocity = localVelocity.x;

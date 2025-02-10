@@ -11,7 +11,7 @@ public class InteractionListener : Component, Component.ITriggerListener
 	public static IEnumerable<IInteractible> GetBestInteractions()
 	{
 		var interactions = Current.availableInteractions;
-		return interactions.OrderBy(interaction => Current.Transform.Position.DistanceSquared(interaction.Position));
+		return interactions.OrderBy(interaction => Current.WorldPosition.DistanceSquared(interaction.Position));
 	}
 	public static bool Exists => Current != null;
 	internal static InteractionListener Current { get; set; }

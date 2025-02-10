@@ -11,7 +11,7 @@ public class VehicleBotPath : Component, Component.ITriggerListener
 	[Property] public List<VehicleBotPath> NextPaths { get; set; } = new();
 	public Vector3 GetTargetPosition(Vector3 current)
 	{
-		return Transform.Position;
+		return WorldPosition;
 	}
 	protected override void DrawGizmos()
 	{
@@ -21,7 +21,7 @@ public class VehicleBotPath : Component, Component.ITriggerListener
 
 		foreach ( var path in NextPaths )
 		{
-			Gizmo.Draw.Line( Vector3.Zero, Transform.World.PointToLocal( path.Transform.Position ) );
+			Gizmo.Draw.Line( Vector3.Zero, Transform.World.PointToLocal( path.WorldPosition ) );
 		}
 	}
 

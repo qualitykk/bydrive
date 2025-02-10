@@ -1,0 +1,86 @@
+{
+  "RootObject": {
+    "Id": "b87a98a2-21c2-42cf-93f0-b544eb160ddd",
+    "Name": "item_bouncer",
+    "Tags": "item",
+    "Enabled": true,
+    "Components": [
+      {
+        "__version": 0,
+        "__type": "HitVehicles",
+        "__enabled": true,
+        "Amount": 1,
+        "DestroyOnHit": true
+      },
+      {
+        "__version": 0,
+        "__type": "LinearVelocityBounce",
+        "__enabled": true,
+        "BounceDistance": 42,
+        "IgnoreTags": "item,vehicle",
+        "LocalVelocity": "1200,0,0",
+        "MaxBounces": 6,
+        "OnBounce": null
+      },
+      {
+        "__version": 0,
+        "__type": "HoverObject",
+        "__enabled": true,
+        "Distance": 16,
+        "IgnoreTags": "item,vehicle",
+        "TraceDistance": 1024
+      },
+      {
+        "__version": 0,
+        "__type": "BoxCollider",
+        "__enabled": true,
+        "Center": "0,0,0",
+        "IsTrigger": false,
+        "Scale": "60,60,50",
+        "Static": false,
+        "Surface": null
+      },
+      {
+        "__version": 0,
+        "__type": "Lifetime",
+        "__enabled": true,
+        "Time": 10
+      }
+    ],
+    "Children": [
+      {
+        "Id": "f5b8b554-ee32-4a70-8700-8aa50104770c",
+        "Name": "Model",
+        "Position": "0,0,-18",
+        "Enabled": true,
+        "Components": [
+          {
+            "__version": 0,
+            "__type": "SkinnedModelRenderer",
+            "__enabled": true,
+            "BodyGroups": 18446744073709551615,
+            "BoneMergeTarget": null,
+            "CreateBoneObjects": false,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "models/cabledrum/cabledrum.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__version": 0,
+            "__type": "ConstantSpin",
+            "__enabled": true,
+            "Speed": 5
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": [
+    "baik.cabledrum#19448"
+  ]
+}

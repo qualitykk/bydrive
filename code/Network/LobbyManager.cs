@@ -13,7 +13,7 @@ public class LobbyManager : Component, Component.INetworkListener
 	public static int PlayerCount => Instance?.Players.Count() ?? 0;
 	public static int MaxPlayerCount => Instance?.MaxPlayers ?? 1;
 	public static LobbyManager Instance { get; private set; }
-	[Property] public int MaxPlayers { get; set; } = RaceInformation.MAX_PLAYERCOUNT;
+	[Property] public int MaxPlayers { get; set; } = RoundInformation.MAX_PLAYERCOUNT;
 	public IEnumerable<Player> Players => Scene.GetAllComponents<Player>();
 	public Player LocalPlayer => Players.Where(p => p.IsLocal).FirstOrDefault();
 	protected override void OnAwake()

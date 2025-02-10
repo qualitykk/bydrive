@@ -1,13 +1,8 @@
-﻿using Bydrive;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Sandbox.UI;
 
 namespace Bydrive;
 
-public partial class RaceNotifications : PanelComponent
+public partial class RaceNotifications : Panel
 {
 	const float DEFAULT_NOTIFICATION_TIME = 5f;
 	const float FADE_TIME = 1.5f;
@@ -48,33 +43,31 @@ public partial class RaceNotifications : PanelComponent
 	{
 		AddLine( instance );
 	}
-	public static void Add( VehicleController vehicle, Line notification )
+	public static void AddObject( VehicleController vehicle, Line notification )
 	{
 		if ( GetLocalVehicle() != vehicle )
 			return;
 
 		AddLine( notification );
 	}
-	public static void Add( RaceParticipant participant, Line notification )
+	public static void AddObject( RaceParticipant participant, Line notification )
 	{
-		if ( GetLocalParticipantInstance() != participant )
+		if ( GetLocalParticipant() != participant )
 			return;
 
 		AddLine( notification );
 	}
-	public static void Add( Line notification )
+	public static void AddLineLocal( Line notification )
 	{
-		Add( GetLocalParticipantInstance(), notification );
+		AddObject( GetLocalParticipant(), notification );
 	}
 
-	protected override void OnEnabled()
+	public RaceNotifications()
 	{
-		base.OnEnabled();
 		Current = this;
 	}
-	protected override void OnUpdate()
+	public override void Tick()
 	{
-		base.OnUpdate();
 		foreach ( Line line in activeNotifications.ToArray() )
 		{
 			if ( line.TimeUntilDeletion )

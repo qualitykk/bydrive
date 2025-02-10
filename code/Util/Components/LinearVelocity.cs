@@ -18,7 +18,7 @@ public class LinearVelocity : Component
 	protected override void OnUpdate()
 	{
 		Vector3 endPos = GetNextPosition();
-		var tr = Scene.Trace.Ray( Transform.Position, endPos )
+		var tr = Scene.Trace.Ray( WorldPosition, endPos )
 							.WithoutTags( IgnoreTags )
 							.Run();
 
@@ -31,13 +31,13 @@ public class LinearVelocity : Component
 				return;
 			}
 		}
-		Transform.Position = tr.EndPosition;
+		WorldPosition = tr.EndPosition;
 	}
 
 	protected virtual Vector3 GetNextPosition()
 	{
 		Vector3 velocity = Transform.World.VelocityToWorld( LocalVelocity ) * Time.Delta;
-		return Transform.Position + velocity;
+		return WorldPosition + velocity;
 	}
 }
 
@@ -66,7 +66,7 @@ public class LinearVelocityBounce : LinearVelocity
 	{
 		Vector3 velocity = Transform.World.VelocityToWorld( LocalVelocity ) * Time.Delta;
 
-		var tr = Scene.Trace.Ray( Transform.Position, Transform.Position + velocity.Normal * BounceDistance )
+		var tr = Scene.Trace.Ray( WorldPosition, WorldPosition + velocity.Normal * BounceDistance )
 			.WithoutTags(IgnoreTags)
 			.Run();
 
@@ -77,7 +77,7 @@ public class LinearVelocityBounce : LinearVelocity
 			lastEndPos = endPos;
 			lastNormal = normal;
 
-			Transform.LocalRotation = Rotation.LookAt( normal );
+			LocalRotation = Rotation.LookAt( normal );
 			OnBounce?.Invoke(BounceCount);
 			BounceCount++;
 
@@ -86,7 +86,7 @@ public class LinearVelocityBounce : LinearVelocity
 
 		lastEndPos = default;
 		lastNormal = default;
-		return Transform.Position + velocity;
+		return WorldPosition + velocity;
 	}
 
 	protected override void DrawGizmos()

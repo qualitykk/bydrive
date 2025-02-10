@@ -10,8 +10,8 @@ public sealed partial class VehicleController : Component
 {
 	const float AUTO_RESPAWN_TIME = 2f;
 	const int AUTO_RESPAWN_DAMAGE = 1;
-	[Property, Title("Physics Body")] public Rigidbody Rigidbody { get; set; }
-	[Property, AutoReference] public VehicleDefinition Definition { get; set; }
+	[RequireComponent, Title("Physics Body")] public Rigidbody Rigidbody { get; set; }
+	[AutoReference] public VehicleDefinition Definition { get; set; }
 	public PhysicsBody Body => Rigidbody?.PhysicsBody;
 	public float Speed { get; private set; }
 	public float TurnDirection { get; private set; }
@@ -21,17 +21,10 @@ public sealed partial class VehicleController : Component
 	}
 	protected override void OnStart()
 	{
-		Reset();
+		Initialise();
 	}
-	public override void Reset()
+	public void Initialise()
 	{
-		if(Rigidbody == null)
-		{
-			throw new InvalidOperationException( "Cant have a vehicle without RigidBody!" );
-		}
-
-		base.Reset();
-
 		Body.Velocity = Vector3.Zero;
 		Body.AngularVelocity = Vector3.Zero;
 
@@ -134,7 +127,7 @@ public sealed partial class VehicleController : Component
 		{
 			if(couldDrive)
 			{
-				RaceNotifications.Add( this, new( "Unsafe vehicle position, respawning...", UI.Colors.Notification.Danger, AUTO_RESPAWN_TIME, "warning" ) );
+				RaceNotifications.AddObject( this, new( "Unsafe vehicle position, respawning...", UI.Colors.Notification.Danger, AUTO_RESPAWN_TIME, "warning" ) );
 				GetParticipant()?.RespawnIn( AUTO_RESPAWN_TIME, AUTO_RESPAWN_DAMAGE );
 			}
 		}
@@ -181,7 +174,7 @@ public sealed partial class VehicleController : Component
 		{
 			Body.GravityScale = 1.25f;
 
-			Vector3 tracePosition = Transform.Position;
+			Vector3 tracePosition = WorldPosition;
 			var tr = Scene.Trace.Ray( tracePosition, tracePosition + rotation.Down * 50 )
 				.IgnoreGameObject( GameObject )
 				.Run();
@@ -230,7 +223,7 @@ public sealed partial class VehicleController : Component
 				Transform debugTransform = wheel.Transform;
 				debugTransform.Position += Vector3.Up * 80f;
 				debugTransform.Rotation = Rotation.From( 0, 90f, 90f );
-				Gizmo.Draw.WorldText( $"{wheel.Transform.Rotation.Yaw()}", debugTransform, size: 10 );
+				Gizmo.Draw.WorldText( $"{wheel.WorldRotation.Yaw()}", debugTransform, size: 10 );
 				*/
 
 				Vector3 wheelSize = wheelRotation.Left * wheel.Width;

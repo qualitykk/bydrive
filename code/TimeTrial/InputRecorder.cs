@@ -24,7 +24,7 @@ public class InputRecorder
 		timeSinceRecordingStart = 0;
 		Started = true;
 
-		sceneTickHook = Game.ActiveScene.AddHook( GameObjectSystem.Stage.FinishUpdate, 0, Tick, "InputRecorder", "Records input for time race replays." );
+		sceneTickHook = Game.ActiveScene.AddHook( GameObjectSystem.Stage.FinishUpdate, 0, Tick, "InputRecorder", "Records input for race replays." );
 	}
 
 	public void Stop()

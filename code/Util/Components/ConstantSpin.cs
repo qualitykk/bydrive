@@ -15,6 +15,6 @@ public class ConstantSpin : Component
 	protected override void OnUpdate()
 	{
 		float rotateDegrees = Speed * DEGREES_PER_SECOND * Time.Delta;
-		Transform.Rotation = Transform.Rotation.RotateAroundAxis( Vector3.Up, rotateDegrees );
+		WorldRotation = WorldRotation.RotateAroundAxis( Vector3.Up, rotateDegrees );
 	}
 }

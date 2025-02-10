@@ -23,15 +23,15 @@ public sealed class HoverObject : Component
 		var tr = TraceHover();
 		if(tr.Hit)
 		{
-			Transform.Position = Transform.Position.WithZ( tr.EndPosition.z + Distance );
+			WorldPosition = WorldPosition.WithZ( tr.EndPosition.z + Distance );
 		}
 	}
 
 	private SceneTraceResult TraceHover()
 	{
 		const float DISTANCE_ADD = 32f;
-		Vector3 startPos = Transform.Position;
-		Vector3 direction = Transform.Rotation.Down;
+		Vector3 startPos = WorldPosition;
+		Vector3 direction = WorldRotation.Down;
 		return Scene.Trace.Ray( new Ray( startPos, direction ), MathF.Max(TraceDistance, Distance + DISTANCE_ADD) )
 							.WithoutTags( IgnoreTags )
 							.Run();

@@ -1,0 +1,112 @@
+{
+  "AssetBrowser.History": {
+    "Value": "[\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\u0022,\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\\\\scenes\u0022,\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\u0022,\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\\\\scenes\u0022,\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\u0022,\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\\\\maps\u0022,\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\u0022,\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\\\\models\u0022,\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\u0022,\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\\\\data\u0022,\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\\\\data\\\\items\u0022,\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\\\\data\u0022,\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\\\\data\\\\tracks\u0022]",
+    "Timeout": 1741811716,
+    "DeleteAt": 0
+  },
+  "AssetBrowser.HistoryIdx": {
+    "Value": "12",
+    "Timeout": 1741811716,
+    "DeleteAt": 0
+  },
+  "SceneView.Viewport0.Settings": {
+    "Value": "{\u0022CameraPosition\u0022:\u0022151.7644,185.5878,110.0284\u0022,\u0022CameraRotation\u0022:\u00220.001287586,0.1481112,-0.008597163,0.9889325\u0022,\u0022View\u0022:0,\u0022RenderMode\u0022:0,\u0022WireframeMode\u0022:false,\u0022EnablePostProcessing\u0022:true,\u0022EnablePrefabLighting\u0022:true,\u0022ShowGrid\u0022:true,\u0022GridOpacity\u0022:0.2,\u0022GridAxis\u0022:0,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1741812902,
+    "DeleteAt": 0
+  },
+  "Window.SboxSceneEditor.Dock": {
+    "Value": "{\u0022floatingWindows\u0022:[],\u0022mainWrapper\u0022:{\u0022geometry\u0022:\u0022AdnQywADAAAAAAAAAAAAAAAACfcAAATeAAAAAAAAAAAAAAn3AAAE3gAAAAAAAAAACgAAAAAAAAAAAAAACfcAAATe\u0022,\u0022splitter\u0022:{\u0022items\u0022:[{\u0022items\u0022:[{\u0022items\u0022:[{\u0022currentIndex\u0022:0,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022\u0022,\u0022name\u0022:\u0022GameFrame\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneDock\u0022,\u0022name\u0022:\u0022SceneDock:prefabs/vehicles/boxy1.prefab\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneDock\u0022,\u0022name\u0022:\u0022SceneDock:prefabs/race_player.prefab\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneDock\u0022,\u0022name\u0022:\u0022SceneDock:scenes/startmenu.scene\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneDock\u0022,\u0022name\u0022:\u0022SceneDock:scenes/track_backstreet.scene\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneDock\u0022,\u0022name\u0022:\u0022SceneDock:scenes/track_forest.scene\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneDock\u0022,\u0022name\u0022:\u0022SceneDock:scenes/startmenu.scene\u0022}],\u0022type\u0022:\u0022area\u0022},{\u0022currentIndex\u0022:0,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022ConsoleWidget\u0022,\u0022name\u0022:\u0022Console\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022MainAssetBrowser\u0022,\u0022name\u0022:\u0022Asset Browser\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022MixerDock\u0022,\u0022name\u0022:\u0022Mixer\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022LibraryManagerDock\u0022,\u0022name\u0022:\u0022Library Manager\u0022}],\u0022type\u0022:\u0022area\u0022}],\u0022state\u0022:\u0022AAAA/wAAAAEAAAACAAADigAAAcEA/////wEAAAACAA==\u0022,\u0022type\u0022:\u0022splitter\u0022},{\u0022items\u0022:[{\u0022currentIndex\u0022:0,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneTreeWidget\u0022,\u0022name\u0022:\u0022Hierarchy\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022PanelInspectorWidget\u0022,\u0022name\u0022:\u0022UI Panels\u0022}],\u0022type\u0022:\u0022area\u0022},{\u0022currentIndex\u0022:0,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022Inspector\u0022,\u0022name\u0022:\u0022Inspector\u0022}],\u0022type\u0022:\u0022area\u0022}],\u0022state\u0022:\u0022AAAA/wAAAAEAAAACAAABfwAAAfQA/////wEAAAACAA==\u0022,\u0022type\u0022:\u0022splitter\u0022}],\u0022state\u0022:\u0022AAAA/wAAAAEAAAACAAAFbwAAAgUA/////wEAAAABAA==\u0022,\u0022type\u0022:\u0022splitter\u0022}],\u0022state\u0022:\u0022AAAA/wAAAAEAAAABAAAHTQD/////AQAAAAEA\u0022,\u0022type\u0022:\u0022splitter\u0022}},\u0022toolWindowManagerStateFormat\u0022:1}",
+    "Timeout": 1741811071,
+    "DeleteAt": 0
+  },
+  "gizmo.settings": {
+    "Value": "{\u0022EditMode\u0022:\u0022position\u0022,\u0022Selection\u0022:true,\u0022ViewMode\u0022:\u00223d\u0022,\u0022GizmosEnabled\u0022:true,\u0022GizmoScale\u0022:1,\u0022GridSpacing\u0022:32,\u0022SnapToGrid\u0022:false,\u0022SnapToAngles\u0022:true,\u0022AngleSpacing\u0022:15,\u0022GlobalSpace\u0022:false,\u0022DebugActionGraphs\u0022:false}",
+    "Timeout": 1741808716,
+    "DeleteAt": 0
+  },
+  "SceneView.Layout": {
+    "Value": "{\u0022Layout\u0022:0,\u0022SplitterState\u0022:[]}",
+    "Timeout": 1741811970,
+    "DeleteAt": 0
+  },
+  "scene.lastopened": {
+    "Value": "[\u0022prefabs/vehicles/boxy1.prefab\u0022,\u0022scenes/startmenu.scene\u0022,\u0022prefabs/race_player.prefab\u0022,\u0022scenes/track_backstreet.scene\u0022,\u0022scenes/startmenu.scene\u0022,\u0022scenes/track_forest.scene\u0022]",
+    "Timeout": 1741811036,
+    "DeleteAt": 0
+  },
+  "scenes/startmenu.scene.Viewport0": {
+    "Value": "{\u0022CameraPosition\u0022:\u0022151.7644,185.5878,110.0284\u0022,\u0022CameraRotation\u0022:\u00220.001287586,0.1481112,-0.008597163,0.9889325\u0022,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1741812902,
+    "DeleteAt": 0
+  },
+  ".Viewport0": {
+    "Value": "{\u0022CameraPosition\u0022:\u0022286.818,253.4005,62.03771\u0022,\u0022CameraRotation\u0022:\u00220.0662692,-0.01577758,-0.9614445,0.2664284\u0022,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1741542099,
+    "DeleteAt": 0
+  },
+  "AssetBrowser.Map.History": {
+    "Value": "[\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\u0022,\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\u0022,\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\u0022,\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\\\\maps\u0022,\u0022b:\\\\steamlibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\assets\\\\maps\u0022,\u0022b:\\\\steamlibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\assets\\\\maps\u0022,\u0022b:\\\\steamlibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\assets\\\\maps\u0022]",
+    "Timeout": 1741542219,
+    "DeleteAt": 0
+  },
+  "AssetBrowser.Map.HistoryIdx": {
+    "Value": "6",
+    "Timeout": 1741542219,
+    "DeleteAt": 0
+  },
+  "scenes/track_backstreet.scene.Viewport0": {
+    "Value": "{\u0022CameraPosition\u0022:\u00221831.467,5973.258,532.7984\u0022,\u0022CameraRotation\u0022:\u0022-0.1773574,0.003554568,0.9839425,0.01972002\u0022,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1741812902,
+    "DeleteAt": 0
+  },
+  "scenes/track_forest.scene.Viewport0": {
+    "Value": "{\u0022CameraPosition\u0022:\u0022-268.8513,160.1519,233.4232\u0022,\u0022CameraRotation\u0022:\u00220.007194068,0.2115062,-0.0332239,0.9767853\u0022,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1741812902,
+    "DeleteAt": 0
+  },
+  "prefabs/vehicles/boxy1.prefab.Viewport0": {
+    "Value": "{\u0022CameraPosition\u0022:\u0022-103.807,-99.80703,166.444\u0022,\u0022CameraRotation\u0022:\u0022-0.1464466,0.3535534,0.3535534,0.8535534\u0022,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1741812902,
+    "DeleteAt": 0
+  },
+  "AssetBrowser.Sound Event.History": {
+    "Value": "[\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\u0022,\u0022b:\\\\steamlibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\assets\\\\sounds\\\\vehicle\u0022,\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\u0022]",
+    "Timeout": 1741808975,
+    "DeleteAt": 0
+  },
+  "AssetBrowser.Sound Event.HistoryIdx": {
+    "Value": "2",
+    "Timeout": 1741808975,
+    "DeleteAt": 0
+  },
+  "prefabs/race_player.prefab.Viewport0": {
+    "Value": "{\u0022CameraPosition\u0022:\u0022-231.5494,-0.000000000000001556133,131.1331\u0022,\u0022CameraRotation\u0022:\u00220,0.1305263,0,0.9914448\u0022,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1741812902,
+    "DeleteAt": 0
+  },
+  "AssetBrowser.Vehicle Definition.History": {
+    "Value": "[\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\u0022,\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\u0022,\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\\\\prefabs\u0022]",
+    "Timeout": 1741725187,
+    "DeleteAt": 0
+  },
+  "AssetBrowser.Vehicle Definition.HistoryIdx": {
+    "Value": "2",
+    "Timeout": 1741725187,
+    "DeleteAt": 0
+  },
+  "AssetBrowser.Prefab.History": {
+    "Value": "[\u0022B:\\\\SteamLibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\Assets\u0022,\u0022b:\\\\steamlibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\assets\\\\prefabs\\\\vehicles\u0022,\u0022b:\\\\steamlibrary\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\racer\\\\assets\\\\prefabs\\\\pickups\u0022]",
+    "Timeout": 1741809362,
+    "DeleteAt": 0
+  },
+  "AssetBrowser.Prefab.HistoryIdx": {
+    "Value": "2",
+    "Timeout": 1741809362,
+    "DeleteAt": 0
+  },
+  "prefabs/pickups/pickup_item1.prefab.Viewport0": {
+    "Value": "{\u0022CameraPosition\u0022:\u0022-25.1996,-28.69961,51.13763\u0022,\u0022CameraRotation\u0022:\u0022-0.1464466,0.3535534,0.3535534,0.8535534\u0022,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1741809388,
+    "DeleteAt": 0
+  }
+}

@@ -9,7 +9,7 @@ namespace Bydrive;
 
 public partial class RaceManager
 {
-	private Dictionary<RaceCheckpoint, int> checkpointOrder = new();
+	private Dictionary<TrackCheckpoint, int> checkpointOrder = new();
 	private int maxCheckpointOrder = 0;
 	public void OrderCheckpoints()
 	{
@@ -22,16 +22,16 @@ public partial class RaceManager
 		checkpointOrder.Clear();
 		checkpointOrder.Add( GetStartCheckpoint(), 0 );
 
-		List<RaceCheckpoint> nextCheckpoints = GetStartCheckpoint().NextCheckpoints;
+		List<TrackCheckpoint> nextCheckpoints = GetStartCheckpoint().NextCheckpoints;
 		Assert.NotNull(nextCheckpoints, $"Cant have race without checkpoints!");
 		int currentOrder = 1;
 		bool foundStart = false;
 		while ( nextCheckpoints.Any() )
 		{
-			List<RaceCheckpoint> pointsToContinue = nextCheckpoints.ToList();
+			List<TrackCheckpoint> pointsToContinue = nextCheckpoints.ToList();
 			for ( int i = 0; i < nextCheckpoints.Count; i++ )
 			{
-				RaceCheckpoint checkpoint = nextCheckpoints[i];
+				TrackCheckpoint checkpoint = nextCheckpoints[i];
 
 				if ( checkpoint == GetStartCheckpoint() )
 				{

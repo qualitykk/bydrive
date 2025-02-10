@@ -1,0 +1,33 @@
+{
+  "publish": {
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "rd_rc_backstreet",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "rd_rc_backstreet",
+      "Schema": 0,
+      "IncludeSourceFiles": false,
+      "Resources": null,
+      "PackageReferences": [],
+      "EditorReferences": [
+        "facepunch.concrete_simple#18632",
+        "facepunch.floor_grass_dirt_cliff_blend_a#18754",
+        "facepunch.floor_pavement_tile_a#18670",
+        "facepunch.floor_slick_asphalt#18678",
+        "facepunch.pavement_tactile_a_blend_dirty#18744",
+        "facepunch.pavement_tactile_trim_a#18745",
+        "facepunch.pavement_trim_a#18743",
+        "facepunch.tree_oak_medium_a#33692",
+        "facepunch.tree_oak_small_a#33693",
+        "facepunch.wall_brick_old_bottom_dirt#18727",
+        "facepunch.wall_brick_older#18725"
+      ],
+      "IsWhitelistDisabled": false,
+      "Metadata": {
+        "SingleAssetSource": "maps/rd_rc_backstreet.vmap",
+        "ParentPackage": "based.bydrive"
+      }
+    }
+  }
+}

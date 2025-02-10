@@ -14,18 +14,24 @@ public class CameraManager : Component
 	{
 		Instance?.SetCameraMode(mode, priority);
 	}
+	public static void MakeActive<T>( int priority = 0 ) where T : ICameraMode => MakeActive( GetMode<T>(), priority );
 	public static void MakeInactive(ICameraMode mode)
 	{
 		Instance?.StopCameraMode( mode );
 	}
+	public static void MakeInactive<T>() where T : ICameraMode => MakeInactive( GetMode<T>() );
 	public static bool IsActive(ICameraMode mode)
 	{
 		return Instance?.CurrentCameraMode == mode;
 	}
-
 	public static bool IsActive<T>() where T : ICameraMode
 	{
 		return Instance?.CurrentCameraMode?.GetType() == typeof(T);
+	}
+	public static T GetMode<T>() where T : ICameraMode
+	{
+		var mode = Game.ActiveScene.GetComponentInChildren<T>( true );
+		return mode;
 	}
 	[Property] public CameraComponent Camera { get; set; }
 	public ICameraMode CurrentCameraMode { get; private set; }
