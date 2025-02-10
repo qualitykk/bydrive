@@ -1,0 +1,228 @@
+{
+  "__guid": "53943002-813a-4871-b3b7-611b25e0c6de",
+  "GameObjects": [
+    {
+      "__guid": "8b2e62a7-d737-402e-afc8-ae28c4b2951e",
+      "Flags": 0,
+      "Name": "Globals",
+      "Position": "32.04337,99.07948,26.33138",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Virtuality.DontDestroyOnLoad",
+          "__guid": "412c6e7e-6f91-458d-aa5f-a2e1a8cd4403",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        },
+        {
+          "__type": "Bydrive.MusicManager",
+          "__guid": "a23dd87b-c7b9-4560-a160-8ba0ac1d8713",
+          "Mixer": {
+            "Name": "music",
+            "Id": "06b549e6-4c0e-45fc-92a8-bdbb60b849c7"
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        },
+        {
+          "__type": "Bydrive.SoundManager",
+          "__guid": "29b8aae3-3781-45e3-a53d-5e801aecee30",
+          "Mixers": {
+            "Vehicle": {
+              "Name": "vehicle",
+              "Id": "2e6feb4b-abbd-44c2-8849-f3c8fbcb8072"
+            },
+            "Effect": {
+              "Name": "effect",
+              "Id": "c926128f-960f-43db-9a53-53bdf9d55962"
+            },
+            "Music": {
+              "Name": "music",
+              "Id": "dcb8c3d4-6297-4360-9768-7cc87a657980"
+            }
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "4992cc11-f03c-488f-8b9a-c79b69848c12",
+          "Flags": 0,
+          "Name": "CameraManager",
+          "Position": "259.9059,-3784.214,1028.88",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Bydrive.CameraManager",
+              "__guid": "5f227409-6dc2-4d14-a3f6-a7e108990d35",
+              "Camera": {
+                "_type": "component",
+                "component_id": "b95f42f4-8e95-4bd4-a59a-6c17b3b4a596",
+                "go": "1a07dd56-1de5-4f92-be42-3449f47ebcfc",
+                "component_type": "CameraComponent"
+              },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
+            }
+          ]
+        },
+        {
+          "__guid": "1a07dd56-1de5-4f92-be42-3449f47ebcfc",
+          "Flags": 0,
+          "Name": "Player Camera",
+          "Position": "-222.0434,-99.07948,93.66862",
+          "Rotation": "0,0.1305263,0,0.9914448",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.CameraComponent",
+              "__guid": "b95f42f4-8e95-4bd4-a59a-6c17b3b4a596",
+              "BackgroundColor": "0.33333,0.46196,0.52157,0",
+              "ClearFlags": "All",
+              "FieldOfView": 90,
+              "IsMainCamera": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Orthographic": false,
+              "OrthographicHeight": 1204,
+              "Priority": 1,
+              "RenderExcludeTags": "",
+              "RenderTags": "",
+              "TargetEye": "None",
+              "Viewport": "0,0,1,1",
+              "ZFar": 12000,
+              "ZNear": 10
+            },
+            {
+              "__type": "Sandbox.Highlight",
+              "__guid": "d7c0a72e-c8b8-4661-8793-b5c70b7c19ab",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
+            }
+          ]
+        },
+        {
+          "__guid": "3aa348ce-1dbd-4eed-8b86-2f4c7c591f13",
+          "Flags": 0,
+          "Name": "UI",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ScreenPanel",
+              "__guid": "7becbf22-68c5-4144-8186-82f6fb7cf067",
+              "AutoScreenScale": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Opacity": 1,
+              "Scale": 1,
+              "ScaleStrategy": "ConsistentHeight",
+              "ZIndex": 100
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "e2bc02bf-c632-4c42-8af6-9dfa3ac15cb6",
+              "Flags": 0,
+              "Name": "Race HUD",
+              "Position": "-64.08674,-198.159,598.9838",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Bydrive.RaceHUD",
+                  "__guid": "5a5e7831-1224-4473-b94c-8303aef4719d",
+                  "CountdownTime": 3,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "StartTextFade": 2
+                }
+              ]
+            },
+            {
+              "__guid": "9b420506-ed16-4521-8f95-863abbb3eadd",
+              "Flags": 0,
+              "Name": "Start Menu",
+              "Position": "-32.04337,-99.07948,-26.33138",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Bydrive.StartMenu",
+                  "__guid": "e922e7e9-f335-45da-86fd-b399f5efa0af",
+                  "BackgroundMusic": "sounds/music/menu_loop1.sound",
+                  "BackgroundMusicVolume": 0.5,
+                  "BackgroundScene": "scenes/startmenu.scene",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
+    "PhysicsSubSteps": 1,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "Metadata": {},
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "ResourceVersion": 2,
+  "Title": null,
+  "Description": null,
+  "__references": [],
+  "__version": 2
+}

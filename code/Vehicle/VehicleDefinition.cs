@@ -22,7 +22,7 @@ public class VehicleDefinition : GameResource, IPrefabProvider
 	public string FullTitle { get; set; }
 	[TextArea] public string Description { get; set; }
 	public bool Hidden { get; set; }
-	public VehicleStats Stats { get;set; }
+	[InlineEditor, Category("Stats")] public VehicleStats Stats { get;set; }
 	public PrefabFile Prefab { get; set; }
 	public List<AttachmentSlotPosition> AttachmentSlots { get; set; }
 	[Category("Preview")] public Model PreviewModel { get; set; }

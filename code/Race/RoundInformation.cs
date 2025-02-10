@@ -61,6 +61,7 @@ public class RoundInformation
 		Assert.NotNull( CurrentDefinition.Scene );
 		Assert.NotNull( Participants );
 
+		StartMenu.Hide();
 		Current = this;
 		ResetGlobals();
 		Game.ActiveScene.LoadFromFile( CurrentDefinition.Scene.ResourcePath );

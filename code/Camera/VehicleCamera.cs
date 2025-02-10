@@ -69,6 +69,7 @@ public class VehicleCamera : Component, ICameraMode
 							.IgnoreGameObjectHierarchy(Vehicle.GameObject)
 							.WithTag( TraceTags.WORLD )
 							.Run();
+		//Log.Info( tr );
 
 		return camera.WorldPosition.LerpTo( tr.EndPosition, delta );
 	}

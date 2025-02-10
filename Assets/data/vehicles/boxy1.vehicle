@@ -3,13 +3,6 @@
   "FullTitle": "Kraftmotor Jet RX",
   "Description": "A no-gimmicks car purpose-built for extreme racing.",
   "Hidden": false,
-  "PreviewModel": "models/vehicles/vehicle_boxy.vmdl",
-  "PreviewTint": "1,0,0,1",
-  "PreviewPosition": "-192,0,64",
-  "DisplaySpeed": 0.89,
-  "DisplayAcceleration": 0.71,
-  "DisplayHandling": 0.64,
-  "DisplayBoost": 0.2,
   "Stats": {
     "MaxSpeed": 1650,
     "Acceleration": 1100,
@@ -67,7 +60,7 @@
       },
       {
         "x": 1,
-        "y": 0.6,
+        "y": 1,
         "in": 0,
         "out": 0,
         "mode": "Mirrored"
@@ -86,18 +79,25 @@
       },
       {
         "x": 0.667,
-        "y": 0.33300003,
+        "y": 0.545766,
         "in": 0,
         "out": 0,
         "mode": "Mirrored"
       }
     ],
-    "AngularDamping": 12,
+    "AngularDamping": 11,
     "CameraPositionOffset": "-400,0,150",
     "BonusItems": []
   },
   "Prefab": "prefabs/vehicles/boxy1.prefab",
   "AttachmentSlots": [],
+  "PreviewModel": "models/vehicles/vehicle_boxy.vmdl",
+  "PreviewTint": "1,0,0,1",
+  "PreviewPosition": "-192,0,64",
+  "DisplaySpeed": 0.89,
+  "DisplayAcceleration": 0.71,
+  "DisplayHandling": 0.64,
+  "DisplayBoost": 0.2,
   "__references": [],
   "__version": 0
 }

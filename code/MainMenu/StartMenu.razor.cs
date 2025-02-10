@@ -35,6 +35,12 @@ public partial class StartMenu : PanelComponent
 			return;
 		Current.Enabled = true;
 	}
+	public static void Hide()
+	{
+		if(Current == null ) return;
+
+		Current.Enabled = false;
+	}
 	public static void Close()
 	{
 		if ( Current == null )
@@ -88,9 +94,15 @@ public partial class StartMenu : PanelComponent
 			}
 		}
 	}
+	protected override void OnStart()
+	{
+		base.OnStart();
+		Open();
+	}
 	protected override void OnEnabled()
 	{
 		base.OnEnabled();
+
 		Current = this;
 		PlayMusic();
 		CameraManager.MakeActive<StaticCamera>();

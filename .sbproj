@@ -34,7 +34,7 @@
       "IgnoreFolders": [],
       "DistinctAssemblyReferences": []
     },
-    "StartupScene": "scenes/startmenu.scene",
+    "StartupScene": "scenes/game.scene",
     "ControlModes": {
       "Keyboard": true,
       "Gamepad": true

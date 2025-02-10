@@ -11,7 +11,7 @@
 	{
 		@if(Race.HasParticipantFinished(GetLocalParticipant()))
 		{
-			<RacePlacement />
+			<RaceResults />
 		}
 		else
 		{
@@ -21,6 +21,7 @@
 			<RaceTimer />
 			<Speedometer />
 			<VehicleHealth />
+			<RacePlacement />
 		}
 	}
 		
@@ -32,6 +33,6 @@
 
 	protected override int BuildHash()
 	{
-		return HashCode.Combine(Race, Race?.HasLoaded, Race?.HasSetup, Race?.HasCountdownStarted, Race?.FinishedParticipants);
+		return HashCode.Combine(Race, Race?.HasLoaded, Race?.HasSetup, Race?.HasCountdownStarted, Race?.FinishedParticipants.Count);
 	}
 }
